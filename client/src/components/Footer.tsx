@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Facebook, Instagram, Mail } from "lucide-react";
+import logo from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761493054119.png';
 
 export default function Footer() {
   return (
@@ -8,9 +9,13 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
-            <h3 className="font-serif text-2xl font-bold mb-4 text-foreground">
-              ChristmasNW
-            </h3>
+            <div className="h-16 mb-4">
+              <img 
+                src={logo} 
+                alt="ChristmasNW" 
+                className="h-full w-auto"
+              />
+            </div>
             <p className="text-muted-foreground mb-4">
               Premium Christmas light installation services across the Pacific Northwest
             </p>

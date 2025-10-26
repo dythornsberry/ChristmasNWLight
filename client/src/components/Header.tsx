@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
+import logo from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761493054119.png';
 
 interface HeaderProps {
   onGetQuote: () => void;
@@ -37,10 +38,12 @@ export default function Header({ onGetQuote }: HeaderProps) {
       >
         <div className="max-w-7xl mx-auto px-6">
           <div className="flex items-center justify-between h-20">
-            <div className="font-serif text-2xl font-bold">
-              <span className={isScrolled ? 'text-foreground' : 'text-white'}>
-                ChristmasNW
-              </span>
+            <div className="h-12">
+              <img 
+                src={logo} 
+                alt="ChristmasNW" 
+                className="h-full w-auto"
+              />
             </div>
 
             <nav className="hidden md:flex items-center gap-8">
