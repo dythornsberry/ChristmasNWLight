@@ -6,6 +6,8 @@ import BeforeAfter from "@/components/BeforeAfter";
 import Testimonials from "@/components/Testimonials";
 import QuoteForm from "@/components/QuoteForm";
 import About from "@/components/About";
+import FAQ from "@/components/FAQ";
+import ColorOptions from "@/components/ColorOptions";
 import Footer from "@/components/Footer";
 import { Home as HomeIcon, Building2, Sparkles, Wrench } from "lucide-react";
 
@@ -54,8 +56,8 @@ export default function Home() {
       image: customImage
     },
     {
-      title: "Maintenance",
-      description: "Keep your lights shining bright all season with our expert maintenance and repair services.",
+      title: "Full Service",
+      description: "We handle design, installation, maintenance, takedown, and storage. It's completely hassle-free!",
       icon: Wrench,
       image: maintenanceImage
     }
@@ -120,6 +122,64 @@ export default function Home() {
     }
   ];
 
+  const colorOptions = [
+    {
+      name: "Warm White",
+      image: img1,
+      description: "Classic, elegant glow perfect for traditional displays"
+    },
+    {
+      name: "Pure White",
+      image: img2,
+      description: "Crisp, modern brightness for contemporary homes"
+    },
+    {
+      name: "Red + White",
+      image: img3,
+      description: "Festive candy cane colors for holiday cheer"
+    },
+    {
+      name: "Multicolor",
+      image: img7,
+      description: "Vibrant rainbow lights for a playful display"
+    }
+  ];
+
+  const faqItems = [
+    {
+      question: "What's your starting price for Christmas light installation?",
+      answer: "Our installations typically start at around $800 for smaller homes. That includes custom-cut commercial-grade lights, professional installation, maintenance throughout the season, takedown in January, and storage. Final pricing depends on roof size, design complexity, and the type of lighting used."
+    },
+    {
+      question: "Do you hang lights that I already own?",
+      answer: "We do not install customer-provided lights. To ensure safety, consistent quality, and warranty coverage, we only install our own professional-grade lighting and materials that meet our standards."
+    },
+    {
+      question: "Do you install permanent lighting?",
+      answer: "We do not install permanent or year-round lighting systems. Our focus is on seasonal holiday lighting, where we provide full-service installation, maintenance, takedown, and storage each year."
+    },
+    {
+      question: "When should I schedule my Christmas light installation?",
+      answer: "We recommend scheduling as early as possible — ideally in September or October. Our calendar fills up fast as the holidays approach, and early bookings guarantee your installation."
+    },
+    {
+      question: "What's included in your service?",
+      answer: "We handle everything — from custom design and installation to maintenance, takedown, and storage. We provide all lights, clips, cords, timers, and other materials needed for a flawless setup."
+    },
+    {
+      question: "How long does installation take?",
+      answer: "Most residential installations are completed in a few hours or less, depending on the home and design. Larger homes and commercial jobs may take a full day."
+    },
+    {
+      question: "Are you licensed and insured?",
+      answer: "Yes — Christmas Northwest is fully licensed, bonded, and insured. Your home and property are protected at every stage of the process."
+    },
+    {
+      question: "What areas do you serve?",
+      answer: "We proudly serve the greater Seattle area, including Kenmore, Kirkland, Bothell, Woodinville, and surrounding communities."
+    }
+  ];
+
   const scrollToQuote = () => {
     const element = document.getElementById('quote');
     if (element) {
@@ -163,9 +223,13 @@ export default function Home() {
 
       <Testimonials testimonials={testimonials} />
 
+      <ColorOptions colors={colorOptions} />
+
       <div id="about">
         <About teamImage={teamImage} />
       </div>
+
+      <FAQ items={faqItems} />
 
       <QuoteForm onSubmit={handleQuoteSubmit} />
 

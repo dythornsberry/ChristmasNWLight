@@ -18,10 +18,10 @@ export default function Hero({ onGetQuote }: HeroProps) {
       
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
         <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          Transform Your Home Into a<br />Holiday Masterpiece
+          Your Holiday Lighting Experts<br />In The Greater Seattle Area
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
-          Professional Christmas light installation services that bring joy and wonder to your property all season long
+          We handle everything: custom design, installation, maintenance, takedown, and storage. Hassle-free holiday lighting!
         </p>
         
         <div className="flex flex-wrap gap-4 justify-center mb-12">
@@ -39,24 +39,25 @@ export default function Hero({ onGetQuote }: HeroProps) {
             variant="outline" 
             className="text-lg px-8 backdrop-blur-md bg-white/10 border-white/30 text-white hover:bg-white/20"
             data-testid="button-hero-call"
+            onClick={() => window.location.href = 'tel:4252150935'}
           >
             <Phone className="mr-2 h-5 w-5" />
-            (503) 555-XMAS
+            (425) 215-0935
           </Button>
         </div>
         
         <div className="flex flex-wrap gap-8 justify-center text-sm md:text-base">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-primary rounded-full" />
-            <span>Licensed & Insured</span>
+            <span>Licensed, Bonded & Insured</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-primary rounded-full" />
-            <span>15+ Years Experience</span>
+            <span>Commercial Grade Lights</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-primary rounded-full" />
-            <span>500+ Happy Customers</span>
+            <span>Full Service - Install to Storage</span>
           </div>
         </div>
       </div>

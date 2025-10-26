@@ -35,17 +35,17 @@ export default function About({ teamImage }: AboutProps) {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              About ChristmasNW
+              About Christmas Northwest
             </h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                For over 15 years, ChristmasNW has been the Pacific Northwest's premier Christmas light installation company. We specialize in creating stunning holiday displays that transform homes and businesses into magical winter wonderlands.
+                Christmas Northwest is your trusted partner for professional holiday lighting in the greater Seattle area. We pride ourselves on our ability to make your custom display stand out above the rest, while being the most affordable and easy to work with!
               </p>
               <p>
-                Our team of experienced professionals is dedicated to delivering exceptional quality, safety, and customer service. From design consultation to installation and maintenance, we handle every detail so you can enjoy a stress-free holiday season.
+                Don't waste any more time stressing about how to put up those lights or risking injury by climbing ladders. Our Christmas light installation process includes custom design, professional setup, maintenance throughout the season, takedown, and storage.
               </p>
               <p>
-                We use only commercial-grade LED lights and professional-grade installation techniques to ensure your display looks beautiful and operates safely throughout the season.
+                We use only commercial-grade LED lights and professional-grade installation techniques to ensure your display looks beautiful and operates safely throughout the season. Licensed, bonded, and insured for your peace of mind.
               </p>
             </div>
           </div>

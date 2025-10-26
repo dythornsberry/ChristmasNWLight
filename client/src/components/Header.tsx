@@ -72,13 +72,13 @@ export default function Header({ onGetQuote }: HeaderProps) {
                 About
               </button>
               <a 
-                href="tel:5035559627"
+                href="tel:4252150935"
                 className={`font-medium transition-colors flex items-center gap-2 ${
                   isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-primary'
                 }`}
               >
                 <Phone className="w-4 h-4" />
-                (503) 555-XMAS
+                (425) 215-0935
               </a>
             </nav>
 
@@ -131,11 +131,11 @@ export default function Header({ onGetQuote }: HeaderProps) {
               About
             </button>
             <a 
-              href="tel:5035559627"
+              href="tel:4252150935"
               className="text-2xl font-medium text-foreground hover:text-primary transition-colors flex items-center gap-2"
             >
               <Phone className="w-6 h-6" />
-              (503) 555-XMAS
+              (425) 215-0935
             </a>
             <Button 
               size="lg"

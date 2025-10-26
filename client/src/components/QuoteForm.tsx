@@ -199,16 +199,15 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
               <div className="space-y-2 text-sm">
                 <p className="text-muted-foreground">
                   <strong className="text-foreground">Phone:</strong><br />
-                  (503) 555-XMAS
+                  <a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a>
                 </p>
                 <p className="text-muted-foreground">
                   <strong className="text-foreground">Email:</strong><br />
-                  info@christmasnw.com
+                  <a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors">christmaslightsnw@gmail.com</a>
                 </p>
                 <p className="text-muted-foreground">
                   <strong className="text-foreground">Hours:</strong><br />
-                  Mon-Fri: 8am - 6pm<br />
-                  Sat: 9am - 4pm
+                  Mon-Fri: 9AM - 5PM
                 </p>
               </div>
             </Card>

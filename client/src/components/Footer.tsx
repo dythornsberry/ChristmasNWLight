@@ -65,14 +65,12 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Service Areas</h4>
+            <h4 className="font-semibold mb-4 text-foreground">Contact</h4>
             <ul className="space-y-2 text-muted-foreground text-sm">
-              <li>Portland, OR</li>
-              <li>Seattle, WA</li>
-              <li>Vancouver, WA</li>
-              <li>Beaverton, OR</li>
-              <li>Hillsboro, OR</li>
-              <li>Gresham, OR</li>
+              <li><a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a></li>
+              <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors">christmaslightsnw@gmail.com</a></li>
+              <li>Kenmore, WA</li>
+              <li className="pt-2 text-foreground">Hours: M-F 9AM–5PM</li>
             </ul>
           </div>
         </div>
@@ -80,12 +78,11 @@ export default function Footer() {
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © 2024 ChristmasNW.com. All rights reserved.
+              © 2025 Christmas Light Installers Northwest. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
-              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-primary transition-colors">License #12345</a>
+              <span>Licensed, Bonded & Insured</span>
+              <span>Greater Seattle Area</span>
             </div>
           </div>
         </div>
