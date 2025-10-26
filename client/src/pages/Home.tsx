@@ -1,15 +1,17 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Services from "@/components/Services";
+import Stats from "@/components/Stats";
 import Portfolio from "@/components/Portfolio";
 import BeforeAfter from "@/components/BeforeAfter";
 import Testimonials from "@/components/Testimonials";
+import CTABanner from "@/components/CTABanner";
 import QuoteForm from "@/components/QuoteForm";
 import About from "@/components/About";
 import FAQ from "@/components/FAQ";
 import ColorOptions from "@/components/ColorOptions";
 import Footer from "@/components/Footer";
-import { Home as HomeIcon, Building2, Sparkles, Wrench } from "lucide-react";
+import { Home as HomeIcon, Building2, Sparkles, Wrench, TrendingUp, Users, Award, Clock } from "lucide-react";
 
 import heroImage from '@assets/generated_images/Hero_home_Christmas_lights_dusk_a9a01c87.png';
 import residentialImage from '@assets/generated_images/Residential_premium_installation_example_a02eac2c.png';
@@ -122,6 +124,33 @@ export default function Home() {
     }
   ];
 
+  const stats = [
+    {
+      icon: Users,
+      number: "100+",
+      label: "Happy Clients",
+      description: "Homes transformed across Greater Seattle"
+    },
+    {
+      icon: Award,
+      number: "100%",
+      label: "Satisfaction",
+      description: "Licensed, bonded & insured professionals"
+    },
+    {
+      icon: TrendingUp,
+      number: "$800+",
+      label: "Starting Price",
+      description: "Full service from design to storage"
+    },
+    {
+      icon: Clock,
+      number: "5+ Years",
+      label: "Experience",
+      description: "Trusted name in holiday lighting"
+    }
+  ];
+
   const colorOptions = [
     {
       name: "Warm White",
@@ -215,11 +244,15 @@ export default function Home() {
         <Services services={services} onLearnMore={handleServiceLearnMore} />
       </div>
 
+      <Stats stats={stats} />
+
       <div id="portfolio">
         <Portfolio items={portfolioItems} />
       </div>
 
       <BeforeAfter beforeImage={beforeImage} afterImage={afterImage} />
+
+      <CTABanner onGetQuote={scrollToQuote} />
 
       <Testimonials testimonials={testimonials} />
 
