@@ -81,50 +81,56 @@ export default function Home() {
 
   const testimonials = [
     {
-      name: "Sarah Mitchell",
-      location: "Portland, OR",
+      name: "Kyle",
+      location: "Greater Seattle Area",
       rating: 5,
-      text: "ChristmasNW transformed our home into a winter wonderland! The installation was flawless and the lights look absolutely stunning.",
-      detail: "250ft roofline installation with tree wrapping"
+      text: "This is the second year we used Christmas NW for our Christmas lights. Dylan and the crew went above and beyond to provide an exceptional stress free experience. They are reasonably priced, very knowledgeable, and have showcased a very high attention to even the smallest details.",
+      detail: "Repeat customer - 2nd year installation"
     },
     {
-      name: "David Chen",
-      location: "Seattle, WA",
+      name: "Sandy Cocanour",
+      location: "Greater Seattle Area",
       rating: 5,
-      text: "Professional, punctual, and the results exceeded our expectations. Our business has never looked better during the holidays!",
-      detail: "Commercial storefront installation"
+      text: "Outstanding professional service from the person answering the phone to the gentlemen installing the lights. Exceptional customer service from a local company!",
+      detail: "Complete service experience"
     },
     {
-      name: "Jennifer Armstrong",
-      location: "Beaverton, OR",
+      name: "Margaret Huddleston",
+      location: "Greater Seattle Area",
       rating: 5,
-      text: "We've used ChristmasNW for three years now. They're reliable, creative, and make the holiday season magical for our family.",
-      detail: "3-story home with custom design elements"
+      text: "What a fantastic business! I give my highest endorsement! From front office to the crew, all are professional, knowledgeable, friendly and do an amazing job creating a beautiful holiday display. They have above and beyond customer service.",
+      detail: "Premium residential installation"
     },
     {
-      name: "Michael Roberts",
-      location: "Vancouver, WA",
+      name: "Nancy Greenup",
+      location: "Greater Seattle Area",
       rating: 5,
-      text: "The team was incredibly professional and safety-conscious. They made our vision come to life perfectly!",
-      detail: "Large residential property installation"
+      text: "Dylan and his crew are the best! This is our 2nd install for the holidays and they have done an outstanding job both times. Lights look amazing, everyone has been most kind and responsive. I definitely recommend their service- you will be thrilled from start to finish!",
+      detail: "Loyal customer - outstanding results"
     },
     {
-      name: "Lisa Thompson",
-      location: "Hillsboro, OR",
+      name: "Andrew Rampulla",
+      location: "Greater Seattle Area",
       rating: 5,
-      text: "From quote to installation, the entire process was smooth. The maintenance service throughout the season was excellent too.",
-      detail: "Residential premium package with maintenance"
+      text: "Can't say enough good things about these guys. I've always done my own Christmas lights, but this year I decided to finally get some help and I'm very glad I did.",
+      detail: "First-time professional installation"
     },
     {
-      name: "Robert Garcia",
-      location: "Gresham, OR",
+      name: "Shawn Bailey",
+      location: "Greater Seattle Area",
       rating: 5,
-      text: "Outstanding work! Our neighbors are all asking who did our lights. Worth every penny for the quality and service.",
-      detail: "Custom artistic light design"
+      text: "These guys are the absolute best in the game, these lights not only made my wife love me again but they also gave us the best looking house on the block!",
+      detail: "Show-stopping display"
     }
   ];
 
   const stats = [
+    {
+      icon: Award,
+      number: "5.0",
+      label: "Google Rating",
+      description: "85+ five-star reviews from satisfied clients"
+    },
     {
       icon: Users,
       number: "100+",
@@ -132,22 +138,16 @@ export default function Home() {
       description: "Homes transformed across Greater Seattle"
     },
     {
-      icon: Award,
-      number: "100%",
-      label: "Satisfaction",
-      description: "Licensed, bonded & insured professionals"
-    },
-    {
       icon: TrendingUp,
       number: "$800+",
       label: "Starting Price",
-      description: "Full service from design to storage"
+      description: "Complete white-glove service included"
     },
     {
       icon: Clock,
       number: "5+ Years",
       label: "Experience",
-      description: "Trusted name in holiday lighting"
+      description: "Trusted designer lighting expertise"
     }
   ];
 
