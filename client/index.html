@@ -72,18 +72,25 @@
           "name": "Seattle"
         }
       ],
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday"
-        ],
-        "opens": "09:00",
-        "closes": "17:00"
-      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "00:00",
+          "closes": "23:59",
+          "validFrom": "2024-09-01",
+          "validThrough": "2025-01-31",
+          "description": "24/7 availability during holiday season"
+        }
+      ],
       "image": "https://christmasnw.com/favicon.png",
       "aggregateRating": {
         "@type": "AggregateRating",

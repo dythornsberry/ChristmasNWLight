@@ -18,10 +18,10 @@ export default function Hero({ onGetQuote }: HeroProps) {
       
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
         <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
-          Your Holiday Lighting Experts<br />In The Greater Seattle Area
+          Greater Seattle's Premier<br />Holiday Lighting Designers
         </h1>
         <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-3xl mx-auto leading-relaxed">
-          We handle everything: custom design, installation, maintenance, takedown, and storage. Hassle-free holiday lighting!
+          Transform your home with designer holiday lighting, crafted with artistry and executed with white-glove service. Complete design-to-storage solutions.
         </p>
         
         <div className="flex flex-wrap gap-4 justify-center mb-12">
@@ -49,15 +49,15 @@ export default function Hero({ onGetQuote }: HeroProps) {
         <div className="flex flex-wrap gap-8 justify-center text-sm md:text-base">
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-primary rounded-full" />
-            <span>Licensed, Bonded & Insured</span>
+            <span>Designer Quality & Detail</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-primary rounded-full" />
-            <span>Commercial Grade Lights</span>
+            <span>24/7 Seasonal Availability</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-2 h-2 bg-primary rounded-full" />
-            <span>Full Service - Install to Storage</span>
+            <span>Complete White-Glove Service</span>
           </div>
         </div>
       </div>

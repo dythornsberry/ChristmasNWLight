@@ -40,26 +40,26 @@ export default function Home() {
 
   const services = [
     {
-      title: "Residential Premium",
-      description: "Transform your home with elegant, professionally installed Christmas lights tailored to your architecture.",
-      icon: HomeIcon,
-      image: residentialImage
-    },
-    {
-      title: "Commercial",
-      description: "Make your business shine with eye-catching holiday displays that attract customers all season.",
-      icon: Building2,
-      image: commercialImage
-    },
-    {
-      title: "Custom Design",
-      description: "Unique, artistic light installations that make your property the talk of the neighborhood.",
+      title: "Designer Consultation",
+      description: "Custom design tailored to your home's architecture with premium materials and attention to every detail.",
       icon: Sparkles,
       image: customImage
     },
     {
-      title: "Full Service",
-      description: "We handle design, installation, maintenance, takedown, and storage. It's completely hassle-free!",
+      title: "Professional Installation",
+      description: "Expert installation with color-matched clips, hidden cords, smart timers, and dusk testing for perfection.",
+      icon: HomeIcon,
+      image: residentialImage
+    },
+    {
+      title: "Complete Packages",
+      description: "Rooflines, trees, wreaths, garlands, and path lighting for a cohesive, designer look throughout your property.",
+      icon: Building2,
+      image: commercialImage
+    },
+    {
+      title: "White-Glove Service",
+      description: "24/7 seasonal availability, maintenance guarantee, professional takedown, and climate-controlled storage.",
       icon: Wrench,
       image: maintenanceImage
     }

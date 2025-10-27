@@ -35,17 +35,17 @@ export default function About({ teamImage }: AboutProps) {
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
           <div>
             <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-foreground">
-              About Christmas Northwest
+              Designer Holiday Lighting Excellence
             </h2>
             <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
               <p>
-                Christmas Northwest is your trusted partner for professional holiday lighting in the greater Seattle area. We pride ourselves on our ability to make your custom display stand out above the rest, while being the most affordable and easy to work with!
+                Christmas Northwest delivers more than just lights—we provide a premier, all-inclusive experience that creates lasting holiday memories for discerning homeowners across the Greater Seattle area.
               </p>
               <p>
-                Don't waste any more time stressing about how to put up those lights or risking injury by climbing ladders. Our Christmas light installation process includes custom design, professional setup, maintenance throughout the season, takedown, and storage.
+                Every installation is a unique masterpiece, meticulously crafted to complement your home's distinct architecture. We custom-measure every run, use color-matched clips and pro-grade LEDs, hide cords, and test at dusk for a flawless finish.
               </p>
               <p>
-                We use only commercial-grade LED lights and professional-grade installation techniques to ensure your display looks beautiful and operates safely throughout the season. Licensed, bonded, and insured for your peace of mind.
+                Our white-glove service includes designer consultation, professional installation, smart timer programming, 24/7 seasonal availability, maintenance, takedown, and climate-controlled storage. Licensed, bonded, and insured with a commitment to excellence.
               </p>
             </div>
           </div>

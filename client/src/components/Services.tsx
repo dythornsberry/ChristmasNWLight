@@ -20,10 +20,10 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Our Services
+            Our Signature Process
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            From residential homes to commercial properties, we bring professional holiday lighting to every project
+            A premier, all-inclusive experience that transforms your home into a holiday masterpiece
           </p>
         </div>
         

@@ -206,8 +206,8 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
                   <a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors">christmaslightsnw@gmail.com</a>
                 </p>
                 <p className="text-muted-foreground">
-                  <strong className="text-foreground">Hours:</strong><br />
-                  Mon-Fri: 9AM - 5PM
+                  <strong className="text-foreground">Availability:</strong><br />
+                  24/7 During Season
                 </p>
               </div>
             </Card>

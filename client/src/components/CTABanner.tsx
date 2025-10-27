@@ -17,11 +17,11 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
         <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-white">
-          Ready to Light Up Your Holidays?
+          Begin Your Design Experience
         </h2>
         <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-          Book your free consultation today and let us transform your home into a holiday masterpiece. 
-          Our calendar fills up fast, so reserve your spot now!
+          Schedule your complimentary designer consultation and discover how we transform homes into holiday showcases. 
+          Limited availability—reserve your custom design today.
         </p>
         
         <div className="flex flex-wrap gap-4 justify-center">
