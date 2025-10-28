@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, ArrowRight } from "lucide-react";
+import { Phone, ArrowRight, Clock } from "lucide-react";
 
 interface HeroProps {
   onGetQuote: () => void;
@@ -17,6 +17,21 @@ export default function Hero({ onGetQuote }: HeroProps) {
       <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/70" />
       
       <div className="relative z-10 max-w-5xl mx-auto px-6 text-center text-white">
+        {/* Limited Time Offer Banner */}
+        <div className="inline-flex items-center gap-3 bg-primary/90 backdrop-blur-sm px-8 py-4 rounded-lg mb-8 border-2 border-primary-border shadow-2xl" data-testid="banner-hero-offer">
+          <div className="flex flex-col md:flex-row items-center gap-2 md:gap-4">
+            <span className="text-2xl md:text-3xl font-bold">10% OFF</span>
+            <div className="h-8 w-px bg-primary-foreground/30 hidden md:block" />
+            <div className="text-center md:text-left">
+              <div className="text-lg md:text-xl font-semibold">October Installations</div>
+              <div className="flex items-center justify-center md:justify-start gap-2 text-sm md:text-base text-primary-foreground/90">
+                <Clock className="w-4 h-4" />
+                <span>Offer Ends October 31st - Book Now!</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <h1 className="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight">
           Greater Seattle's Premier<br />Holiday Lighting Designers
         </h1>
