@@ -2,11 +2,24 @@
 
 ## Overview
 
-Christmas Northwest is a professional Christmas light installation service website targeting the Greater Seattle area (Kenmore, Kirkland, Bothell, Woodinville). The application is a marketing-focused single-page website showcasing services, portfolio work, customer testimonials, and lead generation through a quote request form. Built as a full-stack TypeScript application with React frontend and Express backend, it emphasizes premium design aesthetics inspired by high-end service providers like Airbnb.
+Christmas Northwest is a professional Christmas light installation service website targeting the Greater Seattle area (Kenmore, Kirkland, Bothell, Woodinville). The application is a conversion-focused single-page website modeled after Premier Home Pros' lead-generation approach, featuring an embedded quote form in the hero section, sticky bottom CTAs, and streamlined service presentation. Built as a full-stack TypeScript application with React frontend and Express backend, it emphasizes premium Christmas branding with a clean, conversion-optimized layout designed to maximize quote requests.
+
+## Recent Changes (October 29, 2025)
+
+**Major Redesign: Premier Home Pros-Style Conversion Focus**
+- Completely redesigned hero section with side-by-side layout (content left, embedded quote form right)
+- Added sticky bottom CTA bar with SCHEDULE / CALL NOW / GET QUOTE buttons for persistent conversion opportunities
+- Simplified page structure by removing Portfolio gallery, Color Options section, Before/After comparison, and standalone Quote Form section
+- Redesigned Services section as "Why Choose" feature cards (4 cards, no images, conversion-focused)
+- Redesigned About section with clean two-column layout and Premier Home Pros-style copy
+- All CTAs now scroll to hero form (id="quote") except CALL NOW button which dials directly
+- Maintained premium Christmas branding and 10% off October installations offer
+- Mobile-responsive design with stacking layouts and optimized sticky CTAs
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Design approach: Conversion-focused layout modeled after Premier Home Pros (layout, CTA placement, form design, trust elements, simplicity) while maintaining Christmas theme colors and premium positioning.
 
 ## System Architecture
 
@@ -33,9 +46,16 @@ Preferred communication style: Simple, everyday language.
 
 **Component Structure**
 - Page-level components in `client/src/pages/`
-- Reusable feature components in `client/src/components/` (Hero, Services, Portfolio, Testimonials, etc.)
+- Reusable feature components in `client/src/components/`:
+  - **Hero.tsx**: Side-by-side layout with embedded quote form (id="quote" for scroll targeting)
+  - **StickyBottomCTA.tsx**: Fixed bottom CTA bar with 3 action buttons
+  - **Services.tsx**: "Why Choose" feature cards (4 cards, 2x2 grid, icon-based)
+  - **About.tsx**: Two-column layout with team image and Premier Home Pros-style copy
+  - **Stats.tsx**: 4 stat cards (Google rating, clients, pricing, experience)
+  - **Testimonials.tsx**: Real Google reviews with rating badges
+  - **FAQ.tsx**: Accordion-based frequently asked questions
+  - **Footer.tsx**: Company info, contact details, service areas
 - UI primitives in `client/src/components/ui/` following Shadcn conventions
-- Example components demonstrate proper usage patterns
 
 ### Backend Architecture
 
@@ -149,3 +169,71 @@ Preferred communication style: Simple, everyday language.
 - Currently configured for PostgreSQL via Neon serverless driver
 - Schema is defined in TypeScript and can be migrated to any Drizzle-supported database
 - In-memory fallback storage exists for development without database
+
+## Page Structure & User Flows
+
+### Current Page Layout (Post-Redesign)
+1. **Hero Section** - Side-by-side with content and embedded quote form
+   - Left: Headline, 10% off badge, trust badges (5-star rating, warranty, licensed/insured)
+   - Right: Quote form with 6 fields (firstName, lastName, email, phone, zipCode, serviceType)
+   - Form wrapper has `id="quote"` for scroll-to-quote functionality
+2. **Services Section** - "Why Choose Christmas Northwest" with 4 feature cards
+3. **Stats Section** - 4 stat cards showing key metrics
+4. **Testimonials Section** - Real Google reviews in card grid
+5. **About Section** - Two-column layout with team image and company story
+6. **FAQ Section** - Accordion with common questions and answers
+7. **Footer** - Contact info, service areas, company details
+8. **Sticky Bottom CTA** - Fixed overlay with 3 action buttons
+
+### Removed Sections (For Conversion Optimization)
+- Portfolio image gallery (removed to reduce distraction)
+- Color Options showcase (removed for simplification)
+- Before/After comparison section (removed to focus on form)
+- Standalone Quote Form section (now embedded in hero)
+- CTA Banner section (replaced with sticky bottom bar)
+
+### Primary Conversion Flow
+1. User lands on homepage with hero form immediately visible
+2. User either:
+   - Fills out hero form directly (right side of hero), OR
+   - Clicks any CTA button (header "Get Free Quote", sticky SCHEDULE/GET A QUOTE) to scroll to hero form, OR
+   - Clicks sticky CALL NOW button to dial directly (425-215-0935)
+3. User submits form → toast notification confirms receipt
+4. Backend logs submission (ready for API integration)
+
+### CTA Button Behavior
+- **Header "Get Free Quote"**: Scrolls to hero form (#quote)
+- **Sticky SCHEDULE**: Scrolls to hero form (#quote)
+- **Sticky CALL NOW**: Direct phone dial (tel:425-215-0935)
+- **Sticky GET A QUOTE**: Scrolls to hero form (#quote)
+
+### Form Validation & Handling
+- All fields required (email, phone, zip validated by format)
+- Service type dropdown defaults to "Residential Installation"
+- On submit: Logs data to console, displays success toast
+- Form uses React Hook Form with Zod validation
+- Ready for backend API integration
+
+## Design Philosophy
+
+### Conversion-Focused Approach (Premier Home Pros Model)
+- Lead form embedded directly in hero (no scrolling required)
+- Sticky CTAs provide persistent conversion opportunities
+- Simplified sections with clear value propositions
+- Trust elements placed early (Google rating, licensing badges)
+- Limited distractions - removed portfolio showcase
+- Clean two-column layouts with generous white space
+- Mobile-responsive with stacking layouts
+
+### Premium Christmas Branding
+- Christmas-themed color palette (red, green, gold, winter white)
+- Premium typography (Playfair Display headlines, Inter body, Montserrat CTAs)
+- Elevated design with shadows and card styling
+- Professional imagery (team photos, installation examples)
+- White-glove service messaging throughout
+
+### Target Audience
+- Homeowners in Greater Seattle area (Kenmore, Kirkland, Bothell, Woodinville)
+- Discerning customers seeking premium installation service
+- Focus on quality, safety, and professional results
+- Price point: $800+ starting for complete service
