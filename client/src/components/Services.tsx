@@ -1,66 +1,73 @@
 import { Card } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Home, Building2, Sparkles, Wrench } from "lucide-react";
+import { Shield, Clock, Award, Star } from "lucide-react";
 
 interface Service {
   title: string;
   description: string;
   icon: any;
-  image: string;
+  image?: string;
 }
 
 interface ServicesProps {
   services: Service[];
-  onLearnMore: (serviceTitle: string) => void;
+  onLearnMore?: (serviceTitle: string) => void;
 }
 
 export default function Services({ services, onLearnMore }: ServicesProps) {
+  const features = [
+    {
+      icon: Shield,
+      title: "Long-Tenured Christmas Light Installers",
+      description: "We have more than 5 years of experience providing personalized holiday lighting services using only premium materials."
+    },
+    {
+      icon: Clock,
+      title: "Fast Installation",
+      description: "Most installations are completed in as little as one day, which means you'll be enjoying your lights in no time!"
+    },
+    {
+      icon: Award,
+      title: "Licensed & Insured",
+      description: "Christmas Northwest is fully licensed, bonded, and insured, so you can rest assured the work will be done correctly."
+    },
+    {
+      icon: Star,
+      title: "Full White-Glove Service",
+      description: "Our American-made lights are crafted from durable materials and backed by our commitment to excellence. Complete design-to-storage service included."
+    }
+  ];
+
   return (
     <section className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Our Signature Process
+            Why Choose Christmas Northwest?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            A premier, all-inclusive experience that transforms your home into a holiday masterpiece
+          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            At Christmas Northwest, we know how frustrating it can be to struggle with tangled lights and ladder safety every year. We will help you find a solution by designing and installing gorgeous new holiday lighting that you will truly love.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+          {features.map((feature, index) => (
             <Card 
               key={index}
-              className="group overflow-hidden hover-elevate cursor-pointer transition-all"
-              onClick={() => onLearnMore(service.title)}
-              data-testid={`card-service-${index}`}
+              className="p-8"
+              data-testid={`card-feature-${index}`}
             >
-              <div className="relative h-64 overflow-hidden">
-                <img 
-                  src={service.image} 
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-                <div className="absolute top-4 left-4 w-12 h-12 bg-primary/90 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                  <service.icon className="w-6 h-6 text-primary-foreground" />
+              <div className="flex gap-6">
+                <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center">
+                  <feature.icon className="w-8 h-8 text-primary" />
                 </div>
-              </div>
-              
-              <div className="p-6">
-                <h3 className="font-serif text-2xl font-semibold mb-3 text-foreground">
-                  {service.title}
-                </h3>
-                <p className="text-muted-foreground mb-4 leading-relaxed">
-                  {service.description}
-                </p>
-                <Button 
-                  variant="ghost" 
-                  className="p-0 h-auto font-semibold text-primary"
-                  data-testid={`button-learn-more-${index}`}
-                >
-                  Learn More →
-                </Button>
+                <div>
+                  <h3 className="font-semibold text-xl mb-3 text-foreground">
+                    {feature.title}
+                  </h3>
+                  <p className="text-muted-foreground leading-relaxed">
+                    {feature.description}
+                  </p>
+                </div>
               </div>
             </Card>
           ))}
