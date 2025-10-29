@@ -21,54 +21,59 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             <Link href="/about">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                data-testid="nav-about"
-                asChild
-              >
-                <a>About</a>
-              </Button>
+              <a>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  data-testid="nav-about"
+                >
+                  About
+                </Button>
+              </a>
             </Link>
             <Link href="/services">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                data-testid="nav-services"
-                asChild
-              >
-                <a>Services</a>
-              </Button>
+              <a>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  data-testid="nav-services"
+                >
+                  Services
+                </Button>
+              </a>
             </Link>
             <Link href="/testimonials">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                data-testid="nav-testimonials"
-                asChild
-              >
-                <a>Testimonials</a>
-              </Button>
+              <a>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  data-testid="nav-testimonials"
+                >
+                  Testimonials
+                </Button>
+              </a>
             </Link>
             <Link href="/service-areas">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                data-testid="nav-areas"
-                asChild
-              >
-                <a>Service Areas</a>
-              </Button>
+              <a>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  data-testid="nav-areas"
+                >
+                  Service Areas
+                </Button>
+              </a>
             </Link>
             <Link href="/contact">
-              <Button 
-                variant="ghost" 
-                size="sm"
-                data-testid="nav-contact"
-                asChild
-              >
-                <a>Contact</a>
-              </Button>
+              <a>
+                <Button 
+                  variant="ghost" 
+                  size="sm"
+                  data-testid="nav-contact"
+                >
+                  Contact
+                </Button>
+              </a>
             </Link>
           </nav>
 

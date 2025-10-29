@@ -69,7 +69,7 @@ export default function ContactPage() {
       <div className="bg-primary/95 backdrop-blur-sm border-b border-primary-border">
         <div className="max-w-7xl mx-auto px-6 py-3">
           <p className="text-center text-primary-foreground font-semibold text-sm md:text-base">
-            🎄 10% OFF October Installations - Book Before October 31st for Priority Scheduling! 🎄
+            10% OFF October Installations - Book Before October 31st for Priority Scheduling!
           </p>
         </div>
       </div>
@@ -230,7 +230,7 @@ export default function ContactPage() {
 
               {/* Contact Info Sidebar */}
               <div className="space-y-6">
-                <Card className="p-6">
+                <Card className="p-6" data-testid="card-contact-phone">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                       <Phone className="w-5 h-5 text-primary" />
@@ -251,7 +251,7 @@ export default function ContactPage() {
                   </p>
                 </Card>
 
-                <Card className="p-6">
+                <Card className="p-6" data-testid="card-contact-email">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                       <Mail className="w-5 h-5 text-primary" />
@@ -272,7 +272,7 @@ export default function ContactPage() {
                   </p>
                 </Card>
 
-                <Card className="p-6">
+                <Card className="p-6" data-testid="card-contact-hours">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                       <Clock className="w-5 h-5 text-primary" />
@@ -289,7 +289,7 @@ export default function ContactPage() {
                   </div>
                 </Card>
 
-                <Card className="p-6">
+                <Card className="p-6" data-testid="card-contact-location">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
                       <MapPin className="w-5 h-5 text-primary" />

@@ -102,7 +102,7 @@ export default function TestimonialsPage() {
       <div className="bg-primary/95 backdrop-blur-sm border-b border-primary-border">
         <div className="max-w-7xl mx-auto px-6 py-3">
           <p className="text-center text-primary-foreground font-semibold text-sm md:text-base">
-            🎄 10% OFF October Installations - Book Before October 31st for Priority Scheduling! 🎄
+            10% OFF October Installations - Book Before October 31st for Priority Scheduling!
           </p>
         </div>
       </div>
@@ -180,20 +180,20 @@ export default function TestimonialsPage() {
         <section className="py-20 bg-muted/30">
           <div className="max-w-5xl mx-auto px-6">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">5.0</div>
+              <div className="text-center" data-testid="stat-rating">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid="text-stat-rating">5.0</div>
                 <div className="text-sm text-muted-foreground">Google Rating</div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">85+</div>
+              <div className="text-center" data-testid="stat-reviews">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid="text-stat-reviews">85+</div>
                 <div className="text-sm text-muted-foreground">Five-Star Reviews</div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">300+</div>
+              <div className="text-center" data-testid="stat-clients">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid="text-stat-clients">300+</div>
                 <div className="text-sm text-muted-foreground">Happy Clients</div>
               </div>
-              <div className="text-center">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2">100%</div>
+              <div className="text-center" data-testid="stat-satisfaction">
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid="text-stat-satisfaction">100%</div>
                 <div className="text-sm text-muted-foreground">Satisfaction</div>
               </div>
             </div>

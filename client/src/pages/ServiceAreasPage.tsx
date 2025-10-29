@@ -49,7 +49,7 @@ export default function ServiceAreasPage() {
       <div className="bg-primary/95 backdrop-blur-sm border-b border-primary-border">
         <div className="max-w-7xl mx-auto px-6 py-3">
           <p className="text-center text-primary-foreground font-semibold text-sm md:text-base">
-            🎄 10% OFF October Installations - Book Before October 31st for Priority Scheduling! 🎄
+            10% OFF October Installations - Book Before October 31st for Priority Scheduling!
           </p>
         </div>
       </div>

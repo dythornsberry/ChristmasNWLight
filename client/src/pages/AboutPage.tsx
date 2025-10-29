@@ -58,11 +58,10 @@ export default function AboutPage() {
       <div className="bg-primary/95 backdrop-blur-sm border-b border-primary-border">
         <div className="max-w-7xl mx-auto px-6 py-3">
           <p className="text-center text-primary-foreground font-semibold text-sm md:text-base">
-            🎄 10% OFF October Installations - Book Before October 31st for Priority Scheduling! 🎄
+            10% OFF October Installations - Book Before October 31st for Priority Scheduling!
           </p>
         </div>
       </div>
-
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-16 md:py-24 bg-gradient-to-b from-muted/30 to-background">
@@ -82,8 +81,8 @@ export default function AboutPage() {
             {/* Milestones Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
               {milestones.map((milestone, index) => (
-                <Card key={index} className="p-6 text-center">
-                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2">
+                <Card key={index} className="p-6 text-center" data-testid={`card-milestone-${index}`}>
+                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid={`text-milestone-number-${index}`}>
                     {milestone.number}
                   </div>
                   <div className="font-semibold text-foreground mb-1">
@@ -107,6 +106,7 @@ export default function AboutPage() {
                   src={teamImage} 
                   alt="Christmas Northwest professional team"
                   className="w-full rounded-lg shadow-xl"
+                  data-testid="img-about-team"
                 />
               </div>
               <div>
