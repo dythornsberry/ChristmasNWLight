@@ -12,7 +12,7 @@ interface ColorOptionsProps {
 
 export default function ColorOptions({ colors }: ColorOptionsProps) {
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="colors" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">

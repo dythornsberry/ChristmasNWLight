@@ -24,7 +24,7 @@ export default function Portfolio({ items }: PortfolioProps) {
     : items.filter(item => item.category === selectedCategory);
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section id="portfolio" className="py-20 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">

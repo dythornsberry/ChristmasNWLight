@@ -5,7 +5,7 @@ import logo from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761493054119.png';
 
 export default function Footer() {
   return (
-    <footer className="bg-card border-t border-card-border">
+    <footer id="contact" className="bg-card border-t border-card-border">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>

@@ -38,7 +38,7 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
   ];
 
   return (
-    <section className="py-20 bg-background">
+    <section id="services" className="py-20 bg-background">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">
