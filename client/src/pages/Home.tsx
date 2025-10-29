@@ -118,9 +118,9 @@ export default function Home() {
     },
     {
       icon: Users,
-      number: "100+",
-      label: "Happy Clients",
-      description: "Homes transformed across Greater Seattle"
+      number: "300+",
+      label: "Homes Served",
+      description: "Serving hundreds of homes every season"
     },
     {
       icon: TrendingUp,
@@ -130,9 +130,9 @@ export default function Home() {
     },
     {
       icon: Clock,
-      number: "5+ Years",
+      number: "4 Years",
       label: "Experience",
-      description: "Trusted designer lighting expertise"
+      description: "Now in our fourth season of excellence"
     }
   ];
 

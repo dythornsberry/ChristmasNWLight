@@ -18,12 +18,12 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
     {
       icon: Shield,
       title: "Long-Tenured Christmas Light Installers",
-      description: "We have more than 5 years of experience providing personalized holiday lighting services using only premium materials."
+      description: "Now in our fourth season, we've earned the trust of hundreds of homes annually with personalized service and premium materials."
     },
     {
       icon: Clock,
       title: "Fast Installation",
-      description: "Most installations are completed in as little as one day, which means you'll be enjoying your lights in no time!"
+      description: "Most installations are completed within a week of booking, so you'll be enjoying your lights in no time!"
     },
     {
       icon: Award,

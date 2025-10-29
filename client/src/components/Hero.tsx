@@ -99,15 +99,15 @@ export default function Hero({ onGetQuote }: HeroProps) {
             <div className="space-y-3 text-white/90">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary rounded-full" />
+                <span>Serving Hundreds of Homes Every Season</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-primary rounded-full" />
                 <span>Licensed, Bonded & Insured</span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-primary rounded-full" />
                 <span>Commercial-Grade LED Lights</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full" />
-                <span>Complete Design-to-Storage Service</span>
               </div>
             </div>
           </div>
