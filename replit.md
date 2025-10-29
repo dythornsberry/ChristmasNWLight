@@ -6,15 +6,19 @@ Christmas Northwest is a professional Christmas light installation service websi
 
 ## Recent Changes (October 29, 2025)
 
-**Major Redesign: Premier Home Pros-Style Conversion Focus**
-- Completely redesigned hero section with side-by-side layout (content left, embedded quote form right)
-- Added sticky bottom CTA bar with SCHEDULE / CALL NOW / GET QUOTE buttons for persistent conversion opportunities
-- Simplified page structure by removing Portfolio gallery, Color Options section, Before/After comparison, and standalone Quote Form section
-- Redesigned Services section as "Why Choose" feature cards (4 cards, no images, conversion-focused)
+**Complete Premier Home Pros-Inspired Redesign with Navigation**
+- Added sticky header with navigation links (Services, Portfolio, Color Options, About, Contact), phone number, and "Get a Quote" CTA
+- Redesigned hero with full-width background image, headline "Fast, Affordable, and Beautiful Holiday Lighting", subheadline "Installed in as little as one day!", and embedded quote form
+- Added Portfolio gallery section with category filters (Residential, Commercial, Custom, Details) showcasing 11 installation images
+- Added Color Options section displaying 4 lighting color schemes (Warm White, Pure White, Red + White, Multicolor)
+- Added Before/After comparison section showing home transformation
+- Redesigned Services section as "Why Choose Christmas Northwest" with 4 feature cards (no images, conversion-focused)
 - Redesigned About section with clean two-column layout and Premier Home Pros-style copy
-- All CTAs now scroll to hero form (id="quote") except CALL NOW button which dials directly
-- Maintained premium Christmas branding and 10% off October installations offer
-- Mobile-responsive design with stacking layouts and optimized sticky CTAs
+- Added CTA Banner section with promotional offer and quote/call buttons
+- Maintained sticky bottom CTA bar with SCHEDULE / CALL NOW / GET QUOTE buttons
+- All navigation and CTAs use smooth scrolling to section IDs (#services, #portfolio, #colors, #about, #contact, #quote)
+- Complete conversion-first layout with generous white space while maintaining premium Christmas branding
+- Mobile-responsive design with stacking layouts across all sections
 
 ## User Preferences
 
@@ -47,14 +51,19 @@ Design approach: Conversion-focused layout modeled after Premier Home Pros (layo
 **Component Structure**
 - Page-level components in `client/src/pages/`
 - Reusable feature components in `client/src/components/`:
-  - **Hero.tsx**: Side-by-side layout with embedded quote form (id="quote" for scroll targeting)
-  - **StickyBottomCTA.tsx**: Fixed bottom CTA bar with 3 action buttons
-  - **Services.tsx**: "Why Choose" feature cards (4 cards, 2x2 grid, icon-based)
-  - **About.tsx**: Two-column layout with team image and Premier Home Pros-style copy
+  - **StickyHeader.tsx**: Fixed navigation header with links, phone, and CTA
+  - **Hero.tsx**: Full-width background with embedded quote form (id="quote")
+  - **Services.tsx**: "Why Choose" feature cards (4 cards, 2x2 grid, icon-based, id="services")
+  - **Portfolio.tsx**: Installation gallery with category filters (id="portfolio")
+  - **ColorOptions.tsx**: 4 lighting color scheme cards (id="colors")
+  - **BeforeAfter.tsx**: Side-by-side transformation comparison
   - **Stats.tsx**: 4 stat cards (Google rating, clients, pricing, experience)
   - **Testimonials.tsx**: Real Google reviews with rating badges
+  - **About.tsx**: Two-column layout with team image and Premier Home Pros-style copy (id="about")
+  - **CTABanner.tsx**: Promotional offer banner with quote/call CTAs
   - **FAQ.tsx**: Accordion-based frequently asked questions
-  - **Footer.tsx**: Company info, contact details, service areas
+  - **Footer.tsx**: Company info, contact details, service areas (id="contact")
+  - **StickyBottomCTA.tsx**: Fixed bottom CTA bar with 3 action buttons
 - UI primitives in `client/src/components/ui/` following Shadcn conventions
 
 ### Backend Architecture
@@ -172,25 +181,25 @@ Design approach: Conversion-focused layout modeled after Premier Home Pros (layo
 
 ## Page Structure & User Flows
 
-### Current Page Layout (Post-Redesign)
-1. **Hero Section** - Side-by-side with content and embedded quote form
-   - Left: Headline, 10% off badge, trust badges (5-star rating, warranty, licensed/insured)
-   - Right: Quote form with 6 fields (firstName, lastName, email, phone, zipCode, serviceType)
+### Current Page Layout (Complete Redesign)
+1. **Sticky Header** - Navigation bar (Services, Portfolio, Colors, About, Contact), phone, "Get a Quote" CTA
+2. **Hero Section** - Full-width background image with embedded quote form
+   - Headline: "Fast, Affordable, and Beautiful Holiday Lighting"
+   - Subheadline: "Installed in as little as one day!"
+   - 10% off badge, trust badges (5-star rating, warranty, licensed/insured)
+   - Quote form with 6 fields (firstName, lastName, email, phone, zipCode, serviceType)
    - Form wrapper has `id="quote"` for scroll-to-quote functionality
-2. **Services Section** - "Why Choose Christmas Northwest" with 4 feature cards
-3. **Stats Section** - 4 stat cards showing key metrics
-4. **Testimonials Section** - Real Google reviews in card grid
-5. **About Section** - Two-column layout with team image and company story
-6. **FAQ Section** - Accordion with common questions and answers
-7. **Footer** - Contact info, service areas, company details
-8. **Sticky Bottom CTA** - Fixed overlay with 3 action buttons
-
-### Removed Sections (For Conversion Optimization)
-- Portfolio image gallery (removed to reduce distraction)
-- Color Options showcase (removed for simplification)
-- Before/After comparison section (removed to focus on form)
-- Standalone Quote Form section (now embedded in hero)
-- CTA Banner section (replaced with sticky bottom bar)
+3. **Services Section** (id="services") - "Why Choose Christmas Northwest" with 4 icon-based feature cards
+4. **Portfolio Section** (id="portfolio") - Gallery with category filters showing 11 installation images
+5. **Color Options Section** (id="colors") - 4 lighting color scheme cards with images
+6. **Before/After Section** - Side-by-side transformation comparison
+7. **Stats Section** - 4 stat cards showing key metrics
+8. **Testimonials Section** - Real Google reviews in card grid
+9. **About Section** (id="about") - Two-column layout with team image and company story
+10. **CTA Banner Section** - Promotional offer with quote/call CTAs
+11. **FAQ Section** - Accordion with common questions and answers
+12. **Footer** (id="contact") - Contact info, service areas, company details
+13. **Sticky Bottom CTA** - Fixed overlay with 3 action buttons (SCHEDULE, CALL NOW, GET A QUOTE)
 
 ### Primary Conversion Flow
 1. User lands on homepage with hero form immediately visible
@@ -201,11 +210,24 @@ Design approach: Conversion-focused layout modeled after Premier Home Pros (layo
 3. User submits form → toast notification confirms receipt
 4. Backend logs submission (ready for API integration)
 
-### CTA Button Behavior
-- **Header "Get Free Quote"**: Scrolls to hero form (#quote)
-- **Sticky SCHEDULE**: Scrolls to hero form (#quote)
-- **Sticky CALL NOW**: Direct phone dial (tel:425-215-0935)
-- **Sticky GET A QUOTE**: Scrolls to hero form (#quote)
+### Navigation & CTA Button Behavior
+**Sticky Header Navigation:**
+- **Services**: Scrolls to Services section (#services)
+- **Portfolio**: Scrolls to Portfolio section (#portfolio)
+- **Color Options**: Scrolls to Color Options section (#colors)
+- **About**: Scrolls to About section (#about)
+- **Contact**: Scrolls to Footer/Contact section (#contact)
+- **Get a Quote**: Scrolls to hero form (#quote)
+- **Phone Number**: Direct dial (tel:425-215-0935)
+
+**Sticky Bottom CTA Bar:**
+- **SCHEDULE**: Scrolls to hero form (#quote)
+- **CALL NOW**: Direct phone dial (tel:425-215-0935)
+- **GET A QUOTE**: Scrolls to hero form (#quote)
+
+**CTA Banner:**
+- **Get Free Quote**: Scrolls to hero form (#quote)
+- **Phone Button**: Direct dial (tel:425-215-0935)
 
 ### Form Validation & Handling
 - All fields required (email, phone, zip validated by format)
@@ -217,13 +239,14 @@ Design approach: Conversion-focused layout modeled after Premier Home Pros (layo
 ## Design Philosophy
 
 ### Conversion-Focused Approach (Premier Home Pros Model)
+- Sticky navigation header provides easy access to all sections while keeping quote CTA prominent
 - Lead form embedded directly in hero (no scrolling required)
-- Sticky CTAs provide persistent conversion opportunities
-- Simplified sections with clear value propositions
-- Trust elements placed early (Google rating, licensing badges)
-- Limited distractions - removed portfolio showcase
-- Clean two-column layouts with generous white space
-- Mobile-responsive with stacking layouts
+- Multiple persistent CTAs (sticky header, sticky bottom bar, CTA banner) for maximum conversion opportunities
+- Portfolio gallery, color options, and before/after sections showcase value and build trust without overwhelming
+- Clear value propositions in "Why Choose" services section
+- Trust elements placed early (Google rating, licensing badges in hero)
+- Clean layouts with generous white space throughout all sections
+- Mobile-responsive with stacking layouts across all components
 
 ### Premium Christmas Branding
 - Christmas-themed color palette (red, green, gold, winter white)
