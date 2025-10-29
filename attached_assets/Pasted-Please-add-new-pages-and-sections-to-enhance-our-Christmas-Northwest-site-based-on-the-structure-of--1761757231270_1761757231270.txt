@@ -1,0 +1,15 @@
+Please add new pages and sections to enhance our Christmas Northwest site based on the structure of Premier Home Pros. Here are the key additions and updates:
+
+1. About Us page: Create a dedicated page accessible from the navigation bar that tells our story. Highlight that we’re in our fourth season, serve hundreds of homes every season, and complete installations within a week of booking. Mention that we’re licensed, bonded & insured, use commercial-grade LED lights, and provide premium, custom designs. Use a clean two-column layout similar to Premier Home Pros’ About section.
+
+2. Services page/sections: Add a new page or expand existing sections detailing our services in categories such as Residential Roofline Installations, Tree & Greenery Wrapping, Commercial Displays, Custom Design Packages, and Maintenance & Takedown. For each service, include a brief description and “Get a Quote” / “Learn More” buttons to drive conversions.
+
+3. Testimonials/Reviews page: Create a page or section showcasing real customer testimonials (we can start with placeholders). Display multiple five-star reviews with names and locations, using a slider or card layout to build social proof.
+
+4. Service Areas page: Add a page listing the geographic areas we serve (e.g., Bothell, Seattle, Bellevue, and nearby communities). Encourage visitors to verify if they’re in our service area and provide a contact CTA.
+
+5. Contact page: Build a dedicated contact page with a form that collects first name, last name, email, phone number, zip code, service of interest, and referral source. Include our phone number and operating hours. Use the same form validation patterns as our quote form.
+
+6. Promotional banner: Maintain or adapt a seasonal promotional banner (e.g., an early-booking discount) to create urgency and encourage visitors to request a quote.
+
+Ensure these new pages maintain the premium, conversion-first design of the current site. Add navigation links for each new page, and make sure CTAs on these pages either scroll to the quote form or open the contact/quote page. Use consistent styling, spacing, and premium messaging throughout.
