@@ -78,7 +78,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
             </h1>
             
             <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
-              Installed in as little as one day!
+              Installed within a week of booking!
             </p>
 
             {/* Trust Badges */}
