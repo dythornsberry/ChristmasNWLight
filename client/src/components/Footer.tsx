@@ -20,27 +20,46 @@ export default function Footer() {
               Premium Christmas light installation services across the Pacific Northwest
             </p>
             <div className="flex gap-3">
-              <Button 
-                size="icon" 
-                variant="ghost"
-                data-testid="button-facebook"
+              <a 
+                href="https://www.facebook.com/ChristmasNW/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Visit our Facebook page"
               >
-                <Facebook className="w-5 h-5" />
-              </Button>
-              <Button 
-                size="icon" 
-                variant="ghost"
-                data-testid="button-instagram"
+                <Button 
+                  size="icon" 
+                  variant="ghost"
+                  data-testid="button-facebook"
+                >
+                  <Facebook className="w-5 h-5" />
+                </Button>
+              </a>
+              <a 
+                href="https://www.instagram.com/christmasnw/?hl=en" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Visit our Instagram page"
               >
-                <Instagram className="w-5 h-5" />
-              </Button>
-              <Button 
-                size="icon" 
-                variant="ghost"
-                data-testid="button-email"
+                <Button 
+                  size="icon" 
+                  variant="ghost"
+                  data-testid="button-instagram"
+                >
+                  <Instagram className="w-5 h-5" />
+                </Button>
+              </a>
+              <a 
+                href="mailto:christmaslightsnw@gmail.com"
+                aria-label="Send us an email"
               >
-                <Mail className="w-5 h-5" />
-              </Button>
+                <Button 
+                  size="icon" 
+                  variant="ghost"
+                  data-testid="button-email"
+                >
+                  <Mail className="w-5 h-5" />
+                </Button>
+              </a>
             </div>
           </div>
 

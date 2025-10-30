@@ -256,11 +256,11 @@ export default function ContactPage() {
                     <div>
                       <div className="font-semibold text-foreground">Email</div>
                       <a 
-                        href="mailto:info@christmasnw.com" 
+                        href="mailto:christmaslightsnw@gmail.com" 
                         className="text-primary hover:underline text-sm"
                         data-testid="link-contact-email"
                       >
-                        info@christmasnw.com
+                        christmaslightsnw@gmail.com
                       </a>
                     </div>
                   </div>
