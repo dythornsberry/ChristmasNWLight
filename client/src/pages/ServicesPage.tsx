@@ -32,7 +32,7 @@ export default function ServicesPage() {
       features: [
         "Custom color selection (warm white, pure white, multicolor)",
         "Professional-grade mounting hardware",
-        "Seamless wire concealment",
+        "Hidden wire placement",
         "Dusk-to-dawn smart timers",
         "Weather-resistant installation"
       ],

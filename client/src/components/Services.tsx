@@ -33,7 +33,7 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
     {
       icon: Star,
       title: "Full White-Glove Service",
-      description: "Our American-made lights are crafted from durable materials and backed by our commitment to excellence. Complete design-to-storage service included."
+      description: "Premium commercial-grade LED lights built to last, backed by our commitment to quality. Complete design-to-storage service included."
     }
   ];
 
