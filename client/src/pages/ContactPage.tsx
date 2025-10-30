@@ -26,8 +26,7 @@ export default function ContactPage() {
     lastName: "",
     email: "",
     phone: "",
-    zipCode: "",
-    serviceType: "",
+    address: "",
     referralSource: "",
     message: ""
   });
@@ -54,8 +53,7 @@ export default function ContactPage() {
       lastName: "",
       email: "",
       phone: "",
-      zipCode: "",
-      serviceType: "",
+      address: "",
       referralSource: "",
       message: ""
     });
@@ -150,34 +148,15 @@ export default function ContactPage() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="zipCode">ZIP Code *</Label>
+                      <Label htmlFor="address">Property Address *</Label>
                       <Input
-                        id="zipCode"
-                        value={formData.zipCode}
-                        onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })}
+                        id="address"
+                        value={formData.address}
+                        onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                         required
-                        data-testid="input-contact-zip"
-                        placeholder="98028"
-                        maxLength={5}
+                        data-testid="input-contact-address"
+                        placeholder="123 Main St, Seattle, WA 98103"
                       />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="serviceType">Service of Interest *</Label>
-                      <Select 
-                        value={formData.serviceType}
-                        onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
-                        required
-                      >
-                        <SelectTrigger id="serviceType" data-testid="select-contact-service">
-                          <SelectValue placeholder="Select a service" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="residential">Residential</SelectItem>
-                          <SelectItem value="commercial">Commercial</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
                     </div>
 
                     <div className="space-y-2">

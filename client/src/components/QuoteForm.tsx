@@ -11,7 +11,6 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Checkbox } from "@/components/ui/checkbox";
 import { Clock, CheckCircle2 } from "lucide-react";
 
 interface QuoteFormProps {
@@ -25,22 +24,12 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
     phone: "",
     address: "",
     propertyType: "",
-    services: [] as string[],
     message: ""
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     onSubmit(formData);
-  };
-
-  const toggleService = (service: string) => {
-    setFormData(prev => ({
-      ...prev,
-      services: prev.services.includes(service)
-        ? prev.services.filter(s => s !== service)
-        : [...prev.services, service]
-    }));
   };
 
   return (
@@ -59,17 +48,19 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
           <div className="lg:col-span-2">
             <Card className="p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="name">Full Name *</Label>
+                  <Input
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    required
+                    data-testid="input-name"
+                    placeholder="John Smith"
+                  />
+                </div>
+
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="name">Full Name *</Label>
-                    <Input
-                      id="name"
-                      value={formData.name}
-                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      required
-                      data-testid="input-name"
-                    />
-                  </div>
                   <div className="space-y-2">
                     <Label htmlFor="email">Email *</Label>
                     <Input
@@ -79,11 +70,9 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
                       data-testid="input-email"
+                      placeholder="john@example.com"
                     />
                   </div>
-                </div>
-
-                <div className="grid md:grid-cols-2 gap-6">
                   <div className="space-y-2">
                     <Label htmlFor="phone">Phone Number *</Label>
                     <Input
@@ -93,25 +82,8 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       required
                       data-testid="input-phone"
+                      placeholder="(206) 555-1234"
                     />
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="propertyType">Property Type *</Label>
-                    <Select
-                      value={formData.propertyType}
-                      onValueChange={(value) => setFormData({ ...formData, propertyType: value })}
-                    >
-                      <SelectTrigger data-testid="select-property-type">
-                        <SelectValue placeholder="Select property type" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="residential-single">Single Family Home</SelectItem>
-                        <SelectItem value="residential-multi">Multi-Family Home</SelectItem>
-                        <SelectItem value="commercial-small">Small Business</SelectItem>
-                        <SelectItem value="commercial-large">Large Commercial</SelectItem>
-                        <SelectItem value="hoa">HOA/Community</SelectItem>
-                      </SelectContent>
-                    </Select>
                   </div>
                 </div>
 
@@ -123,29 +95,27 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
                     onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                     required
                     data-testid="input-address"
+                    placeholder="123 Main St, Seattle, WA 98103"
                   />
                 </div>
 
-                <div className="space-y-3">
-                  <Label>Services Interested In</Label>
-                  <div className="grid md:grid-cols-2 gap-3">
-                    {["Roofline Lights", "Tree Wrapping", "Pathway Lighting", "Custom Design"].map((service) => (
-                      <div key={service} className="flex items-center space-x-2">
-                        <Checkbox
-                          id={service}
-                          checked={formData.services.includes(service)}
-                          onCheckedChange={() => toggleService(service)}
-                          data-testid={`checkbox-${service.toLowerCase().replace(/\s+/g, '-')}`}
-                        />
-                        <label
-                          htmlFor={service}
-                          className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"
-                        >
-                          {service}
-                        </label>
-                      </div>
-                    ))}
-                  </div>
+                <div className="space-y-2">
+                  <Label htmlFor="propertyType">Property Type *</Label>
+                  <Select
+                    value={formData.propertyType}
+                    onValueChange={(value) => setFormData({ ...formData, propertyType: value })}
+                  >
+                    <SelectTrigger data-testid="select-property-type">
+                      <SelectValue placeholder="Select property type" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      <SelectItem value="residential-single">Single Family Home</SelectItem>
+                      <SelectItem value="residential-multi">Multi-Family Home</SelectItem>
+                      <SelectItem value="commercial-small">Small Business</SelectItem>
+                      <SelectItem value="commercial-large">Large Commercial</SelectItem>
+                      <SelectItem value="hoa">HOA/Community</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="space-y-2">
