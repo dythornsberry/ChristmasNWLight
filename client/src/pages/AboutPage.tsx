@@ -4,7 +4,7 @@ import StickyBottomCTA from "@/components/StickyBottomCTA";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Shield, Clock, Award, Sparkles, CheckCircle2 } from "lucide-react";
-import teamImage from '@assets/generated_images/Installation_team_with_van_02da6032.png';
+import teamImage from '@assets/img6_1761853506443.webp';
 import { useLocation } from "wouter";
 
 export default function AboutPage() {
