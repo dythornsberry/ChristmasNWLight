@@ -23,8 +23,7 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
     email: "",
     phone: "",
     address: "",
-    propertyType: "",
-    message: ""
+    propertyType: ""
   });
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -118,18 +117,6 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
                   </Select>
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="message">Additional Details</Label>
-                  <Textarea
-                    id="message"
-                    value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                    placeholder="Tell us more about your project..."
-                    className="min-h-32"
-                    data-testid="textarea-message"
-                  />
-                </div>
-
                 <Button 
                   type="submit" 
                   size="lg" 
@@ -169,7 +156,7 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
               <div className="space-y-2 text-sm">
                 <p className="text-muted-foreground">
                   <strong className="text-foreground">Phone:</strong><br />
-                  <a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a>
+                  <a href="tel:425.215.0935" className="hover:text-primary transition-colors">425.215.0935</a>
                 </p>
                 <p className="text-muted-foreground">
                   <strong className="text-foreground">Email:</strong><br />
@@ -177,7 +164,7 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
                 </p>
                 <p className="text-muted-foreground">
                   <strong className="text-foreground">Availability:</strong><br />
-                  24/7 During Season
+                  24/7 During Season (Seven Days a Week)
                 </p>
               </div>
             </Card>

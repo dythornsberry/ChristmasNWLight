@@ -27,8 +27,7 @@ export default function ContactPage() {
     email: "",
     phone: "",
     address: "",
-    referralSource: "",
-    message: ""
+    referralSource: ""
   });
 
   const scrollToQuote = () => {
@@ -54,8 +53,7 @@ export default function ContactPage() {
       email: "",
       phone: "",
       address: "",
-      referralSource: "",
-      message: ""
+      referralSource: ""
     });
   };
 
@@ -181,18 +179,6 @@ export default function ContactPage() {
                       </Select>
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Additional Details</Label>
-                      <Textarea
-                        id="message"
-                        value={formData.message}
-                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                        data-testid="textarea-contact-message"
-                        placeholder="Tell us about your project, timeline, or any specific requirements..."
-                        rows={4}
-                      />
-                    </div>
-
                     <Button 
                       type="submit" 
                       className="w-full bg-primary text-primary-foreground font-semibold"
@@ -214,11 +200,11 @@ export default function ContactPage() {
                     <div>
                       <div className="font-semibold text-foreground">Phone</div>
                       <a 
-                        href="tel:4252150935" 
+                        href="tel:425.215.0935" 
                         className="text-primary hover:underline"
                         data-testid="link-contact-phone"
                       >
-                        (425) 215-0935
+                        425.215.0935
                       </a>
                     </div>
                   </div>
@@ -259,9 +245,8 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <div className="space-y-1 text-sm text-muted-foreground">
-                    <div>Monday - Friday: 8am - 7pm</div>
-                    <div>Saturday: 9am - 5pm</div>
-                    <div>Sunday: 10am - 4pm</div>
+                    <div className="font-semibold text-foreground">24/7 During Season</div>
+                    <div>Seven Days a Week</div>
                   </div>
                 </Card>
 

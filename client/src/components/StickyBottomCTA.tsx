@@ -24,7 +24,7 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
           <Button 
             size="lg"
             className="flex-col h-auto py-3 gap-1 bg-primary text-primary-foreground"
-            onClick={() => window.location.href = 'tel:4252150935'}
+            onClick={() => window.location.href = 'tel:425.215.0935'}
             data-testid="button-sticky-call"
           >
             <Phone className="w-5 h-5" />

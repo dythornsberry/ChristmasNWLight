@@ -39,11 +39,11 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
             size="lg" 
             variant="outline"
             className="text-lg px-8 border-white/30 bg-white/10 text-white backdrop-blur-sm"
-            onClick={() => window.location.href = 'tel:4252150935'}
+            onClick={() => window.location.href = 'tel:425.215.0935'}
             data-testid="button-cta-call"
           >
             <Phone className="mr-2 h-5 w-5" />
-            (425) 215-0935
+            425.215.0935
           </Button>
         </div>
 
