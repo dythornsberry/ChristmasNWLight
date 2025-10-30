@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Phone } from "lucide-react";
 import { Link } from "wouter";
+import logoImage from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761850163163.png';
 
 interface StickyHeaderProps {
   onGetQuote: () => void;
@@ -11,10 +12,15 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
     <header className="sticky top-0 z-50 bg-card border-b border-border shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
-          {/* Logo/Brand */}
+          {/* Logo */}
           <Link href="/">
-            <a className="flex items-center gap-2 cursor-pointer">
-              <h1 className="text-xl md:text-2xl font-bold text-primary">Christmas Northwest</h1>
+            <a className="flex items-center cursor-pointer">
+              <img 
+                src={logoImage} 
+                alt="Christmas Northwest" 
+                className="h-12 md:h-14 w-auto"
+                data-testid="img-logo"
+              />
             </a>
           </Link>
 
