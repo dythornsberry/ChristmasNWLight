@@ -200,11 +200,11 @@ export default function ContactPage() {
                     <div>
                       <div className="font-semibold text-foreground">Phone</div>
                       <a 
-                        href="tel:425.215.0935" 
+                        href="tel:4252150935" 
                         className="text-primary hover:underline"
                         data-testid="link-contact-phone"
                       >
-                        425.215.0935
+                        (425) 215-0935
                       </a>
                     </div>
                   </div>

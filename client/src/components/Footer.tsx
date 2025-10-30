@@ -86,7 +86,7 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Contact</h4>
             <ul className="space-y-2 text-muted-foreground text-sm">
-              <li><a href="tel:425.215.0935" className="hover:text-primary transition-colors">425.215.0935</a></li>
+              <li><a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a></li>
               <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors">christmaslightsnw@gmail.com</a></li>
               <li>Kenmore, WA</li>
               <li className="pt-2 text-foreground font-semibold">Available 24/7 During Season (Seven Days a Week)</li>

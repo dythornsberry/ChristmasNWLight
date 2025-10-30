@@ -156,7 +156,7 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
               <div className="space-y-2 text-sm">
                 <p className="text-muted-foreground">
                   <strong className="text-foreground">Phone:</strong><br />
-                  <a href="tel:425.215.0935" className="hover:text-primary transition-colors">425.215.0935</a>
+                  <a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a>
                 </p>
                 <p className="text-muted-foreground">
                   <strong className="text-foreground">Email:</strong><br />

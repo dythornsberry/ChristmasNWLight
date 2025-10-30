@@ -203,10 +203,10 @@ export default function AboutPage() {
               <Button 
                 variant="outline"
                 className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-semibold"
-                onClick={() => window.location.href = 'tel:425.215.0935'}
+                onClick={() => window.location.href = 'tel:4252150935'}
                 data-testid="button-about-cta-call"
               >
-                Call 425.215.0935
+                Call (425) 215-0935
               </Button>
             </div>
           </div>
