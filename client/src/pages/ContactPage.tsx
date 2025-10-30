@@ -173,12 +173,9 @@ export default function ContactPage() {
                           <SelectValue placeholder="Select a service" />
                         </SelectTrigger>
                         <SelectContent>
-                          <SelectItem value="residential">Residential Roofline Installation</SelectItem>
-                          <SelectItem value="tree">Tree & Greenery Wrapping</SelectItem>
-                          <SelectItem value="commercial">Commercial Display</SelectItem>
-                          <SelectItem value="custom">Custom Design Package</SelectItem>
-                          <SelectItem value="maintenance">Maintenance & Takedown</SelectItem>
-                          <SelectItem value="other">Not Sure / Other</SelectItem>
+                          <SelectItem value="residential">Residential</SelectItem>
+                          <SelectItem value="commercial">Commercial</SelectItem>
+                          <SelectItem value="other">Other</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
