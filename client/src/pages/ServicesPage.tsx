@@ -4,11 +4,11 @@ import StickyBottomCTA from "@/components/StickyBottomCTA";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Home, TreePine, Building2, Sparkles, Wrench } from "lucide-react";
-import residentialImage from '@assets/generated_images/Residential_premium_installation_example_a02eac2c.png';
-import commercialImage from '@assets/generated_images/Commercial_building_Christmas_lights_3229c92b.png';
-import customImage from '@assets/generated_images/Custom_design_Christmas_display_522afc58.png';
-import treeImage from '@assets/generated_images/Wrapped_tree_front_yard_22286bba.png';
-import maintenanceImage from '@assets/generated_images/Professional_installation_service_work_c902915b.png';
+import residentialImage from '@assets/img4_1761853506443.webp';
+import commercialImage from '@assets/img7_1761853506443.webp';
+import customImage from '@assets/img16_1761853506444.webp';
+import treeImage from '@assets/img9_1761853506444.webp';
+import maintenanceImage from '@assets/img8_1761853506443.webp';
 import { useLocation } from "wouter";
 
 export default function ServicesPage() {

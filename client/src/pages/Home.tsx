@@ -13,25 +13,29 @@ import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import { Home as HomeIcon, Building2, Sparkles, Wrench, TrendingUp, Users, Award, Clock } from "lucide-react";
 
-import residentialImage from '@assets/generated_images/Residential_premium_installation_example_a02eac2c.png';
-import commercialImage from '@assets/generated_images/Commercial_building_Christmas_lights_3229c92b.png';
-import customImage from '@assets/generated_images/Custom_design_Christmas_display_522afc58.png';
-import maintenanceImage from '@assets/generated_images/Professional_installation_service_work_c902915b.png';
-import teamImage from '@assets/generated_images/Installation_team_with_van_02da6032.png';
-import beforeImage from '@assets/generated_images/Home_before_lights_installation_bd4baf00.png';
-import afterImage from '@assets/generated_images/Home_after_lights_stunning_b02d705c.png';
+import img1 from '@assets/img2_1761853506442.webp';
+import img2 from '@assets/img3_1761853506443.webp';
+import img3 from '@assets/img4_1761853506443.webp';
+import img4 from '@assets/img5_1761853506443.webp';
+import img5 from '@assets/img6_1761853506443.webp';
+import img6 from '@assets/img7_1761853506443.webp';
+import img7 from '@assets/img8_1761853506443.webp';
+import img8 from '@assets/img9_1761853506444.webp';
+import img9 from '@assets/img10_1761853506444.webp';
+import img10 from '@assets/img11_1761853506444.webp';
+import img11 from '@assets/img12_1761853506444.webp';
+import img12 from '@assets/img13_1761853506444.webp';
+import img13 from '@assets/img14_1761853506444.webp';
+import img14 from '@assets/img15_1761853506444.webp';
+import img15 from '@assets/img16_1761853506444.webp';
 
-import img1 from '@assets/generated_images/Residential_premium_installation_example_a02eac2c.png';
-import img2 from '@assets/generated_images/Craftsman_home_roofline_lights_d0ca9edd.png';
-import img3 from '@assets/generated_images/Victorian_home_elaborate_display_1ea18e4a.png';
-import img4 from '@assets/generated_images/Commercial_building_Christmas_lights_3229c92b.png';
-import img5 from '@assets/generated_images/Commercial_storefront_holiday_lights_9184c2f3.png';
-import img6 from '@assets/generated_images/Office_building_entrance_lights_de349746.png';
-import img7 from '@assets/generated_images/Custom_design_Christmas_display_522afc58.png';
-import img8 from '@assets/generated_images/Wrapped_tree_front_yard_22286bba.png';
-import img9 from '@assets/generated_images/Icicle_lights_detail_closeup_02c54991.png';
-import img10 from '@assets/generated_images/Illuminated_wreath_front_door_c83a974c.png';
-import img11 from '@assets/generated_images/Illuminated_pathway_entrance_lighting_aa3c2728.png';
+import residentialImage from '@assets/img4_1761853506443.webp';
+import commercialImage from '@assets/img7_1761853506443.webp';
+import customImage from '@assets/img16_1761853506444.webp';
+import maintenanceImage from '@assets/img8_1761853506443.webp';
+import teamImage from '@assets/img6_1761853506443.webp';
+import beforeImage from '@assets/img4_1761853506443.webp';
+import afterImage from '@assets/img11_1761853506444.webp';
 import { useToast } from "@/hooks/use-toast";
 
 export default function Home() {
@@ -137,39 +141,43 @@ export default function Home() {
   ];
 
   const portfolioItems = [
-    { id: 1, image: img1, category: "Residential", title: "Elegant Estate Lighting" },
-    { id: 2, image: img2, category: "Residential", title: "Craftsman Home Display" },
-    { id: 3, image: img3, category: "Residential", title: "Victorian Showcase" },
-    { id: 4, image: img4, category: "Commercial", title: "Downtown Business" },
-    { id: 5, image: img5, category: "Commercial", title: "Retail Storefront" },
-    { id: 6, image: img6, category: "Commercial", title: "Office Building Entrance" },
-    { id: 7, image: img7, category: "Custom", title: "Artistic Tree Display" },
-    { id: 8, image: img8, category: "Custom", title: "Wrapped Evergreen" },
-    { id: 9, image: img9, category: "Details", title: "Icicle Light Detail" },
-    { id: 10, image: img10, category: "Details", title: "Illuminated Wreath" },
-    { id: 11, image: img11, category: "Details", title: "Pathway Lighting" },
+    { id: 1, image: img1, category: "Residential", title: "Classic Warm White Roofline" },
+    { id: 2, image: img2, category: "Custom", title: "Modern Multicolor Display" },
+    { id: 3, image: img3, category: "Residential", title: "Traditional Warm White" },
+    { id: 4, image: img4, category: "Residential", title: "Contemporary Stone Accent" },
+    { id: 5, image: img5, category: "Residential", title: "Large Estate Installation" },
+    { id: 6, image: img6, category: "Residential", title: "Modern Gable Design" },
+    { id: 7, image: img7, category: "Residential", title: "Split-Level Contemporary" },
+    { id: 8, image: img8, category: "Custom", title: "Tree Canopy Entrance" },
+    { id: 9, image: img9, category: "Residential", title: "Stone & Siding Combo" },
+    { id: 10, image: img10, category: "Custom", title: "Patriotic Red & Blue" },
+    { id: 11, image: img11, category: "Residential", title: "Elegant Warm White" },
+    { id: 12, image: img12, category: "Custom", title: "Traditional Red & Green" },
+    { id: 13, image: img13, category: "Details", title: "Wreaths & Accents" },
+    { id: 14, image: img14, category: "Details", title: "Wrapped Tree Feature" },
+    { id: 15, image: img15, category: "Custom", title: "Multi-Roofline Estate" },
   ];
 
   const colorOptions = [
     {
       name: "Warm White",
-      image: img1,
+      image: img3,
       description: "Classic, elegant glow perfect for traditional displays"
     },
     {
-      name: "Pure White",
+      name: "Multicolor",
       image: img2,
-      description: "Crisp, modern brightness for contemporary homes"
+      description: "Festive and vibrant for a playful holiday display"
+    },
+    {
+      name: "Red + Green",
+      image: img12,
+      description: "Traditional Christmas colors for classic cheer"
     },
     {
       name: "Red + White",
-      image: img3,
-      description: "Festive candy cane colors for holiday cheer"
-    },
-    {
-      name: "Multicolor",
-      image: img7,
-      description: "Vibrant rainbow lights for a playful display"
+      image: img14,
+      description: "Candy cane colors for festive charm"
     }
   ];
 
