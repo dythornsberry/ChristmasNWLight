@@ -27,59 +27,49 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-1">
             <Link href="/about">
-              <a>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  data-testid="nav-about"
-                >
-                  About
-                </Button>
-              </a>
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-about"
+              >
+                About
+              </Button>
             </Link>
             <Link href="/services">
-              <a>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  data-testid="nav-services"
-                >
-                  Services
-                </Button>
-              </a>
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-services"
+              >
+                Services
+              </Button>
             </Link>
             <Link href="/testimonials">
-              <a>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  data-testid="nav-testimonials"
-                >
-                  Testimonials
-                </Button>
-              </a>
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-testimonials"
+              >
+                Testimonials
+              </Button>
             </Link>
             <Link href="/service-areas">
-              <a>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  data-testid="nav-areas"
-                >
-                  Service Areas
-                </Button>
-              </a>
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-service-areas"
+              >
+                Service Areas
+              </Button>
             </Link>
             <Link href="/contact">
-              <a>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  data-testid="nav-contact"
-                >
-                  Contact
-                </Button>
-              </a>
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-contact"
+              >
+                Contact
+              </Button>
             </Link>
           </nav>
 
