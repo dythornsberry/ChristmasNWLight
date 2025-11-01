@@ -49,7 +49,7 @@ export default function ServiceAreasPage() {
       <div className="bg-primary/95 backdrop-blur-sm border-b border-primary-border">
         <div className="max-w-7xl mx-auto px-6 py-3">
           <p className="text-center text-primary-foreground font-semibold text-sm md:text-base">
-            10% OFF October Installations - Book Before October 31st for Priority Scheduling!
+            Book Your 2025 Holiday Display Now - Limited Spots Available for Thanksgiving Week Installation!
           </p>
         </div>
       </div>
@@ -113,15 +113,37 @@ export default function ServiceAreasPage() {
           </div>
         </section>
 
-        {/* Additional Service Areas */}
+        {/* Service Area Map */}
         <section className="py-20 bg-muted/30">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                We Also Serve
+                Our Service Territory
               </h2>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                In addition to our primary service areas, we extend our premium holiday lighting services to the following communities throughout Greater Seattle.
+                Explore our complete service area covering Greater Seattle and the Eastside.
+              </p>
+            </div>
+            
+            {/* Embedded Google Map */}
+            <div className="rounded-lg overflow-hidden border-2 border-border shadow-xl mb-12">
+              <iframe 
+                src="https://www.google.com/maps/d/embed?mid=15rkY40rp-zfqZWUBMldquSqKXJ55HXo&ehbc=2E312F" 
+                width="100%" 
+                height="600"
+                style={{ border: 0 }}
+                loading="lazy"
+                data-testid="map-service-areas"
+              />
+            </div>
+            
+            {/* Additional Service Areas List */}
+            <div className="text-center mb-8">
+              <h3 className="font-serif text-2xl font-bold mb-4 text-foreground">
+                We Also Serve
+              </h3>
+              <p className="text-muted-foreground max-w-3xl mx-auto mb-8">
+                In addition to our primary service areas, we extend our premium holiday lighting services to the following communities.
               </p>
             </div>
             

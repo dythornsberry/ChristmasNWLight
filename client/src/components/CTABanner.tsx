@@ -48,7 +48,7 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
         </div>
 
         <p className="text-white/80 text-sm mt-6">
-          Book before October 31st for priority scheduling
+          Limited availability - Book early for the 2025 holiday season
         </p>
       </div>
     </section>

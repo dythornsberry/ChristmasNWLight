@@ -7,6 +7,7 @@ import BeforeAfter from "@/components/BeforeAfter";
 import Stats from "@/components/Stats";
 import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
+import Process from "@/components/Process";
 import CTABanner from "@/components/CTABanner";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
@@ -184,35 +185,35 @@ export default function Home() {
   const faqItems = [
     {
       question: "What's your starting price for Christmas light installation?",
-      answer: "Our installations typically start at around $800 for smaller homes. That includes custom-cut commercial-grade lights, professional installation, maintenance throughout the season, takedown in January, and storage. Final pricing depends on roof size, design complexity, and the type of lighting used."
+      answer: "Our residential installations start at $800. This includes professional-grade LED lights, expert installation, maintenance throughout the season, professional takedown in January, and climate-controlled storage until next year. Final pricing depends on your home's size, roofline complexity, and the lighting design you choose."
     },
     {
-      question: "Do you hang lights that I already own?",
-      answer: "We do not install customer-provided lights. To ensure safety, consistent quality, and warranty coverage, we only install our own professional-grade lighting and materials that meet our standards."
+      question: "Is light takedown included in the price?",
+      answer: "Absolutely! Our full-service package includes professional takedown after the holidays. We carefully remove all lights, organize them, and store them in our climate-controlled facilities until next season—at no additional cost to you."
     },
     {
-      question: "Do you install permanent lighting?",
-      answer: "We do not install permanent or year-round lighting systems. Our focus is on seasonal holiday lighting, where we provide full-service installation, maintenance, takedown, and storage each year."
+      question: "What if a bulb burns out during the season?",
+      answer: "We've got you covered! Bulb replacements and repairs are included at no extra charge. We're available 24/7 during the season to handle any maintenance issues and keep your display looking perfect throughout the holidays."
     },
     {
-      question: "When should I schedule my Christmas light installation?",
-      answer: "We recommend scheduling as early as possible — ideally in September or October. Our calendar fills up fast as the holidays approach, and early bookings guarantee your installation."
+      question: "Are you a licensed and insured business?",
+      answer: "Yes! Christmas Northwest is fully licensed, bonded, and insured. We've been serving the Greater Seattle area for three seasons and have completed over 300 homes annually. Your property and our team are protected at every stage of the installation and maintenance process."
     },
     {
-      question: "What's included in your service?",
-      answer: "We handle everything — from custom design and installation to maintenance, takedown, and storage. We provide all lights, clips, cords, timers, and other materials needed for a flawless setup."
+      question: "What's your installation process?",
+      answer: "Our process is simple: First, you fill out our quote form and we get in touch to discuss your design vision. We create a custom plan—sometimes in person for complex projects. Once you approve the design, you place a $100 deposit to secure your spot. Then we schedule and complete your professional installation, typically within a week of booking during our busy season."
     },
     {
       question: "How long does installation take?",
-      answer: "Most residential installations are completed in a few hours or less, depending on the home and design. Larger homes and commercial jobs may take a full day."
+      answer: "Most residential installations are completed within a few hours, depending on your home's size and design complexity. We pride ourselves on fast turnaround—often installing within a week of booking during the season."
     },
     {
-      question: "Are you licensed and insured?",
-      answer: "Yes — Christmas Northwest is fully licensed, bonded, and insured. Your home and property are protected at every stage of the process."
+      question: "Do you hang lights that I already own?",
+      answer: "We only install our own professional-grade lighting and materials. This ensures consistent quality, safety standards, and allows us to provide our comprehensive warranty and maintenance coverage throughout the season."
     },
     {
       question: "What areas do you serve?",
-      answer: "We proudly serve the greater Seattle area, including Kenmore, Kirkland, Bothell, Woodinville, and surrounding communities."
+      answer: "We proudly serve the Greater Seattle area, including Kenmore, Kirkland, Bothell, Woodinville, Redmond, Sammamish, Bellevue, and surrounding communities. Check our Service Areas page for the complete list, or contact us if you don't see your location listed."
     }
   ];
 
@@ -258,6 +259,8 @@ export default function Home() {
       <Testimonials testimonials={testimonials} />
 
       <About teamImage={teamImage} />
+
+      <Process />
 
       <CTABanner onGetQuote={scrollToQuote} />
 

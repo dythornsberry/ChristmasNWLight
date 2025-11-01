@@ -60,15 +60,15 @@ export default function Hero({ onGetQuote }: HeroProps) {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Headline & Offer */}
           <div className="text-white">
-            {/* 10% Off Offer Banner */}
+            {/* Pricing & Urgency Banner */}
             <div className="inline-flex items-center gap-3 bg-primary/95 backdrop-blur-sm px-6 py-3 rounded-lg mb-6 border-2 border-primary-border shadow-xl" data-testid="banner-hero-offer">
-              <span className="text-2xl font-bold">10% OFF</span>
+              <span className="text-2xl font-bold">$800+</span>
               <div className="h-6 w-px bg-primary-foreground/30" />
               <div>
-                <div className="text-sm font-semibold">October Installations</div>
+                <div className="text-sm font-semibold">Residential Installations</div>
                 <div className="flex items-center gap-1 text-xs text-primary-foreground/90">
                   <Clock className="w-3 h-3" />
-                  <span>Ends October 31st</span>
+                  <span>Limited Availability</span>
                 </div>
               </div>
             </div>

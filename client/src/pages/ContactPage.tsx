@@ -65,7 +65,7 @@ export default function ContactPage() {
       <div className="bg-primary/95 backdrop-blur-sm border-b border-primary-border">
         <div className="max-w-7xl mx-auto px-6 py-3">
           <p className="text-center text-primary-foreground font-semibold text-sm md:text-base">
-            10% OFF October Installations - Book Before October 31st for Priority Scheduling!
+            Book Your 2025 Holiday Display Now - Limited Spots Available for Thanksgiving Week Installation!
           </p>
         </div>
       </div>

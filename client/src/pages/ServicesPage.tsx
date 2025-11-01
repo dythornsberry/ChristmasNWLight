@@ -105,7 +105,7 @@ export default function ServicesPage() {
       <div className="bg-primary/95 backdrop-blur-sm border-b border-primary-border">
         <div className="max-w-7xl mx-auto px-6 py-3">
           <p className="text-center text-primary-foreground font-semibold text-sm md:text-base">
-            10% OFF October Installations - Book Before October 31st for Priority Scheduling!
+            Book Your 2025 Holiday Display Now - Limited Spots Available for Thanksgiving Week Installation!
           </p>
         </div>
       </div>
@@ -121,8 +121,11 @@ export default function ServicesPage() {
               <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-foreground">
                 Professional Holiday Lighting Services
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+              <p className="text-xl text-muted-foreground leading-relaxed mb-4">
                 From residential rooflines to commercial displays, we offer comprehensive holiday lighting solutions designed to transform your property and exceed your expectations.
+              </p>
+              <p className="text-lg text-primary font-semibold">
+                Starting at $800 for residential installations
               </p>
               <Button 
                 onClick={scrollToQuote}
