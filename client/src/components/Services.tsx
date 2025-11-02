@@ -48,14 +48,14 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
   ];
 
   return (
-    <section id="services" className="py-20 bg-background">
+    <section id="services" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        <div className="text-center mb-20">
+          <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6 text-foreground">
             Why Christmas Northwest?
           </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Skip the tangled lights, dangerous ladders, and holiday stress. Our all-inclusive service means you enjoy a beautifully lit home without lifting a finger - from professional custom design and installation to in-season maintenance, takedown, and secure year-round storage.
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Skip the tangled lights, dangerous ladders, and holiday stress. Our all-inclusive service means you enjoy a beautifully lit home without lifting a finger, from professional custom design and installation to in-season maintenance, takedown, and secure year-round storage.
           </p>
         </div>
         
@@ -63,15 +63,15 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
           {features.map((feature, index) => (
             <Card 
               key={index}
-              className="p-8"
+              className="p-8 hover-elevate transition-all duration-300"
               data-testid={`card-feature-${index}`}
             >
               <div className="flex gap-6">
-                <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center">
+                <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-primary/20 to-primary/10 rounded-lg flex items-center justify-center border border-amber-500/20">
                   <feature.icon className="w-8 h-8 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-xl mb-3 text-foreground">
+                  <h3 className="font-bold text-xl mb-3 text-foreground">
                     {feature.title}
                   </h3>
                   <p className="text-muted-foreground leading-relaxed">

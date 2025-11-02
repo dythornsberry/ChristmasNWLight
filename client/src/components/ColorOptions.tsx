@@ -12,13 +12,13 @@ interface ColorOptionsProps {
 
 export default function ColorOptions({ colors }: ColorOptionsProps) {
   return (
-    <section id="colors" className="py-20 bg-muted/30">
+    <section id="colors" className="py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        <div className="text-center mb-20">
+          <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6 text-foreground">
             Choose Your Color Scheme
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             From classic warm white to festive multicolor, we have the perfect lighting option for your style
           </p>
         </div>

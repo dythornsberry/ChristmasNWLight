@@ -41,15 +41,15 @@ export default function QuoteFormSection() {
   };
 
   return (
-    <section id="quote" className="py-16 bg-muted/30">
+    <section id="quote" className="py-20 bg-muted/30">
       <div className="max-w-4xl mx-auto px-6">
-        <Card className="p-8 md:p-12 shadow-xl">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground font-serif">
+        <Card className="p-10 md:p-14 shadow-2xl border-2 border-amber-500/10">
+          <div className="text-center mb-10">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground font-serif">
               Request Your Free Design
             </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Get your custom design estimate - no obligation, no hassle. We'll contact you within 24 hours.
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Get your custom design estimate, no obligation, no hassle. We'll contact you within 24 hours.
             </p>
           </div>
           
@@ -139,7 +139,7 @@ export default function QuoteFormSection() {
             <Button 
               type="submit" 
               size="lg" 
-              className="w-full text-lg font-bold mt-6"
+              className="w-full text-xl font-bold mt-8 shadow-xl hover:shadow-2xl transition-all duration-300"
               data-testid="button-submit-quote"
               disabled={!formData.serviceType}
             >

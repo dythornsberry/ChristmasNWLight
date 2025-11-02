@@ -66,7 +66,7 @@ export default function Portfolio({ items }: PortfolioProps) {
             onClick={() => setLocation('/gallery')}
             variant="default"
             size="lg"
-            className="text-lg font-bold px-10 py-6 h-auto shadow-xl hover:shadow-2xl transition-all duration-300"
+            className="text-lg font-bold shadow-xl hover:shadow-2xl transition-all duration-300"
             data-testid="button-view-gallery"
           >
             View Full Gallery

@@ -4,25 +4,25 @@ interface AboutProps {
 
 export default function About({ teamImage }: AboutProps) {
   return (
-    <section id="about" className="py-20 bg-muted/30">
+    <section id="about" className="py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
+        <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Image First */}
           <div className="order-2 lg:order-1">
             <img 
               src={teamImage} 
               alt="Christmas Northwest professional installation team"
-              className="w-full rounded-lg shadow-xl"
+              className="w-full rounded-lg shadow-2xl border-4 border-amber-500/10"
             />
           </div>
 
           {/* Content Second */}
           <div className="order-1 lg:order-2">
-            <div className="mb-4 inline-block px-4 py-2 bg-primary/10 rounded-lg">
-              <span className="text-primary font-semibold">Improve Your Holiday Experience</span>
+            <div className="mb-6 inline-block px-5 py-3 bg-gradient-to-r from-primary/15 to-primary/10 rounded-lg border border-amber-500/20">
+              <span className="text-primary font-bold text-lg">Improve Your Holiday Experience</span>
             </div>
             
-            <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            <h2 className="font-serif text-5xl md:text-6xl font-bold mb-8 text-foreground">
               Your Trusted Holiday Lighting Contractors
             </h2>
             

@@ -36,7 +36,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
             <Button 
               onClick={onGetQuote}
               size="lg" 
-              className="text-xl font-bold px-12 py-7 h-auto bg-primary hover:bg-primary/90 shadow-2xl hover:shadow-[0_0_30px_rgba(220,38,38,0.4)] transition-all duration-300 border-2 border-white/20"
+              className="text-xl font-bold bg-primary hover:bg-primary/90 shadow-2xl hover:shadow-[0_0_30px_rgba(220,38,38,0.4)] transition-all duration-300 border-2 border-white/20"
               data-testid="button-hero-cta"
             >
               Request Free Design
