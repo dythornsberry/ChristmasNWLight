@@ -8,7 +8,7 @@ import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap } from "lucide-react";
 
 import c9RooflinePhoto from '@assets/81s3L7gNl1L_1762096860729.jpg';
 import miniLightsPhoto from '@assets/Incan-Clear-6x15-Column-Wrap-02-lifestyle_1762096913912.jpg';
-import groundLightsPhoto from '@assets/2025-10-28-3-min_1762064223709.jpg';
+import groundLightsPhoto from '@assets/Ground-Lighting-Installation-Fort-Collins-CO_1762096982865.jpg';
 import treeWrapsPhoto from '@assets/81yZtNElctL_1762096926030.jpg';
 
 export default function ProductGuide() {
