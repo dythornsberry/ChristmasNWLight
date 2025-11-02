@@ -60,6 +60,7 @@ import redGreenWarmWhiteHouse from '@assets/northwest-christmas-light-installer-
 import mistletoeHouse from '@assets/2024-11-11-2-min_1762064400632.jpg';
 import warmWhiteHouse from '@assets/1-2-min_1762064533191.jpeg';
 import multicolorHouse2 from '@assets/IMG_5253_1762064572527.jpeg';
+import redGreenHouse from '@assets/IMG_2529-min-min_1762065264434.jpeg';
 import residentialImage from '@assets/img4_1761853506443.webp';
 import commercialImage from '@assets/img7_1761853506443.webp';
 import customImage from '@assets/img16_1761853506444.webp';
@@ -183,7 +184,7 @@ export default function Home() {
     { id: 9, image: img9, category: "Houses", title: "Stone & Siding Combo" },
     { id: 10, image: img10, category: "Houses", title: "Patriotic Red & Blue" },
     { id: 11, image: img11, category: "Houses", title: "Elegant Warm White" },
-    { id: 12, image: img12, category: "Houses", title: "Traditional Red & Green" },
+    { id: 12, image: img12, category: "Houses", title: "Red & Warm White Display" },
     { id: 13, image: img13, category: "Trees", title: "Wreaths & Accents" },
     { id: 14, image: img14, category: "Trees", title: "Wrapped Tree Feature" },
     { id: 15, image: img15, category: "Houses", title: "Multi-Roofline Estate" },
@@ -191,17 +192,17 @@ export default function Home() {
     { id: 17, image: img17, category: "Houses", title: "Elegant Single-Story with Wreath" },
     { id: 18, image: img18, category: "Houses", title: "Multi-Gable Contemporary Home" },
     { id: 19, image: img19, category: "Houses", title: "Clean Modern Roofline" },
-    { id: 20, image: img20, category: "Houses", title: "Red & Green Traditional Display" },
-    { id: 21, image: img21, category: "Houses", title: "Multi-Color Large Home" },
+    { id: 20, image: img20, category: "Houses", title: "Red & Warm White Traditional" },
+    { id: 21, image: img21, category: "Houses", title: "Red, Green & Warm White Large Home" },
     { id: 22, image: img22, category: "Trees", title: "Family Display with Trees" },
     { id: 23, image: img23, category: "Houses", title: "Vibrant Multicolor Installation" },
     { id: 24, image: img24, category: "Trees", title: "Tree Lighting Accent Feature" },
-    { id: 25, image: img25, category: "Houses", title: "Red & Green in Snow" },
+    { id: 25, image: img25, category: "Houses", title: "Red, Green & Warm White in Snow" },
     { id: 26, image: img26, category: "Trees", title: "Majestic Tree with Child" },
     { id: 27, image: img27, category: "Houses", title: "Upscale Brick Estate" },
-    { id: 28, image: img28, category: "Houses", title: "Red & Green Split-Level" },
+    { id: 28, image: img28, category: "Houses", title: "Red & Warm White Split-Level" },
     { id: 29, image: img29, category: "Houses", title: "Stunning Multicolor Two-Story" },
-    { id: 30, image: img30, category: "Houses", title: "Modern Red & Green Display" },
+    { id: 30, image: img30, category: "Houses", title: "Red & Warm White Modern Display" },
     { id: 31, image: img31, category: "Houses", title: "Traditional Craftsman Gables" },
     { id: 32, image: img32, category: "Houses", title: "Window Lights & Minions Display" },
     { id: 33, image: img33, category: "Houses", title: "Elegant Modern Warm White with Deer" },
@@ -225,7 +226,7 @@ export default function Home() {
     },
     {
       name: "Red + Green",
-      image: img12,
+      image: redGreenHouse,
       description: "Traditional Christmas colors for classic cheer"
     },
     {
