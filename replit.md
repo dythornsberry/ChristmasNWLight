@@ -6,6 +6,14 @@ Christmas Northwest is a conversion-focused multi-page website for a professiona
 
 ## Recent Changes
 
+### November 2025 - Conversion Optimization: Visual Enhancements & Urgency Messaging
+- **Product Guide Visual Enhancement:** Added real installation photos to each of 4 product categories (C9 Bulbs rooflines, Mini Lights details, Ground/Pathway Lights, Tree Wraps) with gradient overlays. Photos help visitors visualize products in real-world applications, improving education and trust.
+- **Investment Guide Visual Enhancement:** Added example project photos to each of 3 pricing tiers (Essential $800-$1,500, Signature $1,500-$3,000, Premier $3,000-$6,000+) demonstrating value at each price point. Photos positioned at top of each card with subtle gradient and "Example [Tier Name]" label.
+- **Hero Urgency Messaging:** Added prominent amber urgency badge at top of Hero section: "Limited Slots Available for 2025 Season" with Clock icon. Creates appropriate FOMO without being pushy.
+- **Investment Guide Urgency:** Added urgency badge to Investment Guide hero section: "Book Early - Prime Installation Dates Filling Fast" with AlertCircle icon. Reinforces seasonal booking deadline.
+- **Enhanced Trust Badges:** Expanded Hero trust badges from single compact badge to 3 separate prominent badges displaying: "Licensed, Bonded & Insured", "4th Season • 300+ Homes", and "5.0 Google Rating". All badges feature amber accent borders and icons, building credibility and authority.
+- **Mobile Responsive:** All new urgency badges and trust badges tested on mobile (375x667) to ensure proper wrapping, visibility, and readability across all breakpoints.
+
 ### November 2025 - Educational Pages & Mobile Navigation
 - **Mobile Hamburger Menu:** Implemented responsive mobile navigation using Shadcn Sheet component with smooth slide-in animation. Menu includes all pages (Home, Gallery, Product Guide, Investment Guide), phone number, and prominent "Request Free Design" CTA. Active page highlighting included in mobile menu.
 - **Product Guide Page:** Created educational page at `/product-guide` showcasing four premium product categories: C9 Bulbs (rooflines), Mini Lights (bushes/details), Ground/Pathway Lights, and Tree Wraps/Spheres. Each product features gradient hero styling, detailed descriptions, color options, specific use cases, and benefits. Maintains premium gold accent system throughout.
