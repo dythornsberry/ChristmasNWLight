@@ -51,6 +51,7 @@ import img31 from '@assets/northwest-christmas-light-installer-17-scaled-1-2-min
 import img32 from '@assets/northwest-christmas-light-installer-15-scaled-1-min_1762050980954.jpg';
 import img33 from '@assets/northwest-christmas-light-installer-10-scaled-1-min_1762050980954.jpg';
 
+import multicolorHouse from '@assets/2025-09-04-min_1762064099390.jpg';
 import residentialImage from '@assets/img4_1761853506443.webp';
 import commercialImage from '@assets/img7_1761853506443.webp';
 import customImage from '@assets/img16_1761853506444.webp';
@@ -206,7 +207,7 @@ export default function Home() {
     },
     {
       name: "Multicolor",
-      image: img2,
+      image: multicolorHouse,
       description: "Festive and vibrant for a playful holiday display"
     },
     {
