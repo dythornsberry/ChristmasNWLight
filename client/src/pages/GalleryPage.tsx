@@ -26,6 +26,7 @@ import img14 from '@assets/2024-10-27-min_1762058047476.jpg';
 import img15 from '@assets/2024-11-11-2-min_1762058047476.jpg';
 import img16 from '@assets/2024-11-28-2-min_1762058047476.jpg';
 import img17 from '@assets/2025-09-04-min_1762058047477.jpg';
+import img18 from '@assets/2025-10-28-3-min_1762064223709.jpg';
 
 interface GalleryImage {
   id: number;
@@ -52,7 +53,8 @@ const galleryImages: GalleryImage[] = [
   { id: 14, src: img14, alt: "Warm white roofline with multicolor tree", category: "Multicolor", title: "Mixed Color Harmony" },
   { id: 15, src: img15, alt: "Modern home with warm white and wreath", category: "Warm White", title: "Modern Holiday Elegance" },
   { id: 16, src: img16, alt: "Red tree wrap with blue snowmen", category: "Trees", title: "Creative Tree Design" },
-  { id: 17, src: img17, alt: "Vibrant multicolor on dark modern home", category: "Multicolor", title: "Striking Night Display" }
+  { id: 17, src: img17, alt: "Vibrant multicolor on dark modern home", category: "Multicolor", title: "Striking Night Display" },
+  { id: 18, src: img18, alt: "Stunning multicolor tree with full wrap", category: "Trees", title: "Majestic Multicolor Tree" }
 ];
 
 export default function GalleryPage() {
