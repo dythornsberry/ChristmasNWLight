@@ -6,6 +6,15 @@ Christmas Northwest is a conversion-focused multi-page website for a professiona
 
 ## Recent Changes
 
+### November 2025 - Educational Pages & Mobile Navigation
+- **Mobile Hamburger Menu:** Implemented responsive mobile navigation using Shadcn Sheet component with smooth slide-in animation. Menu includes all pages (Home, Gallery, Product Guide, Investment Guide), phone number, and prominent "Request Free Design" CTA. Active page highlighting included in mobile menu.
+- **Product Guide Page:** Created educational page at `/product-guide` showcasing four premium product categories: C9 Bulbs (rooflines), Mini Lights (bushes/details), Ground/Pathway Lights, and Tree Wraps/Spheres. Each product features gradient hero styling, detailed descriptions, color options, specific use cases, and benefits. Maintains premium gold accent system throughout.
+- **Investment Guide Page:** Built transparent pricing page at `/investment-guide` with three tiered packages: Essential Display ($800-$1,500), Signature Display ($1,500-$3,000), and Premier Estate ($3,000-$6,000+). Each tier clearly lists all-inclusive services with checkmarks. Added "What Affects Your Investment" section explaining property size, design complexity, premium add-ons, and accessibility factors. Pre-qualifies leads while maintaining premium positioning.
+- **Desktop Navigation Active States:** Enhanced desktop navigation buttons to show primary variant for current active page, with ghost variant for inactive pages. Provides clear visual feedback of current location across all breakpoints.
+- **Dynamic SEO Meta Tags:** Created PageHead component that dynamically updates document title and meta descriptions (standard, Open Graph, Twitter) for each page. Product Guide and Investment Guide now have unique, keyword-rich SEO titles and descriptions optimized for search engines.
+- **Enhanced Testimonials:** Updated home page testimonials with 6 authentic Google reviews featuring specific service details: Barbara Hansen (35ft tree installation in rain/hail/wind), Blake Irving (same-day quote with on-site renderings), Kyle (2nd year repeat customer), and mentions of Dylan's team throughout. Reviews highlight all-weather reliability, attention to detail, and stress-free experience.
+- **Routing Updates:** Added `/product-guide` and `/investment-guide` routes to App.tsx with proper page components.
+
 ### November 2025 - Premium Visual Enhancements
 - **Typography Upgrade:** Enhanced all headlines from text-4xl/5xl to text-5xl/6xl for more impactful presence. Hero headline now uses text-9xl on desktop with font-black weight, tighter line-height (0.95), and tighter tracking for premium feel. Increased body copy from text-lg to text-xl throughout for better readability.
 - **Gold Accent System:** Added subtle gold/amber accent colors to design system (--gold, --gold-muted, --gold-foreground). Applied tastefully to feature icons, card borders, badges, and trust elements. Stars in testimonials now use amber-400 instead of primary for premium touch.
