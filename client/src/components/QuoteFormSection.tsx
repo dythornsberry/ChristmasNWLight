@@ -128,11 +128,9 @@ export default function QuoteFormSection() {
                   <SelectValue placeholder="Select installation timeline" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="this-week">This Week</SelectItem>
-                  <SelectItem value="within-2-weeks">Within 2 Weeks</SelectItem>
+                  <SelectItem value="asap">ASAP</SelectItem>
                   <SelectItem value="before-thanksgiving">Before Thanksgiving</SelectItem>
-                  <SelectItem value="before-christmas">Before Christmas</SelectItem>
-                  <SelectItem value="flexible">Flexible / Just Exploring</SelectItem>
+                  <SelectItem value="after-thanksgiving">After Thanksgiving</SelectItem>
                 </SelectContent>
               </Select>
             </div>
