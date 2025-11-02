@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Shield, ArrowRight } from "lucide-react";
+import { Shield, ArrowRight, Clock, Award } from "lucide-react";
 import heroImage from '@assets/generated_images/Hero_home_Christmas_lights_dusk_a9a01c87.png';
 
 interface HeroProps {
@@ -22,6 +22,12 @@ export default function Hero({ onGetQuote }: HeroProps) {
       
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
         <div className="max-w-4xl">
+          {/* Urgency Badge */}
+          <Badge variant="secondary" className="bg-amber-500 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto mb-6 w-fit border-2 border-white/30 shadow-xl">
+            <Clock className="w-5 h-5" />
+            Limited Slots Available for 2025 Season
+          </Badge>
+          
           {/* Minimalist content with enhanced typography */}
           <h1 className="font-serif text-7xl md:text-9xl font-black mb-8 leading-[0.95] tracking-tighter text-white drop-shadow-2xl">
             Premium Holiday Lighting, Zero Hassle
@@ -32,7 +38,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </p>
 
           {/* Single Premium CTA Button */}
-          <div className="flex flex-col sm:flex-row gap-6 items-start">
+          <div className="flex flex-col gap-6 items-start mb-8">
             <Button 
               onClick={onGetQuote}
               size="lg" 
@@ -42,11 +48,21 @@ export default function Hero({ onGetQuote }: HeroProps) {
               Request Free Design
               <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
-            
-            {/* Compact trust badge with gold accent */}
-            <Badge variant="secondary" className="bg-white/95 text-foreground backdrop-blur-sm px-5 py-4 text-base flex items-center gap-2 h-auto border border-amber-500/30">
-              <Shield className="w-5 h-5 text-amber-600" />
-              Licensed, Bonded & Insured • $800+
+          </div>
+          
+          {/* Enhanced Trust Badges */}
+          <div className="flex flex-wrap gap-4">
+            <Badge variant="secondary" className="bg-white/95 text-foreground backdrop-blur-sm px-4 py-3 text-sm flex items-center gap-2 h-auto border border-amber-500/30">
+              <Shield className="w-4 h-4 text-amber-600" />
+              Licensed, Bonded & Insured
+            </Badge>
+            <Badge variant="secondary" className="bg-white/95 text-foreground backdrop-blur-sm px-4 py-3 text-sm flex items-center gap-2 h-auto border border-amber-500/30">
+              <Award className="w-4 h-4 text-amber-600" />
+              4th Season • 300+ Homes
+            </Badge>
+            <Badge variant="secondary" className="bg-white/95 text-foreground backdrop-blur-sm px-4 py-3 text-sm flex items-center gap-2 h-auto border border-amber-500/30">
+              <Award className="w-4 h-4 text-amber-600" />
+              5.0 Google Rating
             </Badge>
           </div>
         </div>
