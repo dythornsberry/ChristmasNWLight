@@ -3,7 +3,13 @@ import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Home, TreePine, Building2, Sparkles, Wrench } from "lucide-react";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
+import { Home, TreePine, Building2, Sparkles, Wrench, Check, X } from "lucide-react";
 import residentialImage from '@assets/img4_1761853506443.webp';
 import commercialImage from '@assets/img7_1761853506443.webp';
 import customImage from '@assets/img16_1761853506444.webp';
@@ -205,6 +211,163 @@ export default function ServicesPage() {
                 </Card>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Service Comparison Table */}
+        <section className="py-20 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                Compare Our Services
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                See which features are included with each service package to find the perfect fit for your needs.
+              </p>
+            </div>
+            
+            <Card className="overflow-x-auto">
+              <table className="w-full" data-testid="table-service-comparison">
+                <thead>
+                  <tr className="border-b border-border">
+                    <th className="p-4 text-left font-bold text-foreground">Feature</th>
+                    <th className="p-4 text-center font-bold text-foreground">Roofline</th>
+                    <th className="p-4 text-center font-bold text-foreground">Tree Wrapping</th>
+                    <th className="p-4 text-center font-bold text-foreground">Commercial</th>
+                    <th className="p-4 text-center font-bold text-foreground">Custom Design</th>
+                    <th className="p-4 text-center font-bold text-foreground">Maintenance</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr className="border-b border-border">
+                    <td className="p-4 text-sm text-muted-foreground">Color Selection</td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="p-4 text-sm text-muted-foreground">Professional Installation</td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="p-4 text-sm text-muted-foreground">Custom Patterns</td>
+                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
+                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="p-4 text-sm text-muted-foreground">Maintenance Included</td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="p-4 text-sm text-muted-foreground">Takedown & Storage</td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                  </tr>
+                  <tr className="border-b border-border">
+                    <td className="p-4 text-sm text-muted-foreground">Design Consultation</td>
+                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
+                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
+                  </tr>
+                  <tr>
+                    <td className="p-4 text-sm text-muted-foreground">24/7 Season Support</td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
+                  </tr>
+                </tbody>
+              </table>
+            </Card>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-20 bg-background">
+          <div className="max-w-4xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                Frequently Asked Questions
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                Common questions about our holiday lighting services.
+              </p>
+            </div>
+            
+            <Accordion type="single" collapsible className="space-y-4" data-testid="accordion-service-faq">
+              <AccordionItem value="item-1">
+                <AccordionTrigger className="text-left font-semibold">
+                  How long does installation take?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Most residential roofline installations are completed within 2-4 hours. Larger homes or custom design packages may take 4-8 hours depending on complexity. We work efficiently to minimize disruption to your day, and most projects are scheduled within a week of booking.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-2">
+                <AccordionTrigger className="text-left font-semibold">
+                  Are replacement bulbs included in the price?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Yes! Bulb replacement is included at no additional cost throughout the season. If any lights malfunction, we'll come out and replace them quickly. Our commercial-grade LED lights are extremely reliable, but we stand behind every installation with 24/7 seasonal support.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-3">
+                <AccordionTrigger className="text-left font-semibold">
+                  What happens if lights go out during the season?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  We offer 24/7 support during the holiday season. Simply give us a call or send us a message, and we'll schedule a service visit to diagnose and fix the issue. Most problems can be resolved within 1-2 business days, and there's no charge for bulb replacement or minor repairs.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-4">
+                <AccordionTrigger className="text-left font-semibold">
+                  Do you provide the lights, or do I need to purchase them?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  We provide all lights, clips, timers, and installation materials as part of our service. You don't need to purchase anything. We use only commercial-grade LED lights that are weatherproof, energy-efficient, and designed to last for years. After the season, we professionally remove and store everything for you.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-5">
+                <AccordionTrigger className="text-left font-semibold">
+                  When do you take down the lights?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Takedown is included in all our installation packages. We typically remove lights in early to mid-January, depending on your preference and weather conditions. After removal, we carefully organize, label, and store your lights in our climate-controlled facility until the next season.
+                </AccordionContent>
+              </AccordionItem>
+
+              <AccordionItem value="item-6">
+                <AccordionTrigger className="text-left font-semibold">
+                  Can I choose different light colors?
+                </AccordionTrigger>
+                <AccordionContent className="text-muted-foreground">
+                  Absolutely! We offer warm white, pure white, multicolor, red & green, red & white, and many other custom color combinations. During your consultation, we'll discuss your vision and recommend the best colors to complement your home's architecture and your personal style. You can even mix colors for a truly unique display.
+                </AccordionContent>
+              </AccordionItem>
+            </Accordion>
           </div>
         </section>
 

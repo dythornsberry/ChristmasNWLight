@@ -3,7 +3,8 @@ import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Shield, Clock, Award, Sparkles, CheckCircle2 } from "lucide-react";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
+import { Shield, Clock, Award, Sparkles, CheckCircle2, TrendingUp, Users, Star } from "lucide-react";
 import teamImage from '@assets/img6_1761853506443.webp';
 import { useLocation } from "wouter";
 
@@ -100,7 +101,16 @@ export default function AboutPage() {
         {/* Our Story Section */}
         <section className="py-20 bg-background">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div className="text-center mb-16">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                Our Story
+              </h2>
+              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                From humble beginnings to serving hundreds of homes, Christmas Northwest has grown into Greater Seattle's trusted holiday lighting partner.
+              </p>
+            </div>
+
+            <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
               <div>
                 <img 
                   src={teamImage} 
@@ -110,9 +120,6 @@ export default function AboutPage() {
                 />
               </div>
               <div>
-                <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                  Serving Hundreds of Homes Every Season
-                </h2>
                 <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
                   <p>
                     Christmas Northwest was founded on a simple belief: every home deserves a beautiful, professionally installed holiday lighting display that brings joy without the hassle.
@@ -143,6 +150,95 @@ export default function AboutPage() {
                     Contact Us
                   </Button>
                 </div>
+              </div>
+            </div>
+
+            {/* Company Timeline */}
+            <div className="mb-16">
+              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center text-foreground">
+                Our Journey
+              </h3>
+              <div className="grid md:grid-cols-4 gap-6">
+                <Card className="p-6 text-center" data-testid="card-timeline-0">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Star className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="text-2xl font-bold text-primary mb-2">Year 1</div>
+                  <div className="font-semibold text-foreground mb-2">Launched</div>
+                  <div className="text-sm text-muted-foreground">
+                    Founded Christmas Northwest to bring professional holiday lighting to Greater Seattle
+                  </div>
+                </Card>
+                <Card className="p-6 text-center" data-testid="card-timeline-1">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <TrendingUp className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="text-2xl font-bold text-primary mb-2">Year 2</div>
+                  <div className="font-semibold text-foreground mb-2">Rapid Growth</div>
+                  <div className="text-sm text-muted-foreground">
+                    Doubled our service area and began serving commercial properties
+                  </div>
+                </Card>
+                <Card className="p-6 text-center" data-testid="card-timeline-2">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Users className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="text-2xl font-bold text-primary mb-2">Year 3</div>
+                  <div className="font-semibold text-foreground mb-2">300+ Homes</div>
+                  <div className="text-sm text-muted-foreground">
+                    Reached milestone of 300+ homes served annually with 5-star service
+                  </div>
+                </Card>
+                <Card className="p-6 text-center" data-testid="card-timeline-3">
+                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Award className="w-8 h-8 text-primary" />
+                  </div>
+                  <div className="text-2xl font-bold text-primary mb-2">Year 4</div>
+                  <div className="font-semibold text-foreground mb-2">5-Star Excellence</div>
+                  <div className="text-sm text-muted-foreground">
+                    Achieved 85+ five-star reviews and industry-leading customer satisfaction
+                  </div>
+                </Card>
+              </div>
+            </div>
+
+            {/* Meet Our Team */}
+            <div>
+              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center text-foreground">
+                Meet Our Team
+              </h3>
+              <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+                <Card className="p-6 text-center" data-testid="card-team-0">
+                  <Avatar className="w-24 h-24 mx-auto mb-4">
+                    <AvatarImage src={teamImage} alt="Dylan - Founder & Lead Installer" />
+                    <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">DN</AvatarFallback>
+                  </Avatar>
+                  <h4 className="font-bold text-lg text-foreground mb-1">Dylan</h4>
+                  <p className="text-sm text-primary font-semibold mb-2">Founder & Lead Installer</p>
+                  <p className="text-sm text-muted-foreground">
+                    Expert installer with a passion for creating stunning holiday displays
+                  </p>
+                </Card>
+                <Card className="p-6 text-center" data-testid="card-team-1">
+                  <Avatar className="w-24 h-24 mx-auto mb-4">
+                    <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">IS</AvatarFallback>
+                  </Avatar>
+                  <h4 className="font-bold text-lg text-foreground mb-1">Installation Specialists</h4>
+                  <p className="text-sm text-primary font-semibold mb-2">Professional Crew</p>
+                  <p className="text-sm text-muted-foreground">
+                    Trained experts dedicated to quality craftsmanship and customer service
+                  </p>
+                </Card>
+                <Card className="p-6 text-center" data-testid="card-team-2">
+                  <Avatar className="w-24 h-24 mx-auto mb-4">
+                    <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">CS</AvatarFallback>
+                  </Avatar>
+                  <h4 className="font-bold text-lg text-foreground mb-1">Customer Support</h4>
+                  <p className="text-sm text-primary font-semibold mb-2">Client Care Team</p>
+                  <p className="text-sm text-muted-foreground">
+                    Responsive, friendly support ensuring your complete satisfaction
+                  </p>
+                </Card>
               </div>
             </div>
           </div>

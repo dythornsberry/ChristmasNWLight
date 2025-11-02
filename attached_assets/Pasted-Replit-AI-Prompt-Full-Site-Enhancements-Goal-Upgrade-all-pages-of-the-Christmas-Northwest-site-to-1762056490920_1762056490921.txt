@@ -1,0 +1,71 @@
+Replit AI Prompt: Full‑Site Enhancements
+
+Goal: Upgrade all pages of the Christmas Northwest site to improve storytelling, social proof and interactivity while preserving the premium, festive aesthetic. Ensure consistent styling using Shadcn/UI components and Tailwind utilities.
+
+🏠 1. About Page – Add Story & Team
+
+Insert a new section after the current “Why Choose Christmas Northwest?” block titled “Our Story”.
+
+Provide a short paragraph about the company’s founding and mission. Highlight 4+ years in business and hundreds of homes served.
+
+Add a small timeline or milestone list (e.g., Year 1 – launched; Year 3 – 300+ homes; Year 4 – 5‑star rating).
+
+Include a row with 2–3 circular team photos and short captions (name & role). Use the Avatar component.
+
+💡 2. Services Page – Structure & Compare
+
+Reorganize services into uniform cards (Roofline Lighting, Tree & Greenery Wrapping, Custom Design Packages, Maintenance & Takedown). Each card should have:
+
+An icon (e.g., house roof, tree, design palette, tools) using existing Shadcn icons.
+
+A headline, starting price, brief description, bullet features, and two buttons (“Get a Quote” and “Learn More”).
+
+Add a comparison table below the cards that outlines which features (e.g., Color Selection, Custom Patterns, Maintenance included) each package includes.
+
+Introduce collapsible FAQ sections under each service for common questions (e.g., “How long does installation take?”).
+
+🌟 3. Testimonials Page – Build an Archive
+
+Replace the current call‑to‑action-only page with a testimonials gallery.
+
+Use a responsive grid or carousel to display at least 4 testimonials, each with:
+
+5‑star icons
+
+Quote text (use existing testimonials from the homepage)
+
+Client’s first name/initial and general area (e.g., “Kyle – Greater Seattle Area”).
+
+Keep a prominent CTA at the bottom (“Get Free Quote” and “Call (425) 215‑0935”).
+
+📍 4. Service Areas Page – Interactive Map
+
+Add an interactive map (e.g., using a simple Leaflet component) centered on the Greater Seattle area with pins for Mill Creek, Mountlake Terrace, Lynnwood, Bellevue, Issaquah, Newcastle, Mercer Island and Seattle (North).
+
+Provide a zip‑code input field that highlights if the entered zip is within the service area (simple client‑side check with a list).
+
+Retain the “Don’t See Your Area?” section but style it as a card with an icon and a brief explanatory paragraph. Keep “Contact Us” and “Call” buttons.
+
+✉️ 5. Contact Page – Make It Friendly
+
+Create a hero section at the top with the headline “Get in Touch” and a short reassurance blurb about quick responses.
+
+Ensure the contact form fields are clearly labeled and use Input components. Make the “Send Message” button full‑width on mobile.
+
+Turn the phone number and email into clickable links (tel: and mailto:).
+
+Embed a small map card showing your base in Kenmore, WA.
+
+After form submission, display a success toast or inline message thanking the user and confirming you’ll respond within 1 business day.
+
+🎁 6. Global Polishing
+
+Maintain consistent spacing (gap‑x, gap‑y, mt‑, py‑) across all cards and sections.
+
+Use a harmonious color palette: deep red for primary CTAs, off‑white/cream backgrounds for cards, subtle gold accents for icons.
+
+Ensure sticky bottom CTA bar stays visible on all pages; test on mobile.
+
+Keep all headings bold (font‑extrabold) and subheads medium weight; adhere to WCAG contrast guidelines.
+
+Tip for Replit AI: Please update all necessary files (e.g., AboutPage.tsx, ServicesPage.tsx, TestimonialsPage.tsx, ServiceAreasPage.tsx, ContactPage.tsx, and any shared components) to reflect these changes. Use existing Shadcn/UI components and Tailwind classes wherever possible to stay consistent with the current design system.

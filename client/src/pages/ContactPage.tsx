@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
-import { Phone, Mail, Clock, MapPin } from "lucide-react";
+import { Phone, Mail, Clock, MapPin, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useLocation } from "wouter";
 
@@ -44,7 +44,7 @@ export default function ContactPage() {
     e.preventDefault();
     toast({
       title: "Message Received!",
-      description: "We'll contact you within 24 hours. Thank you for reaching out!",
+      description: "Thank you for reaching out! We'll get back to you within 1 business day with a custom quote and answer to any questions you have.",
     });
     // Reset form
     setFormData({
@@ -79,11 +79,25 @@ export default function ContactPage() {
                 <span className="text-primary font-semibold">Contact Us</span>
               </div>
               <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-foreground">
-                Let's Get Started
+                Get in Touch
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
-                Ready to transform your home with beautiful holiday lighting? Fill out the form below or give us a call. We typically respond within 24 hours and most installations are completed within a week of booking.
+              <p className="text-xl text-muted-foreground leading-relaxed mb-6">
+                Ready to transform your home with beautiful holiday lighting? We're here to help! Fill out the form below or give us a call. Our team is responsive and friendly, and we typically get back to you within 1 business day.
               </p>
+              <div className="flex flex-wrap justify-center gap-6 text-foreground">
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-primary" />
+                  <span className="font-semibold">Quick Response</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Phone className="w-5 h-5 text-primary" />
+                  <span className="font-semibold">24/7 Seasonal Support</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-primary" />
+                  <span className="font-semibold">Licensed & Insured</span>
+                </div>
+              </div>
             </div>
 
             <div className="grid lg:grid-cols-3 gap-8">
@@ -181,11 +195,17 @@ export default function ContactPage() {
 
                     <Button 
                       type="submit" 
+                      size="lg"
                       className="w-full bg-primary text-primary-foreground font-semibold"
                       data-testid="button-contact-submit"
                     >
                       Send Message
                     </Button>
+                    
+                    <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
+                      <CheckCircle2 className="w-4 h-4 text-primary" />
+                      <span>We'll respond within 1 business day</span>
+                    </div>
                   </form>
                 </Card>
               </div>
@@ -260,9 +280,21 @@ export default function ContactPage() {
                       <div className="text-sm text-muted-foreground">Greater Seattle</div>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-muted-foreground mb-4">
                     Based in Kenmore, WA. Serving Kirkland, Bothell, Woodinville, and surrounding areas.
                   </p>
+                  
+                  {/* Embedded Map for Kenmore, WA */}
+                  <div className="rounded-lg overflow-hidden border border-border">
+                    <iframe 
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21493.75663829!2d-122.25914!3d47.7575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54901507c9c3b3cd%3A0x5d6f3f8a8c8a8c8a!2sKenmore%2C%20WA!5e0!3m2!1sen!2sus!4v1234567890"
+                      width="100%" 
+                      height="200"
+                      style={{ border: 0 }}
+                      loading="lazy"
+                      data-testid="map-kenmore"
+                    />
+                  </div>
                 </Card>
               </div>
             </div>

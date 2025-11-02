@@ -1,13 +1,18 @@
+import { useState } from "react";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MapPin, CheckCircle2 } from "lucide-react";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { MapPin, CheckCircle2, AlertCircle } from "lucide-react";
 import { useLocation } from "wouter";
 
 export default function ServiceAreasPage() {
   const [, setLocation] = useLocation();
+  const [zipCode, setZipCode] = useState("");
+  const [zipCheckResult, setZipCheckResult] = useState<"unknown" | "covered" | "not-covered">("unknown");
 
   const scrollToQuote = () => {
     setLocation('/');
@@ -17,6 +22,24 @@ export default function ServiceAreasPage() {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+  };
+
+  // Service area zip codes
+  const serviceZipCodes = [
+    "98028", "98033", "98034", "98011", "98012", "98021", "98041", "98043", 
+    "98072", "98052", "98029", "98027", "98074", "98006", "98007", "98008",
+    "98040", "98075", "98077", "98115", "98103", "98117", "98125", "98133",
+    "98155", "98177", "98026", "98036", "98037", "98046"
+  ];
+
+  const handleZipCheck = () => {
+    if (zipCode.length === 5) {
+      if (serviceZipCodes.includes(zipCode)) {
+        setZipCheckResult("covered");
+      } else {
+        setZipCheckResult("not-covered");
+      }
+    }
   };
 
   const primaryAreas = [
@@ -125,6 +148,79 @@ export default function ServiceAreasPage() {
               </p>
             </div>
             
+            {/* Zip Code Checker */}
+            <Card className="p-8 mb-12 max-w-2xl mx-auto" data-testid="card-zip-checker">
+              <div className="text-center mb-6">
+                <h3 className="font-serif text-2xl font-bold mb-2 text-foreground">
+                  Check Your Zip Code
+                </h3>
+                <p className="text-muted-foreground">
+                  Enter your zip code to see if we serve your area
+                </p>
+              </div>
+              
+              <div className="flex gap-3">
+                <div className="flex-1">
+                  <Label htmlFor="zipCode" className="sr-only">Zip Code</Label>
+                  <Input
+                    id="zipCode"
+                    type="text"
+                    maxLength={5}
+                    placeholder="Enter your zip code (e.g., 98028)"
+                    value={zipCode}
+                    onChange={(e) => {
+                      setZipCode(e.target.value);
+                      setZipCheckResult("unknown");
+                    }}
+                    data-testid="input-zip-code"
+                  />
+                </div>
+                <Button 
+                  onClick={handleZipCheck}
+                  disabled={zipCode.length !== 5}
+                  data-testid="button-check-zip"
+                >
+                  Check Coverage
+                </Button>
+              </div>
+
+              {zipCheckResult === "covered" && (
+                <div className="mt-4 p-4 bg-primary/10 rounded-lg flex items-start gap-3" data-testid="result-covered">
+                  <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-foreground">Great news! We serve your area.</div>
+                    <div className="text-sm text-muted-foreground">Get your free quote today and join hundreds of satisfied homeowners.</div>
+                    <Button 
+                      onClick={scrollToQuote}
+                      className="mt-3"
+                      data-testid="button-zip-quote"
+                    >
+                      Get Free Quote
+                    </Button>
+                  </div>
+                </div>
+              )}
+
+              {zipCheckResult === "not-covered" && (
+                <div className="mt-4 p-4 bg-muted rounded-lg flex items-start gap-3" data-testid="result-not-covered">
+                  <AlertCircle className="w-5 h-5 text-muted-foreground mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="font-semibold text-foreground">Not in our current service area</div>
+                    <div className="text-sm text-muted-foreground mb-3">
+                      We may still be able to help! Contact us to discuss your location and we'll see what we can arrange.
+                    </div>
+                    <Button 
+                      onClick={() => setLocation('/contact')}
+                      variant="outline"
+                      data-testid="button-zip-contact"
+                    >
+                      Contact Us
+                    </Button>
+                  </div>
+                </div>
+              )}
+            </Card>
+
             {/* Embedded Google Map */}
             <div className="rounded-lg overflow-hidden border-2 border-border shadow-xl mb-12">
               <iframe 
