@@ -58,6 +58,7 @@ import halloweenHouse from '@assets/unnamed-15-min_1762064292781.jpg';
 import redTreeSnowmen from '@assets/2024-11-28-2-min_1762064344572.jpg';
 import redGreenWarmWhiteHouse from '@assets/northwest-christmas-light-installer-17-scaled-1-2-min_1762064486263.jpg';
 import mistletoeHouse from '@assets/2024-11-11-2-min_1762064400632.jpg';
+import warmWhiteHouse from '@assets/1-2-min_1762064533191.jpeg';
 import residentialImage from '@assets/img4_1761853506443.webp';
 import commercialImage from '@assets/img7_1761853506443.webp';
 import customImage from '@assets/img16_1761853506444.webp';
@@ -206,6 +207,7 @@ export default function Home() {
     { id: 34, image: multicolorTree, category: "Trees", title: "Stunning Multicolor Tree Display" },
     { id: 35, image: halloweenHouse, category: "Halloween", title: "Spooky Halloween Display" },
     { id: 36, image: redTreeSnowmen, category: "Trees", title: "Red Tree Wrap with Snowmen" },
+    { id: 37, image: warmWhiteHouse, category: "Houses", title: "Elegant Warm White Display" },
   ];
 
   const colorOptions = [
