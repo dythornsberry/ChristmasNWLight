@@ -4,7 +4,7 @@ import StickyBottomCTA from "@/components/StickyBottomCTA";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DollarSign, Home, Building2, Sparkles, CheckCircle2, TrendingUp, Clock, Shield } from "lucide-react";
+import { DollarSign, Home, Building2, Sparkles, CheckCircle2, TrendingUp, Clock, Shield, Phone } from "lucide-react";
 
 export default function InvestmentGuide() {
   const scrollToQuote = () => {
