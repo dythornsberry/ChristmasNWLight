@@ -2,7 +2,16 @@
 
 ## Overview
 
-Christmas Northwest is a conversion-focused single-page website for a professional Christmas light installation service in the Greater Seattle area. The site is modeled after a lead-generation approach, featuring an embedded quote form in the hero section, sticky bottom CTAs, and a streamlined service presentation. Built as a full-stack TypeScript application with React and Express, it combines premium Christmas branding with a clean, conversion-optimized layout to maximize quote requests for its fourth season of operation, serving hundreds of homes annually.
+Christmas Northwest is a conversion-focused multi-page website for a professional Christmas light installation service in the Greater Seattle area. The site features an auto-rotating hero carousel with flagship installation photos, a dedicated gallery page with 17 categorized photos and lightbox view, and an embedded quote form for lead generation. Built as a full-stack TypeScript application with React and Express, it combines premium Christmas branding with a clean, conversion-optimized layout to maximize quote requests for its fourth season of operation, serving hundreds of homes annually.
+
+## Recent Changes
+
+### November 2025 - Photo Gallery Enhancement
+- **Hero Carousel:** Replaced static background with auto-rotating carousel featuring 4 flagship photos (child with tree, family photo, brick mansion, custom tree display). Auto-rotates every 5 seconds with pause-on-interaction functionality. Manual controls include previous/next buttons and clickable indicators.
+- **Gallery Page:** Created dedicated `/gallery` page with 17 real installation photos organized into 5 categories (All, Warm White, Multicolor, Trees, Custom). Features responsive 3-column grid, category badge filtering, and full-screen lightbox with navigation.
+- **Portfolio Section:** Added "View Full Gallery" CTA button linking to gallery page, maintaining existing 6-photo preview grid.
+- **Performance:** Implemented lazy loading on all gallery images for optimized page load performance.
+- **Navigation:** Added Gallery link to sticky header between Services and Testimonials.
 
 ## User Preferences
 
@@ -13,7 +22,15 @@ Design approach: Conversion-focused layout modeled after Premier Home Pros (layo
 
 ### Frontend Architecture
 
-The frontend is a React 18 application with TypeScript, built using Vite for fast development and optimized production builds. It leverages Shadcn/ui for consistent, accessible components, built on Radix UI primitives, and styled with Tailwind CSS using a custom design system. Key components include a `StickyHeader`, `Hero` with an embedded quote form, `Portfolio` gallery with filters, `ColorOptions`, `BeforeAfter` comparisons, and a `StickyBottomCTA` bar. Wouter is used for lightweight client-side routing, and React Query manages server state.
+The frontend is a React 18 application with TypeScript, built using Vite for fast development and optimized production builds. It leverages Shadcn/ui for consistent, accessible components, built on Radix UI primitives, and styled with Tailwind CSS using a custom design system. Key components include:
+- **StickyHeader:** Main navigation with Gallery link and phone/CTA buttons
+- **Hero:** Auto-rotating carousel with 4 flagship photos, manual controls (prev/next buttons, indicators), embedded quote form, and pause-on-interaction functionality
+- **Portfolio:** Preview gallery with 6 photos, category filters, and "View Full Gallery" CTA
+- **GalleryPage:** Dedicated page with 17 categorized photos, badge-based filtering, lightbox with full-screen viewing and navigation
+- **ColorOptions, BeforeAfter:** Product showcase components
+- **StickyBottomCTA:** Persistent conversion element
+
+Multi-page routing is handled by Wouter, and React Query manages server state. All gallery images use lazy loading for optimal performance.
 
 ### Backend Architecture
 

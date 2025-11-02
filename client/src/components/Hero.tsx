@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -41,7 +41,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
 
   // Auto-rotate hero images every 5 seconds, pause on user interaction
   const [isPaused, setIsPaused] = useState(false);
-  const pauseTimeoutRef = React.useRef<number | null>(null);
+  const pauseTimeoutRef = useRef<number | null>(null);
   
   useEffect(() => {
     if (isPaused) return;
