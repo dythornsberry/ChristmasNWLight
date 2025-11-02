@@ -26,20 +26,20 @@ export default function InvestmentGuide() {
   const pricingTiers = [
     {
       id: 1,
-      name: "Essential Display",
+      name: "Classic Roofline",
       range: "$800 - $1,500",
       icon: Home,
       image: essentialPhoto,
-      description: "Perfect for single-story homes or those looking for a clean, classic roofline display.",
+      description: "Perfect starter display for those wanting a clean, classic look.",
       includes: [
         "Roofline lighting with C9 bulbs",
-        "Single color scheme",
+        "Or roofline plus 1-2 simple additions like columns, wreaths, or garage outline",
         "Professional installation",
         "Seasonal maintenance check",
         "Secure year-round storage",
         "Free removal & reinstall next year"
       ],
-      ideal: "Smaller homes, condos, or homeowners wanting elegant simplicity"
+      ideal: "Smaller homes, condos, or those wanting elegant simplicity"
     },
     {
       id: 2,
@@ -48,12 +48,10 @@ export default function InvestmentGuide() {
       icon: Building2,
       image: signaturePhoto,
       popular: true,
-      description: "Our most popular package. Complete front-of-home transformation with multiple elements.",
+      description: "Our most popular range. Comprehensive coverage with much more lighting throughout your property.",
       includes: [
-        "Full roofline & peak lighting",
-        "Bushes & shrubs with mini lights",
-        "Pathway or driveway accent lights",
-        "Up to 2 color combinations",
+        "Roofline, wreaths, bushes, columns, ground lights, trees, balconies, and more",
+        "Multiple product types and color combinations",
         "Professional installation",
         "Seasonal maintenance visits",
         "Secure year-round storage",
@@ -67,17 +65,14 @@ export default function InvestmentGuide() {
       range: "$3,000 - $6,000+",
       icon: Sparkles,
       image: premierPhoto,
-      description: "Complete property transformation with premium details and custom design elements.",
+      description: "Complete property transformation with extensive lighting throughout.",
       includes: [
-        "Full property lighting (front & sides)",
-        "Multiple tree wraps & light spheres",
-        "Column wraps & architectural accents",
-        "Garage door outlines",
-        "Multiple color zones",
-        "Custom design consultation",
+        "Tons of lights across your entire property",
+        "Full roofline, multiple trees, all landscaping, architectural features, and more",
+        "Multiple color zones and premium design elements",
         "Professional installation team",
         "Multiple maintenance visits",
-        "Secure climate-controlled storage",
+        "Secure year-round storage",
         "VIP priority scheduling"
       ],
       ideal: "Large estates, luxury homes, or those wanting show-stopping displays"
@@ -232,6 +227,12 @@ export default function InvestmentGuide() {
               );
             })}
           </div>
+
+          <Card className="mt-12 p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-gold/20 max-w-3xl mx-auto">
+            <p className="text-base text-center text-muted-foreground leading-relaxed">
+              <strong className="text-foreground">Every home is unique.</strong> These ranges reflect the total amount of lighting installed, not strict packages. A small home with a steep roof may cost more than a larger single-story home. Your custom quote is based on your specific property size, design preferences, and coverage goals.
+            </p>
+          </Card>
 
           <div className="text-center mt-12">
             <Button
