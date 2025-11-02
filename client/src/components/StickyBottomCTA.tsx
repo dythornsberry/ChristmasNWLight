@@ -18,7 +18,7 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
             data-testid="button-sticky-schedule"
           >
             <Calendar className="w-5 h-5" />
-            <span className="text-xs md:text-sm font-semibold">SCHEDULE</span>
+            <span className="text-xs md:text-sm font-semibold">BOOK NOW</span>
           </Button>
           
           <Button 
@@ -28,7 +28,7 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
             data-testid="button-sticky-call"
           >
             <Phone className="w-5 h-5" />
-            <span className="text-xs md:text-sm font-semibold">CALL NOW!</span>
+            <span className="text-xs md:text-sm font-semibold">CALL NOW</span>
           </Button>
           
           <Button 
@@ -39,7 +39,7 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
             data-testid="button-sticky-quote"
           >
             <FileText className="w-5 h-5" />
-            <span className="text-xs md:text-sm font-semibold">GET A QUOTE</span>
+            <span className="text-xs md:text-sm font-semibold">FREE CONSULT</span>
           </Button>
         </div>
       </div>

@@ -23,7 +23,7 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
             What Our Customers Say
           </h2>
           <p className="text-lg text-muted-foreground">
-            Join hundreds of satisfied homeowners and businesses across the Pacific Northwest
+            Homeowners who value quality trust us year after year for stress-free, stunning results
           </p>
         </div>
 

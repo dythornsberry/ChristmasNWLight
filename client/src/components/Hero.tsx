@@ -74,11 +74,11 @@ export default function Hero({ onGetQuote }: HeroProps) {
             </div>
 
             <h1 className="font-serif text-5xl md:text-7xl font-extrabold mb-8 leading-tight tracking-tight">
-              Fast, Beautiful, and Premium Holiday Lighting
+              Premium Holiday Lighting, Zero Hassle
             </h1>
             
             <p className="text-2xl md:text-3xl mb-10 text-white/95 leading-relaxed font-semibold">
-              Installed within a week of booking!
+              Sit back while we create your holiday wonderland—no ladders, no stress, just more time to enjoy the season.
             </p>
 
             {/* Trust Badges */}
@@ -99,7 +99,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
             <div className="space-y-4 text-white/90 text-lg">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="font-medium">Serving Hundreds of Homes Every Season</span>
+                <span className="font-medium">Design, Install, Maintain, Takedown & Storage—All Included</span>
               </div>
               <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg">
                 <div className="w-2 h-2 bg-primary rounded-full" />
@@ -107,15 +107,15 @@ export default function Hero({ onGetQuote }: HeroProps) {
               </div>
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="font-medium">Commercial-Grade LED Lights</span>
+                <span className="font-medium">300+ Homes Annually • 4th Season Serving Greater Seattle</span>
               </div>
             </div>
           </div>
 
           {/* Right Side - Quote Form */}
           <div id="quote" className="bg-card border border-border rounded-lg p-8 shadow-2xl">
-            <h2 className="text-2xl font-bold mb-2 text-foreground">Get Your Free Quote</h2>
-            <p className="text-muted-foreground mb-6">Fill out the form below for a free installation estimate</p>
+            <h2 className="text-2xl font-bold mb-2 text-foreground">Reserve Your Premium Installation</h2>
+            <p className="text-muted-foreground mb-6">Get your free consultation and custom design estimate—no obligation, no hassle</p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -205,7 +205,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
                 className="w-full text-lg font-bold mt-6"
                 data-testid="button-submit-quote"
               >
-                Get My Free Quote
+                Get My Free Consultation
               </Button>
               
               <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
