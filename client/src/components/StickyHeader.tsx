@@ -45,7 +45,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
             {navLinks.map((link) => (
               <Link key={link.href} href={link.href}>
                 <Button 
-                  variant="ghost" 
+                  variant={location === link.href ? "default" : "ghost"}
                   size="default"
                   data-testid={link.testId}
                 >

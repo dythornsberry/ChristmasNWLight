@@ -1,6 +1,7 @@
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
+import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap } from "lucide-react";
@@ -104,6 +105,10 @@ export default function ProductGuide() {
 
   return (
     <div className="min-h-screen bg-background">
+      <PageHead 
+        title="Premium Christmas Lighting Products | C9 Bulbs, Mini Lights | Christmas Northwest"
+        description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for bushes, Ground Lights for pathways, and Tree Wraps. Energy-efficient, weather-resistant, professional quality. Seattle area."
+      />
       <StickyHeader onGetQuote={scrollToQuote} />
       
       {/* Hero Section */}
