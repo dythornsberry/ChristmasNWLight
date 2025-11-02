@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -29,12 +29,43 @@ export default function WatermarkedImage({
     setIsLightboxOpen(false);
   };
 
+  const handleKeyDown = (e: ReactKeyboardEvent) => {
+    if (enableLightbox && (e.key === 'Enter' || e.key === ' ')) {
+      e.preventDefault();
+      setIsLightboxOpen(true);
+    }
+  };
+
+  // Add Escape key handler
+  useEffect(() => {
+    if (!isLightboxOpen) return;
+
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsLightboxOpen(false);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isLightboxOpen]);
+
+  const Wrapper = enableLightbox ? 'button' : 'div';
+  const wrapperProps = enableLightbox 
+    ? {
+        type: 'button' as const,
+        onClick: handleImageClick,
+        onKeyDown: handleKeyDown,
+        className: `relative cursor-pointer border-0 p-0 bg-transparent w-full h-full ${className}`,
+        'aria-label': `View ${alt} in full size`,
+      }
+    : {
+        className: `relative ${className}`,
+      };
+
   return (
     <>
-      <div 
-        className={`relative ${enableLightbox ? 'cursor-pointer' : ''} ${className}`}
-        onClick={handleImageClick}
-      >
+      <Wrapper {...wrapperProps}>
         <img 
           src={src} 
           alt={alt}
@@ -42,12 +73,18 @@ export default function WatermarkedImage({
           loading="lazy"
         />
         {/* Watermark Overlay */}
-        <div className="absolute bottom-2 right-2 bg-black/50 px-3 py-1 rounded-md pointer-events-none">
+        <div 
+          className="absolute bottom-2 right-2 px-3 py-1 pointer-events-none"
+          style={{
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            borderRadius: '0.375rem'
+          }}
+        >
           <p className="text-white text-xs font-semibold tracking-wide">
             {watermarkText}
           </p>
         </div>
-      </div>
+      </Wrapper>
 
       {/* Lightbox Modal */}
       {enableLightbox && isLightboxOpen && (
@@ -71,7 +108,13 @@ export default function WatermarkedImage({
               className="max-w-full max-h-[90vh] object-contain"
             />
             {/* Watermark in lightbox too */}
-            <div className="absolute bottom-4 right-4 bg-black/50 px-4 py-2 rounded-md">
+            <div 
+              className="absolute bottom-4 right-4 px-4 py-2"
+              style={{
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                borderRadius: '0.375rem'
+              }}
+            >
               <p className="text-white text-sm font-semibold tracking-wide">
                 {watermarkText}
               </p>
