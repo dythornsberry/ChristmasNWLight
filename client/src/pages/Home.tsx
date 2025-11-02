@@ -225,11 +225,6 @@ export default function Home() {
       description: "Festive and vibrant for a playful holiday display"
     },
     {
-      name: "Red + Green",
-      image: redGreenHouse,
-      description: "Traditional Christmas colors for classic cheer"
-    },
-    {
       name: "Red + White",
       image: redWarmWhiteHouse,
       description: "Candy cane colors for festive charm"
