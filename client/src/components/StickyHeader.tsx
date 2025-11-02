@@ -24,13 +24,18 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
     { href: "/contact", label: "Contact", testId: "nav-contact" },
   ];
 
+  const handleNavClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setOpen(false);
+  };
+
   return (
     <header className="sticky top-0 z-50 bg-card border-b border-border shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/">
-            <div className="flex items-center cursor-pointer">
+            <div className="flex items-center cursor-pointer" onClick={handleNavClick}>
               <img 
                 src={logoImage} 
                 alt="Christmas Northwest" 
@@ -47,6 +52,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
                 <Button 
                   variant={location === link.href ? "default" : "ghost"}
                   size="default"
+                  onClick={handleNavClick}
                   data-testid={link.testId}
                 >
                   {link.label}
@@ -95,7 +101,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
                       <Button
                         variant={location === link.href ? "default" : "ghost"}
                         className="w-full justify-start text-lg"
-                        onClick={() => setOpen(false)}
+                        onClick={handleNavClick}
                         data-testid={`mobile-${link.testId}`}
                       >
                         {link.label}
