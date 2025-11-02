@@ -68,7 +68,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
                 <div className="text-sm font-semibold">Residential Installations</div>
                 <div className="flex items-center gap-1 text-xs text-primary-foreground/90">
                   <Clock className="w-3 h-3" />
-                  <span>Limited Availability</span>
+                  <span>Same-Week Installation</span>
                 </div>
               </div>
             </div>
