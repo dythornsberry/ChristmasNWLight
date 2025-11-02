@@ -74,15 +74,22 @@ export default function WatermarkedImage({
         />
         {/* Watermark Overlay */}
         <div 
-          className="absolute bottom-2 right-2 px-3 py-1 pointer-events-none"
+          className="absolute"
           style={{
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            borderRadius: '0.375rem'
+            bottom: '12px',
+            right: '12px',
+            padding: '8px 16px',
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+            borderRadius: '8px',
+            border: '2px solid rgba(255, 255, 255, 0.4)',
+            color: 'white',
+            fontSize: '14px',
+            fontWeight: '700',
+            letterSpacing: '0.05em',
+            pointerEvents: 'none'
           }}
         >
-          <p className="text-white text-xs font-semibold tracking-wide">
-            {watermarkText}
-          </p>
+          {watermarkText}
         </div>
       </Wrapper>
 
@@ -109,15 +116,22 @@ export default function WatermarkedImage({
             />
             {/* Watermark in lightbox too */}
             <div 
-              className="absolute bottom-4 right-4 px-4 py-2"
+              className="absolute"
               style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                borderRadius: '0.375rem'
+                bottom: '24px',
+                right: '24px',
+                padding: '12px 20px',
+                backgroundColor: 'rgba(0, 0, 0, 0.8)',
+                borderRadius: '8px',
+                border: '2px solid rgba(255, 255, 255, 0.5)',
+                color: 'white',
+                fontSize: '18px',
+                fontWeight: '700',
+                letterSpacing: '0.05em',
+                pointerEvents: 'none'
               }}
             >
-              <p className="text-white text-sm font-semibold tracking-wide">
-                {watermarkText}
-              </p>
+              {watermarkText}
             </div>
           </div>
         </div>
