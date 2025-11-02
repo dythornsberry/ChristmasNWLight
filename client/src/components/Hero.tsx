@@ -1,16 +1,6 @@
-import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Clock, Star } from "lucide-react";
-import { useToast } from "@/hooks/use-toast";
+import { Badge } from "@/components/ui/badge";
+import { Shield, ArrowRight } from "lucide-react";
 import heroImage from '@assets/generated_images/Hero_home_Christmas_lights_dusk_a9a01c87.png';
 
 interface HeroProps {
@@ -18,33 +8,6 @@ interface HeroProps {
 }
 
 export default function Hero({ onGetQuote }: HeroProps) {
-  const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    zipCode: "",
-    serviceType: ""
-  });
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({
-      title: "Quote Request Received!",
-      description: "We'll contact you within 24 hours with your custom estimate.",
-    });
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      zipCode: "",
-      serviceType: ""
-    });
-  };
-
   return (
     <section className="relative min-h-screen flex items-center py-20 overflow-hidden">
       {/* Background Image */}
@@ -54,137 +17,37 @@ export default function Hero({ onGetQuote }: HeroProps) {
           backgroundImage: `url(${heroImage})`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/75 to-black/65" />
+      {/* Lighter gradient overlay to showcase the image */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-black/30 to-transparent" />
       
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Side - Headline & Offer */}
-          <div className="text-white">
-            <h1 className="font-serif text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
-              Premium Holiday Lighting, Zero Hassle
-            </h1>
+        <div className="max-w-3xl">
+          {/* Minimalist content */}
+          <h1 className="font-serif text-6xl md:text-8xl font-extrabold mb-6 leading-tight tracking-tight text-white drop-shadow-2xl">
+            Premium Holiday Lighting, Zero Hassle
+          </h1>
+          
+          <p className="text-2xl md:text-3xl mb-10 text-white leading-relaxed drop-shadow-lg">
+            Sit back while we create your holiday wonderland.
+          </p>
+
+          {/* Single CTA Button */}
+          <div className="flex flex-col sm:flex-row gap-4 items-start">
+            <Button 
+              onClick={onGetQuote}
+              size="lg" 
+              className="text-lg font-bold px-10 py-6 h-auto"
+              data-testid="button-hero-cta"
+            >
+              Request Free Design
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Button>
             
-            <p className="text-xl md:text-2xl mb-8 text-white/95 leading-relaxed">
-              Sit back while we create your holiday wonderland - no ladders, no stress, just more time to enjoy the season.
-            </p>
-
-            <div className="space-y-3 text-white/90 text-base md:text-lg mb-8">
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
-                <span>Design, Install, Maintain, Takedown & Storage - All Included</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
-                <span>Licensed, Bonded & Insured • $800+ Starting Price</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Side - Quote Form */}
-          <div id="quote" className="bg-card border border-border rounded-lg p-8 shadow-2xl">
-            <h2 className="text-2xl font-bold mb-2 text-foreground">Request Free Design</h2>
-            <p className="text-muted-foreground mb-6">Get your custom design estimate - no obligation, no hassle</p>
-            
-            <form onSubmit={handleSubmit} className="space-y-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="space-y-2">
-                  <Label htmlFor="firstName">First Name *</Label>
-                  <Input
-                    id="firstName"
-                    value={formData.firstName}
-                    onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                    required
-                    data-testid="input-first-name"
-                    placeholder="John"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor="lastName">Last Name *</Label>
-                  <Input
-                    id="lastName"
-                    value={formData.lastName}
-                    onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                    required
-                    data-testid="input-last-name"
-                    placeholder="Smith"
-                  />
-                </div>
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="email">Email *</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  value={formData.email}
-                  onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  required
-                  data-testid="input-email"
-                  placeholder="john@example.com"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="phone">Phone Number *</Label>
-                <Input
-                  id="phone"
-                  type="tel"
-                  value={formData.phone}
-                  onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                  required
-                  data-testid="input-phone"
-                  placeholder="(425) 555-0123"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="zipCode">Zip Code *</Label>
-                <Input
-                  id="zipCode"
-                  value={formData.zipCode}
-                  onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })}
-                  required
-                  data-testid="input-zip-code"
-                  placeholder="98028"
-                />
-              </div>
-
-              <div className="space-y-2">
-                <Label htmlFor="serviceType">Service Interest *</Label>
-                <Select
-                  value={formData.serviceType}
-                  onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
-                >
-                  <SelectTrigger data-testid="select-service-type">
-                    <SelectValue placeholder="Select service type" />
-                  </SelectTrigger>
-                  <SelectContent>
-                    <SelectItem value="residential">Residential Installation</SelectItem>
-                    <SelectItem value="commercial">Commercial Installation</SelectItem>
-                    <SelectItem value="custom">Custom Design</SelectItem>
-                    <SelectItem value="full-service">Full White-Glove Service</SelectItem>
-                  </SelectContent>
-                </Select>
-              </div>
-
-              <Button 
-                type="submit" 
-                size="lg" 
-                className="w-full text-lg font-bold mt-6"
-                data-testid="button-submit-quote"
-              >
-                Request Free Design
-              </Button>
-              
-              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
-                <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                <span className="font-semibold">Licensed, Bonded & Insured Professional Service</span>
-              </div>
-
-              <p className="text-xs text-muted-foreground">
-                By submitting this form, you consent to receive text messages and calls from Christmas Light Installers Northwest for marketing and customer care. Message frequency may vary. Reply "STOP" to unsubscribe. We will never share your information with 3rd parties.
-              </p>
-            </form>
+            {/* Compact trust badge */}
+            <Badge variant="secondary" className="bg-white/95 text-foreground backdrop-blur-sm px-4 py-3 text-sm flex items-center gap-2 h-auto">
+              <Shield className="w-4 h-4" />
+              Licensed, Bonded & Insured • $800+
+            </Badge>
           </div>
         </div>
       </div>

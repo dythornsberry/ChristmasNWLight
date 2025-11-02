@@ -1,5 +1,6 @@
 import StickyHeader from "@/components/StickyHeader";
 import Hero from "@/components/Hero";
+import QuoteFormSection from "@/components/QuoteFormSection";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import ColorOptions from "@/components/ColorOptions";
@@ -282,7 +283,9 @@ export default function Home() {
     <div className="min-h-screen pb-20">
       <StickyHeader onGetQuote={scrollToQuote} />
       
-      <Hero />
+      <Hero onGetQuote={scrollToQuote} />
+
+      <QuoteFormSection />
 
       <Services services={services} onLearnMore={handleServiceLearnMore} />
 
