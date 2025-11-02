@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { useLocation } from "wouter";
+import { ArrowRight } from "lucide-react";
 
 interface PortfolioItem {
   id: number;
@@ -15,6 +17,7 @@ interface PortfolioProps {
 }
 
 export default function Portfolio({ items }: PortfolioProps) {
+  const [, setLocation] = useLocation();
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   
   const categories = ["All", "Residential", "Commercial", "Custom", "Details"];
@@ -83,6 +86,23 @@ export default function Portfolio({ items }: PortfolioProps) {
             <p className="text-muted-foreground">No projects found in this category.</p>
           </div>
         )}
+
+        {/* View Full Gallery CTA */}
+        <div className="text-center mt-12">
+          <Button
+            onClick={() => setLocation('/gallery')}
+            variant="default"
+            size="lg"
+            className="bg-primary text-primary-foreground font-semibold"
+            data-testid="button-view-gallery"
+          >
+            View Full Gallery
+            <ArrowRight className="w-4 h-4 ml-2" />
+          </Button>
+          <p className="text-sm text-muted-foreground mt-3">
+            Browse all our installations with advanced filtering and lightbox view
+          </p>
+        </div>
       </div>
     </section>
   );

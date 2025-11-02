@@ -1,0 +1,274 @@
+import { useState } from "react";
+import StickyHeader from "@/components/StickyHeader";
+import Footer from "@/components/Footer";
+import StickyBottomCTA from "@/components/StickyBottomCTA";
+import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { useLocation } from "wouter";
+
+// Import all gallery images
+import img1 from '@assets/2024-11-25-min_1762058047474.jpg';
+import img2 from '@assets/2024-11-17-3-min_1762058047475.jpg';
+import img3 from '@assets/2023-11-10-3-min_1762058047475.jpg';
+import img4 from '@assets/2024-11-17-4-min_1762058047475.jpg';
+import img5 from '@assets/2022-12-01-min_1762058047475.jpg';
+import img6 from '@assets/unnamed-14-min_1762058047475.jpg';
+import img7 from '@assets/2023-11-14-min_1762058047475.jpg';
+import img8 from '@assets/2024-11-23-min_1762058047475.jpg';
+import img9 from '@assets/2025-10-28-min_1762058047476.jpg';
+import img10 from '@assets/2024-12-25-min_1762058047476.jpg';
+import img11 from '@assets/unnamed-15-min_1762058047476.jpg';
+import img12 from '@assets/2024-12-03-min_1762058047476.jpg';
+import img13 from '@assets/2025-10-28-2-min_1762058047476.jpg';
+import img14 from '@assets/2024-10-27-min_1762058047476.jpg';
+import img15 from '@assets/2024-11-11-2-min_1762058047476.jpg';
+import img16 from '@assets/2024-11-28-2-min_1762058047476.jpg';
+import img17 from '@assets/2025-09-04-min_1762058047477.jpg';
+
+interface GalleryImage {
+  id: number;
+  src: string;
+  alt: string;
+  category: string;
+  title: string;
+}
+
+const galleryImages: GalleryImage[] = [
+  { id: 1, src: img1, alt: "Multicolor roofline installation on large home", category: "Multicolor", title: "Festive Multicolor Display" },
+  { id: 2, src: img2, alt: "Family enjoying custom holiday lighting", category: "Custom", title: "Family Holiday Tradition" },
+  { id: 3, src: img3, alt: "Vibrant multicolor roofline with pillars", category: "Multicolor", title: "Bold Multicolor Design" },
+  { id: 4, src: img4, alt: "Elegant tree wrap with warm white lights", category: "Trees", title: "Atmospheric Tree Lighting" },
+  { id: 5, src: img5, alt: "Beautiful tricolor lights in snow", category: "Multicolor", title: "Winter Wonderland" },
+  { id: 6, src: img6, alt: "Child admiring massive lit tree", category: "Trees", title: "Magical Tree Experience" },
+  { id: 7, src: img7, alt: "Elegant brick mansion with warm white", category: "Warm White", title: "Classic Mansion Elegance" },
+  { id: 8, src: img8, alt: "Modern home with clean warm white", category: "Warm White", title: "Contemporary Classic" },
+  { id: 9, src: img9, alt: "Spectacular custom tree display", category: "Custom", title: "Premium Custom Display" },
+  { id: 10, src: img10, alt: "Elegant home with unique architecture", category: "Warm White", title: "Architectural Showcase" },
+  { id: 11, src: img11, alt: "Purple and multicolor custom display", category: "Custom", title: "Bold Custom Creation" },
+  { id: 12, src: img12, alt: "Full yard custom design with decorations", category: "Custom", title: "Complete Holiday Scene" },
+  { id: 13, src: img13, alt: "Tree with firework starburst lights", category: "Trees", title: "Starburst Tree Magic" },
+  { id: 14, src: img14, alt: "Warm white roofline with multicolor tree", category: "Multicolor", title: "Mixed Color Harmony" },
+  { id: 15, src: img15, alt: "Modern home with warm white and wreath", category: "Warm White", title: "Modern Holiday Elegance" },
+  { id: 16, src: img16, alt: "Red tree wrap with blue snowmen", category: "Trees", title: "Creative Tree Design" },
+  { id: 17, src: img17, alt: "Vibrant multicolor on dark modern home", category: "Multicolor", title: "Striking Night Display" }
+];
+
+export default function GalleryPage() {
+  const [, setLocation] = useLocation();
+  const [selectedCategory, setSelectedCategory] = useState<string>("All");
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  const scrollToQuote = () => {
+    setLocation('/');
+    setTimeout(() => {
+      const element = document.getElementById('quote');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }, 100);
+  };
+
+  const categories = ["All", "Warm White", "Multicolor", "Trees", "Custom"];
+  
+  const filteredImages = selectedCategory === "All" 
+    ? galleryImages 
+    : galleryImages.filter(img => img.category === selectedCategory);
+
+  const openLightbox = (index: number) => {
+    setLightboxIndex(index);
+  };
+
+  const closeLightbox = () => {
+    setLightboxIndex(null);
+  };
+
+  const goToPrevious = () => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex - 1 + filteredImages.length) % filteredImages.length);
+    }
+  };
+
+  const goToNext = () => {
+    if (lightboxIndex !== null) {
+      setLightboxIndex((lightboxIndex + 1) % filteredImages.length);
+    }
+  };
+
+  return (
+    <div className="min-h-screen flex flex-col">
+      <StickyHeader onGetQuote={scrollToQuote} />
+
+      {/* Seasonal Promotional Banner */}
+      <div className="bg-gradient-to-r from-primary via-primary to-primary/90 py-3 text-center sticky top-16 z-40 shadow-md">
+        <div className="max-w-7xl mx-auto px-6">
+          <p className="text-primary-foreground font-semibold text-sm md:text-base">
+            Book Your Installation Today - Same-Week Service Available
+          </p>
+        </div>
+      </div>
+
+      <main className="flex-1">
+        {/* Hero Section */}
+        <section className="py-16 md:py-24 bg-gradient-to-b from-muted/30 to-background">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center max-w-4xl mx-auto mb-12">
+              <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
+                <span className="text-primary font-semibold">Our Work</span>
+              </div>
+              <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-foreground">
+                Installation Gallery
+              </h1>
+              <p className="text-xl text-muted-foreground leading-relaxed">
+                Explore our collection of beautiful holiday lighting installations. Every home tells a story, and we're proud to showcase the magic we've created for families across Greater Seattle.
+              </p>
+            </div>
+
+            {/* Category Filters */}
+            <div className="flex flex-wrap gap-3 justify-center mb-12">
+              {categories.map((category) => (
+                <Badge
+                  key={category}
+                  variant={selectedCategory === category ? "default" : "secondary"}
+                  className="px-6 py-2 cursor-pointer text-sm font-semibold"
+                  onClick={() => setSelectedCategory(category)}
+                  data-testid={`badge-gallery-${category.toLowerCase().replace(' ', '-')}`}
+                >
+                  {category}
+                </Badge>
+              ))}
+            </div>
+
+            {/* Gallery Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredImages.map((image, index) => (
+                <Card 
+                  key={image.id} 
+                  className="group overflow-hidden hover-elevate cursor-pointer"
+                  onClick={() => openLightbox(index)}
+                  data-testid={`card-gallery-${image.id}`}
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={image.src} 
+                      alt={image.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                      <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        View Full Size
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <Badge variant="secondary" className="mb-2">
+                      {image.category}
+                    </Badge>
+                    <h3 className="font-semibold text-foreground">{image.title}</h3>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            {filteredImages.length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">No images found in this category.</p>
+              </div>
+            )}
+          </div>
+        </section>
+
+        {/* CTA Section */}
+        <section className="py-20 bg-gradient-to-r from-primary via-primary to-primary/90">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
+              Ready to Transform Your Home?
+            </h2>
+            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+              Let's create a beautiful holiday display for your home. Get your free quote today and join the hundreds of satisfied homeowners we serve every season.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              <Button 
+                onClick={scrollToQuote}
+                variant="outline"
+                className="bg-background text-foreground hover:bg-background/90 font-semibold border-2 border-primary-foreground/20"
+                data-testid="button-gallery-cta-quote"
+              >
+                Get Free Quote
+              </Button>
+              <Button 
+                variant="outline"
+                className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-semibold"
+                onClick={() => window.location.href = 'tel:4252150935'}
+                data-testid="button-gallery-cta-call"
+              >
+                Call (425) 215-0935
+              </Button>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
+      <StickyBottomCTA onGetQuote={scrollToQuote} />
+
+      {/* Lightbox */}
+      {lightboxIndex !== null && (
+        <div 
+          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+          onClick={closeLightbox}
+          data-testid="lightbox-overlay"
+        >
+          <button
+            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
+            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            aria-label="Close lightbox"
+            data-testid="button-lightbox-close"
+          >
+            <X className="w-8 h-8" />
+          </button>
+
+          <button
+            onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            aria-label="Previous image"
+            data-testid="button-lightbox-prev"
+          >
+            <ChevronLeft className="w-12 h-12" />
+          </button>
+
+          <button
+            onClick={(e) => { e.stopPropagation(); goToNext(); }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            aria-label="Next image"
+            data-testid="button-lightbox-next"
+          >
+            <ChevronRight className="w-12 h-12" />
+          </button>
+
+          <div className="max-w-6xl max-h-[90vh] p-4" onClick={(e) => e.stopPropagation()}>
+            <img 
+              src={filteredImages[lightboxIndex].src}
+              alt={filteredImages[lightboxIndex].alt}
+              className="max-w-full max-h-[85vh] object-contain"
+              data-testid="img-lightbox"
+            />
+            <div className="text-center mt-4">
+              <Badge variant="secondary" className="mb-2">
+                {filteredImages[lightboxIndex].category}
+              </Badge>
+              <h3 className="text-white font-semibold text-lg">
+                {filteredImages[lightboxIndex].title}
+              </h3>
+              <p className="text-white/70 text-sm mt-1">
+                {lightboxIndex + 1} of {filteredImages.length}
+              </p>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
