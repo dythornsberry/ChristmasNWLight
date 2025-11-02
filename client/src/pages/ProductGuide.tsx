@@ -2,6 +2,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import WatermarkedImage from "@/components/WatermarkedImage";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap } from "lucide-react";
@@ -155,14 +156,13 @@ export default function ProductGuide() {
                   <div className="grid lg:grid-cols-5 gap-0">
                     {/* Photo Column */}
                     <div className={`lg:col-span-2 relative h-64 lg:h-auto ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
-                      <img 
-                        src={product.image} 
+                      <WatermarkedImage
+                        src={product.image}
                         alt={`${product.name} installation example`}
-                        className="absolute inset-0 w-full h-full object-cover"
-                        loading="lazy"
-                        data-testid={`img-product-${product.id}`}
+                        className="absolute inset-0 h-full"
+                        enableLightbox={true}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent lg:bg-gradient-to-r lg:from-black/20 lg:to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent lg:bg-gradient-to-r lg:from-black/20 lg:to-transparent pointer-events-none" />
                     </div>
 
                     {/* Content Column */}

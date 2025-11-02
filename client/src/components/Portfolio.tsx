@@ -47,6 +47,12 @@ export default function Portfolio({ items }: PortfolioProps) {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
+                {/* Watermark */}
+                <div className="absolute bottom-2 right-2 bg-black/50 px-3 py-1 rounded-md pointer-events-none z-10">
+                  <p className="text-white text-xs font-semibold tracking-wide">
+                    ChristmasNW.com
+                  </p>
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
               <div className="p-6">

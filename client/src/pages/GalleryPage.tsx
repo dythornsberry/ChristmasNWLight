@@ -183,6 +183,12 @@ export default function GalleryPage() {
                       loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
+                    {/* Watermark */}
+                    <div className="absolute bottom-2 right-2 bg-black/50 px-3 py-1 rounded-md pointer-events-none z-10">
+                      <p className="text-white text-xs font-semibold tracking-wide">
+                        ChristmasNW.com
+                      </p>
+                    </div>
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
                       <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                         View Full Size
@@ -275,13 +281,19 @@ export default function GalleryPage() {
             <ChevronRight className="w-12 h-12" />
           </button>
 
-          <div className="max-w-6xl max-h-[90vh] p-4 pointer-events-none">
+          <div className="max-w-6xl max-h-[90vh] p-4 pointer-events-none relative">
             <img 
               src={filteredImages[lightboxIndex].src}
               alt={filteredImages[lightboxIndex].alt}
               className="max-w-full max-h-[85vh] object-contain"
               data-testid="img-lightbox"
             />
+            {/* Watermark in lightbox */}
+            <div className="absolute bottom-20 right-8 bg-black/50 px-4 py-2 rounded-md">
+              <p className="text-white text-sm font-semibold tracking-wide">
+                ChristmasNW.com
+              </p>
+            </div>
             <div className="text-center mt-4 pointer-events-auto">
               <Badge variant="secondary" className="mb-2">
                 {filteredImages[lightboxIndex].category}

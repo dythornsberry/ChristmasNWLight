@@ -2,6 +2,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import WatermarkedImage from "@/components/WatermarkedImage";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -171,15 +172,14 @@ export default function InvestmentGuide() {
                   
                   {/* Example Photo */}
                   <div className="relative h-48 overflow-hidden">
-                    <img 
-                      src={tier.image} 
+                    <WatermarkedImage
+                      src={tier.image}
                       alt={`${tier.name} example`}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                      data-testid={`img-pricing-${tier.id}`}
+                      className="h-full"
+                      enableLightbox={true}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                    <div className="absolute bottom-4 left-4 right-4">
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+                    <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
                       <p className="text-xs text-white/90 font-medium">
                         Example {tier.name}
                       </p>
