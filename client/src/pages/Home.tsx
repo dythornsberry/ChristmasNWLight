@@ -57,6 +57,7 @@ import multicolorTree from '@assets/2025-10-28-3-min_1762064223709.jpg';
 import halloweenHouse from '@assets/unnamed-15-min_1762064292781.jpg';
 import redTreeSnowmen from '@assets/2024-11-28-2-min_1762064344572.jpg';
 import redGreenWarmWhiteHouse from '@assets/2024-11-25-min_1762064371974.jpg';
+import mistletoeHouse from '@assets/2024-11-11-2-min_1762064400632.jpg';
 import residentialImage from '@assets/img4_1761853506443.webp';
 import commercialImage from '@assets/img7_1761853506443.webp';
 import customImage from '@assets/img16_1761853506444.webp';
@@ -232,6 +233,11 @@ export default function Home() {
       name: "Red, Green & Warm White",
       image: redGreenWarmWhiteHouse,
       description: "Classic tri-color combination for a traditional look"
+    },
+    {
+      name: "Mistletoe",
+      image: mistletoeHouse,
+      description: "Warm white with festive mistletoe accent at the peak"
     }
   ];
 
