@@ -6,6 +6,11 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap } from "lucide-react";
 
+import c9RooflinePhoto from '@assets/2024-11-17-3-min_1762064188331.jpg';
+import miniLightsPhoto from '@assets/2024-11-28-2-min_1762064344572.jpg';
+import groundLightsPhoto from '@assets/2025-10-28-3-min_1762064223709.jpg';
+import treeWrapsPhoto from '@assets/2024-11-25-min_1762064371974.jpg';
+
 export default function ProductGuide() {
   const scrollToQuote = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -22,6 +27,7 @@ export default function ProductGuide() {
       id: 1,
       name: "C9 Bulbs",
       icon: Lightbulb,
+      image: c9RooflinePhoto,
       description: "Our premium commercial-grade C9 bulbs are the industry standard for roofline installations. These classic, bright bulbs create a bold, timeless holiday display that's visible from the street.",
       colors: ["Warm White", "Multicolor", "Red", "Green", "Blue", "Purple"],
       useCases: [
@@ -42,6 +48,7 @@ export default function ProductGuide() {
       id: 2,
       name: "Mini Lights",
       icon: Sparkles,
+      image: miniLightsPhoto,
       description: "Delicate yet durable mini lights perfect for detailed work and creating elegant, sophisticated displays. These versatile lights add warmth and charm to any feature.",
       colors: ["Warm White", "Cool White", "Multicolor"],
       useCases: [
@@ -63,6 +70,7 @@ export default function ProductGuide() {
       id: 3,
       name: "Ground & Pathway Lights",
       icon: MapPin,
+      image: groundLightsPhoto,
       description: "Professional-grade stake lights that illuminate walkways, driveways, and landscape features. Perfect for guiding guests safely while adding sophisticated accent lighting.",
       colors: ["Warm White", "Red", "Green", "Blue"],
       useCases: [
@@ -84,6 +92,7 @@ export default function ProductGuide() {
       id: 4,
       name: "Tree Wraps & Light Spheres",
       icon: TreePine,
+      image: treeWrapsPhoto,
       description: "Transform trees into stunning focal points with professional trunk wraps and hanging light spheres. Create magical vertical elements that draw the eye upward.",
       colors: ["Warm White", "Multicolor", "Red & Green"],
       useCases: [
@@ -143,9 +152,21 @@ export default function ProductGuide() {
                   className={`overflow-hidden shadow-xl ${index % 2 === 0 ? 'lg:mr-12' : 'lg:ml-12'}`}
                   data-testid={`card-product-${product.id}`}
                 >
-                  <div className="grid lg:grid-cols-2 gap-8 p-8 lg:p-12">
-                    {/* Icon & Title Column */}
-                    <div>
+                  <div className="grid lg:grid-cols-5 gap-0">
+                    {/* Photo Column */}
+                    <div className={`lg:col-span-2 relative h-64 lg:h-auto ${index % 2 === 0 ? 'lg:order-1' : 'lg:order-2'}`}>
+                      <img 
+                        src={product.image} 
+                        alt={`${product.name} installation example`}
+                        className="absolute inset-0 w-full h-full object-cover"
+                        loading="lazy"
+                        data-testid={`img-product-${product.id}`}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent lg:bg-gradient-to-r lg:from-black/20 lg:to-transparent" />
+                    </div>
+
+                    {/* Content Column */}
+                    <div className={`lg:col-span-3 p-8 lg:p-12 ${index % 2 === 0 ? 'lg:order-2' : 'lg:order-1'}`}>
                       <div className="flex items-start gap-4 mb-6">
                         <div className="p-4 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-gold/20">
                           <Icon className="w-10 h-10 text-primary" />
@@ -168,40 +189,37 @@ export default function ProductGuide() {
                         {product.description}
                       </p>
 
-                      <div className="mb-6">
-                        <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
-                          <Zap className="w-5 h-5 text-amber-500" />
-                          Perfect For
-                        </h3>
-                        <ul className="space-y-3">
-                          {product.useCases.map((useCase, i) => (
-                            <li key={i} className="flex items-start gap-3 text-base text-muted-foreground">
-                              <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                              {useCase}
-                            </li>
-                          ))}
-                        </ul>
-                      </div>
-                    </div>
+                      <div className="grid md:grid-cols-2 gap-8">
+                        <div>
+                          <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                            <Zap className="w-5 h-5 text-amber-500" />
+                            Perfect For
+                          </h3>
+                          <ul className="space-y-3">
+                            {product.useCases.map((useCase, i) => (
+                              <li key={i} className="flex items-start gap-3 text-base text-muted-foreground">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                                {useCase}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
 
-                    {/* Benefits Column */}
-                    <div className="bg-card/50 rounded-xl p-8 border border-gold/20">
-                      <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
-                        <Sparkles className="w-5 h-5 text-amber-500" />
-                        Key Benefits
-                      </h3>
-                      <ul className="space-y-4">
-                        {product.benefits.map((benefit, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <span className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                              <span className="w-2 h-2 rounded-full bg-primary" />
-                            </span>
-                            <span className="text-base text-foreground font-medium">
-                              {benefit}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
+                        <div>
+                          <h3 className="text-xl font-bold text-foreground mb-4 flex items-center gap-2">
+                            <Sparkles className="w-5 h-5 text-amber-500" />
+                            Key Benefits
+                          </h3>
+                          <ul className="space-y-3">
+                            {product.benefits.map((benefit, i) => (
+                              <li key={i} className="flex items-start gap-3 text-base text-muted-foreground">
+                                <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                                {benefit}
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </Card>

@@ -7,6 +7,10 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DollarSign, Home, Building2, Sparkles, CheckCircle2, TrendingUp, Clock, Shield, Phone } from "lucide-react";
 
+import essentialPhoto from '@assets/1-2-min_1762064533191.jpeg';
+import signaturePhoto from '@assets/2024-11-17-3-min_1762064188331.jpg';
+import premierPhoto from '@assets/northwest-christmas-light-installer-17-scaled-1-2-min_1762064486263.jpg';
+
 export default function InvestmentGuide() {
   const scrollToQuote = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -24,6 +28,7 @@ export default function InvestmentGuide() {
       name: "Essential Display",
       range: "$800 - $1,500",
       icon: Home,
+      image: essentialPhoto,
       description: "Perfect for single-story homes or those looking for a clean, classic roofline display.",
       includes: [
         "Roofline lighting with C9 bulbs",
@@ -40,6 +45,7 @@ export default function InvestmentGuide() {
       name: "Signature Display",
       range: "$1,500 - $3,000",
       icon: Building2,
+      image: signaturePhoto,
       popular: true,
       description: "Our most popular package. Complete front-of-home transformation with multiple elements.",
       includes: [
@@ -59,6 +65,7 @@ export default function InvestmentGuide() {
       name: "Premier Estate Display",
       range: "$3,000 - $6,000+",
       icon: Sparkles,
+      image: premierPhoto,
       description: "Complete property transformation with premium details and custom design elements.",
       includes: [
         "Full property lighting (front & sides)",
@@ -151,14 +158,31 @@ export default function InvestmentGuide() {
                   data-testid={`card-pricing-${tier.id}`}
                 >
                   {tier.popular && (
-                    <div className="absolute top-0 left-0 right-0">
+                    <div className="absolute top-0 left-0 right-0 z-10">
                       <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-bold">
                         MOST POPULAR
                       </div>
                     </div>
                   )}
                   
-                  <div className={`p-8 ${tier.popular ? 'pt-16' : ''}`}>
+                  {/* Example Photo */}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={tier.image} 
+                      alt={`${tier.name} example`}
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                      data-testid={`img-pricing-${tier.id}`}
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                    <div className="absolute bottom-4 left-4 right-4">
+                      <p className="text-xs text-white/90 font-medium">
+                        Example {tier.name}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  <div className="p-8">
                     <div className="flex items-center gap-4 mb-6">
                       <div className="p-3 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-gold/20">
                         <Icon className="w-8 h-8 text-primary" />
