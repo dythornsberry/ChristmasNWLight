@@ -56,7 +56,7 @@ import redWarmWhiteHouse from '@assets/2024-11-17-3-min_1762064188331.jpg';
 import multicolorTree from '@assets/2025-10-28-3-min_1762064223709.jpg';
 import halloweenHouse from '@assets/unnamed-15-min_1762064292781.jpg';
 import redTreeSnowmen from '@assets/2024-11-28-2-min_1762064344572.jpg';
-import redGreenWarmWhiteHouse from '@assets/2024-11-25-min_1762064371974.jpg';
+import redGreenWarmWhiteHouse from '@assets/northwest-christmas-light-installer-17-scaled-1-2-min_1762064486263.jpg';
 import mistletoeHouse from '@assets/2024-11-11-2-min_1762064400632.jpg';
 import residentialImage from '@assets/img4_1761853506443.webp';
 import commercialImage from '@assets/img7_1761853506443.webp';
