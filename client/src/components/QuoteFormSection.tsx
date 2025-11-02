@@ -118,20 +118,21 @@ export default function QuoteFormSection() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="serviceType">Service Interest *</Label>
+              <Label htmlFor="serviceType">When do you need it installed? *</Label>
               <Select
                 value={formData.serviceType}
                 onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
                 required
               >
                 <SelectTrigger data-testid="select-service-type">
-                  <SelectValue placeholder="Select service type" />
+                  <SelectValue placeholder="Select installation timeline" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="residential">Residential Installation</SelectItem>
-                  <SelectItem value="commercial">Commercial Installation</SelectItem>
-                  <SelectItem value="custom">Custom Design</SelectItem>
-                  <SelectItem value="full-service">Full White-Glove Service</SelectItem>
+                  <SelectItem value="this-week">This Week</SelectItem>
+                  <SelectItem value="within-2-weeks">Within 2 Weeks</SelectItem>
+                  <SelectItem value="before-thanksgiving">Before Thanksgiving</SelectItem>
+                  <SelectItem value="before-christmas">Before Christmas</SelectItem>
+                  <SelectItem value="flexible">Flexible / Just Exploring</SelectItem>
                 </SelectContent>
               </Select>
             </div>
