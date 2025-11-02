@@ -5,7 +5,7 @@ import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DollarSign, Home, Building2, Sparkles, CheckCircle2, TrendingUp, Clock, Shield, Phone, AlertCircle } from "lucide-react";
+import { DollarSign, Home, Building2, Sparkles, CheckCircle2, TrendingUp, Clock, Shield, Phone } from "lucide-react";
 
 import essentialPhoto from '@assets/1-2-min_1762064533191.jpeg';
 import signaturePhoto from '@assets/2024-11-17-3-min_1762064188331.jpg';
@@ -131,8 +131,8 @@ export default function InvestmentGuide() {
               All-inclusive pricing with no hidden fees. Installation, maintenance, storage, and next-year reinstallation included.
             </p>
             <Badge variant="secondary" className="bg-amber-500 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto mx-auto w-fit border-2 border-white/30 shadow-xl">
-              <AlertCircle className="w-5 h-5" />
-              Book Early - Prime Installation Dates Filling Fast
+              <Clock className="w-5 h-5" />
+              Fast Turnaround - Installed Within a Week
             </Badge>
           </div>
         </div>

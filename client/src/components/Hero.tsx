@@ -22,10 +22,10 @@ export default function Hero({ onGetQuote }: HeroProps) {
       
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
         <div className="max-w-4xl">
-          {/* Urgency Badge */}
+          {/* Fast Installation Badge */}
           <Badge variant="secondary" className="bg-amber-500 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto mb-6 w-fit border-2 border-white/30 shadow-xl">
             <Clock className="w-5 h-5" />
-            Limited Slots Available for 2025 Season
+            Same-Week Installation Available
           </Badge>
           
           {/* Minimalist content with enhanced typography */}
