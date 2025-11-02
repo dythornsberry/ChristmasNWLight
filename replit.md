@@ -6,6 +6,17 @@ Christmas Northwest is a conversion-focused multi-page website for a professiona
 
 ## Recent Changes
 
+### November 2025 - Premium Visual Enhancements
+- **Typography Upgrade:** Enhanced all headlines from text-4xl/5xl to text-5xl/6xl for more impactful presence. Hero headline now uses text-9xl on desktop with font-black weight, tighter line-height (0.95), and tighter tracking for premium feel. Increased body copy from text-lg to text-xl throughout for better readability.
+- **Gold Accent System:** Added subtle gold/amber accent colors to design system (--gold, --gold-muted, --gold-foreground). Applied tastefully to feature icons, card borders, badges, and trust elements. Stars in testimonials now use amber-400 instead of primary for premium touch.
+- **Spacing Enhancement:** Increased section padding from py-20 to py-24, header margins from mb-16 to mb-20 for generous premium whitespace. Enhanced gap spacing between elements throughout site.
+- **Section Reordering:** Moved Testimonials section immediately after QuoteFormSection (before Services) to leverage social proof earlier in conversion funnel. New order: Hero → Quote Form → Testimonials → Services → Portfolio → ColorOptions → BeforeAfter → Stats → About → Process → CTA → FAQ.
+- **Portfolio Simplification:** Home page portfolio now displays only 6 featured premium installations instead of all 38, creating cleaner, more curated presentation. Full gallery accessible via prominent "View Full Gallery" CTA. Removed category filters from home portfolio for simplicity.
+- **Color Options Reduction:** Streamlined from 6 to 4 color schemes, removing Mistletoe option. Now offers: Warm White, Multicolor, Red + White, and Red Green & Warm White - the most popular choices.
+- **Premium CTA Styling:** Enhanced all primary CTAs with larger text (text-xl), shadow-2xl effects, hover glows, and premium borders while maintaining Shadcn size conventions. All buttons use size="lg" variant properly without custom height/padding.
+- **Component Polish:** Added hover-elevate effects to service cards, enhanced quote form card with subtle gold border, added gradient backgrounds to feature icons, increased shadow intensities for depth.
+- **Technical Fix:** Resolved nested link bug in StickyHeader causing React warnings by removing nested <a> tags within Link components.
+
 ### November 2025 - Premium Positioning & Conversion Optimization
 - **Hero Section Major Simplification:** Completely redesigned hero for maximum visual impact. Now contains ONLY: headline "Premium Holiday Lighting, Zero Hassle" + short tagline + single "Request Free Design" CTA button + compact trust badge (Licensed, Bonded & Insured • $800+). Removed all clutter (pricing banner, star ratings, 24/7 badge, bullet points). Lightened gradient overlay from black/85-75-65 to black/50-30-transparent so beautiful Christmas lights background image is clearly visible. Moved quote form to dedicated section below hero.
 - **Quote Form Relocation:** Created QuoteFormSection component displayed immediately after hero in its own dedicated section with full-width card layout. All CTAs scroll smoothly to this form. Maintains above-the-fold positioning while decluttering hero.
@@ -46,7 +57,7 @@ The backend is an Express.js server written in TypeScript, providing a RESTful A
 
 ### Styling System
 
-The styling system is built on Tailwind CSS with custom design tokens, including a Christmas-themed color palette using HSL variables, responsive typography (Playfair Display, Inter, Montserrat), and an elevation system for interactive elements. Dark mode is supported via a class strategy.
+The styling system is built on Tailwind CSS with custom design tokens, including a Christmas-themed color palette using HSL variables with premium gold accents (--gold, --gold-muted, --gold-foreground), responsive typography (Playfair Display, Inter, Montserrat), and an elevation system for interactive elements. Dark mode is supported via a class strategy.
 
 ### Build & Deployment
 
