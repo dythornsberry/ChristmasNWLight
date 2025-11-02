@@ -20,7 +20,7 @@ export default function Portfolio({ items }: PortfolioProps) {
   const [, setLocation] = useLocation();
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   
-  const categories = ["All", "Residential", "Commercial", "Custom", "Details"];
+  const categories = ["All", "Houses", "Trees"];
   
   const filteredItems = selectedCategory === "All" 
     ? items 

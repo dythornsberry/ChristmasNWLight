@@ -25,7 +25,7 @@ export default function Process() {
       number: "4",
       icon: Calendar,
       title: "Installation & Enjoy",
-      description: "We schedule your installation—often within a week during the season—and transform your home with professional-grade holiday lighting."
+      description: "We schedule your installation, often within a week during the season, and transform your home with professional-grade holiday lighting."
     }
   ];
 

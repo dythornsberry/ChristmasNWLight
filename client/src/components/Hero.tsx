@@ -78,7 +78,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
             </h1>
             
             <p className="text-2xl md:text-3xl mb-10 text-white/95 leading-relaxed font-semibold">
-              Sit back while we create your holiday wonderland—no ladders, no stress, just more time to enjoy the season.
+              Sit back while we create your holiday wonderland - no ladders, no stress, just more time to enjoy the season.
             </p>
 
             {/* Trust Badges */}
@@ -99,7 +99,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
             <div className="space-y-4 text-white/90 text-lg">
               <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="font-medium">Design, Install, Maintain, Takedown & Storage—All Included</span>
+                <span className="font-medium">Design, Install, Maintain, Takedown & Storage - All Included</span>
               </div>
               <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg">
                 <div className="w-2 h-2 bg-primary rounded-full" />
@@ -115,7 +115,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           {/* Right Side - Quote Form */}
           <div id="quote" className="bg-card border border-border rounded-lg p-8 shadow-2xl">
             <h2 className="text-2xl font-bold mb-2 text-foreground">Reserve Your Premium Installation</h2>
-            <p className="text-muted-foreground mb-6">Get your free consultation and custom design estimate—no obligation, no hassle</p>
+            <p className="text-muted-foreground mb-6">Get your free consultation and custom design estimate - no obligation, no hassle</p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">

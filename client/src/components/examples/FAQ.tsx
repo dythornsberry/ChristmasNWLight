@@ -16,11 +16,11 @@ export default function FAQExample() {
     },
     {
       question: "When should I schedule my Christmas light installation?",
-      answer: "We recommend scheduling as early as possible — ideally in September or October. Our calendar fills up fast as the holidays approach, and early bookings guarantee your installation."
+      answer: "We recommend scheduling as early as possible, ideally in September or October. Our calendar fills up fast as the holidays approach, and early bookings guarantee your installation."
     },
     {
       question: "What's included in your service?",
-      answer: "We handle everything — from custom design and installation to maintenance, takedown, and storage. We provide all lights, clips, cords, timers, and other materials needed for a flawless setup."
+      answer: "We handle everything from custom design and installation to maintenance, takedown, and storage. We provide all lights, clips, cords, timers, and other materials needed for a flawless setup."
     },
     {
       question: "How long does installation take?",

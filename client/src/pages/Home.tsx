@@ -162,39 +162,39 @@ export default function Home() {
   ];
 
   const portfolioItems = [
-    { id: 1, image: img1, category: "Residential", title: "Classic Warm White Roofline" },
-    { id: 2, image: img2, category: "Custom", title: "Modern Multicolor Display" },
-    { id: 3, image: img3, category: "Residential", title: "Traditional Warm White" },
-    { id: 4, image: img4, category: "Residential", title: "Contemporary Stone Accent" },
-    { id: 5, image: img5, category: "Residential", title: "Large Estate Installation" },
-    { id: 6, image: img6, category: "Residential", title: "Modern Gable Design" },
-    { id: 7, image: img7, category: "Residential", title: "Split-Level Contemporary" },
-    { id: 8, image: img8, category: "Custom", title: "Tree Canopy Entrance" },
-    { id: 9, image: img9, category: "Residential", title: "Stone & Siding Combo" },
-    { id: 10, image: img10, category: "Custom", title: "Patriotic Red & Blue" },
-    { id: 11, image: img11, category: "Residential", title: "Elegant Warm White" },
-    { id: 12, image: img12, category: "Custom", title: "Traditional Red & Green" },
-    { id: 13, image: img13, category: "Details", title: "Wreaths & Accents" },
-    { id: 14, image: img14, category: "Details", title: "Wrapped Tree Feature" },
-    { id: 15, image: img15, category: "Custom", title: "Multi-Roofline Estate" },
-    { id: 16, image: img16, category: "Residential", title: "Modern Two-Story Warm White" },
-    { id: 17, image: img17, category: "Residential", title: "Elegant Single-Story with Wreath" },
-    { id: 18, image: img18, category: "Residential", title: "Multi-Gable Contemporary Home" },
-    { id: 19, image: img19, category: "Residential", title: "Clean Modern Roofline" },
-    { id: 20, image: img20, category: "Custom", title: "Red & Green Traditional Display" },
-    { id: 21, image: img21, category: "Custom", title: "Multi-Color Large Home" },
-    { id: 22, image: img22, category: "Custom", title: "Family Display with Trees" },
-    { id: 23, image: img23, category: "Custom", title: "Vibrant Multicolor Installation" },
-    { id: 24, image: img24, category: "Residential", title: "Tree Lighting Accent Feature" },
-    { id: 25, image: img25, category: "Custom", title: "Red & Green in Snow" },
-    { id: 26, image: img26, category: "Details", title: "Majestic Tree with Child" },
-    { id: 27, image: img27, category: "Residential", title: "Upscale Brick Estate" },
-    { id: 28, image: img28, category: "Custom", title: "Red & Green Split-Level" },
-    { id: 29, image: img29, category: "Custom", title: "Stunning Multicolor Two-Story" },
-    { id: 30, image: img30, category: "Custom", title: "Modern Red & Green Display" },
-    { id: 31, image: img31, category: "Custom", title: "Traditional Craftsman Gables" },
-    { id: 32, image: img32, category: "Custom", title: "Window Lights & Minions Display" },
-    { id: 33, image: img33, category: "Residential", title: "Elegant Modern Warm White with Deer" },
+    { id: 1, image: img1, category: "Houses", title: "Classic Warm White Roofline" },
+    { id: 2, image: img2, category: "Houses", title: "Modern Multicolor Display" },
+    { id: 3, image: img3, category: "Houses", title: "Traditional Warm White" },
+    { id: 4, image: img4, category: "Houses", title: "Contemporary Stone Accent" },
+    { id: 5, image: img5, category: "Houses", title: "Large Estate Installation" },
+    { id: 6, image: img6, category: "Houses", title: "Modern Gable Design" },
+    { id: 7, image: img7, category: "Houses", title: "Split-Level Contemporary" },
+    { id: 8, image: img8, category: "Trees", title: "Tree Canopy Entrance" },
+    { id: 9, image: img9, category: "Houses", title: "Stone & Siding Combo" },
+    { id: 10, image: img10, category: "Houses", title: "Patriotic Red & Blue" },
+    { id: 11, image: img11, category: "Houses", title: "Elegant Warm White" },
+    { id: 12, image: img12, category: "Houses", title: "Traditional Red & Green" },
+    { id: 13, image: img13, category: "Trees", title: "Wreaths & Accents" },
+    { id: 14, image: img14, category: "Trees", title: "Wrapped Tree Feature" },
+    { id: 15, image: img15, category: "Houses", title: "Multi-Roofline Estate" },
+    { id: 16, image: img16, category: "Houses", title: "Modern Two-Story Warm White" },
+    { id: 17, image: img17, category: "Houses", title: "Elegant Single-Story with Wreath" },
+    { id: 18, image: img18, category: "Houses", title: "Multi-Gable Contemporary Home" },
+    { id: 19, image: img19, category: "Houses", title: "Clean Modern Roofline" },
+    { id: 20, image: img20, category: "Houses", title: "Red & Green Traditional Display" },
+    { id: 21, image: img21, category: "Houses", title: "Multi-Color Large Home" },
+    { id: 22, image: img22, category: "Trees", title: "Family Display with Trees" },
+    { id: 23, image: img23, category: "Houses", title: "Vibrant Multicolor Installation" },
+    { id: 24, image: img24, category: "Trees", title: "Tree Lighting Accent Feature" },
+    { id: 25, image: img25, category: "Houses", title: "Red & Green in Snow" },
+    { id: 26, image: img26, category: "Trees", title: "Majestic Tree with Child" },
+    { id: 27, image: img27, category: "Houses", title: "Upscale Brick Estate" },
+    { id: 28, image: img28, category: "Houses", title: "Red & Green Split-Level" },
+    { id: 29, image: img29, category: "Houses", title: "Stunning Multicolor Two-Story" },
+    { id: 30, image: img30, category: "Houses", title: "Modern Red & Green Display" },
+    { id: 31, image: img31, category: "Houses", title: "Traditional Craftsman Gables" },
+    { id: 32, image: img32, category: "Houses", title: "Window Lights & Minions Display" },
+    { id: 33, image: img33, category: "Houses", title: "Elegant Modern Warm White with Deer" },
   ];
 
   const colorOptions = [
@@ -227,7 +227,7 @@ export default function Home() {
     },
     {
       question: "Is light takedown included in the price?",
-      answer: "Absolutely! Our full-service package includes professional takedown after the holidays. We carefully remove all lights, organize them, and store them in our climate-controlled facilities until next season—at no additional cost to you."
+      answer: "Absolutely! Our full-service package includes professional takedown after the holidays. We carefully remove all lights, organize them, and store them in our climate-controlled facilities until next season at no additional cost to you."
     },
     {
       question: "What if a bulb burns out during the season?",
@@ -239,11 +239,11 @@ export default function Home() {
     },
     {
       question: "What's your installation process?",
-      answer: "Our process is simple: First, you fill out our quote form and we get in touch to discuss your design vision. We create a custom plan—sometimes in person for complex projects. Once you approve the design, you place a $100 deposit to secure your spot. Then we schedule and complete your professional installation, typically within a week of booking during our busy season."
+      answer: "Our process is simple: First, you fill out our quote form and we get in touch to discuss your design vision. We create a custom plan, sometimes in person for complex projects. Once you approve the design, you place a $100 deposit to secure your spot. Then we schedule and complete your professional installation, typically within a week of booking during our busy season."
     },
     {
       question: "How long does installation take?",
-      answer: "Most residential installations are completed within a few hours, depending on your home's size and design complexity. We pride ourselves on fast turnaround—often installing within a week of booking during the season."
+      answer: "Most residential installations are completed within a few hours, depending on your home's size and design complexity. We pride ourselves on fast turnaround, often installing within a week of booking during the season."
     },
     {
       question: "Do you hang lights that I already own?",

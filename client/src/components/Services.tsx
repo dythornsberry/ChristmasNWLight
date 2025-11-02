@@ -23,7 +23,7 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
     {
       icon: Star,
       title: "Superior Commercial-Grade Materials",
-      description: "We use only premium LED lights built to withstand the Pacific Northwest weather—brilliant, energy-efficient, and designed to last."
+      description: "We use only premium LED lights built to withstand the Pacific Northwest weather - brilliant, energy-efficient, and designed to last."
     },
     {
       icon: Clock,
@@ -38,7 +38,7 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
     {
       icon: Package,
       title: "Secure Storage Year-Round",
-      description: "After the season, we carefully take down and store your lights in our climate-controlled facility—no more cluttered garage or attic."
+      description: "After the season, we carefully take down and store your lights in our climate-controlled facility - no more cluttered garage or attic."
     },
     {
       icon: Award,
@@ -55,7 +55,7 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
             Why Christmas Northwest?
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Skip the tangled lights, dangerous ladders, and holiday stress. Our all-inclusive service means you enjoy a beautifully lit home without lifting a finger—from professional design consultation and installation to in-season maintenance, takedown, and secure year-round storage.
+            Skip the tangled lights, dangerous ladders, and holiday stress. Our all-inclusive service means you enjoy a beautifully lit home without lifting a finger - from professional design consultation and installation to in-season maintenance, takedown, and secure year-round storage.
           </p>
         </div>
         

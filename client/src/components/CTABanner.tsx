@@ -21,7 +21,7 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
         </h2>
         <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
           Schedule your complimentary designer consultation and discover how we transform homes into holiday showcases. 
-          Limited availability—reserve your custom design today.
+          Limited availability - reserve your custom design today.
         </p>
         
         <div className="flex flex-wrap gap-4 justify-center">
