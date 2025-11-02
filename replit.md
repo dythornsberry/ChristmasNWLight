@@ -7,7 +7,8 @@ Christmas Northwest is a conversion-focused multi-page website for a professiona
 ## Recent Changes
 
 ### November 2025 - Premium Positioning & Conversion Optimization
-- **Hero Section Simplification:** Decluttered hero to showcase beautiful background image. Removed trust badges and pricing banner from left column, condensed to clean headline + 2 bullet points. Updated quote form title to "Request Free Design" (from "Reserve Your Premium Installation") and CTA button to "Request Free Design" to reflect that quotes don't always require in-person visits.
+- **Hero Section Major Simplification:** Completely redesigned hero for maximum visual impact. Now contains ONLY: headline "Premium Holiday Lighting, Zero Hassle" + short tagline + single "Request Free Design" CTA button + compact trust badge (Licensed, Bonded & Insured • $800+). Removed all clutter (pricing banner, star ratings, 24/7 badge, bullet points). Lightened gradient overlay from black/85-75-65 to black/50-30-transparent so beautiful Christmas lights background image is clearly visible. Moved quote form to dedicated section below hero.
+- **Quote Form Relocation:** Created QuoteFormSection component displayed immediately after hero in its own dedicated section with full-width card layout. All CTAs scroll smoothly to this form. Maintains above-the-fold positioning while decluttering hero.
 - **CTA Language Update:** Changed all "consultation" references to "design" or "free design estimate" throughout site (Hero, CTABanner, Process, Services, StickyBottomCTA) since service doesn't always include in-person visits for quotes.
 - **Gallery Filters Simplified:** Home page portfolio filters changed from "All, Residential, Commercial, Custom, Details" to "All, Houses, Trees" to match actual service offerings. All 33 portfolio items recategorized accordingly.
 - **Em Dash Removal:** Replaced all em dashes (—) with regular dashes (-) or commas throughout site for natural, non-AI-sounding language.
@@ -28,7 +29,8 @@ CTA preference: Use "Request Free Design" instead of "consultation" since quotes
 
 The frontend is a React 18 application with TypeScript, built using Vite for fast development and optimized production builds. It leverages Shadcn/ui for consistent, accessible components, built on Radix UI primitives, and styled with Tailwind CSS using a custom design system. Key components include:
 - **StickyHeader:** Main navigation with Gallery link and phone/CTA buttons
-- **Hero:** Simplified premium static background image with "Premium Holiday Lighting, Zero Hassle" headline, clean 2-bullet value proposition, and embedded quote form ("Request Free Design") to showcase beautiful background image
+- **Hero:** Minimalist hero with "Premium Holiday Lighting, Zero Hassle" headline, short tagline, single CTA button, and compact trust badge. Lightened gradient overlay (black/50-30-transparent) to showcase beautiful Christmas lights background image
+- **QuoteFormSection:** Dedicated quote form component in its own section immediately after hero. Full-width card layout with all form fields and smooth scroll accessibility
 - **Services:** 6 comprehensive benefit cards emphasizing all-inclusive, stress-free service from design through storage
 - **Portfolio:** Preview gallery with 6 photos, category filters, and "View Full Gallery" CTA
 - **GalleryPage:** Dedicated page with 17 categorized photos, badge-based filtering, lightbox with full-screen viewing, keyboard navigation (Escape/Arrow keys), and multiple close methods

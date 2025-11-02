@@ -122,6 +122,7 @@ export default function QuoteFormSection() {
               <Select
                 value={formData.serviceType}
                 onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
+                required
               >
                 <SelectTrigger data-testid="select-service-type">
                   <SelectValue placeholder="Select service type" />
@@ -140,6 +141,7 @@ export default function QuoteFormSection() {
               size="lg" 
               className="w-full text-lg font-bold mt-6"
               data-testid="button-submit-quote"
+              disabled={!formData.serviceType}
             >
               Request Free Design
             </Button>
