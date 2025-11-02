@@ -19,6 +19,7 @@ export default function QuoteFormSection() {
     lastName: "",
     email: "",
     phone: "",
+    address: "",
     zipCode: "",
     serviceType: ""
   });
@@ -35,6 +36,7 @@ export default function QuoteFormSection() {
       lastName: "",
       email: "",
       phone: "",
+      address: "",
       zipCode: "",
       serviceType: ""
     });
@@ -102,6 +104,18 @@ export default function QuoteFormSection() {
                 required
                 data-testid="input-phone"
                 placeholder="(425) 555-0123"
+              />
+            </div>
+
+            <div className="space-y-2">
+              <Label htmlFor="address">Street Address *</Label>
+              <Input
+                id="address"
+                value={formData.address}
+                onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+                required
+                data-testid="input-address"
+                placeholder="123 Main Street"
               />
             </div>
 
