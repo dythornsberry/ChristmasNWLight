@@ -30,6 +30,7 @@ import img18 from '@assets/2025-10-28-3-min_1762064223709.jpg';
 import img19 from '@assets/unnamed-15-min_1762064292781.jpg';
 import img20 from '@assets/2024-11-28-2-min_1762064344572.jpg';
 import img21 from '@assets/1-2-min_1762064533191.jpeg';
+import img22 from '@assets/IMG_5253_1762064572527.jpeg';
 
 interface GalleryImage {
   id: number;
@@ -60,7 +61,8 @@ const galleryImages: GalleryImage[] = [
   { id: 18, src: img18, alt: "Stunning multicolor tree with full wrap", category: "Trees", title: "Majestic Multicolor Tree" },
   { id: 19, src: img19, alt: "Spooky Halloween lighting with purple and orange", category: "Halloween", title: "Spectacular Halloween Display" },
   { id: 20, src: img20, alt: "Red tree wrap with blue snowmen decorations", category: "Trees", title: "Red Tree with Snowmen" },
-  { id: 21, src: img21, alt: "Elegant warm white Christmas lights on home", category: "Warm White", title: "Classic Warm White Elegance" }
+  { id: 21, src: img21, alt: "Elegant warm white Christmas lights on home", category: "Warm White", title: "Classic Warm White Elegance" },
+  { id: 22, src: img22, alt: "Vibrant multicolor Christmas lights on rooflines", category: "Multicolor", title: "Festive Multicolor Display" }
 ];
 
 export default function GalleryPage() {
