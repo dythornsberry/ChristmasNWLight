@@ -7,7 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap } from "lucide-react";
 
 import c9RooflinePhoto from '@assets/81s3L7gNl1L_1762096860729.jpg';
-import miniLightsPhoto from '@assets/2024-11-28-2-min_1762064344572.jpg';
+import miniLightsPhoto from '@assets/Incan-Clear-6x15-Column-Wrap-02-lifestyle_1762096913912.jpg';
 import groundLightsPhoto from '@assets/2025-10-28-3-min_1762064223709.jpg';
 import treeWrapsPhoto from '@assets/2024-11-25-min_1762050962743.jpg';
 
