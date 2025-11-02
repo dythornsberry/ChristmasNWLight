@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
@@ -95,6 +95,23 @@ export default function GalleryPage() {
       setLightboxIndex((lightboxIndex + 1) % filteredImages.length);
     }
   };
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (lightboxIndex === null) return;
+      
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        goToPrevious();
+      } else if (e.key === 'ArrowRight') {
+        goToNext();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [lightboxIndex]);
 
   return (
     <div className="min-h-screen flex flex-col">
@@ -217,13 +234,13 @@ export default function GalleryPage() {
       {/* Lightbox */}
       {lightboxIndex !== null && (
         <div 
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center"
+          className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
           onClick={closeLightbox}
           data-testid="lightbox-overlay"
         >
           <button
-            onClick={(e) => { e.stopPropagation(); closeLightbox(); }}
-            className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors"
+            onClick={closeLightbox}
+            className="absolute top-4 right-4 z-[110] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2"
             aria-label="Close lightbox"
             data-testid="button-lightbox-close"
           >
@@ -232,7 +249,7 @@ export default function GalleryPage() {
 
           <button
             onClick={(e) => { e.stopPropagation(); goToPrevious(); }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-[110] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2"
             aria-label="Previous image"
             data-testid="button-lightbox-prev"
           >
@@ -241,21 +258,21 @@ export default function GalleryPage() {
 
           <button
             onClick={(e) => { e.stopPropagation(); goToNext(); }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-gray-300 transition-colors"
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-[110] text-white hover:text-gray-300 transition-colors bg-black/50 rounded-full p-2"
             aria-label="Next image"
             data-testid="button-lightbox-next"
           >
             <ChevronRight className="w-12 h-12" />
           </button>
 
-          <div className="max-w-6xl max-h-[90vh] p-4" onClick={(e) => e.stopPropagation()}>
+          <div className="max-w-6xl max-h-[90vh] p-4 pointer-events-none">
             <img 
               src={filteredImages[lightboxIndex].src}
               alt={filteredImages[lightboxIndex].alt}
               className="max-w-full max-h-[85vh] object-contain"
               data-testid="img-lightbox"
             />
-            <div className="text-center mt-4">
+            <div className="text-center mt-4 pointer-events-auto">
               <Badge variant="secondary" className="mb-2">
                 {filteredImages[lightboxIndex].category}
               </Badge>
