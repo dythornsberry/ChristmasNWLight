@@ -8,9 +8,9 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DollarSign, Home, Building2, Sparkles, CheckCircle2, TrendingUp, Clock, Shield, Phone } from "lucide-react";
 
-import essentialPhoto from '@assets/1-2-min_1762064533191.jpeg';
-import signaturePhoto from '@assets/2024-11-17-3-min_1762064188331.jpg';
-import premierPhoto from '@assets/northwest-christmas-light-installer-17-scaled-1-2-min_1762064486263.jpg';
+import essentialPhoto from '@assets/2024-11-17-3-min_1762058047475.jpg';
+import signaturePhoto from '@assets/2024-11-11-2-min_1762058047476.jpg';
+import premierPhoto from '@assets/2024-12-03-min_1762058047476.jpg';
 
 export default function InvestmentGuide() {
   const scrollToQuote = () => {
