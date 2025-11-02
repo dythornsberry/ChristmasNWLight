@@ -27,6 +27,7 @@ import img15 from '@assets/2024-11-11-2-min_1762058047476.jpg';
 import img16 from '@assets/2024-11-28-2-min_1762058047476.jpg';
 import img17 from '@assets/2025-09-04-min_1762058047477.jpg';
 import img18 from '@assets/2025-10-28-3-min_1762064223709.jpg';
+import img19 from '@assets/unnamed-15-min_1762064292781.jpg';
 
 interface GalleryImage {
   id: number;
@@ -54,7 +55,8 @@ const galleryImages: GalleryImage[] = [
   { id: 15, src: img15, alt: "Modern home with warm white and wreath", category: "Warm White", title: "Modern Holiday Elegance" },
   { id: 16, src: img16, alt: "Red tree wrap with blue snowmen", category: "Trees", title: "Creative Tree Design" },
   { id: 17, src: img17, alt: "Vibrant multicolor on dark modern home", category: "Multicolor", title: "Striking Night Display" },
-  { id: 18, src: img18, alt: "Stunning multicolor tree with full wrap", category: "Trees", title: "Majestic Multicolor Tree" }
+  { id: 18, src: img18, alt: "Stunning multicolor tree with full wrap", category: "Trees", title: "Majestic Multicolor Tree" },
+  { id: 19, src: img19, alt: "Spooky Halloween lighting with purple and orange", category: "Halloween", title: "Spectacular Halloween Display" }
 ];
 
 export default function GalleryPage() {
@@ -72,7 +74,7 @@ export default function GalleryPage() {
     }, 100);
   };
 
-  const categories = ["All", "Warm White", "Multicolor", "Trees", "Custom"];
+  const categories = ["All", "Warm White", "Multicolor", "Trees", "Custom", "Halloween"];
   
   const filteredImages = selectedCategory === "All" 
     ? galleryImages 

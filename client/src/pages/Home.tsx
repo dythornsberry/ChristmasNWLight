@@ -54,6 +54,7 @@ import img33 from '@assets/northwest-christmas-light-installer-10-scaled-1-min_1
 import multicolorHouse from '@assets/2025-09-04-min_1762064099390.jpg';
 import redWarmWhiteHouse from '@assets/2024-11-17-3-min_1762064188331.jpg';
 import multicolorTree from '@assets/2025-10-28-3-min_1762064223709.jpg';
+import halloweenHouse from '@assets/unnamed-15-min_1762064292781.jpg';
 import residentialImage from '@assets/img4_1761853506443.webp';
 import commercialImage from '@assets/img7_1761853506443.webp';
 import customImage from '@assets/img16_1761853506444.webp';
@@ -200,6 +201,7 @@ export default function Home() {
     { id: 32, image: img32, category: "Houses", title: "Window Lights & Minions Display" },
     { id: 33, image: img33, category: "Houses", title: "Elegant Modern Warm White with Deer" },
     { id: 34, image: multicolorTree, category: "Trees", title: "Stunning Multicolor Tree Display" },
+    { id: 35, image: halloweenHouse, category: "Halloween", title: "Spooky Halloween Display" },
   ];
 
   const colorOptions = [
