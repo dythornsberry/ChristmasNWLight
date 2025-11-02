@@ -28,7 +28,7 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
     {
       icon: Clock,
       title: "Time Savings & Stress-Free Experience",
-      description: "Most installations completed within a week of booking. From design consultation to takedown, we handle it all so you don't lift a finger."
+      description: "Most installations completed within a week of booking. From custom design to takedown, we handle it all so you don't lift a finger."
     },
     {
       icon: Sparkles,
@@ -55,7 +55,7 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
             Why Christmas Northwest?
           </h2>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Skip the tangled lights, dangerous ladders, and holiday stress. Our all-inclusive service means you enjoy a beautifully lit home without lifting a finger - from professional design consultation and installation to in-season maintenance, takedown, and secure year-round storage.
+            Skip the tangled lights, dangerous ladders, and holiday stress. Our all-inclusive service means you enjoy a beautifully lit home without lifting a finger - from professional custom design and installation to in-season maintenance, takedown, and secure year-round storage.
           </p>
         </div>
         

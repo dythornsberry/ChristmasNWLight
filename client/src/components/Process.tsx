@@ -12,8 +12,8 @@ export default function Process() {
     {
       number: "2",
       icon: MessageSquare,
-      title: "Design Consultation",
-      description: "We discuss your vision and create a custom lighting plan. For complex projects, we schedule an in-person consultation to ensure every detail is perfect."
+      title: "Custom Design Plan",
+      description: "We discuss your vision and create a custom lighting plan. For complex projects, we schedule an in-person design visit to ensure every detail is perfect."
     },
     {
       number: "3",

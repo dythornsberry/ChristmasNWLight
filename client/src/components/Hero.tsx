@@ -60,62 +60,30 @@ export default function Hero({ onGetQuote }: HeroProps) {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Headline & Offer */}
           <div className="text-white">
-            {/* Pricing & Urgency Banner */}
-            <div className="inline-flex items-center gap-3 bg-primary/95 backdrop-blur-sm px-6 py-3 rounded-lg mb-6 border-2 border-primary-border shadow-xl" data-testid="banner-hero-offer">
-              <span className="text-2xl font-bold">$800+</span>
-              <div className="h-6 w-px bg-primary-foreground/30" />
-              <div>
-                <div className="text-sm font-semibold">Residential Installations</div>
-                <div className="flex items-center gap-1 text-xs text-primary-foreground/90">
-                  <Clock className="w-3 h-3" />
-                  <span>Same-Week Installation</span>
-                </div>
-              </div>
-            </div>
-
-            <h1 className="font-serif text-5xl md:text-7xl font-extrabold mb-8 leading-tight tracking-tight">
+            <h1 className="font-serif text-5xl md:text-7xl font-extrabold mb-6 leading-tight tracking-tight">
               Premium Holiday Lighting, Zero Hassle
             </h1>
             
-            <p className="text-2xl md:text-3xl mb-10 text-white/95 leading-relaxed font-semibold">
+            <p className="text-xl md:text-2xl mb-8 text-white/95 leading-relaxed">
               Sit back while we create your holiday wonderland - no ladders, no stress, just more time to enjoy the season.
             </p>
 
-            {/* Trust Badges */}
-            <div className="flex flex-wrap items-center gap-6 mb-8">
-              <div className="flex items-center gap-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <span className="text-sm font-semibold">5.0 (85+ Reviews)</span>
-              </div>
-              <div className="text-sm font-semibold bg-white/10 backdrop-blur-sm px-4 py-2 rounded-lg">
-                24/7 Seasonal Availability
-              </div>
-            </div>
-
-            <div className="space-y-4 text-white/90 text-lg">
+            <div className="space-y-3 text-white/90 text-base md:text-lg mb-8">
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="font-medium">Design, Install, Maintain, Takedown & Storage - All Included</span>
-              </div>
-              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg">
-                <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="font-bold text-white">Licensed, Bonded & Insured</span>
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
+                <span>Design, Install, Maintain, Takedown & Storage - All Included</span>
               </div>
               <div className="flex items-center gap-3">
-                <div className="w-2 h-2 bg-primary rounded-full" />
-                <span className="font-medium">300+ Homes Annually • 4th Season Serving Greater Seattle</span>
+                <div className="w-2 h-2 bg-primary rounded-full flex-shrink-0" />
+                <span>Licensed, Bonded & Insured • $800+ Starting Price</span>
               </div>
             </div>
           </div>
 
           {/* Right Side - Quote Form */}
           <div id="quote" className="bg-card border border-border rounded-lg p-8 shadow-2xl">
-            <h2 className="text-2xl font-bold mb-2 text-foreground">Reserve Your Premium Installation</h2>
-            <p className="text-muted-foreground mb-6">Get your free consultation and custom design estimate - no obligation, no hassle</p>
+            <h2 className="text-2xl font-bold mb-2 text-foreground">Request Free Design</h2>
+            <p className="text-muted-foreground mb-6">Get your custom design estimate - no obligation, no hassle</p>
             
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
@@ -205,7 +173,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
                 className="w-full text-lg font-bold mt-6"
                 data-testid="button-submit-quote"
               >
-                Get My Free Consultation
+                Request Free Design
               </Button>
               
               <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">

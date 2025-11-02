@@ -7,18 +7,20 @@ Christmas Northwest is a conversion-focused multi-page website for a professiona
 ## Recent Changes
 
 ### November 2025 - Premium Positioning & Conversion Optimization
-- **Hero Section:** Reverted to static premium background image with "Premium Holiday Lighting, Zero Hassle" headline emphasizing stress-free value proposition. Updated quote form to "Reserve Your Premium Installation" with "Get My Free Consultation" CTA. Prominently displays $800+ pricing, licensing/bonding/insurance credentials, and 5-star ratings for trust-building.
-- **Benefits Section:** Expanded from 4 to 6 comprehensive benefit cards emphasizing all-inclusive service: Safety & Peace of Mind, Superior Commercial-Grade Materials, Time Savings & Stress-Free Experience, Maintenance Included, Secure Storage Year-Round, and Proven Excellence. Section subtitle reinforces done-for-you messaging from design consultation through storage.
-- **CTA Refinement:** Updated all CTAs for premium alignment - Sticky bottom bar now displays "BOOK NOW", "CALL NOW", "FREE CONSULT" (previously "SCHEDULE", "CALL NOW!", "GET A QUOTE").
-- **Testimonials Section:** Refined subtitle to "Homeowners who value quality trust us year after year for stress-free, stunning results" to better target quality-focused clientele.
-- **Gallery Page:** Created dedicated `/gallery` page with 17 real installation photos organized into 5 categories (All, Warm White, Multicolor, Trees, Custom). Features responsive 3-column grid, category badge filtering, and full-screen lightbox with keyboard navigation (Escape to close, Arrow keys to navigate), close button, and overlay click support.
-- **Performance:** Implemented lazy loading on all gallery images for optimized page load performance.
-- **Navigation:** Added Gallery link to sticky header between Services and Testimonials.
+- **Hero Section Simplification:** Decluttered hero to showcase beautiful background image. Removed trust badges and pricing banner from left column, condensed to clean headline + 2 bullet points. Updated quote form title to "Request Free Design" (from "Reserve Your Premium Installation") and CTA button to "Request Free Design" to reflect that quotes don't always require in-person visits.
+- **CTA Language Update:** Changed all "consultation" references to "design" or "free design estimate" throughout site (Hero, CTABanner, Process, Services, StickyBottomCTA) since service doesn't always include in-person visits for quotes.
+- **Gallery Filters Simplified:** Home page portfolio filters changed from "All, Residential, Commercial, Custom, Details" to "All, Houses, Trees" to match actual service offerings. All 33 portfolio items recategorized accordingly.
+- **Em Dash Removal:** Replaced all em dashes (—) with regular dashes (-) or commas throughout site for natural, non-AI-sounding language.
+- **Benefits Section:** 6 comprehensive benefit cards emphasizing all-inclusive service: Safety & Peace of Mind, Superior Commercial-Grade Materials, Time Savings & Stress-Free Experience, Maintenance Included, Secure Storage Year-Round, and Proven Excellence.
+- **Sticky Bottom Bar:** Displays "BOOK NOW", "CALL NOW", "FREE DESIGN" for premium conversion elements.
+- **Gallery Page:** Dedicated `/gallery` page with 17 real installation photos organized into categories. Features responsive 3-column grid, badge filtering, and full-screen lightbox with keyboard navigation (Escape/Arrow keys), close button, and overlay click support.
+- **Performance:** Implemented lazy loading on all gallery images.
 
 ## User Preferences
 
-Preferred communication style: Simple, everyday language.
+Preferred communication style: Simple, everyday language - avoid em dashes and AI-sounding text.
 Design approach: Conversion-focused layout modeled after Premier Home Pros (layout, CTA placement, form design, trust elements, simplicity) while maintaining Christmas theme colors and premium positioning.
+CTA preference: Use "Request Free Design" instead of "consultation" since quotes don't always require in-person visits.
 
 ## System Architecture
 
@@ -26,12 +28,12 @@ Design approach: Conversion-focused layout modeled after Premier Home Pros (layo
 
 The frontend is a React 18 application with TypeScript, built using Vite for fast development and optimized production builds. It leverages Shadcn/ui for consistent, accessible components, built on Radix UI primitives, and styled with Tailwind CSS using a custom design system. Key components include:
 - **StickyHeader:** Main navigation with Gallery link and phone/CTA buttons
-- **Hero:** Premium static background image with "Premium Holiday Lighting, Zero Hassle" headline, stress-free value proposition, embedded quote form ("Reserve Your Premium Installation"), transparent $800+ pricing display, and trust credentials (Licensed, Bonded & Insured)
+- **Hero:** Simplified premium static background image with "Premium Holiday Lighting, Zero Hassle" headline, clean 2-bullet value proposition, and embedded quote form ("Request Free Design") to showcase beautiful background image
 - **Services:** 6 comprehensive benefit cards emphasizing all-inclusive, stress-free service from design through storage
 - **Portfolio:** Preview gallery with 6 photos, category filters, and "View Full Gallery" CTA
 - **GalleryPage:** Dedicated page with 17 categorized photos, badge-based filtering, lightbox with full-screen viewing, keyboard navigation (Escape/Arrow keys), and multiple close methods
 - **ColorOptions, BeforeAfter:** Product showcase components
-- **StickyBottomCTA:** Persistent conversion element with premium CTAs ("BOOK NOW", "CALL NOW", "FREE CONSULT")
+- **StickyBottomCTA:** Persistent conversion element with premium CTAs ("BOOK NOW", "CALL NOW", "FREE DESIGN")
 - **Testimonials:** Social proof section with tagline targeting quality-focused homeowners
 
 Multi-page routing is handled by Wouter, and React Query manages server state. All gallery images use lazy loading for optimal performance.

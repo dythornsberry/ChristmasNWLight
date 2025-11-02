@@ -20,7 +20,7 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
           Begin Your Design Experience
         </h2>
         <p className="text-xl text-white/90 mb-8 leading-relaxed max-w-2xl mx-auto">
-          Schedule your complimentary designer consultation and discover how we transform homes into holiday showcases. 
+          Get your free design estimate and discover how we transform homes into holiday showcases. 
           Limited availability - reserve your custom design today.
         </p>
         

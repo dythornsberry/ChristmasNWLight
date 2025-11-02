@@ -64,8 +64,8 @@ export default function Home() {
 
   const services = [
     {
-      title: "Designer Consultation",
-      description: "Custom design tailored to your home's architecture with premium materials and attention to every detail.",
+      title: "Custom Design",
+      description: "Free design estimate tailored to your home's architecture with premium materials and attention to every detail.",
       icon: Sparkles,
       image: customImage
     },

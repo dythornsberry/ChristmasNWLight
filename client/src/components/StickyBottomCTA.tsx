@@ -39,7 +39,7 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
             data-testid="button-sticky-quote"
           >
             <FileText className="w-5 h-5" />
-            <span className="text-xs md:text-sm font-semibold">FREE CONSULT</span>
+            <span className="text-xs md:text-sm font-semibold">FREE DESIGN</span>
           </Button>
         </div>
       </div>
