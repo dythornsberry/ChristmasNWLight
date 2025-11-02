@@ -11,6 +11,7 @@ import c9RooflinePhoto from '@assets/81s3L7gNl1L_1762096860729.jpg';
 import miniLightsPhoto from '@assets/Incan-Clear-6x15-Column-Wrap-02-lifestyle_1762096913912.jpg';
 import groundLightsPhoto from '@assets/Ground-Lighting-Installation-Fort-Collins-CO_1762096982865.jpg';
 import treeWrapsPhoto from '@assets/81yZtNElctL_1762096926030.jpg';
+import bulbSizePhoto from '@assets/bulb size_1762106464988.jpg';
 
 export default function ProductGuide() {
   const scrollToQuote = () => {
@@ -225,6 +226,35 @@ export default function ProductGuide() {
                 </Card>
               );
             })}
+          </div>
+        </div>
+      </section>
+
+      {/* Bulb Size Comparison */}
+      <section className="py-24 bg-background">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Understanding Bulb Sizes
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              From large, bold C9 bulbs to delicate mini LEDs, each size creates a unique look. Click the image to see the full comparison.
+            </p>
+          </div>
+
+          <Card className="overflow-hidden shadow-xl max-w-4xl mx-auto" data-testid="card-bulb-comparison">
+            <WatermarkedImage
+              src={bulbSizePhoto}
+              alt="Christmas light bulb size comparison showing C9, C7, C6, C3, LED, and Mini LED bulbs"
+              className="w-full"
+              enableLightbox={true}
+            />
+          </Card>
+
+          <div className="mt-8 text-center">
+            <p className="text-base text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Our installations primarily use C9 bulbs for rooflines (bold, traditional look) and mini lights for landscaping (elegant, refined appearance). We'll recommend the perfect combination for your home during your free design consultation.
+            </p>
           </div>
         </div>
       </section>
