@@ -233,11 +233,6 @@ export default function Home() {
       name: "Red, Green & Warm White",
       image: redGreenWarmWhiteHouse,
       description: "Classic tri-color combination for a traditional look"
-    },
-    {
-      name: "Mistletoe",
-      image: mistletoeHouse,
-      description: "Warm white with festive mistletoe accent at the peak"
     }
   ];
 
@@ -307,6 +302,8 @@ export default function Home() {
 
       <QuoteFormSection />
 
+      <Testimonials testimonials={testimonials} />
+
       <Services services={services} onLearnMore={handleServiceLearnMore} />
 
       <Portfolio items={portfolioItems} />
@@ -316,8 +313,6 @@ export default function Home() {
       <BeforeAfter beforeImage={beforeImage} afterImage={afterImage} />
 
       <Stats stats={stats} />
-
-      <Testimonials testimonials={testimonials} />
 
       <About teamImage={teamImage} />
 

@@ -18,89 +18,62 @@ interface PortfolioProps {
 
 export default function Portfolio({ items }: PortfolioProps) {
   const [, setLocation] = useLocation();
-  const [selectedCategory, setSelectedCategory] = useState<string>("All");
   
-  const categories = ["All", "Houses", "Trees", "Halloween"];
-  
-  const filteredItems = selectedCategory === "All" 
-    ? items 
-    : items.filter(item => item.category === selectedCategory);
+  // Show only 6 featured premium photos for cleaner display
+  const featuredItems = items.slice(0, 6);
 
   return (
-    <section id="portfolio" className="py-20 bg-muted/30">
+    <section id="portfolio" className="py-24 bg-background">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        <div className="text-center mb-20">
+          <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6 text-foreground">
             Our Work
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-            Browse our portfolio of stunning Christmas light installations across the Pacific Northwest
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Premium installations that transform homes into holiday showcases
           </p>
-          
-          <div className="flex flex-wrap gap-3 justify-center">
-            {categories.map((category) => (
-              <Badge
-                key={category}
-                variant={selectedCategory === category ? "default" : "secondary"}
-                className="px-6 py-2 cursor-pointer text-sm"
-                onClick={() => setSelectedCategory(category)}
-                data-testid={`badge-filter-${category.toLowerCase()}`}
-              >
-                {category}
-              </Badge>
-            ))}
-          </div>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredItems.map((item) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredItems.map((item) => (
             <Card 
               key={item.id} 
-              className="group overflow-hidden hover-elevate cursor-pointer"
+              className="group overflow-hidden hover-elevate cursor-pointer shadow-lg"
               data-testid={`card-portfolio-${item.id}`}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                  <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    View Details
-                  </span>
-                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              <div className="p-4">
-                <Badge variant="secondary" className="mb-2">
+              <div className="p-6">
+                <Badge variant="secondary" className="mb-3 border border-amber-500/20">
                   {item.category}
                 </Badge>
-                <h3 className="font-semibold text-foreground">{item.title}</h3>
+                <h3 className="font-semibold text-lg text-foreground">{item.title}</h3>
               </div>
             </Card>
           ))}
         </div>
-        
-        {filteredItems.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-muted-foreground">No projects found in this category.</p>
-          </div>
-        )}
 
         {/* View Full Gallery CTA */}
-        <div className="text-center mt-12">
+        <div className="text-center mt-16">
           <Button
             onClick={() => setLocation('/gallery')}
             variant="default"
             size="lg"
-            className="bg-primary text-primary-foreground font-semibold"
+            className="text-lg font-bold px-10 py-6 h-auto shadow-xl hover:shadow-2xl transition-all duration-300"
             data-testid="button-view-gallery"
           >
             View Full Gallery
-            <ArrowRight className="w-4 h-4 ml-2" />
+            <ArrowRight className="w-5 h-5 ml-3" />
           </Button>
-          <p className="text-sm text-muted-foreground mt-3">
-            Browse all our installations with advanced filtering and lightbox view
+          <p className="text-base text-muted-foreground mt-4">
+            Explore 38+ premium installations with category filtering
           </p>
         </div>
       </div>

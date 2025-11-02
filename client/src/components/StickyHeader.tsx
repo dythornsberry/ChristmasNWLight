@@ -14,78 +14,72 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/">
-            <a className="flex items-center cursor-pointer">
+            <div className="flex items-center cursor-pointer">
               <img 
                 src={logoImage} 
                 alt="Christmas Northwest" 
                 className="h-12 md:h-14 w-auto"
                 data-testid="img-logo"
               />
-            </a>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-4">
-            <Button 
-              variant="ghost" 
-              size="default"
-              asChild
-              data-testid="nav-about"
-            >
-              <Link href="/about">
-                <a>About</a>
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="default"
-              asChild
-              data-testid="nav-services"
-            >
-              <Link href="/services">
-                <a>Services</a>
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="default"
-              asChild
-              data-testid="nav-gallery"
-            >
-              <Link href="/gallery">
-                <a>Gallery</a>
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="default"
-              asChild
-              data-testid="nav-testimonials"
-            >
-              <Link href="/testimonials">
-                <a>Testimonials</a>
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="default"
-              asChild
-              data-testid="nav-service-areas"
-            >
-              <Link href="/service-areas">
-                <a>Service Areas</a>
-              </Link>
-            </Button>
-            <Button 
-              variant="ghost" 
-              size="default"
-              asChild
-              data-testid="nav-contact"
-            >
-              <Link href="/contact">
-                <a>Contact</a>
-              </Link>
-            </Button>
+            <Link href="/about">
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-about"
+              >
+                About
+              </Button>
+            </Link>
+            <Link href="/services">
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-services"
+              >
+                Services
+              </Button>
+            </Link>
+            <Link href="/gallery">
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-gallery"
+              >
+                Gallery
+              </Button>
+            </Link>
+            <Link href="/testimonials">
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-testimonials"
+              >
+                Testimonials
+              </Button>
+            </Link>
+            <Link href="/service-areas">
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-service-areas"
+              >
+                Service Areas
+              </Button>
+            </Link>
+            <Link href="/contact">
+              <Button 
+                variant="ghost" 
+                size="default"
+                data-testid="nav-contact"
+              >
+                Contact
+              </Button>
+            </Link>
           </nav>
 
           {/* Phone & CTA */}

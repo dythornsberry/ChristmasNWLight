@@ -16,13 +16,13 @@ interface TestimonialsProps {
 
 export default function Testimonials({ testimonials }: TestimonialsProps) {
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-24 bg-muted/30">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">
+        <div className="text-center mb-20">
+          <h2 className="font-serif text-5xl md:text-6xl font-bold mb-6 text-foreground">
             What Our Customers Say
           </h2>
-          <p className="text-lg text-muted-foreground">
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
             Homeowners who value quality trust us year after year for stress-free, stunning results
           </p>
         </div>
@@ -34,13 +34,13 @@ export default function Testimonials({ testimonials }: TestimonialsProps) {
               className="p-8"
               data-testid={`card-testimonial-${index}`}
             >
-              <div className="flex gap-1 mb-4">
+              <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, i) => (
                   <Star
                     key={i}
-                    className={`w-5 h-5 ${
+                    className={`w-6 h-6 ${
                       i < testimonial.rating
-                        ? "fill-primary text-primary"
+                        ? "fill-amber-400 text-amber-400"
                         : "text-muted"
                     }`}
                   />
