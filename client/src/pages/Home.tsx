@@ -14,27 +14,49 @@ import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import { Home as HomeIcon, Building2, Sparkles, Wrench, TrendingUp, Users, Award, Clock } from "lucide-react";
 
-import img1 from '@assets/2023-01-08-min_1762050962742.jpg';
-import img2 from '@assets/2023-11-07-2-min_1762050962742.jpg';
-import img3 from '@assets/2023-11-16-min_1762050962743.jpg';
-import img4 from '@assets/2024-11-28-min_1762050962743.jpg';
-import img5 from '@assets/2023-11-24-min_1762050962743.jpg';
-import img6 from '@assets/2024-11-25-min_1762050962743.jpg';
-import img7 from '@assets/2024-11-17-3-min_1762050962743.jpg';
-import img8 from '@assets/2023-11-10-3-min_1762050962743.jpg';
-import img9 from '@assets/2024-11-17-4-min_1762050962743.jpg';
-import img10 from '@assets/2022-12-01-min_1762050962743.jpg';
-import img11 from '@assets/unnamed-14-min_1762050962743.jpg';
-import img12 from '@assets/2023-11-14-min_1762050962743.jpg';
-import img13 from '@assets/2024-11-17-5-min_1762050962743.jpg';
+import img1 from '@assets/img2_1761853506442.webp';
+import img2 from '@assets/img3_1761853506443.webp';
+import img3 from '@assets/img4_1761853506443.webp';
+import img4 from '@assets/img5_1761853506443.webp';
+import img5 from '@assets/img6_1761853506443.webp';
+import img6 from '@assets/img7_1761853506443.webp';
+import img7 from '@assets/img8_1761853506443.webp';
+import img8 from '@assets/img9_1761853506444.webp';
+import img9 from '@assets/img10_1761853506444.webp';
+import img10 from '@assets/img11_1761853506444.webp';
+import img11 from '@assets/img12_1761853506444.webp';
+import img12 from '@assets/img13_1761853506444.webp';
+import img13 from '@assets/img14_1761853506444.webp';
+import img14 from '@assets/img15_1761853506444.webp';
+import img15 from '@assets/img16_1761853506444.webp';
 
-import residentialImage from '@assets/2023-01-08-min_1762050962742.jpg';
-import commercialImage from '@assets/2023-11-14-min_1762050962743.jpg';
-import customImage from '@assets/2024-11-17-4-min_1762050962743.jpg';
-import maintenanceImage from '@assets/2024-11-28-min_1762050962743.jpg';
-import teamImage from '@assets/2024-11-17-3-min_1762050962743.jpg';
+import img16 from '@assets/2023-01-08-min_1762050962742.jpg';
+import img17 from '@assets/2023-11-07-2-min_1762050962742.jpg';
+import img18 from '@assets/2023-11-16-min_1762050962743.jpg';
+import img19 from '@assets/2024-11-28-min_1762050962743.jpg';
+import img20 from '@assets/2023-11-24-min_1762050962743.jpg';
+import img21 from '@assets/2024-11-25-min_1762050962743.jpg';
+import img22 from '@assets/2024-11-17-3-min_1762050962743.jpg';
+import img23 from '@assets/2023-11-10-3-min_1762050962743.jpg';
+import img24 from '@assets/2024-11-17-4-min_1762050962743.jpg';
+import img25 from '@assets/2022-12-01-min_1762050962743.jpg';
+import img26 from '@assets/unnamed-14-min_1762050962743.jpg';
+import img27 from '@assets/2023-11-14-min_1762050962743.jpg';
+import img28 from '@assets/2024-11-17-5-min_1762050962743.jpg';
+
+import img29 from '@assets/northwest-christmas-light-installer-18-scaled-1-3-min_1762050980953.jpg';
+import img30 from '@assets/northwest-christmas-light-installer-13-scaled-1-1-2-min_1762050980953.jpg';
+import img31 from '@assets/northwest-christmas-light-installer-17-scaled-1-2-min_1762050980953.jpg';
+import img32 from '@assets/northwest-christmas-light-installer-15-scaled-1-min_1762050980954.jpg';
+import img33 from '@assets/northwest-christmas-light-installer-10-scaled-1-min_1762050980954.jpg';
+
+import residentialImage from '@assets/img4_1761853506443.webp';
+import commercialImage from '@assets/img7_1761853506443.webp';
+import customImage from '@assets/img16_1761853506444.webp';
+import maintenanceImage from '@assets/img8_1761853506443.webp';
+import teamImage from '@assets/img6_1761853506443.webp';
 import beforeImage from '@assets/img4_1761853506443.webp';
-import afterImage from '@assets/2023-01-08-min_1762050962742.jpg';
+import afterImage from '@assets/img11_1761853506444.webp';
 import { useToast } from "@/hooks/use-toast";
 
 export default function Home() {
@@ -140,40 +162,60 @@ export default function Home() {
   ];
 
   const portfolioItems = [
-    { id: 1, image: img1, category: "Residential", title: "Modern Two-Story Warm White" },
-    { id: 2, image: img2, category: "Residential", title: "Elegant Single-Story with Wreath" },
-    { id: 3, image: img3, category: "Residential", title: "Multi-Gable Contemporary Home" },
-    { id: 4, image: img4, category: "Residential", title: "Clean Modern Roofline" },
-    { id: 5, image: img5, category: "Custom", title: "Red & Green Traditional Display" },
-    { id: 6, image: img6, category: "Custom", title: "Multi-Color Large Home" },
-    { id: 7, image: img7, category: "Custom", title: "Family Display with Trees" },
-    { id: 8, image: img8, category: "Custom", title: "Vibrant Multicolor Installation" },
-    { id: 9, image: img9, category: "Residential", title: "Tree Lighting Accent Feature" },
-    { id: 10, image: img10, category: "Custom", title: "Red & Green in Snow" },
-    { id: 11, image: img11, category: "Details", title: "Majestic Tree with Child" },
-    { id: 12, image: img12, category: "Residential", title: "Upscale Brick Estate" },
-    { id: 13, image: img13, category: "Custom", title: "Red & Green Split-Level" },
+    { id: 1, image: img1, category: "Residential", title: "Classic Warm White Roofline" },
+    { id: 2, image: img2, category: "Custom", title: "Modern Multicolor Display" },
+    { id: 3, image: img3, category: "Residential", title: "Traditional Warm White" },
+    { id: 4, image: img4, category: "Residential", title: "Contemporary Stone Accent" },
+    { id: 5, image: img5, category: "Residential", title: "Large Estate Installation" },
+    { id: 6, image: img6, category: "Residential", title: "Modern Gable Design" },
+    { id: 7, image: img7, category: "Residential", title: "Split-Level Contemporary" },
+    { id: 8, image: img8, category: "Custom", title: "Tree Canopy Entrance" },
+    { id: 9, image: img9, category: "Residential", title: "Stone & Siding Combo" },
+    { id: 10, image: img10, category: "Custom", title: "Patriotic Red & Blue" },
+    { id: 11, image: img11, category: "Residential", title: "Elegant Warm White" },
+    { id: 12, image: img12, category: "Custom", title: "Traditional Red & Green" },
+    { id: 13, image: img13, category: "Details", title: "Wreaths & Accents" },
+    { id: 14, image: img14, category: "Details", title: "Wrapped Tree Feature" },
+    { id: 15, image: img15, category: "Custom", title: "Multi-Roofline Estate" },
+    { id: 16, image: img16, category: "Residential", title: "Modern Two-Story Warm White" },
+    { id: 17, image: img17, category: "Residential", title: "Elegant Single-Story with Wreath" },
+    { id: 18, image: img18, category: "Residential", title: "Multi-Gable Contemporary Home" },
+    { id: 19, image: img19, category: "Residential", title: "Clean Modern Roofline" },
+    { id: 20, image: img20, category: "Custom", title: "Red & Green Traditional Display" },
+    { id: 21, image: img21, category: "Custom", title: "Multi-Color Large Home" },
+    { id: 22, image: img22, category: "Custom", title: "Family Display with Trees" },
+    { id: 23, image: img23, category: "Custom", title: "Vibrant Multicolor Installation" },
+    { id: 24, image: img24, category: "Residential", title: "Tree Lighting Accent Feature" },
+    { id: 25, image: img25, category: "Custom", title: "Red & Green in Snow" },
+    { id: 26, image: img26, category: "Details", title: "Majestic Tree with Child" },
+    { id: 27, image: img27, category: "Residential", title: "Upscale Brick Estate" },
+    { id: 28, image: img28, category: "Custom", title: "Red & Green Split-Level" },
+    { id: 29, image: img29, category: "Custom", title: "Stunning Multicolor Two-Story" },
+    { id: 30, image: img30, category: "Custom", title: "Modern Red & Green Display" },
+    { id: 31, image: img31, category: "Custom", title: "Traditional Craftsman Gables" },
+    { id: 32, image: img32, category: "Custom", title: "Window Lights & Minions Display" },
+    { id: 33, image: img33, category: "Residential", title: "Elegant Modern Warm White with Deer" },
   ];
 
   const colorOptions = [
     {
       name: "Warm White",
-      image: img1,
+      image: img3,
       description: "Classic, elegant glow perfect for traditional displays"
     },
     {
       name: "Multicolor",
-      image: img8,
+      image: img2,
       description: "Festive and vibrant for a playful holiday display"
     },
     {
       name: "Red + Green",
-      image: img5,
+      image: img12,
       description: "Traditional Christmas colors for classic cheer"
     },
     {
       name: "Red + White",
-      image: img13,
+      image: img14,
       description: "Candy cane colors for festive charm"
     }
   ];
