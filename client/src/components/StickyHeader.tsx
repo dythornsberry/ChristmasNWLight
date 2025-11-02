@@ -25,7 +25,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1">
+          <nav className="hidden lg:flex items-center gap-4">
             <Link href="/about">
               <Button 
                 variant="ghost" 
@@ -77,7 +77,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
           <div className="flex items-center gap-2 md:gap-4">
             <a 
               href="tel:4252150935" 
-              className="hidden md:flex items-center gap-2 text-sm font-semibold text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-md"
+              className="hidden md:flex items-center gap-2 text-base font-semibold text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-md"
               data-testid="link-header-phone"
             >
               <Phone className="w-4 h-4" />

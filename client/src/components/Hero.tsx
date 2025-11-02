@@ -54,7 +54,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           backgroundImage: `url(${heroImage})`,
         }}
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/70 to-black/60" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/75 to-black/65" />
       
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -73,11 +73,11 @@ export default function Hero({ onGetQuote }: HeroProps) {
               </div>
             </div>
 
-            <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="font-serif text-5xl md:text-7xl font-extrabold mb-8 leading-tight tracking-tight">
               Fast, Beautiful, and Premium Holiday Lighting
             </h1>
             
-            <p className="text-xl md:text-2xl mb-8 text-white/90 leading-relaxed">
+            <p className="text-2xl md:text-3xl mb-10 text-white/95 leading-relaxed font-semibold">
               Installed within a week of booking!
             </p>
 
@@ -96,18 +96,18 @@ export default function Hero({ onGetQuote }: HeroProps) {
               </div>
             </div>
 
-            <div className="space-y-3 text-white/90">
-              <div className="flex items-center gap-2">
+            <div className="space-y-4 text-white/90 text-lg">
+              <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span>Serving Hundreds of Homes Every Season</span>
+                <span className="font-medium">Serving Hundreds of Homes Every Season</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3 bg-white/10 backdrop-blur-sm px-4 py-3 rounded-lg">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span>Licensed, Bonded & Insured</span>
+                <span className="font-bold text-white">Licensed, Bonded & Insured</span>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-3">
                 <div className="w-2 h-2 bg-primary rounded-full" />
-                <span>Commercial-Grade LED Lights</span>
+                <span className="font-medium">Commercial-Grade LED Lights</span>
               </div>
             </div>
           </div>
@@ -202,11 +202,16 @@ export default function Hero({ onGetQuote }: HeroProps) {
               <Button 
                 type="submit" 
                 size="lg" 
-                className="w-full text-lg"
+                className="w-full text-lg font-bold mt-6"
                 data-testid="button-submit-quote"
               >
                 Get My Free Quote
               </Button>
+              
+              <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
+                <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                <span className="font-semibold">Licensed, Bonded & Insured Professional Service</span>
+              </div>
 
               <p className="text-xs text-muted-foreground">
                 By submitting this form, you consent to receive text messages and calls from Christmas Light Installers Northwest for marketing and customer care. Message frequency may vary. Reply "STOP" to unsubscribe. We will never share your information with 3rd parties.
