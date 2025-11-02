@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -9,27 +9,16 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Clock, Star, ChevronLeft, ChevronRight } from "lucide-react";
+import { Clock, Star } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import heroImage1 from '@assets/unnamed-14-min_1762058047475.jpg';
-import heroImage2 from '@assets/2024-11-17-3-min_1762058047475.jpg';
-import heroImage3 from '@assets/2023-11-14-min_1762058047475.jpg';
-import heroImage4 from '@assets/2025-10-28-min_1762058047476.jpg';
+import heroImage from '@assets/generated_images/Hero_home_Christmas_lights_dusk_a9a01c87.png';
 
 interface HeroProps {
   onGetQuote?: () => void;
 }
 
-const heroImages = [
-  { src: heroImage1, alt: "Child admiring beautifully lit Christmas tree" },
-  { src: heroImage2, alt: "Family enjoying their custom holiday lighting" },
-  { src: heroImage3, alt: "Elegant brick mansion with warm white lights" },
-  { src: heroImage4, alt: "Spectacular custom tree display" }
-];
-
 export default function Hero({ onGetQuote }: HeroProps) {
   const { toast } = useToast();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -38,59 +27,6 @@ export default function Hero({ onGetQuote }: HeroProps) {
     zipCode: "",
     serviceType: ""
   });
-
-  // Auto-rotate hero images every 5 seconds, pause on user interaction
-  const [isPaused, setIsPaused] = useState(false);
-  const pauseTimeoutRef = useRef<number | null>(null);
-  
-  useEffect(() => {
-    if (isPaused) return;
-    
-    const interval = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [isPaused]);
-
-  // Cleanup pause timeout on unmount
-  useEffect(() => {
-    return () => {
-      if (pauseTimeoutRef.current) {
-        clearTimeout(pauseTimeoutRef.current);
-      }
-    };
-  }, []);
-
-  // Pause auto-rotation when user interacts, resume after 10 seconds
-  const handleUserInteraction = () => {
-    setIsPaused(true);
-    
-    // Clear any existing pause timeout
-    if (pauseTimeoutRef.current) {
-      clearTimeout(pauseTimeoutRef.current);
-    }
-    
-    // Set new timeout to resume after 10 seconds
-    pauseTimeoutRef.current = window.setTimeout(() => {
-      setIsPaused(false);
-      pauseTimeoutRef.current = null;
-    }, 10000);
-  };
-
-  const handlePrevImage = () => {
-    handleUserInteraction();
-    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
-  };
-
-  const handleNextImage = () => {
-    handleUserInteraction();
-    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
-  };
-
-  const handleIndicatorClick = (index: number) => {
-    handleUserInteraction();
-    setCurrentImageIndex(index);
-  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -111,53 +47,14 @@ export default function Hero({ onGetQuote }: HeroProps) {
 
   return (
     <section className="relative min-h-screen flex items-center py-20 overflow-hidden">
-      {/* Background Image Carousel */}
-      {heroImages.map((image, index) => (
-        <div
-          key={index}
-          className={`absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ${
-            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
-          }`}
-          style={{
-            backgroundImage: `url(${image.src})`,
-          }}
-          aria-label={image.alt}
-        />
-      ))}
+      {/* Background Image */}
+      <div 
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: `url(${heroImage})`,
+        }}
+      />
       <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/75 to-black/65" />
-      
-      {/* Carousel Navigation Buttons */}
-      <button
-        onClick={handlePrevImage}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all"
-        aria-label="Previous image"
-        data-testid="button-hero-prev"
-      >
-        <ChevronLeft className="w-6 h-6 text-white" />
-      </button>
-      <button
-        onClick={handleNextImage}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/10 hover:bg-white/20 backdrop-blur-sm p-3 rounded-full transition-all"
-        aria-label="Next image"
-        data-testid="button-hero-next"
-      >
-        <ChevronRight className="w-6 h-6 text-white" />
-      </button>
-      
-      {/* Carousel Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex gap-2">
-        {heroImages.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => handleIndicatorClick(index)}
-            className={`w-2 h-2 rounded-full transition-all ${
-              index === currentImageIndex ? 'bg-white w-8' : 'bg-white/50'
-            }`}
-            aria-label={`Go to image ${index + 1}`}
-            data-testid={`indicator-hero-${index}`}
-          />
-        ))}
-      </div>
       
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
