@@ -2,6 +2,7 @@ import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Hero from "@/components/Hero";
 import QuoteFormSection from "@/components/QuoteFormSection";
+import PromiseSection from "@/components/PromiseSection";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import ColorOptions from "@/components/ColorOptions";
@@ -303,6 +304,8 @@ export default function Home() {
       <Hero onGetQuote={scrollToQuote} />
 
       <QuoteFormSection />
+
+      <PromiseSection />
 
       <Testimonials testimonials={testimonials} />
 
