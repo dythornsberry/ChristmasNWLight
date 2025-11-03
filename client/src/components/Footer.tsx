@@ -66,20 +66,20 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Services</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">Residential Installation</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Commercial Installation</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Custom Design</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Maintenance & Repair</a></li>
+              <li><a href="/services" className="hover:text-primary transition-colors">Residential Installation</a></li>
+              <li><a href="/services" className="hover:text-primary transition-colors">Commercial Installation</a></li>
+              <li><a href="/services" className="hover:text-primary transition-colors">Custom Design</a></li>
+              <li><a href="/services" className="hover:text-primary transition-colors">Maintenance & Repair</a></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Company</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><a href="#" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Our Work</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Testimonials</a></li>
-              <li><a href="#" className="hover:text-primary transition-colors">Contact</a></li>
+              <li><a href="/about" className="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="/gallery" className="hover:text-primary transition-colors">Our Work</a></li>
+              <li><a href="/testimonials" className="hover:text-primary transition-colors">Testimonials</a></li>
+              <li><a href="/contact" className="hover:text-primary transition-colors">Contact</a></li>
             </ul>
           </div>
 
