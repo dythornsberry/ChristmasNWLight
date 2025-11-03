@@ -1,0 +1,74 @@
+christmasnw.com 
+
+
+Domain  Products  Sharing & Transfer  Advanced DNS
+STATUS & VALIDITY
+ACTIVE
+Feb 26, 2025 - Oct 7, 2026
+
+AUTO-RENEW
+ADD YEARS
+DomainPrivacy
+
+PROTECTION
+Feb 26, 2025 - Feb 26, 2026
+
+AUTO-RENEW
+ADD YEARS
+SHOW DETAILS
+PremiumDNS
+Enable PremiumDNS protection in order to switch your domain to our PremiumDNS platform. With our PremiumDNS platform, you get 100% DNS uptime and DDoS protection at the DNS level.
+BUY NOW
+NAMESERVERS
+Namecheap Web Hosting DNS
+
+
+REDIRECT DOMAIN
+Your domain is using Namecheap Hosting Nameservers (DNS), which means you can set a domain redirect within cPanel. Please refer to this Knowledgebase article → for detailed instructions. Alternatively, you can set your domain to use our default Nameservers (DNS) to set up Domain Redirect in your Namecheap account. However, hosting services will stop working in this case.
+
+REDIRECT EMAIL
+You can create redirects via cPanel or your Namecheap account. To perform this function from your account, you must first change your nameservers to Namecheap default. Learn How →
+
+PRIVATE EMAIL
+Communicate like a pro with you@yourdomain email addresses. Private Email is a secure, efficient solution with powerful productivity tools. Build trust, stay organized, and grow your business on any device.
+
+BUY NOW
+DOMAIN CONTACTS
+Each domain registered must include contact details. These are stored in a public WHOIS database so that the domain owner can be contacted, as needed. We call them “Domain Contacts” (aka. Whois Contacts). Customers have the ability to edit them. Learn more about personal domain contacts
+
+Registrant Contacts
+Dylan Thornsberry
+Hercules Junk Removal
+6516 NE 192nd Pl
+Kenmore; WA 98028
+US tel: +1.4252836335
+dythornsberry@gmail.com
+
+EDIT
+Administrator Contacts
+Dylan Thornsberry
+Hercules Junk Removal
+6516 NE 192nd Pl
+Kenmore; WA 98028
+US tel: +1.4252836335
+dythornsberry@gmail.com
+
+EDIT
+Technical Contacts
+Dylan Thornsberry
+Hercules Junk Removal
+6516 NE 192nd Pl
+Kenmore; WA 98028
+US tel: +1.4252836335
+dythornsberry@gmail.com
+
+EDIT
+Billing Contacts
+Dylan Thornsberry
+Hercules Junk Removal
+6516 NE 192nd Pl
+Kenmore; WA 98028
+US tel: +1.4252836335
+dythornsberry@gmail.com
+
+EDIT
