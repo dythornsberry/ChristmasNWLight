@@ -143,8 +143,9 @@ export default function QuoteFormSection() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="asap">ASAP</SelectItem>
-                  <SelectItem value="before-thanksgiving">Before Thanksgiving</SelectItem>
-                  <SelectItem value="after-thanksgiving">After Thanksgiving</SelectItem>
+                  <SelectItem value="october-early-november">October/Early November</SelectItem>
+                  <SelectItem value="mid-november">Mid-November</SelectItem>
+                  <SelectItem value="december">December</SelectItem>
                 </SelectContent>
               </Select>
             </div>
