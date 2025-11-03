@@ -1,3 +1,4 @@
+import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Hero from "@/components/Hero";
 import QuoteFormSection from "@/components/QuoteFormSection";
@@ -296,6 +297,7 @@ export default function Home() {
 
   return (
     <div className="min-h-screen pb-20">
+      <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
       
       <Hero onGetQuote={scrollToQuote} />

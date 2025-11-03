@@ -1,3 +1,4 @@
+import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
@@ -116,6 +117,7 @@ export default function ProductGuide() {
 
   return (
     <div className="min-h-screen bg-background">
+      <UrgencyBanner />
       <PageHead 
         title="Premium Christmas Lighting Products | C9 Bulbs, Mini Lights | Christmas Northwest"
         description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for bushes, Ground Lights for pathways, and Tree Wraps. Energy-efficient, weather-resistant, professional quality. Seattle area."

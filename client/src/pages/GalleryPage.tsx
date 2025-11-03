@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
@@ -125,16 +126,8 @@ export default function GalleryPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
-
-      {/* Seasonal Promotional Banner */}
-      <div className="bg-gradient-to-r from-primary via-primary to-primary/90 py-3 text-center sticky top-16 z-40 shadow-md">
-        <div className="max-w-7xl mx-auto px-6">
-          <p className="text-primary-foreground font-semibold text-sm md:text-base">
-            Book Your Installation Today - Same-Week Service Available
-          </p>
-        </div>
-      </div>
 
       <main className="flex-1">
         {/* Hero Section */}

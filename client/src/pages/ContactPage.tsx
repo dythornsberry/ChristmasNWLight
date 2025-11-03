@@ -1,4 +1,5 @@
 import { useState } from "react";
+import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
@@ -59,16 +60,8 @@ export default function ContactPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
-      
-      {/* Seasonal Promotional Banner */}
-      <div className="bg-primary/95 backdrop-blur-sm border-b border-primary-border">
-        <div className="max-w-7xl mx-auto px-6 py-3">
-          <p className="text-center text-primary-foreground font-semibold text-sm md:text-base">
-            Book Your 2025 Holiday Display Now - Limited Spots Available for Thanksgiving Week Installation!
-          </p>
-        </div>
-      </div>
 
       <main className="flex-1">
         {/* Hero Section */}

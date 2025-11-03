@@ -30,7 +30,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-card border-b border-border shadow-md">
+    <header className="sticky top-10 z-50 bg-card border-b border-border shadow-md">
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
