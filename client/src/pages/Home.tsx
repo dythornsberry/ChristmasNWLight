@@ -72,6 +72,7 @@ import teamImage from '@assets/img6_1761853506443.webp';
 import beforeImage from '@assets/img4_1761853506443.webp';
 import afterImage from '@assets/img11_1761853506444.webp';
 import { useToast } from "@/hooks/use-toast";
+import { useEffect } from "react";
 
 export default function Home() {
   const { toast } = useToast();
@@ -296,6 +297,13 @@ export default function Home() {
       description: "Scroll down to request a quote for this service.",
     });
   };
+
+  useEffect(() => {
+    // Trigger Featurable widget to load after component mounts
+    if ((window as any).Featurable) {
+      (window as any).Featurable.loadWidgets();
+    }
+  }, []);
 
   return (
     <div className="min-h-screen pb-20">
