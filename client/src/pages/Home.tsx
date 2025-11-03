@@ -72,7 +72,7 @@ import teamImage from '@assets/img6_1761853506443.webp';
 import beforeImage from '@assets/img4_1761853506443.webp';
 import afterImage from '@assets/img11_1761853506444.webp';
 import { useToast } from "@/hooks/use-toast";
-import GoogleReviews from "@/components/GoogleReviews";
+import { useEffect } from "react";
 
 export default function Home() {
   const { toast } = useToast();
@@ -298,6 +298,21 @@ export default function Home() {
     });
   };
 
+  useEffect(() => {
+    // Load Featurable script dynamically
+    const script = document.createElement('script');
+    script.src = 'https://featurable.com/assets/bundle.js';
+    script.defer = true;
+    script.charset = 'UTF-8';
+    document.body.appendChild(script);
+
+    return () => {
+      if (document.body.contains(script)) {
+        document.body.removeChild(script);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen pb-20">
       <UrgencyBanner />
@@ -341,7 +356,13 @@ export default function Home() {
             </p>
           </div>
           
-          <GoogleReviews widgetId="70aae94b-1709-4c03-986e-fd112d51273d" />
+          <div className="max-w-6xl mx-auto">
+            <div 
+              id="featurable-70aae94b-1709-4c03-986e-fd112d51273d" 
+              data-featurable-async
+              data-testid="google-reviews-widget"
+            ></div>
+          </div>
         </div>
       </section>
 
