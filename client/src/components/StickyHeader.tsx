@@ -18,7 +18,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
     { href: "/services", label: "Services", testId: "nav-services" },
     { href: "/gallery", label: "Gallery", testId: "nav-gallery" },
     { href: "/product-guide", label: "Product Guide", testId: "nav-product-guide" },
-    { href: "/investment-guide", label: "Investment Guide", testId: "nav-investment-guide" },
+    { href: "/investment-guide", label: "Pricing Guide", testId: "nav-investment-guide" },
     { href: "/testimonials", label: "Testimonials", testId: "nav-testimonials" },
     { href: "/service-areas", label: "Service Areas", testId: "nav-service-areas" },
     { href: "/contact", label: "Contact", testId: "nav-contact" },

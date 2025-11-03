@@ -121,9 +121,9 @@ export default function InvestmentGuide() {
               Transparent Pricing
             </Badge>
             <h1 className="font-serif text-5xl md:text-6xl font-black text-primary-foreground mb-6 leading-tight">
-              Investment Guide
+              Pricing Guide
               <br />
-              <span className="text-4xl md:text-5xl">Transparent Pricing for Premium Service</span>
+              <span className="text-4xl md:text-5xl">An Investment Into Your Holidays</span>
             </h1>
             <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed mb-6">
               All-inclusive pricing with no hidden fees. Installation, maintenance, storage, and next-year reinstallation included.
@@ -141,7 +141,7 @@ export default function InvestmentGuide() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Investment Ranges
+              Pricing Ranges
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Starting at $800. Most homes invest between $1,500 - $3,000 for comprehensive coverage.
