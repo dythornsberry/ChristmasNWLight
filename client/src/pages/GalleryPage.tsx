@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
@@ -246,9 +247,12 @@ export default function GalleryPage() {
       <Footer />
       <StickyBottomCTA onGetQuote={scrollToQuote} />
 
-      {/* Lightbox */}
-      {lightboxIndex !== null && (
+      {/* Lightbox using React Portal for proper z-index */}
+      {lightboxIndex !== null && createPortal(
         <div 
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image lightbox"
           className="fixed inset-0 z-[100] bg-black/95 flex items-center justify-center"
           onClick={closeLightbox}
           data-testid="lightbox-overlay"
@@ -311,7 +315,8 @@ export default function GalleryPage() {
               </p>
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </div>
   );
