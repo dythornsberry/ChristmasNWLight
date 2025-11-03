@@ -96,19 +96,22 @@ export default function WatermarkedImage({
       {/* Lightbox Modal */}
       {enableLightbox && isLightboxOpen && (
         <div 
-          className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
+          className="fixed inset-0 bg-black/95 flex items-center justify-center p-4 cursor-pointer"
+          style={{ zIndex: 9999 }}
           onClick={handleCloseLightbox}
+          data-testid="lightbox-overlay"
         >
           <Button
             variant="ghost"
             size="icon"
-            className="absolute top-4 right-4 text-white hover:bg-white/10"
+            className="absolute top-4 right-4 text-white hover:bg-white/10 z-10"
             onClick={handleCloseLightbox}
             aria-label="Close lightbox"
+            data-testid="button-close-lightbox"
           >
             <X className="w-6 h-6" />
           </Button>
-          <div className="relative max-w-7xl max-h-[90vh]" onClick={(e) => e.stopPropagation()}>
+          <div className="relative max-w-7xl max-h-[90vh] cursor-default" onClick={(e) => e.stopPropagation()}>
             <img 
               src={src} 
               alt={alt}
@@ -133,6 +136,9 @@ export default function WatermarkedImage({
             >
               {watermarkText}
             </div>
+          </div>
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 text-sm pointer-events-none">
+            Click anywhere or press ESC to close
           </div>
         </div>
       )}
