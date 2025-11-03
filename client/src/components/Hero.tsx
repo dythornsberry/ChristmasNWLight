@@ -48,6 +48,9 @@ export default function Hero({ onGetQuote }: HeroProps) {
               Light Up My Home ✨
               <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
+            <p className="text-white/90 text-lg font-medium" data-testid="text-pricing-range">
+              Most homes $800-$2,000 • All-inclusive service
+            </p>
           </div>
           
           {/* Enhanced Trust Badges */}
