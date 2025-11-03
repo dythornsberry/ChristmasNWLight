@@ -6,7 +6,7 @@ import PageHead from "@/components/PageHead";
 import WatermarkedImage from "@/components/WatermarkedImage";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap, Flower2 } from "lucide-react";
+import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap, Flower2, Circle } from "lucide-react";
 
 import c9RooflinePhoto from '@assets/81s3L7gNl1L_1762096860729.jpg';
 import miniLightsPhoto from '@assets/Incan-Clear-6x15-Column-Wrap-02-lifestyle_1762096913912.jpg';
@@ -15,6 +15,7 @@ import treeWrapsPhoto from '@assets/81yZtNElctL_1762096926030.jpg';
 import bulbSizePhoto from '@assets/bulb size_1762106464988.jpg';
 import wreathPhoto from '@assets/wreath_1762139131915.webp';
 import garlandPhoto from '@assets/garland_1762139151318.jpg';
+import lightSpheresPhoto from '@assets/spritzers_1762139197052.jpeg';
 
 export default function ProductGuide() {
   const scrollToQuote = () => {
@@ -95,28 +96,50 @@ export default function ProductGuide() {
     },
     {
       id: 4,
-      name: "Tree Wraps & Light Spheres",
+      name: "Tree Wraps",
       icon: TreePine,
       image: treeWrapsPhoto,
-      description: "Transform trees into stunning focal points with professional trunk wraps and hanging light spheres. Create magical vertical elements that draw the eye upward.",
+      description: "Transform tree trunks into stunning vertical features with professional wrapping techniques. Create elegant columns of light that complement your roofline display.",
       colors: ["Warm White", "Multicolor", "Red & Green"],
       useCases: [
         "Tree trunk wrapping",
-        "Hanging from branches",
-        "Creating focal points",
-        "Adding vertical interest",
-        "Complementing roofline displays"
+        "Creating vertical focal points",
+        "Front yard feature trees",
+        "Adding height to displays",
+        "Complementing roofline lighting"
       ],
       benefits: [
-        "Creates dramatic visual impact",
         "Professional installation technique",
-        "Adds dimension to your display",
+        "Adds vertical dimension",
         "Weather-resistant construction",
-        "Complements any home style"
+        "Creates elegant tree columns",
+        "Enhances overall display impact"
       ]
     },
     {
       id: 5,
+      name: "Light Spheres",
+      icon: Circle,
+      image: lightSpheresPhoto,
+      description: "Magical illuminated spheres that bring your trees to life from within. These stunning light balls create a breathtaking glow effect that looks incredible at night.",
+      colors: ["Warm White", "Multicolor", "Color-Changing"],
+      useCases: [
+        "Hanging in tree branches",
+        "Creating tree canopy glow",
+        "Focal point trees",
+        "Adding depth and interest",
+        "Illuminating from within"
+      ],
+      benefits: [
+        "Spectacular visual impact",
+        "Creates magical glow effect",
+        "Perfect for feature trees",
+        "Professional placement and installation",
+        "Truly unique and eye-catching"
+      ]
+    },
+    {
+      id: 6,
       name: "Wreaths & Garland",
       icon: Flower2,
       image: wreathPhoto,
@@ -143,8 +166,8 @@ export default function ProductGuide() {
     <div className="min-h-screen bg-background">
       <UrgencyBanner />
       <PageHead 
-        title="Premium Christmas Lighting Products | C9 Bulbs, Mini Lights, Wreaths | Christmas Northwest"
-        description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for bushes, Ground Lights for pathways, Tree Wraps, and Wreaths & Garland. Energy-efficient, weather-resistant, professional quality. Seattle area."
+        title="Premium Christmas Lighting Products | C9 Bulbs, Light Spheres, Wreaths | Christmas Northwest"
+        description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for bushes, Ground Lights for pathways, Tree Wraps, Light Spheres for trees, and Wreaths & Garland. Energy-efficient, weather-resistant, professional quality. Seattle area."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
       

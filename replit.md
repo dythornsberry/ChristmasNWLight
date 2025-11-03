@@ -25,7 +25,7 @@ The backend is an Express.js server written in TypeScript, providing a RESTful A
 - **Services Section:** Six benefit cards highlighting the all-inclusive, stress-free service.
 - **Portfolio & Gallery:** A curated preview on the homepage, with a full, dedicated gallery page featuring 17 categorized photos, badge filtering, and a full-screen lightbox with keyboard navigation.
 - **Testimonials:** Enhanced testimonials from Google reviews highlighting service details and reliability.
-- **Product Guide Page:** Educational page showcasing five premium product categories (C9 Bulbs, Mini Lights, Ground & Pathway Lights, Tree Wraps & Light Spheres, Wreaths & Garland) with detailed descriptions, color options, and use cases.
+- **Product Guide Page:** Educational page showcasing six premium product categories (C9 Bulbs, Mini Lights, Ground & Pathway Lights, Tree Wraps, Light Spheres, Wreaths & Garland) with detailed descriptions, color options, and use cases.
 - **Investment Guide Page:** Transparent pricing page with three tiered packages, clearly listing all-inclusive services and explaining factors affecting investment.
 - **Sticky Bottom Bar:** Persistent conversion element with "BOOK NOW", "CALL NOW", "FREE DESIGN" CTAs.
 - **Dynamic SEO:** PageHead component dynamically updates document titles and meta descriptions for each page.
