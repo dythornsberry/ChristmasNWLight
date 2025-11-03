@@ -15,7 +15,7 @@ import treeWrapsPhoto from '@assets/81yZtNElctL_1762096926030.jpg';
 import bulbSizePhoto from '@assets/bulb size_1762106464988.jpg';
 import wreathPhoto from '@assets/wreath_1762139131915.webp';
 import garlandPhoto from '@assets/garland_1762139151318.jpg';
-import lightSpheresPhoto from '@assets/spritzers_1762139197052.jpeg';
+import lightSpheresPhoto from '@assets/spritzers_1762145407991.jpg';
 
 export default function ProductGuide() {
   const scrollToQuote = () => {
