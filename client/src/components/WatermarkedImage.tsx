@@ -1,4 +1,5 @@
 import { useState, useEffect, type KeyboardEvent as ReactKeyboardEvent } from "react";
+import { createPortal } from "react-dom";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -93,10 +94,10 @@ export default function WatermarkedImage({
         </div>
       </Wrapper>
 
-      {/* Lightbox Modal */}
-      {enableLightbox && isLightboxOpen && (
+      {/* Lightbox Modal - Rendered via Portal */}
+      {enableLightbox && isLightboxOpen && createPortal(
         <div 
-          className="fixed inset-0 bg-black/95 flex items-center justify-center p-4 cursor-pointer"
+          className="fixed inset-0 bg-black flex items-center justify-center p-4 cursor-pointer"
           style={{ zIndex: 9999 }}
           onClick={handleCloseLightbox}
           data-testid="lightbox-overlay"
@@ -140,7 +141,8 @@ export default function WatermarkedImage({
           <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 text-sm pointer-events-none">
             Click anywhere or press ESC to close
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
