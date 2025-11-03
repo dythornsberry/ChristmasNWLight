@@ -32,7 +32,7 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
             onClick={onGetQuote}
             data-testid="button-cta-quote"
           >
-            Request Free Design
+            Light Up My Home ✨
             <ArrowRight className="ml-3 h-6 w-6" />
           </Button>
           <Button 

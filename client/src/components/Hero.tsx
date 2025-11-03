@@ -45,7 +45,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
               className="text-xl font-bold bg-primary hover:bg-primary/90 shadow-2xl hover:shadow-[0_0_30px_rgba(220,38,38,0.4)] transition-all duration-300 border-2 border-white/20"
               data-testid="button-hero-cta"
             >
-              Request Free Design
+              Light Up My Home ✨
               <ArrowRight className="ml-3 h-6 w-6" />
             </Button>
           </div>

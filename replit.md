@@ -6,7 +6,7 @@ Christmas Northwest is a conversion-focused multi-page website for a professiona
 ## User Preferences
 Preferred communication style: Simple, everyday language - avoid em dashes and AI-sounding text.
 Design approach: Conversion-focused layout modeled after Premier Home Pros (layout, CTA placement, form design, trust elements, simplicity) while maintaining Christmas theme colors and premium positioning.
-CTA preference: Use "Request Free Design" instead of "consultation" since quotes don't always require in-person visits.
+CTA preference: Use "Light Up My Home ✨" for emotional appeal and customer-focused messaging instead of generic "consultation" or "request" language.
 
 ## System Architecture
 ### UI/UX Decisions
@@ -17,8 +17,11 @@ The frontend is a React 18 application with TypeScript, built using Vite. It uti
 The backend is an Express.js server written in TypeScript, providing a RESTful API. It uses Drizzle ORM with PostgreSQL for data persistence, configured with `@neondatabase/serverless` for serverless database connectivity. A shared `shared/` directory ensures type safety between frontend and backend. Drizzle-Zod integrates runtime validation.
 
 ### Feature Specifications
-- **Hero Section:** Minimalist design with a compelling headline, tagline, a single "Request Free Design" CTA, and compact trust badges.
+- **Urgency Banner:** Top banner with "Beat the Rush - Reserve Your Preferred Install Date Today" message across all pages to encourage early booking.
+- **Hero Section:** Minimalist design with a compelling headline, tagline, a single "Light Up My Home ✨" CTA, and compact trust badges.
 - **Quote Form:** Dedicated section immediately following the hero, with all CTAs smoothly scrolling to it.
+- **Promise Section:** Four-card guarantee section highlighting 1-week installation, 48-hour touch-ups, 100% satisfaction refund, and commercial-grade equipment.
+- **Differentiator Section:** Showcases same-week installation, commercial-grade equipment, included storage, and responsive service.
 - **Services Section:** Six benefit cards highlighting the all-inclusive, stress-free service.
 - **Portfolio & Gallery:** A curated preview on the homepage, with a full, dedicated gallery page featuring 17 categorized photos, badge filtering, and a full-screen lightbox with keyboard navigation.
 - **Testimonials:** Enhanced testimonials from Google reviews highlighting service details and reliability.

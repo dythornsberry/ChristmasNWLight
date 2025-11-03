@@ -48,7 +48,7 @@ export default function QuoteFormSection() {
         <Card className="p-10 md:p-14 shadow-2xl border-2 border-amber-500/10">
           <div className="text-center mb-10">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground font-serif">
-              Request Your Free Design
+              Light Up Your Home
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               Get your custom design estimate, no obligation, no hassle. We'll contact you within 24 hours.
@@ -156,7 +156,7 @@ export default function QuoteFormSection() {
               data-testid="button-submit-quote"
               disabled={!formData.serviceType}
             >
-              Request Free Design
+              Light Up My Home ✨
             </Button>
             
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
