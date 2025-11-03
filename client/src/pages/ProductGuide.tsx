@@ -6,13 +6,15 @@ import PageHead from "@/components/PageHead";
 import WatermarkedImage from "@/components/WatermarkedImage";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap } from "lucide-react";
+import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap, Flower2 } from "lucide-react";
 
 import c9RooflinePhoto from '@assets/81s3L7gNl1L_1762096860729.jpg';
 import miniLightsPhoto from '@assets/Incan-Clear-6x15-Column-Wrap-02-lifestyle_1762096913912.jpg';
 import groundLightsPhoto from '@assets/Ground-Lighting-Installation-Fort-Collins-CO_1762096982865.jpg';
 import treeWrapsPhoto from '@assets/81yZtNElctL_1762096926030.jpg';
 import bulbSizePhoto from '@assets/bulb size_1762106464988.jpg';
+import wreathPhoto from '@assets/wreath_1762139131915.webp';
+import garlandPhoto from '@assets/garland_1762139151318.jpg';
 
 export default function ProductGuide() {
   const scrollToQuote = () => {
@@ -112,6 +114,28 @@ export default function ProductGuide() {
         "Weather-resistant construction",
         "Complements any home style"
       ]
+    },
+    {
+      id: 5,
+      name: "Wreaths & Garland",
+      icon: Flower2,
+      image: wreathPhoto,
+      description: "Add classic holiday charm with professionally lit wreaths and garland. These traditional decorations bring warmth and elegance to entryways, fences, and architectural features.",
+      colors: ["Warm White with Red Bows", "Traditional Green with Lights"],
+      useCases: [
+        "Front doors and entryways",
+        "Fence lines and railings",
+        "Gates and archways",
+        "Columns and posts",
+        "Garage doors"
+      ],
+      benefits: [
+        "Classic, timeless holiday look",
+        "Complements any lighting display",
+        "Weather-resistant materials",
+        "Professional installation and removal",
+        "Perfect finishing touch for your home"
+      ]
     }
   ];
 
@@ -119,8 +143,8 @@ export default function ProductGuide() {
     <div className="min-h-screen bg-background">
       <UrgencyBanner />
       <PageHead 
-        title="Premium Christmas Lighting Products | C9 Bulbs, Mini Lights | Christmas Northwest"
-        description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for bushes, Ground Lights for pathways, and Tree Wraps. Energy-efficient, weather-resistant, professional quality. Seattle area."
+        title="Premium Christmas Lighting Products | C9 Bulbs, Mini Lights, Wreaths | Christmas Northwest"
+        description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for bushes, Ground Lights for pathways, Tree Wraps, and Wreaths & Garland. Energy-efficient, weather-resistant, professional quality. Seattle area."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
       
