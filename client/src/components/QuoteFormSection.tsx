@@ -11,6 +11,8 @@ import {
 } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { apiRequest, queryClient } from "@/lib/queryClient";
+import { useMutation } from "@tanstack/react-query";
 
 export default function QuoteFormSection() {
   const { toast } = useToast();
@@ -24,22 +26,39 @@ export default function QuoteFormSection() {
     serviceType: ""
   });
 
+  const createQuoteMutation = useMutation({
+    mutationFn: async (data: typeof formData) => {
+      return await apiRequest("POST", "/api/quote-requests", data);
+    },
+    onSuccess: () => {
+      toast({
+        title: "Quote Request Received!",
+        description: "We'll contact you within 24 hours with your custom estimate.",
+      });
+      // Reset form
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        address: "",
+        zipCode: "",
+        serviceType: ""
+      });
+      queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
+    },
+    onError: () => {
+      toast({
+        title: "Error",
+        description: "There was a problem submitting your quote request. Please try again.",
+        variant: "destructive",
+      });
+    },
+  });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Quote Request Received!",
-      description: "We'll contact you within 24 hours with your custom estimate.",
-    });
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      address: "",
-      zipCode: "",
-      serviceType: ""
-    });
+    createQuoteMutation.mutate(formData);
   };
 
   return (
@@ -155,9 +174,9 @@ export default function QuoteFormSection() {
               size="lg" 
               className="w-full text-xl font-bold mt-8 shadow-xl hover:shadow-2xl transition-all duration-300"
               data-testid="button-submit-quote"
-              disabled={!formData.serviceType}
+              disabled={!formData.serviceType || createQuoteMutation.isPending}
             >
-              Light Up My Home ✨
+              {createQuoteMutation.isPending ? "Submitting..." : "Light Up My Home ✨"}
             </Button>
             
             <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
