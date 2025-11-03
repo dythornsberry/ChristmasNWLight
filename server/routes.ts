@@ -63,6 +63,24 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Proxy Featurable API to fetch Google Reviews
+  app.get("/api/featurable-reviews/:widgetId", async (req, res) => {
+    try {
+      const { widgetId } = req.params;
+      const response = await fetch(`https://featurable.com/api/v1/widgets/${widgetId}`);
+      
+      if (!response.ok) {
+        throw new Error(`Featurable API error: ${response.status}`);
+      }
+      
+      const data = await response.json();
+      res.json(data);
+    } catch (error) {
+      console.error("Error fetching Featurable reviews:", error);
+      res.status(500).json({ error: "Failed to fetch reviews" });
+    }
+  });
+
   const httpServer = createServer(app);
 
   return httpServer;

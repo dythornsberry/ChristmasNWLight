@@ -72,7 +72,7 @@ import teamImage from '@assets/img6_1761853506443.webp';
 import beforeImage from '@assets/img4_1761853506443.webp';
 import afterImage from '@assets/img11_1761853506444.webp';
 import { useToast } from "@/hooks/use-toast";
-import { useEffect } from "react";
+import GoogleReviews from "@/components/GoogleReviews";
 
 export default function Home() {
   const { toast } = useToast();
@@ -298,20 +298,6 @@ export default function Home() {
     });
   };
 
-  useEffect(() => {
-    // Load Featurable script after component mounts to ensure container exists
-    const script = document.createElement('script');
-    script.src = 'https://featurable.com/assets/bundle.js';
-    script.async = true;
-    script.charset = 'UTF-8';
-    document.body.appendChild(script);
-
-    return () => {
-      // Cleanup script on unmount
-      document.body.removeChild(script);
-    };
-  }, []);
-
   return (
     <div className="min-h-screen pb-20">
       <UrgencyBanner />
@@ -343,8 +329,8 @@ export default function Home() {
 
       <CTABanner onGetQuote={scrollToQuote} />
 
-      {/* Google Reviews Widget */}
-      <section className="py-24 bg-background">
+      {/* Google Reviews */}
+      <section className="py-24 bg-background" data-testid="section-google-reviews">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
@@ -355,13 +341,7 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="max-w-6xl mx-auto">
-            <div 
-              id="featurable-70aae94b-1709-4c03-986e-fd112d51273d" 
-              data-featurable-async
-              data-testid="google-reviews-widget"
-            ></div>
-          </div>
+          <GoogleReviews widgetId="70aae94b-1709-4c03-986e-fd112d51273d" />
         </div>
       </section>
 
