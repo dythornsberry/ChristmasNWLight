@@ -9,7 +9,6 @@ import Portfolio from "@/components/Portfolio";
 import ColorOptions from "@/components/ColorOptions";
 import BeforeAfter from "@/components/BeforeAfter";
 import Stats from "@/components/Stats";
-import Testimonials from "@/components/Testimonials";
 import About from "@/components/About";
 import Process from "@/components/Process";
 import CTABanner from "@/components/CTABanner";
@@ -104,50 +103,6 @@ export default function Home() {
     }
   ];
 
-  const testimonials = [
-    {
-      name: "Barbara Hansen",
-      location: "Greater Seattle Area",
-      rating: 5,
-      text: "Dylan and his team are very responsive, easy to work with, and professional. They were out this weekend working in rain, hail, and wind and did it without complaint. They even installed lights on a 35ft tree!",
-      detail: "All-weather installation with tall tree service"
-    },
-    {
-      name: "Kyle",
-      location: "Greater Seattle Area",
-      rating: 5,
-      text: "This is the second year we used Christmas NW for our Christmas lights. Dylan and the crew went above and beyond to provide an exceptional stress free experience. They are reasonably priced, very knowledgeable, and have showcased a very high attention to even the smallest details.",
-      detail: "2nd year customer - exceptional attention to detail"
-    },
-    {
-      name: "Sandy Cocanour",
-      location: "Greater Seattle Area",
-      rating: 5,
-      text: "Outstanding professional service from the person answering the phone to the gentlemen installing the lights. Exceptional customer service from a local company!",
-      detail: "Complete 5-star service experience"
-    },
-    {
-      name: "Margaret Huddleston",
-      location: "Greater Seattle Area",
-      rating: 5,
-      text: "What a fantastic business! I give my highest endorsement! From front office to the crew, all are professional, knowledgeable, friendly and do an amazing job creating a beautiful holiday display.",
-      detail: "Above and beyond customer service"
-    },
-    {
-      name: "Nancy Greenup",
-      location: "Greater Seattle Area",
-      rating: 5,
-      text: "Dylan and his crew are the best! This is our 2nd install for the holidays and they have done an outstanding job both times. Lights look amazing, everyone has been most kind and responsive.",
-      detail: "2nd year installation - thrilled from start to finish"
-    },
-    {
-      name: "Blake Irving",
-      location: "Greater Seattle Area",
-      rating: 5,
-      text: "This was a great process from start to finish. They arranged a quote visit the same day I called, showed up on time and did renderings of the house with lights on the spot. Three days later after a storm, the crew installed them in the morning and it looks better than the renderings.",
-      detail: "Same-day quote, on-site renderings, exceeded expectations"
-    }
-  ];
 
   const stats = [
     {
@@ -322,29 +277,7 @@ export default function Home() {
 
       <QuoteFormSection />
 
-      <PromiseSection />
-
-      <Testimonials testimonials={testimonials} />
-
-      <Services services={services} onLearnMore={handleServiceLearnMore} />
-
-      <DifferentiatorSection />
-
-      <Portfolio items={portfolioItems} />
-
-      <ColorOptions colors={colorOptions} />
-
-      <BeforeAfter beforeImage={beforeImage} afterImage={afterImage} />
-
-      <Stats stats={stats} />
-
-      <About teamImage={teamImage} />
-
-      <Process />
-
-      <CTABanner onGetQuote={scrollToQuote} />
-
-      {/* Google Reviews */}
+      {/* Google Reviews - Real social proof right after quote form */}
       <section className="py-24 bg-background" data-testid="section-google-reviews">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-12">
@@ -365,6 +298,26 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <PromiseSection />
+
+      <Services services={services} onLearnMore={handleServiceLearnMore} />
+
+      <DifferentiatorSection />
+
+      <Portfolio items={portfolioItems} />
+
+      <ColorOptions colors={colorOptions} />
+
+      <BeforeAfter beforeImage={beforeImage} afterImage={afterImage} />
+
+      <Stats stats={stats} />
+
+      <About teamImage={teamImage} />
+
+      <Process />
+
+      <CTABanner onGetQuote={scrollToQuote} />
 
       <FAQ items={faqItems} />
 
