@@ -299,10 +299,17 @@ export default function Home() {
   };
 
   useEffect(() => {
-    // Trigger Featurable widget to load after component mounts
-    if ((window as any).Featurable) {
-      (window as any).Featurable.loadWidgets();
-    }
+    // Load Featurable script after component mounts to ensure container exists
+    const script = document.createElement('script');
+    script.src = 'https://featurable.com/assets/bundle.js';
+    script.async = true;
+    script.charset = 'UTF-8';
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup script on unmount
+      document.body.removeChild(script);
+    };
   }, []);
 
   return (
