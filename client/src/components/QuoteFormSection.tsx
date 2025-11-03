@@ -10,9 +10,11 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Card } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useMutation } from "@tanstack/react-query";
+import { DollarSign } from "lucide-react";
 
 export default function QuoteFormSection() {
   const { toast } = useToast();
@@ -66,6 +68,16 @@ export default function QuoteFormSection() {
       <div className="max-w-4xl mx-auto px-6">
         <Card className="p-10 md:p-14 shadow-2xl border-2 border-amber-500/10">
           <div className="text-center mb-10">
+            <div className="flex justify-center mb-6">
+              <Badge 
+                variant="outline" 
+                className="px-6 py-2.5 text-base md:text-lg font-semibold border-2 border-amber-500/40 bg-amber-500/10 text-foreground"
+                data-testid="badge-pricing-indicator"
+              >
+                <DollarSign className="w-5 h-5 mr-2 text-amber-600" />
+                Most homes $800-$2,000 • All-inclusive service
+              </Badge>
+            </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground font-serif">
               Light Up Your Home
             </h2>
