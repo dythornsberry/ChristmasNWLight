@@ -3,6 +3,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Hero from "@/components/Hero";
 import QuoteFormSection from "@/components/QuoteFormSection";
 import PromiseSection from "@/components/PromiseSection";
+import DifferentiatorSection from "@/components/DifferentiatorSection";
 import Services from "@/components/Services";
 import Portfolio from "@/components/Portfolio";
 import ColorOptions from "@/components/ColorOptions";
@@ -310,6 +311,8 @@ export default function Home() {
       <Testimonials testimonials={testimonials} />
 
       <Services services={services} onLearnMore={handleServiceLearnMore} />
+
+      <DifferentiatorSection />
 
       <Portfolio items={portfolioItems} />
 
