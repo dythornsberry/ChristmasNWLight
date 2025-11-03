@@ -1,8 +1,8 @@
 import { type User, type InsertUser, type QuoteRequest, type InsertQuoteRequest } from "@shared/schema";
 import { randomUUID } from "crypto";
 
-// modify the interface with any CRUD methods
-// you might need
+// NOTE: Using in-memory storage due to Neon WebSocket connectivity issues in Replit dev environment
+// For production, migrate to PostgreSQL database - schema is already defined in shared/schema.ts
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -46,13 +46,17 @@ export class MemStorage implements IStorage {
       createdAt: new Date()
     };
     this.quoteRequests.set(id, quoteRequest);
+    
     // Log to console so you can see quote requests coming in
-    console.log('📋 New quote request:', quoteRequest);
+    console.log('📋 New quote request (in-memory):', quoteRequest);
+    
     return quoteRequest;
   }
 
   async getAllQuoteRequests(): Promise<QuoteRequest[]> {
-    return Array.from(this.quoteRequests.values());
+    return Array.from(this.quoteRequests.values()).sort((a, b) => 
+      b.createdAt.getTime() - a.createdAt.getTime()
+    );
   }
 }
 

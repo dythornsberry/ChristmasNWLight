@@ -3,12 +3,48 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertQuoteRequestSchema } from "@shared/schema";
 
+// Webhook URL for Zapier notifications (set via environment variable)
+const ZAPIER_WEBHOOK_URL = process.env.ZAPIER_WEBHOOK_URL;
+
+async function sendWebhookNotification(data: any) {
+  if (!ZAPIER_WEBHOOK_URL) {
+    console.log('ℹ️ No Zapier webhook URL configured. Skipping webhook notification.');
+    return;
+  }
+
+  try {
+    const response = await fetch(ZAPIER_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (response.ok) {
+      console.log('✅ Webhook notification sent to Zapier successfully');
+    } else {
+      console.error('❌ Failed to send webhook notification:', response.status, response.statusText);
+    }
+  } catch (error) {
+    console.error('❌ Error sending webhook notification:', error);
+  }
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
   // Quote Request endpoint
   app.post("/api/quote-requests", async (req, res) => {
     try {
       const validatedData = insertQuoteRequestSchema.parse(req.body);
       const quoteRequest = await storage.createQuoteRequest(validatedData);
+      
+      // Send webhook notification to Zapier (async, don't wait for it)
+      sendWebhookNotification({
+        event: 'new_quote_request',
+        timestamp: new Date().toISOString(),
+        quote: quoteRequest
+      }).catch(err => console.error('Webhook error:', err));
+      
       res.status(201).json(quoteRequest);
     } catch (error) {
       console.error("Error creating quote request:", error);
@@ -16,7 +52,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get all quote requests (for admin use later)
+  // Get all quote requests (for Zapier polling or admin use)
   app.get("/api/quote-requests", async (req, res) => {
     try {
       const quoteRequests = await storage.getAllQuoteRequests();
