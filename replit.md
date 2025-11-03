@@ -27,7 +27,7 @@ The backend is an Express.js server written in TypeScript, providing a RESTful A
 - **Testimonials:** Enhanced testimonials from Google reviews highlighting service details and reliability.
 - **Product Guide Page:** Educational page showcasing six premium product categories (C9 Bulbs, Mini Lights, Ground & Pathway Lights, Tree Wraps, Light Spheres, Wreaths & Garland) with detailed descriptions, color options, and use cases.
 - **Pricing Guide Page:** Transparent pricing page titled "Pricing Guide: An Investment Into Your Holidays" with three tiered packages (Classic Roofline $800-$1,500, Signature Display $1,500-$3,000, Premier Estate $3,000-$6,000+), clearly listing all-inclusive services and explaining factors affecting investment. Navigation shows "Pricing Guide" label for customer-friendly terminology.
-- **Quote Form with Database Integration:** Form submissions handled via React Query mutation to POST /api/quote-requests endpoint. Currently stored in-memory with console logging. Quote timeline options incentivize early booking (October/Early November, Mid-November, December) rather than Thanksgiving week.
+- **Quote Form with Zapier Integration:** Form submissions handled via React Query mutation to POST /api/quote-requests endpoint. Currently stored in-memory with console logging. Quote timeline options incentivize early booking (October/Early November, Mid-November, December) rather than Thanksgiving week. When a quote is submitted, the server automatically sends the quote data to Zapier webhook (if ZAPIER_WEBHOOK_URL environment variable is configured), enabling instant email and SMS notifications to christmaslightsnw@gmail.com and 425-215-0935.
 - **Sticky Bottom Bar:** Persistent conversion element with "BOOK NOW", "CALL NOW", "FREE DESIGN" CTAs.
 - **Dynamic SEO:** PageHead component dynamically updates document titles and meta descriptions for each page.
 
@@ -64,3 +64,67 @@ The styling system is based on Tailwind CSS with custom design tokens, a Christm
 
 ### Session Management
 - **connect-pg-simple**: PostgreSQL session store for Express
+
+## Zapier Integration Setup
+
+The website is configured to send instant notifications when customers submit quote requests. The webhook integration is ready and waiting for your Zapier webhook URL.
+
+### How It Works
+When a customer fills out the quote form on your website, the server automatically:
+1. Saves the quote request to storage (currently in-memory, logs to console)
+2. Sends all quote details to your Zapier webhook URL
+3. Your Zapier automation handles email and SMS notifications
+
+### Setup Instructions
+
+**Step 1: Create Zapier Webhook**
+1. Log in to Zapier and create a new Zap
+2. Choose "Webhooks by Zapier" as the trigger
+3. Select "Catch Hook" as the trigger event
+4. Zapier will provide you with a webhook URL like: `https://hooks.zapier.com/hooks/catch/xxxxx/yyyyy/`
+5. Copy this URL
+
+**Step 2: Add Webhook URL to Replit**
+1. In your Replit project, click the lock icon (🔒) to open Secrets
+2. Click "New Secret"
+3. Set the key as: `ZAPIER_WEBHOOK_URL`
+4. Paste your Zapier webhook URL as the value
+5. Click "Add Secret"
+
+**Step 3: Restart Server**
+After adding the secret, restart the "Start application" workflow so the server picks up the new environment variable.
+
+**Step 4: Test the Integration**
+Submit a test quote through your website form. You should see:
+- A success message on the website
+- The quote data logged in your server console
+- The quote data received by your Zapier webhook
+
+**Step 5: Configure Zapier Actions**
+In your Zapier workflow, add actions to:
+- Send email to christmaslightsnw@gmail.com
+- Send SMS to 425-215-0935 (using Twilio or similar)
+- Save to Google Sheets (optional)
+- Any other automations you need
+
+### Quote Data Format
+The webhook sends the following data:
+```json
+{
+  "id": "unique-uuid",
+  "firstName": "Customer First Name",
+  "lastName": "Customer Last Name",
+  "email": "customer@example.com",
+  "phone": "425-555-1234",
+  "address": "123 Main Street",
+  "zipCode": "98001",
+  "serviceType": "Mid-November",
+  "createdAt": "2024-11-03T12:00:00.000Z"
+}
+```
+
+### Troubleshooting
+- If webhooks aren't firing, verify the `ZAPIER_WEBHOOK_URL` secret is set correctly
+- Check the server console logs for webhook status messages
+- Test your Zapier webhook URL directly using a tool like Postman or curl
+- Ensure your server has been restarted after adding the secret
