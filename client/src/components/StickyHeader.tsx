@@ -39,8 +39,11 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
             <img 
               src={logoImage} 
               alt="Christmas Northwest" 
-              className="h-14 md:h-16 w-auto object-contain cursor-pointer"
+              className="h-16 md:h-20 w-auto object-contain cursor-pointer"
+              style={{ maxHeight: '80px', minHeight: '64px' }}
               data-testid="img-logo"
+              onError={(e) => console.error('Logo failed to load:', e)}
+              onLoad={() => console.log('Logo loaded successfully')}
             />
           </Link>
 
