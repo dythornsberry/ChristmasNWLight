@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Phone, Menu } from "lucide-react";
 import { Link, useLocation } from "wouter";
-import logoImage from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761850163163.png';
+import logoImage from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761493054119.png';
 
 interface StickyHeaderProps {
   onGetQuote: () => void;
@@ -35,15 +35,27 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/" onClick={handleNavClick} data-testid="link-logo">
+          <Link href="/" onClick={handleNavClick} data-testid="link-logo" className="flex-shrink-0">
             <img 
               src={logoImage} 
               alt="Christmas Northwest" 
-              className="h-16 md:h-20 w-auto object-contain cursor-pointer"
-              style={{ maxHeight: '80px', minHeight: '64px' }}
+              className="h-16 md:h-20 cursor-pointer"
+              style={{ 
+                maxHeight: '80px', 
+                minHeight: '64px',
+                width: 'auto',
+                display: 'block'
+              }}
               data-testid="img-logo"
               onError={(e) => console.error('Logo failed to load:', e)}
-              onLoad={() => console.log('Logo loaded successfully')}
+              onLoad={(e) => {
+                console.log('Logo loaded successfully', {
+                  width: (e.target as HTMLImageElement).width,
+                  height: (e.target as HTMLImageElement).height,
+                  naturalWidth: (e.target as HTMLImageElement).naturalWidth,
+                  naturalHeight: (e.target as HTMLImageElement).naturalHeight
+                });
+              }}
             />
           </Link>
 
