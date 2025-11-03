@@ -35,15 +35,13 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
       <div className="max-w-7xl mx-auto px-4 py-3">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <Link href="/">
-            <div className="flex items-center cursor-pointer" onClick={handleNavClick}>
-              <img 
-                src={logoImage} 
-                alt="Christmas Northwest" 
-                className="h-16 md:h-20 w-auto"
-                data-testid="img-logo"
-              />
-            </div>
+          <Link href="/" onClick={handleNavClick} data-testid="link-logo">
+            <img 
+              src={logoImage} 
+              alt="Christmas Northwest" 
+              className="h-14 md:h-16 w-auto object-contain cursor-pointer"
+              data-testid="img-logo"
+            />
           </Link>
 
           {/* Desktop Navigation */}
