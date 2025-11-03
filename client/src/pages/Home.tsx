@@ -328,6 +328,28 @@ export default function Home() {
 
       <CTABanner onGetQuote={scrollToQuote} />
 
+      {/* Google Reviews Widget */}
+      <section className="py-24 bg-background">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
+              What Our Customers Are Saying
+            </h2>
+            <p className="text-xl text-muted-foreground">
+              Join 300+ Greater Seattle homeowners who trust us every holiday season
+            </p>
+          </div>
+          
+          <div className="max-w-6xl mx-auto">
+            <div 
+              id="featurable-70aae94b-1709-4c03-986e-fd112d51273d" 
+              data-featurable-async
+              data-testid="google-reviews-widget"
+            ></div>
+          </div>
+        </div>
+      </section>
+
       <FAQ items={faqItems} />
 
       <Footer />
