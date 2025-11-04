@@ -2,6 +2,7 @@ import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
+import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -75,6 +76,10 @@ export default function YearRoundServices() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHead 
+        title="Year-Round Services - Christmas Northwest | Gutter Cleaning & Permanent Lighting"
+        description="Premium year-round outdoor lighting and property care services in Greater Seattle. Professional gutter cleaning $300-$500, permanent lighting systems starting at $1,500, and custom landscape lighting by your trusted Christmas light experts."
+      />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
       

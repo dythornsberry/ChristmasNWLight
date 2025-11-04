@@ -12,6 +12,7 @@ import ContactPage from "@/pages/ContactPage";
 import GalleryPage from "@/pages/GalleryPage";
 import ProductGuide from "@/pages/ProductGuide";
 import InvestmentGuide from "@/pages/InvestmentGuide";
+import YearRoundServices from "@/pages/YearRoundServices";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -23,6 +24,7 @@ function Router() {
       <Route path="/gallery" component={GalleryPage} />
       <Route path="/product-guide" component={ProductGuide} />
       <Route path="/investment-guide" component={InvestmentGuide} />
+      <Route path="/year-round-services" component={YearRoundServices} />
       <Route path="/testimonials" component={TestimonialsPage} />
       <Route path="/service-areas" component={ServiceAreasPage} />
       <Route path="/contact" component={ContactPage} />
