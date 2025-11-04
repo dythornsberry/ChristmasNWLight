@@ -21,6 +21,15 @@ import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 import { Sparkles, Sun, Droplets, Home } from "lucide-react";
 
+import gutterBefore1 from "@assets/BeforeAfter-gutter_1762287067360.jpg";
+import gutterBefore2 from "@assets/images-2_1762287067360.jpeg";
+import gutterBefore3 from "@assets/image3-2_1762287067360.jpeg";
+import permanentLighting1 from "@assets/Gallery_GeorgeS_Edited-scaled-square_1762286184697.jpg";
+import permanentLighting2 from "@assets/dsc00331_edited_1762286184697.jpg";
+import landscapeLighting1 from "@assets/pennsylvania-landscape-lighting.jpg_1762286054942.jpeg";
+import bistroLights1 from "@assets/w-String-lights_Wedgewood2_Courtesy-of-Britescape.jpg_1762286120625.webp";
+import bistroLights2 from "@assets/tzr-string-lights-highlands-home-daylight_Courtesy-of-Britescape.jpg_1762286120625.webp";
+
 export default function YearRoundServices() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
@@ -172,23 +181,29 @@ export default function YearRoundServices() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-muted/30 p-6 rounded-lg" data-testid="card-gutter-placeholder-1">
-                <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                  <Droplets className="w-12 h-12 text-muted-foreground" />
-                </div>
-                <p className="text-center text-sm text-muted-foreground">Professional Gutter Cleaning</p>
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-gutter-photo-1">
+                <img 
+                  src={gutterBefore1} 
+                  alt="Before and after gutter cleaning showing dramatic transformation from debris-filled to clean gutters"
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
               </div>
-              <div className="bg-muted/30 p-6 rounded-lg" data-testid="card-gutter-placeholder-2">
-                <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                  <Droplets className="w-12 h-12 text-muted-foreground" />
-                </div>
-                <p className="text-center text-sm text-muted-foreground">Roof Maintenance</p>
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-gutter-photo-2">
+                <img 
+                  src={gutterBefore2} 
+                  alt="Professional gutter cleaning before and after comparison"
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
               </div>
-              <div className="bg-muted/30 p-6 rounded-lg" data-testid="card-gutter-placeholder-3">
-                <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                  <Droplets className="w-12 h-12 text-muted-foreground" />
-                </div>
-                <p className="text-center text-sm text-muted-foreground">Downspout Service</p>
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-gutter-photo-3">
+                <img 
+                  src={gutterBefore3} 
+                  alt="Gutter maintenance showing clean results after Seattle ProWash service"
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
               </div>
             </div>
           </div>
