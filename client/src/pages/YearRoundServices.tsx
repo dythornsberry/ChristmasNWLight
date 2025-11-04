@@ -267,24 +267,28 @@ export default function YearRoundServices() {
               </Card>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-background p-6 rounded-lg" data-testid="card-permanent-placeholder-1">
-                <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                  <Sparkles className="w-12 h-12 text-muted-foreground" />
+            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-permanent-photo-1">
+                <img 
+                  src={permanentLighting1} 
+                  alt="Permanent lighting system with rainbow colors on home roofline showing smartphone-controlled color options"
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
+                <div className="bg-background p-4 text-center">
+                  <p className="text-sm font-semibold text-foreground">Smartphone-Controlled Colors</p>
                 </div>
-                <p className="text-center text-sm text-muted-foreground">Roofline Installation</p>
               </div>
-              <div className="bg-background p-6 rounded-lg" data-testid="card-permanent-placeholder-2">
-                <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                  <Sparkles className="w-12 h-12 text-muted-foreground" />
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-permanent-photo-2">
+                <img 
+                  src={permanentLighting2} 
+                  alt="Color-changing permanent lighting installation on residential roofline with multi-color display"
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
+                <div className="bg-background p-4 text-center">
+                  <p className="text-sm font-semibold text-foreground">Year-Round Architectural Beauty</p>
                 </div>
-                <p className="text-center text-sm text-muted-foreground">Color Changing Display</p>
-              </div>
-              <div className="bg-background p-6 rounded-lg" data-testid="card-permanent-placeholder-3">
-                <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                  <Sparkles className="w-12 h-12 text-muted-foreground" />
-                </div>
-                <p className="text-center text-sm text-muted-foreground">Architectural Accent</p>
               </div>
             </div>
           </div>
