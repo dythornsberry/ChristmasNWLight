@@ -107,7 +107,7 @@ export default function YearRoundServices() {
               className="text-xl px-10 py-7 shadow-2xl hover:shadow-amber-500/20 font-bold"
               data-testid="button-hero-quote"
             >
-              Get Started Today ✨
+              Light Up My Home
             </Button>
           </div>
         </section>
@@ -470,7 +470,7 @@ export default function YearRoundServices() {
                   data-testid="button-submit-year-round-quote"
                   disabled={!formData.serviceType || createQuoteMutation.isPending}
                 >
-                  {createQuoteMutation.isPending ? "Submitting..." : "Get My Free Estimate ✨"}
+                  {createQuoteMutation.isPending ? "Submitting..." : "Get My Free Estimate"}
                 </Button>
                 
                 <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
