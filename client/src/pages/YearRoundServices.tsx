@@ -353,23 +353,38 @@ export default function YearRoundServices() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="bg-muted/30 p-6 rounded-lg" data-testid="card-landscape-placeholder-1">
-                <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                  <Home className="w-12 h-12 text-muted-foreground" />
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-landscape-photo-1">
+                <img 
+                  src={landscapeLighting1} 
+                  alt="Professional landscape pathway lighting with uplighting on trees and shrubs creating warm outdoor ambiance"
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
+                <div className="bg-muted/30 p-4 text-center">
+                  <p className="text-sm font-semibold text-foreground">Pathway & Landscape Lighting</p>
                 </div>
-                <p className="text-center text-sm text-muted-foreground">Bistro String Lights</p>
               </div>
-              <div className="bg-muted/30 p-6 rounded-lg" data-testid="card-landscape-placeholder-2">
-                <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                  <Home className="w-12 h-12 text-muted-foreground" />
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-landscape-photo-2">
+                <img 
+                  src={bistroLights1} 
+                  alt="Bistro string lights creating magical atmosphere over outdoor patio and fire pit area"
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
+                <div className="bg-muted/30 p-4 text-center">
+                  <p className="text-sm font-semibold text-foreground">Bistro String Lights</p>
                 </div>
-                <p className="text-center text-sm text-muted-foreground">Pathway Lighting</p>
               </div>
-              <div className="bg-muted/30 p-6 rounded-lg" data-testid="card-landscape-placeholder-3">
-                <div className="aspect-video bg-muted rounded-lg mb-4 flex items-center justify-center">
-                  <Home className="w-12 h-12 text-muted-foreground" />
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-landscape-photo-3">
+                <img 
+                  src={bistroLights2} 
+                  alt="Professional bistro light installation over outdoor entertainment area with dining and seating"
+                  className="w-full aspect-video object-cover"
+                  loading="lazy"
+                />
+                <div className="bg-muted/30 p-4 text-center">
+                  <p className="text-sm font-semibold text-foreground">Outdoor Entertainment Lighting</p>
                 </div>
-                <p className="text-center text-sm text-muted-foreground">Event Lighting</p>
               </div>
             </div>
           </div>
