@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Phone, Menu } from "lucide-react";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { Phone, Menu, ChevronDown } from "lucide-react";
 import { Link, useLocation } from "wouter";
 import logoImage from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761493054119.png';
 
@@ -16,7 +22,6 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
   const navLinks = [
     { href: "/", label: "Home", testId: "nav-home" },
     { href: "/about", label: "About", testId: "nav-about" },
-    { href: "/services", label: "Services", testId: "nav-services" },
     { href: "/gallery", label: "Gallery", testId: "nav-gallery" },
     { href: "/product-guide", label: "Product Guide", testId: "nav-product-guide" },
     { href: "/investment-guide", label: "Pricing Guide", testId: "nav-investment-guide" },
@@ -61,7 +66,51 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-4">
-            {navLinks.map((link) => (
+            {navLinks.slice(0, 2).map((link) => (
+              <Link key={link.href} href={link.href}>
+                <Button 
+                  variant={location === link.href ? "default" : "ghost"}
+                  size="default"
+                  onClick={handleNavClick}
+                  data-testid={link.testId}
+                >
+                  {link.label}
+                </Button>
+              </Link>
+            ))}
+            
+            {/* Services Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button 
+                  variant={location === "/" || location === "/year-round-services" ? "default" : "ghost"}
+                  size="default"
+                  data-testid="nav-services-dropdown"
+                  className="gap-1"
+                >
+                  Services
+                  <ChevronDown className="w-4 h-4" />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="start" className="w-56">
+                <DropdownMenuItem asChild>
+                  <Link href="/" onClick={handleNavClick}>
+                    <button className="w-full text-left" data-testid="nav-services-christmas">
+                      Christmas Lighting
+                    </button>
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/year-round-services" onClick={handleNavClick}>
+                    <button className="w-full text-left" data-testid="nav-services-year-round">
+                      Year-Round Services
+                    </button>
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+            
+            {navLinks.slice(2).map((link) => (
               <Link key={link.href} href={link.href}>
                 <Button 
                   variant={location === link.href ? "default" : "ghost"}
@@ -110,7 +159,45 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
                   <SheetTitle className="text-2xl font-serif">Menu</SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-6 mt-8">
-                  {navLinks.map((link) => (
+                  {navLinks.slice(0, 2).map((link) => (
+                    <Link key={link.href} href={link.href}>
+                      <Button
+                        variant={location === link.href ? "default" : "ghost"}
+                        className="w-full justify-start text-lg"
+                        onClick={handleNavClick}
+                        data-testid={`mobile-${link.testId}`}
+                      >
+                        {link.label}
+                      </Button>
+                    </Link>
+                  ))}
+                  
+                  {/* Services Section in Mobile */}
+                  <div className="space-y-2">
+                    <div className="text-sm font-semibold text-muted-foreground px-4">Services</div>
+                    <Link href="/">
+                      <Button
+                        variant={location === "/" ? "default" : "ghost"}
+                        className="w-full justify-start text-lg pl-8"
+                        onClick={handleNavClick}
+                        data-testid="mobile-nav-services-christmas"
+                      >
+                        Christmas Lighting
+                      </Button>
+                    </Link>
+                    <Link href="/year-round-services">
+                      <Button
+                        variant={location === "/year-round-services" ? "default" : "ghost"}
+                        className="w-full justify-start text-lg pl-8"
+                        onClick={handleNavClick}
+                        data-testid="mobile-nav-services-year-round"
+                      >
+                        Year-Round Services
+                      </Button>
+                    </Link>
+                  </div>
+                  
+                  {navLinks.slice(2).map((link) => (
                     <Link key={link.href} href={link.href}>
                       <Button
                         variant={location === link.href ? "default" : "ghost"}
