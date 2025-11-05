@@ -242,7 +242,7 @@ export default function GalleryPage() {
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
-                <div className="p-4 text-center">
+                <div className="p-4 text-center" data-testid="caption-video-halloween-bellevue">
                   <h3 className="font-semibold text-foreground mb-1">Spectacular Halloween Display</h3>
                   <p className="text-sm text-muted-foreground">Bellevue, WA</p>
                 </div>
@@ -260,7 +260,7 @@ export default function GalleryPage() {
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
-                <div className="p-4 text-center">
+                <div className="p-4 text-center" data-testid="caption-video-tree-woodinville">
                   <h3 className="font-semibold text-foreground mb-1">Massive Tree Installation</h3>
                   <p className="text-sm text-muted-foreground">Woodinville, WA</p>
                 </div>
@@ -278,7 +278,7 @@ export default function GalleryPage() {
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
-                <div className="p-4 text-center">
+                <div className="p-4 text-center" data-testid="caption-video-permanent-redmond">
                   <h3 className="font-semibold text-foreground mb-1">Permanent Lighting Demo</h3>
                   <p className="text-sm text-muted-foreground">Redmond, WA</p>
                 </div>
@@ -296,7 +296,7 @@ export default function GalleryPage() {
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
-                <div className="p-4 text-center">
+                <div className="p-4 text-center" data-testid="caption-video-permanent-install">
                   <h3 className="font-semibold text-foreground mb-1">Year-Round Permanent Lights</h3>
                   <p className="text-sm text-muted-foreground">Greater Seattle Area</p>
                 </div>
@@ -314,7 +314,7 @@ export default function GalleryPage() {
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
-                <div className="p-4 text-center">
+                <div className="p-4 text-center" data-testid="caption-video-halloween-2">
                   <h3 className="font-semibold text-foreground mb-1">Halloween Light Display</h3>
                   <p className="text-sm text-muted-foreground">Greater Seattle Area</p>
                 </div>
@@ -332,7 +332,7 @@ export default function GalleryPage() {
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
-                <div className="p-4 text-center">
+                <div className="p-4 text-center" data-testid="caption-video-multicolor-issaquah">
                   <h3 className="font-semibold text-foreground mb-1">Vibrant Multicolor Display</h3>
                   <p className="text-sm text-muted-foreground">Issaquah, WA</p>
                 </div>
