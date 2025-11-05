@@ -124,12 +124,129 @@ export default function GalleryPage() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxIndex]);
 
+  const videoSchemas = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "VideoObject",
+        "name": "Spectacular Halloween Light Installation in Bellevue WA",
+        "description": "Watch our professional Halloween lighting installation in Bellevue, Washington. See the complete transformation from start to finish with purple and orange commercial-grade lights creating a spooky holiday display.",
+        "thumbnailUrl": "https://img.youtube.com/vi/qcnKBhSJQW4/maxresdefault.jpg",
+        "uploadDate": "2024-10-15T12:00:00Z",
+        "contentUrl": "https://www.youtube.com/watch?v=qcnKBhSJQW4",
+        "embedUrl": "https://www.youtube.com/embed/qcnKBhSJQW4",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Christmas Northwest",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://christmasnw.com/logo.png"
+          }
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Massive Tree Christmas Light Installation in Woodinville WA",
+        "description": "Professional Christmas tree lighting installation in Woodinville, Washington. Watch as we transform a massive tree with thousands of commercial-grade lights creating a stunning holiday centerpiece.",
+        "thumbnailUrl": "https://img.youtube.com/vi/kyQ0PU9XDIk/maxresdefault.jpg",
+        "uploadDate": "2024-11-20T12:00:00Z",
+        "contentUrl": "https://www.youtube.com/watch?v=kyQ0PU9XDIk",
+        "embedUrl": "https://www.youtube.com/embed/kyQ0PU9XDIk",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Christmas Northwest",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://christmasnw.com/logo.png"
+          }
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Permanent Outdoor Lighting System Demo in Redmond WA",
+        "description": "See our year-round permanent lighting system in action in Redmond, Washington. Customizable RGB lights that work for every holiday and season, professionally installed for long-term durability.",
+        "thumbnailUrl": "https://img.youtube.com/vi/f7vQhLxL9B8/maxresdefault.jpg",
+        "uploadDate": "2024-09-10T12:00:00Z",
+        "contentUrl": "https://www.youtube.com/watch?v=f7vQhLxL9B8",
+        "embedUrl": "https://www.youtube.com/embed/f7vQhLxL9B8",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Christmas Northwest",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://christmasnw.com/logo.png"
+          }
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Year-Round Permanent Lighting Installation Process",
+        "description": "Complete walk-through of our permanent outdoor lighting installation. See the professional process from planning to final installation for a year-round lighting system in Greater Seattle.",
+        "thumbnailUrl": "https://img.youtube.com/vi/ozZItKmCPKE/maxresdefault.jpg",
+        "uploadDate": "2024-08-25T12:00:00Z",
+        "contentUrl": "https://www.youtube.com/watch?v=ozZItKmCPKE",
+        "embedUrl": "https://www.youtube.com/embed/ozZItKmCPKE",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Christmas Northwest",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://christmasnw.com/logo.png"
+          }
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Professional Halloween Lighting Display Installation",
+        "description": "Another spectacular Halloween lighting installation in the Greater Seattle area. Watch our team create an amazing spooky display with professional-grade outdoor lights.",
+        "thumbnailUrl": "https://img.youtube.com/vi/fkd4TWuDYa4/maxresdefault.jpg",
+        "uploadDate": "2024-10-20T12:00:00Z",
+        "contentUrl": "https://www.youtube.com/watch?v=fkd4TWuDYa4",
+        "embedUrl": "https://www.youtube.com/embed/fkd4TWuDYa4",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Christmas Northwest",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://christmasnw.com/logo.png"
+          }
+        }
+      },
+      {
+        "@type": "VideoObject",
+        "name": "Vibrant Multicolor Christmas Light Installation in Issaquah WA",
+        "description": "Watch a complete multicolor Christmas light installation in Issaquah, Washington. See how we create a festive, vibrant holiday display with commercial-grade multicolor C9 bulbs.",
+        "thumbnailUrl": "https://img.youtube.com/vi/mfZ_QQIDusE/maxresdefault.jpg",
+        "uploadDate": "2024-11-25T12:00:00Z",
+        "contentUrl": "https://www.youtube.com/watch?v=mfZ_QQIDusE",
+        "embedUrl": "https://www.youtube.com/embed/mfZ_QQIDusE",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Christmas Northwest",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://christmasnw.com/logo.png"
+          }
+        }
+      }
+    ]
+  };
+
   return (
     <>
       <PageHead 
         title="Christmas Light Installation Gallery 2025 | Seattle, Bellevue, Bothell | ChristmasNW"
         description="View our portfolio of professional Christmas light installations across Greater Seattle. See completed projects in Bellevue, Bothell, Kirkland, Redmond, and Kenmore. Watch installation videos and get inspired for your 2025 holiday display."
       />
+      
+      {/* VideoObject Schema Markup for YouTube Shorts */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(videoSchemas)
+        }}
+      />
+      
       <div className="min-h-screen flex flex-col">
         <UrgencyBanner />
         <StickyHeader onGetQuote={scrollToQuote} />
