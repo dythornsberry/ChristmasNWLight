@@ -7,7 +7,7 @@ import StickyBottomCTA from "@/components/StickyBottomCTA";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { X, ChevronLeft, ChevronRight } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Youtube } from "lucide-react";
 import { useLocation } from "wouter";
 
 // Import all gallery images
@@ -210,6 +210,127 @@ export default function GalleryPage() {
                 <p className="text-muted-foreground">No images found in this category.</p>
               </div>
             )}
+          </div>
+        </section>
+
+        {/* Video Section */}
+        <section className="py-20 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
+                <span className="text-primary font-semibold">Watch Our Work</span>
+              </div>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6 text-foreground">
+                See Complete Install Walk-Throughs
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Watch real installations from start to finish. See the quality, craftsmanship, and care we bring to every project across Greater Seattle.
+              </p>
+            </div>
+
+            {/* Video Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Halloween Install - Bellevue */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-halloween-bellevue">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/qcnKBhSJQW4"
+                    title="Halloween Lighting Installation in Bellevue WA"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="font-semibold text-foreground mb-1">Spectacular Halloween Display</h3>
+                  <p className="text-sm text-muted-foreground">Bellevue, WA</p>
+                </div>
+              </div>
+
+              {/* Tree Lighting - Woodinville */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-tree-woodinville">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/kyQ0PU9XDIk"
+                    title="Tree Lighting Installation in Woodinville WA"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="font-semibold text-foreground mb-1">Massive Tree Installation</h3>
+                  <p className="text-sm text-muted-foreground">Woodinville, WA</p>
+                </div>
+              </div>
+
+              {/* Permanent Lighting Demo - Redmond */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-permanent-redmond">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/f7vQhLxL9B8"
+                    title="Permanent Lighting Demo in Redmond WA"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="font-semibold text-foreground mb-1">Permanent Lighting Demo</h3>
+                  <p className="text-sm text-muted-foreground">Redmond, WA</p>
+                </div>
+              </div>
+
+              {/* Permanent Lighting Install */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-permanent-install">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/ozZItKmCPKE"
+                    title="Permanent Lighting Installation"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="font-semibold text-foreground mb-1">Year-Round Permanent Lights</h3>
+                  <p className="text-sm text-muted-foreground">Greater Seattle Area</p>
+                </div>
+              </div>
+
+              {/* Halloween Install 2 */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-halloween-2">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/fkd4TWuDYa4"
+                    title="Halloween Lighting Installation"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="font-semibold text-foreground mb-1">Halloween Light Display</h3>
+                  <p className="text-sm text-muted-foreground">Greater Seattle Area</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Channel CTA */}
+            <div className="text-center mt-12">
+              <p className="text-muted-foreground mb-4">
+                Want to see more? Check out our YouTube channel for additional videos and behind-the-scenes content.
+              </p>
+              <Button 
+                variant="outline"
+                className="font-semibold"
+                onClick={() => window.open('https://youtube.com/@christmasnw?si=N5gu7fRN9vyEFMUd', '_blank')}
+                data-testid="button-youtube-channel"
+              >
+                <Youtube className="w-5 h-5 mr-2" />
+                Visit Our YouTube Channel
+              </Button>
+            </div>
           </div>
         </section>
 
