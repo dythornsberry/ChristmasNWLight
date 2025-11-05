@@ -30,7 +30,7 @@ The frontend is a React 18 application with TypeScript, built using Vite. It uti
 - **Quote Form with Zapier Integration**: Submissions POST to `/api/quote-requests` (in-memory storage, console logging). Quote timeline options incentivize early booking. Automatically sends data to Zapier webhook if `ZAPIER_WEBHOOK_URL` is configured.
 - **Year-Round Services Page**: Dedicated page at `/year-round-services` for Gutter & Roof Maintenance, Permanent Lighting Solutions, and Landscape/Bistro/Event Lighting. Includes a separate year-round quote form with service type dropdown, integrating with the Zapier webhook.
 - **Sticky Bottom Bar**: Persistent "BOOK NOW", "CALL NOW", "FREE DESIGN" CTAs.
-- **City Landing Pages**: Dedicated SEO-optimized pages for top 6 cities (Bellevue, Kirkland, Redmond, Woodinville, Bothell, Kenmore) with city-specific content, LocalBusiness schema with accurate geo coordinates, neighborhood lists, and local landmarks for enhanced local search visibility.
+- **City Landing Pages**: Dedicated SEO-optimized pages for top 6 cities (Seattle, Bellevue, Kirkland, Woodinville, Bothell, Kenmore) with city-specific content, LocalBusiness schema with accurate geo coordinates, neighborhood lists, and local landmarks for enhanced local search visibility.
 - **Blog Page**: Content marketing hub structure ready for future blog posts (5 Christmas Lighting Trends for 2025, etc.) to drive organic traffic and establish thought leadership.
 - **SEO & ChatGPT Optimization**: 
   - Dynamic meta tags via `PageHead` component (titles, descriptions, Open Graph tags)
@@ -39,7 +39,7 @@ The frontend is a React 18 application with TypeScript, built using Vite. It uti
   - Sitewide Organization schema in App.tsx with logo, contact info, social profiles, service areas, and founding date
   - FAQPage and LocalBusiness schema markup on FAQ page with embedded Review/AggregateRating data
   - 6 individual Google reviews embedded in LocalBusiness schema for star rating rich snippets
-  - City-specific LocalBusiness schemas with accurate geo coordinates for each of 6 city pages
+  - City-specific LocalBusiness schemas with accurate geo coordinates for each of 6 city pages (Seattle, Bellevue, Kirkland, Woodinville, Bothell, Kenmore)
   - VideoObject schema markup for 6 YouTube videos on gallery page (compliant with Google's structured data guidelines)
   - Descriptive alt text on all 21 gallery images for AI understanding and accessibility
   - Service area coverage for all 14 cities with 6 dedicated city landing pages
