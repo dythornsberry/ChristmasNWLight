@@ -14,6 +14,7 @@ import CTABanner from "@/components/CTABanner";
 import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
+import { Button } from "@/components/ui/button";
 import { Home as HomeIcon, Building2, Sparkles, Wrench, TrendingUp, Users, Award, Clock } from "lucide-react";
 
 import img1 from '@assets/img2_1761853506442.webp';
@@ -267,6 +268,89 @@ export default function Home() {
     };
   }, []);
 
+  useEffect(() => {
+    // Add LocalBusiness schema markup for ChatGPT and search engines
+    const localBusinessSchema = {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "ChristmasNW",
+      "alternateName": "Christmas Northwest",
+      "description": "Professional Christmas light installation serving north Seattle metro area since 2021. 300+ homes annually with same-week installation, commercial-grade equipment, and full-service experience including storage.",
+      "image": "https://christmasnw.com/logo.png",
+      "telephone": "+14252150935",
+      "email": "christmaslightsnw@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Kenmore",
+        "addressLocality": "Kenmore",
+        "addressRegion": "WA",
+        "postalCode": "98028",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 47.7573,
+        "longitude": -122.2443
+      },
+      "url": "https://christmasnw.com",
+      "priceRange": "$800-$6000+",
+      "areaServed": [
+        { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Lynnwood", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Medina", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Clyde Hill", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Yarrow Point", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Edmonds", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
+        { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } }
+      ],
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "08:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "17:00"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "reviewCount": "85",
+        "bestRating": "5"
+      },
+      "sameAs": [
+        "https://www.facebook.com/ChristmasNW",
+        "https://www.instagram.com/christmasnw/",
+        "https://youtube.com/@christmasnw",
+        "https://share.google/lxhOxXmbPwABIqdNa"
+      ]
+    };
+
+    const businessSchemaScript = document.createElement('script');
+    businessSchemaScript.type = 'application/ld+json';
+    businessSchemaScript.text = JSON.stringify(localBusinessSchema);
+    document.head.appendChild(businessSchemaScript);
+
+    return () => {
+      if (document.head.contains(businessSchemaScript)) {
+        document.head.removeChild(businessSchemaScript);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen pb-20">
       <UrgencyBanner />
@@ -299,6 +383,67 @@ export default function Home() {
       </section>
 
       <PromiseSection />
+
+      {/* Service Area Section */}
+      <section className="py-20 bg-muted/30" data-testid="section-service-areas">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-12">
+            <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
+              <span className="text-primary font-semibold">Proudly Serving</span>
+            </div>
+            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6 text-foreground">
+              North Seattle Metro Area
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+              Based in Kenmore, we bring professional Christmas light installation to homeowners throughout the Greater Seattle area. Serving 300+ homes annually across 15 communities.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
+            {[
+              "Seattle",
+              "Kenmore",
+              "Bothell",
+              "Kirkland",
+              "Lynnwood",
+              "Woodinville",
+              "Bellevue",
+              "Medina",
+              "Clyde Hill",
+              "Yarrow Point",
+              "Sammamish",
+              "Redmond",
+              "Edmonds",
+              "Shoreline",
+              "Mill Creek"
+            ].map((city) => (
+              <div
+                key={city}
+                className="bg-card border border-border rounded-lg p-4 text-center hover-elevate active-elevate-2 transition-all"
+                data-testid={`city-${city.toLowerCase().replace(/\s+/g, '-')}`}
+              >
+                <p className="font-semibold text-foreground">{city}</p>
+                <p className="text-sm text-muted-foreground mt-1">Washington</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-12">
+            <p className="text-lg text-muted-foreground mb-4">
+              Don't see your city listed? We often service surrounding communities in the Greater Seattle area.
+            </p>
+            <Button
+              onClick={scrollToQuote}
+              size="lg"
+              variant="default"
+              className="font-semibold"
+              data-testid="button-service-area-quote"
+            >
+              Get Free Quote
+            </Button>
+          </div>
+        </div>
+      </section>
 
       <Services services={services} onLearnMore={handleServiceLearnMore} />
 

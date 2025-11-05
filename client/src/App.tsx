@@ -13,6 +13,7 @@ import GalleryPage from "@/pages/GalleryPage";
 import ProductGuide from "@/pages/ProductGuide";
 import InvestmentGuide from "@/pages/InvestmentGuide";
 import YearRoundServices from "@/pages/YearRoundServices";
+import FAQPage from "@/pages/FAQPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -27,6 +28,7 @@ function Router() {
       <Route path="/year-round-services" component={YearRoundServices} />
       <Route path="/testimonials" component={TestimonialsPage} />
       <Route path="/service-areas" component={ServiceAreasPage} />
+      <Route path="/faq" component={FAQPage} />
       <Route path="/contact" component={ContactPage} />
       <Route component={NotFound} />
     </Switch>

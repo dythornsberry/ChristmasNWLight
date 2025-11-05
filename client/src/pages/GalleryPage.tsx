@@ -4,6 +4,7 @@ import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
+import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -126,9 +127,14 @@ export default function GalleryPage() {
   }, [lightboxIndex]);
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <UrgencyBanner />
-      <StickyHeader onGetQuote={scrollToQuote} />
+    <>
+      <PageHead 
+        title="Christmas Light Installation Gallery 2025 | Seattle, Bellevue, Bothell | ChristmasNW"
+        description="View our portfolio of professional Christmas light installations across Greater Seattle. See completed projects in Bellevue, Bothell, Kirkland, Redmond, and Kenmore. Watch installation videos and get inspired for your 2025 holiday display."
+      />
+      <div className="min-h-screen flex flex-col">
+        <UrgencyBanner />
+        <StickyHeader onGetQuote={scrollToQuote} />
 
       <main className="flex-1">
         {/* Hero Section */}
@@ -462,6 +468,7 @@ export default function GalleryPage() {
         </div>,
         document.body
       )}
-    </div>
+      </div>
+    </>
   );
 }
