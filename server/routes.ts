@@ -107,6 +107,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       // Blog
       { url: '/blog', priority: '0.8', changefreq: 'weekly' },
+      { url: '/blog/christmas-lighting-trends-2025', priority: '0.7', changefreq: 'monthly' },
+      { url: '/blog/warm-white-vs-multicolor-lights', priority: '0.7', changefreq: 'monthly' },
+      { url: '/blog/professional-christmas-light-installation-guide', priority: '0.7', changefreq: 'monthly' },
+      { url: '/blog/book-christmas-lights-september', priority: '0.7', changefreq: 'monthly' },
+      { url: '/blog/christmas-light-installation-safety', priority: '0.7', changefreq: 'monthly' },
     ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

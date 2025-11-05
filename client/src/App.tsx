@@ -20,6 +20,7 @@ import WoodinvillePage from "@/pages/WoodinvillePage";
 import BothellPage from "@/pages/BothellPage";
 import KenmorePage from "@/pages/KenmorePage";
 import BlogPage from "@/pages/BlogPage";
+import BlogPostPage from "@/pages/BlogPostPage";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -46,6 +47,7 @@ function Router() {
       
       {/* Blog */}
       <Route path="/blog" component={BlogPage} />
+      <Route path="/blog/:slug" component={BlogPostPage} />
       
       <Route component={NotFound} />
     </Switch>

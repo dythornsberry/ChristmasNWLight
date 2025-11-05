@@ -7,17 +7,7 @@ import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ArrowRight } from "lucide-react";
-
-interface BlogPost {
-  id: number;
-  title: string;
-  slug: string;
-  excerpt: string;
-  category: string;
-  publishDate: string;
-  readTime: string;
-  image?: string;
-}
+import { getAllBlogPosts } from "@/data/blogPosts";
 
 export default function BlogPage() {
   const [, setLocation] = useLocation();
@@ -32,65 +22,9 @@ export default function BlogPage() {
     }, 100);
   };
 
-  // Placeholder blog posts - add real content later
-  const blogPosts: BlogPost[] = [
-    {
-      id: 1,
-      title: "Top 5 Christmas Lighting Trends for 2025",
-      slug: "christmas-lighting-trends-2025",
-      excerpt: "Discover the hottest holiday lighting trends that will make your home the star of the neighborhood this season.",
-      category: "Trends",
-      publishDate: "2024-11-01",
-      readTime: "5 min read"
-    },
-    {
-      id: 2,
-      title: "How to Choose Between Warm White and Multicolor Lights",
-      slug: "warm-white-vs-multicolor-lights",
-      excerpt: "Not sure which lighting style suits your home? We break down the pros and cons of each to help you decide.",
-      category: "Buying Guide",
-      publishDate: "2024-10-25",
-      readTime: "4 min read"
-    },
-    {
-      id: 3,
-      title: "The Complete Guide to Professional Christmas Light Installation",
-      slug: "professional-christmas-light-installation-guide",
-      excerpt: "Learn what goes into a professional installation and why DIY might not be worth the risk.",
-      category: "Installation",
-      publishDate: "2024-10-15",
-      readTime: "8 min read"
-    },
-    {
-      id: 4,
-      title: "Year-Round Outdoor Lighting: Is It Worth the Investment?",
-      slug: "year-round-outdoor-lighting-worth-it",
-      excerpt: "Permanent outdoor lighting systems are gaining popularity. Here's everything you need to know before making the switch.",
-      category: "Permanent Lighting",
-      publishDate: "2024-09-30",
-      readTime: "6 min read"
-    },
-    {
-      id: 5,
-      title: "Safety Tips for Holiday Light Installation",
-      slug: "holiday-light-installation-safety-tips",
-      excerpt: "Keep your family safe this season with these essential safety tips from our professional installers.",
-      category: "Safety",
-      publishDate: "2024-09-20",
-      readTime: "5 min read"
-    },
-    {
-      id: 6,
-      title: "How Much Does Professional Christmas Light Installation Cost in Seattle?",
-      slug: "christmas-light-installation-cost-seattle",
-      excerpt: "Get a transparent breakdown of pricing for professional holiday lighting in the Greater Seattle area.",
-      category: "Pricing",
-      publishDate: "2024-09-10",
-      readTime: "7 min read"
-    }
-  ];
+  const blogPosts = getAllBlogPosts();
 
-  const categories = ["All", "Trends", "Buying Guide", "Installation", "Permanent Lighting", "Safety", "Pricing"];
+  const categories = ["All", "Trends", "Buying Guide", "Installation", "Planning", "Safety"];
 
   return (
     <>
@@ -139,6 +73,7 @@ export default function BlogPage() {
                   <Card 
                     key={post.id}
                     className="group overflow-hidden hover-elevate cursor-pointer"
+                    onClick={() => setLocation(`/blog/${post.slug}`)}
                     data-testid={`card-blog-${post.id}`}
                   >
                     {/* Placeholder image area */}
@@ -177,17 +112,14 @@ export default function BlogPage() {
                 ))}
               </div>
 
-              {/* Coming Soon Notice */}
+              {/* More Coming Soon Notice */}
               <div className="mt-16 text-center">
                 <Card className="p-8 max-w-2xl mx-auto bg-muted/30">
                   <h3 className="font-bold text-2xl mb-3 text-foreground">
                     More Articles Coming Soon!
                   </h3>
-                  <p className="text-muted-foreground mb-6">
-                    We're working on publishing in-depth guides and articles to help you create the perfect holiday lighting display. Check back soon for new content!
-                  </p>
-                  <p className="text-sm text-muted-foreground italic">
-                    Note: Blog posts are currently placeholders. Full articles will be published soon.
+                  <p className="text-muted-foreground">
+                    We're publishing new guides and articles regularly to help you create the perfect holiday lighting display. Check back soon for more expert insights!
                   </p>
                 </Card>
               </div>
