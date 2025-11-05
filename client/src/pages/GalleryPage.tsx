@@ -238,6 +238,7 @@ export default function GalleryPage() {
                     title="Halloween Lighting Installation in Bellevue WA"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
@@ -255,6 +256,7 @@ export default function GalleryPage() {
                     title="Tree Lighting Installation in Woodinville WA"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
@@ -272,6 +274,7 @@ export default function GalleryPage() {
                     title="Permanent Lighting Demo in Redmond WA"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
@@ -289,6 +292,7 @@ export default function GalleryPage() {
                     title="Permanent Lighting Installation"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
@@ -306,6 +310,7 @@ export default function GalleryPage() {
                     title="Halloween Lighting Installation"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowFullScreen
+                    loading="lazy"
                     className="absolute inset-0 w-full h-full"
                   />
                 </div>
