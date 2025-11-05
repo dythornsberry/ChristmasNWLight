@@ -30,7 +30,7 @@ The frontend is a React 18 application with TypeScript, built using Vite. It uti
 - **Quote Form with Zapier Integration**: Submissions POST to `/api/quote-requests` (in-memory storage, console logging). Quote timeline options incentivize early booking. Automatically sends data to Zapier webhook if `ZAPIER_WEBHOOK_URL` is configured.
 - **Year-Round Services Page**: Dedicated page at `/year-round-services` for Gutter & Roof Maintenance, Permanent Lighting Solutions, and Landscape/Bistro/Event Lighting. Includes a separate year-round quote form with service type dropdown, integrating with the Zapier webhook.
 - **Sticky Bottom Bar**: Persistent "BOOK NOW", "CALL NOW", "FREE DESIGN" CTAs.
-- **City Landing Pages**: Dedicated SEO-optimized pages for top 6 cities (Seattle, Bellevue, Kirkland, Woodinville, Bothell, Kenmore) with city-specific content, LocalBusiness schema with accurate geo coordinates, neighborhood lists, and local landmarks for enhanced local search visibility.
+- **City Landing Pages**: Dedicated SEO-optimized pages for all 14 cities in service area (Seattle, Bellevue, Kirkland, Woodinville, Bothell, Kenmore, Redmond, Sammamish, Newcastle, Mercer Island, Shoreline, Lake Forest Park, Issaquah, Mill Creek) with city-specific content, LocalBusiness schema with accurate geo coordinates, neighborhood lists, and local landmarks for enhanced local search visibility.
 - **Blog System**: Full content marketing platform with 5 complete, SEO-optimized blog posts (1500-2500 words each) to drive organic traffic:
   - "Top 5 Christmas Lighting Trends for 2025" (Trends, 5 min read)
   - "How to Choose Between Warm White and Multicolor Lights" (Buying Guide, 4 min read)  
@@ -40,15 +40,15 @@ The frontend is a React 18 application with TypeScript, built using Vite. It uti
   - Each post includes natural, conversational content with Seattle-area examples, individual post pages with SEO metadata, and CTA sections
 - **SEO & ChatGPT Optimization**: 
   - Dynamic meta tags via `PageHead` component (titles, descriptions, Open Graph tags)
-  - XML sitemap at `/sitemap.xml` with 22 pages including city landing pages, blog index, and 5 individual blog posts
+  - XML sitemap at `/sitemap.xml` with 30 pages including 14 city landing pages, blog index, and 5 individual blog posts
   - robots.txt file for search engine crawler guidance with sitemap reference
   - Sitewide Organization schema in App.tsx with logo, contact info, social profiles, service areas, and founding date
   - FAQPage and LocalBusiness schema markup on FAQ page with embedded Review/AggregateRating data
   - 6 individual Google reviews embedded in LocalBusiness schema for star rating rich snippets
-  - City-specific LocalBusiness schemas with accurate geo coordinates for each of 6 city pages (Seattle, Bellevue, Kirkland, Woodinville, Bothell, Kenmore)
+  - City-specific LocalBusiness schemas with accurate geo coordinates for each of 14 city pages (Seattle, Bellevue, Kirkland, Woodinville, Bothell, Kenmore, Redmond, Sammamish, Newcastle, Mercer Island, Shoreline, Lake Forest Park, Issaquah, Mill Creek)
   - VideoObject schema markup for 6 YouTube videos on gallery page (compliant with Google's structured data guidelines)
   - Descriptive alt text on all 21 gallery images for AI understanding and accessibility
-  - Service area coverage for all 14 cities with 6 dedicated city landing pages
+  - Service area coverage for all 14 cities with 14 dedicated city landing pages
   - "2025" freshness signals in page titles
   - Bing Webmaster Tools verification file (BingSiteAuth.xml)
   - Natural language content optimized for AI understanding
