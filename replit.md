@@ -30,7 +30,14 @@ The frontend is a React 18 application with TypeScript, built using Vite. It uti
 - **Quote Form with Zapier Integration**: Submissions POST to `/api/quote-requests` (in-memory storage, console logging). Quote timeline options incentivize early booking. Automatically sends data to Zapier webhook if `ZAPIER_WEBHOOK_URL` is configured.
 - **Year-Round Services Page**: Dedicated page at `/year-round-services` for Gutter & Roof Maintenance, Permanent Lighting Solutions, and Landscape/Bistro/Event Lighting. Includes a separate year-round quote form with service type dropdown, integrating with the Zapier webhook.
 - **Sticky Bottom Bar**: Persistent "BOOK NOW", "CALL NOW", "FREE DESIGN" CTAs.
-- **Dynamic SEO**: `PageHead` component updates titles and meta descriptions dynamically.
+- **SEO & ChatGPT Optimization**: 
+  - Dynamic meta tags via `PageHead` component (titles, descriptions, Open Graph tags)
+  - XML sitemap at `/sitemap.xml` with all 10 pages, priorities, and change frequencies
+  - FAQPage and LocalBusiness schema markup on FAQ page
+  - Service area coverage for all 14 cities
+  - "2025" freshness signals in page titles
+  - Bing Webmaster Tools verification file (BingSiteAuth.xml)
+  - Natural language content optimized for AI understanding
 
 ### System Design Choices
 The styling system uses Tailwind CSS with custom design tokens, a Christmas-themed HSL color palette, and an elevation system. Typography uses Playfair Display, Inter, and Montserrat. Dark mode is supported. Development uses Vite HMR and TSX, with Drizzle Kit for database schema management.
