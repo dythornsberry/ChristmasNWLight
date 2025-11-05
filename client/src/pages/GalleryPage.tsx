@@ -319,6 +319,24 @@ export default function GalleryPage() {
                   <p className="text-sm text-muted-foreground">Greater Seattle Area</p>
                 </div>
               </div>
+
+              {/* Multicolor Install - Issaquah */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-multicolor-issaquah">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/mfZ_QQIDusE"
+                    title="Multicolor Christmas Lighting Installation in Issaquah WA"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center">
+                  <h3 className="font-semibold text-foreground mb-1">Vibrant Multicolor Display</h3>
+                  <p className="text-sm text-muted-foreground">Issaquah, WA</p>
+                </div>
+              </div>
             </div>
 
             {/* Channel CTA */}
