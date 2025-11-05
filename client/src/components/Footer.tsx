@@ -8,19 +8,43 @@ export default function Footer() {
   return (
     <footer id="contact" className="bg-card border-t border-card-border">
       <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
-            <div className="h-16 mb-4">
-              <img 
-                src={logo} 
-                alt="ChristmasNW" 
-                className="h-full w-auto"
-              />
-            </div>
-            <p className="text-muted-foreground mb-4">
-              Premium Christmas light installation services across the Pacific Northwest
-            </p>
-            <div className="flex gap-3">
+            <h4 className="font-semibold mb-4 text-foreground">Services</h4>
+            <ul className="space-y-2 text-muted-foreground">
+              <li><a href="/" className="hover:text-primary transition-colors">Christmas Lighting</a></li>
+              <li><a href="/year-round-services" className="hover:text-primary transition-colors" data-testid="footer-link-year-round">Year-Round Services</a></li>
+              <li><a href="/product-guide" className="hover:text-primary transition-colors">Product Guide</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4 text-foreground">Company</h4>
+            <ul className="space-y-2 text-muted-foreground">
+              <li><a href="/about" className="hover:text-primary transition-colors">About Us</a></li>
+              <li><a href="/#testimonials" className="hover:text-primary transition-colors">Testimonials</a></li>
+              <li><a href="/service-areas" className="hover:text-primary transition-colors">Service Areas</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4 text-foreground">Quick Links</h4>
+            <ul className="space-y-2 text-muted-foreground">
+              <li><a href="/gallery" className="hover:text-primary transition-colors">Gallery</a></li>
+              <li><a href="/investment-guide" className="hover:text-primary transition-colors">Pricing</a></li>
+              <li><a href="/faq" className="hover:text-primary transition-colors">FAQ</a></li>
+              <li><a href="/contact" className="hover:text-primary transition-colors">Contact</a></li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold mb-4 text-foreground">Contact Info</h4>
+            <ul className="space-y-2 text-muted-foreground text-sm mb-4">
+              <li><a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a></li>
+              <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors">christmaslightsnw@gmail.com</a></li>
+              <li>Kenmore, WA</li>
+            </ul>
+            <div className="flex gap-2">
               <a 
                 href="https://www.facebook.com/ChristmasNW" 
                 target="_blank" 
@@ -32,7 +56,7 @@ export default function Footer() {
                   variant="ghost"
                   data-testid="button-facebook"
                 >
-                  <Facebook className="w-5 h-5" />
+                  <Facebook className="w-4 h-4" />
                 </Button>
               </a>
               <a 
@@ -46,7 +70,7 @@ export default function Footer() {
                   variant="ghost"
                   data-testid="button-instagram"
                 >
-                  <Instagram className="w-5 h-5" />
+                  <Instagram className="w-4 h-4" />
                 </Button>
               </a>
               <a 
@@ -60,7 +84,7 @@ export default function Footer() {
                   variant="ghost"
                   data-testid="button-youtube"
                 >
-                  <Youtube className="w-5 h-5" />
+                  <Youtube className="w-4 h-4" />
                 </Button>
               </a>
               <a 
@@ -74,52 +98,10 @@ export default function Footer() {
                   variant="ghost"
                   data-testid="button-google"
                 >
-                  <SiGoogle className="w-5 h-5" />
-                </Button>
-              </a>
-              <a 
-                href="mailto:christmaslightsnw@gmail.com"
-                aria-label="Send us an email"
-              >
-                <Button 
-                  size="icon" 
-                  variant="ghost"
-                  data-testid="button-email"
-                >
-                  <Mail className="w-5 h-5" />
+                  <SiGoogle className="w-4 h-4" />
                 </Button>
               </a>
             </div>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-foreground">Services</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><a href="/" className="hover:text-primary transition-colors">Christmas Lighting</a></li>
-              <li><a href="/year-round-services" className="hover:text-primary transition-colors" data-testid="footer-link-year-round">Year-Round Services</a></li>
-              <li><a href="/product-guide" className="hover:text-primary transition-colors">Product Guide</a></li>
-              <li><a href="/investment-guide" className="hover:text-primary transition-colors">Pricing Guide</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-foreground">Company</h4>
-            <ul className="space-y-2 text-muted-foreground">
-              <li><a href="/about" className="hover:text-primary transition-colors">About Us</a></li>
-              <li><a href="/gallery" className="hover:text-primary transition-colors">Our Work</a></li>
-              <li><a href="/testimonials" className="hover:text-primary transition-colors">Testimonials</a></li>
-              <li><a href="/contact" className="hover:text-primary transition-colors">Contact</a></li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-semibold mb-4 text-foreground">Contact</h4>
-            <ul className="space-y-2 text-muted-foreground text-sm">
-              <li><a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a></li>
-              <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors">christmaslightsnw@gmail.com</a></li>
-              <li>Kenmore, WA</li>
-              <li className="pt-2 text-foreground font-semibold">Available 24/7 During Season (Seven Days a Week)</li>
-            </ul>
           </div>
         </div>
 
