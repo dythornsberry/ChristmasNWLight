@@ -15,7 +15,7 @@ import YearRoundServices from "@/pages/YearRoundServices";
 import FAQPage from "@/pages/FAQPage";
 import BellevuePage from "@/pages/BellevuePage";
 import KirklandPage from "@/pages/KirklandPage";
-import RedmondPage from "@/pages/RedmondPage";
+import SeattlePage from "@/pages/SeattlePage";
 import WoodinvillePage from "@/pages/WoodinvillePage";
 import BothellPage from "@/pages/BothellPage";
 import KenmorePage from "@/pages/KenmorePage";
@@ -39,7 +39,7 @@ function Router() {
       {/* City Landing Pages */}
       <Route path="/bellevue" component={BellevuePage} />
       <Route path="/kirkland" component={KirklandPage} />
-      <Route path="/redmond" component={RedmondPage} />
+      <Route path="/seattle" component={SeattlePage} />
       <Route path="/woodinville" component={WoodinvillePage} />
       <Route path="/bothell" component={BothellPage} />
       <Route path="/kenmore" component={KenmorePage} />
