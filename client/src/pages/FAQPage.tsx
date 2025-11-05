@@ -27,7 +27,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "What areas do you serve for Christmas light installation?",
-          answer: "ChristmasNW serves the entire north Seattle metro area. We're based in Kenmore and proudly serve Seattle, Kenmore, Bothell, Kirkland, Lynnwood, Woodinville, Bellevue, Medina, Clyde Hill, Yarrow Point, Sammamish, Redmond, Edmonds, Shoreline, and Mill Creek. If you're in the Greater Seattle area and don't see your city listed, contact us—we often service surrounding communities as well."
+          answer: "ChristmasNW serves the entire north Seattle metro area. We're based in Kenmore and proudly serve Seattle, Kenmore, Bothell, Kirkland, Lynnwood, Woodinville, Bellevue, Medina, Clyde Hill, Yarrow Point, Sammamish, Redmond, Edmonds, Shoreline, and Mill Creek. If you're in the Greater Seattle area and don't see your city listed, contact us. We often service surrounding communities as well."
         },
         {
           question: "Do you install Christmas lights in Bellevue and the Eastside?",
@@ -52,7 +52,7 @@ export default function FAQPage() {
         },
         {
           question: "What's included in your Christmas light installation service?",
-          answer: "Everything is included! You get commercial-grade LED lights and materials, professional design consultation, expert installation by our trained team, all necessary clips and mounting hardware, professional-grade timers, unlimited bulb replacement and repairs throughout the season, 24/7 seasonal support, professional takedown after the holidays, and year-round climate-controlled storage. It's completely done-for-you—no ladder climbing, no storage hassles, no stress."
+          answer: "Everything is included! You get commercial-grade LED lights and materials, professional design consultation, expert installation by our trained team, all necessary clips and mounting hardware, professional-grade timers, unlimited bulb replacement and repairs throughout the season, 24/7 seasonal support, professional takedown after the holidays, and year-round climate-controlled storage. It's completely done-for-you service. No ladder climbing, no storage hassles, no stress."
         },
         {
           question: "Is light takedown and storage included in the price?",
@@ -60,7 +60,7 @@ export default function FAQPage() {
         },
         {
           question: "Do you charge extra for bulb replacements or repairs during the season?",
-          answer: "No! Bulb replacements and repairs are included at no extra charge throughout the entire holiday season. We use commercial-grade LED lights that are extremely reliable, but if anything goes out, we'll come fix it quickly—usually within 1-2 business days. This is part of our 100% satisfaction guarantee."
+          answer: "No! Bulb replacements and repairs are included at no extra charge throughout the entire holiday season. We use commercial-grade LED lights that are extremely reliable, but if anything goes out, we'll come fix it quickly (usually within 1-2 business days). This is part of our 100% satisfaction guarantee."
         }
       ]
     },
@@ -85,7 +85,7 @@ export default function FAQPage() {
         },
         {
           question: "When do you take down Christmas lights?",
-          answer: "We professionally remove all lights in January, typically within 2-3 weeks after New Year's. We'll coordinate a specific takedown date with you. The takedown is just as careful and professional as the installation—we remove everything safely, organize your lights, and store them in our climate-controlled facilities until next season."
+          answer: "We professionally remove all lights in January, typically within 2-3 weeks after New Year's. We'll coordinate a specific takedown date with you. The takedown is just as careful and professional as the installation. We remove everything safely, organize your lights, and store them in our climate-controlled facilities until next season."
         }
       ]
     },
@@ -115,7 +115,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "What type of Christmas lights do you use?",
-          answer: "We use exclusively commercial-grade LED lights designed for professional installations. These are not the lights you buy at hardware stores—they're weatherproof, energy-efficient, significantly brighter, and built to last for years. We offer both warm white and multicolor options, along with specialty products like C9 bulbs, mini lights, ground stakes, tree wraps, light spheres, wreaths, and garland."
+          answer: "We use exclusively commercial-grade LED lights designed for professional installations. These are not the lights you buy at hardware stores. They're weatherproof, energy-efficient, significantly brighter, and built to last for years. We offer both warm white and multicolor options, along with specialty products like C9 bulbs, mini lights, ground stakes, tree wraps, light spheres, wreaths, and garland."
         },
         {
           question: "Can I choose custom colors or designs?",
@@ -136,7 +136,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "Do you offer permanent outdoor lighting?",
-          answer: "Yes! We offer year-round permanent lighting solutions starting at $1,500. These are architectural LED lights installed on your roofline that can be controlled via smartphone app to display any color for any holiday or occasion—red and green for Christmas, orange for Halloween, red/white/blue for July 4th, or any custom color scheme you want. They're perfect for homeowners who want beautiful outdoor lighting year-round without the hassle of seasonal installation. Learn more on our Year-Round Services page."
+          answer: "Yes! We offer year-round permanent lighting solutions starting at $1,500. These are architectural LED lights installed on your roofline that can be controlled via smartphone app to display any color for any holiday or occasion: red and green for Christmas, orange for Halloween, red/white/blue for July 4th, or any custom color scheme you want. They're perfect for homeowners who want beautiful outdoor lighting year-round without the hassle of seasonal installation. Learn more on our Year-Round Services page."
         },
         {
           question: "Do you provide gutter cleaning services?",
@@ -161,7 +161,7 @@ export default function FAQPage() {
         },
         {
           question: "Can I get a free quote without committing?",
-          answer: "Yes! Our quotes are always free with no obligation. Fill out our quote form or call us, and we'll provide a detailed estimate based on your home and design preferences. You're under no obligation to book—we simply want to help you understand your options and pricing."
+          answer: "Yes! Our quotes are always free with no obligation. Fill out our quote form or call us, and we'll provide a detailed estimate based on your home and design preferences. You're under no obligation to book. We simply want to help you understand your options and pricing."
         }
       ]
     }
