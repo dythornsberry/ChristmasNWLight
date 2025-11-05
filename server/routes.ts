@@ -100,7 +100,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       // City landing pages (high priority for local SEO)
       { url: '/bellevue', priority: '0.9', changefreq: 'monthly' },
       { url: '/kirkland', priority: '0.9', changefreq: 'monthly' },
-      { url: '/redmond', priority: '0.9', changefreq: 'monthly' },
+      { url: '/seattle', priority: '0.9', changefreq: 'monthly' },
       { url: '/woodinville', priority: '0.9', changefreq: 'monthly' },
       { url: '/bothell', priority: '0.9', changefreq: 'monthly' },
       { url: '/kenmore', priority: '0.9', changefreq: 'monthly' },
