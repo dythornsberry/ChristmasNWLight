@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { Facebook, Instagram, Mail } from "lucide-react";
+import { Facebook, Instagram, Mail, Youtube } from "lucide-react";
+import { SiGoogle } from "react-icons/si";
 import logo from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761493054119.png';
 
 export default function Footer() {
@@ -21,7 +22,7 @@ export default function Footer() {
             </p>
             <div className="flex gap-3">
               <a 
-                href="https://www.facebook.com/ChristmasNW/" 
+                href="https://www.facebook.com/ChristmasNW" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit our Facebook page"
@@ -35,7 +36,7 @@ export default function Footer() {
                 </Button>
               </a>
               <a 
-                href="https://www.instagram.com/christmasnw/?hl=en" 
+                href="https://www.instagram.com/christmasnw/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit our Instagram page"
@@ -46,6 +47,34 @@ export default function Footer() {
                   data-testid="button-instagram"
                 >
                   <Instagram className="w-5 h-5" />
+                </Button>
+              </a>
+              <a 
+                href="https://youtube.com/@christmasnw?si=N5gu7fRN9vyEFMUd" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Visit our YouTube channel"
+              >
+                <Button 
+                  size="icon" 
+                  variant="ghost"
+                  data-testid="button-youtube"
+                >
+                  <Youtube className="w-5 h-5" />
+                </Button>
+              </a>
+              <a 
+                href="https://share.google/lxhOxXmbPwABIqdNa" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                aria-label="Visit our Google Business Profile"
+              >
+                <Button 
+                  size="icon" 
+                  variant="ghost"
+                  data-testid="button-google"
+                >
+                  <SiGoogle className="w-5 h-5" />
                 </Button>
               </a>
               <a 
