@@ -81,6 +81,37 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Sitemap.xml endpoint for SEO
+  app.get("/sitemap.xml", (req, res) => {
+    const baseUrl = process.env.SITE_URL || `${req.protocol}://${req.get('host')}`;
+
+    const pages = [
+      { url: '/', priority: '1.0', changefreq: 'daily' },
+      { url: '/gallery', priority: '0.9', changefreq: 'weekly' },
+      { url: '/investment-guide', priority: '0.9', changefreq: 'monthly' },
+      { url: '/faq', priority: '0.9', changefreq: 'weekly' },
+      { url: '/about', priority: '0.7', changefreq: 'monthly' },
+      { url: '/services', priority: '0.8', changefreq: 'monthly' },
+      { url: '/product-guide', priority: '0.7', changefreq: 'monthly' },
+      { url: '/year-round-services', priority: '0.8', changefreq: 'monthly' },
+      { url: '/service-areas', priority: '0.7', changefreq: 'monthly' },
+      { url: '/contact', priority: '0.6', changefreq: 'monthly' },
+    ];
+
+    const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${pages.map(page => `  <url>
+    <loc>${baseUrl}${page.url}</loc>
+    <changefreq>${page.changefreq}</changefreq>
+    <priority>${page.priority}</priority>
+    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+  </url>`).join('\n')}
+</urlset>`;
+
+    res.header('Content-Type', 'application/xml');
+    res.send(sitemap);
+  });
+
   const httpServer = createServer(app);
 
   return httpServer;
