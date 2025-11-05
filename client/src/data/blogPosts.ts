@@ -17,7 +17,7 @@ export const blogPosts: BlogPost[] = [
     slug: "christmas-lighting-trends-2025",
     excerpt: "Discover the hottest holiday lighting trends that will make your home the star of the neighborhood this season.",
     category: "Trends",
-    publishDate: "2024-11-01",
+    publishDate: "2025-11-05",
     readTime: "5 min read",
     metaDescription: "Explore the top Christmas lighting trends for 2025 in Seattle. From icicle effects to smart LED systems, learn what's trending this holiday season.",
     content: `
@@ -68,7 +68,7 @@ Ready to make your home the star of the neighborhood this season? We're booking 
     slug: "warm-white-vs-multicolor-lights",
     excerpt: "Not sure which lighting style suits your home? We break down the pros and cons of each to help you decide.",
     category: "Buying Guide",
-    publishDate: "2024-10-25",
+    publishDate: "2025-11-04",
     readTime: "4 min read",
     metaDescription: "Warm white vs multicolor Christmas lights: Learn which style fits your home best. Expert advice from Seattle's top holiday lighting professionals.",
     content: `
@@ -144,7 +144,7 @@ Or better yet, work with us to design something custom. We can show you examples
     slug: "professional-christmas-light-installation-guide",
     excerpt: "Learn what goes into a professional installation and why DIY might not be worth the risk.",
     category: "Installation",
-    publishDate: "2024-10-15",
+    publishDate: "2025-11-03",
     readTime: "8 min read",
     metaDescription: "Complete guide to professional Christmas light installation in Seattle. Learn the process, costs, and why professionals are worth it.",
     content: `
@@ -268,7 +268,7 @@ Ready to skip the ladder and enjoy the holidays? We're booking installations now
     slug: "book-christmas-lights-september",
     excerpt: "The early bird really does get the worm. Learn why booking early saves you money and stress.",
     category: "Planning",
-    publishDate: "2024-09-30",
+    publishDate: "2025-11-02",
     readTime: "6 min read",
     metaDescription: "Learn why booking Christmas light installation in September guarantees better dates, pricing, and service. Insider tips from Seattle lighting pros.",
     content: `
@@ -430,7 +430,7 @@ Ready to lock in your preferred dates for this season? Let's talk.
     slug: "christmas-light-installation-safety",
     excerpt: "Keep your family safe this season with these essential safety tips from our professional installers.",
     category: "Safety",
-    publishDate: "2024-09-20",
+    publishDate: "2025-11-01",
     readTime: "7 min read",
     metaDescription: "Essential Christmas light installation safety tips. Learn what professional installers do to prevent accidents, electrical hazards, and injuries.",
     content: `
