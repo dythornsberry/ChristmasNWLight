@@ -22,7 +22,6 @@ import img7 from '@assets/2023-11-14-min_1762058047475.jpg';
 import img8 from '@assets/2024-11-23-min_1762058047475.jpg';
 import img9 from '@assets/2025-10-28-min_1762058047476.jpg';
 import img10 from '@assets/2024-12-25-min_1762058047476.jpg';
-import img11 from '@assets/unnamed-15-min_1762058047476.jpg';
 import img12 from '@assets/2024-12-03-min_1762058047476.jpg';
 import img13 from '@assets/2025-10-28-2-min_1762058047476.jpg';
 import img14 from '@assets/2024-10-27-min_1762058047476.jpg';
@@ -54,18 +53,17 @@ const galleryImages: GalleryImage[] = [
   { id: 8, src: img8, alt: "Modern home with clean warm white", category: "Warm White", title: "Contemporary Classic" },
   { id: 9, src: img9, alt: "Spectacular custom tree display", category: "Custom", title: "Premium Custom Display" },
   { id: 10, src: img10, alt: "Elegant home with unique architecture", category: "Warm White", title: "Architectural Showcase" },
-  { id: 11, src: img11, alt: "Purple and multicolor custom display", category: "Custom", title: "Bold Custom Creation" },
-  { id: 12, src: img12, alt: "Full yard custom design with decorations", category: "Custom", title: "Complete Holiday Scene" },
-  { id: 13, src: img13, alt: "Tree with firework starburst lights", category: "Trees", title: "Starburst Tree Magic" },
-  { id: 14, src: img14, alt: "Warm white roofline with multicolor tree", category: "Multicolor", title: "Mixed Color Harmony" },
-  { id: 15, src: img15, alt: "Modern home with warm white and wreath", category: "Warm White", title: "Modern Holiday Elegance" },
-  { id: 16, src: img16, alt: "Red tree wrap with blue snowmen", category: "Trees", title: "Creative Tree Design" },
-  { id: 17, src: img17, alt: "Vibrant multicolor on dark modern home", category: "Multicolor", title: "Striking Night Display" },
-  { id: 18, src: img18, alt: "Stunning multicolor tree with full wrap", category: "Trees", title: "Majestic Multicolor Tree" },
-  { id: 19, src: img19, alt: "Spooky Halloween lighting with purple and orange", category: "Halloween", title: "Spectacular Halloween Display" },
-  { id: 20, src: img20, alt: "Red tree wrap with blue snowmen decorations", category: "Trees", title: "Red Tree with Snowmen" },
-  { id: 21, src: img21, alt: "Elegant warm white Christmas lights on home", category: "Warm White", title: "Classic Warm White Elegance" },
-  { id: 22, src: img22, alt: "Vibrant multicolor Christmas lights on rooflines", category: "Multicolor", title: "Festive Multicolor Display" }
+  { id: 11, src: img12, alt: "Full yard custom design with decorations", category: "Custom", title: "Complete Holiday Scene" },
+  { id: 12, src: img13, alt: "Tree with firework starburst lights", category: "Trees", title: "Starburst Tree Magic" },
+  { id: 13, src: img14, alt: "Warm white roofline with multicolor tree", category: "Multicolor", title: "Mixed Color Harmony" },
+  { id: 14, src: img15, alt: "Modern home with warm white and wreath", category: "Warm White", title: "Modern Holiday Elegance" },
+  { id: 15, src: img16, alt: "Red tree wrap with blue snowmen", category: "Trees", title: "Creative Tree Design" },
+  { id: 16, src: img17, alt: "Vibrant multicolor on dark modern home", category: "Multicolor", title: "Striking Night Display" },
+  { id: 17, src: img18, alt: "Stunning multicolor tree with full wrap", category: "Trees", title: "Majestic Multicolor Tree" },
+  { id: 18, src: img19, alt: "Spooky Halloween lighting with purple and orange", category: "Halloween", title: "Spectacular Halloween Display" },
+  { id: 19, src: img20, alt: "Red tree wrap with blue snowmen decorations", category: "Trees", title: "Red Tree with Snowmen" },
+  { id: 20, src: img21, alt: "Elegant warm white Christmas lights on home", category: "Warm White", title: "Classic Warm White Elegance" },
+  { id: 21, src: img22, alt: "Vibrant multicolor Christmas lights on rooflines", category: "Multicolor", title: "Festive Multicolor Display" }
 ];
 
 export default function GalleryPage() {
