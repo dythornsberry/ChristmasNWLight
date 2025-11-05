@@ -97,13 +97,21 @@ export async function registerRoutes(app: Express): Promise<Server> {
       { url: '/service-areas', priority: '0.7', changefreq: 'monthly' },
       { url: '/contact', priority: '0.6', changefreq: 'monthly' },
       
-      // City landing pages (high priority for local SEO)
+      // City landing pages (high priority for local SEO - all 14 markets)
       { url: '/bellevue', priority: '0.9', changefreq: 'monthly' },
       { url: '/kirkland', priority: '0.9', changefreq: 'monthly' },
       { url: '/seattle', priority: '0.9', changefreq: 'monthly' },
       { url: '/woodinville', priority: '0.9', changefreq: 'monthly' },
       { url: '/bothell', priority: '0.9', changefreq: 'monthly' },
       { url: '/kenmore', priority: '0.9', changefreq: 'monthly' },
+      { url: '/redmond', priority: '0.9', changefreq: 'monthly' },
+      { url: '/sammamish', priority: '0.9', changefreq: 'monthly' },
+      { url: '/newcastle', priority: '0.9', changefreq: 'monthly' },
+      { url: '/mercer-island', priority: '0.9', changefreq: 'monthly' },
+      { url: '/shoreline', priority: '0.9', changefreq: 'monthly' },
+      { url: '/lake-forest-park', priority: '0.9', changefreq: 'monthly' },
+      { url: '/issaquah', priority: '0.9', changefreq: 'monthly' },
+      { url: '/mill-creek', priority: '0.9', changefreq: 'monthly' },
       
       // Blog
       { url: '/blog', priority: '0.8', changefreq: 'weekly' },

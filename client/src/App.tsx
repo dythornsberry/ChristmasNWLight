@@ -19,6 +19,14 @@ import SeattlePage from "@/pages/SeattlePage";
 import WoodinvillePage from "@/pages/WoodinvillePage";
 import BothellPage from "@/pages/BothellPage";
 import KenmorePage from "@/pages/KenmorePage";
+import RedmondPage from "@/pages/RedmondPage";
+import SammamishPage from "@/pages/SammamishPage";
+import NewcastlePage from "@/pages/NewcastlePage";
+import MercerIslandPage from "@/pages/MercerIslandPage";
+import ShorelinePage from "@/pages/ShorelinePage";
+import LakeForestParkPage from "@/pages/LakeForestParkPage";
+import IssaquahPage from "@/pages/IssaquahPage";
+import MillCreekPage from "@/pages/MillCreekPage";
 import BlogPage from "@/pages/BlogPage";
 import BlogPostPage from "@/pages/BlogPostPage";
 import NotFound from "@/pages/not-found";
@@ -44,6 +52,14 @@ function Router() {
       <Route path="/woodinville" component={WoodinvillePage} />
       <Route path="/bothell" component={BothellPage} />
       <Route path="/kenmore" component={KenmorePage} />
+      <Route path="/redmond" component={RedmondPage} />
+      <Route path="/sammamish" component={SammamishPage} />
+      <Route path="/newcastle" component={NewcastlePage} />
+      <Route path="/mercer-island" component={MercerIslandPage} />
+      <Route path="/shoreline" component={ShorelinePage} />
+      <Route path="/lake-forest-park" component={LakeForestParkPage} />
+      <Route path="/issaquah" component={IssaquahPage} />
+      <Route path="/mill-creek" component={MillCreekPage} />
       
       {/* Blog */}
       <Route path="/blog" component={BlogPage} />
@@ -172,7 +188,7 @@ function App() {
       },
       {
         "@type": "City",
-        "name": "Lynnwood",
+        "name": "Newcastle",
         "containedInPlace": {
           "@type": "State",
           "name": "Washington"
@@ -180,7 +196,7 @@ function App() {
       },
       {
         "@type": "City",
-        "name": "Edmonds",
+        "name": "Mercer Island",
         "containedInPlace": {
           "@type": "State",
           "name": "Washington"
