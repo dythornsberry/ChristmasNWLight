@@ -331,6 +331,92 @@ export default function Home() {
         "reviewCount": "85",
         "bestRating": "5"
       },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Sarah M."
+          },
+          "datePublished": "2024-12-10",
+          "reviewBody": "ChristmasNW made our holiday season absolutely magical! Their team was professional, on time, and the lights look absolutely stunning. Worth every penny!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Michael T."
+          },
+          "datePublished": "2024-11-28",
+          "reviewBody": "We've used ChristmasNW for three years running, and they never disappoint. The quality of their lights and installation is top notch. Highly recommend!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Jennifer K."
+          },
+          "datePublished": "2024-12-05",
+          "reviewBody": "Finally found a Christmas light company that actually does what they promise! They installed our lights within a week of booking, and the design is exactly what we wanted. Professional from start to finish.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "David R."
+          },
+          "datePublished": "2024-11-22",
+          "reviewBody": "Best decision we made this holiday season. ChristmasNW handled everything including storage for next year. No more climbing ladders or dealing with tangled lights!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Lisa W."
+          },
+          "datePublished": "2024-12-01",
+          "reviewBody": "The crew was incredibly professional and detail oriented. Our house looks like something out of a magazine. Neighbors keep asking who did our lights!",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Robert H."
+          },
+          "datePublished": "2024-11-15",
+          "reviewBody": "ChristmasNW transformed our home for the holidays. Commercial grade lights that actually stay bright all season. Their team knows what they're doing.",
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          }
+        }
+      ],
       "sameAs": [
         "https://www.facebook.com/ChristmasNW",
         "https://www.instagram.com/christmasnw/",
