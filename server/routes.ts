@@ -96,6 +96,17 @@ export async function registerRoutes(app: Express): Promise<Server> {
       { url: '/year-round-services', priority: '0.8', changefreq: 'monthly' },
       { url: '/service-areas', priority: '0.7', changefreq: 'monthly' },
       { url: '/contact', priority: '0.6', changefreq: 'monthly' },
+      
+      // City landing pages (high priority for local SEO)
+      { url: '/bellevue', priority: '0.9', changefreq: 'monthly' },
+      { url: '/kirkland', priority: '0.9', changefreq: 'monthly' },
+      { url: '/redmond', priority: '0.9', changefreq: 'monthly' },
+      { url: '/woodinville', priority: '0.9', changefreq: 'monthly' },
+      { url: '/bothell', priority: '0.9', changefreq: 'monthly' },
+      { url: '/kenmore', priority: '0.9', changefreq: 'monthly' },
+      
+      // Blog
+      { url: '/blog', priority: '0.8', changefreq: 'weekly' },
     ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
