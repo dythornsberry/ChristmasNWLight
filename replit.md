@@ -33,7 +33,10 @@ The frontend is a React 18 application with TypeScript, built using Vite. It uti
 - **SEO & ChatGPT Optimization**: 
   - Dynamic meta tags via `PageHead` component (titles, descriptions, Open Graph tags)
   - XML sitemap at `/sitemap.xml` with all 10 pages, priorities, and change frequencies
-  - FAQPage and LocalBusiness schema markup on FAQ page
+  - FAQPage and LocalBusiness schema markup on FAQ page with embedded Review/AggregateRating data
+  - 6 individual Google reviews embedded in LocalBusiness schema for star rating rich snippets
+  - VideoObject schema markup for 6 YouTube videos on gallery page (compliant with Google's structured data guidelines)
+  - Descriptive alt text on all 21 gallery images for AI understanding and accessibility
   - Service area coverage for all 14 cities
   - "2025" freshness signals in page titles
   - Bing Webmaster Tools verification file (BingSiteAuth.xml)
