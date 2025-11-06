@@ -63,6 +63,7 @@ import mistletoeHouse from '@assets/2024-11-11-2-min_1762064400632.jpg';
 import warmWhiteHouse from '@assets/1-2-min_1762064533191.jpeg';
 import multicolorHouse2 from '@assets/IMG_5253_1762064572527.jpeg';
 import redGreenHouse from '@assets/IMG_2529-min-min_1762065264434.jpeg';
+import completeHolidayScene from '@assets/2024-12-03-min_1762058047476.jpg';
 import winterTreeUplighting from '@assets/29ed3807d7952892033a68ec8781e744.jpg-2_1762395487269.webp';
 import mistletoeHouse2 from '@assets/990c3274b03bd096a71395c6d8043d8f.jpg_1762395519144.webp';
 import estateGate from '@assets/2a1755975470dff4557e8fe3d51e6f67_1762395568284.webp';
@@ -139,12 +140,12 @@ export default function Home() {
   ];
 
   const portfolioItems = [
-    { id: 1, image: img1, category: "Houses", title: "Classic Warm White Roofline" },
-    { id: 2, image: img2, category: "Houses", title: "Modern Multicolor Display" },
-    { id: 3, image: img3, category: "Houses", title: "Traditional Warm White" },
-    { id: 4, image: img4, category: "Houses", title: "Contemporary Stone Accent" },
-    { id: 5, image: img5, category: "Houses", title: "Large Estate Installation" },
-    { id: 6, image: img6, category: "Houses", title: "Modern Gable Design" },
+    { id: 1, image: completeHolidayScene, category: "Custom", title: "Complete Holiday Scene" },
+    { id: 2, image: redTreeSnowmen, category: "Trees", title: "Creative Tree Design" },
+    { id: 3, image: warmWhiteHouse, category: "Warm White", title: "Classic Warm White Elegance" },
+    { id: 4, image: winterHomeDisplay, category: "Warm White", title: "Classic Winter Wonderland" },
+    { id: 5, image: modernBellevueHome, category: "Warm White", title: "Contemporary Bellevue Home" },
+    { id: 6, image: estateGate, category: "Custom", title: "Grand Estate Entrance" },
     { id: 7, image: img7, category: "Houses", title: "Split-Level Contemporary" },
     { id: 8, image: img8, category: "Trees", title: "Tree Canopy Entrance" },
     { id: 9, image: img9, category: "Houses", title: "Stone & Siding Combo" },
@@ -174,16 +175,17 @@ export default function Home() {
     { id: 33, image: img33, category: "Houses", title: "Elegant Modern Warm White with Deer" },
     { id: 34, image: multicolorTree, category: "Trees", title: "Stunning Multicolor Tree Display" },
     { id: 35, image: halloweenHouse, category: "Halloween", title: "Spooky Halloween Display" },
-    { id: 36, image: redTreeSnowmen, category: "Trees", title: "Red Tree Wrap with Snowmen" },
-    { id: 37, image: warmWhiteHouse, category: "Houses", title: "Elegant Warm White Display" },
-    { id: 38, image: multicolorHouse2, category: "Houses", title: "Vibrant Multicolor Rooflines" },
-    { id: 39, image: winterTreeUplighting, category: "Trees", title: "Winter Landscape Lighting" },
-    { id: 40, image: mistletoeHouse2, category: "Custom", title: "Mistletoe Peak Design" },
-    { id: 41, image: estateGate, category: "Custom", title: "Grand Estate Entrance" },
-    { id: 42, image: winterHomeDisplay, category: "Houses", title: "Classic Winter Wonderland" },
-    { id: 43, image: redColumnsHouse, category: "Custom", title: "Red Column Accent Design" },
-    { id: 44, image: ridgeRooflineHouse, category: "Houses", title: "Ridge and Roofline Display" },
-    { id: 45, image: modernBellevueHome, category: "Houses", title: "Contemporary Bellevue Home" },
+    { id: 36, image: multicolorHouse2, category: "Houses", title: "Vibrant Multicolor Rooflines" },
+    { id: 37, image: winterTreeUplighting, category: "Trees", title: "Winter Landscape Lighting" },
+    { id: 38, image: mistletoeHouse2, category: "Custom", title: "Mistletoe Peak Design" },
+    { id: 39, image: redColumnsHouse, category: "Custom", title: "Red Column Accent Design" },
+    { id: 40, image: ridgeRooflineHouse, category: "Houses", title: "Ridge and Roofline Display" },
+    { id: 41, image: img1, category: "Houses", title: "Classic Warm White Roofline" },
+    { id: 42, image: img2, category: "Houses", title: "Modern Multicolor Display" },
+    { id: 43, image: img3, category: "Houses", title: "Traditional Warm White" },
+    { id: 44, image: img4, category: "Houses", title: "Contemporary Stone Accent" },
+    { id: 45, image: img5, category: "Houses", title: "Large Estate Installation" },
+    { id: 46, image: img6, category: "Houses", title: "Modern Gable Design" },
   ];
 
   const colorOptions = [

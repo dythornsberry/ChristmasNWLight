@@ -22,7 +22,7 @@ The frontend is a React 18 application with TypeScript, built using Vite. It uti
 - **Promise Section**: Four-card guarantee (1-week installation, 48-hour touch-ups, 100% satisfaction, commercial-grade equipment).
 - **Differentiator Section**: Showcases same-week installation, commercial-grade equipment, included storage, and responsive service.
 - **Services Section**: Six benefit cards highlighting all-inclusive, stress-free service.
-- **Portfolio & Gallery**: Curated homepage preview; full gallery page with 17 categorized photos, filtering, lightbox, and 5 embedded lazy-loaded YouTube Shorts.
+- **Portfolio & Gallery**: Curated homepage preview featuring 6 premium installations (Complete Holiday Scene, Creative Tree Design, Classic Warm White Elegance, Classic Winter Wonderland, Contemporary Bellevue Home, Grand Estate Entrance) to showcase bigger jobs and variety; full gallery page with 29 categorized photos, filtering, lightbox, and 5 embedded lazy-loaded YouTube Shorts.
 - **Social Media Integration**: Footer links to Facebook, Instagram, YouTube, Google Business Profile; gallery includes "Visit Our YouTube Channel" CTA.
 - **Testimonials**: Enhanced Google reviews.
 - **Product Guide Page**: Educational page for six premium product categories (C9 Bulbs, Mini Lights, etc.) with descriptions and use cases.
@@ -47,7 +47,7 @@ The frontend is a React 18 application with TypeScript, built using Vite. It uti
   - 6 individual Google reviews embedded in LocalBusiness schema for star rating rich snippets
   - City-specific LocalBusiness schemas with accurate geo coordinates for each of 14 city pages (Seattle, Bellevue, Kirkland, Woodinville, Bothell, Kenmore, Redmond, Sammamish, Newcastle, Mercer Island, Shoreline, Lake Forest Park, Issaquah, Mill Creek)
   - VideoObject schema markup for 6 YouTube videos on gallery page (compliant with Google's structured data guidelines)
-  - Descriptive alt text on all 21 gallery images for AI understanding and accessibility
+  - Descriptive alt text on all 29 gallery images for AI understanding and accessibility
   - Service area coverage for all 14 cities with 14 dedicated city landing pages
   - "2025" freshness signals in page titles
   - Bing Webmaster Tools verification file (BingSiteAuth.xml)
