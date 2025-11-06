@@ -487,23 +487,23 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        {/* Gallery Grid Section */}
+        {/* Top 9 Premium Photos */}
         <section className="py-16 bg-background">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Browse Our Installation Photos
+                Featured Premium Installations
               </h2>
               <p className="text-lg text-muted-foreground">
                 {selectedCategory === "All" 
-                  ? `Viewing all ${filteredImages.length} installations` 
-                  : `${filteredImages.length} ${selectedCategory} installations`}
+                  ? "Our most impressive custom work showcasing the quality and variety we bring to every project" 
+                  : `Showcasing our best ${selectedCategory} installations`}
               </p>
             </div>
 
-            {/* Gallery Grid */}
+            {/* Top 9 Gallery Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredImages.map((image, index) => (
+              {filteredImages.slice(0, 9).map((image, index) => (
                 <Card 
                   key={image.id} 
                   className="group overflow-hidden hover-elevate cursor-pointer"
@@ -548,9 +548,217 @@ export default function GalleryPage() {
               ))}
             </div>
 
-            {filteredImages.length === 0 && (
+          </div>
+        </section>
+
+        {/* Video Section - "See These Come to Life" */}
+        <section className="py-20 bg-muted/30">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center max-w-3xl mx-auto mb-12">
+              <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
+                <span className="text-primary font-semibold">Watch Our Work</span>
+              </div>
+              <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6 text-foreground">
+                See These Installations Come to Life
+              </h2>
+              <p className="text-lg text-muted-foreground leading-relaxed">
+                Watch real installations from start to finish. See the quality, craftsmanship, and care we bring to every project across Greater Seattle.
+              </p>
+            </div>
+
+            {/* Video Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {/* Halloween Install - Bellevue */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-halloween-bellevue">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/qcnKBhSJQW4"
+                    title="Halloween Lighting Installation in Bellevue WA"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center" data-testid="caption-video-halloween-bellevue">
+                  <h3 className="font-semibold text-foreground mb-1">Spectacular Halloween Display</h3>
+                  <p className="text-sm text-muted-foreground">Bellevue, WA</p>
+                </div>
+              </div>
+
+              {/* Tree Lighting - Woodinville */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-tree-woodinville">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/kyQ0PU9XDIk"
+                    title="Tree Lighting Installation in Woodinville WA"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center" data-testid="caption-video-tree-woodinville">
+                  <h3 className="font-semibold text-foreground mb-1">Massive Tree Installation</h3>
+                  <p className="text-sm text-muted-foreground">Woodinville, WA</p>
+                </div>
+              </div>
+
+              {/* Permanent Lighting Demo - Redmond */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-permanent-redmond">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/f7vQhLxL9B8"
+                    title="Permanent Lighting Demo in Redmond WA"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center" data-testid="caption-video-permanent-redmond">
+                  <h3 className="font-semibold text-foreground mb-1">Permanent Lighting Demo</h3>
+                  <p className="text-sm text-muted-foreground">Redmond, WA</p>
+                </div>
+              </div>
+
+              {/* Permanent Lighting Install */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-permanent-install">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/ozZItKmCPKE"
+                    title="Permanent Lighting Installation"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center" data-testid="caption-video-permanent-install">
+                  <h3 className="font-semibold text-foreground mb-1">Year-Round Permanent Lights</h3>
+                  <p className="text-sm text-muted-foreground">Greater Seattle Area</p>
+                </div>
+              </div>
+
+              {/* Halloween Install 2 */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-halloween-2">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/fkd4TWuDYa4"
+                    title="Halloween Lighting Installation"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center" data-testid="caption-video-halloween-2">
+                  <h3 className="font-semibold text-foreground mb-1">Halloween Light Display</h3>
+                  <p className="text-sm text-muted-foreground">Greater Seattle Area</p>
+                </div>
+              </div>
+
+              {/* Multicolor Install - Issaquah */}
+              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-multicolor-issaquah">
+                <div className="aspect-[9/16] relative">
+                  <iframe
+                    src="https://www.youtube.com/embed/mfZ_QQIDusE"
+                    title="Multicolor Christmas Lighting Installation in Issaquah WA"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                    loading="lazy"
+                    className="absolute inset-0 w-full h-full"
+                  />
+                </div>
+                <div className="p-4 text-center" data-testid="caption-video-multicolor-issaquah">
+                  <h3 className="font-semibold text-foreground mb-1">Vibrant Multicolor Display</h3>
+                  <p className="text-sm text-muted-foreground">Issaquah, WA</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Channel CTA */}
+            <div className="text-center mt-12">
+              <p className="text-muted-foreground mb-4">
+                Want to see more? Check out our YouTube channel for additional videos and behind-the-scenes content.
+              </p>
+              <Button 
+                variant="outline"
+                className="font-semibold"
+                onClick={() => window.open('https://youtube.com/@christmasnw?si=N5gu7fRN9vyEFMUd', '_blank')}
+                data-testid="button-youtube-channel"
+              >
+                <Youtube className="w-5 h-5 mr-2" />
+                Visit Our YouTube Channel
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Remaining Photos Section */}
+        <section className="py-16 bg-background">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                More Premium Installations
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                {selectedCategory === "All" 
+                  ? `Browse ${filteredImages.length - 9} more beautiful installations` 
+                  : `${filteredImages.length - 9} more ${selectedCategory} installations`}
+              </p>
+            </div>
+
+            {/* Remaining Photos Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredImages.slice(9).map((image, index) => (
+                <Card 
+                  key={image.id} 
+                  className="group overflow-hidden hover-elevate cursor-pointer"
+                  onClick={() => openLightbox(index + 9)}
+                  data-testid={`card-gallery-${image.id}`}
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={image.src} 
+                      alt={image.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
+                      style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
+                    />
+                    {/* Watermark */}
+                    <div 
+                      className="absolute bottom-2 right-2 px-3 py-1 pointer-events-none z-10"
+                      style={{
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        borderRadius: '0.375rem'
+                      }}
+                    >
+                      <p className="text-white text-xs font-semibold tracking-wide">
+                        ChristmasNW.com
+                      </p>
+                    </div>
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                      <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        View Full Size
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <Badge variant="secondary" className="mb-2">
+                      {image.category}
+                    </Badge>
+                    <h3 className="font-semibold text-foreground">{image.title}</h3>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            {filteredImages.length <= 9 && (
               <div className="text-center py-12">
-                <p className="text-muted-foreground">No images found in this category.</p>
+                <p className="text-muted-foreground">All installations shown above.</p>
               </div>
             )}
           </div>
