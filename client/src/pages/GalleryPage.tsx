@@ -340,64 +340,11 @@ export default function GalleryPage() {
                 </Badge>
               ))}
             </div>
-
-            {/* Gallery Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredImages.map((image, index) => (
-                <Card 
-                  key={image.id} 
-                  className="group overflow-hidden hover-elevate cursor-pointer"
-                  onClick={() => openLightbox(index)}
-                  data-testid={`card-gallery-${image.id}`}
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={image.src} 
-                      alt={image.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
-                      onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}
-                      style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
-                    />
-                    {/* Watermark */}
-                    <div 
-                      className="absolute bottom-2 right-2 px-3 py-1 pointer-events-none z-10"
-                      style={{
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                        borderRadius: '0.375rem'
-                      }}
-                    >
-                      <p className="text-white text-xs font-semibold tracking-wide">
-                        ChristmasNW.com
-                      </p>
-                    </div>
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                      <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        View Full Size
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <Badge variant="secondary" className="mb-2">
-                      {image.category}
-                    </Badge>
-                    <h3 className="font-semibold text-foreground">{image.title}</h3>
-                  </div>
-                </Card>
-              ))}
-            </div>
-
-            {filteredImages.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-muted-foreground">No images found in this category.</p>
-              </div>
-            )}
           </div>
         </section>
 
-        {/* Video Section */}
-        <section className="py-20 bg-muted/30">
+        {/* Video Section - Moved Up for Prominence */}
+        <section className="py-16 bg-muted/30">
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center max-w-3xl mx-auto mb-12">
               <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
@@ -537,6 +484,75 @@ export default function GalleryPage() {
                 Visit Our YouTube Channel
               </Button>
             </div>
+          </div>
+        </section>
+
+        {/* Gallery Grid Section */}
+        <section className="py-16 bg-background">
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="text-center mb-12">
+              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                Browse Our Installation Photos
+              </h2>
+              <p className="text-lg text-muted-foreground">
+                {selectedCategory === "All" 
+                  ? `Viewing all ${filteredImages.length} installations` 
+                  : `${filteredImages.length} ${selectedCategory} installations`}
+              </p>
+            </div>
+
+            {/* Gallery Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {filteredImages.map((image, index) => (
+                <Card 
+                  key={image.id} 
+                  className="group overflow-hidden hover-elevate cursor-pointer"
+                  onClick={() => openLightbox(index)}
+                  data-testid={`card-gallery-${image.id}`}
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <img 
+                      src={image.src} 
+                      alt={image.alt}
+                      loading="lazy"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
+                      style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
+                    />
+                    {/* Watermark */}
+                    <div 
+                      className="absolute bottom-2 right-2 px-3 py-1 pointer-events-none z-10"
+                      style={{
+                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                        borderRadius: '0.375rem'
+                      }}
+                    >
+                      <p className="text-white text-xs font-semibold tracking-wide">
+                        ChristmasNW.com
+                      </p>
+                    </div>
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+                      <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        View Full Size
+                      </span>
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <Badge variant="secondary" className="mb-2">
+                      {image.category}
+                    </Badge>
+                    <h3 className="font-semibold text-foreground">{image.title}</h3>
+                  </div>
+                </Card>
+              ))}
+            </div>
+
+            {filteredImages.length === 0 && (
+              <div className="text-center py-12">
+                <p className="text-muted-foreground">No images found in this category.</p>
+              </div>
+            )}
           </div>
         </section>
 
