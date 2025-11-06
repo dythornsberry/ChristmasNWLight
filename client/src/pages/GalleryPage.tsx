@@ -48,6 +48,7 @@ import homeImg4 from '@assets/img5_1761853506443.webp';
 import homeImg5 from '@assets/img6_1761853506443.webp';
 import homeImg6 from '@assets/img7_1761853506443.webp';
 import purpleHalloweenHouse from '@assets/IMG_5468-min_1762396975618.jpeg';
+import redColumnAccentHome from '@assets/d8c6cab5281de0583599e22ee0ea1bbd_1762398220204.webp';
 
 interface GalleryImage {
   id: number;
@@ -92,7 +93,8 @@ const galleryImages: GalleryImage[] = [
   { id: 32, src: homeImg4, alt: "Contemporary home with stone accent and warm white lights", category: "Warm White", title: "Contemporary Stone Accent" },
   { id: 33, src: homeImg5, alt: "Large estate with professional Christmas light installation", category: "Warm White", title: "Large Estate Installation" },
   { id: 34, src: homeImg6, alt: "Modern gable design with warm white Christmas lights", category: "Warm White", title: "Modern Gable Design" },
-  { id: 35, src: purpleHalloweenHouse, alt: "Spectacular purple Halloween lighting display with yard decorations", category: "Halloween", title: "Purple Halloween Spectacular" }
+  { id: 35, src: purpleHalloweenHouse, alt: "Spectacular purple Halloween lighting display with yard decorations", category: "Halloween", title: "Purple Halloween Spectacular" },
+  { id: 36, src: redColumnAccentHome, alt: "Warm white roofline with red column accents and tree lighting", category: "Custom", title: "Red Column Accent Display" }
 ];
 
 export default function GalleryPage() {
