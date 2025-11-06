@@ -63,6 +63,13 @@ import mistletoeHouse from '@assets/2024-11-11-2-min_1762064400632.jpg';
 import warmWhiteHouse from '@assets/1-2-min_1762064533191.jpeg';
 import multicolorHouse2 from '@assets/IMG_5253_1762064572527.jpeg';
 import redGreenHouse from '@assets/IMG_2529-min-min_1762065264434.jpeg';
+import winterTreeUplighting from '@assets/29ed3807d7952892033a68ec8781e744.jpg-2_1762395487269.webp';
+import mistletoeHouse2 from '@assets/990c3274b03bd096a71395c6d8043d8f.jpg_1762395519144.webp';
+import estateGate from '@assets/2a1755975470dff4557e8fe3d51e6f67_1762395568284.webp';
+import winterHomeDisplay from '@assets/80b2ff7622e5483fa3a1f5036a13f509.jpg_1762395608101.webp';
+import redColumnsHouse from '@assets/a885e41a3786af553f91476ed6121d32.jpg-2_1762395700253.webp';
+import ridgeRooflineHouse from '@assets/49563b654a08482eca22f0a3090b7ad0.jpg_1762395736248.webp';
+import modernBellevueHome from '@assets/46deed693d6a52e864742bf7ae390cfa.jpg_1762395777011.webp';
 import residentialImage from '@assets/img4_1761853506443.webp';
 import commercialImage from '@assets/img7_1761853506443.webp';
 import customImage from '@assets/img16_1761853506444.webp';
@@ -170,6 +177,13 @@ export default function Home() {
     { id: 36, image: redTreeSnowmen, category: "Trees", title: "Red Tree Wrap with Snowmen" },
     { id: 37, image: warmWhiteHouse, category: "Houses", title: "Elegant Warm White Display" },
     { id: 38, image: multicolorHouse2, category: "Houses", title: "Vibrant Multicolor Rooflines" },
+    { id: 39, image: winterTreeUplighting, category: "Trees", title: "Winter Landscape Lighting" },
+    { id: 40, image: mistletoeHouse2, category: "Custom", title: "Mistletoe Peak Design" },
+    { id: 41, image: estateGate, category: "Custom", title: "Grand Estate Entrance" },
+    { id: 42, image: winterHomeDisplay, category: "Houses", title: "Classic Winter Wonderland" },
+    { id: 43, image: redColumnsHouse, category: "Custom", title: "Red Column Accent Design" },
+    { id: 44, image: ridgeRooflineHouse, category: "Houses", title: "Ridge and Roofline Display" },
+    { id: 45, image: modernBellevueHome, category: "Houses", title: "Contemporary Bellevue Home" },
   ];
 
   const colorOptions = [

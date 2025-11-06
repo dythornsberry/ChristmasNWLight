@@ -33,6 +33,14 @@ import img19 from '@assets/unnamed-15-min_1762064292781.jpg';
 import img20 from '@assets/2024-11-28-2-min_1762064344572.jpg';
 import img21 from '@assets/1-2-min_1762064533191.jpeg';
 import img22 from '@assets/IMG_5253_1762064572527.jpeg';
+import img23 from '@assets/29ed3807d7952892033a68ec8781e744.jpg-2_1762395487269.webp';
+import img24 from '@assets/990c3274b03bd096a71395c6d8043d8f.jpg_1762395519144.webp';
+import img25 from '@assets/2a1755975470dff4557e8fe3d51e6f67_1762395568284.webp';
+import img26 from '@assets/80b2ff7622e5483fa3a1f5036a13f509.jpg_1762395608101.webp';
+import img27 from '@assets/a885e41a3786af553f91476ed6121d32.jpg-2_1762395700253.webp';
+import img28 from '@assets/49563b654a08482eca22f0a3090b7ad0.jpg_1762395736248.webp';
+import img29 from '@assets/46deed693d6a52e864742bf7ae390cfa.jpg_1762395777011.webp';
+import img30 from '@assets/0c838ea46d9ea001809c0f8951533e07.jpg_1762395809963.webp';
 
 interface GalleryImage {
   id: number;
@@ -63,7 +71,15 @@ const galleryImages: GalleryImage[] = [
   { id: 18, src: img19, alt: "Spooky Halloween lighting with purple and orange", category: "Halloween", title: "Spectacular Halloween Display" },
   { id: 19, src: img20, alt: "Red tree wrap with blue snowmen decorations", category: "Trees", title: "Red Tree with Snowmen" },
   { id: 20, src: img21, alt: "Elegant warm white Christmas lights on home", category: "Warm White", title: "Classic Warm White Elegance" },
-  { id: 21, src: img22, alt: "Vibrant multicolor Christmas lights on rooflines", category: "Multicolor", title: "Festive Multicolor Display" }
+  { id: 21, src: img22, alt: "Vibrant multicolor Christmas lights on rooflines", category: "Multicolor", title: "Festive Multicolor Display" },
+  { id: 22, src: img23, alt: "Professional tree uplighting in winter snow with warm white landscape lights", category: "Trees", title: "Winter Landscape Lighting" },
+  { id: 23, src: img24, alt: "Custom mistletoe style Christmas lights with red and green bulbs at peaks", category: "Custom", title: "Mistletoe Peak Design" },
+  { id: 24, src: img25, alt: "Elegant estate gate decorated with red accent lights and warm white uplighting", category: "Custom", title: "Grand Estate Entrance" },
+  { id: 25, src: img26, alt: "Complete Christmas light installation on home in winter snow", category: "Warm White", title: "Classic Winter Wonderland" },
+  { id: 26, src: img27, alt: "Warm white roofline with red accent lights wrapping entry columns", category: "Custom", title: "Red Column Accent Design" },
+  { id: 27, src: img28, alt: "Warm white Christmas lights on rooflines and ridges", category: "Warm White", title: "Ridge and Roofline Display" },
+  { id: 28, src: img29, alt: "Modern Bellevue home with warm white Christmas lights and tree uplighting", category: "Warm White", title: "Contemporary Bellevue Home" },
+  { id: 29, src: img30, alt: "Warm white roofline with vibrant multicolor Christmas tree", category: "Multicolor", title: "Mixed Style Display" }
 ];
 
 export default function GalleryPage() {
