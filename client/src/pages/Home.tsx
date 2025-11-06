@@ -146,7 +146,7 @@ export default function Home() {
   const portfolioItems = [
     { id: 1, image: completeHolidayScene, category: "Custom", title: "Complete Holiday Scene" },
     { id: 2, image: familyHolidayTradition, category: "Custom", title: "Family Holiday Tradition" },
-    { id: 3, image: premiumCustomDisplay, category: "Custom", title: "Premium Custom Display" },
+    { id: 3, image: premiumCustomDisplay, category: "Custom", title: "Premium Display with Wrapped Trees" },
     { id: 4, image: strikingNightDisplay, category: "Multicolor", title: "Striking Night Display" },
     { id: 5, image: winterHomeDisplay, category: "Warm White", title: "Classic Winter Wonderland" },
     { id: 6, image: estateGate, category: "Custom", title: "Grand Estate Entrance" },

@@ -90,7 +90,7 @@ const galleryImages: GalleryImage[] = [
   { id: 15, src: multicolorTreeHome, alt: "Modern home with vibrant multicolor rooflines and wrapped tree with landscape lighting", category: "Multicolor", title: "Vibrant Multicolor and Tree" },
   { id: 16, src: truckInstallHome, alt: "Professional installation in progress with warm white rooflines and Christmas NW truck", category: "Warm White", title: "Professional Installation" },
   { id: 17, src: img8, alt: "Modern home with clean warm white", category: "Warm White", title: "Contemporary Classic" },
-  { id: 18, src: img9, alt: "Spectacular custom tree display", category: "Custom", title: "Premium Custom Display" },
+  { id: 18, src: img9, alt: "Spectacular custom tree display", category: "Custom", title: "Premium Display with Wrapped Trees" },
   { id: 19, src: img10, alt: "Elegant home with unique architecture", category: "Warm White", title: "Architectural Showcase" },
   { id: 20, src: img12, alt: "Full yard custom design with decorations", category: "Custom", title: "Complete Holiday Scene" },
   { id: 21, src: img13, alt: "Tree with firework starburst lights", category: "Trees", title: "Starburst Tree Magic" },
