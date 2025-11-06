@@ -84,7 +84,7 @@ export default function Portfolio({ items }: PortfolioProps) {
             <ArrowRight className="w-5 h-5 ml-3" />
           </Button>
           <p className="text-base text-muted-foreground mt-4">
-            Explore 42+ premium installations with category filtering
+            Explore 50+ premium installations with category filtering
           </p>
         </div>
       </div>
