@@ -41,6 +41,12 @@ import img27 from '@assets/a885e41a3786af553f91476ed6121d32.jpg-2_1762395700253.
 import img28 from '@assets/49563b654a08482eca22f0a3090b7ad0.jpg_1762395736248.webp';
 import img29 from '@assets/46deed693d6a52e864742bf7ae390cfa.jpg_1762395777011.webp';
 import img30 from '@assets/0c838ea46d9ea001809c0f8951533e07.jpg_1762395809963.webp';
+import homeImg1 from '@assets/img2_1761853506442.webp';
+import homeImg2 from '@assets/img3_1761853506443.webp';
+import homeImg3 from '@assets/img4_1761853506443.webp';
+import homeImg4 from '@assets/img5_1761853506443.webp';
+import homeImg5 from '@assets/img6_1761853506443.webp';
+import homeImg6 from '@assets/img7_1761853506443.webp';
 
 interface GalleryImage {
   id: number;
@@ -79,7 +85,13 @@ const galleryImages: GalleryImage[] = [
   { id: 26, src: img27, alt: "Warm white roofline with red accent lights wrapping entry columns", category: "Custom", title: "Red Column Accent Design" },
   { id: 27, src: img28, alt: "Warm white Christmas lights on rooflines and ridges", category: "Warm White", title: "Ridge and Roofline Display" },
   { id: 28, src: img29, alt: "Modern Bellevue home with warm white Christmas lights and tree uplighting", category: "Warm White", title: "Contemporary Bellevue Home" },
-  { id: 29, src: img30, alt: "Warm white roofline with vibrant multicolor Christmas tree", category: "Multicolor", title: "Mixed Style Display" }
+  { id: 29, src: img30, alt: "Warm white roofline with vibrant multicolor Christmas tree", category: "Multicolor", title: "Mixed Style Display" },
+  { id: 30, src: homeImg1, alt: "Classic warm white roofline installation on home", category: "Warm White", title: "Classic Warm White Roofline" },
+  { id: 31, src: homeImg2, alt: "Modern multicolor Christmas light display on home", category: "Multicolor", title: "Modern Multicolor Display" },
+  { id: 32, src: homeImg3, alt: "Traditional warm white Christmas lights on home", category: "Warm White", title: "Traditional Warm White" },
+  { id: 33, src: homeImg4, alt: "Contemporary home with stone accent and warm white lights", category: "Warm White", title: "Contemporary Stone Accent" },
+  { id: 34, src: homeImg5, alt: "Large estate with professional Christmas light installation", category: "Warm White", title: "Large Estate Installation" },
+  { id: 35, src: homeImg6, alt: "Modern gable design with warm white Christmas lights", category: "Warm White", title: "Modern Gable Design" }
 ];
 
 export default function GalleryPage() {
