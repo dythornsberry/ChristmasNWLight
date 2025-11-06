@@ -22,7 +22,7 @@ The frontend is a React 18 application with TypeScript, built using Vite. It uti
 - **Promise Section**: Four-card guarantee (1-week installation, 48-hour touch-ups, 100% satisfaction, commercial-grade equipment).
 - **Differentiator Section**: Showcases same-week installation, commercial-grade equipment, included storage, and responsive service.
 - **Services Section**: Six benefit cards highlighting all-inclusive, stress-free service.
-- **Portfolio & Gallery**: Curated homepage preview featuring 6 premium installations (Complete Holiday Scene, Family Holiday Tradition, Premium Custom Display, Striking Night Display, Traditional Warm White, Grand Estate Entrance) to showcase bigger jobs and variety with custom work, big trees, multicolor designs, and standard rooflines; full gallery page with 36 categorized photos, filtering, lightbox, and 5 embedded lazy-loaded YouTube Shorts.
+- **Portfolio & Gallery**: Curated homepage preview featuring 6 premium installations (Complete Holiday Scene, Family Holiday Tradition, Premium Custom Display, Striking Night Display, Classic Winter Wonderland, Grand Estate Entrance) to showcase bigger jobs and variety with custom work, big trees, multicolor designs, and beautiful winter displays; full gallery page with 36 categorized photos, filtering, lightbox, and 5 embedded lazy-loaded YouTube Shorts.
 - **Social Media Integration**: Footer links to Facebook, Instagram, YouTube, Google Business Profile; gallery includes "Visit Our YouTube Channel" CTA.
 - **Testimonials**: Enhanced Google reviews.
 - **Product Guide Page**: Educational page for six premium product categories (C9 Bulbs, Mini Lights, etc.) with descriptions and use cases.
