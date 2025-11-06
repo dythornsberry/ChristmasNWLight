@@ -54,6 +54,7 @@ import pergolaTreeHome from '@assets/2023-11-10-4_1762398479907.jpg';
 import largeHomeWarmWhite from '@assets/unnamed-17_1762398507427.jpg';
 import stunningEstate from '@assets/2023-12-07-2_1762398525155.jpg';
 import redBlueHalloween from '@assets/44acdea9569a33cda9a195b7b4f8df4b_1762398316523.webp';
+import modernHomeWithDeer from '@assets/5b74f72f0d7ce55a601aed3e7375310a.jpg_1762398340287.webp';
 
 interface GalleryImage {
   id: number;
@@ -104,7 +105,8 @@ const galleryImages: GalleryImage[] = [
   { id: 38, src: purpleHalloweenHouse, alt: "Spectacular purple Halloween lighting display with yard decorations", category: "Halloween", title: "Purple Halloween Spectacular" },
   { id: 39, src: redBlueHalloween, alt: "Bold red and blue Halloween lighting display with dramatic roofline coverage", category: "Halloween", title: "Red and Blue Halloween Display" },
   { id: 40, src: redColumnAccentHome, alt: "Warm white roofline with red column accents and tree lighting", category: "Custom", title: "Red Column Accent Display" },
-  { id: 41, src: landscapeLightingHome, alt: "Warm white roofline with custom landscape lighting and red and white shrub wraps", category: "Custom", title: "Landscape Accent Lighting" }
+  { id: 41, src: landscapeLightingHome, alt: "Warm white roofline with custom landscape lighting and red and white shrub wraps", category: "Custom", title: "Landscape Accent Lighting" },
+  { id: 42, src: modernHomeWithDeer, alt: "Modern home with warm white roofline, entryway accents, planters with lights, and decorative deer", category: "Custom", title: "Modern Holiday Elegance" }
 ];
 
 export default function GalleryPage() {
