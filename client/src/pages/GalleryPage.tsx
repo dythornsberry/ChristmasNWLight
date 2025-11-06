@@ -355,7 +355,10 @@ export default function GalleryPage() {
                       src={image.src} 
                       alt={image.alt}
                       loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
+                      onContextMenu={(e) => e.preventDefault()}
+                      onDragStart={(e) => e.preventDefault()}
+                      style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
                     />
                     {/* Watermark */}
                     <div 
@@ -612,7 +615,10 @@ export default function GalleryPage() {
             <img 
               src={filteredImages[lightboxIndex].src}
               alt={filteredImages[lightboxIndex].alt}
-              className="max-w-full max-h-[85vh] object-contain"
+              className="max-w-full max-h-[85vh] object-contain select-none"
+              onContextMenu={(e) => e.preventDefault()}
+              onDragStart={(e) => e.preventDefault()}
+              style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
               data-testid="img-lightbox"
             />
             {/* Watermark in lightbox */}

@@ -44,7 +44,10 @@ export default function Portfolio({ items }: PortfolioProps) {
                 <img 
                   src={item.image} 
                   alt={item.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 select-none pointer-events-none"
+                  onContextMenu={(e) => e.preventDefault()}
+                  onDragStart={(e) => e.preventDefault()}
+                  style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
                   loading="lazy"
                 />
                 {/* Watermark */}

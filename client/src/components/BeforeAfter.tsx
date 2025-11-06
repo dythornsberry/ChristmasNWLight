@@ -75,7 +75,10 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
               <img 
                 src={afterImage} 
                 alt="After professional Christmas light installation"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover select-none pointer-events-none"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
                 draggable={false}
               />
               <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground pointer-events-none">
@@ -91,7 +94,10 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
               <img 
                 src={beforeImage} 
                 alt="Before Christmas light installation"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover select-none pointer-events-none"
+                onContextMenu={(e) => e.preventDefault()}
+                onDragStart={(e) => e.preventDefault()}
+                style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
                 draggable={false}
               />
               <Badge className="absolute top-4 left-4 bg-muted text-muted-foreground pointer-events-none">
