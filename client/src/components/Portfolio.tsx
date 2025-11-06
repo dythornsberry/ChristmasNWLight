@@ -52,13 +52,13 @@ export default function Portfolio({ items }: PortfolioProps) {
                 />
                 {/* Watermark */}
                 <div 
-                  className="absolute bottom-3 right-3 px-5 py-2.5 pointer-events-none z-10"
+                  className="absolute bottom-3 right-3 px-4 py-2 pointer-events-none z-10"
                   style={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                    borderRadius: '0.5rem'
+                    backgroundColor: 'rgba(0, 0, 0, 0.65)',
+                    borderRadius: '0.375rem'
                   }}
                 >
-                  <p className="text-white text-base font-bold tracking-wider">
+                  <p className="text-white text-sm font-bold tracking-wide">
                     ChristmasNW.com
                   </p>
                 </div>
