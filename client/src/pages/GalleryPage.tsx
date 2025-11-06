@@ -691,11 +691,11 @@ export default function GalleryPage() {
             <ChevronRight className="w-12 h-12" />
           </button>
 
-          <div className="max-w-6xl max-h-[90vh] p-4 pointer-events-none relative">
+          <div className="max-w-6xl max-h-[90vh] p-4 relative" onClick={(e) => e.stopPropagation()}>
             <img 
               src={filteredImages[lightboxIndex].src}
               alt={filteredImages[lightboxIndex].alt}
-              className="max-w-full max-h-[85vh] object-contain select-none"
+              className="max-w-full max-h-[85vh] object-contain select-none pointer-events-none"
               onContextMenu={(e) => e.preventDefault()}
               onDragStart={(e) => e.preventDefault()}
               style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
@@ -703,7 +703,7 @@ export default function GalleryPage() {
             />
             {/* Watermark in lightbox */}
             <div 
-              className="absolute bottom-20 right-8 px-5 py-2.5"
+              className="absolute bottom-20 right-8 px-5 py-2.5 pointer-events-none"
               style={{
                 backgroundColor: 'rgba(0, 0, 0, 0.7)',
                 borderRadius: '0.5rem'
@@ -713,7 +713,7 @@ export default function GalleryPage() {
                 ChristmasNW.com
               </p>
             </div>
-            <div className="text-center mt-4 pointer-events-auto">
+            <div className="text-center mt-4">
               <Badge variant="secondary" className="mb-2">
                 {filteredImages[lightboxIndex].category}
               </Badge>
