@@ -80,7 +80,7 @@ import commercialImage from '@assets/img7_1761853506443.webp';
 import customImage from '@assets/img16_1761853506444.webp';
 import maintenanceImage from '@assets/img8_1761853506443.webp';
 import teamImage from '@assets/img6_1761853506443.webp';
-import beforeImage from '@assets/unnamed-16_1762397625498.jpg';
+import beforeImage from '@assets/c641dcd4-0863-4aee-af16-36343abfeba4-min_1762397866171.png';
 import afterImage from '@assets/IMG_5469-min_1762397650439.jpeg';
 import { useToast } from "@/hooks/use-toast";
 import { useEffect } from "react";
