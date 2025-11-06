@@ -522,13 +522,13 @@ export default function GalleryPage() {
                     />
                     {/* Watermark */}
                     <div 
-                      className="absolute bottom-2 right-2 px-3 py-1 pointer-events-none z-10"
+                      className="absolute bottom-3 right-3 px-5 py-2.5 pointer-events-none z-10"
                       style={{
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                        borderRadius: '0.375rem'
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        borderRadius: '0.5rem'
                       }}
                     >
-                      <p className="text-white text-xs font-semibold tracking-wide">
+                      <p className="text-white text-base font-bold tracking-wider">
                         ChristmasNW.com
                       </p>
                     </div>
@@ -730,13 +730,13 @@ export default function GalleryPage() {
                     />
                     {/* Watermark */}
                     <div 
-                      className="absolute bottom-2 right-2 px-3 py-1 pointer-events-none z-10"
+                      className="absolute bottom-3 right-3 px-5 py-2.5 pointer-events-none z-10"
                       style={{
-                        backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                        borderRadius: '0.375rem'
+                        backgroundColor: 'rgba(0, 0, 0, 0.7)',
+                        borderRadius: '0.5rem'
                       }}
                     >
-                      <p className="text-white text-xs font-semibold tracking-wide">
+                      <p className="text-white text-base font-bold tracking-wider">
                         ChristmasNW.com
                       </p>
                     </div>
@@ -847,13 +847,13 @@ export default function GalleryPage() {
             />
             {/* Watermark in lightbox */}
             <div 
-              className="absolute bottom-20 right-8 px-4 py-2"
+              className="absolute bottom-20 right-8 px-6 py-3"
               style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                borderRadius: '0.375rem'
+                backgroundColor: 'rgba(0, 0, 0, 0.75)',
+                borderRadius: '0.5rem'
               }}
             >
-              <p className="text-white text-sm font-semibold tracking-wide">
+              <p className="text-white text-xl font-bold tracking-wider">
                 ChristmasNW.com
               </p>
             </div>
