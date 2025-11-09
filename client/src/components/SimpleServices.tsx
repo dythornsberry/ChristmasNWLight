@@ -2,7 +2,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Home, Building2, Check } from "lucide-react";
 import warmWhiteHouse from '@assets/1-2-min_1762064533191.jpeg';
-import stunningEstate from '@assets/2023-12-07-2_1762398525155.jpg';
+import commercialWalkway from '@assets/Lit-walkway_1762708951439.jpg';
 
 interface SimpleServicesProps {
   onGetQuote: () => void;
@@ -59,8 +59,8 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
           <Card className="overflow-hidden group hover-elevate">
             <div className="aspect-[4/3] overflow-hidden">
               <img 
-                src={stunningEstate}
-                alt="Elegant Estate Masterpiece - Commercial Christmas Lighting"
+                src={commercialWalkway}
+                alt="Commercial Christmas Lighting - Lit Walkway"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
             </div>
