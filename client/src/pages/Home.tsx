@@ -1,21 +1,17 @@
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Hero from "@/components/Hero";
-import QuoteFormSection from "@/components/QuoteFormSection";
-import PromiseSection from "@/components/PromiseSection";
-import Services from "@/components/Services";
+import ReviewsStrip from "@/components/ReviewsStrip";
 import Portfolio from "@/components/Portfolio";
-import ColorOptions from "@/components/ColorOptions";
+import SimpleServices from "@/components/SimpleServices";
+import QuoteFormSection from "@/components/QuoteFormSection";
 import BeforeAfter from "@/components/BeforeAfter";
 import Stats from "@/components/Stats";
-import About from "@/components/About";
 import Process from "@/components/Process";
 import CTABanner from "@/components/CTABanner";
-import FAQ from "@/components/FAQ";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
-import { Button } from "@/components/ui/button";
-import { Home as HomeIcon, Building2, Sparkles, Wrench, TrendingUp, Users, Award, Clock } from "lucide-react";
+import { TrendingUp, Users, Award, Clock } from "lucide-react";
 
 import img1 from '@assets/img2_1761853506442.webp';
 import img2 from '@assets/img3_1761853506443.webp';
@@ -88,32 +84,6 @@ import { useEffect } from "react";
 export default function Home() {
   const { toast } = useToast();
 
-  const services = [
-    {
-      title: "Custom Design",
-      description: "Free design estimate tailored to your home's architecture with premium materials and attention to every detail.",
-      icon: Sparkles,
-      image: customImage
-    },
-    {
-      title: "Professional Installation",
-      description: "Expert installation with color-matched clips, hidden cords, smart timers, and dusk testing for perfection.",
-      icon: HomeIcon,
-      image: residentialImage
-    },
-    {
-      title: "Complete Packages",
-      description: "Rooflines, trees, wreaths, garlands, and path lighting for a cohesive, designer look throughout your property.",
-      icon: Building2,
-      image: commercialImage
-    },
-    {
-      title: "White-Glove Service",
-      description: "24/7 seasonal availability, maintenance guarantee, professional takedown, and climate-controlled storage.",
-      icon: Wrench,
-      image: maintenanceImage
-    }
-  ];
 
 
   const stats = [
@@ -196,63 +166,7 @@ export default function Home() {
     { id: 50, image: img6, category: "Houses", title: "Modern Gable Design" },
   ];
 
-  const colorOptions = [
-    {
-      name: "Warm White",
-      image: img3,
-      description: "Classic, elegant glow perfect for traditional displays"
-    },
-    {
-      name: "Multicolor",
-      image: multicolorHouse,
-      description: "Festive and vibrant for a playful holiday display"
-    },
-    {
-      name: "Red + White",
-      image: redWarmWhiteHouse,
-      description: "Candy cane colors for festive charm"
-    },
-    {
-      name: "Red, Green & Warm White",
-      image: redGreenWarmWhiteHouse,
-      description: "Classic tri-color combination for a traditional look"
-    }
-  ];
 
-  const faqItems = [
-    {
-      question: "What's your starting price for Christmas light installation?",
-      answer: "Our residential installations start at $800. This includes professional-grade LED lights, expert installation, maintenance throughout the season, professional takedown in January, and climate-controlled storage until next year. Final pricing depends on your home's size, roofline complexity, and the lighting design you choose."
-    },
-    {
-      question: "Is light takedown included in the price?",
-      answer: "Absolutely! Our full-service package includes professional takedown after the holidays. We carefully remove all lights, organize them, and store them in our climate-controlled facilities until next season at no additional cost to you."
-    },
-    {
-      question: "What if a bulb burns out during the season?",
-      answer: "We've got you covered! Bulb replacements and repairs are included at no extra charge. We're available 24/7 during the season to handle any maintenance issues and keep your display looking perfect throughout the holidays."
-    },
-    {
-      question: "Are you a licensed and insured business?",
-      answer: "Yes! Christmas Northwest is fully licensed, bonded, and insured. We've been serving the Greater Seattle area for three seasons and have completed over 300 homes annually. Your property and our team are protected at every stage of the installation and maintenance process."
-    },
-    {
-      question: "What's your installation process?",
-      answer: "Our process is simple: First, you fill out our quote form and we get in touch to discuss your design vision. We create a custom plan, sometimes in person for complex projects. Once you approve the design, you place a $100 deposit to secure your spot. Then we schedule and complete your professional installation, typically within a week of booking during our busy season."
-    },
-    {
-      question: "How long does installation take?",
-      answer: "Most residential installations are completed within a few hours, depending on your home's size and design complexity. We pride ourselves on fast turnaround, often installing within a week of booking during the season."
-    },
-    {
-      question: "Do you hang lights that I already own?",
-      answer: "We only install our own professional-grade lighting and materials. This ensures consistent quality, safety standards, and allows us to provide our comprehensive warranty and maintenance coverage throughout the season."
-    },
-    {
-      question: "What areas do you serve?",
-      answer: "We proudly serve the Greater Seattle area, including Kenmore, Kirkland, Bothell, Woodinville, Redmond, Sammamish, Bellevue, and surrounding communities. Check our Service Areas page for the complete list, or contact us if you don't see your location listed."
-    }
-  ];
 
   const scrollToQuote = () => {
     const element = document.getElementById('quote');
@@ -269,13 +183,6 @@ export default function Home() {
     });
   };
 
-  const handleServiceLearnMore = (serviceTitle: string) => {
-    console.log('Learn more about:', serviceTitle);
-    toast({
-      title: `Learn More: ${serviceTitle}`,
-      description: "Scroll down to request a quote for this service.",
-    });
-  };
 
   useEffect(() => {
     // Load Featurable script dynamically
@@ -468,110 +375,21 @@ export default function Home() {
       
       <Hero onGetQuote={scrollToQuote} />
 
-      <QuoteFormSection />
-
-      {/* Google Reviews - Real social proof right after quote form */}
-      <section className="py-24 bg-background" data-testid="section-google-reviews">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-4">
-              What Our Customers Are Saying
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Join 300+ Greater Seattle homeowners who trust us every holiday season
-            </p>
-          </div>
-          
-          <div className="max-w-6xl mx-auto">
-            <div 
-              id="featurable-70aae94b-1709-4c03-986e-fd112d51273d" 
-              data-featurable-async
-              data-testid="google-reviews-widget"
-            ></div>
-          </div>
-        </div>
-      </section>
-
-      <PromiseSection />
-
-      {/* Service Area Section */}
-      <section className="py-20 bg-muted/30" data-testid="section-service-areas">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-12">
-            <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
-              <span className="text-primary font-semibold">Proudly Serving</span>
-            </div>
-            <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6 text-foreground">
-              North Seattle Metro Area
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Based in Kenmore, we bring professional Christmas light installation to homeowners throughout the Greater Seattle area. Serving 300+ homes annually across 15 communities.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 max-w-5xl mx-auto">
-            {[
-              "Seattle",
-              "Kenmore",
-              "Bothell",
-              "Kirkland",
-              "Lynnwood",
-              "Woodinville",
-              "Bellevue",
-              "Medina",
-              "Clyde Hill",
-              "Yarrow Point",
-              "Sammamish",
-              "Redmond",
-              "Edmonds",
-              "Shoreline",
-              "Mill Creek"
-            ].map((city) => (
-              <div
-                key={city}
-                className="bg-card border border-border rounded-lg p-4 text-center hover-elevate active-elevate-2 transition-all"
-                data-testid={`city-${city.toLowerCase().replace(/\s+/g, '-')}`}
-              >
-                <p className="font-semibold text-foreground">{city}</p>
-                <p className="text-sm text-muted-foreground mt-1">Washington</p>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center mt-12">
-            <p className="text-lg text-muted-foreground mb-4">
-              Don't see your city listed? We often service surrounding communities in the Greater Seattle area.
-            </p>
-            <Button
-              onClick={scrollToQuote}
-              size="lg"
-              variant="default"
-              className="font-semibold"
-              data-testid="button-service-area-quote"
-            >
-              Get Free Quote
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      <Services services={services} onLearnMore={handleServiceLearnMore} />
+      <ReviewsStrip />
 
       <Portfolio items={portfolioItems} />
 
-      <ColorOptions colors={colorOptions} />
+      <SimpleServices onGetQuote={scrollToQuote} />
+
+      <QuoteFormSection />
 
       <BeforeAfter beforeImage={beforeImage} afterImage={afterImage} />
 
       <Stats stats={stats} />
 
-      <About teamImage={teamImage} />
-
       <Process />
 
       <CTABanner onGetQuote={scrollToQuote} />
-
-      <FAQ items={faqItems} />
 
       <Footer />
 
