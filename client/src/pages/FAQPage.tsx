@@ -77,11 +77,11 @@ export default function FAQPage() {
         },
         {
           question: "What's your installation process?",
-          answer: "Our process is simple and stress-free: First, fill out our free quote form online or call us at (425) 215-0935. We'll discuss your design vision and provide a detailed quote. Once you approve the design, place a $100 deposit to secure your installation date. Our professional team arrives on your scheduled date and completes the installation, typically within a few hours. We test everything to ensure it's perfect, then you simply enjoy your beautiful display all season long while we handle any maintenance needs."
+          answer: "Our process is simple and stress-free: First, fill out our free quote form online or call us at (425) 215-0935. We'll discuss your design vision and provide a detailed quote. Once you approve the design, we'll book your installation date. Our professional team arrives on your scheduled date and completes the installation, typically within a few hours. We test everything to ensure it's perfect, then you simply enjoy your beautiful display all season long while we handle any maintenance needs."
         },
         {
           question: "How quickly can you install my lights?",
-          answer: "We pride ourselves on same-week installation during most of the season. Once you book and place your deposit, we typically schedule your installation within 5-7 days. During our busiest weeks in mid-November and early December, it may take slightly longer, which is why we encourage early booking."
+          answer: "We pride ourselves on same-week installation during most of the season. Once you book, we typically complete your installation within 5-7 days. During our busiest weeks in mid-November and early December, it may take slightly longer, which is why we encourage early booking."
         },
         {
           question: "When do you take down Christmas lights?",
@@ -153,11 +153,11 @@ export default function FAQPage() {
       questions: [
         {
           question: "How do I book Christmas light installation for 2025?",
-          answer: "Booking is easy! Fill out our free quote form on this page, or call us directly at (425) 215-0935. We'll discuss your design vision, provide a detailed quote, and once approved, you'll place a $100 deposit to secure your installation date. The remaining balance is due after installation is complete and you're 100% satisfied."
+          answer: "Booking is easy! Fill out our free quote form on this page, or call us directly at (425) 215-0935. We'll discuss your design vision, provide a detailed quote, and once approved, we'll schedule your installation date. Payment is due after installation is complete and you're 100% satisfied."
         },
         {
-          question: "What's the deposit, and when is payment due?",
-          answer: "We require a $100 deposit to secure your installation date. This deposit reserves your spot on our schedule and goes toward your total installation cost. The remaining balance is due after installation is complete. We accept all major payment methods."
+          question: "When is payment due?",
+          answer: "Payment is due after installation is complete. We want you to be 100% satisfied before final payment. We accept all major payment methods including credit cards, debit cards, and digital payments."
         },
         {
           question: "Can I get a free quote without committing?",

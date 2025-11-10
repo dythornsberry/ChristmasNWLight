@@ -18,8 +18,8 @@ export default function Process() {
     {
       number: "3",
       icon: CheckCircle,
-      title: "Get Scheduled",
-      description: "Reserve your spot with a $100 deposit."
+      title: "Book Your Install",
+      description: "We schedule your installation date."
     },
     {
       number: "4",
