@@ -153,11 +153,11 @@ export default function FAQPage() {
       questions: [
         {
           question: "How do I book Christmas light installation for 2025?",
-          answer: "Booking is easy! Fill out our free quote form on this page, or call us directly at (425) 215-0935. We'll discuss your design vision, provide a detailed quote, and once approved, we'll schedule your installation date. Payment is due after installation is complete and you're 100% satisfied."
+          answer: "Booking is easy! Fill out our free quote form on this page, or call us directly at (425) 215-0935. We'll discuss your design vision, provide a detailed quote, and once approved, we'll schedule your installation date."
         },
         {
           question: "When is payment due?",
-          answer: "Payment is due after installation is complete. We want you to be 100% satisfied before final payment. We accept all major payment methods including credit cards, debit cards, and digital payments."
+          answer: "Payment is due after installation is complete. We accept all major payment methods."
         },
         {
           question: "Can I get a free quote without committing?",
