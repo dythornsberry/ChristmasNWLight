@@ -63,6 +63,7 @@ import ultraModernLandscape from '@assets/unnamed-19_1762398937574.jpg';
 import largeCustomHome from '@assets/2024-12-19-5_1762398937574.jpg';
 import glassHomeMulticolor from '@assets/unnamed-18_1762398937574.jpg';
 import luxuryModernDeck from '@assets/2024-11-13-4_1762398937574.jpg';
+import bareTreeWrap from '@assets/581802931_10113409149773279_8492716573386177864_n_1762916125607.jpg';
 
 interface GalleryImage {
   id: number;
@@ -122,7 +123,8 @@ const galleryImages: GalleryImage[] = [
   { id: 47, src: redBlueHalloween, alt: "Bold red and blue Halloween lighting display with dramatic roofline coverage", category: "Halloween", title: "Red and Blue Halloween Display" },
   { id: 48, src: redColumnAccentHome, alt: "Warm white roofline with red column accents and tree lighting", category: "Custom", title: "Red Column Accent Display" },
   { id: 49, src: landscapeLightingHome, alt: "Warm white roofline with custom landscape lighting and red and white shrub wraps", category: "Custom", title: "Landscape Accent Lighting" },
-  { id: 50, src: modernHomeWithDeer, alt: "Modern home with warm white roofline, entryway accents, planters with lights, and decorative deer", category: "Custom", title: "Modern Holiday Elegance" }
+  { id: 50, src: modernHomeWithDeer, alt: "Modern home with warm white roofline, entryway accents, planters with lights, and decorative deer", category: "Custom", title: "Modern Holiday Elegance" },
+  { id: 51, src: bareTreeWrap, alt: "Stunning bare tree wrapped in warm white lights at night with decorative fencing", category: "Trees", title: "Elegant Bare Tree Display" }
 ];
 
 export default function GalleryPage() {
