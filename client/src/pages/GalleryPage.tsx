@@ -331,15 +331,16 @@ export default function GalleryPage() {
             {/* Category Filters */}
             <div className="flex flex-wrap gap-3 justify-center mb-12">
               {categories.map((category) => (
-                <Badge
+                <Button
                   key={category}
                   variant={selectedCategory === category ? "default" : "secondary"}
-                  className="px-6 py-2 cursor-pointer text-sm font-semibold"
+                  size="sm"
+                  className="px-6 py-2 text-sm font-semibold"
                   onClick={() => setSelectedCategory(category)}
-                  data-testid={`badge-gallery-${category.toLowerCase().replace(' ', '-')}`}
+                  data-testid={`button-filter-${category.toLowerCase().replace(' ', '-')}`}
                 >
                   {category}
-                </Badge>
+                </Button>
               ))}
             </div>
           </div>
