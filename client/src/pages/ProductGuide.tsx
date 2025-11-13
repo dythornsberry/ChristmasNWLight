@@ -13,8 +13,6 @@ import miniLightsPhoto from '@assets/Incan-Clear-6x15-Column-Wrap-02-lifestyle_1
 import groundLightsPhoto from '@assets/Ground-Lighting-Installation-Fort-Collins-CO_1762096982865.jpg';
 import treeWrapsPhoto from '@assets/81yZtNElctL_1762096926030.jpg';
 import bulbSizePhoto from '@assets/bulb size_1762106464988.jpg';
-import wreathPhoto from '@assets/wreath_1762139131915.webp';
-import garlandPhoto from '@assets/garland_1762139151318.jpg';
 import lightSpheresPhoto from '@assets/spritzers_1762145407991.jpg';
 
 export default function ProductGuide() {
@@ -137,28 +135,6 @@ export default function ProductGuide() {
         "Professional placement and installation",
         "Truly unique and eye-catching"
       ]
-    },
-    {
-      id: 6,
-      name: "Wreaths & Garland",
-      icon: Flower2,
-      image: wreathPhoto,
-      description: "Add classic holiday charm with professionally lit wreaths and garland. These traditional decorations bring warmth and elegance to entryways, fences, and architectural features.",
-      colors: ["Warm White with Red Bows", "Traditional Green with Lights"],
-      useCases: [
-        "Front doors and entryways",
-        "Fence lines and railings",
-        "Gates and archways",
-        "Columns and posts",
-        "Garage doors"
-      ],
-      benefits: [
-        "Classic, timeless holiday look",
-        "Complements any lighting display",
-        "Weather-resistant materials",
-        "Professional installation and removal",
-        "Perfect finishing touch for your home"
-      ]
     }
   ];
 
@@ -166,8 +142,8 @@ export default function ProductGuide() {
     <div className="min-h-screen bg-background">
       <UrgencyBanner />
       <PageHead 
-        title="Premium Christmas Lighting Products | C9 Bulbs, Light Spheres, Wreaths | Christmas Northwest"
-        description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for bushes, Ground Lights for pathways, Tree Wraps, Light Spheres for trees, and Wreaths & Garland. Energy-efficient, weather-resistant, professional quality. Seattle area."
+        title="Premium Christmas Lighting Products | C9 Bulbs, Mini Lights, Light Spheres | Christmas Northwest"
+        description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for bushes, Ground Lights for pathways, Tree Wraps, and Light Spheres for trees. Energy-efficient, weather-resistant, professional quality. Seattle area."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
       

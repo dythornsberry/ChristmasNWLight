@@ -115,11 +115,11 @@ export default function FAQPage() {
       questions: [
         {
           question: "What type of Christmas lights do you use?",
-          answer: "We use exclusively commercial-grade LED lights designed for professional installations. These are not the lights you buy at hardware stores. They're weatherproof, energy-efficient, significantly brighter, and built to last for years. We offer both warm white and multicolor options, along with specialty products like C9 bulbs, mini lights, ground stakes, tree wraps, light spheres, wreaths, and garland."
+          answer: "We use exclusively commercial-grade LED lights designed for professional installations. These are not the lights you buy at hardware stores. They're weatherproof, energy-efficient, significantly brighter, and built to last for years. We offer both warm white and multicolor options, along with specialty products like C9 bulbs, mini lights, ground stakes, tree wraps, and light spheres."
         },
         {
           question: "Can I choose custom colors or designs?",
-          answer: "Yes! We offer fully customized designs tailored to your home and preferences. Choose from warm white (classic elegant look), multicolor (festive traditional look), or custom color combinations. We also offer specialty designs including tree wrapping, ground lighting, pathway lights, wreaths, garland, and architectural accent lighting. Our design consultation is included in every installation."
+          answer: "Yes! We offer fully customized designs tailored to your home and preferences. Choose from warm white (classic elegant look), multicolor (festive traditional look), or custom color combinations. We also offer specialty designs including tree wrapping, ground lighting, pathway lights, and architectural accent lighting. Our design consultation is included in every installation."
         },
         {
           question: "Do you hang lights that I already own?",
