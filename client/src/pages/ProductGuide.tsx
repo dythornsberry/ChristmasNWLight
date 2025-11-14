@@ -10,6 +10,7 @@ import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap, Flower2, Circle } fro
 
 import c9RooflinePhoto from '@assets/81s3L7gNl1L_1762096860729.jpg';
 import miniLightsPhoto from '@assets/Incan-Clear-6x15-Column-Wrap-02-lifestyle_1762096913912.jpg';
+import bushLightsPhoto from '@assets/Bush_Wrapped_in_Warm_White_Mini_LED_Lights_Certified_Lights_Display_Example_1763085106999.jpg';
 import groundLightsPhoto from '@assets/Ground-Lighting-Installation-Fort-Collins-CO_1762096982865.jpg';
 import treeWrapsPhoto from '@assets/81yZtNElctL_1762096926030.jpg';
 import bulbSizePhoto from '@assets/bulb size_1762106464988.jpg';
@@ -56,15 +57,15 @@ export default function ProductGuide() {
       description: "Delicate yet durable mini lights perfect for detailed work and creating elegant, sophisticated displays. These versatile lights add warmth and charm to any feature.",
       colors: ["Warm White", "Cool White", "Multicolor"],
       useCases: [
-        "Bushes and shrubs",
         "Column wraps",
         "Tree branches and trunks",
         "Garden features",
-        "Fence lines"
+        "Fence lines",
+        "Architectural details"
       ],
       benefits: [
         "Elegant, refined appearance",
-        "Perfect for detailed landscaping",
+        "Perfect for detailed work",
         "Energy-efficient",
         "Creates warm, inviting glow",
         "Versatile for multiple applications"
@@ -72,6 +73,28 @@ export default function ProductGuide() {
     },
     {
       id: 3,
+      name: "Bush & Shrub Lighting",
+      icon: Flower2,
+      image: bushLightsPhoto,
+      description: "Transform your landscaping into glowing works of art with professional bush and shrub lighting. Our expert wrapping technique creates stunning illuminated features that add depth and warmth to your display.",
+      colors: ["Warm White", "Multicolor", "Red & Green"],
+      useCases: [
+        "Front yard foundation bushes",
+        "Entryway shrubs",
+        "Landscape bed features",
+        "Garden focal points",
+        "Driveway border plants"
+      ],
+      benefits: [
+        "Professional wrapping technique",
+        "Creates stunning visual impact",
+        "Adds depth to overall display",
+        "Highlights beautiful landscaping",
+        "Complements roofline lighting perfectly"
+      ]
+    },
+    {
+      id: 4,
       name: "Ground & Pathway Lights",
       icon: MapPin,
       image: groundLightsPhoto,
@@ -93,7 +116,7 @@ export default function ProductGuide() {
       ]
     },
     {
-      id: 4,
+      id: 5,
       name: "Tree Wraps",
       icon: TreePine,
       image: treeWrapsPhoto,
@@ -115,7 +138,7 @@ export default function ProductGuide() {
       ]
     },
     {
-      id: 5,
+      id: 6,
       name: "Light Spheres",
       icon: Circle,
       image: lightSpheresPhoto,
@@ -142,8 +165,8 @@ export default function ProductGuide() {
     <div className="min-h-screen bg-background">
       <UrgencyBanner />
       <PageHead 
-        title="Premium Christmas Lighting Products | C9 Bulbs, Mini Lights, Light Spheres | Christmas Northwest"
-        description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for bushes, Ground Lights for pathways, Tree Wraps, and Light Spheres for trees. Energy-efficient, weather-resistant, professional quality. Seattle area."
+        title="Premium Christmas Lighting Products | C9 Bulbs, Bush Lighting, Light Spheres | Christmas Northwest"
+        description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for details, Bush & Shrub Lighting, Ground Lights for pathways, Tree Wraps, and Light Spheres. Energy-efficient, weather-resistant, professional quality. Seattle area."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
       
