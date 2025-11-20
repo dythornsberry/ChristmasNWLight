@@ -60,10 +60,13 @@ import gableWreathHome from '@assets/2023-12-22-3_1762398937574.jpg';
 import truckInstallHome from '@assets/2024-11-12-3_1762398937574.jpg';
 import multicolorTreeHome from '@assets/2024-12-07_1762398937574.jpg';
 import ultraModernLandscape from '@assets/unnamed-19_1762398937574.jpg';
-import largeCustomHome from '@assets/2024-12-19-5_1762398937574.jpg';
 import glassHomeMulticolor from '@assets/unnamed-18_1762398937574.jpg';
 import luxuryModernDeck from '@assets/2024-11-13-4_1762398937574.jpg';
 import bareTreeWrap from '@assets/581802931_10113409149773279_8492716573386177864_n_1762916125607.jpg';
+import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
+import warmWhiteBushEstateAngle2 from '@assets/2025-11-19-2-min_1763645900967.jpg';
+import multicolorModernDeck from '@assets/2024-11-13-5-min_1763645900967.jpg';
+import multicolorTwoStoryHome from '@assets/2025-11-19-3-min_1763645900967.jpg';
 
 interface GalleryImage {
   id: number;
@@ -76,7 +79,7 @@ interface GalleryImage {
 const galleryImages: GalleryImage[] = [
   { id: 1, src: stunningEstate, alt: "Stunning estate with extensive custom lighting, wrapped trees, column accents, and landscape features", category: "Custom", title: "Elegant Estate Masterpiece" },
   { id: 2, src: ultraModernLandscape, alt: "Ultra-modern home with extensive landscape lighting, pathway lights, deck accent lighting, and wreath", category: "Custom", title: "Ultra-Modern Landscape Design" },
-  { id: 3, src: largeCustomHome, alt: "Large custom home with extensive roofline coverage, landscape lighting, and decorative accents", category: "Custom", title: "Grand Custom Installation" },
+  { id: 3, src: warmWhiteBushEstate, alt: "Stunning warm white roofline and extensively wrapped bushes creating elegant estate lighting", category: "Warm White", title: "Elegant Warm White Estate" },
   { id: 4, src: gableWreathHome, alt: "Beautiful home with warm white rooflines, multiple gables, decorative wreaths, and snowflake accents", category: "Custom", title: "Classic Gable and Wreath Display" },
   { id: 5, src: modernArchitectureHome, alt: "Modern architectural home with warm white roofline and dramatic landscape lighting", category: "Warm White", title: "Modern Architecture Showcase" },
   { id: 6, src: luxuryModernDeck, alt: "Luxury modern home with custom red and white roofline lighting and deck accents", category: "Custom", title: "Luxury Deck and Roofline" },
@@ -108,7 +111,7 @@ const galleryImages: GalleryImage[] = [
   { id: 32, src: img20, alt: "Red tree wrap with blue snowmen decorations", category: "Trees", title: "Red Tree with Snowmen" },
   { id: 33, src: img22, alt: "Vibrant multicolor Christmas lights on rooflines", category: "Multicolor", title: "Festive Multicolor Display" },
   { id: 34, src: img24, alt: "Custom mistletoe style Christmas lights with red and green bulbs at peaks", category: "Custom", title: "Mistletoe Peak Design" },
-  { id: 35, src: img26, alt: "Complete Christmas light installation on home in winter snow", category: "Warm White", title: "Classic Winter Wonderland" },
+  { id: 35, src: multicolorModernDeck, alt: "Modern home with multicolor roofline, deck accent lighting, and illuminated columns", category: "Multicolor", title: "Modern Deck and Roofline" },
   { id: 36, src: img27, alt: "Warm white roofline with red accent lights wrapping entry columns", category: "Custom", title: "Red Column Accent Design" },
   { id: 37, src: img30, alt: "Warm white roofline with vibrant multicolor Christmas tree", category: "Multicolor", title: "Mixed Style Display" },
   { id: 38, src: pergolaTreeHome, alt: "Warm white roofline with elegant pergola lighting and tree wrap", category: "Warm White", title: "Pergola and Tree Accent" },
@@ -124,7 +127,9 @@ const galleryImages: GalleryImage[] = [
   { id: 48, src: redColumnAccentHome, alt: "Warm white roofline with red column accents and tree lighting", category: "Custom", title: "Red Column Accent Display" },
   { id: 49, src: landscapeLightingHome, alt: "Warm white roofline with custom landscape lighting and red and white shrub wraps", category: "Custom", title: "Landscape Accent Lighting" },
   { id: 50, src: modernHomeWithDeer, alt: "Modern home with warm white roofline, entryway accents, planters with lights, and decorative deer", category: "Custom", title: "Modern Holiday Elegance" },
-  { id: 51, src: bareTreeWrap, alt: "Stunning bare tree wrapped in warm white lights at night with decorative fencing", category: "Trees", title: "Elegant Bare Tree Display" }
+  { id: 51, src: bareTreeWrap, alt: "Stunning bare tree wrapped in warm white lights at night with decorative fencing", category: "Trees", title: "Elegant Bare Tree Display" },
+  { id: 52, src: warmWhiteBushEstateAngle2, alt: "Warm white estate with illuminated hedge wall and roofline from side angle", category: "Warm White", title: "Illuminated Hedge Display" },
+  { id: 53, src: multicolorTwoStoryHome, alt: "Two-story home with multicolor roofline and warm white illuminated bushes", category: "Multicolor", title: "Multicolor with Bush Accents" }
 ];
 
 export default function GalleryPage() {
