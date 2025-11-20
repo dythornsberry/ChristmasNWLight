@@ -77,44 +77,44 @@ interface GalleryImage {
 }
 
 const galleryImages: GalleryImage[] = [
-  { id: 1, src: stunningEstate, alt: "Stunning estate with extensive custom lighting, wrapped trees, column accents, and landscape features", category: "Custom", title: "Estate with Trees and Columns" },
-  { id: 2, src: ultraModernLandscape, alt: "Ultra-modern home with extensive landscape lighting, pathway lights, deck accent lighting, and wreath", category: "Custom", title: "Modern Home with Landscape Lighting" },
-  { id: 3, src: warmWhiteBushEstate, alt: "Stunning warm white roofline and extensively wrapped bushes creating elegant estate lighting", category: "Warm White", title: "Warm White Bushes" },
-  { id: 4, src: gableWreathHome, alt: "Beautiful home with warm white rooflines, multiple gables, decorative wreaths, and snowflake accents", category: "Custom", title: "Gables and Wreaths" },
-  { id: 5, src: modernArchitectureHome, alt: "Modern architectural home with warm white roofline and dramatic landscape lighting", category: "Warm White", title: "Modern Warm White Roofline" },
-  { id: 6, src: luxuryModernDeck, alt: "Luxury modern home with custom red and white roofline lighting and deck accents", category: "Custom", title: "Red and White Deck Lighting" },
-  { id: 7, src: glassHomeMulticolor, alt: "Stunning glass home with multicolor rooflines at dusk with beautiful sunset backdrop", category: "Multicolor", title: "Glass Home Multicolor" },
-  { id: 8, src: img9, alt: "Spectacular custom tree display", category: "Custom", title: "Wrapped Trees" },
+  { id: 1, src: stunningEstate, alt: "Estate with custom lighting, wrapped trees, column accents, and landscape features", category: "Custom", title: "Estate with Trees and Columns" },
+  { id: 2, src: ultraModernLandscape, alt: "Modern home with landscape lighting, pathway lights, deck accent lighting, and wreath", category: "Custom", title: "Modern Home with Landscape Lighting" },
+  { id: 3, src: warmWhiteBushEstate, alt: "Warm white roofline and wrapped bushes on estate home", category: "Warm White", title: "Warm White Bushes" },
+  { id: 4, src: gableWreathHome, alt: "Home with warm white rooflines, multiple gables, decorative wreaths, and snowflake accents", category: "Custom", title: "Gables and Wreaths" },
+  { id: 5, src: modernArchitectureHome, alt: "Modern home with warm white roofline and landscape lighting", category: "Warm White", title: "Modern Warm White Roofline" },
+  { id: 6, src: luxuryModernDeck, alt: "Modern home with custom red and white roofline lighting and deck accents", category: "Custom", title: "Red and White Deck Lighting" },
+  { id: 7, src: glassHomeMulticolor, alt: "Glass home with multicolor rooflines at dusk with sunset backdrop", category: "Multicolor", title: "Glass Home Multicolor" },
+  { id: 8, src: img9, alt: "Custom tree display with wrapped trees", category: "Custom", title: "Wrapped Trees" },
   { id: 9, src: img8, alt: "Modern home with clean warm white", category: "Warm White", title: "Clean Warm White" },
   { id: 10, src: img12, alt: "Full yard custom design with decorations", category: "Custom", title: "Full Yard Display" },
   { id: 11, src: img16, alt: "Red tree wrap with blue snowmen", category: "Trees", title: "Red Tree with Snowmen" },
-  { id: 12, src: img17, alt: "Vibrant multicolor on dark modern home", category: "Multicolor", title: "Multicolor Peaks and Columns" },
-  { id: 13, src: img21, alt: "Elegant warm white Christmas lights on home", category: "Warm White", title: "Warm White Roofline" },
-  { id: 14, src: img23, alt: "Professional tree uplighting in winter snow with warm white landscape lights", category: "Trees", title: "Tree Uplighting in Snow" },
-  { id: 15, src: img25, alt: "Elegant estate gate decorated with red accent lights and warm white uplighting", category: "Custom", title: "Gate Lighting" },
+  { id: 12, src: img17, alt: "Multicolor lights on dark modern home with peaks and columns", category: "Multicolor", title: "Multicolor Peaks and Columns" },
+  { id: 13, src: img21, alt: "Warm white Christmas lights on home", category: "Warm White", title: "Warm White Roofline" },
+  { id: 14, src: img23, alt: "Tree uplighting in winter snow with warm white landscape lights", category: "Trees", title: "Tree Uplighting in Snow" },
+  { id: 15, src: img25, alt: "Estate gate with red accent lights and warm white uplighting", category: "Custom", title: "Gate Lighting" },
   { id: 16, src: img28, alt: "Warm white Christmas lights on rooflines and ridges", category: "Warm White", title: "Ridges and Rooflines" },
   { id: 17, src: img29, alt: "Modern Bellevue home with warm white Christmas lights and tree uplighting", category: "Warm White", title: "Bellevue Home with Tree Uplighting" },
   { id: 18, src: img1, alt: "Multicolor roofline installation on large home", category: "Multicolor", title: "Multicolor Roofline" },
   { id: 19, src: img2, alt: "Family enjoying custom holiday lighting", category: "Custom", title: "Family Photo" },
-  { id: 20, src: img3, alt: "Vibrant multicolor roofline with pillars", category: "Multicolor", title: "Multicolor with Pillars" },
-  { id: 21, src: img4, alt: "Elegant tree wrap with warm white lights", category: "Trees", title: "Warm White Tree Wrap" },
-  { id: 22, src: img5, alt: "Beautiful tricolor lights in snow", category: "Multicolor", title: "Tricolor in Snow" },
-  { id: 23, src: img6, alt: "Child admiring massive lit tree", category: "Trees", title: "Big Wrapped Tree" },
-  { id: 24, src: img7, alt: "Elegant brick mansion with warm white", category: "Warm White", title: "Brick Mansion Warm White" },
-  { id: 25, src: multicolorTreeHome, alt: "Modern home with vibrant multicolor rooflines and wrapped tree with landscape lighting", category: "Multicolor", title: "Multicolor Roofline and Tree" },
+  { id: 20, src: img3, alt: "Multicolor roofline with pillars", category: "Multicolor", title: "Multicolor with Pillars" },
+  { id: 21, src: img4, alt: "Tree wrap with warm white lights", category: "Trees", title: "Warm White Tree Wrap" },
+  { id: 22, src: img5, alt: "Tricolor lights in snow", category: "Multicolor", title: "Tricolor in Snow" },
+  { id: 23, src: img6, alt: "Child admiring big lit tree", category: "Trees", title: "Big Wrapped Tree" },
+  { id: 24, src: img7, alt: "Brick mansion with warm white lights", category: "Warm White", title: "Brick Mansion Warm White" },
+  { id: 25, src: multicolorTreeHome, alt: "Modern home with multicolor rooflines and wrapped tree with landscape lighting", category: "Multicolor", title: "Multicolor Roofline and Tree" },
   { id: 26, src: truckInstallHome, alt: "Professional installation in progress with warm white rooflines and Christmas NW truck", category: "Warm White", title: "Installation in Progress" },
-  { id: 27, src: img10, alt: "Elegant home with unique architecture", category: "Warm White", title: "Unique Architecture" },
+  { id: 27, src: img10, alt: "Home with unique architecture", category: "Warm White", title: "Unique Architecture" },
   { id: 28, src: img13, alt: "Tree with firework starburst lights", category: "Trees", title: "Starburst Tree" },
   { id: 29, src: img14, alt: "Warm white roofline with multicolor tree", category: "Multicolor", title: "Warm White and Multicolor Tree" },
   { id: 30, src: img15, alt: "Modern home with warm white and wreath", category: "Warm White", title: "Warm White with Wreath" },
-  { id: 31, src: img18, alt: "Stunning multicolor tree with full wrap", category: "Trees", title: "Multicolor Tree Wrap" },
+  { id: 31, src: img18, alt: "Multicolor tree with full wrap", category: "Trees", title: "Multicolor Tree Wrap" },
   { id: 32, src: img20, alt: "Red tree wrap with blue snowmen decorations", category: "Trees", title: "Red Tree and Snowmen" },
-  { id: 33, src: img22, alt: "Vibrant multicolor Christmas lights on rooflines", category: "Multicolor", title: "Multicolor Rooflines" },
+  { id: 33, src: img22, alt: "Multicolor Christmas lights on rooflines", category: "Multicolor", title: "Multicolor Rooflines" },
   { id: 34, src: img24, alt: "Custom mistletoe style Christmas lights with red and green bulbs at peaks", category: "Custom", title: "Mistletoe Peaks" },
   { id: 35, src: multicolorModernDeck, alt: "Modern home with multicolor roofline, deck accent lighting, and illuminated columns", category: "Multicolor", title: "Multicolor Deck and Columns" },
   { id: 36, src: img27, alt: "Warm white roofline with red accent lights wrapping entry columns", category: "Custom", title: "Red Column Accents" },
-  { id: 37, src: img30, alt: "Warm white roofline with vibrant multicolor Christmas tree", category: "Multicolor", title: "Warm White with Multicolor Tree" },
-  { id: 38, src: pergolaTreeHome, alt: "Warm white roofline with elegant pergola lighting and tree wrap", category: "Warm White", title: "Pergola and Tree" },
+  { id: 37, src: img30, alt: "Warm white roofline with multicolor Christmas tree", category: "Multicolor", title: "Warm White with Multicolor Tree" },
+  { id: 38, src: pergolaTreeHome, alt: "Warm white roofline with pergola lighting and tree wrap", category: "Warm White", title: "Pergola and Tree" },
   { id: 39, src: largeHomeWarmWhite, alt: "Large home with comprehensive warm white roofline and landscape tree lighting", category: "Warm White", title: "Large Home Warm White" },
   { id: 40, src: homeImg1, alt: "Classic warm white roofline installation on home", category: "Warm White", title: "Classic Warm White" },
   { id: 41, src: homeImg2, alt: "Modern multicolor Christmas light display on home", category: "Multicolor", title: "Modern Multicolor" },
@@ -122,12 +122,12 @@ const galleryImages: GalleryImage[] = [
   { id: 43, src: homeImg4, alt: "Contemporary home with stone accent and warm white lights", category: "Warm White", title: "Stone Accent Warm White" },
   { id: 44, src: homeImg5, alt: "Large estate with professional Christmas light installation", category: "Warm White", title: "Large Estate" },
   { id: 45, src: homeImg6, alt: "Modern gable design with warm white Christmas lights", category: "Warm White", title: "Gable Roofline" },
-  { id: 46, src: purpleHalloweenHouse, alt: "Spectacular purple Halloween lighting display with yard decorations", category: "Halloween", title: "Purple Halloween Display" },
-  { id: 47, src: redBlueHalloween, alt: "Bold red and blue Halloween lighting display with dramatic roofline coverage", category: "Halloween", title: "Red and Blue Halloween" },
+  { id: 46, src: purpleHalloweenHouse, alt: "Purple Halloween lighting display with yard decorations", category: "Halloween", title: "Purple Halloween Display" },
+  { id: 47, src: redBlueHalloween, alt: "Red and blue Halloween lighting display with roofline coverage", category: "Halloween", title: "Red and Blue Halloween" },
   { id: 48, src: redColumnAccentHome, alt: "Warm white roofline with red column accents and tree lighting", category: "Custom", title: "Red Columns and Tree" },
   { id: 49, src: landscapeLightingHome, alt: "Warm white roofline with custom landscape lighting and red and white shrub wraps", category: "Custom", title: "Landscape and Shrub Lighting" },
   { id: 50, src: modernHomeWithDeer, alt: "Modern home with warm white roofline, entryway accents, planters with lights, and decorative deer", category: "Custom", title: "Modern Home with Deer" },
-  { id: 51, src: bareTreeWrap, alt: "Stunning bare tree wrapped in warm white lights at night with decorative fencing", category: "Trees", title: "Bare Tree Wrap" },
+  { id: 51, src: bareTreeWrap, alt: "Bare tree wrapped in warm white lights at night with decorative fencing", category: "Trees", title: "Bare Tree Wrap" },
   { id: 52, src: warmWhiteBushEstateAngle2, alt: "Warm white estate with illuminated hedge wall and roofline from side angle", category: "Warm White", title: "Hedge Wall Lighting" },
   { id: 53, src: multicolorTwoStoryHome, alt: "Two-story home with multicolor roofline and warm white illuminated bushes", category: "Multicolor", title: "Multicolor with Warm White Bushes" }
 ];
@@ -195,7 +195,7 @@ export default function GalleryPage() {
     "@graph": [
       {
         "@type": "VideoObject",
-        "name": "Spectacular Halloween Light Installation in Bellevue WA",
+        "name": "Halloween Light Installation in Bellevue WA",
         "description": "Watch our professional Halloween lighting installation in Bellevue, Washington. See the complete transformation from start to finish with purple and orange commercial-grade lights creating a spooky holiday display.",
         "thumbnailUrl": "https://img.youtube.com/vi/qcnKBhSJQW4/maxresdefault.jpg",
         "uploadDate": "2024-10-15T12:00:00Z",
@@ -212,8 +212,8 @@ export default function GalleryPage() {
       },
       {
         "@type": "VideoObject",
-        "name": "Massive Tree Christmas Light Installation in Woodinville WA",
-        "description": "Professional Christmas tree lighting installation in Woodinville, Washington. Watch as we transform a massive tree with thousands of commercial-grade lights creating a stunning holiday centerpiece.",
+        "name": "Big Tree Christmas Light Installation in Woodinville WA",
+        "description": "Professional Christmas tree lighting installation in Woodinville, Washington. Watch as we transform a big tree with thousands of commercial-grade lights creating a holiday centerpiece.",
         "thumbnailUrl": "https://img.youtube.com/vi/kyQ0PU9XDIk/maxresdefault.jpg",
         "uploadDate": "2024-11-20T12:00:00Z",
         "contentUrl": "https://www.youtube.com/watch?v=kyQ0PU9XDIk",
@@ -264,7 +264,7 @@ export default function GalleryPage() {
       {
         "@type": "VideoObject",
         "name": "Professional Halloween Lighting Display Installation",
-        "description": "Another spectacular Halloween lighting installation in the Greater Seattle area. Watch our team create an amazing spooky display with professional-grade outdoor lights.",
+        "description": "Another Halloween lighting installation in the Greater Seattle area. Watch our team create a spooky display with professional-grade outdoor lights.",
         "thumbnailUrl": "https://img.youtube.com/vi/fkd4TWuDYa4/maxresdefault.jpg",
         "uploadDate": "2024-10-20T12:00:00Z",
         "contentUrl": "https://www.youtube.com/watch?v=fkd4TWuDYa4",
@@ -280,8 +280,8 @@ export default function GalleryPage() {
       },
       {
         "@type": "VideoObject",
-        "name": "Vibrant Multicolor Christmas Light Installation in Issaquah WA",
-        "description": "Watch a complete multicolor Christmas light installation in Issaquah, Washington. See how we create a festive, vibrant holiday display with commercial-grade multicolor C9 bulbs.",
+        "name": "Multicolor Christmas Light Installation in Issaquah WA",
+        "description": "Watch a complete multicolor Christmas light installation in Issaquah, Washington. See how we create a festive holiday display with commercial-grade multicolor C9 bulbs.",
         "thumbnailUrl": "https://img.youtube.com/vi/mfZ_QQIDusE/maxresdefault.jpg",
         "uploadDate": "2024-11-25T12:00:00Z",
         "contentUrl": "https://www.youtube.com/watch?v=mfZ_QQIDusE",
@@ -445,7 +445,7 @@ export default function GalleryPage() {
                   />
                 </div>
                 <div className="p-4 text-center" data-testid="caption-video-halloween-bellevue">
-                  <h3 className="font-semibold text-foreground mb-1">Spectacular Halloween Display</h3>
+                  <h3 className="font-semibold text-foreground mb-1">Halloween Display</h3>
                   <p className="text-sm text-muted-foreground">Bellevue, WA</p>
                 </div>
               </div>
@@ -463,7 +463,7 @@ export default function GalleryPage() {
                   />
                 </div>
                 <div className="p-4 text-center" data-testid="caption-video-tree-woodinville">
-                  <h3 className="font-semibold text-foreground mb-1">Massive Tree Installation</h3>
+                  <h3 className="font-semibold text-foreground mb-1">Big Tree Installation</h3>
                   <p className="text-sm text-muted-foreground">Woodinville, WA</p>
                 </div>
               </div>
@@ -535,7 +535,7 @@ export default function GalleryPage() {
                   />
                 </div>
                 <div className="p-4 text-center" data-testid="caption-video-multicolor-issaquah">
-                  <h3 className="font-semibold text-foreground mb-1">Vibrant Multicolor Display</h3>
+                  <h3 className="font-semibold text-foreground mb-1">Multicolor Display</h3>
                   <p className="text-sm text-muted-foreground">Issaquah, WA</p>
                 </div>
               </div>
