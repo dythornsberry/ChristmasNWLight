@@ -8,6 +8,7 @@ Preferred communication style: Simple, everyday language - avoid em dashes and A
 Design approach: Visual-first homepage redesign inspired by WiseGuys Lights (more images, less text, gallery/reviews upfront). Conversion-focused layout with simplified process, 2-card services, and clean hierarchy.
 CTA preference: Use "Light Up My Home ✨" for emotional appeal and customer-focused messaging instead of generic "consultation" or "request" language.
 Navigation philosophy: "Header = what 95% of visitors need, Footer = everything else"
+Photo caption style: Simple, minimal descriptive captions (NOT marketing-y titles). Examples: "Multicolor Peaks and Columns" instead of "Striking Night Display", "Warm White Bushes" instead of "Elegant Warm White Estate", "Gate Lighting" instead of "Grand Estate Entrance". Just describe what you see in straightforward terms.
 
 ## System Architecture
 ### UI/UX Decisions
