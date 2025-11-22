@@ -8,18 +8,21 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { DollarSign, Home, Building2, Sparkles, CheckCircle2, TrendingUp, Clock, Shield, Phone } from "lucide-react";
+import { useLocation } from "wouter";
 
 import essentialPhoto from '@assets/2024-11-17-3-min_1762058047475.jpg';
 import signaturePhoto from '@assets/2024-11-11-2-min_1762058047476.jpg';
 import premierPhoto from '@assets/2024-12-03-min_1762058047476.jpg';
 
 export default function InvestmentGuide() {
+  const [, setLocation] = useLocation();
+
   const scrollToQuote = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    setLocation('/');
     setTimeout(() => {
-      const quoteSection = document.getElementById('quote-form');
-      if (quoteSection) {
-        quoteSection.scrollIntoView({ behavior: 'smooth' });
+      const element = document.getElementById('quote');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
   };
@@ -27,56 +30,62 @@ export default function InvestmentGuide() {
   const pricingTiers = [
     {
       id: 1,
-      name: "Classic Roofline",
-      range: "$800 - $1,500",
+      name: "Example 1",
+      range: "~$1,400",
       icon: Home,
       image: essentialPhoto,
-      description: "Perfect starter display for those wanting a clean, classic look.",
+      description: "Spanish-style home in Sammamish",
       includes: [
-        "Roofline lighting with C9 bulbs",
-        "Or roofline plus 1-2 simple additions like columns, wreaths, or garage outline",
+        "Roofline lighting",
+        "Bushes wrapped",
+        "Garage door outline",
+        "Red and white color scheme",
         "Professional installation",
-        "Seasonal maintenance check",
-        "Secure year-round storage",
-        "Free removal & reinstall next year"
+        "Seasonal maintenance",
+        "Year-round storage",
+        "Next year reinstallation"
       ],
-      ideal: "Smaller homes, condos, or those wanting elegant simplicity"
+      ideal: "Single-story or smaller homes with basic coverage"
     },
     {
       id: 2,
-      name: "Signature Display",
-      range: "$1,500 - $3,000",
+      name: "Example 2",
+      range: "~$2,100",
       icon: Building2,
       image: signaturePhoto,
       popular: true,
-      description: "Our most popular range. Comprehensive coverage with much more lighting throughout your property.",
+      description: "Two-story home in Woodinville",
       includes: [
-        "Roofline, wreaths, bushes, columns, ground lights, trees, balconies, and more",
-        "Multiple product types and color combinations",
-        "Professional installation",
-        "Seasonal maintenance visits",
-        "Secure year-round storage",
-        "Priority scheduling for next season"
+        "Complete roofline",
+        "Wreath on front",
+        "Mistletoe roof line pattern at peaks",
+        "Multicolor C9 bulbs",
+        "Multiple bushes wrapped",
+        "Ground lights along pathway",
+        "Archway lighting",
+        "Full service included"
       ],
-      ideal: "Standard to large homes wanting comprehensive coverage"
+      ideal: "Most homes wanting comprehensive front display"
     },
     {
       id: 3,
-      name: "Premier Estate Display",
-      range: "$3,000 - $6,000+",
+      name: "Example 3",
+      range: "~$4,000",
       icon: Sparkles,
       image: premierPhoto,
-      description: "Complete property transformation with extensive lighting throughout.",
+      description: "Large home with steep roof in Bellevue",
       includes: [
-        "Tons of lights across your entire property",
-        "Full roofline, multiple trees, all landscaping, architectural features, and more",
-        "Multiple color zones and premium design elements",
-        "Professional installation team",
-        "Multiple maintenance visits",
-        "Secure year-round storage",
-        "VIP priority scheduling"
+        "Full roofline coverage",
+        "Roof ridges highlighted",
+        "Multiple trees wrapped",
+        "Ground lights throughout",
+        "Multiple bushes wrapped",
+        "Wreath installation",
+        "Garage door outline",
+        "Premium design for challenging architecture",
+        "Complete all-inclusive service"
       ],
-      ideal: "Large estates, luxury homes, or those wanting show-stopping displays"
+      ideal: "Large homes, steep roofs, or extensive property coverage"
     }
   ];
 
@@ -141,10 +150,10 @@ export default function InvestmentGuide() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-20">
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Pricing Ranges
+              Real Customer Examples
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Starting at $800. Most homes invest between $1,500 - $3,000 for comprehensive coverage.
+              Here's what real installations cost so you can see transparent pricing. Every home is unique, but these examples give you a clear idea of what to expect.
             </p>
           </div>
 
@@ -204,7 +213,7 @@ export default function InvestmentGuide() {
 
                     <div className="mb-6">
                       <h4 className="text-sm font-bold text-foreground mb-4 uppercase tracking-wide">
-                        What's Included
+                        What Was Installed
                       </h4>
                       <ul className="space-y-3">
                         {tier.includes.map((item, i) => (
@@ -218,7 +227,7 @@ export default function InvestmentGuide() {
 
                     <div className="pt-6 border-t border-border">
                       <p className="text-xs text-muted-foreground mb-2 font-semibold uppercase">
-                        Ideal For
+                        Similar Homes
                       </p>
                       <p className="text-sm text-foreground">
                         {tier.ideal}
@@ -232,7 +241,7 @@ export default function InvestmentGuide() {
 
           <Card className="mt-12 p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-gold/20 max-w-3xl mx-auto">
             <p className="text-base text-center text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Every home is unique.</strong> These ranges reflect the total amount of lighting installed, not strict packages. A small home with a steep roof may cost more than a larger single-story home. Your custom quote is based on your specific property size, design preferences, and coverage goals.
+              <strong className="text-foreground">Every home is unique.</strong> These are real customer examples to show transparent pricing. Your home may cost more or less depending on size, roof complexity, and how much coverage you want. A small home with a steep roof may cost more than a larger single-story home. Your custom quote is based on your specific property.
             </p>
           </Card>
 
