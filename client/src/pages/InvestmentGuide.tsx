@@ -92,23 +92,18 @@ export default function InvestmentGuide() {
   const pricingFactors = [
     {
       icon: Home,
-      title: "Home Size & Height",
-      description: "Larger homes and multi-story properties require more materials and installation time. Two-story homes typically cost 40-60% more than single-story."
-    },
-    {
-      icon: Sparkles,
-      title: "Design Complexity",
-      description: "Multiple color zones, tree wraps, custom features, and architectural details add to the overall investment but create stunning results."
+      title: "Size of Home or Feature",
+      description: "More footage means more cost. A 50-foot tree costs more than a 10-foot tree. A house with 500 feet of roofline costs significantly more than 100 feet of roofline."
     },
     {
       icon: TrendingUp,
-      title: "Coverage Area",
-      description: "Front-only vs. full property coverage significantly impacts pricing. Most clients start with the front and add more coverage in subsequent years."
+      title: "Roof Steepness",
+      description: "Steep roofs cost more, especially tile, cedar, metal, or specialty roofs. These are difficult to walk on and often have to be done entirely from a ladder, requiring extra time and safety measures."
     },
     {
-      icon: Clock,
-      title: "Premium Features",
-      description: "Specialized elements like tree spheres, column wraps, pathway lighting, and animated features enhance your display's visual impact."
+      icon: Sparkles,
+      title: "Roof Complexity",
+      description: "The number of jumper wires and connections needed affects installation complexity. More jumpers mean more time and labor to properly set up your lighting system."
     }
   ];
 
