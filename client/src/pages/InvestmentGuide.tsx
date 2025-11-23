@@ -14,6 +14,8 @@ import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
 import signaturePhoto from '@assets/2024-11-11-2-min_1762058047476.jpg';
 import premierPhoto from '@assets/2024-12-03-min_1762058047476.jpg';
 import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
+import redTreeSnowmen from '@assets/2024-11-28-2-min_1762058047476.jpg';
+import uniqueArchitecture from '@assets/2024-12-25-min_1762058047476.jpg';
 
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();
@@ -281,7 +283,18 @@ export default function InvestmentGuide() {
                   <p className="text-lg font-bold text-primary mt-1">$5–$12 per linear foot</p>
                 </div>
               </div>
+              <div className="rounded-lg overflow-hidden mb-6 h-48">
+                <WatermarkedImage
+                  src={uniqueArchitecture}
+                  alt="Steep roofline with complex architecture"
+                  className="h-full object-cover"
+                  enableLightbox={true}
+                />
+              </div>
               <div className="space-y-4">
+                <p className="text-xs text-muted-foreground italic mb-3">
+                  Example: Complex, steep roof with many angles and cuts requires extra care
+                </p>
                 <p className="text-base text-foreground leading-relaxed">
                   Cost depends on several factors:
                 </p>
@@ -317,19 +330,30 @@ export default function InvestmentGuide() {
                   <p className="text-lg font-bold text-accent mt-1">$275–$1,650+ per tree</p>
                 </div>
               </div>
+              <div className="rounded-lg overflow-hidden mb-6 h-48">
+                <WatermarkedImage
+                  src={redTreeSnowmen}
+                  alt="Red tree wrap with snowmen decorations"
+                  className="h-full object-cover"
+                  enableLightbox={true}
+                />
+              </div>
               <div className="space-y-4">
+                <p className="text-xs text-muted-foreground italic mb-3">
+                  Example: Tree with custom design shows how many strands are needed
+                </p>
                 <p className="text-base text-foreground leading-relaxed">
-                  Trees are priced by the number of light strands needed:
+                  Trees are priced by the number of light strands needed. Each strand contains 74 individual lights:
                 </p>
                 <div className="bg-card/50 border border-border rounded-lg p-4 space-y-3">
                   <div>
                     <p className="font-semibold text-sm text-foreground">Simple Tree (Budget)</p>
-                    <p className="text-xs text-muted-foreground">5 strands of mini lights</p>
+                    <p className="text-xs text-muted-foreground">5 strands × 74 lights = 370 total lights</p>
                     <p className="text-lg font-bold text-primary mt-1">~$275</p>
                   </div>
                   <div className="border-t border-border pt-3">
                     <p className="font-semibold text-sm text-foreground">Large Maple or Pine (Magazine Quality)</p>
-                    <p className="text-xs text-muted-foreground">25-30 ft tall, all branches wrapped, 30 strands</p>
+                    <p className="text-xs text-muted-foreground">25-30 ft tall, all branches wrapped, 30 strands × 74 lights = 2,220 total lights</p>
                     <p className="text-lg font-bold text-accent mt-1">$1,650+</p>
                   </div>
                 </div>
