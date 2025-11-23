@@ -115,11 +115,11 @@ export default function Home() {
   ];
 
   const portfolioItems = [
-    { id: 1, image: completeHolidayScene, category: "Custom", title: "Full Yard Display" },
-    { id: 2, image: familyHolidayTradition, category: "Custom", title: "Family Photo" },
-    { id: 3, image: premiumCustomDisplay, category: "Custom", title: "Wrapped Trees" },
-    { id: 4, image: strikingNightDisplay, category: "Multicolor", title: "Multicolor Peaks and Columns" },
-    { id: 5, image: warmWhiteBushEstate, category: "Warm White", title: "Warm White Bushes" },
+    { id: 1, image: warmWhiteBushEstate, category: "Warm White", title: "Warm White Bushes" },
+    { id: 2, image: strikingNightDisplay, category: "Multicolor", title: "Multicolor Peaks and Columns" },
+    { id: 3, image: familyHolidayTradition, category: "Custom", title: "Family Photo" },
+    { id: 4, image: completeHolidayScene, category: "Custom", title: "Full Yard Display" },
+    { id: 5, image: premiumCustomDisplay, category: "Custom", title: "Wrapped Trees" },
     { id: 6, image: estateGate, category: "Custom", title: "Gate Lighting" },
     { id: 7, image: img3, category: "Warm White", title: "Traditional Warm White" },
     { id: 8, image: redTreeSnowmen, category: "Trees", title: "Red Tree with Snowmen" },
