@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { DollarSign, Home, Building2, Sparkles, CheckCircle2, TrendingUp, Clock, Shield, Phone } from "lucide-react";
 import { useLocation } from "wouter";
 
-import essentialPhoto from '@assets/2024-11-17-3-min_1762058047475.jpg';
+import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
 import signaturePhoto from '@assets/2024-11-11-2-min_1762058047476.jpg';
 import premierPhoto from '@assets/2024-12-03-min_1762058047476.jpg';
 import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
@@ -32,21 +32,21 @@ export default function InvestmentGuide() {
     {
       id: 1,
       name: "Example 1",
-      range: "~$1,400",
+      range: "~$900",
       icon: Home,
-      image: essentialPhoto,
-      description: "Two-story home in Sammamish",
+      image: modernTwoStoryRoofline,
+      description: "Elegant roofline installation",
       includes: [
-        "Roofline lighting",
-        "Bushes wrapped",
-        "Garage door outline",
-        "Red and white color scheme",
+        "Warm white roofline lighting",
+        "C9 LED bulbs",
         "Professional installation",
         "Seasonal maintenance",
         "Year-round storage",
-        "Next year reinstallation"
+        "Next year reinstallation",
+        "All-inclusive service",
+        "Complete setup included"
       ],
-      ideal: "Single-story or smaller homes with basic coverage"
+      ideal: "Single-story or smaller homes wanting clean roofline coverage"
     },
     {
       id: 2,
