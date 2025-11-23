@@ -6,6 +6,9 @@ import { Link } from "wouter";
 import logo from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761493054119.png';
 
 export default function Footer() {
+  const handleLinkClick = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
   return (
     <footer id="contact" className="bg-card border-t border-card-border">
       <div className="max-w-7xl mx-auto px-6 py-12">
@@ -13,29 +16,29 @@ export default function Footer() {
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Services</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link href="/" className="hover:text-primary transition-colors">Christmas Lighting</Link></li>
-              <li><Link href="/year-round-services" className="hover:text-primary transition-colors" data-testid="footer-link-year-round">Year-Round Services</Link></li>
-              <li><Link href="/product-guide" className="hover:text-primary transition-colors">Product Guide</Link></li>
+              <li><Link href="/" onClick={handleLinkClick} className="hover:text-primary transition-colors">Christmas Lighting</Link></li>
+              <li><Link href="/year-round-services" onClick={handleLinkClick} className="hover:text-primary transition-colors" data-testid="footer-link-year-round">Year-Round Services</Link></li>
+              <li><Link href="/product-guide" onClick={handleLinkClick} className="hover:text-primary transition-colors">Product Guide</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Company</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link href="/about" className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/#testimonials" className="hover:text-primary transition-colors">Testimonials</Link></li>
-              <li><Link href="/service-areas" className="hover:text-primary transition-colors">Service Areas</Link></li>
+              <li><Link href="/about" onClick={handleLinkClick} className="hover:text-primary transition-colors">About Us</Link></li>
+              <li><Link href="/#testimonials" onClick={handleLinkClick} className="hover:text-primary transition-colors">Testimonials</Link></li>
+              <li><Link href="/service-areas" onClick={handleLinkClick} className="hover:text-primary transition-colors">Service Areas</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold mb-4 text-foreground">Quick Links</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link href="/gallery" className="hover:text-primary transition-colors">Gallery</Link></li>
-              <li><Link href="/blog" className="hover:text-primary transition-colors">Blog</Link></li>
-              <li><Link href="/investment-guide" className="hover:text-primary transition-colors">Pricing</Link></li>
-              <li><Link href="/faq" className="hover:text-primary transition-colors">FAQ</Link></li>
-              <li><Link href="/contact" className="hover:text-primary transition-colors">Contact</Link></li>
+              <li><Link href="/gallery" onClick={handleLinkClick} className="hover:text-primary transition-colors">Gallery</Link></li>
+              <li><Link href="/blog" onClick={handleLinkClick} className="hover:text-primary transition-colors">Blog</Link></li>
+              <li><Link href="/investment-guide" onClick={handleLinkClick} className="hover:text-primary transition-colors">Pricing</Link></li>
+              <li><Link href="/faq" onClick={handleLinkClick} className="hover:text-primary transition-colors">FAQ</Link></li>
+              <li><Link href="/contact" onClick={handleLinkClick} className="hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
 
