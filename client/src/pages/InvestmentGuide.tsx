@@ -34,7 +34,7 @@ export default function InvestmentGuide() {
       range: "~$1,400",
       icon: Home,
       image: essentialPhoto,
-      description: "Single-story home",
+      description: "Two-story home in Sammamish",
       includes: [
         "Roofline lighting",
         "Bushes wrapped",
