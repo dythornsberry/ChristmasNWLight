@@ -257,6 +257,105 @@ export default function InvestmentGuide() {
         </div>
       </section>
 
+      {/* Price Per Unit Breakdown */}
+      <section className="py-24 bg-gradient-to-br from-primary/5 to-accent/5">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
+              Understanding Price Per Unit
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Here's how we break down costs for the most common installation types
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* Roofline Pricing */}
+            <Card className="p-8 shadow-lg">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="p-3 rounded-xl bg-primary/10 border border-primary/20">
+                  <Home className="w-8 h-8 text-primary" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-foreground">Roofline Lighting</h3>
+                  <p className="text-lg font-bold text-primary mt-1">$5–$12 per linear foot</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <p className="text-base text-foreground leading-relaxed">
+                  Cost depends on several factors:
+                </p>
+                <ul className="space-y-2">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-foreground"><strong>Roof steepness:</strong> Steep roofs cost more due to safety requirements</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-foreground"><strong>Roof type:</strong> Tile, metal, cedar, or specialty roofing requires extra care</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-foreground"><strong>Complexity:</strong> Number of peaks, valleys, and jumper connections</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
+                    <span className="text-sm text-foreground"><strong>Easy takedown:</strong> Roofline lights are simple to remove, keeping labor efficient</span>
+                  </li>
+                </ul>
+              </div>
+            </Card>
+
+            {/* Tree Lighting Pricing */}
+            <Card className="p-8 shadow-lg">
+              <div className="flex items-start gap-4 mb-6">
+                <div className="p-3 rounded-xl bg-accent/10 border border-accent/20">
+                  <Sparkles className="w-8 h-8 text-accent" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-bold text-foreground">Tree Lighting (Mini Lights)</h3>
+                  <p className="text-lg font-bold text-accent mt-1">$275–$1,650+ per tree</p>
+                </div>
+              </div>
+              <div className="space-y-4">
+                <p className="text-base text-foreground leading-relaxed">
+                  Trees are priced by the number of light strands needed:
+                </p>
+                <div className="bg-card/50 border border-border rounded-lg p-4 space-y-3">
+                  <div>
+                    <p className="font-semibold text-sm text-foreground">Simple Tree (Budget)</p>
+                    <p className="text-xs text-muted-foreground">5 strands of mini lights</p>
+                    <p className="text-lg font-bold text-primary mt-1">~$275</p>
+                  </div>
+                  <div className="border-t border-border pt-3">
+                    <p className="font-semibold text-sm text-foreground">Large Maple or Pine (Magazine Quality)</p>
+                    <p className="text-xs text-muted-foreground">25-30 ft tall, all branches wrapped, 30 strands</p>
+                    <p className="text-lg font-bold text-accent mt-1">$1,650+</p>
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-800 rounded p-3 mt-4">
+                  <strong>Important:</strong> Setup takes just as long as takedown. Mini lights wrap around branches and trunks, requiring labor-intensive wrapping and unwrapping. Large trees may need special equipment like aerial lifts or specialized ladder setups, significantly increasing professional installation costs.
+                </p>
+              </div>
+            </Card>
+          </div>
+
+          <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border border-gold/20 shadow-lg">
+            <div className="flex gap-6">
+              <div className="flex-shrink-0 pt-1">
+                <DollarSign className="w-8 h-8 text-primary" />
+              </div>
+              <div>
+                <h3 className="text-xl font-bold text-foreground mb-3">Why Professional Installation Adds Value</h3>
+                <p className="text-base text-foreground leading-relaxed">
+                  DIY mini light installation looks easy until you're climbing ladders in December wrapping branches. Professional installation with proper equipment, safety measures, and efficient labor delivers results that are worth every dollar. Plus you avoid rentals, product waste, storage headaches, and the risk of injury.
+                </p>
+              </div>
+            </div>
+          </Card>
+        </div>
+      </section>
+
       {/* What Affects Pricing */}
       <section className="py-24 bg-card/30">
         <div className="max-w-7xl mx-auto px-6">
