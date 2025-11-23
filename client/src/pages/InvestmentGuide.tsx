@@ -97,7 +97,7 @@ export default function InvestmentGuide() {
       range: "$10,000+",
       icon: Sparkles,
       image: purpleHalloweenHouse,
-      description: "Premium estate with complete property coverage",
+      description: "Bellevue premium estate with complete property coverage—Halloween + Christmas lighting",
       includes: [
         "Full roofline and ridgeline lighting",
         "50+ bushes and hedges wrapped",
