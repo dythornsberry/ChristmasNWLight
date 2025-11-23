@@ -70,7 +70,7 @@ export default function InvestmentGuide() {
     {
       id: 3,
       name: "Example 3",
-      range: "~$2,900",
+      range: "~$3,500",
       icon: Sparkles,
       image: premierPhoto,
       description: "Large home with steep roof in Mill Creek",

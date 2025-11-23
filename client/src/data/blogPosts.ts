@@ -722,9 +722,9 @@ Why this price? Tile roof added complexity (longer fastening time). Steeper pitc
 **Property:** Large home, 320+ linear feet of roofline, complex design across two levels, 7/12 pitch
 **Design:** Warm white comprehensive display with wrapped trees, landscape lighting, gate accents, driveway lighting
 **Installation Time:** 10 hours across 2 days
-**Cost:** ~$2,900
+**Cost:** ~$3,500
 
-Why this price? Large footage, steep roof, complex multi-level design. The design included 5 separate electrical zones due to the number of accent lights and feature areas. Total lighting coverage exceeded 2,000 linear feet. Complex roof pitch required careful planning and safety measures.
+Why this price? Large footage, steep roof, complex multi-level design. The design included 5 separate electrical zones due to the number of accent lights and feature areas. Total lighting coverage exceeded 2,000 linear feet. Complex roof pitch required careful planning and safety measures. This represents a premium installation with extensive features across a challenging property.
 
 ## What's Included in Our Pricing
 
