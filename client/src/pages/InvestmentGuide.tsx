@@ -32,7 +32,7 @@ export default function InvestmentGuide() {
     {
       id: 1,
       name: "Example 1",
-      range: "~$900",
+      range: "~$950",
       icon: Home,
       image: modernTwoStoryRoofline,
       description: "Elegant roofline installation",
@@ -74,7 +74,7 @@ export default function InvestmentGuide() {
       range: "~$3,500",
       icon: Sparkles,
       image: warmWhiteBushEstate,
-      description: "Clyde Hill estate with elegant warm white bushes and roofline",
+      description: "Bellevue home with elegant warm white bushes and roofline",
       includes: [
         "Full roofline coverage",
         "Wrapped bushes and hedges",
