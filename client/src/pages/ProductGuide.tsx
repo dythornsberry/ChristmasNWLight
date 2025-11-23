@@ -10,7 +10,7 @@ import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap, Flower2, Circle } fro
 
 import c9RooflinePhoto from '@assets/81s3L7gNl1L_1762096860729.jpg';
 import miniLightsPhoto from '@assets/Incan-Clear-6x15-Column-Wrap-02-lifestyle_1762096913912.jpg';
-import bushLightsPhoto from '@assets/Bush_Wrapped_in_Warm_White_Mini_LED_Lights_Certified_Lights_Display_Example_1763085106999.jpg';
+import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
 import groundLightsPhoto from '@assets/Ground-Lighting-Installation-Fort-Collins-CO_1762096982865.jpg';
 import treeWrapsPhoto from '@assets/81yZtNElctL_1762096926030.jpg';
 import bulbSizePhoto from '@assets/bulb size_1762106464988.jpg';
@@ -75,7 +75,7 @@ export default function ProductGuide() {
       id: 3,
       name: "Bush & Shrub Lighting",
       icon: Flower2,
-      image: bushLightsPhoto,
+      image: warmWhiteBushEstate,
       description: "Transform your landscaping into glowing works of art with professional bush and shrub lighting. Our expert wrapping technique creates stunning illuminated features that add depth and warmth to your display.",
       colors: ["Warm White", "Multicolor", "Red & Green"],
       useCases: [
