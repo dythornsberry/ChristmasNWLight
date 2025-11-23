@@ -67,6 +67,16 @@ import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
 import warmWhiteBushEstateAngle2 from '@assets/2025-11-19-2-min_1763645900967.jpg';
 import multicolorModernDeck from '@assets/2024-11-13-5-min_1763645900967.jpg';
 import multicolorTwoStoryHome from '@assets/2025-11-19-3-min_1763645900967.jpg';
+import porchRailings from '@assets/IMG_0581-min_1763866884564.jpeg';
+import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
+import rooflineWrappedTrees from '@assets/IMG_7339-min_1763866884565.jpeg';
+import singleStoryWithWreath from '@assets/IMG_7362-min_1763866884565.jpeg';
+import wrappedBushesDriveway from '@assets/IMG_7487-min_1763866884565.jpeg';
+import twoStoryWithChimney from '@assets/IMG_2546-min_1763866884565.jpeg';
+import multicolorTreeHouse from '@assets/IMG_6617-min_1763866884564.jpeg';
+import twoStoryLawnDecorations from '@assets/IMG_6949-min_1763866884565.jpeg';
+import hillsideHomeWithTrees from '@assets/IMG_7349-min_1763866884565.jpeg';
+import multipleWrappedTrees from '@assets/IMG_7468-min_1763866884565.jpeg';
 
 interface GalleryImage {
   id: number;
@@ -129,7 +139,17 @@ const galleryImages: GalleryImage[] = [
   { id: 50, src: modernHomeWithDeer, alt: "Modern home with warm white roofline, entryway accents, planters with lights, and decorative deer", category: "Custom", title: "Modern Home with Deer" },
   { id: 51, src: bareTreeWrap, alt: "Bare tree wrapped in warm white lights at night with decorative fencing", category: "Trees", title: "Bare Tree Wrap" },
   { id: 52, src: warmWhiteBushEstateAngle2, alt: "Warm white estate with illuminated hedge wall and roofline from side angle", category: "Warm White", title: "Hedge Wall Lighting" },
-  { id: 53, src: multicolorTwoStoryHome, alt: "Two-story home with multicolor roofline and warm white illuminated bushes", category: "Multicolor", title: "Multicolor with Warm White Bushes" }
+  { id: 53, src: multicolorTwoStoryHome, alt: "Two-story home with multicolor roofline and warm white illuminated bushes", category: "Multicolor", title: "Multicolor with Warm White Bushes" },
+  { id: 54, src: porchRailings, alt: "Home with warm white lights wrapping porch railings", category: "Warm White", title: "Porch Railings" },
+  { id: 55, src: modernTwoStoryRoofline, alt: "Modern two-story home with warm white roofline lighting", category: "Warm White", title: "Modern Two-Story Roofline" },
+  { id: 56, src: rooflineWrappedTrees, alt: "Home with warm white roofline and wrapped trees lighting", category: "Warm White", title: "Roofline and Wrapped Trees" },
+  { id: 57, src: singleStoryWithWreath, alt: "Single-story home with warm white roofline and decorative wreath", category: "Warm White", title: "Single-Story with Wreath" },
+  { id: 58, src: wrappedBushesDriveway, alt: "Warm white lights wrapping bushes along home driveway", category: "Warm White", title: "Wrapped Bushes Along Driveway" },
+  { id: 59, src: twoStoryWithChimney, alt: "Two-story home with warm white roofline wrapping chimney", category: "Warm White", title: "Two-Story with Chimney" },
+  { id: 60, src: multicolorTreeHouse, alt: "Home with multicolor tree and roofline lighting display", category: "Multicolor", title: "Multicolor Tree and House" },
+  { id: 61, src: twoStoryLawnDecorations, alt: "Two-story home with multicolor roofline and lawn decorations", category: "Multicolor", title: "Two-Story with Lawn Decorations" },
+  { id: 62, src: hillsideHomeWithTrees, alt: "Hillside home with warm white lighting and wrapped trees", category: "Trees", title: "Hillside Home with Trees" },
+  { id: 63, src: multipleWrappedTrees, alt: "Multiple trees wrapped in warm white lights on residential property", category: "Trees", title: "Multiple Wrapped Trees" }
 ];
 
 export default function GalleryPage() {
