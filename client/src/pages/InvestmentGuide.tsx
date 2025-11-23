@@ -34,19 +34,19 @@ export default function InvestmentGuide() {
       name: "Example 1",
       range: "~$1,400",
       icon: Home,
-      image: warmWhiteBushEstate,
-      description: "Estate home in Sammamish with warm white bushes",
+      image: essentialPhoto,
+      description: "Two-story home in Sammamish",
       includes: [
-        "Warm white roofline lighting",
-        "Wrapped bushes and hedges",
-        "Estate perimeter lighting",
+        "Roofline lighting",
+        "Bushes wrapped",
+        "Garage door outline",
+        "Red and white color scheme",
         "Professional installation",
         "Seasonal maintenance",
         "Year-round storage",
-        "Next year reinstallation",
-        "Full service included"
+        "Next year reinstallation"
       ],
-      ideal: "Homes with landscaping features wanting elegant warm white displays"
+      ideal: "Single-story or smaller homes with basic coverage"
     },
     {
       id: 2,
@@ -73,20 +73,20 @@ export default function InvestmentGuide() {
       name: "Example 3",
       range: "~$3,500",
       icon: Sparkles,
-      image: premierPhoto,
-      description: "Large home with steep roof in Mill Creek",
+      image: warmWhiteBushEstate,
+      description: "Estate with elegant warm white bushes and roofline",
       includes: [
         "Full roofline coverage",
+        "Wrapped bushes and hedges",
         "Multiple trees wrapped",
-        "Gate and driveway accents",
         "Ground lights throughout",
-        "Multiple bushes wrapped",
+        "Estate perimeter lighting",
         "Wreath installation",
         "Comprehensive design",
         "Professional installation",
         "Complete all-inclusive service"
       ],
-      ideal: "Large homes, steep roofs, or extensive multi-feature designs"
+      ideal: "Large homes with extensive landscaping wanting elegant displays"
     }
   ];
 
