@@ -13,6 +13,7 @@ import { useLocation } from "wouter";
 import essentialPhoto from '@assets/2024-11-17-3-min_1762058047475.jpg';
 import signaturePhoto from '@assets/2024-11-11-2-min_1762058047476.jpg';
 import premierPhoto from '@assets/2024-12-03-min_1762058047476.jpg';
+import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
 
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();
@@ -33,19 +34,19 @@ export default function InvestmentGuide() {
       name: "Example 1",
       range: "~$1,400",
       icon: Home,
-      image: essentialPhoto,
-      description: "Two-story home in Sammamish",
+      image: warmWhiteBushEstate,
+      description: "Estate home in Sammamish with warm white bushes",
       includes: [
-        "Roofline lighting",
-        "Bushes wrapped",
-        "Garage door outline",
-        "Red and white color scheme",
+        "Warm white roofline lighting",
+        "Wrapped bushes and hedges",
+        "Estate perimeter lighting",
         "Professional installation",
         "Seasonal maintenance",
         "Year-round storage",
-        "Next year reinstallation"
+        "Next year reinstallation",
+        "Full service included"
       ],
-      ideal: "Single-story or smaller homes with basic coverage"
+      ideal: "Homes with landscaping features wanting elegant warm white displays"
     },
     {
       id: 2,
