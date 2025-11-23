@@ -81,7 +81,7 @@ export default function InvestmentGuide() {
         "Multiple trees wrapped",
         "Ground lights throughout",
         "Estate perimeter lighting",
-        "Wreath installation",
+        "Mini light installations",
         "Comprehensive design",
         "Professional installation",
         "Complete all-inclusive service"
