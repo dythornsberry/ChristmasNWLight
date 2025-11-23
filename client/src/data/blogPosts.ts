@@ -663,7 +663,7 @@ A small cottage with 80 linear feet of roofline? That's maybe 4 strands of light
 
 Same with trees. Wrapping a 12-foot landscaping shrub takes 30 minutes. Wrapping a 40-foot spruce takes 2-3 hours and requires a lift in some cases.
 
-**Real example from Bellevue:** A two-story home in the Medina area had approximately 220 feet of roofline, 4 wrapped trees, and landscape lighting. Total footage: roughly 1,200 linear feet of lighting coverage. Installation cost: $1,850. That worked out to about $1.50 per linear foot when you factor in time and materials.
+**Real example from Bellevue:** A beautiful estate in the Bellevue area had approximately 150 feet of roofline, 5 wrapped trees, and extensive bush wrapping throughout the landscaping. Total footage: roughly 2,000+ linear feet of lighting coverage. Installation cost: $3,000. The majority of the work was the meticulous bush and hedge wrapping—that takes significantly more time and precision than roofline work alone, which is why this landed at the higher end despite smaller roofline footage.
 
 ### 2. Roof Steepness ($$)
 
@@ -678,7 +678,7 @@ A steep roof isn't just harder to navigate. It's exponentially more dangerous an
 
 A flat or low-slope roof (under 4/12 pitch) is straightforward. A medium slope (4/12 to 7/12 pitch) adds complexity. A steep roof (over 7/12 pitch) adds significant complexity and time.
 
-**Real example from Mill Creek:** This home had an 8/12 pitch metal roof with a complex pattern. What might cost $600 on a flat roof cost $1,100 on this roof. The difference? The roof pitch added 4 extra hours of work due to safety requirements and slower clip placement. That's the price difference right there.
+**Real example from Mill Creek:** This home had an 8/12 pitch metal roof with a challenging two-level design. What might cost $600 on a flat roof cost $1,100 on this roof. The difference? The roof pitch added 4 extra hours of work due to safety requirements and slower clip placement. Metal roofs also require different fastening techniques than typical asphalt. That's the price difference right there.
 
 ### 3. Roof Complexity: Jumper Wires and Connections ($$$)
 
