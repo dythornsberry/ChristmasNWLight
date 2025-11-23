@@ -34,7 +34,7 @@ export default function InvestmentGuide() {
       range: "~$1,400",
       icon: Home,
       image: essentialPhoto,
-      description: "Spanish-style home in Sammamish",
+      description: "Single-story home",
       includes: [
         "Roofline lighting",
         "Bushes wrapped",
@@ -54,7 +54,7 @@ export default function InvestmentGuide() {
       icon: Building2,
       image: signaturePhoto,
       popular: true,
-      description: "Two-story home in Woodinville",
+      description: "Two-story home in Bothell",
       includes: [
         "Complete roofline",
         "Wreath on front",
@@ -73,7 +73,7 @@ export default function InvestmentGuide() {
       range: "~$4,000",
       icon: Sparkles,
       image: premierPhoto,
-      description: "Large home with steep roof in Bellevue",
+      description: "Large home with steep roof in Mill Creek",
       includes: [
         "Full roofline coverage",
         "Roof ridges highlighted",
