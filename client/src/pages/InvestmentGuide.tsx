@@ -74,7 +74,7 @@ export default function InvestmentGuide() {
       range: "~$3,500",
       icon: Sparkles,
       image: warmWhiteBushEstate,
-      description: "Estate with elegant warm white bushes and roofline",
+      description: "Clyde Hill estate with elegant warm white bushes and roofline",
       includes: [
         "Full roofline coverage",
         "Wrapped bushes and hedges",
