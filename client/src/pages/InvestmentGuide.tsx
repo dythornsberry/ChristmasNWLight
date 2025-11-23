@@ -70,22 +70,22 @@ export default function InvestmentGuide() {
     {
       id: 3,
       name: "Example 3",
-      range: "~$4,000",
+      range: "~$2,900",
       icon: Sparkles,
       image: premierPhoto,
       description: "Large home with steep roof in Mill Creek",
       includes: [
         "Full roofline coverage",
-        "Roof ridges highlighted",
         "Multiple trees wrapped",
+        "Gate and driveway accents",
         "Ground lights throughout",
         "Multiple bushes wrapped",
         "Wreath installation",
-        "Garage door outline",
-        "Premium design for challenging architecture",
+        "Comprehensive design",
+        "Professional installation",
         "Complete all-inclusive service"
       ],
-      ideal: "Large homes, steep roofs, or extensive property coverage"
+      ideal: "Large homes, steep roofs, or extensive multi-feature designs"
     }
   ];
 
