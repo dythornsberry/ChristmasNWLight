@@ -11,7 +11,6 @@ import ContactPage from "@/pages/ContactPage";
 import GalleryPage from "@/pages/GalleryPage";
 import ProductGuide from "@/pages/ProductGuide";
 import InvestmentGuide from "@/pages/InvestmentGuide";
-import LightingOptions from "@/pages/LightingOptions";
 import YearRoundServices from "@/pages/YearRoundServices";
 import FAQPage from "@/pages/FAQPage";
 import BellevuePage from "@/pages/BellevuePage";
@@ -40,7 +39,6 @@ function Router() {
       <Route path="/services" component={ServicesPage} />
       <Route path="/gallery" component={GalleryPage} />
       <Route path="/product-guide" component={ProductGuide} />
-      <Route path="/lighting-options" component={LightingOptions} />
       <Route path="/investment-guide" component={InvestmentGuide} />
       <Route path="/year-round-services" component={YearRoundServices} />
       <Route path="/service-areas" component={ServiceAreasPage} />
