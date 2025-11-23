@@ -16,6 +16,7 @@ import premierPhoto from '@assets/2024-12-03-min_1762058047476.jpg';
 import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
 import redTreeSnowmen from '@assets/2024-11-28-2-min_1762058047476.jpg';
 import uniqueArchitecture from '@assets/2024-12-25-min_1762058047476.jpg';
+import purpleHalloweenHouse from '@assets/IMG_5468-min_1762396975618.jpeg';
 
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();
@@ -89,6 +90,28 @@ export default function InvestmentGuide() {
         "Complete all-inclusive service"
       ],
       ideal: "Large homes with extensive landscaping wanting elegant displays"
+    },
+    {
+      id: 4,
+      name: "Example 4",
+      range: "$10,000+",
+      icon: Sparkles,
+      image: purpleHalloweenHouse,
+      description: "Premium estate with complete property coverage",
+      includes: [
+        "Full roofline and ridgeline lighting",
+        "50+ bushes and hedges wrapped",
+        "Column wrapping throughout",
+        "Garage door outline lighting",
+        "Comprehensive ground lights",
+        "Multiple trees wrapped",
+        "Light post wrapping at driveway",
+        "Full holiday lighting design",
+        "Seasonal bulb conversion",
+        "Complete professional installation",
+        "Year-round service included"
+      ],
+      ideal: "Large estates wanting everything installed—full property transformation with complete holiday coverage"
     }
   ];
 
@@ -155,7 +178,7 @@ export default function InvestmentGuide() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {pricingTiers.map((tier) => {
               const Icon = tier.icon;
               return (
