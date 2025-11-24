@@ -48,7 +48,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "How much does Christmas light installation cost in 2025?",
-          answer: "Our professional Christmas light installation starts at $800 for residential homes in the Seattle metro area. This all-inclusive price covers commercial-grade LED lights, professional installation, maintenance throughout the season, professional takedown in January, and climate-controlled storage until next year. Most homes range from $800-$3,000 depending on size, roofline complexity, and design preferences. We offer three main packages: Classic Roofline ($800-$1,500), Signature Display ($1,500-$3,000), and Premier Estate ($3,000-$6,000+). Get an exact quote by filling out our free quote form."
+          answer: "Our professional Christmas light installation starts at $800 for residential homes in the Seattle metro area. Most installations range from $1,000-$2,000 for typical homes. Here's what to expect: Basic rooflines without complex cuts usually cost $800-$1,500. Comprehensive displays with bushes, trees, and multiple design elements typically run $1,000-$2,000. Larger estates with extensive property coverage (50+ bushes, multiple trees, full roofline and ridgeline, columns, ground lights) can reach $10,000 or more—especially tree jobs which are labor-intensive due to setup and takedown time. All prices include commercial-grade LED lights, professional installation, maintenance throughout the season, professional takedown in January, and climate-controlled storage until next year. Get an exact quote based on your specific home and design preferences."
         },
         {
           question: "What's included in your Christmas light installation service?",
@@ -122,12 +122,16 @@ export default function FAQPage() {
           answer: "Yes! We offer fully customized designs tailored to your home and preferences. Choose from warm white (classic elegant look), multicolor (festive traditional look), or custom color combinations. We also offer specialty designs including tree wrapping, ground lighting, pathway lights, and architectural accent lighting. Our design consultation is included in every installation."
         },
         {
+          question: "Can you install my client-owned lights or Govee lights?",
+          answer: "No. We only install our own professional-grade commercial lighting equipment. We cannot install client-provided lights, Govee lights, or lights from other companies. This policy ensures consistent quality, safety standards, warranty coverage, and allows us to provide our comprehensive maintenance and support throughout the season. Using our equipment means we can guarantee everything will work perfectly and be maintained all season long."
+        },
+        {
           question: "Do you hang lights that I already own?",
-          answer: "We only install our own professional-grade lighting and materials. This policy ensures consistent quality, safety standards, and allows us to provide our comprehensive warranty and maintenance coverage throughout the season. Using our equipment means we can guarantee everything will work perfectly and be maintained all season long."
+          answer: "No. We only install our own professional-grade lighting and materials. Whether it's lights from previous years, consumer brand lights, smart home systems like Govee, or any other third-party equipment—we cannot use them. This ensures every installation meets our quality standards, safety requirements, and allows us to provide our full warranty and 24/7 maintenance support."
         },
         {
           question: "Can you match the lights I had from another company?",
-          answer: "Yes, we can typically match or improve upon previous installations. During your design consultation, share photos or describe what you had before, and we'll create a similar or enhanced design using our commercial-grade equipment."
+          answer: "Yes, we can typically match or improve upon previous installations using our own commercial-grade equipment. During your design consultation, share photos or describe what you had before, and we'll create a similar or enhanced design using our professional-grade materials. However, we cannot use those previous lights—only our own equipment."
         }
       ]
     },
