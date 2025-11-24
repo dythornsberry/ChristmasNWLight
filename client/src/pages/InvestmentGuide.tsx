@@ -35,7 +35,7 @@ export default function InvestmentGuide() {
     {
       id: 1,
       name: "Example 1",
-      range: "~$950",
+      range: "~$900",
       icon: Home,
       image: modernTwoStoryRoofline,
       description: "Elegant roofline installation",
@@ -54,7 +54,7 @@ export default function InvestmentGuide() {
     {
       id: 2,
       name: "Example 2",
-      range: "~$2,100",
+      range: "~$2,000",
       icon: Building2,
       image: signaturePhoto,
       popular: true,
