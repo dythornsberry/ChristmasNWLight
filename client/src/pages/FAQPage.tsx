@@ -132,6 +132,10 @@ export default function FAQPage() {
         {
           question: "Can you match the lights I had from another company?",
           answer: "Yes, we can typically match or improve upon previous installations using our own commercial-grade equipment. During your design consultation, share photos or describe what you had before, and we'll create a similar or enhanced design using our professional-grade materials. However, we cannot use those previous lights—only our own equipment."
+        },
+        {
+          question: "Do you install trees by themselves?",
+          answer: "No. We only install trees as an addition to a roofline installation. Tree wrapping is labor-intensive and requires setup and takedown time equal to installation time, so we include it as part of a comprehensive home display. If you're interested in tree lighting, it must be combined with roofline or other primary home lighting as part of your project."
         }
       ]
     },
