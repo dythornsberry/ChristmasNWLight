@@ -23,6 +23,7 @@ import multicolorRoofline from '@assets/49563b654a08482eca22f0a3090b7ad0.jpg_176
 import truckInstallHome from '@assets/2024-11-12-3_1762398937574.jpg';
 import redColumnAccents from '@assets/a885e41a3786af553f91476ed6121d32.jpg-2_1762395700253.webp';
 import rooflineWrappedTrees from '@assets/IMG_7339-min_1763866884565.jpeg';
+import multicolorTreeHouse from '@assets/IMG_6617-min_1763866884564.jpeg';
 
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();
@@ -308,8 +309,8 @@ export default function InvestmentGuide() {
               <Card className="relative overflow-hidden shadow-lg hover-elevate" data-testid="card-additional-2">
                 <div className="relative h-48 overflow-hidden">
                   <WatermarkedImage
-                    src={rooflineWrappedTrees}
-                    alt="40 foot tree with roofline"
+                    src={multicolorTreeHouse}
+                    alt="Multicolor tree with roofline"
                     className="h-full"
                     enableLightbox={true}
                   />
@@ -420,7 +421,7 @@ export default function InvestmentGuide() {
                 <div className="p-8">
                   <div className="mb-4">
                     <h4 className="font-serif text-xl font-bold text-foreground mb-1">Red Column Accents</h4>
-                    <p className="text-2xl font-black text-primary">$1,810</p>
+                    <p className="text-2xl font-black text-primary">$1,750</p>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">Red and warm white roofline with column accents and garage door</p>
                   <ul className="space-y-2">
