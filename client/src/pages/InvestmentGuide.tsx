@@ -24,6 +24,7 @@ import truckInstallHome from '@assets/2024-11-12-3_1762398937574.jpg';
 import redColumnAccents from '@assets/a885e41a3786af553f91476ed6121d32.jpg-2_1762395700253.webp';
 import rooflineWrappedTrees from '@assets/IMG_7339-min_1763866884565.jpeg';
 import multicolorTreeHouse from '@assets/IMG_6617-min_1763866884564.jpeg';
+import stunningEstate from '@assets/2023-12-07-2_1762398525155.jpg';
 
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();
@@ -436,6 +437,40 @@ export default function InvestmentGuide() {
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
                       <span className="text-xs text-foreground">Garage door outline</span>
+                    </li>
+                  </ul>
+                </div>
+              </Card>
+
+              {/* Estate with Trees and Columns */}
+              <Card className="relative overflow-hidden shadow-lg hover-elevate" data-testid="card-additional-6">
+                <div className="relative h-48 overflow-hidden">
+                  <WatermarkedImage
+                    src={stunningEstate}
+                    alt="Estate with trees and columns"
+                    className="h-full"
+                    enableLightbox={true}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+                </div>
+                <div className="p-8">
+                  <div className="mb-4">
+                    <h4 className="font-serif text-xl font-bold text-foreground mb-1">Estate with Trees and Columns</h4>
+                    <p className="text-2xl font-black text-primary">$3,200</p>
+                  </div>
+                  <p className="text-sm text-muted-foreground mb-4">Custom estate display with wrapped trees, columns, and comprehensive coverage</p>
+                  <ul className="space-y-2">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-foreground">Wrapped trees</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-foreground">Column accents</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-foreground">Custom design</span>
                     </li>
                   </ul>
                 </div>
