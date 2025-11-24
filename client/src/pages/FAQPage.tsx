@@ -27,7 +27,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "How quickly can you get me installed?",
-          answer: "We pride ourselves on same-week installation during most of the season. Once you book, we typically complete your installation within 5-7 days. During our busiest weeks in mid-November and early December, it may take slightly longer, which is why we encourage early booking to secure your preferred date."
+          answer: "Within 3 days of your quote, we can book your installation date. The actual installation happens right after that, depending on how big the job is. Larger or more complex projects may take a bit longer to schedule, but we work hard to get you installed as quickly as possible."
         },
         {
           question: "Do you offer design help or do I pick the design?",
@@ -144,15 +144,15 @@ export default function FAQPage() {
       questions: [
         {
           question: "Do you offer permanent outdoor lighting?",
-          answer: "Yes! We offer year-round permanent lighting solutions starting at $1,500. These are architectural LED lights installed on your roofline that can be controlled via smartphone app to display any color for any holiday or occasion: red and green for Christmas, orange for Halloween, red/white/blue for July 4th, or any custom color scheme you want. They're perfect for homeowners who want beautiful outdoor lighting year-round without the hassle of seasonal installation. Learn more on our Year-Round Services page."
+          answer: "Yes, we offer permanent outdoor lighting, but we only install these in the off season because of the time and expertise required for a professional installation. These architectural LED lights can be controlled via smartphone app to display any color for any holiday or occasion. Contact us during the off season for a custom quote. Learn more on our Year-Round Services page."
         },
         {
           question: "Do you provide gutter cleaning services?",
-          answer: "Yes, through our partnership with Seattle ProWash, we offer professional gutter and roof maintenance services ($300-$500). Many homeowners appreciate the convenience of having gutters cleaned while we're taking down Christmas lights in January. This bundled service saves you time and ensures your home is maintained year-round."
+          answer: "Yes, we can bundle gutter cleaning with your Christmas light installation service if your gutters are in decent shape. If they're really neglected or have heavy buildup, we'll recommend waiting until the off season when we can give them proper attention. During takedown in January, many homeowners bundle gutter cleaning as part of their overall maintenance."
         },
         {
           question: "Can you install landscape or bistro lighting?",
-          answer: "Absolutely! We install custom landscape lighting, bistro lights for patios and outdoor entertainment areas, and event lighting for weddings or special occasions. These are year-round services separate from our Christmas lighting. Contact us for a custom quote based on your specific project."
+          answer: "Yes, we install custom landscape lighting and bistro lights for patios and outdoor entertainment areas, but all of these services are done in the off season. We focus exclusively on Christmas lighting from October through January, then handle our other specialty projects the rest of the year. Contact us during the off season for a custom quote based on your specific project."
         }
       ]
     },
@@ -165,7 +165,7 @@ export default function FAQPage() {
         },
         {
           question: "When is payment due?",
-          answer: "Payment is due after installation is complete. We accept all major payment methods."
+          answer: "Payment is due after installation is complete. About 99% of our clients pay online by credit card, debit card, or ACH transfer. We also accept any other payment method you prefer."
         },
         {
           question: "Can I get a free quote without committing?",
