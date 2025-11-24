@@ -17,6 +17,7 @@ import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
 import redTreeSnowmen from '@assets/2024-11-28-2-min_1762058047476.jpg';
 import uniqueArchitecture from '@assets/2024-12-25-min_1762058047476.jpg';
 import purpleHalloweenHouse from '@assets/IMG_5468-min_1762396975618.jpeg';
+import halloweenShowcase from '@assets/IMG_5469-min_1764000951410.jpeg';
 
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();
@@ -94,24 +95,23 @@ export default function InvestmentGuide() {
     {
       id: 4,
       name: "Example 4",
-      range: "$10,000+",
+      range: "$5,000+",
       icon: Sparkles,
-      image: purpleHalloweenHouse,
-      description: "Bellevue premium estate with complete property coverage - Halloween and Christmas lighting",
+      image: halloweenShowcase,
+      description: "Premium Halloween display with full property coverage",
       includes: [
-        "Full roofline and ridgeline lighting",
-        "50+ bushes and hedges wrapped",
-        "Column wrapping throughout",
-        "Garage door outline lighting",
-        "Comprehensive ground lights",
-        "Multiple trees wrapped",
-        "Light post wrapping at driveway",
-        "Full holiday lighting design",
-        "Seasonal bulb conversion",
+        "Full roofline outline lighting",
+        "Bushes and trees wrapped",
+        "House facade uplighting",
+        "Yard decorations and spotlights",
+        "Driveway and entrance lighting",
+        "Custom Halloween color design",
+        "Column accent lighting",
+        "Ground and pathway lights",
         "Complete professional installation",
-        "Year-round service included"
+        "Halloween season service included"
       ],
-      ideal: "Large estates wanting everything installed - full property transformation with complete holiday coverage"
+      ideal: "Homes wanting a complete Halloween transformation with stunning visual impact"
     }
   ];
 
