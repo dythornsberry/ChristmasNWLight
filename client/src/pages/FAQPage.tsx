@@ -23,23 +23,23 @@ export default function FAQPage() {
 
   const faqCategories = [
     {
-      category: "Service Areas & Coverage",
+      category: "Common Questions",
       questions: [
         {
-          question: "What areas do you serve for Christmas light installation?",
-          answer: "ChristmasNW serves the entire north Seattle metro area. We're based in Kenmore and proudly serve Seattle, Kenmore, Bothell, Kirkland, Lynnwood, Woodinville, Bellevue, Medina, Clyde Hill, Yarrow Point, Sammamish, Redmond, Edmonds, Shoreline, and Mill Creek. If you're in the Greater Seattle area and don't see your city listed, contact us. We often service surrounding communities as well."
+          question: "How quickly can you get me installed?",
+          answer: "We pride ourselves on same-week installation during most of the season. Once you book, we typically complete your installation within 5-7 days. During our busiest weeks in mid-November and early December, it may take slightly longer, which is why we encourage early booking to secure your preferred date."
         },
         {
-          question: "Do you install Christmas lights in Bellevue and the Eastside?",
-          answer: "Yes! We provide full-service Christmas light installation throughout Bellevue, Medina, Clyde Hill, Yarrow Point, Sammamish, Redmond, Woodinville, and Kirkland. The Eastside is one of our primary service areas, and we complete dozens of installations in these communities every season."
+          question: "Do you offer design help or do I pick the design?",
+          answer: "We handle all the design work for you. During your free quote consultation, we discuss your vision—whether you prefer warm white (elegant), multicolor (festive), or a custom look. We then create a professional design recommendation based on your home's architecture and your preferences. You approve the design before we install, so you're in complete control."
         },
         {
-          question: "Can you install holiday lights in Bothell, Lynnwood, and Edmonds?",
-          answer: "Absolutely. We serve Bothell, Lynnwood, Edmonds, Shoreline, Mill Creek, and surrounding north Seattle communities. Being based in Kenmore puts us centrally located to serve the entire north metro area efficiently."
+          question: "What if I don't like my lights after installation?",
+          answer: "We offer a 100% satisfaction guarantee. If you're not completely happy with your installation, we'll make adjustments or provide a full refund. We've served 300+ homes annually and built our reputation on customer satisfaction, so your happiness is our top priority."
         },
         {
-          question: "Where is ChristmasNW located?",
-          answer: "ChristmasNW is based in Kenmore, Washington, which allows us to efficiently serve the entire north Seattle metro area including Bothell, Kirkland, Woodinville, Bellevue, Redmond, and all surrounding communities."
+          question: "How do I know the price is fair?",
+          answer: "We're transparent about pricing. Our Investment Guide shows real customer examples with actual photos and prices, so you can see exactly what installations cost. Pricing depends on roofline length, complexity, roof type/steepness, tree size, bush count, and design. We break down per-unit pricing ($5-$12/ft for rooflines, $275-$1,650+ per tree) so you understand what you're paying for. Get a free custom quote based on your specific home."
         }
       ]
     },
