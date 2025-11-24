@@ -31,7 +31,7 @@ export default function FAQPage() {
         },
         {
           question: "Do you offer design help or do I pick the design?",
-          answer: "We handle all the design work for you. During your free quote consultation, we discuss your vision—whether you prefer warm white (elegant), multicolor (festive), or a custom look. We then create a professional design recommendation based on your home's architecture and your preferences. You approve the design before we install, so you're in complete control."
+          answer: "We handle all the design work for you. During your free quote consultation, we discuss your vision: warm white (elegant), multicolor (festive), or a custom look. We then create a professional design recommendation based on your home's architecture and your preferences. You approve the design before we install, so you're in complete control."
         },
         {
           question: "What if I don't like my lights after installation?",
@@ -48,7 +48,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "How much does Christmas light installation cost in 2025?",
-          answer: "Our professional Christmas light installation starts at $800 for residential homes in the Seattle metro area. Most installations range from $1,000-$2,000 for typical homes. Here's what to expect: Basic rooflines without complex cuts usually cost $800-$1,500. Comprehensive displays with bushes, trees, and multiple design elements typically run $1,000-$2,000. Larger estates with extensive property coverage (50+ bushes, multiple trees, full roofline and ridgeline, columns, ground lights) can reach $10,000 or more—especially tree jobs which are labor-intensive due to setup and takedown time. All prices include commercial-grade LED lights, professional installation, maintenance throughout the season, professional takedown in January, and climate-controlled storage until next year. Get an exact quote based on your specific home and design preferences."
+          answer: "Our professional Christmas light installation starts at $800 for residential homes in the Seattle metro area. Most installations range from $1,000-$2,000 for typical homes. Here's what to expect: Basic rooflines without complex cuts usually cost $800-$1,500. Comprehensive displays with bushes, trees, and multiple design elements typically run $1,000-$2,000. Larger estates with extensive property coverage (50+ bushes, multiple trees, full roofline and ridgeline, columns, ground lights) can reach $10,000 or more, especially tree jobs which are labor-intensive due to setup and takedown time. All prices include commercial-grade LED lights, professional installation, maintenance throughout the season, professional takedown in January, and climate-controlled storage until next year. Get an exact quote based on your specific home and design preferences."
         },
         {
           question: "What's included in your Christmas light installation service?",
@@ -127,11 +127,11 @@ export default function FAQPage() {
         },
         {
           question: "Do you hang lights that I already own?",
-          answer: "No. We only install our own professional-grade lighting and materials. Whether it's lights from previous years, consumer brand lights, smart home systems like Govee, or any other third-party equipment—we cannot use them. This ensures every installation meets our quality standards, safety requirements, and allows us to provide our full warranty and 24/7 maintenance support."
+          answer: "No. We only install our own professional-grade lighting and materials. Whether it's lights from previous years, consumer brand lights, smart home systems like Govee, or any other third-party equipment - we cannot use them. This ensures every installation meets our quality standards, safety requirements, and allows us to provide our full warranty and 24/7 maintenance support."
         },
         {
           question: "Can you match the lights I had from another company?",
-          answer: "Yes, we can typically match or improve upon previous installations using our own commercial-grade equipment. During your design consultation, share photos or describe what you had before, and we'll create a similar or enhanced design using our professional-grade materials. However, we cannot use those previous lights—only our own equipment."
+          answer: "Yes, we can typically match or improve upon previous installations using our own commercial-grade equipment. During your design consultation, share photos or describe what you had before, and we'll create a similar or enhanced design using our professional-grade materials. We cannot use those previous lights - only our own equipment."
         },
         {
           question: "Do you install trees by themselves?",

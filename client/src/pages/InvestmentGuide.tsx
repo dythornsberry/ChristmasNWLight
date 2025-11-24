@@ -97,7 +97,7 @@ export default function InvestmentGuide() {
       range: "$10,000+",
       icon: Sparkles,
       image: purpleHalloweenHouse,
-      description: "Bellevue premium estate with complete property coverage—Halloween + Christmas lighting",
+      description: "Bellevue premium estate with complete property coverage - Halloween and Christmas lighting",
       includes: [
         "Full roofline and ridgeline lighting",
         "50+ bushes and hedges wrapped",
@@ -111,7 +111,7 @@ export default function InvestmentGuide() {
         "Complete professional installation",
         "Year-round service included"
       ],
-      ideal: "Large estates wanting everything installed—full property transformation with complete holiday coverage"
+      ideal: "Large estates wanting everything installed - full property transformation with complete holiday coverage"
     }
   ];
 
