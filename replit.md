@@ -6,6 +6,7 @@ Christmas Northwest is a conversion-focused multi-page website for a professiona
 ## User Preferences
 Preferred communication style: Simple, everyday language - avoid em dashes and AI-sounding text.
 Design approach: Visual-first homepage redesign inspired by WiseGuys Lights (more images, less text, gallery/reviews upfront). Conversion-focused layout with simplified process, 2-card services, and clean hierarchy.
+**CORE PRINCIPLE: Keep the website ridiculously simple and easy to understand, especially the pricing page.** Prioritize clarity and straightforward information over detailed explanations.
 CTA preference: Use "Light Up My Home ✨" for emotional appeal and customer-focused messaging instead of generic "consultation" or "request" language.
 Navigation philosophy: "Header = what 95% of visitors need, Footer = everything else"
 Photo caption style: Simple, minimal descriptive captions (NOT marketing-y titles). Examples: "Multicolor Peaks and Columns" instead of "Striking Night Display", "Warm White Bushes" instead of "Elegant Warm White Estate", "Gate Lighting" instead of "Grand Estate Entrance". Just describe what you see in straightforward terms.
