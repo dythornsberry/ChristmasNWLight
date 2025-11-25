@@ -273,106 +273,94 @@ export default function InvestmentGuide() {
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               {/* Multicolor Peaks and Columns */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-1">
-                <div className="relative h-80 overflow-hidden">
-                  <WatermarkedImage
-                    src={multicolorPeaksColumns}
-                    alt="Multicolor peaks and columns example"
-                    className="h-full"
-                    enableLightbox={true}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-1">
+                <WatermarkedImage
+                  src={multicolorPeaksColumns}
+                  alt="Multicolor peaks and columns example"
+                  className="h-full w-full"
+                  enableLightbox={true}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h4 className="font-serif text-lg font-bold text-white mb-1">Multicolor Peaks</h4>
+                  <p className="text-2xl font-black text-amber-400">$1,600</p>
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Multicolor Peaks</h4>
-                  <p className="text-2xl font-black text-primary">$1,600</p>
-                </div>
-              </Card>
+              </div>
 
               {/* Wrapped Trees and Roofline */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-2">
-                <div className="relative h-80 overflow-hidden">
-                  <WatermarkedImage
-                    src={multicolorTreeHouse}
-                    alt="Multicolor tree with roofline"
-                    className="h-full"
-                    enableLightbox={true}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-2">
+                <WatermarkedImage
+                  src={multicolorTreeHouse}
+                  alt="Multicolor tree with roofline"
+                  className="h-full w-full"
+                  enableLightbox={true}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h4 className="font-serif text-lg font-bold text-white mb-1">Tree & Roofline</h4>
+                  <p className="text-2xl font-black text-amber-400">$3,500</p>
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Tree & Roofline</h4>
-                  <p className="text-2xl font-black text-primary">$3,500</p>
-                </div>
-              </Card>
+              </div>
 
               {/* Warm White Ridges and Rooflines */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-3">
-                <div className="relative h-80 overflow-hidden">
-                  <WatermarkedImage
-                    src={multicolorRoofline}
-                    alt="Warm white ridges and rooflines"
-                    className="h-full"
-                    enableLightbox={true}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-3">
+                <WatermarkedImage
+                  src={multicolorRoofline}
+                  alt="Warm white ridges and rooflines"
+                  className="h-full w-full"
+                  enableLightbox={true}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h4 className="font-serif text-lg font-bold text-white mb-1">Warm White Roofline</h4>
+                  <p className="text-2xl font-black text-amber-400">$2,500</p>
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Warm White Roofline</h4>
-                  <p className="text-2xl font-black text-primary">$2,500</p>
-                </div>
-              </Card>
+              </div>
 
               {/* Installation in Progress */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-4">
-                <div className="relative h-80 overflow-hidden">
-                  <WatermarkedImage
-                    src={truckInstallHome}
-                    alt="Installation in progress"
-                    className="h-full"
-                    enableLightbox={true}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-4">
+                <WatermarkedImage
+                  src={truckInstallHome}
+                  alt="Installation in progress"
+                  className="h-full w-full"
+                  enableLightbox={true}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h4 className="font-serif text-lg font-bold text-white mb-1">Red & White Basics</h4>
+                  <p className="text-2xl font-black text-amber-400">$1,000</p>
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Red & White Basics</h4>
-                  <p className="text-2xl font-black text-primary">$1,000</p>
-                </div>
-              </Card>
+              </div>
 
               {/* Red Column Accents */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-5">
-                <div className="relative h-80 overflow-hidden">
-                  <WatermarkedImage
-                    src={redColumnAccents}
-                    alt="Red and warm white column accents"
-                    className="h-full"
-                    enableLightbox={true}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-5">
+                <WatermarkedImage
+                  src={redColumnAccents}
+                  alt="Red and warm white column accents"
+                  className="h-full w-full"
+                  enableLightbox={true}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h4 className="font-serif text-lg font-bold text-white mb-1">Red Column Accents</h4>
+                  <p className="text-2xl font-black text-amber-400">$1,750</p>
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Red Column Accents</h4>
-                  <p className="text-2xl font-black text-primary">$1,750</p>
-                </div>
-              </Card>
+              </div>
 
               {/* Estate with Trees and Columns */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-6">
-                <div className="relative h-80 overflow-hidden">
-                  <WatermarkedImage
-                    src={stunningEstate}
-                    alt="Estate with trees and columns"
-                    className="h-full"
-                    enableLightbox={true}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-6">
+                <WatermarkedImage
+                  src={stunningEstate}
+                  alt="Estate with trees and columns"
+                  className="h-full w-full"
+                  enableLightbox={true}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-4">
+                  <h4 className="font-serif text-lg font-bold text-white mb-1">Estate Trees & Columns</h4>
+                  <p className="text-2xl font-black text-amber-400">$3,200</p>
                 </div>
-                <div className="p-6 flex flex-col flex-grow">
-                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Estate Trees & Columns</h4>
-                  <p className="text-2xl font-black text-primary">$3,200</p>
-                </div>
-              </Card>
+              </div>
             </div>
           </div>
 
