@@ -46,18 +46,9 @@ export default function InvestmentGuide() {
       range: "~$900",
       icon: Home,
       image: modernTwoStoryRoofline,
-      description: "Elegant roofline installation",
-      includes: [
-        "Warm white roofline lighting",
-        "C9 LED bulbs",
-        "Professional installation",
-        "Seasonal maintenance",
-        "Year-round storage",
-        "Next year reinstallation",
-        "All-inclusive service",
-        "Complete setup included"
-      ],
-      ideal: "Single-story or smaller homes wanting clean roofline coverage"
+      description: "Clean roofline lighting in Bothell",
+      includes: [],
+      ideal: ""
     },
     {
       id: 2,
@@ -66,18 +57,9 @@ export default function InvestmentGuide() {
       icon: Building2,
       image: signaturePhoto,
       popular: true,
-      description: "Two-story home in Bothell",
-      includes: [
-        "Complete roofline",
-        "Wreath on front",
-        "Mistletoe roof line pattern at peaks",
-        "Multicolor C9 bulbs",
-        "Multiple bushes wrapped",
-        "Ground lights along pathway",
-        "Archway lighting",
-        "Full service included"
-      ],
-      ideal: "Most homes wanting comprehensive front display"
+      description: "Roofline with wreath, bushes, archway, mistletoe pattern in Bothell",
+      includes: [],
+      ideal: ""
     },
     {
       id: 3,
@@ -85,19 +67,9 @@ export default function InvestmentGuide() {
       range: "~$3,500",
       icon: Sparkles,
       image: warmWhiteBushEstate,
-      description: "Bellevue home with elegant warm white bushes and roofline",
-      includes: [
-        "Full roofline coverage",
-        "Wrapped bushes and hedges",
-        "Multiple trees wrapped",
-        "Ground lights throughout",
-        "Estate perimeter lighting",
-        "Mini light installations",
-        "Comprehensive design",
-        "Professional installation",
-        "Complete all-inclusive service"
-      ],
-      ideal: "Large homes with extensive landscaping wanting elegant displays"
+      description: "Full roofline with dozens of wrapped trees and bushes in Bellevue",
+      includes: [],
+      ideal: ""
     },
     {
       id: 4,
@@ -105,20 +77,9 @@ export default function InvestmentGuide() {
       range: "$5,000+",
       icon: Sparkles,
       image: halloweenShowcase,
-      description: "Premium Halloween display with full property coverage",
-      includes: [
-        "Full roofline outline lighting",
-        "Bushes and trees wrapped",
-        "House facade uplighting",
-        "Yard decorations and spotlights",
-        "Driveway and entrance lighting",
-        "Custom Halloween color design",
-        "Column accent lighting",
-        "Ground and pathway lights",
-        "Complete professional installation",
-        "Halloween season service included"
-      ],
-      ideal: "Homes wanting a complete Halloween transformation with stunning visual impact"
+      description: "Complete Halloween display: roofline, ridgeline, 50+ bushes, columns, garage door",
+      includes: [],
+      ideal: ""
     }
   ];
 
@@ -205,9 +166,10 @@ export default function InvestmentGuide() {
                   className="h-full w-full"
                   enableLightbox={true}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <h3 className="font-serif text-2xl font-bold text-white mb-1">{tier.name}</h3>
+                  <p className="text-sm text-amber-200 mb-2 leading-snug">{tier.description}</p>
+                  <h3 className="font-serif text-lg font-bold text-white mb-2">{tier.name}</h3>
                   <p className="text-3xl font-black text-amber-400">{tier.range}</p>
                 </div>
               </div>
