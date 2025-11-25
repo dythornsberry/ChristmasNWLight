@@ -185,86 +185,33 @@ export default function InvestmentGuide() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {pricingTiers.map((tier) => {
-              const Icon = tier.icon;
-              return (
-                <Card 
-                  key={tier.id}
-                  className={`relative overflow-hidden shadow-xl hover-elevate ${
-                    tier.popular ? 'border-2 border-primary' : ''
-                  }`}
-                  data-testid={`card-pricing-${tier.id}`}
-                >
-                  {tier.popular && (
-                    <div className="absolute top-0 left-0 right-0 z-10">
-                      <div className="bg-primary text-primary-foreground text-center py-2 text-sm font-bold">
-                        MOST POPULAR
-                      </div>
-                    </div>
-                  )}
-                  
-                  {/* Example Photo */}
-                  <div className="relative h-48 overflow-hidden">
-                    <WatermarkedImage
-                      src={tier.image}
-                      alt={`${tier.name} example`}
-                      className="h-full"
-                      enableLightbox={true}
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
-                    <div className="absolute bottom-4 left-4 right-4 pointer-events-none">
-                      <p className="text-xs text-white/90 font-medium">
-                        Example {tier.name}
-                      </p>
-                    </div>
+          <div className="grid md:grid-cols-2 gap-6">
+            {pricingTiers.map((tier) => (
+              <div
+                key={tier.id}
+                className={`relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group ${
+                  tier.popular ? 'ring-2 ring-primary' : ''
+                }`}
+                data-testid={`card-pricing-${tier.id}`}
+              >
+                {tier.popular && (
+                  <div className="absolute top-4 right-4 z-20 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold">
+                    POPULAR
                   </div>
-                  
-                  <div className="p-8">
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="p-3 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 border border-gold/20">
-                        <Icon className="w-8 h-8 text-primary" />
-                      </div>
-                      <div>
-                        <h3 className="font-serif text-2xl font-bold text-foreground">
-                          {tier.name}
-                        </h3>
-                        <p className="text-2xl font-black text-primary mt-1">
-                          {tier.range}
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="text-base text-muted-foreground mb-6 leading-relaxed">
-                      {tier.description}
-                    </p>
-
-                    <div className="mb-6">
-                      <h4 className="text-sm font-bold text-foreground mb-4 uppercase tracking-wide">
-                        What Was Installed
-                      </h4>
-                      <ul className="space-y-3">
-                        {tier.includes.map((item, i) => (
-                          <li key={i} className="flex items-start gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                            <span className="text-sm text-foreground">{item}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    <div className="pt-6 border-t border-border">
-                      <p className="text-xs text-muted-foreground mb-2 font-semibold uppercase">
-                        Similar Homes
-                      </p>
-                      <p className="text-sm text-foreground">
-                        {tier.ideal}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              );
-            })}
+                )}
+                <WatermarkedImage
+                  src={tier.image}
+                  alt={`${tier.name} example`}
+                  className="h-full w-full"
+                  enableLightbox={true}
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-6">
+                  <h3 className="font-serif text-2xl font-bold text-white mb-1">{tier.name}</h3>
+                  <p className="text-3xl font-black text-amber-400">{tier.range}</p>
+                </div>
+              </div>
+            ))}
           </div>
 
           <div className="mt-16 pt-16 border-t-2 border-border">
