@@ -271,208 +271,106 @@ export default function InvestmentGuide() {
             <h3 className="font-serif text-3xl font-bold text-foreground mb-12 text-center">
               More Real Examples
             </h3>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-3 gap-6">
               {/* Multicolor Peaks and Columns */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate" data-testid="card-additional-1">
-                <div className="relative h-48 overflow-hidden">
+              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-1">
+                <div className="relative h-80 overflow-hidden">
                   <WatermarkedImage
                     src={multicolorPeaksColumns}
                     alt="Multicolor peaks and columns example"
                     className="h-full"
                     enableLightbox={true}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
                 </div>
-                <div className="p-8">
-                  <div className="mb-4">
-                    <h4 className="font-serif text-xl font-bold text-foreground mb-1">Multicolor Peaks and Columns</h4>
-                    <p className="text-2xl font-black text-primary">$1,600</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">3-story home with multicolor roofline, wreath, columns, and custom wrapped trees</p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Multicolor roofline</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Multicolor columns</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Custom wrapped trees</span>
-                    </li>
-                  </ul>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Multicolor Peaks</h4>
+                  <p className="text-2xl font-black text-primary">$1,600</p>
                 </div>
               </Card>
 
               {/* Wrapped Trees and Roofline */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate" data-testid="card-additional-2">
-                <div className="relative h-48 overflow-hidden">
+              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-2">
+                <div className="relative h-80 overflow-hidden">
                   <WatermarkedImage
                     src={multicolorTreeHouse}
                     alt="Multicolor tree with roofline"
                     className="h-full"
                     enableLightbox={true}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
                 </div>
-                <div className="p-8">
-                  <div className="mb-4">
-                    <h4 className="font-serif text-xl font-bold text-foreground mb-1">Custom Wrapped Trees & Roofline</h4>
-                    <p className="text-2xl font-black text-primary">$3,500</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">40-foot tree with roofline - requires lift equipment</p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">40 ft tree wrap</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Aerial lift required</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Roofline included</span>
-                    </li>
-                  </ul>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Tree & Roofline</h4>
+                  <p className="text-2xl font-black text-primary">$3,500</p>
                 </div>
               </Card>
 
               {/* Warm White Ridges and Rooflines */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate" data-testid="card-additional-3">
-                <div className="relative h-48 overflow-hidden">
+              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-3">
+                <div className="relative h-80 overflow-hidden">
                   <WatermarkedImage
                     src={multicolorRoofline}
                     alt="Warm white ridges and rooflines"
                     className="h-full"
                     enableLightbox={true}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
                 </div>
-                <div className="p-8">
-                  <div className="mb-4">
-                    <h4 className="font-serif text-xl font-bold text-foreground mb-1">Warm White Ridges and Rooflines</h4>
-                    <p className="text-2xl font-black text-primary">$2,500</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">Complete warm white roofline and ridges - approximately 400 linear feet</p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Full roofline coverage</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Ridge lighting</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Warm white bulbs</span>
-                    </li>
-                  </ul>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Warm White Roofline</h4>
+                  <p className="text-2xl font-black text-primary">$2,500</p>
                 </div>
               </Card>
 
               {/* Installation in Progress */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate" data-testid="card-additional-4">
-                <div className="relative h-48 overflow-hidden">
+              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-4">
+                <div className="relative h-80 overflow-hidden">
                   <WatermarkedImage
                     src={truckInstallHome}
                     alt="Installation in progress"
                     className="h-full"
                     enableLightbox={true}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
                 </div>
-                <div className="p-8">
-                  <div className="mb-4">
-                    <h4 className="font-serif text-xl font-bold text-foreground mb-1">Red and Warm White Basics</h4>
-                    <p className="text-2xl font-black text-primary">~$1,000</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">Red and warm white roofline with garage door outline</p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Roofline lighting</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Garage door outline</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Red and warm white mix</span>
-                    </li>
-                  </ul>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Red & White Basics</h4>
+                  <p className="text-2xl font-black text-primary">$1,000</p>
                 </div>
               </Card>
 
               {/* Red Column Accents */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate" data-testid="card-additional-5">
-                <div className="relative h-48 overflow-hidden">
+              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-5">
+                <div className="relative h-80 overflow-hidden">
                   <WatermarkedImage
                     src={redColumnAccents}
                     alt="Red and warm white column accents"
                     className="h-full"
                     enableLightbox={true}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
                 </div>
-                <div className="p-8">
-                  <div className="mb-4">
-                    <h4 className="font-serif text-xl font-bold text-foreground mb-1">Red Column Accents</h4>
-                    <p className="text-2xl font-black text-primary">$1,750</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">Red and warm white roofline with column accents and garage door</p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Roofline coverage</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Red and white columns</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Garage door outline</span>
-                    </li>
-                  </ul>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Red Column Accents</h4>
+                  <p className="text-2xl font-black text-primary">$1,750</p>
                 </div>
               </Card>
 
               {/* Estate with Trees and Columns */}
-              <Card className="relative overflow-hidden shadow-lg hover-elevate" data-testid="card-additional-6">
-                <div className="relative h-48 overflow-hidden">
+              <Card className="relative overflow-hidden shadow-lg hover-elevate flex flex-col" data-testid="card-additional-6">
+                <div className="relative h-80 overflow-hidden">
                   <WatermarkedImage
                     src={stunningEstate}
                     alt="Estate with trees and columns"
                     className="h-full"
                     enableLightbox={true}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
                 </div>
-                <div className="p-8">
-                  <div className="mb-4">
-                    <h4 className="font-serif text-xl font-bold text-foreground mb-1">Estate with Trees and Columns</h4>
-                    <p className="text-2xl font-black text-primary">$3,200</p>
-                  </div>
-                  <p className="text-sm text-muted-foreground mb-4">Custom estate display with wrapped trees, columns, and comprehensive coverage</p>
-                  <ul className="space-y-2">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Wrapped trees</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Column accents</span>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-xs text-foreground">Custom design</span>
-                    </li>
-                  </ul>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h4 className="font-serif text-lg font-bold text-foreground mb-1">Estate Trees & Columns</h4>
+                  <p className="text-2xl font-black text-primary">$3,200</p>
                 </div>
               </Card>
             </div>
