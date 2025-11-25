@@ -221,7 +221,7 @@ export default function InvestmentGuide() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 className="font-serif text-lg font-bold text-white mb-1">Warm White Roofline</h4>
+                  <h4 className="font-serif text-base font-bold text-white mb-1">Warm White Roofline & Ridges (Gingerbread style)</h4>
                   <p className="text-2xl font-black text-amber-400">$2,500</p>
                 </div>
               </div>
