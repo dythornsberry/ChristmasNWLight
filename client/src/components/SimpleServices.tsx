@@ -50,7 +50,7 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
                 className="w-full bg-primary text-primary-foreground"
                 data-testid="button-service-christmas"
               >
-                Get Free Quote
+                Light Up My Home ✨
               </Button>
             </div>
           </Card>
@@ -92,7 +92,7 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
                 className="w-full bg-primary text-primary-foreground"
                 data-testid="button-service-commercial"
               >
-                Get Free Quote
+                Light Up My Home ✨
               </Button>
             </div>
           </Card>

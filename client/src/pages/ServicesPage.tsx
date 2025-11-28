@@ -131,7 +131,7 @@ export default function ServicesPage() {
                 className="bg-primary text-primary-foreground font-semibold"
                 data-testid="button-services-hero-quote"
               >
-                Get Free Quote
+                Light Up My Home ✨
               </Button>
             </div>
           </div>
@@ -380,7 +380,7 @@ export default function ServicesPage() {
                 className="bg-background text-foreground hover:bg-background/90 font-semibold border-2 border-primary-foreground/20"
                 data-testid="button-services-cta-quote"
               >
-                Get Free Quote
+                Light Up My Home ✨
               </Button>
               <Button 
                 variant="outline"

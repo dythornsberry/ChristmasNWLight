@@ -86,7 +86,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
               className="bg-primary text-primary-foreground font-semibold"
               data-testid="button-header-quote"
             >
-              Get a Quote
+              Light Up My Home ✨
             </Button>
 
             {/* Mobile Menu */}
@@ -137,7 +137,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
                       className="w-full bg-primary text-primary-foreground font-semibold text-lg"
                       data-testid="mobile-button-quote"
                     >
-                      Get a Quote
+                      Light Up My Home ✨
                     </Button>
                   </div>
                 </div>

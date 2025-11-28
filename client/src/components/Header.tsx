@@ -88,7 +88,7 @@ export default function Header({ onGetQuote }: HeaderProps) {
                 className={isScrolled ? '' : 'bg-primary text-primary-foreground border border-primary-border'}
                 data-testid="button-header-quote"
               >
-                Get Free Quote
+                Light Up My Home ✨
               </Button>
             </div>
 
@@ -144,7 +144,7 @@ export default function Header({ onGetQuote }: HeaderProps) {
                 onGetQuote();
               }}
             >
-              Get Free Quote
+              Light Up My Home ✨
             </Button>
           </div>
         </div>

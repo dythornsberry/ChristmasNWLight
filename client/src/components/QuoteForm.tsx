@@ -36,7 +36,7 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
       <div className="max-w-6xl mx-auto px-6">
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            Get Your Free Quote
+            Get Your Free Design
           </h2>
           <p className="text-lg text-muted-foreground">
             Tell us about your project and we'll provide a custom estimate within 24 hours
@@ -123,7 +123,7 @@ export default function QuoteForm({ onSubmit }: QuoteFormProps) {
                   className="w-full text-lg"
                   data-testid="button-submit-quote"
                 >
-                  Request Free Quote
+                  Light Up My Home ✨
                 </Button>
               </form>
             </Card>

@@ -209,7 +209,7 @@ export default function TestimonialsPage() {
                 className="bg-background text-foreground hover:bg-background/90 font-semibold border-2 border-primary-foreground/20"
                 data-testid="button-testimonials-cta-quote"
               >
-                Get Free Quote
+                Light Up My Home ✨
               </Button>
               <Button 
                 variant="outline"

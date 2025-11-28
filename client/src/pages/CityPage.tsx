@@ -258,7 +258,7 @@ export default function CityPage({
                   className="bg-background text-foreground hover:bg-background/90 font-bold text-lg px-10 border-2"
                   data-testid={`button-${citySlug}-cta-quote`}
                 >
-                  Get Free Quote
+                  Light Up My Home ✨
                 </Button>
                 <Button 
                   variant="outline"

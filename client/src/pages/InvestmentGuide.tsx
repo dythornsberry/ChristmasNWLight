@@ -286,7 +286,7 @@ export default function InvestmentGuide() {
               className="text-xl font-bold shadow-2xl hover:shadow-primary/20 border border-gold/20"
               data-testid="button-request-custom-quote"
             >
-              Request Your Custom Quote
+              Light Up My Home ✨
             </Button>
             <p className="text-base text-muted-foreground mt-4">
               Free design consultation • No obligation • Same-day response
@@ -552,7 +552,7 @@ export default function InvestmentGuide() {
               className="text-xl font-bold shadow-2xl hover:shadow-primary/20 border border-gold/20 min-w-[240px]"
               data-testid="button-get-quote"
             >
-              Get Your Free Quote
+              Light Up My Home ✨
             </Button>
             <Button
               onClick={() => window.location.href = 'tel:4252150935'}

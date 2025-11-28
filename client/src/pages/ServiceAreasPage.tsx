@@ -89,7 +89,7 @@ export default function ServiceAreasPage() {
                 className="bg-primary text-primary-foreground font-semibold"
                 data-testid="button-areas-hero-quote"
               >
-                Get Free Quote
+                Light Up My Home ✨
               </Button>
             </div>
           </div>
@@ -188,7 +188,7 @@ export default function ServiceAreasPage() {
                       className="mt-3"
                       data-testid="button-zip-quote"
                     >
-                      Get Free Quote
+                      Light Up My Home ✨
                     </Button>
                   </div>
                 </div>
@@ -300,7 +300,7 @@ export default function ServiceAreasPage() {
                 className="bg-background text-foreground hover:bg-background/90 font-semibold border-2 border-primary-foreground/20"
                 data-testid="button-areas-cta-quote"
               >
-                Get Free Quote
+                Light Up My Home ✨
               </Button>
               <Button 
                 variant="outline"

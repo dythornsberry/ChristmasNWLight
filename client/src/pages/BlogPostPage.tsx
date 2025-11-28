@@ -155,7 +155,7 @@ export default function BlogPostPage() {
                       className="text-lg px-8"
                       data-testid="button-post-cta-quote"
                     >
-                      Get Free Quote
+                      Light Up My Home ✨
                     </Button>
                     <Button 
                       size="lg" 

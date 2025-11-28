@@ -336,7 +336,7 @@ export default function FAQPage() {
                 className="bg-background text-foreground hover:bg-background/90 font-semibold text-lg px-8"
                 data-testid="button-faq-get-quote"
               >
-                Get Free Quote
+                Light Up My Home ✨
               </Button>
               <Button
                 onClick={() => window.location.href = 'tel:+14252150935'}
