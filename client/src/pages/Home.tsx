@@ -3,7 +3,6 @@ import StickyHeader from "@/components/StickyHeader";
 import Hero from "@/components/Hero";
 import ReviewsStrip from "@/components/ReviewsStrip";
 import Portfolio from "@/components/Portfolio";
-import PriceEstimator from "@/components/PriceEstimator";
 import SimpleServices from "@/components/SimpleServices";
 import QuoteFormSection from "@/components/QuoteFormSection";
 import BeforeAfter from "@/components/BeforeAfter";
@@ -380,8 +379,6 @@ export default function Home() {
       <ReviewsStrip />
 
       <Portfolio items={portfolioItems} />
-
-      <PriceEstimator onGetQuote={scrollToQuote} />
 
       <SimpleServices onGetQuote={scrollToQuote} />
 
