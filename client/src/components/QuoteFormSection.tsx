@@ -173,12 +173,15 @@ export default function QuoteFormSection() {
                   <SelectValue placeholder="Select installation timeline" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="asap">ASAP</SelectItem>
-                  <SelectItem value="october-early-november">October/Early November</SelectItem>
-                  <SelectItem value="mid-november">Mid-November</SelectItem>
-                  <SelectItem value="december">December</SelectItem>
+                  <SelectItem value="this-week">This Week (Limited Spots)</SelectItem>
+                  <SelectItem value="next-week">Next Week</SelectItem>
+                  <SelectItem value="before-christmas">Before Christmas</SelectItem>
+                  <SelectItem value="flexible">I'm Flexible</SelectItem>
                 </SelectContent>
               </Select>
+              <p className="text-xs text-muted-foreground">
+                <span className="text-primary font-medium">Most popular:</span> This Week - spots fill fast in December
+              </p>
             </div>
 
             <Button 
