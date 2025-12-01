@@ -73,6 +73,7 @@ import familyHolidayTradition from '@assets/2024-11-17-3-min_1762058047475.jpg';
 import premiumCustomDisplay from '@assets/2025-10-28-min_1762058047476.jpg';
 import strikingNightDisplay from '@assets/2025-09-04-min_1762058047477.jpg';
 import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
+import gableWreathHome from '@assets/2023-12-22-3_1762398937574.jpg';
 import residentialImage from '@assets/img4_1761853506443.webp';
 import commercialImage from '@assets/img7_1761853506443.webp';
 import customImage from '@assets/img16_1761853506444.webp';
@@ -121,7 +122,7 @@ export default function Home() {
     { id: 3, image: familyHolidayTradition, category: "Custom", title: "Family Photo" },
     { id: 4, image: completeHolidayScene, category: "Custom", title: "Full Yard Display" },
     { id: 5, image: premiumCustomDisplay, category: "Custom", title: "Wrapped Trees" },
-    { id: 6, image: estateGate, category: "Custom", title: "Gate Lighting" },
+    { id: 6, image: gableWreathHome, category: "Custom", title: "Gables and Wreaths" },
     { id: 7, image: img3, category: "Warm White", title: "Traditional Warm White" },
     { id: 8, image: redTreeSnowmen, category: "Trees", title: "Red Tree with Snowmen" },
     { id: 9, image: warmWhiteHouse, category: "Warm White", title: "Classic Warm White" },
