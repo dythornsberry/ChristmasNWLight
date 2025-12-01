@@ -4,6 +4,7 @@ import Hero from "@/components/Hero";
 import ReviewsStrip from "@/components/ReviewsStrip";
 import Portfolio from "@/components/Portfolio";
 import SimpleServices from "@/components/SimpleServices";
+import WhyChooseUs from "@/components/WhyChooseUs";
 import QuoteFormSection from "@/components/QuoteFormSection";
 import BeforeAfter from "@/components/BeforeAfter";
 import Stats from "@/components/Stats";
@@ -387,6 +388,8 @@ export default function Home() {
       <BeforeAfter beforeImage={beforeImage} afterImage={afterImage} />
 
       <Stats stats={stats} />
+
+      <WhyChooseUs />
 
       <Process />
 
