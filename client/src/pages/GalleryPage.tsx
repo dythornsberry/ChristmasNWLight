@@ -77,6 +77,9 @@ import multicolorTreeHouse from '@assets/IMG_6617-min_1763866884564.jpeg';
 import twoStoryLawnDecorations from '@assets/IMG_6949-min_1763866884565.jpeg';
 import hillsideHomeWithTrees from '@assets/IMG_7349-min_1763866884565.jpeg';
 import multipleWrappedTrees from '@assets/IMG_7468-min_1763866884565.jpeg';
+import warmWhiteGreenAccent1 from '@assets/IMG_1952-min_1764598984614.jpeg';
+import warmWhiteGreenAccent2 from '@assets/IMG_1953-min-1_1764598984614.jpeg';
+import rainbowWithTree from '@assets/IMG_8045-min_1764598984614.jpeg';
 
 interface GalleryImage {
   id: number;
@@ -149,7 +152,10 @@ const galleryImages: GalleryImage[] = [
   { id: 60, src: multicolorTreeHouse, alt: "Home with multicolor tree and roofline lighting display", category: "Multicolor", title: "Multicolor Tree and House" },
   { id: 61, src: twoStoryLawnDecorations, alt: "Two-story home with multicolor roofline and lawn decorations", category: "Multicolor", title: "Two-Story with Lawn Decorations" },
   { id: 62, src: hillsideHomeWithTrees, alt: "Hillside home with warm white lighting and wrapped trees", category: "Trees", title: "Hillside Home with Trees" },
-  { id: 63, src: multipleWrappedTrees, alt: "Multiple trees wrapped in warm white lights on residential property", category: "Trees", title: "Multiple Wrapped Trees" }
+  { id: 63, src: multipleWrappedTrees, alt: "Multiple trees wrapped in warm white lights on residential property", category: "Trees", title: "Multiple Wrapped Trees" },
+  { id: 64, src: warmWhiteGreenAccent1, alt: "Modern home with warm white roofline and green accent lights on entry", category: "Custom", title: "Warm White with Green Accents" },
+  { id: 65, src: warmWhiteGreenAccent2, alt: "Warm white roofline with green accent lights on modern home exterior", category: "Custom", title: "Warm White and Green Highlights" },
+  { id: 66, src: rainbowWithTree, alt: "Rainbow multicolor roofline with decorated wrapped tree and landscape lighting", category: "Multicolor", title: "Rainbow Roofline with Wrapped Tree" }
 ];
 
 export default function GalleryPage() {
