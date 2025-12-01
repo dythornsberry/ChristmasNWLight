@@ -79,6 +79,7 @@ import hillsideHomeWithTrees from '@assets/IMG_7349-min_1763866884565.jpeg';
 import multipleWrappedTrees from '@assets/IMG_7468-min_1763866884565.jpeg';
 import warmWhiteGreenAccent1 from '@assets/IMG_1952-min_1764598984614.jpeg';
 import rainbowWithTree from '@assets/IMG_8045-min_1764598984614.jpeg';
+import warmWhiteWithColorAccents from '@assets/IMG_1958-min_1764599673237.jpeg';
 
 interface GalleryImage {
   id: number;
@@ -153,7 +154,8 @@ const galleryImages: GalleryImage[] = [
   { id: 62, src: hillsideHomeWithTrees, alt: "Hillside home with warm white lighting and wrapped trees", category: "Trees", title: "Hillside Home with Trees" },
   { id: 63, src: multipleWrappedTrees, alt: "Multiple trees wrapped in warm white lights on residential property", category: "Trees", title: "Multiple Wrapped Trees" },
   { id: 64, src: warmWhiteGreenAccent1, alt: "Modern home with warm white roofline and green accent lights on entry", category: "Custom", title: "Warm White with Green Accents" },
-  { id: 65, src: rainbowWithTree, alt: "Rainbow multicolor roofline with decorated wrapped tree and landscape lighting", category: "Multicolor", title: "Rainbow Roofline with Wrapped Tree" }
+  { id: 65, src: rainbowWithTree, alt: "Rainbow multicolor roofline with decorated wrapped tree and landscape lighting", category: "Multicolor", title: "Rainbow Roofline with Wrapped Tree" },
+  { id: 66, src: warmWhiteWithColorAccents, alt: "Modern home with warm white roofline, green tree lighting, red shrub accents, and landscape lighting at dusk", category: "Custom", title: "Warm White with Green and Red Accents" }
 ];
 
 export default function GalleryPage() {
