@@ -21,7 +21,7 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
         </h2>
         <p className="text-xl md:text-2xl text-white/95 mb-10 leading-relaxed max-w-3xl mx-auto">
           Get your free design estimate and discover how we transform homes into holiday showcases. 
-          Limited availability, reserve your custom design today.
+          December spots filling fast.
         </p>
         
         <div className="flex flex-wrap gap-6 justify-center">
@@ -48,7 +48,7 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
         </div>
 
         <p className="text-white/90 text-base mt-8">
-          Limited availability, book early for the 2025 holiday season
+          Limited spots remaining for December installation
         </p>
       </div>
     </section>

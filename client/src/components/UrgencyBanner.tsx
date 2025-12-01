@@ -6,7 +6,7 @@ export default function UrgencyBanner() {
       <div className="max-w-7xl mx-auto px-4 py-2">
         <div className="flex items-center justify-center gap-2 text-sm md:text-base font-medium">
           <span className="hidden sm:inline">🎄</span>
-          <span>Beat the Rush - Reserve Your Preferred Install Date Today</span>
+          <span>Limited December Spots - Book Now for Holiday Installation</span>
           <a 
             href="tel:4252150935"
             className="ml-2 inline-flex items-center gap-1 hover:underline font-semibold"
