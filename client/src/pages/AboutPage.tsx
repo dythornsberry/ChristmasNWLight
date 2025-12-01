@@ -46,10 +46,10 @@ export default function AboutPage() {
   ];
 
   const milestones = [
-    { number: "4", label: "Years", description: "Now in our fourth season of excellence" },
-    { number: "300+", label: "Homes Served", description: "Hundreds of homes every season" },
     { number: "5.0", label: "Google Rating", description: "85+ five-star reviews" },
-    { number: "100%", label: "Satisfaction", description: "Commitment to quality" }
+    { number: "24hr", label: "Response Time", description: "Quick replies, same-week repairs" },
+    { number: "100%", label: "Satisfaction", description: "We fix issues at no extra cost" },
+    { number: "Free", label: "Takedown", description: "Included in every package" }
   ];
 
   return (
@@ -68,7 +68,7 @@ export default function AboutPage() {
                 Your Trusted Holiday Lighting Experts
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed">
-                Now in our fourth season, we've earned the trust of hundreds of homes every year across Greater Seattle with premium installations, professional service, and stunning results.
+                We've earned the trust of homeowners across Greater Seattle with premium installations, professional service, and stunning results.
               </p>
             </div>
 
@@ -118,7 +118,7 @@ export default function AboutPage() {
                     Christmas Northwest was founded on a simple belief: every home deserves a beautiful, professionally installed holiday lighting display that brings joy without the hassle.
                   </p>
                   <p>
-                    Now in our fourth season, we've had the privilege of serving hundreds of homes annually across Greater Seattle. Our team combines technical expertise with artistic vision to create stunning displays that transform ordinary homes into extraordinary holiday showcases.
+                    We've had the privilege of serving homeowners across Greater Seattle. Our team combines technical expertise with artistic vision to create stunning displays that transform ordinary homes into extraordinary holiday showcases.
                   </p>
                   <p>
                     What sets us apart is our commitment to quality and speed. Most installations are completed within a week of booking, using only commercial-grade LED lights and premium materials. We're fully licensed, bonded, and insured, giving you complete peace of mind.
@@ -177,9 +177,9 @@ export default function AboutPage() {
                     <Users className="w-8 h-8 text-primary" />
                   </div>
                   <div className="text-2xl font-bold text-primary mb-2">Year 3</div>
-                  <div className="font-semibold text-foreground mb-2">300+ Homes</div>
+                  <div className="font-semibold text-foreground mb-2">5-Star Reviews</div>
                   <div className="text-sm text-muted-foreground">
-                    Reached milestone of 300+ homes served annually with 5-star service
+                    Earned 85+ five-star Google reviews from happy customers
                   </div>
                 </Card>
                 <Card className="p-6 text-center" data-testid="card-timeline-3">

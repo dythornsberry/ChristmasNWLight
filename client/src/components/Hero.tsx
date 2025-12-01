@@ -61,7 +61,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
             </Badge>
             <Badge variant="secondary" className="bg-white/95 text-foreground backdrop-blur-sm px-4 py-3 text-sm flex items-center gap-2 h-auto border border-amber-500/30">
               <Award className="w-4 h-4 text-amber-600" />
-              4th Season • 300+ Homes
+              Free Takedown & Storage
             </Badge>
             <Badge variant="secondary" className="bg-white/95 text-foreground backdrop-blur-sm px-4 py-3 text-sm flex items-center gap-2 h-auto border border-amber-500/30">
               <Award className="w-4 h-4 text-amber-600" />

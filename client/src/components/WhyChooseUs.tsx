@@ -1,4 +1,4 @@
-import { Shield, Home, Users, ThumbsUp } from "lucide-react";
+import { Shield, Home, Trash2, ThumbsUp } from "lucide-react";
 
 const reasons = [
   {
@@ -9,17 +9,17 @@ const reasons = [
   {
     icon: Home,
     title: "Local Family Business",
-    description: "Based in Kenmore, serving greater Seattle since 2021"
+    description: "Based in Kenmore, serving greater Seattle"
   },
   {
-    icon: Users,
-    title: "300+ Homes Annually",
-    description: "Trusted by hundreds of families each season"
+    icon: Trash2,
+    title: "Free Takedown Included",
+    description: "We remove everything in January, no extra charge"
   },
   {
     icon: ThumbsUp,
-    title: "Free Design Estimates",
-    description: "No obligation, no pressure, just honest pricing"
+    title: "100% Satisfaction",
+    description: "We fix any issues at no extra cost"
   }
 ];
 

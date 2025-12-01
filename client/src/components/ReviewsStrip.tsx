@@ -27,8 +27,8 @@ export default function ReviewsStrip() {
             </div>
             <div className="hidden lg:block h-16 w-px bg-border" />
             <div className="text-center">
-              <p className="text-3xl font-bold text-foreground">300+</p>
-              <p className="text-sm text-muted-foreground">Homes Served Annually</p>
+              <p className="text-3xl font-bold text-foreground">100%</p>
+              <p className="text-sm text-muted-foreground">Satisfaction Guarantee</p>
             </div>
           </div>
 

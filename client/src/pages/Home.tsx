@@ -93,25 +93,25 @@ export default function Home() {
       icon: Award,
       number: "5.0",
       label: "Google Rating",
-      description: "85+ five-star reviews from satisfied clients"
+      description: "85+ reviews from real Seattle homeowners"
     },
     {
-      icon: Users,
-      number: "300+",
-      label: "Homes Served",
-      description: "Serving hundreds of homes every season"
+      icon: Clock,
+      number: "24hr",
+      label: "Response Time",
+      description: "Quick replies and same-week repairs"
     },
     {
       icon: TrendingUp,
       number: "$800+",
       label: "Starting Price",
-      description: "Complete white-glove service included"
+      description: "All-inclusive: install, maintain, remove"
     },
     {
-      icon: Clock,
-      number: "4 Years",
-      label: "Experience",
-      description: "Now in our fourth season of excellence"
+      icon: Users,
+      number: "100%",
+      label: "Satisfaction",
+      description: "We fix any issues at no extra cost"
     }
   ];
 
@@ -208,7 +208,7 @@ export default function Home() {
       "@type": "LocalBusiness",
       "name": "ChristmasNW",
       "alternateName": "Christmas Northwest",
-      "description": "Professional Christmas light installation serving north Seattle metro area since 2021. 300+ homes annually with same-week installation, commercial-grade equipment, and full-service experience including storage.",
+      "description": "Professional Christmas light installation serving north Seattle metro area. Same-week installation, commercial-grade equipment, free takedown and storage included. 5.0 stars on Google with 85+ reviews.",
       "image": "https://christmasnw.com/logo.png",
       "telephone": "+14252150935",
       "email": "christmaslightsnw@gmail.com",

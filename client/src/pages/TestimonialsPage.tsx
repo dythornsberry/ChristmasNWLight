@@ -182,8 +182,8 @@ export default function TestimonialsPage() {
                 <div className="text-sm text-muted-foreground">Five-Star Reviews</div>
               </div>
               <div className="text-center" data-testid="stat-clients">
-                <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid="text-stat-clients">300+</div>
-                <div className="text-sm text-muted-foreground">Happy Clients</div>
+                <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid="text-stat-clients">24hr</div>
+                <div className="text-sm text-muted-foreground">Response Time</div>
               </div>
               <div className="text-center" data-testid="stat-satisfaction">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid="text-stat-satisfaction">100%</div>
