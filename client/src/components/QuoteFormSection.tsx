@@ -61,6 +61,14 @@ export default function QuoteFormSection() {
     createQuoteMutation.mutate(formData);
   };
 
+  const formatPhoneNumber = (value: string) => {
+    // Remove non-digits
+    const digits = value.replace(/\D/g, '');
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 6) return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+    return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6, 10)}`;
+  };
+
   return (
     <section id="quote" className="py-20 bg-muted/30">
       <div className="max-w-4xl mx-auto px-6">
@@ -139,10 +147,11 @@ export default function QuoteFormSection() {
                 id="phone"
                 type="tel"
                 value={formData.phone}
-                onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                onChange={(e) => setFormData({ ...formData, phone: formatPhoneNumber(e.target.value) })}
                 required
                 data-testid="input-phone"
                 placeholder="(425) 555-0123"
+                maxLength={14}
               />
             </div>
 
