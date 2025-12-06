@@ -19,8 +19,7 @@ import { DollarSign } from "lucide-react";
 export default function QuoteFormSection() {
   const { toast } = useToast();
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    fullName: "",
     email: "",
     phone: "",
     address: "",
@@ -39,8 +38,7 @@ export default function QuoteFormSection() {
       });
       // Reset form
       setFormData({
-        firstName: "",
-        lastName: "",
+        fullName: "",
         email: "",
         phone: "",
         address: "",
@@ -110,29 +108,16 @@ export default function QuoteFormSection() {
           </div>
           
           <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="grid md:grid-cols-2 gap-5">
-              <div className="space-y-2">
-                <Label htmlFor="firstName">First Name *</Label>
-                <Input
-                  id="firstName"
-                  value={formData.firstName}
-                  onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                  required
-                  data-testid="input-first-name"
-                  placeholder="John"
-                />
-              </div>
-              <div className="space-y-2">
-                <Label htmlFor="lastName">Last Name *</Label>
-                <Input
-                  id="lastName"
-                  value={formData.lastName}
-                  onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                  required
-                  data-testid="input-last-name"
-                  placeholder="Smith"
-                />
-              </div>
+            <div className="space-y-2">
+              <Label htmlFor="fullName">Full Name *</Label>
+              <Input
+                id="fullName"
+                value={formData.fullName}
+                onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                required
+                data-testid="input-full-name"
+                placeholder="John Smith"
+              />
             </div>
 
             <div className="space-y-2">
@@ -162,14 +147,13 @@ export default function QuoteFormSection() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="address">Street Address *</Label>
+              <Label htmlFor="address">Street Address</Label>
               <Input
                 id="address"
                 value={formData.address}
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                required
                 data-testid="input-address"
-                placeholder="123 Main Street"
+                placeholder="123 Main Street (optional)"
               />
             </div>
 

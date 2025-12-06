@@ -75,11 +75,11 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
           <div className="flex items-center gap-2 md:gap-4">
             <a 
               href="tel:4252150935" 
-              className="hidden md:flex items-center gap-2 text-base font-semibold text-foreground hover-elevate active-elevate-2 px-3 py-2 rounded-md whitespace-nowrap"
+              className="md:flex items-center gap-2 text-sm md:text-base font-semibold text-foreground hover-elevate active-elevate-2 px-2 md:px-3 py-2 rounded-md whitespace-nowrap"
               data-testid="link-header-phone"
             >
               <Phone className="w-4 h-4" />
-              <span className="whitespace-nowrap">(425) 215-0935</span>
+              <span className="hidden sm:inline">(425) 215-0935</span>
             </a>
             <Button 
               onClick={onGetQuote}
