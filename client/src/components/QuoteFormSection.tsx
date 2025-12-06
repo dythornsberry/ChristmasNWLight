@@ -66,6 +66,29 @@ export default function QuoteFormSection() {
   return (
     <section id="quote" className="py-20 bg-muted/30">
       <div className="max-w-4xl mx-auto px-6">
+        {/* Quick Call CTA - Mobile Optimized */}
+        <div className="mb-8 md:mb-10">
+          <div className="bg-primary/90 rounded-lg p-6 md:p-8 text-center">
+            <p className="text-primary-foreground text-sm md:text-base mb-3">
+              Want to talk to our team right now?
+            </p>
+            <a 
+              href="tel:4252150935"
+              data-testid="button-quote-call-now"
+            >
+              <Button 
+                size="lg"
+                className="w-full md:w-auto bg-white text-primary hover:bg-white/90 font-bold text-lg"
+              >
+                Call Now: (425) 215-0935
+              </Button>
+            </a>
+            <p className="text-primary-foreground/80 text-xs mt-3">
+              Available 7am-8pm daily. Free consultation, no obligation.
+            </p>
+          </div>
+        </div>
+
         <Card className="p-10 md:p-14 shadow-2xl border-2 border-amber-500/10">
           <div className="text-center mb-10">
             <div className="flex justify-center mb-6">
@@ -79,10 +102,10 @@ export default function QuoteFormSection() {
               </Badge>
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground font-serif">
-              Light Up Your Home
+              Or Fill Out a Quick Estimate Form
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Get your custom design estimate, no obligation, no hassle. We'll contact you within 24 hours.
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+              Get your custom design estimate, no obligation. We'll contact you within 24 hours.
             </p>
           </div>
           
