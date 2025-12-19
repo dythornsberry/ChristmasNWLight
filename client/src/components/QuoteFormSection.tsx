@@ -189,10 +189,9 @@ export default function QuoteFormSection() {
                   <SelectValue placeholder="Select installation timeline" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="this-week">This Week (Limited Spots)</SelectItem>
-                  <SelectItem value="next-week">Next Week</SelectItem>
-                  <SelectItem value="before-christmas">Before Christmas</SelectItem>
-                  <SelectItem value="flexible">I'm Flexible</SelectItem>
+                  <SelectItem value="this-week">THIS WEEK ONLY - Last Minute Spots</SelectItem>
+                  <SelectItem value="before-christmas">Before Dec 24 (Call for Availability)</SelectItem>
+                  <SelectItem value="flexible">Flexible Timeline</SelectItem>
                 </SelectContent>
               </Select>
               <p className="text-xs text-muted-foreground">

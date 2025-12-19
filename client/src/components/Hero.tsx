@@ -23,9 +23,9 @@ export default function Hero({ onGetQuote }: HeroProps) {
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
         <div className="max-w-4xl">
           {/* Fast Installation Badge */}
-          <Badge variant="secondary" className="bg-amber-500 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto mb-6 w-fit border-2 border-white/30 shadow-xl">
+          <Badge variant="secondary" className="bg-red-600 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto mb-6 w-fit border-2 border-white/30 shadow-xl animate-pulse">
             <Clock className="w-5 h-5" />
-            Same-Week Installation Available
+            Last-Minute Installations - This Week Only
           </Badge>
           
           {/* Minimalist content with enhanced typography */}
