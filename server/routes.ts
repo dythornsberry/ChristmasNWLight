@@ -1,10 +1,29 @@
-import type { Express } from "express";
+import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertQuoteRequestSchema } from "@shared/schema";
 
 // Webhook URL for Zapier notifications (set via environment variable)
 const ZAPIER_WEBHOOK_URL = process.env.ZAPIER_WEBHOOK_URL;
+
+// Admin API key for protected endpoints (set via environment variable)
+const ADMIN_API_KEY = process.env.ADMIN_API_KEY;
+
+// Middleware to check admin API key
+function requireAdminAuth(req: Request, res: Response, next: NextFunction) {
+  const apiKey = req.headers['x-admin-key'] || req.query.admin_key;
+  
+  if (!ADMIN_API_KEY) {
+    // If no admin key is configured, block access entirely
+    return res.status(503).json({ error: "Admin access not configured" });
+  }
+  
+  if (apiKey !== ADMIN_API_KEY) {
+    return res.status(401).json({ error: "Unauthorized" });
+  }
+  
+  next();
+}
 
 async function sendWebhookNotification(data: any) {
   if (!ZAPIER_WEBHOOK_URL) {
@@ -31,12 +50,67 @@ async function sendWebhookNotification(data: any) {
   }
 }
 
+// Send error alert via Zapier
+async function sendErrorAlert(errorData: {
+  errorType: string;
+  errorMessage: string;
+  requestData?: any;
+  timestamp: string;
+}) {
+  if (!ZAPIER_WEBHOOK_URL) {
+    console.log('ℹ️ No Zapier webhook configured for error alerts');
+    return;
+  }
+
+  try {
+    await fetch(ZAPIER_WEBHOOK_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        event: 'FORM_ERROR_ALERT',
+        priority: 'HIGH',
+        ...errorData
+      }),
+    });
+    console.log('🚨 Error alert sent to Zapier');
+  } catch (e) {
+    console.error('Failed to send error alert:', e);
+  }
+}
+
 export async function registerRoutes(app: Express): Promise<Server> {
-  // Quote Request endpoint
+  // Quote Request endpoint with comprehensive error logging
   app.post("/api/quote-requests", async (req, res) => {
+    const requestData = JSON.stringify(req.body);
+    const userAgent = req.get('user-agent') || 'unknown';
+    const ipAddress = req.ip || req.socket.remoteAddress || 'unknown';
+    
     try {
+      // Log the attempt
+      await storage.createErrorLog({
+        eventType: 'form_submission_attempt',
+        status: 'pending',
+        requestData,
+        userAgent,
+        ipAddress,
+        errorMessage: null
+      });
+
+      // Validate and save to database
       const validatedData = insertQuoteRequestSchema.parse(req.body);
       const quoteRequest = await storage.createQuoteRequest(validatedData);
+      
+      // Log success
+      await storage.createErrorLog({
+        eventType: 'form_submission_success',
+        status: 'success',
+        requestData,
+        userAgent,
+        ipAddress,
+        errorMessage: null
+      });
       
       // Send webhook notification to Zapier (async, don't wait for it)
       sendWebhookNotification({
@@ -47,19 +121,74 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       res.status(201).json(quoteRequest);
     } catch (error) {
-      console.error("Error creating quote request:", error);
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      console.error("❌ Error creating quote request:", errorMessage);
+      
+      // Log the error to database
+      try {
+        await storage.createErrorLog({
+          eventType: 'form_submission_error',
+          status: 'error',
+          requestData,
+          userAgent,
+          ipAddress,
+          errorMessage
+        });
+      } catch (logError) {
+        console.error("Failed to log error to database:", logError);
+      }
+      
+      // Send error alert via Zapier so you get notified immediately
+      sendErrorAlert({
+        errorType: 'FORM_SUBMISSION_FAILED',
+        errorMessage,
+        requestData: req.body,
+        timestamp: new Date().toISOString()
+      }).catch(e => console.error('Failed to send error alert:', e));
+      
       res.status(400).json({ error: "Invalid quote request data" });
     }
   });
 
-  // Get all quote requests (for Zapier polling or admin use)
-  app.get("/api/quote-requests", async (req, res) => {
+  // Get all quote requests (PROTECTED - admin only)
+  app.get("/api/quote-requests", requireAdminAuth, async (req, res) => {
     try {
       const quoteRequests = await storage.getAllQuoteRequests();
       res.json(quoteRequests);
     } catch (error) {
       console.error("Error fetching quote requests:", error);
       res.status(500).json({ error: "Failed to fetch quote requests" });
+    }
+  });
+
+  // Get recent error logs (PROTECTED - admin only)
+  app.get("/api/error-logs", requireAdminAuth, async (req, res) => {
+    try {
+      const limit = parseInt(req.query.limit as string) || 50;
+      const errorLogs = await storage.getRecentErrorLogs(limit);
+      res.json(errorLogs);
+    } catch (error) {
+      console.error("Error fetching error logs:", error);
+      res.status(500).json({ error: "Failed to fetch error logs" });
+    }
+  });
+
+  // Health check endpoint
+  app.get("/api/health", async (req, res) => {
+    try {
+      // Test database connection by fetching recent logs
+      await storage.getRecentErrorLogs(1);
+      res.json({ 
+        status: 'healthy', 
+        database: 'connected',
+        timestamp: new Date().toISOString() 
+      });
+    } catch (error) {
+      res.status(500).json({ 
+        status: 'unhealthy', 
+        database: 'disconnected',
+        error: error instanceof Error ? error.message : 'Unknown error'
+      });
     }
   });
 

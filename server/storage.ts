@@ -1,8 +1,12 @@
-import { type User, type InsertUser, type QuoteRequest, type InsertQuoteRequest } from "@shared/schema";
+import { 
+  type User, type InsertUser, 
+  type QuoteRequest, type InsertQuoteRequest,
+  type ErrorLog, type InsertErrorLog,
+  users, quoteRequests, errorLogs
+} from "@shared/schema";
+import { db } from "./db";
+import { eq, desc } from "drizzle-orm";
 import { randomUUID } from "crypto";
-
-// NOTE: Using in-memory storage due to Neon WebSocket connectivity issues in Replit dev environment
-// For production, migrate to PostgreSQL database - schema is already defined in shared/schema.ts
 
 export interface IStorage {
   getUser(id: string): Promise<User | undefined>;
@@ -10,55 +14,49 @@ export interface IStorage {
   createUser(user: InsertUser): Promise<User>;
   createQuoteRequest(quoteRequest: InsertQuoteRequest): Promise<QuoteRequest>;
   getAllQuoteRequests(): Promise<QuoteRequest[]>;
+  createErrorLog(errorLog: InsertErrorLog): Promise<ErrorLog>;
+  getRecentErrorLogs(limit?: number): Promise<ErrorLog[]>;
 }
 
-export class MemStorage implements IStorage {
-  private users: Map<string, User>;
-  private quoteRequests: Map<string, QuoteRequest>;
-
-  constructor() {
-    this.users = new Map();
-    this.quoteRequests = new Map();
-  }
-
+export class DatabaseStorage implements IStorage {
   async getUser(id: string): Promise<User | undefined> {
-    return this.users.get(id);
+    const [user] = await db.select().from(users).where(eq(users.id, id));
+    return user;
   }
 
   async getUserByUsername(username: string): Promise<User | undefined> {
-    return Array.from(this.users.values()).find(
-      (user) => user.username === username,
-    );
+    const [user] = await db.select().from(users).where(eq(users.username, username));
+    return user;
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = randomUUID();
-    const user: User = { ...insertUser, id };
-    this.users.set(id, user);
+    const [user] = await db.insert(users).values(insertUser).returning();
     return user;
   }
 
   async createQuoteRequest(insertQuoteRequest: InsertQuoteRequest): Promise<QuoteRequest> {
-    const id = randomUUID();
-    const quoteRequest: QuoteRequest = { 
-      ...insertQuoteRequest, 
-      id,
+    const [quoteRequest] = await db.insert(quoteRequests).values({
+      ...insertQuoteRequest,
       address: insertQuoteRequest.address || null,
-      createdAt: new Date()
-    };
-    this.quoteRequests.set(id, quoteRequest);
+    }).returning();
     
-    // Log to console so you can see quote requests coming in
-    console.log('📋 New quote request (in-memory):', quoteRequest);
-    
+    console.log('📋 New quote request saved to database:', quoteRequest);
     return quoteRequest;
   }
 
   async getAllQuoteRequests(): Promise<QuoteRequest[]> {
-    return Array.from(this.quoteRequests.values()).sort((a, b) => 
-      b.createdAt.getTime() - a.createdAt.getTime()
-    );
+    return db.select().from(quoteRequests).orderBy(desc(quoteRequests.createdAt));
+  }
+
+  async createErrorLog(insertErrorLog: InsertErrorLog): Promise<ErrorLog> {
+    const [errorLog] = await db.insert(errorLogs).values(insertErrorLog).returning();
+    console.log('📝 Error logged to database:', errorLog);
+    return errorLog;
+  }
+
+  async getRecentErrorLogs(limit: number = 50): Promise<ErrorLog[]> {
+    return db.select().from(errorLogs).orderBy(desc(errorLogs.createdAt)).limit(limit);
   }
 }
 
-export const storage = new MemStorage();
+export const storage = new DatabaseStorage();
