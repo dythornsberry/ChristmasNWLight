@@ -19,11 +19,10 @@ export type User = typeof users.$inferSelect;
 
 export const quoteRequests = pgTable("quote_requests", {
   id: varchar("id").primaryKey().default(sql`gen_random_uuid()`),
-  firstName: text("first_name").notNull(),
-  lastName: text("last_name").notNull(),
+  fullName: text("full_name").notNull(),
   email: text("email").notNull(),
   phone: text("phone").notNull(),
-  address: text("address").notNull(),
+  address: text("address"),
   zipCode: text("zip_code").notNull(),
   serviceType: text("service_type").notNull(),
   createdAt: timestamp("created_at").defaultNow().notNull(),

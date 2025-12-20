@@ -43,6 +43,7 @@ export class MemStorage implements IStorage {
     const quoteRequest: QuoteRequest = { 
       ...insertQuoteRequest, 
       id,
+      address: insertQuoteRequest.address || null,
       createdAt: new Date()
     };
     this.quoteRequests.set(id, quoteRequest);
