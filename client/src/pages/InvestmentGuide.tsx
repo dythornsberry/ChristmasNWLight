@@ -252,7 +252,7 @@ export default function InvestmentGuide() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
                 <div className="absolute bottom-0 left-0 right-0 p-4">
                   <h4 className="font-serif text-lg font-bold text-white mb-1">Red Column Accents</h4>
-                  <p className="text-2xl font-black text-amber-400">$1,750</p>
+                  <p className="text-2xl font-black text-amber-400">$1,500</p>
                 </div>
               </div>
 
