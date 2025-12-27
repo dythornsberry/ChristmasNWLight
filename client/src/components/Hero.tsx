@@ -22,10 +22,10 @@ export default function Hero({ onGetQuote }: HeroProps) {
       
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
         <div className="max-w-4xl">
-          {/* Fast Installation Badge */}
-          <Badge variant="secondary" className="bg-red-600 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto mb-6 w-fit border-2 border-white/30 shadow-xl animate-pulse">
+          {/* Early Bird Badge */}
+          <Badge variant="secondary" className="bg-emerald-600 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto mb-6 w-fit border-2 border-white/30 shadow-xl">
             <Clock className="w-5 h-5" />
-            Last-Minute Installations - This Week Only
+            2025 Early Bird Booking Now Open
           </Badge>
           
           {/* Minimalist content with enhanced typography */}
@@ -34,7 +34,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </h1>
           
           <p className="text-2xl md:text-4xl mb-12 text-white/95 leading-relaxed drop-shadow-lg font-light">
-            Sit back while we create your holiday wonderland.
+            Reserve your 2025 install date before the rush.
           </p>
 
           {/* Single Premium CTA Button */}

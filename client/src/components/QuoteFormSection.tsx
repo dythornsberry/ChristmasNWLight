@@ -179,23 +179,23 @@ export default function QuoteFormSection() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="serviceType">When do you need it installed? *</Label>
+              <Label htmlFor="serviceType">When do you want your 2025 install? *</Label>
               <Select
                 value={formData.serviceType}
                 onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
                 required
               >
                 <SelectTrigger data-testid="select-service-type">
-                  <SelectValue placeholder="Select installation timeline" />
+                  <SelectValue placeholder="Select your preferred month" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="this-week">THIS WEEK ONLY - Last Minute Spots</SelectItem>
-                  <SelectItem value="before-christmas">Before Dec 24 (Call for Availability)</SelectItem>
-                  <SelectItem value="flexible">Flexible Timeline</SelectItem>
+                  <SelectItem value="october-2025">October 2025 - Best Date Selection</SelectItem>
+                  <SelectItem value="november-2025">November 2025 - Popular Dates</SelectItem>
+                  <SelectItem value="december-2025">December 2025 - Limited Availability</SelectItem>
                 </SelectContent>
               </Select>
               <p className="text-xs text-muted-foreground">
-                <span className="text-primary font-medium">Most popular:</span> This Week - spots fill fast in December
+                <span className="text-emerald-600 font-medium">Early bird tip:</span> October bookings get first choice of install dates
               </p>
             </div>
 
