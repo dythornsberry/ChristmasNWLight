@@ -245,7 +245,15 @@ export default function FAQPage() {
           "opens": "09:00",
           "closes": "17:00"
         }
-      ]
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5.0",
+        "bestRating": "5",
+        "worstRating": "1",
+        "ratingCount": "85",
+        "reviewCount": "85"
+      }
     };
 
     const faqSchemaScript = document.createElement('script');
