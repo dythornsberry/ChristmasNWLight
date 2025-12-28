@@ -98,6 +98,7 @@ export default function Header({ onGetQuote }: HeaderProps) {
               className="md:hidden"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               data-testid="button-mobile-menu"
+              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMobileMenuOpen ? (
                 <X className={isScrolled ? 'text-foreground' : 'text-white'} />

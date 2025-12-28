@@ -23,12 +23,12 @@ export default function ReviewsStrip() {
                   ))}
                 </div>
               </div>
-              <p className="text-sm text-muted-foreground font-medium">85+ Google Reviews</p>
+              <p className="text-base text-muted-foreground font-medium">85+ Google Reviews</p>
             </div>
             <div className="hidden lg:block h-16 w-px bg-border" />
             <div className="text-center">
               <p className="text-3xl font-bold text-foreground">100%</p>
-              <p className="text-sm text-muted-foreground">Satisfaction Guarantee</p>
+              <p className="text-base text-muted-foreground">Satisfaction Guarantee</p>
             </div>
           </div>
 
@@ -42,10 +42,10 @@ export default function ReviewsStrip() {
                       <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
                     ))}
                   </div>
-                  <p className="text-sm text-muted-foreground italic line-clamp-2">
+                  <p className="text-base text-muted-foreground italic line-clamp-2">
                     "{review.text}"
                   </p>
-                  <p className="text-xs text-foreground font-medium mt-1">- {review.name}</p>
+                  <p className="text-sm text-foreground font-medium mt-1">- {review.name}</p>
                 </div>
               ))}
             </div>

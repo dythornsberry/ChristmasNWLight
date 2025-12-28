@@ -39,7 +39,7 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
                   'Maintenance all season long',
                   'Takedown & storage included'
                 ].map((benefit, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-foreground">
+                  <li key={i} className="flex items-center gap-2 text-base text-foreground">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
                     <span>{benefit}</span>
                   </li>
@@ -81,7 +81,7 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
                   'Multi-building coordination',
                   'Flexible scheduling options'
                 ].map((benefit, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-foreground">
+                  <li key={i} className="flex items-center gap-2 text-base text-foreground">
                     <Check className="w-4 h-4 text-primary flex-shrink-0" />
                     <span>{benefit}</span>
                   </li>
