@@ -88,7 +88,7 @@ function App() {
     "image": "https://christmasnw.com/logo.png",
     "description": "Professional Christmas and holiday lighting installation service serving Greater Seattle. Premium, all-inclusive, stress-free installations with commercial-grade equipment and year-round storage.",
     "telephone": "+1-425-215-0935",
-    "email": "info@christmasnw.com",
+    "email": "christmaslightsnw@gmail.com",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kenmore",
