@@ -14,10 +14,11 @@ import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useMutation } from "@tanstack/react-query";
-import { DollarSign } from "lucide-react";
+import { DollarSign, CheckCircle2, Phone } from "lucide-react";
 
 export default function QuoteFormSection() {
   const { toast } = useToast();
+  const [isSubmitted, setIsSubmitted] = useState(false);
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -32,18 +33,10 @@ export default function QuoteFormSection() {
       return await apiRequest("POST", "/api/quote-requests", data);
     },
     onSuccess: () => {
+      setIsSubmitted(true);
       toast({
         title: "Quote Request Received!",
         description: "We'll contact you within 24 hours with your custom estimate.",
-      });
-      // Reset form
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        address: "",
-        zipCode: "",
-        serviceType: ""
       });
       queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
     },
@@ -96,6 +89,47 @@ export default function QuoteFormSection() {
         </div>
 
         <Card className="p-10 md:p-14 shadow-2xl border-2 border-amber-500/10">
+          {isSubmitted ? (
+            <div className="text-center py-8" data-testid="quote-success-message">
+              <div className="flex justify-center mb-6">
+                <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center">
+                  <CheckCircle2 className="w-10 h-10 text-emerald-600" />
+                </div>
+              </div>
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground font-serif">
+                Thank You!
+              </h2>
+              <p className="text-xl text-muted-foreground mb-6">
+                Your quote request has been received. We'll contact you within 24 hours.
+              </p>
+              <div className="bg-muted/50 rounded-lg p-6 mb-6">
+                <p className="text-foreground font-medium mb-2">Want to speed things up?</p>
+                <a href="tel:4252150935">
+                  <Button size="lg" className="bg-primary">
+                    <Phone className="w-5 h-5 mr-2" />
+                    Call Now: (425) 215-0935
+                  </Button>
+                </a>
+              </div>
+              <Button 
+                variant="outline" 
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setFormData({
+                    fullName: "",
+                    email: "",
+                    phone: "",
+                    address: "",
+                    zipCode: "",
+                    serviceType: ""
+                  });
+                }}
+              >
+                Submit Another Request
+              </Button>
+            </div>
+          ) : (
+          <>
           <div className="text-center mb-10">
             <div className="flex justify-center mb-6">
               <Badge 
@@ -218,6 +252,8 @@ export default function QuoteFormSection() {
               By submitting this form, you consent to receive text messages and calls from Christmas Light Installers Northwest for marketing and customer care. Message frequency may vary. Reply "STOP" to unsubscribe. We will never share your information with 3rd parties.
             </p>
           </form>
+          </>
+          )}
         </Card>
       </div>
     </section>
