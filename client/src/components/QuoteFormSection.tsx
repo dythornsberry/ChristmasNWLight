@@ -223,8 +223,8 @@ export default function QuoteFormSection() {
                   <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="christmas-2026-early">2026 Christmas Lighting - Book Early (Best Dates)</SelectItem>
-                  <SelectItem value="christmas-2026">2026 Christmas Lighting - General Interest</SelectItem>
+                  <SelectItem value="christmas-2026-new">2026 Christmas Lighting - New Customer</SelectItem>
+                  <SelectItem value="christmas-2026-returning">2026 Christmas Lighting - Returning Customer</SelectItem>
                   <SelectItem value="permanent-lighting">Permanent Outdoor Lighting</SelectItem>
                   <SelectItem value="gutter-maintenance">Gutter and Roof Maintenance</SelectItem>
                   <SelectItem value="landscape-lighting">Landscape or Bistro Lighting</SelectItem>
