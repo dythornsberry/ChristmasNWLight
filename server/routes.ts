@@ -2,11 +2,7 @@ import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertQuoteRequestSchema } from "@shared/schema";
-import { Resend } from 'resend';
-
-// Initialize Resend for email notifications
-const resend = process.env.RESEND_API_KEY ? new Resend(process.env.RESEND_API_KEY) : null;
-const NOTIFICATION_EMAIL = process.env.NOTIFICATION_EMAIL || 'christmaslightsnw@gmail.com';
+import { sendLeadNotificationEmail } from "./gmail";
 
 // Webhook URL for Zapier notifications (set via environment variable)
 const ZAPIER_WEBHOOK_URL = process.env.ZAPIER_WEBHOOK_URL;
@@ -52,42 +48,6 @@ async function sendWebhookNotification(data: any) {
     }
   } catch (error) {
     console.error('❌ Error sending webhook notification:', error);
-  }
-}
-
-// Send email notification for new leads (backup to Zapier)
-async function sendEmailNotification(quoteData: any) {
-  if (!resend) {
-    console.log('No Resend API key configured. Skipping email notification.');
-    return;
-  }
-
-  try {
-    const { data, error } = await resend.emails.send({
-      from: 'ChristmasNW Leads <onboarding@resend.dev>',
-      to: NOTIFICATION_EMAIL,
-      subject: `New Lead: ${quoteData.fullName} - ${quoteData.zipCode}`,
-      html: `
-        <h2>New Quote Request</h2>
-        <p><strong>Name:</strong> ${quoteData.fullName}</p>
-        <p><strong>Email:</strong> ${quoteData.email}</p>
-        <p><strong>Phone:</strong> ${quoteData.phone}</p>
-        <p><strong>Zip Code:</strong> ${quoteData.zipCode}</p>
-        <p><strong>Address:</strong> ${quoteData.address || 'Not provided'}</p>
-        <p><strong>Preferred Install:</strong> ${quoteData.serviceType}</p>
-        <p><strong>Submitted:</strong> ${new Date().toLocaleString('en-US', { timeZone: 'America/Los_Angeles' })}</p>
-        <hr>
-        <p style="color: #666; font-size: 12px;">This is a backup notification from ChristmasNW.com</p>
-      `,
-    });
-
-    if (error) {
-      console.error('Resend email error:', error);
-    } else {
-      console.log('Email notification sent successfully:', data?.id);
-    }
-  } catch (error) {
-    console.error('Failed to send email notification:', error);
   }
 }
 
@@ -160,8 +120,8 @@ export async function registerRoutes(app: Express): Promise<Server> {
         quote: quoteRequest
       }).catch(err => console.error('Webhook error:', err));
       
-      // Send email notification as backup (async, don't wait for it)
-      sendEmailNotification(quoteRequest).catch(err => console.error('Email notification error:', err));
+      // Send Gmail notification as backup (async, don't wait for it)
+      sendLeadNotificationEmail(quoteRequest).catch(err => console.error('Gmail notification error:', err));
       
       res.status(201).json(quoteRequest);
     } catch (error) {
