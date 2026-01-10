@@ -17,6 +17,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-foreground">Services</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li><Link href="/" onClick={handleLinkClick} className="hover:text-primary transition-colors">Christmas Lighting</Link></li>
+              <li><Link href="/permanent-lighting" onClick={handleLinkClick} className="hover:text-primary transition-colors" data-testid="footer-link-permanent">Permanent Lighting</Link></li>
               <li><Link href="/year-round-services" onClick={handleLinkClick} className="hover:text-primary transition-colors" data-testid="footer-link-year-round">Year-Round Services</Link></li>
               <li><Link href="/product-guide" onClick={handleLinkClick} className="hover:text-primary transition-colors">Product Guide</Link></li>
             </ul>

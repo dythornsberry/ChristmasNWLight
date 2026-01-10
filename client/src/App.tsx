@@ -13,6 +13,7 @@ import GalleryPage from "@/pages/GalleryPage";
 import ProductGuide from "@/pages/ProductGuide";
 import InvestmentGuide from "@/pages/InvestmentGuide";
 import YearRoundServices from "@/pages/YearRoundServices";
+import PermanentLighting from "@/pages/PermanentLighting";
 import FAQPage from "@/pages/FAQPage";
 import BellevuePage from "@/pages/BellevuePage";
 import KirklandPage from "@/pages/KirklandPage";
@@ -48,6 +49,7 @@ function Router() {
       <Route path="/product-guide" component={ProductGuide} />
       <Route path="/investment-guide" component={InvestmentGuide} />
       <Route path="/year-round-services" component={YearRoundServices} />
+      <Route path="/permanent-lighting" component={PermanentLighting} />
       <Route path="/service-areas" component={ServiceAreasPage} />
       <Route path="/faq" component={FAQPage} />
       <Route path="/contact" component={ContactPage} />

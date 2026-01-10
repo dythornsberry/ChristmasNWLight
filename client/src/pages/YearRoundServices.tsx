@@ -19,7 +19,8 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
-import { Sparkles, Sun, Droplets, Home } from "lucide-react";
+import { Sparkles, Sun, Droplets, Home, ArrowRight } from "lucide-react";
+import { Link } from "wouter";
 
 import gutterBefore1 from "@assets/BeforeAfter-gutter_1762287067360.jpg";
 import gutterBefore2 from "@assets/images-2_1762287067360.jpeg";
@@ -44,7 +45,15 @@ export default function YearRoundServices() {
 
   const createQuoteMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      return await apiRequest("POST", "/api/quote-requests", data);
+      const payload = {
+        fullName: `${data.firstName} ${data.lastName}`.trim(),
+        email: data.email,
+        phone: data.phone,
+        address: data.address,
+        zipCode: data.zipCode,
+        serviceType: data.serviceType,
+      };
+      return await apiRequest("POST", "/api/quote-requests", payload);
     },
     onSuccess: () => {
       toast({
@@ -121,8 +130,54 @@ export default function YearRoundServices() {
           </div>
         </section>
 
-        {/* Gutter Cleaning Section */}
+        {/* Permanent Lighting Section - Link to Dedicated Page */}
         <section className="py-20 bg-background">
+          <div className="max-w-6xl mx-auto px-6">
+            <Card className="overflow-hidden">
+              <div className="grid md:grid-cols-2 gap-0">
+                <div className="overflow-hidden">
+                  <img 
+                    src={permanentLighting1} 
+                    alt="Permanent lighting system with rainbow colors on home roofline"
+                    className="w-full h-full object-cover min-h-[300px]"
+                    loading="lazy"
+                  />
+                </div>
+                <div className="p-8 md:p-12 flex flex-col justify-center">
+                  <Badge 
+                    variant="outline" 
+                    className="mb-4 px-4 py-1.5 text-sm font-semibold border-amber-500/40 bg-amber-500/10 w-fit"
+                    data-testid="badge-permanent-lighting"
+                  >
+                    <Sparkles className="w-4 h-4 mr-2 text-amber-600" />
+                    High Demand
+                  </Badge>
+                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground font-serif">
+                    Permanent Lighting Solutions
+                  </h2>
+                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                    One installation, every holiday, forever. Control colors from your phone for Christmas, Fourth of July, Halloween, or elegant white year-round.
+                  </p>
+                  <div className="flex items-baseline gap-2 mb-6">
+                    <span className="text-2xl font-bold text-foreground">Starting at $1,500</span>
+                  </div>
+                  <Link href="/permanent-lighting">
+                    <Button 
+                      size="lg"
+                      className="w-full md:w-auto text-lg font-semibold"
+                      data-testid="button-permanent-learn-more"
+                    >
+                      Learn More <ArrowRight className="w-5 h-5 ml-2" />
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </Card>
+          </div>
+        </section>
+
+        {/* Gutter Cleaning Section */}
+        <section className="py-20 bg-muted/30">
           <div className="max-w-6xl mx-auto px-6">
             <div className="text-center mb-12">
               <Badge 
@@ -131,7 +186,7 @@ export default function YearRoundServices() {
                 data-testid="badge-gutter-cleaning"
               >
                 <Droplets className="w-4 h-4 mr-2 text-amber-600" />
-                Most Popular
+                Bundled Service
               </Badge>
               <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground font-serif">
                 Professional Gutter & Roof Maintenance
@@ -204,91 +259,6 @@ export default function YearRoundServices() {
                   className="w-full aspect-video object-cover"
                   loading="lazy"
                 />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Permanent Lighting Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <Badge 
-                variant="outline" 
-                className="mb-4 px-5 py-2 text-base font-semibold border-amber-500/40 bg-amber-500/10"
-                data-testid="badge-permanent-lighting"
-              >
-                <Sparkles className="w-4 h-4 mr-2 text-amber-600" />
-                Premium Installation
-              </Badge>
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground font-serif">
-                Permanent Lighting Solutions
-              </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-                Transform your home with year-round architectural lighting. The same craftsmanship you love at Christmas, available 365 days a year.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-foreground">Year-Round Beauty</h3>
-                <p className="text-lg text-muted-foreground mb-4">
-                  Permanent lighting systems blend seamlessly with your home's architecture. Control colors and patterns from your smartphone for any holiday, season, or special event. Christmas red and green, Fourth of July colors, Halloween orange, or elegant white year-round.
-                </p>
-                <div className="flex items-baseline gap-2 mt-6">
-                  <span className="text-3xl font-bold text-foreground">Starting at $1,500</span>
-                </div>
-              </Card>
-
-              <Card className="p-8">
-                <h3 className="text-2xl font-bold mb-4 text-foreground">Premium Features</h3>
-                <ul className="space-y-3 text-lg text-muted-foreground">
-                  <li className="flex items-start gap-3">
-                    <span className="text-amber-600 font-bold">✓</span>
-                    <span>Commercial-grade LED track system</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-amber-600 font-bold">✓</span>
-                    <span>Smartphone app control - millions of colors</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-amber-600 font-bold">✓</span>
-                    <span>Professional installation by lighting experts</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-amber-600 font-bold">✓</span>
-                    <span>Matches your roofline perfectly</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <span className="text-amber-600 font-bold">✓</span>
-                    <span>Energy efficient and weather resistant</span>
-                  </li>
-                </ul>
-              </Card>
-            </div>
-
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-permanent-photo-1">
-                <img 
-                  src={permanentLighting1} 
-                  alt="Permanent lighting system with rainbow colors on home roofline showing smartphone-controlled color options"
-                  className="w-full aspect-video object-cover"
-                  loading="lazy"
-                />
-                <div className="bg-background p-4 text-center">
-                  <p className="text-sm font-semibold text-foreground">Smartphone-Controlled Colors</p>
-                </div>
-              </div>
-              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-permanent-photo-2">
-                <img 
-                  src={permanentLighting2} 
-                  alt="Color-changing permanent lighting installation on residential roofline with multi-color display"
-                  className="w-full aspect-video object-cover"
-                  loading="lazy"
-                />
-                <div className="bg-background p-4 text-center">
-                  <p className="text-sm font-semibold text-foreground">Year-Round Architectural Beauty</p>
-                </div>
               </div>
             </div>
           </div>

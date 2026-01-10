@@ -16,7 +16,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
   const navLinks = [
     { href: "/", label: "Home", testId: "nav-home" },
     { href: "/gallery", label: "Gallery", testId: "nav-gallery" },
-    { href: "/product-guide", label: "Product Guide", testId: "nav-product-guide" },
+    { href: "/permanent-lighting", label: "Permanent Lighting", testId: "nav-permanent" },
     { href: "/investment-guide", label: "Pricing", testId: "nav-investment-guide" },
     { href: "/faq", label: "FAQ", testId: "nav-faq" },
   ];
