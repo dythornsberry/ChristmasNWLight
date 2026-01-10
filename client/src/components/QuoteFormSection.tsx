@@ -213,23 +213,25 @@ export default function QuoteFormSection() {
             </div>
 
             <div className="space-y-2">
-              <Label htmlFor="serviceType">When do you want your 2025 install? *</Label>
+              <Label htmlFor="serviceType">What can we help you with? *</Label>
               <Select
                 value={formData.serviceType}
                 onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
                 required
               >
                 <SelectTrigger data-testid="select-service-type">
-                  <SelectValue placeholder="Select your preferred month" />
+                  <SelectValue placeholder="Select a service" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="october-2025">October 2025 - Best Date Selection</SelectItem>
-                  <SelectItem value="november-2025">November 2025 - Popular Dates</SelectItem>
-                  <SelectItem value="december-2025">December 2025 - Limited Availability</SelectItem>
+                  <SelectItem value="christmas-2026-early">2026 Christmas Lighting - Book Early (Best Dates)</SelectItem>
+                  <SelectItem value="christmas-2026">2026 Christmas Lighting - General Interest</SelectItem>
+                  <SelectItem value="permanent-lighting">Permanent Outdoor Lighting</SelectItem>
+                  <SelectItem value="gutter-maintenance">Gutter and Roof Maintenance</SelectItem>
+                  <SelectItem value="landscape-lighting">Landscape or Bistro Lighting</SelectItem>
                 </SelectContent>
               </Select>
               <p className="text-xs text-muted-foreground">
-                <span className="text-emerald-600 font-medium">Early bird tip:</span> October bookings get first choice of install dates
+                <span className="text-emerald-600 font-medium">Book now for 2026:</span> Early reservations get first choice of install dates
               </p>
             </div>
 

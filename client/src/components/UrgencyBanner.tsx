@@ -5,7 +5,7 @@ export default function UrgencyBanner() {
     <div className="fixed top-0 left-0 right-0 z-[60] bg-primary text-primary-foreground">
       <div className="max-w-7xl mx-auto px-4 py-2">
         <div className="flex items-center justify-center gap-2 text-sm md:text-base font-semibold">
-          <span>Book Early for 2025 - Best Dates Fill Fast</span>
+          <span>Now Booking 2026 Christmas Season - Reserve Your Spot</span>
           <a 
             href="tel:4252150935"
             className="ml-2 inline-flex items-center gap-1 hover:underline font-semibold"

@@ -25,7 +25,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           {/* Early Bird Badge */}
           <Badge variant="secondary" className="bg-emerald-600 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto mb-6 w-fit border-2 border-white/30 shadow-xl">
             <Clock className="w-5 h-5" />
-            2025 Early Bird Booking Now Open
+            2026 Early Bird Booking Now Open
           </Badge>
           
           {/* Minimalist content with enhanced typography */}
@@ -34,7 +34,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </h1>
           
           <p className="text-2xl md:text-4xl mb-12 text-white/95 leading-relaxed drop-shadow-lg font-light">
-            Reserve your 2025 install date before the rush.
+            Reserve your 2026 install date before the rush.
           </p>
 
           {/* Single Premium CTA Button */}
