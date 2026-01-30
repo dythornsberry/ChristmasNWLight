@@ -47,7 +47,7 @@ export default function FAQPage() {
       category: "Pricing & Packages",
       questions: [
         {
-          question: "How much does Christmas light installation cost in 2025?",
+          question: "How much does Christmas light installation cost in 2026?",
           answer: "Our professional Christmas light installation starts at $800 for residential homes in the Seattle metro area. Most installations range from $1,000-$2,000 for typical homes. Here's what to expect: Basic rooflines without complex cuts usually cost $800-$1,500. Comprehensive displays with bushes, trees, and multiple design elements typically run $1,000-$2,000. Larger estates with extensive property coverage (50+ bushes, multiple trees, full roofline and ridgeline, columns, ground lights) can reach $10,000 or more, especially tree jobs which are labor-intensive due to setup and takedown time. All prices include commercial-grade LED lights, professional installation, maintenance throughout the season, professional takedown in January, and climate-controlled storage until next year. Get an exact quote based on your specific home and design preferences."
         },
         {
@@ -72,7 +72,7 @@ export default function FAQPage() {
           answer: "Most residential installations are completed in 2-4 hours depending on your home's size and design complexity. Larger homes or custom design packages may take 4-8 hours. We work efficiently to minimize disruption to your day. After you book, most projects are scheduled and completed within one week during our busy season."
         },
         {
-          question: "When should I schedule my Christmas light installation for 2025?",
+          question: "When should I schedule my Christmas light installation for 2026?",
           answer: "We recommend scheduling in October or early November to secure your preferred installation date and avoid the holiday rush. We offer installations from October through December, with priority given to early bookings. Our busiest time is mid-November through early December, so booking early ensures you get the exact date you want."
         },
         {
@@ -160,7 +160,7 @@ export default function FAQPage() {
       category: "Booking & Payment",
       questions: [
         {
-          question: "How do I book Christmas light installation for 2025?",
+          question: "How do I book Christmas light installation for 2026?",
           answer: "Booking is easy! Fill out our free quote form on this page, or call us directly at (425) 215-0935. We'll discuss your design vision, provide a detailed quote, and once approved, we'll schedule your installation date."
         },
         {

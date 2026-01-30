@@ -104,7 +104,7 @@ export default function CityPage({
   return (
     <>
       <PageHead 
-        title={`Christmas Light Installation ${cityName} WA 2025 | Professional Holiday Lighting`}
+        title={`Christmas Light Installation ${cityName} WA 2026 | Professional Holiday Lighting`}
         description={`Professional Christmas light installation in ${cityName}, Washington. Premium, all-inclusive service with commercial-grade equipment. Same-week installation available. Serving ${cityName} since 2018. Free quote today!`}
       />
 

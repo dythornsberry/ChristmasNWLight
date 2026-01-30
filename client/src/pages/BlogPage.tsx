@@ -29,7 +29,7 @@ export default function BlogPage() {
   return (
     <>
       <PageHead 
-        title="Holiday Lighting Tips & Guides 2025 | Christmas Northwest Blog"
+        title="Holiday Lighting Tips & Guides 2026 | Christmas Northwest Blog"
         description="Expert tips, trends, and guides for holiday lighting. Learn about Christmas light installation, safety, pricing, and the latest trends from Seattle's premier lighting professionals."
       />
 

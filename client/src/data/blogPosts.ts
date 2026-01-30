@@ -13,13 +13,13 @@ export interface BlogPost {
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
-    title: "Top 5 Christmas Lighting Trends for 2025",
-    slug: "christmas-lighting-trends-2025",
+    title: "Top 5 Christmas Lighting Trends for 2026",
+    slug: "christmas-lighting-trends-2026",
     excerpt: "Discover the hottest holiday lighting trends that will make your home the star of the neighborhood this season.",
     category: "Trends",
-    publishDate: "2025-11-05",
+    publishDate: "2026-01-15",
     readTime: "5 min read",
-    metaDescription: "Explore the top Christmas lighting trends for 2025 in Seattle. From icicle effects to smart LED systems, learn what's trending this holiday season.",
+    metaDescription: "Explore the top Christmas lighting trends for 2026 in Seattle. From icicle effects to smart LED systems, learn what's trending this holiday season.",
     content: `
 The holiday season is almost here, and homeowners across the Greater Seattle area are already planning their Christmas light displays. This year brings some exciting new trends that blend classic elegance with modern technology.
 
@@ -633,7 +633,7 @@ Ready to enjoy a beautiful display without the risks? We're booking now for safe
     category: "Buying Guide",
     publishDate: "2025-11-06",
     readTime: "8 min read",
-    metaDescription: "Transparent pricing guide for professional Christmas light installation in Seattle. Real examples, cost factors, and honest pricing ranges for 2025.",
+    metaDescription: "Transparent pricing guide for professional Christmas light installation in Seattle. Real examples, cost factors, and honest pricing ranges for 2026.",
     content: `
 You typed it into Google at 10:30 PM on a Sunday night: "How much does professional Christmas light installation cost?"
 
