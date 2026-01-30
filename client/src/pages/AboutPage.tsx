@@ -7,6 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Shield, Clock, Award, Sparkles, CheckCircle2, TrendingUp, Users, Star } from "lucide-react";
 import teamImage from '@assets/img6_1761853506443.webp';
+import crewTeamPhoto from '@assets/IMG_3713_1769801100723.jpeg';
+import fleetPhoto from '@assets/IMG_9313_1769800913225.jpeg';
+import truckActionShot from '@assets/IMG_1466_1769800841547.jpeg';
 import { useLocation } from "wouter";
 
 export default function AboutPage() {
@@ -232,6 +235,42 @@ export default function AboutPage() {
                     Responsive, friendly support ensuring your complete satisfaction
                   </p>
                 </Card>
+              </div>
+            </div>
+
+            {/* Our Fleet & Team Photos */}
+            <div className="mt-16">
+              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center text-foreground">
+                Our Fleet & Team
+              </h3>
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <img 
+                    src={crewTeamPhoto} 
+                    alt="Christmas Northwest installation crew"
+                    className="w-full rounded-lg shadow-xl mb-4"
+                    data-testid="img-crew-team"
+                  />
+                  <p className="text-center text-muted-foreground">Our installation crew ready to light up your home</p>
+                </div>
+                <div>
+                  <img 
+                    src={fleetPhoto} 
+                    alt="Christmas Northwest fleet at Woodinville warehouse"
+                    className="w-full rounded-lg shadow-xl mb-4"
+                    data-testid="img-fleet"
+                  />
+                  <p className="text-center text-muted-foreground">Our fleet at our Woodinville warehouse</p>
+                </div>
+              </div>
+              <div className="mt-8">
+                <img 
+                  src={truckActionShot} 
+                  alt="Christmas Northwest truck during installation"
+                  className="w-full rounded-lg shadow-xl mb-4 max-w-3xl mx-auto"
+                  data-testid="img-truck-action"
+                />
+                <p className="text-center text-muted-foreground">Our crew during a professional installation</p>
               </div>
             </div>
           </div>
