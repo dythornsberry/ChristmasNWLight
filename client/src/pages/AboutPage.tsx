@@ -44,7 +44,7 @@ export default function AboutPage() {
     {
       icon: Clock,
       title: "Week-of-Booking Installation",
-      description: "Most installations completed within a week of booking, so you can enjoy your lights quickly."
+      description: "Installations completed within a week of booking, so you can enjoy your lights quickly."
     }
   ];
 
@@ -124,7 +124,7 @@ export default function AboutPage() {
                     We've had the privilege of serving homeowners across Greater Seattle. Our team combines technical expertise with artistic vision to create stunning displays that transform ordinary homes into extraordinary holiday showcases.
                   </p>
                   <p>
-                    What sets us apart is our commitment to quality and speed. Most installations are completed within a week of booking, using only commercial-grade LED lights and premium materials. We're fully licensed, bonded, and insured, giving you complete peace of mind.
+                    What sets us apart is our commitment to quality and speed. Installations are completed within a week of booking, using only commercial-grade LED lights and premium materials. We're fully licensed, bonded, and insured, giving you complete peace of mind.
                   </p>
                   <p className="font-semibold text-foreground">
                     From design consultation to professional takedown and storage, we handle every detail so you can simply enjoy the magic of the season.
