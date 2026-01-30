@@ -198,41 +198,21 @@ export default function AboutPage() {
               </div>
             </div>
 
-            {/* Meet Our Team */}
+            {/* Meet the Owner */}
             <div>
               <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center text-foreground">
-                Meet Our Team
+                Meet the Owner
               </h3>
-              <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              <div className="max-w-md mx-auto">
                 <Card className="p-6 text-center" data-testid="card-team-0">
                   <Avatar className="w-24 h-24 mx-auto mb-4">
-                    <AvatarImage src={dylanPhoto} alt="Dylan Thornsberry - Founder & Lead Installer" />
-                    <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">DN</AvatarFallback>
+                    <AvatarImage src={dylanPhoto} alt="Dylan Thornsberry - Owner" />
+                    <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">DT</AvatarFallback>
                   </Avatar>
-                  <h4 className="font-bold text-lg text-foreground mb-1">Dylan</h4>
-                  <p className="text-sm text-primary font-semibold mb-2">Founder & Lead Installer</p>
+                  <h4 className="font-bold text-lg text-foreground mb-1">Dylan Thornsberry</h4>
+                  <p className="text-sm text-primary font-semibold mb-2">Owner</p>
                   <p className="text-sm text-muted-foreground">
-                    Expert installer with a passion for creating stunning holiday displays
-                  </p>
-                </Card>
-                <Card className="p-6 text-center" data-testid="card-team-1">
-                  <Avatar className="w-24 h-24 mx-auto mb-4">
-                    <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">IS</AvatarFallback>
-                  </Avatar>
-                  <h4 className="font-bold text-lg text-foreground mb-1">Installation Specialists</h4>
-                  <p className="text-sm text-primary font-semibold mb-2">Professional Crew</p>
-                  <p className="text-sm text-muted-foreground">
-                    Trained experts dedicated to quality craftsmanship and customer service
-                  </p>
-                </Card>
-                <Card className="p-6 text-center" data-testid="card-team-2">
-                  <Avatar className="w-24 h-24 mx-auto mb-4">
-                    <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">CS</AvatarFallback>
-                  </Avatar>
-                  <h4 className="font-bold text-lg text-foreground mb-1">Customer Support</h4>
-                  <p className="text-sm text-primary font-semibold mb-2">Client Care Team</p>
-                  <p className="text-sm text-muted-foreground">
-                    Responsive, friendly support ensuring your complete satisfaction
+                    Hands-on owner dedicated to delivering quality holiday lighting across Greater Seattle
                   </p>
                 </Card>
               </div>
