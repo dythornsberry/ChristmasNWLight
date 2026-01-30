@@ -18,6 +18,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
     { href: "/gallery", label: "Gallery", testId: "nav-gallery" },
     { href: "/permanent-lighting", label: "Permanent Lighting", testId: "nav-permanent" },
     { href: "/investment-guide", label: "Pricing", testId: "nav-investment-guide" },
+    { href: "/about", label: "About", testId: "nav-about" },
     { href: "/faq", label: "FAQ", testId: "nav-faq" },
   ];
 
