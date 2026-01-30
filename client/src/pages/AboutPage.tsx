@@ -6,7 +6,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Shield, Clock, Award, Sparkles, CheckCircle2, TrendingUp, Users, Star } from "lucide-react";
-import teamImage from '@assets/img6_1761853506443.webp';
+import dylanPhoto from '@assets/dylan_owner_optimized.jpeg';
 import crewTeamPhoto from '@assets/IMG_3713_optimized.jpeg';
 import fleetPhoto from '@assets/IMG_9313_optimized.jpeg';
 import truckActionShot from '@assets/IMG_1466_optimized.jpeg';
@@ -109,10 +109,10 @@ export default function AboutPage() {
             <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
               <div>
                 <img 
-                  src={teamImage} 
-                  alt="Christmas Northwest professional team"
+                  src={dylanPhoto} 
+                  alt="Dylan Thornsberry, Owner of Christmas Northwest"
                   className="w-full rounded-lg shadow-xl"
-                  data-testid="img-about-team"
+                  data-testid="img-about-dylan"
                 />
               </div>
               <div>
@@ -206,7 +206,7 @@ export default function AboutPage() {
               <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
                 <Card className="p-6 text-center" data-testid="card-team-0">
                   <Avatar className="w-24 h-24 mx-auto mb-4">
-                    <AvatarImage src={teamImage} alt="Dylan - Founder & Lead Installer" />
+                    <AvatarImage src={dylanPhoto} alt="Dylan Thornsberry - Founder & Lead Installer" />
                     <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">DN</AvatarFallback>
                   </Avatar>
                   <h4 className="font-bold text-lg text-foreground mb-1">Dylan</h4>
