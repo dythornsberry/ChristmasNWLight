@@ -44,7 +44,7 @@ export default function ServiceAreasPage() {
   };
 
   const primaryAreas = [
-    { name: "Kenmore", description: "Our home base, serving the heart of North Seattle" },
+    { name: "Kenmore", description: "Our home base in the heart of the Eastside" },
     { name: "Kirkland", description: "Bringing holiday magic to lakeside homes" },
     { name: "Bothell", description: "Illuminating neighborhoods throughout Bothell" },
     { name: "Woodinville", description: "Custom lighting for wine country estates" }
@@ -82,7 +82,7 @@ export default function ServiceAreasPage() {
                 Serving Greater Seattle
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-8">
-                Christmas Northwest proudly serves homeowners and businesses throughout the Greater Seattle area. Based in Kenmore, we bring premium holiday lighting to communities across North Seattle and the Eastside.
+                Christmas Northwest proudly serves homeowners and businesses throughout Greater Seattle and the Eastside. Based in Kenmore with our warehouse in Woodinville, we bring premium holiday lighting to communities across Bellevue, Kirkland, Redmond, Bothell, Sammamish, and surrounding areas.
               </p>
               <Button 
                 onClick={scrollToQuote}

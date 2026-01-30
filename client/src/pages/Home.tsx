@@ -209,7 +209,7 @@ export default function Home() {
       "@type": "LocalBusiness",
       "name": "ChristmasNW",
       "alternateName": "Christmas Northwest",
-      "description": "Professional Christmas light installation serving north Seattle metro area. Same-week installation, commercial-grade equipment, free takedown and storage included. 5.0 stars on Google with 85+ reviews.",
+      "description": "Professional Christmas light installation serving Greater Seattle and the Eastside. Based in Kenmore, serving Bellevue, Kirkland, Redmond, Woodinville, Bothell, Sammamish and surrounding communities. Same-week installation, commercial-grade equipment, free takedown and storage included. 5.0 stars on Google with 85+ reviews.",
       "image": "https://christmasnw.com/logo.png",
       "telephone": "+14252150935",
       "email": "christmaslightsnw@gmail.com",

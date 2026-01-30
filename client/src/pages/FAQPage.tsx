@@ -106,7 +106,7 @@ export default function FAQPage() {
         },
         {
           question: "What makes your service different from competitors?",
-          answer: "We offer same-week installation (not weeks of waiting), commercial-grade LED equipment (not flimsy consumer lights), included year-round storage (no clutter in your garage), 24/7 seasonal support with fast 48-hour touch-ups, and a true done-for-you experience. Plus, we're local to north Seattle, based in Kenmore, so we can respond quickly to any needs throughout the season."
+          answer: "We offer same-week installation (not weeks of waiting), commercial-grade LED equipment (not flimsy consumer lights), included year-round storage (no clutter in your garage), 24/7 seasonal support with fast 48-hour touch-ups, and a true done-for-you experience. Plus, we're local to the Eastside, based in Kenmore with our warehouse in Woodinville, so we can respond quickly to any needs throughout the season."
         }
       ]
     },
@@ -197,7 +197,7 @@ export default function FAQPage() {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "ChristmasNW",
-      "description": "Professional Christmas light installation serving north Seattle metro area since 2021. 300+ homes annually with same-week installation, commercial-grade equipment, and full-service experience including storage.",
+      "description": "Professional Christmas light installation serving Greater Seattle and the Eastside since 2021. Based in Kenmore, serving Bellevue, Kirkland, Redmond, Woodinville, Bothell, Sammamish and surrounding communities. 300+ homes annually with same-week installation, commercial-grade equipment, and full-service experience including storage.",
       "image": "https://christmasnw.com/logo.png",
       "telephone": "+14252150935",
       "address": {
@@ -292,7 +292,7 @@ export default function FAQPage() {
               Frequently Asked Questions
             </h1>
             <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Everything you need to know about professional Christmas light installation in Seattle, Bellevue, Bothell, Kirkland, Woodinville, Redmond, and the entire north Seattle metro area. Based in Kenmore, serving 300+ homes annually since 2021.
+              Everything you need to know about professional Christmas light installation in Bellevue, Kirkland, Redmond, Woodinville, Bothell, Sammamish, and the Greater Seattle Eastside. Based in Kenmore, serving 300+ homes annually since 2021.
             </p>
           </div>
         </section>
@@ -334,7 +334,7 @@ export default function FAQPage() {
               Still Have Questions?
             </h2>
             <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
-              We're here to help! Get in touch for personalized answers or request your free quote to get started with professional Christmas light installation in the Seattle area.
+              We're here to help! Get in touch for personalized answers or request your free quote to get started with professional Christmas light installation in Greater Seattle and the Eastside.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button
