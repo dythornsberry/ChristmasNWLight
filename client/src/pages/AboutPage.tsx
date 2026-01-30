@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Shield, Clock, Award, Sparkles, CheckCircle2, TrendingUp, Users, Star } from "lucide-react";
 import teamImage from '@assets/img6_1761853506443.webp';
-import crewTeamPhoto from '@assets/IMG_3713_1769801100723.jpeg';
-import fleetPhoto from '@assets/IMG_9313_1769800913225.jpeg';
-import truckActionShot from '@assets/IMG_1466_1769800841547.jpeg';
+import crewTeamPhoto from '@assets/IMG_3713_optimized.jpeg';
+import fleetPhoto from '@assets/IMG_9313_optimized.jpeg';
+import truckActionShot from '@assets/IMG_1466_optimized.jpeg';
 import { useLocation } from "wouter";
 
 export default function AboutPage() {
