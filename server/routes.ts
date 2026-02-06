@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertQuoteRequestSchema } from "@shared/schema";
 import { sendLeadNotificationEmail } from "./gmail";
+import cron from "node-cron";
 
 // Webhook URL for Zapier notifications (set via environment variable)
 const ZAPIER_WEBHOOK_URL = process.env.ZAPIER_WEBHOOK_URL;
@@ -79,6 +80,42 @@ async function sendErrorAlert(errorData: {
   } catch (e) {
     console.error('Failed to send error alert:', e);
   }
+}
+
+async function runWeeklyFormTest() {
+  const testData = {
+    fullName: "Dylan Thornsberry [WEEKLY TEST]",
+    email: "dythornsberry@gmail.com",
+    phone: "425-283-6335",
+    address: "6516 NE 192nd Pl, Kenmore, WA 98028",
+    zipCode: "98028",
+    serviceType: "christmas-2026-new"
+  };
+
+  console.log('Submitting weekly test form...');
+
+  const validatedData = insertQuoteRequestSchema.parse(testData);
+  const quoteRequest = await storage.createQuoteRequest(validatedData);
+
+  await storage.createErrorLog({
+    eventType: 'weekly_health_check',
+    status: 'success',
+    requestData: JSON.stringify(testData),
+    userAgent: 'HealthCheck/1.0',
+    ipAddress: 'internal',
+    errorMessage: null
+  });
+
+  await sendWebhookNotification({
+    event: 'new_quote_request',
+    timestamp: new Date().toISOString(),
+    quote: quoteRequest
+  });
+
+  await sendLeadNotificationEmail(quoteRequest);
+
+  console.log('Weekly test form submitted successfully - check Zapier and Gmail');
+  return quoteRequest;
 }
 
 export async function registerRoutes(app: Express): Promise<Server> {
@@ -268,6 +305,33 @@ ${pages.map(page => `  <url>
     res.header('Content-Type', 'application/xml');
     res.send(sitemap);
   });
+
+  // Manual health check trigger (admin-protected)
+  app.post("/api/health-check/test-form", requireAdminAuth, async (_req, res) => {
+    try {
+      const result = await runWeeklyFormTest();
+      res.json({ success: true, message: "Weekly form test completed", result });
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      res.status(500).json({ success: false, error: errorMessage });
+    }
+  });
+
+  // Weekly form health check - Every Monday at 8:00 AM Pacific (UTC-8 = 16:00 UTC, UTC-7 DST = 15:00 UTC)
+  // Using America/Los_Angeles timezone for automatic DST handling
+  cron.schedule('0 8 * * 1', async () => {
+    console.log('Running weekly form health check (Monday 8 AM Pacific)...');
+    try {
+      await runWeeklyFormTest();
+      console.log('Weekly form health check completed successfully');
+    } catch (error) {
+      console.error('Weekly form health check failed:', error);
+    }
+  }, {
+    timezone: "America/Los_Angeles"
+  });
+
+  console.log('Weekly form health check scheduled: Every Monday at 8:00 AM Pacific');
 
   const httpServer = createServer(app);
 
