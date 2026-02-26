@@ -87,6 +87,9 @@ export async function sendLeadNotificationEmail(quoteData: {
       `Subject: ${subject}`,
       'MIME-Version: 1.0',
       'Content-Type: text/html; charset=utf-8',
+      'X-Priority: 1',
+      'X-MSMail-Priority: High',
+      'Importance: High',
       '',
       htmlBody
     ];
