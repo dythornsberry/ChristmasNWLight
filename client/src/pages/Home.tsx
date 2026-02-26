@@ -188,21 +188,6 @@ export default function Home() {
 
 
   useEffect(() => {
-    // Load Featurable script dynamically
-    const script = document.createElement('script');
-    script.src = 'https://featurable.com/assets/bundle.js';
-    script.defer = true;
-    script.charset = 'UTF-8';
-    document.body.appendChild(script);
-
-    return () => {
-      if (document.body.contains(script)) {
-        document.body.removeChild(script);
-      }
-    };
-  }, []);
-
-  useEffect(() => {
     // Add LocalBusiness schema markup for ChatGPT and search engines
     const localBusinessSchema = {
       "@context": "https://schema.org",
@@ -379,6 +364,13 @@ export default function Home() {
       <Hero onGetQuote={scrollToQuote} />
 
       <ReviewsStrip />
+
+      {/* Live Google Reviews - Elfsight */}
+      <section className="py-12 bg-background">
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="elfsight-app-e457d514-0aa4-432f-ae7d-750ec1ad470b" data-elfsight-app-lazy></div>
+        </div>
+      </section>
 
       <Portfolio items={portfolioItems} />
 
