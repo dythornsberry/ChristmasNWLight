@@ -20,14 +20,14 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
             <Sparkles className="w-5 h-5" />
             Light Up My Home ✨
           </Button>
-          <Button 
-            size="icon"
-            variant="outline"
-            onClick={() => window.location.href = 'tel:4252150935'}
-            data-testid="button-sticky-call-mobile"
-          >
-            <Phone className="w-5 h-5" />
-          </Button>
+          <a href="tel:4252150935" data-testid="button-sticky-call-mobile">
+            <Button 
+              size="icon"
+              variant="outline"
+            >
+              <Phone className="w-5 h-5" />
+            </Button>
+          </a>
         </div>
 
         {/* Desktop: Clean 2 options */}
@@ -41,16 +41,16 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
             <Sparkles className="w-5 h-5" />
             Light Up My Home ✨
           </Button>
-          <Button 
-            size="lg"
-            variant="outline"
-            className="gap-2"
-            onClick={() => window.location.href = 'tel:4252150935'}
-            data-testid="button-sticky-call"
-          >
-            <Phone className="w-5 h-5" />
-            (425) 215-0935
-          </Button>
+          <a href="tel:4252150935" data-testid="button-sticky-call">
+            <Button 
+              size="lg"
+              variant="outline"
+              className="gap-2"
+            >
+              <Phone className="w-5 h-5" />
+              (425) 215-0935
+            </Button>
+          </a>
         </div>
       </div>
     </div>

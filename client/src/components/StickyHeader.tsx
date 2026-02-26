@@ -44,15 +44,6 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
                 display: 'block'
               }}
               data-testid="img-logo"
-              onError={(e) => console.error('Logo failed to load:', e)}
-              onLoad={(e) => {
-                console.log('Logo loaded successfully', {
-                  width: (e.target as HTMLImageElement).width,
-                  height: (e.target as HTMLImageElement).height,
-                  naturalWidth: (e.target as HTMLImageElement).naturalWidth,
-                  naturalHeight: (e.target as HTMLImageElement).naturalHeight
-                });
-              }}
             />
           </Link>
 
