@@ -4,6 +4,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import InternalLinksSection from "@/components/InternalLinksSection";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -288,6 +289,33 @@ export default function ServiceAreasPage() {
             </Card>
           </div>
         </section>
+
+        <InternalLinksSection
+          title="Explore Nearby Pages"
+          description="These pages help visitors move from service-area research into trust-building content and quote-ready pages."
+          links={[
+            {
+              href: "/kenmore",
+              label: "Kenmore Lighting",
+              description: "See our city-specific page for our home base and nearby neighborhoods.",
+            },
+            {
+              href: "/kirkland",
+              label: "Kirkland Lighting",
+              description: "Browse a local landing page built for one of our core Eastside markets.",
+            },
+            {
+              href: "/services",
+              label: "All Services",
+              description: "Compare roofline lighting, tree wrapping, commercial work, and seasonal support.",
+            },
+            {
+              href: "/contact",
+              label: "Request a Quote",
+              description: "Go straight to the step-by-step lead form if you already know we serve your area.",
+            },
+          ]}
+        />
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-primary via-primary to-primary/90">

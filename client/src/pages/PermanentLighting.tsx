@@ -3,135 +3,16 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import LeadFormCard from "@/components/LeadFormCard";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { trackLeadConversion } from "@/lib/analytics";
-import {
-  combineName,
-  formatPhoneNumber,
-  getAddressValidationError,
-  getEmailValidationError,
-  getNameValidationError,
-  getPhoneValidationError,
-  getZipCodeValidationError,
-} from "@/lib/leads";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest, queryClient } from "@/lib/queryClient";
-import { useMutation } from "@tanstack/react-query";
-import { useRef, useState } from "react";
 import { Sparkles, Smartphone, Zap, Shield, Palette, Clock } from "lucide-react";
-import AddressAutocompleteField from "@/components/AddressAutocompleteField";
-import FormSpamTrap from "@/components/FormSpamTrap";
-import { hasGooglePlacesApiKey } from "@/lib/googleMaps";
 
 import permanentLighting1 from "@assets/Gallery_GeorgeS_Edited-scaled-square_1762286184697.jpg";
 import permanentLighting2 from "@assets/dsc00331_edited_1762286184697.jpg";
 
 export default function PermanentLighting() {
-  const { toast } = useToast();
-  const formStartedAtRef = useRef(Date.now());
-  const googlePlacesEnabled = hasGooglePlacesApiKey();
-  const [formResetKey, setFormResetKey] = useState(0);
-  const [showErrors, setShowErrors] = useState(false);
-  const [website, setWebsite] = useState("");
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    address: "",
-    zipCode: "",
-    serviceType: "permanent-lighting",
-    addressConfirmed: false,
-  });
-
-  const createQuoteMutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
-      const payload = {
-        fullName: combineName(data.firstName, data.lastName),
-        phone: data.phone,
-        address: data.address.trim(),
-        zipCode: data.zipCode.trim(),
-        serviceType: data.serviceType,
-        email: data.email.trim(),
-        website,
-        formStartedAt: formStartedAtRef.current,
-      };
-      return await apiRequest("POST", "/api/quote-requests", payload);
-    },
-    onSuccess: (_response, variables) => {
-      toast({
-        title: "Request Received!",
-        description: "We'll contact you within 24 hours to discuss your permanent lighting project.",
-      });
-      trackLeadConversion("permanent_lighting_quote", {
-        form_location: "permanent_lighting_page",
-        service_type: variables.serviceType,
-      });
-      formStartedAtRef.current = Date.now();
-      setShowErrors(false);
-      setWebsite("");
-      setFormResetKey((value) => value + 1);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        address: "",
-        zipCode: "",
-        serviceType: "permanent-lighting",
-        addressConfirmed: false,
-      });
-      queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
-    },
-    onError: (error) => {
-      toast({
-        title: "Submission Problem",
-        description:
-          error instanceof Error
-            ? error.message
-            : "There was a problem submitting your request. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const firstNameError = getNameValidationError(formData.firstName, "first name");
-  const lastNameError = getNameValidationError(formData.lastName, "last name");
-  const emailError = getEmailValidationError(formData.email);
-  const phoneError = getPhoneValidationError(formData.phone);
-  const zipCodeError = getZipCodeValidationError(formData.zipCode);
-  const manualAddressError = getAddressValidationError(formData.address, { required: true });
-  const addressError =
-    manualAddressError ||
-    (googlePlacesEnabled && !formData.addressConfirmed
-      ? "Select the property from the Google suggestions."
-      : null);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setShowErrors(true);
-
-    if (
-      firstNameError ||
-      lastNameError ||
-      emailError ||
-      phoneError ||
-      zipCodeError ||
-      addressError
-    ) {
-      return;
-    }
-
-    createQuoteMutation.mutate({
-      ...formData,
-      zipCode: formData.zipCode.replace(/\D/g, "").slice(0, 5),
-    });
-  };
-
   const scrollToQuote = () => {
     const quoteSection = document.getElementById("permanent-quote");
     if (quoteSection) {
@@ -340,159 +221,24 @@ export default function PermanentLighting() {
         {/* Quote Form Section */}
         <section id="permanent-quote" className="py-20 bg-muted/30">
           <div className="max-w-4xl mx-auto px-6">
-            <Card className="p-10 md:p-14 shadow-2xl border-2 border-amber-500/10">
-              <div className="text-center mb-10">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground font-serif">
-                  Get Your Free Estimate
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Tell us about your home and we'll provide a custom quote within 24 hours.
-                </p>
-              </div>
-              
-              <form onSubmit={handleSubmit} className="relative space-y-5">
-                <FormSpamTrap
-                  fieldId="permanent-website"
-                  value={website}
-                  onChange={setWebsite}
-                />
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name *</Label>
-                    <Input
-                      id="firstName"
-                      value={formData.firstName}
-                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      required
-                      data-testid="input-permanent-first-name"
-                      placeholder="John"
-                      autoComplete="given-name"
-                    />
-                    {showErrors && firstNameError ? <p className="text-sm text-destructive">{firstNameError}</p> : null}
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name *</Label>
-                    <Input
-                      id="lastName"
-                      value={formData.lastName}
-                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      required
-                      data-testid="input-permanent-last-name"
-                      placeholder="Smith"
-                      autoComplete="family-name"
-                    />
-                    {showErrors && lastNameError ? <p className="text-sm text-destructive">{lastNameError}</p> : null}
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    data-testid="input-permanent-email"
-                    placeholder="john@example.com"
-                    autoComplete="email"
-                    inputMode="email"
-                  />
-                  {showErrors && emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: formatPhoneNumber(e.target.value) })}
-                    required
-                    data-testid="input-permanent-phone"
-                    placeholder="(425) 555-0123"
-                    maxLength={14}
-                    autoComplete="tel"
-                    inputMode="tel"
-                  />
-                  {showErrors && phoneError ? <p className="text-sm text-destructive">{phoneError}</p> : null}
-                </div>
-
-                <AddressAutocompleteField
-                  address={formData.address}
-                  addressConfirmed={formData.addressConfirmed}
-                  error={showErrors ? addressError : null}
-                  inputId="address"
-                  label="Street Address"
-                  onAddressChange={(value) =>
-                    setFormData((current) => ({
-                      ...current,
-                      address: value,
-                    }))
-                  }
-                  onAddressConfirmedChange={(value) =>
-                    setFormData((current) => ({
-                      ...current,
-                      addressConfirmed: value,
-                    }))
-                  }
-                  onZipCodeChange={(value) =>
-                    setFormData((current) => ({
-                      ...current,
-                      zipCode: value || current.zipCode,
-                    }))
-                  }
-                  placeholder="Start typing the installation address"
-                  required
-                  resetKey={formResetKey}
-                  zipCode={formData.zipCode}
-                />
-
-                <div className="space-y-2">
-                  <Label htmlFor="zipCode">Zip Code *</Label>
-                  <Input
-                    id="zipCode"
-                    value={formData.zipCode}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
-                      })
-                    }
-                    required
-                    data-testid="input-permanent-zip-code"
-                    placeholder="98028"
-                    autoComplete="postal-code"
-                    inputMode="numeric"
-                  />
-                  {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
-                </div>
-
-                <Button 
-                  type="submit" 
-                  size="lg"
-                  className="w-full text-xl py-7 shadow-xl hover:shadow-amber-500/20 font-bold"
-                  disabled={
-                    Boolean(
-                      firstNameError ||
-                      lastNameError ||
-                      emailError ||
-                      phoneError ||
-                      zipCodeError ||
-                      addressError,
-                    ) || createQuoteMutation.isPending
-                  }
-                  data-testid="button-submit-permanent"
-                >
-                  {createQuoteMutation.isPending ? "Sending..." : "Get My Free Estimate"}
-                </Button>
-
-                <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  <span>We'll respond within 24 hours</span>
-                </div>
-              </form>
-            </Card>
+            <LeadFormCard
+              title="Get Your Free Estimate"
+              description="Short form, fast callback, and enough detail for us to quote the right permanent lighting system for your home."
+              submitLabel="Get My Free Estimate"
+              successTitle="Permanent lighting request received"
+              successDescription="We’ll review your home and reach out with pricing guidance, scope, and the best next step for your lighting project."
+              trackingLabel="permanent_lighting_quote"
+              formLocation="permanent_lighting_page"
+              initialServiceType="permanent-lighting"
+              serviceBadgeText="Permanent lighting estimates"
+              contactStepDescription="Use the best name, email, and phone number for proposal follow-up and scheduling."
+              propertyStepDescription="We use the installation address to estimate roofline complexity, access, and the right permanent lighting layout."
+              addressLabel="Installation Address"
+              addressPlaceholder="Start typing the installation address"
+              responseNote="We'll contact you within 24 hours to discuss your permanent lighting project."
+              trustNote="Permanent systems, commercial-grade materials, and local installation expertise"
+              testIdPrefix="permanent"
+            />
           </div>
         </section>
       </main>

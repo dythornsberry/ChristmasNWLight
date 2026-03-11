@@ -3,150 +3,28 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import LeadFormCard, { type LeadServiceOption } from "@/components/LeadFormCard";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { trackLeadConversion } from "@/lib/analytics";
-import {
-  combineName,
-  formatPhoneNumber,
-  getAddressValidationError,
-  getEmailValidationError,
-  getNameValidationError,
-  getPhoneValidationError,
-  getZipCodeValidationError,
-} from "@/lib/leads";
-import { useToast } from "@/hooks/use-toast";
-import { apiRequest, queryClient } from "@/lib/queryClient";
-import { useMutation } from "@tanstack/react-query";
-import { useRef, useState } from "react";
 import { Sparkles, Sun, Droplets, Home, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import AddressAutocompleteField from "@/components/AddressAutocompleteField";
-import FormSpamTrap from "@/components/FormSpamTrap";
-import { hasGooglePlacesApiKey } from "@/lib/googleMaps";
 
-import gutterBefore1 from "@assets/BeforeAfter-gutter_1762287067360.jpg";
+import gutterBefore1 from "@assets/BeforeAfter-gutter_optimized.webp";
 import gutterBefore2 from "@assets/images-2_1762287067360.jpeg";
 import gutterBefore3 from "@assets/image3-2_1762287067360.jpeg";
 import permanentLighting1 from "@assets/Gallery_GeorgeS_Edited-scaled-square_1762286184697.jpg";
-import permanentLighting2 from "@assets/dsc00331_edited_1762286184697.jpg";
-import landscapeLighting1 from "@assets/pennsylvania-landscape-lighting.jpg_1762286054942.jpeg";
+import landscapeLighting1 from "@assets/pennsylvania-landscape-lighting_optimized.webp";
 import bistroLights1 from "@assets/w-String-lights_Wedgewood2_Courtesy-of-Britescape.jpg_1762286120625.webp";
 import bistroLights2 from "@assets/tzr-string-lights-highlands-home-daylight_Courtesy-of-Britescape.jpg_1762286120625.webp";
 
+const YEAR_ROUND_SERVICE_OPTIONS: LeadServiceOption[] = [
+  { value: "gutter-cleaning", label: "Gutter Cleaning", sublabel: "Roof and gutter maintenance", icon: Droplets },
+  { value: "permanent-lighting", label: "Permanent Lighting", sublabel: "Year-round programmable lighting", icon: Sparkles },
+  { value: "landscape-bistro-event", label: "Landscape / Bistro / Event Lighting", sublabel: "Custom outdoor lighting", icon: Home },
+];
+
 export default function YearRoundServices() {
-  const { toast } = useToast();
-  const formStartedAtRef = useRef(Date.now());
-  const googlePlacesEnabled = hasGooglePlacesApiKey();
-  const [formResetKey, setFormResetKey] = useState(0);
-  const [showErrors, setShowErrors] = useState(false);
-  const [website, setWebsite] = useState("");
-  const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
-    email: "",
-    phone: "",
-    address: "",
-    zipCode: "",
-    serviceType: "",
-    addressConfirmed: false,
-  });
-
-  const createQuoteMutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
-      const payload = {
-        fullName: combineName(data.firstName, data.lastName),
-        phone: data.phone,
-        address: data.address.trim(),
-        zipCode: data.zipCode.trim(),
-        serviceType: data.serviceType,
-        email: data.email.trim(),
-        website,
-        formStartedAt: formStartedAtRef.current,
-      };
-      return await apiRequest("POST", "/api/quote-requests", payload);
-    },
-    onSuccess: (_response, variables) => {
-      toast({
-        title: "Request Received!",
-        description: "We'll contact you within 24 hours to discuss your project.",
-      });
-      trackLeadConversion("year_round_services_quote", {
-        form_location: "year_round_services_page",
-        service_type: variables.serviceType,
-      });
-      formStartedAtRef.current = Date.now();
-      setShowErrors(false);
-      setWebsite("");
-      setFormResetKey((value) => value + 1);
-      setFormData({
-        firstName: "",
-        lastName: "",
-        email: "",
-        phone: "",
-        address: "",
-        zipCode: "",
-        serviceType: "",
-        addressConfirmed: false,
-      });
-      queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
-    },
-    onError: (error) => {
-      toast({
-        title: "Submission Problem",
-        description:
-          error instanceof Error
-            ? error.message
-            : "There was a problem submitting your request. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const firstNameError = getNameValidationError(formData.firstName, "first name");
-  const lastNameError = getNameValidationError(formData.lastName, "last name");
-  const emailError = getEmailValidationError(formData.email);
-  const phoneError = getPhoneValidationError(formData.phone);
-  const zipCodeError = getZipCodeValidationError(formData.zipCode);
-  const manualAddressError = getAddressValidationError(formData.address, { required: true });
-  const addressError =
-    manualAddressError ||
-    (googlePlacesEnabled && !formData.addressConfirmed
-      ? "Select the property from the Google suggestions."
-      : null);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setShowErrors(true);
-
-    if (
-      firstNameError ||
-      lastNameError ||
-      emailError ||
-      phoneError ||
-      zipCodeError ||
-      addressError ||
-      !formData.serviceType
-    ) {
-      return;
-    }
-
-    createQuoteMutation.mutate({
-      ...formData,
-      zipCode: formData.zipCode.replace(/\D/g, "").slice(0, 5),
-    });
-  };
-
   const scrollToQuote = () => {
     const quoteSection = document.getElementById("year-round-quote");
     if (quoteSection) {
@@ -425,183 +303,25 @@ export default function YearRoundServices() {
         {/* Quote Form Section */}
         <section id="year-round-quote" className="py-20 bg-muted/30">
           <div className="max-w-4xl mx-auto px-6">
-            <Card className="p-10 md:p-14 shadow-2xl border-2 border-amber-500/10">
-              <div className="text-center mb-10">
-                <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground font-serif">
-                  Get Your Free Estimate
-                </h2>
-                <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                  Tell us about your project and we'll contact you within 24 hours with a custom quote.
-                </p>
-              </div>
-              
-              <form onSubmit={handleSubmit} className="relative space-y-5">
-                <FormSpamTrap
-                  fieldId="year-round-website"
-                  value={website}
-                  onChange={setWebsite}
-                />
-                <div className="grid md:grid-cols-2 gap-5">
-                  <div className="space-y-2">
-                    <Label htmlFor="firstName">First Name *</Label>
-                    <Input
-                      id="firstName"
-                      value={formData.firstName}
-                      onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                      required
-                      data-testid="input-year-round-first-name"
-                      placeholder="John"
-                      autoComplete="given-name"
-                    />
-                    {showErrors && firstNameError ? <p className="text-sm text-destructive">{firstNameError}</p> : null}
-                  </div>
-                  <div className="space-y-2">
-                    <Label htmlFor="lastName">Last Name *</Label>
-                    <Input
-                      id="lastName"
-                      value={formData.lastName}
-                      onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                      required
-                      data-testid="input-year-round-last-name"
-                      placeholder="Smith"
-                      autoComplete="family-name"
-                    />
-                    {showErrors && lastNameError ? <p className="text-sm text-destructive">{lastNameError}</p> : null}
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="email">Email *</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                    required
-                    data-testid="input-year-round-email"
-                    placeholder="john@example.com"
-                    autoComplete="email"
-                    inputMode="email"
-                  />
-                  {showErrors && emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="phone">Phone Number *</Label>
-                  <Input
-                    id="phone"
-                    type="tel"
-                    value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: formatPhoneNumber(e.target.value) })}
-                    required
-                    data-testid="input-year-round-phone"
-                    placeholder="(425) 555-0123"
-                    maxLength={14}
-                    autoComplete="tel"
-                    inputMode="tel"
-                  />
-                  {showErrors && phoneError ? <p className="text-sm text-destructive">{phoneError}</p> : null}
-                </div>
-
-                <AddressAutocompleteField
-                  address={formData.address}
-                  addressConfirmed={formData.addressConfirmed}
-                  error={showErrors ? addressError : null}
-                  inputId="address"
-                  label="Street Address"
-                  onAddressChange={(value) =>
-                    setFormData((current) => ({
-                      ...current,
-                      address: value,
-                    }))
-                  }
-                  onAddressConfirmedChange={(value) =>
-                    setFormData((current) => ({
-                      ...current,
-                      addressConfirmed: value,
-                    }))
-                  }
-                  onZipCodeChange={(value) =>
-                    setFormData((current) => ({
-                      ...current,
-                      zipCode: value || current.zipCode,
-                    }))
-                  }
-                  placeholder="Start typing the service address"
-                  required
-                  resetKey={formResetKey}
-                  zipCode={formData.zipCode}
-                />
-
-                <div className="space-y-2">
-                  <Label htmlFor="zipCode">Zip Code *</Label>
-                  <Input
-                    id="zipCode"
-                    value={formData.zipCode}
-                    onChange={(e) =>
-                      setFormData({
-                        ...formData,
-                        zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
-                      })
-                    }
-                    required
-                    data-testid="input-year-round-zip-code"
-                    placeholder="98028"
-                    autoComplete="postal-code"
-                    inputMode="numeric"
-                  />
-                  {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
-                </div>
-
-                <div className="space-y-2">
-                  <Label htmlFor="serviceType">What service are you interested in? *</Label>
-                  <Select
-                    value={formData.serviceType}
-                    onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
-                    required
-                  >
-                    <SelectTrigger data-testid="select-year-round-service-type">
-                      <SelectValue placeholder="Select a service" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="gutter-cleaning">Gutter Cleaning</SelectItem>
-                      <SelectItem value="permanent-lighting">Permanent Lighting</SelectItem>
-                      <SelectItem value="landscape-bistro-event">Landscape/Bistro/Event Lighting</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-
-                <Button 
-                  type="submit" 
-                  size="lg" 
-                  className="w-full text-xl font-bold mt-8 shadow-xl hover:shadow-2xl transition-all duration-300"
-                  data-testid="button-submit-year-round-quote"
-                  disabled={
-                    !formData.serviceType ||
-                    Boolean(
-                      firstNameError ||
-                      lastNameError ||
-                      emailError ||
-                      phoneError ||
-                      zipCodeError ||
-                      addressError,
-                    ) ||
-                    createQuoteMutation.isPending
-                  }
-                >
-                  {createQuoteMutation.isPending ? "Submitting..." : "Get My Free Estimate"}
-                </Button>
-                
-                <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
-                  <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-                  <span className="font-semibold">Same Professional Team • Same Premium Quality</span>
-                </div>
-
-                <p className="text-xs text-muted-foreground text-center">
-                  By submitting this form, you consent to receive text messages and calls from Christmas Northwest for marketing and customer care. Message frequency may vary. Reply "STOP" to unsubscribe.
-                </p>
-              </form>
-            </Card>
+            <LeadFormCard
+              title="Get Your Free Estimate"
+              description="Tell us which year-round service you want, then we’ll follow up with the best next step and pricing guidance."
+              submitLabel="Get My Free Estimate"
+              successTitle="Request received"
+              successDescription="We’ll review the service type, property, and access details, then reach out with the best plan for your project."
+              trackingLabel="year_round_services_quote"
+              formLocation="year_round_services_page"
+              serviceOptions={YEAR_ROUND_SERVICE_OPTIONS}
+              showServiceStep
+              serviceBadgeText="Year-round outdoor services"
+              serviceStepTitle="Which service are you interested in?"
+              serviceStepDescription="Choose the project type first so we can route your request to the right estimate workflow."
+              propertyStepDescription="We use the address to confirm service area coverage and give you a more accurate estimate for the selected service."
+              addressPlaceholder="Start typing the service address"
+              responseNote="We'll contact you within 24 hours to discuss your project."
+              trustNote="Same professional team, same premium quality, and a cleaner year-round estimate flow"
+              testIdPrefix="year-round"
+            />
           </div>
         </section>
 

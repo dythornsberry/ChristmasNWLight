@@ -3,6 +3,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import InternalLinksSection from "@/components/InternalLinksSection";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,7 +16,7 @@ import { Home, TreePine, Building2, Sparkles, Wrench, Check, X } from "lucide-re
 import residentialImage from '@assets/img4_1761853506443.webp';
 import commercialImage from '@assets/img7_1761853506443.webp';
 import customImage from '@assets/img16_1761853506444.webp';
-import treeImage from '@assets/img9_1761853506444.webp';
+import treeImage from '@assets/img9_1761853506444_feature.webp';
 import maintenanceImage from '@assets/img8_1761853506443.webp';
 import { useLocation } from "wouter";
 
@@ -368,6 +369,33 @@ export default function ServicesPage() {
             </Accordion>
           </div>
         </section>
+
+        <InternalLinksSection
+          title="Plan the Rest of Your Project"
+          description="These pages help homeowners compare options, confirm service area coverage, and build trust before they request a quote."
+          links={[
+            {
+              href: "/service-areas",
+              label: "Service Areas",
+              description: "Check the Seattle and Eastside cities we serve before you request a quote.",
+            },
+            {
+              href: "/gallery",
+              label: "Photo Gallery",
+              description: "See real residential and large-property installations completed by our team.",
+            },
+            {
+              href: "/permanent-lighting",
+              label: "Permanent Lighting",
+              description: "Compare seasonal installs against year-round programmable lighting systems.",
+            },
+            {
+              href: "/contact",
+              label: "Contact & Quote",
+              description: "Reach the team directly if you want a callback or a project-specific recommendation.",
+            },
+          ]}
+        />
 
         {/* CTA Section */}
         <section className="py-20 bg-gradient-to-r from-primary via-primary to-primary/90">

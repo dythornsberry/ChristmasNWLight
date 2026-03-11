@@ -155,11 +155,12 @@ export function getNameValidationError(value: string, label = "name") {
   return null;
 }
 
-export function getZipCodeValidationError(value: string) {
+export function getZipCodeValidationError(value: string, options?: { required?: boolean }) {
+  const required = options?.required ?? true;
   const zipCode = value.trim();
 
   if (!zipCode) {
-    return "Enter your ZIP code.";
+    return required ? "Enter your ZIP code." : null;
   }
 
   if (!/^\d{5}$/.test(zipCode)) {

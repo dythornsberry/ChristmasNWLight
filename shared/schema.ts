@@ -52,6 +52,9 @@ export const insertQuoteRequestSchema = z
     formStartedAt: z.number().optional(),
   })
   .superRefine((data, ctx) => {
+    const addressRequired = requiresProjectAddress(data.serviceType);
+    const zipRequired = addressRequired || Boolean((data.address ?? "").trim());
+
     if (data.website.trim() !== "") {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,
@@ -88,7 +91,7 @@ export const insertQuoteRequestSchema = z
     }
 
     const addressError = getAddressValidationError(data.address ?? "", {
-      required: requiresProjectAddress(data.serviceType),
+      required: addressRequired,
     });
     if (addressError) {
       ctx.addIssue({
@@ -98,7 +101,7 @@ export const insertQuoteRequestSchema = z
       });
     }
 
-    const zipCodeError = getZipCodeValidationError(data.zipCode);
+    const zipCodeError = getZipCodeValidationError(data.zipCode, { required: zipRequired });
     if (zipCodeError) {
       ctx.addIssue({
         code: z.ZodIssueCode.custom,

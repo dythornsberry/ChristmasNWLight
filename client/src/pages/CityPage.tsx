@@ -4,6 +4,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import InternalLinksSection from "@/components/InternalLinksSection";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -99,6 +100,29 @@ export default function CityPage({
     { icon: Shield, title: "100% Satisfaction Guarantee", description: "We make it right or you don't pay" },
     { icon: Clock, title: "Storage Included", description: "Free storage until next season" },
     { icon: Star, title: "Commercial-Grade Lights", description: "Premium C9 bulbs that last" },
+  ];
+
+  const relatedLinks = [
+    {
+      href: "/services",
+      label: "Holiday Lighting Services",
+      description: `Compare the installation styles, pricing ranges, and service types we offer in and around ${cityName}.`,
+    },
+    {
+      href: "/gallery",
+      label: "Project Gallery",
+      description: "Browse real installs to see rooflines, tree wrapping, and larger custom displays.",
+    },
+    {
+      href: "/service-areas",
+      label: "All Service Areas",
+      description: "See the other Seattle and Eastside communities we serve year after year.",
+    },
+    {
+      href: "/contact",
+      label: "Request a Quote",
+      description: "Go straight to the lead form if you want availability, pricing guidance, or a callback.",
+    },
   ];
 
   return (
@@ -240,6 +264,12 @@ export default function CityPage({
               </div>
             </section>
           )}
+
+          <InternalLinksSection
+            title={`More ${cityName} Planning Resources`}
+            description={`These pages help ${cityName} homeowners compare services, confirm coverage, and move toward a quote with less friction.`}
+            links={relatedLinks}
+          />
 
           {/* CTA Section */}
           <section className="py-24 bg-gradient-to-r from-primary via-primary to-primary/90">
