@@ -5,7 +5,7 @@ import { Link } from "wouter";
 
 export default function Footer() {
   const handleLinkClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
   return (
     <footer id="contact" className="bg-card border-t border-card-border">

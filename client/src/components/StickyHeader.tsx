@@ -22,7 +22,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
   ];
 
   const handleNavClick = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: 'auto' });
     setOpen(false);
   };
 
