@@ -23,7 +23,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
       <div className="absolute inset-y-0 left-0 w-[58%] bg-gradient-to-r from-black/22 to-transparent" />
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-5 pb-16 pt-24 md:px-6 md:pb-20 md:pt-28">
-        <div className="max-w-2xl">
+        <div className="max-w-2xl rounded-[28px] border border-white/12 bg-slate-950/42 px-6 py-7 shadow-[0_24px_80px_-36px_rgba(15,23,42,0.95)] md:px-8 md:py-9">
           <Badge
             variant="secondary"
             className="mb-5 h-auto w-fit gap-2 border border-white/20 bg-emerald-600 px-4 py-2.5 text-sm text-white shadow-xl md:text-base"
@@ -32,15 +32,15 @@ export default function Hero({ onGetQuote }: HeroProps) {
             2026 booking is open
           </Badge>
 
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-white/85 md:text-sm [text-shadow:0_1px_8px_rgba(0,0,0,0.45)]">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-100 md:text-sm">
             Christmas light installation for Seattle and the Eastside
           </p>
 
-          <h1 className="mb-5 font-serif text-[3.15rem] font-black leading-[0.96] tracking-[-0.04em] text-white [text-shadow:0_4px_18px_rgba(0,0,0,0.55)] sm:text-6xl md:text-[4.7rem] lg:text-[5.2rem]">
+          <h1 className="mb-5 font-serif text-[3.15rem] font-black leading-[0.96] tracking-[-0.04em] text-white sm:text-6xl md:text-[4.7rem] lg:text-[5.2rem]">
             Beautiful holiday lighting without the hassle.
           </h1>
 
-          <p className="mb-8 max-w-xl text-lg leading-relaxed text-white/96 [text-shadow:0_2px_12px_rgba(0,0,0,0.45)] md:text-[1.35rem]">
+          <p className="mb-8 max-w-xl text-lg leading-relaxed text-slate-50 md:text-[1.35rem]">
             Design, installation, maintenance, takedown, and storage handled by one local team.
           </p>
 
@@ -66,7 +66,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-white md:text-base [text-shadow:0_1px_10px_rgba(0,0,0,0.4)]">
+          <div className="flex flex-wrap gap-x-6 gap-y-3 text-sm text-slate-100 md:text-base">
             <div className="flex items-center gap-2">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
               <span>5.0 Google rating</span>
