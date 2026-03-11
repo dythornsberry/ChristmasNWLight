@@ -48,12 +48,12 @@ const FORM_HIGHLIGHTS = [
   {
     icon: Clock3,
     title: "Fast response",
-    description: "Most homeowners hear back within 24 hours with pricing guidance and next steps.",
+    description: "Quick response, often within an hour during the season.",
   },
   {
     icon: Shield,
     title: "No pressure",
-    description: "Straight answers, clear pricing, and no hard-sell appointment just to get a quote.",
+    description: "Tell us a little about the job and we will send back the right quote for the project.",
   },
   {
     icon: Sparkles,
@@ -65,12 +65,6 @@ const FORM_HIGHLIGHTS = [
     title: "Built for Seattle-area homes",
     description: "We route across Seattle, Bellevue, Kirkland, Bothell, Kenmore, and nearby Eastside cities.",
   },
-];
-
-const NEXT_STEPS = [
-  "We review the home, roofline, and access details.",
-  "You get pricing guidance and the best-fit service plan.",
-  "If it looks good, we lock in your install window.",
 ];
 
 export default function QuoteFormSection() {
@@ -124,8 +118,8 @@ export default function QuoteFormSection() {
       setIsSubmitted(true);
       setWebsite("");
       toast({
-        title: "Quote Request Received!",
-        description: "We'll contact you within 24 hours with your custom estimate.",
+        title: "Quote request received",
+        description: "We will be in touch soon.",
       });
       queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
       trackLeadConversion("homepage_quote", {
@@ -200,16 +194,15 @@ export default function QuoteFormSection() {
               variant="outline"
               className="mb-5 border-primary/20 bg-white/90 px-4 py-2 text-sm font-semibold text-foreground shadow-sm"
             >
-              Fast estimate. Clear pricing. No-obligation callback.
+              Quick response. Simple quote form.
             </Badge>
 
             <h2 className="font-serif text-4xl font-bold leading-tight text-foreground md:text-5xl">
-              Get pricing and availability without chasing a contractor.
+              Get a quote for your home.
             </h2>
 
             <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
-              Tell us the service, your contact info, and the property address. We use that to map the home,
-              confirm service area coverage, and get you a realistic next step instead of a vague promise.
+              Tell us what you want, how to reach you, and where the property is. We will take it from there.
             </p>
 
             <div className="mt-8 grid gap-4 sm:grid-cols-2">
@@ -232,22 +225,8 @@ export default function QuoteFormSection() {
             </div>
 
             <div className="mt-6 rounded-[28px] border border-slate-200 bg-slate-950 p-6 text-white shadow-2xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300/90">
-                What happens next
-              </p>
-              <div className="mt-5 space-y-4">
-                {NEXT_STEPS.map((item) => (
-                  <div key={item} className="flex gap-3">
-                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10">
-                      <CheckCircle2 className="h-4 w-4 text-emerald-300" />
-                    </div>
-                    <p className="text-sm leading-6 text-white/85">{item}</p>
-                  </div>
-                ))}
-              </div>
-
-              <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
-                <p className="text-sm text-white/80">Prefer to talk to a real person right now?</p>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm text-white/80">Want to talk it through first?</p>
                 <a href="tel:4252150935" data-testid="button-quote-call-now">
                   <Button
                     size="lg"
@@ -257,7 +236,7 @@ export default function QuoteFormSection() {
                     Call (425) 215-0935
                   </Button>
                 </a>
-                <p className="mt-3 text-xs text-white/60">Available 7am-8pm daily. Free consultation, no obligation.</p>
+                <p className="mt-3 text-xs text-white/60">Quick response during the season.</p>
               </div>
             </div>
           </div>
@@ -272,18 +251,9 @@ export default function QuoteFormSection() {
                 </div>
                 <h3 className="font-serif text-3xl font-bold text-foreground md:text-4xl">Thanks. Your request is in.</h3>
                 <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-                  We have what we need to review the property and reach out with the best next step. If you want to
-                  move faster, call now and we can talk it through right away.
+                  Thanks for reaching out. We will take a look and get back to you soon. If you want to move faster,
+                  call us now and we can talk it through.
                 </p>
-
-                <div className="mt-8 grid gap-3 text-left sm:grid-cols-3">
-                  {NEXT_STEPS.map((item, index) => (
-                    <div key={item} className="rounded-2xl border border-border bg-muted/40 p-4">
-                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">Step {index + 1}</p>
-                      <p className="mt-2 text-sm leading-6 text-foreground">{item}</p>
-                    </div>
-                  ))}
-                </div>
 
                 <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
                   <a href="tel:4252150935">
@@ -321,7 +291,7 @@ export default function QuoteFormSection() {
                 <div className="mb-8">
                   <h3 className="font-serif text-3xl font-bold text-foreground md:text-[2.6rem]">Get Your Free Estimate</h3>
                   <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
-                    Short form, real callback, and enough detail for us to give you a useful answer instead of a generic quote.
+                    Short form, quick follow-up, and enough detail for us to price the job properly.
                   </p>
                 </div>
 
@@ -370,7 +340,7 @@ export default function QuoteFormSection() {
                         <div className="mb-5">
                           <h4 className="text-xl font-semibold text-foreground">Which service do you need?</h4>
                           <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                            Choose the closest fit. We can adjust the final scope once we review the property.
+                            Choose the closest fit. We can sort out the details from there.
                           </p>
                         </div>
 
@@ -413,7 +383,7 @@ export default function QuoteFormSection() {
                         </div>
 
                         <p className="text-xs text-muted-foreground">
-                          <span className="font-semibold text-emerald-600">2026 calendar is open:</span> early reservations get the best install windows.
+                          <span className="font-semibold text-emerald-600">2026 calendar is open:</span> early spots usually get the best install windows.
                         </p>
 
                         <Button
@@ -447,7 +417,7 @@ export default function QuoteFormSection() {
                         <div className="mb-5">
                           <h4 className="text-xl font-semibold text-foreground">How should we reach you?</h4>
                           <p className="mt-2 text-sm leading-6 text-muted-foreground">
-                            Use the best phone and email for estimate follow-up and scheduling.
+                            Use the best phone and email for quote follow-up.
                           </p>
                         </div>
 
@@ -607,8 +577,7 @@ export default function QuoteFormSection() {
 
                         <div className="rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4">
                           <p className="text-sm leading-6 text-emerald-900">
-                            We use the address to confirm routing and get you a more accurate estimate. We do not sell your
-                            information.
+                            We use the address to make sure we are looking at the right property. We do not sell your information.
                           </p>
                         </div>
 
@@ -624,7 +593,7 @@ export default function QuoteFormSection() {
                             data-testid="button-submit-quote"
                             disabled={!canSubmitStep3 || createQuoteMutation.isPending}
                           >
-                            {createQuoteMutation.isPending ? "Submitting..." : "Get My Estimate"}
+                            {createQuoteMutation.isPending ? "Submitting..." : "Get My Quote"}
                           </Button>
                         </div>
                       </motion.div>
