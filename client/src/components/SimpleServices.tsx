@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Home, Building2, Check } from "lucide-react";
-import warmWhiteHouse from '@assets/1-2-min_1762064533191_optimized.webp';
+import warmWhiteHouse from '@assets/1-2-min_1762064533191_feature.webp';
 import commercialWalkway from '@assets/Lit-walkway_1762708951439.jpg';
 
 interface SimpleServicesProps {
@@ -52,7 +52,7 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
                 className="w-full bg-primary text-primary-foreground"
                 data-testid="button-service-christmas"
               >
-                Light Up My Home ✨
+                Get a Residential Quote
               </Button>
             </div>
           </Card>
@@ -96,7 +96,7 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
                 className="w-full bg-primary text-primary-foreground"
                 data-testid="button-service-commercial"
               >
-                Light Up My Home ✨
+                Plan a Large-Property Display
               </Button>
             </div>
           </Card>

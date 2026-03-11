@@ -1,11 +1,31 @@
 import { useRef, useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import { AnimatePresence, motion } from "framer-motion";
+import {
+  CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
+  Clock3,
+  DollarSign,
+  Lamp,
+  MapPin,
+  Phone,
+  Shield,
+  Sparkles,
+  Sun,
+  TreePine,
+  Wrench,
+} from "lucide-react";
+import AddressAutocompleteField from "@/components/AddressAutocompleteField";
+import FormSpamTrap from "@/components/FormSpamTrap";
+import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { trackLeadConversion } from "@/lib/analytics";
+import { hasGooglePlacesApiKey } from "@/lib/googleMaps";
 import {
   formatPhoneNumber,
   getAddressValidationError,
@@ -15,19 +35,42 @@ import {
   getZipCodeValidationError,
 } from "@/lib/leads";
 import { apiRequest, queryClient } from "@/lib/queryClient";
-import { useMutation } from "@tanstack/react-query";
-import { DollarSign, CheckCircle2, Phone, ChevronRight, ChevronLeft, Sparkles, TreePine, Sun, Wrench, Lamp } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import AddressAutocompleteField from "@/components/AddressAutocompleteField";
-import FormSpamTrap from "@/components/FormSpamTrap";
-import { hasGooglePlacesApiKey } from "@/lib/googleMaps";
 
 const SERVICE_OPTIONS = [
-  { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New Customer", icon: TreePine },
-  { value: "christmas-2026-returning", label: "Christmas Lighting", sublabel: "Returning Customer", icon: Sparkles },
-  { value: "permanent-lighting", label: "Permanent Outdoor Lighting", sublabel: "Year-round solution", icon: Sun },
-  { value: "gutter-maintenance", label: "Gutter & Roof Maintenance", sublabel: "Cleaning & repair", icon: Wrench },
-  { value: "landscape-lighting", label: "Landscape / Bistro Lighting", sublabel: "Accent & patio lighting", icon: Lamp },
+  { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New customer", icon: TreePine },
+  { value: "christmas-2026-returning", label: "Christmas Lighting", sublabel: "Returning customer", icon: Sparkles },
+  { value: "permanent-lighting", label: "Permanent Outdoor Lighting", sublabel: "Year-round lighting", icon: Sun },
+  { value: "gutter-maintenance", label: "Gutter & Roof Maintenance", sublabel: "Cleaning and repair", icon: Wrench },
+  { value: "landscape-lighting", label: "Landscape / Bistro Lighting", sublabel: "Accent and patio lighting", icon: Lamp },
+];
+
+const FORM_HIGHLIGHTS = [
+  {
+    icon: Clock3,
+    title: "Fast response",
+    description: "Most homeowners hear back within 24 hours with pricing guidance and next steps.",
+  },
+  {
+    icon: Shield,
+    title: "No pressure",
+    description: "Straight answers, clear pricing, and no hard-sell appointment just to get a quote.",
+  },
+  {
+    icon: Sparkles,
+    title: "All-inclusive service",
+    description: "Design, install, maintenance, takedown, and storage can all be handled in one plan.",
+  },
+  {
+    icon: MapPin,
+    title: "Built for Seattle-area homes",
+    description: "We route across Seattle, Bellevue, Kirkland, Bothell, Kenmore, and nearby Eastside cities.",
+  },
+];
+
+const NEXT_STEPS = [
+  "We review the home, roofline, and access details.",
+  "You get pricing guidance and the best-fit service plan.",
+  "If it looks good, we lock in your install window.",
 ];
 
 export default function QuoteFormSection() {
@@ -49,6 +92,9 @@ export default function QuoteFormSection() {
     addressConfirmed: false,
   });
 
+  const selectedService = SERVICE_OPTIONS.find((option) => option.value === formData.serviceType);
+  const progressWidth = step === 1 ? 34 : step === 2 ? 67 : 100;
+
   const resetForm = () => {
     setIsSubmitted(false);
     setStep(1);
@@ -68,13 +114,12 @@ export default function QuoteFormSection() {
   };
 
   const createQuoteMutation = useMutation({
-    mutationFn: async (data: typeof formData) => {
-      return await apiRequest("POST", "/api/quote-requests", {
+    mutationFn: async (data: typeof formData) =>
+      apiRequest("POST", "/api/quote-requests", {
         ...data,
         website,
         formStartedAt: formStartedAtRef.current,
-      });
-    },
+      }),
     onSuccess: (_response, variables) => {
       setIsSubmitted(true);
       setWebsite("");
@@ -132,371 +177,475 @@ export default function QuoteFormSection() {
   const canSubmitStep3 = !zipCodeError && !addressError;
 
   const stepVariants = {
-    enter: { opacity: 0, x: 30 },
+    enter: { opacity: 0, x: 32 },
     center: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -30 },
+    exit: { opacity: 0, x: -32 },
   };
 
   return (
-    <section id="quote" className="py-20 bg-muted/30 scroll-mt-28">
+    <section
+      id="quote"
+      className="relative overflow-hidden scroll-mt-28 bg-[linear-gradient(180deg,#ffffff_0%,#f8fafc_42%,#ffffff_100%)] py-20"
+    >
       <div id="quote-form" className="scroll-mt-28" aria-hidden="true" />
-      <div className="max-w-4xl mx-auto px-6">
-        {/* Quick Call CTA - Mobile Optimized */}
-        <div className="mb-8 md:mb-10">
-          <div className="bg-primary/90 rounded-lg p-6 md:p-8 text-center">
-            <p className="text-primary-foreground text-sm md:text-base mb-3">
-              Want to talk to our team right now?
-            </p>
-            <a
-              href="tel:4252150935"
-              data-testid="button-quote-call-now"
-            >
-              <Button
-                size="lg"
-                className="w-full md:w-auto bg-white text-primary hover:bg-white/90 font-bold text-lg"
-              >
-                Call Now: (425) 215-0935
-              </Button>
-            </a>
-            <p className="text-primary-foreground/80 text-xs mt-3">
-              Available 7am-8pm daily. Free consultation, no obligation.
-            </p>
-          </div>
-        </div>
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute left-0 top-12 h-56 w-56 rounded-full bg-primary/10 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-amber-400/10 blur-3xl" />
+      </div>
 
-        <Card className="p-10 md:p-14 shadow-2xl border-2 border-amber-500/10">
-          {isSubmitted ? (
-            <div className="text-center py-8" data-testid="quote-success-message">
-              <div className="flex justify-center mb-6">
-                <div className="w-20 h-20 bg-emerald-100 rounded-full flex items-center justify-center">
-                  <CheckCircle2 className="w-10 h-10 text-emerald-600" />
-                </div>
-              </div>
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground font-serif">
-                Thank You!
-              </h2>
-              <p className="text-xl text-muted-foreground mb-6">
-                Your quote request has been received. We'll contact you within 24 hours.
+      <div className="relative mx-auto max-w-7xl px-6">
+        <div className="grid gap-8 lg:grid-cols-[0.92fr,1.08fr] lg:items-start">
+          <div className="lg:sticky lg:top-28">
+            <Badge
+              variant="outline"
+              className="mb-5 border-primary/20 bg-white/90 px-4 py-2 text-sm font-semibold text-foreground shadow-sm"
+            >
+              Fast estimate. Clear pricing. No-obligation callback.
+            </Badge>
+
+            <h2 className="font-serif text-4xl font-bold leading-tight text-foreground md:text-5xl">
+              Get pricing and availability without chasing a contractor.
+            </h2>
+
+            <p className="mt-5 max-w-xl text-lg leading-relaxed text-muted-foreground">
+              Tell us the service, your contact info, and the property address. We use that to map the home,
+              confirm service area coverage, and get you a realistic next step instead of a vague promise.
+            </p>
+
+            <div className="mt-8 grid gap-4 sm:grid-cols-2">
+              {FORM_HIGHLIGHTS.map((item) => {
+                const Icon = item.icon;
+
+                return (
+                  <div
+                    key={item.title}
+                    className="rounded-3xl border border-white/70 bg-white/80 p-5 shadow-[0_18px_50px_-28px_rgba(15,23,42,0.45)] backdrop-blur"
+                  >
+                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                      <Icon className="h-5 w-5" />
+                    </div>
+                    <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-muted-foreground">{item.description}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-6 rounded-[28px] border border-slate-200 bg-slate-950 p-6 text-white shadow-2xl">
+              <p className="text-sm font-semibold uppercase tracking-[0.18em] text-emerald-300/90">
+                What happens next
               </p>
-              <div className="bg-muted/50 rounded-lg p-6 mb-6">
-                <p className="text-foreground font-medium mb-2">Want to speed things up?</p>
-                <a href="tel:4252150935">
-                  <Button size="lg" className="bg-primary">
-                    <Phone className="w-5 h-5 mr-2" />
-                    Call Now: (425) 215-0935
+              <div className="mt-5 space-y-4">
+                {NEXT_STEPS.map((item) => (
+                  <div key={item} className="flex gap-3">
+                    <div className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white/10">
+                      <CheckCircle2 className="h-4 w-4 text-emerald-300" />
+                    </div>
+                    <p className="text-sm leading-6 text-white/85">{item}</p>
+                  </div>
+                ))}
+              </div>
+
+              <div className="mt-6 rounded-2xl border border-white/10 bg-white/5 p-4">
+                <p className="text-sm text-white/80">Prefer to talk to a real person right now?</p>
+                <a href="tel:4252150935" data-testid="button-quote-call-now">
+                  <Button
+                    size="lg"
+                    className="mt-3 w-full bg-white text-slate-950 hover:bg-white/90 sm:w-auto"
+                  >
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call (425) 215-0935
                   </Button>
                 </a>
+                <p className="mt-3 text-xs text-white/60">Available 7am-8pm daily. Free consultation, no obligation.</p>
               </div>
-              <Button
-                variant="outline"
-                onClick={resetForm}
-              >
-                Submit Another Request
-              </Button>
             </div>
-          ) : (
-          <>
-          <div className="text-center mb-8">
-            <div className="flex justify-center mb-6">
-              <Badge
-                variant="outline"
-                className="px-6 py-2.5 text-base md:text-lg font-semibold border-2 border-amber-500/40 bg-amber-500/10 text-foreground"
-                data-testid="badge-pricing-indicator"
-              >
-                <DollarSign className="w-5 h-5 mr-2 text-amber-600" />
-                Most homes $800-$2,000 &bull; All-inclusive service
-              </Badge>
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-foreground font-serif">
-              Get Your Free Estimate
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              Quick 3-step form. No obligation. We'll contact you within 24 hours.
-            </p>
           </div>
 
-          {/* Progress Bar */}
-          <div className="mb-8">
-            <div className="flex items-center justify-between mb-2">
-              {[1, 2, 3].map((s) => (
-                <div key={s} className="flex items-center">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold transition-colors ${
-                    s <= step ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
-                  }`}>
-                    {s < step ? <CheckCircle2 className="w-5 h-5" /> : s}
+          <Card className="overflow-hidden border-white/80 bg-white/90 shadow-[0_30px_80px_-34px_rgba(15,23,42,0.42)] backdrop-blur">
+            {isSubmitted ? (
+              <div className="px-6 py-10 text-center sm:px-10 md:px-12" data-testid="quote-success-message">
+                <div className="mb-6 flex justify-center">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100">
+                    <CheckCircle2 className="h-10 w-10 text-emerald-600" />
                   </div>
-                  <span className={`ml-2 text-sm font-medium hidden sm:inline ${
-                    s <= step ? 'text-foreground' : 'text-muted-foreground'
-                  }`}>
-                    {s === 1 ? 'Service' : s === 2 ? 'Contact' : 'Property'}
-                  </span>
                 </div>
-              ))}
-            </div>
-            <div className="w-full bg-muted rounded-full h-2">
-              <div
-                className="bg-primary h-2 rounded-full transition-all duration-500"
-                style={{ width: `${((step - 1) / 2) * 100}%` }}
-              />
-            </div>
-          </div>
+                <h3 className="font-serif text-3xl font-bold text-foreground md:text-4xl">Thanks. Your request is in.</h3>
+                <p className="mx-auto mt-4 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+                  We have what we need to review the property and reach out with the best next step. If you want to
+                  move faster, call now and we can talk it through right away.
+                </p>
 
-          <form onSubmit={handleSubmit} className="relative">
-            <FormSpamTrap
-              fieldId="quote-website"
-              value={website}
-              onChange={setWebsite}
-            />
-            <AnimatePresence mode="wait">
-              {/* Step 1: Service Type */}
-              {step === 1 && (
-                <motion.div
-                  key="step1"
-                  variants={stepVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.2 }}
-                  className="space-y-4"
-                >
-                  <h3 className="text-xl font-semibold text-foreground mb-4">What can we help you with?</h3>
-                  <div className="grid gap-3">
-                    {SERVICE_OPTIONS.map((option) => {
-                      const Icon = option.icon;
-                      const isSelected = formData.serviceType === option.value;
+                <div className="mt-8 grid gap-3 text-left sm:grid-cols-3">
+                  {NEXT_STEPS.map((item, index) => (
+                    <div key={item} className="rounded-2xl border border-border bg-muted/40 p-4">
+                      <p className="text-xs font-semibold uppercase tracking-[0.16em] text-primary">Step {index + 1}</p>
+                      <p className="mt-2 text-sm leading-6 text-foreground">{item}</p>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+                  <a href="tel:4252150935">
+                    <Button size="lg" className="w-full sm:w-auto">
+                      <Phone className="mr-2 h-5 w-5" />
+                      Call Now: (425) 215-0935
+                    </Button>
+                  </a>
+                  <Button variant="outline" size="lg" onClick={resetForm}>
+                    Submit Another Request
+                  </Button>
+                </div>
+              </div>
+            ) : (
+              <div className="px-6 py-8 sm:px-8 md:px-10 lg:px-12 lg:py-10">
+                <div className="mb-8 flex flex-wrap items-center gap-3">
+                  <Badge
+                    variant="outline"
+                    className="border-amber-500/30 bg-amber-500/10 px-4 py-2 text-sm font-semibold text-foreground"
+                    data-testid="badge-pricing-indicator"
+                  >
+                    <DollarSign className="mr-2 h-4 w-4 text-amber-600" />
+                    Most homes $800-$2,000
+                  </Badge>
+                  <Badge variant="secondary" className="bg-primary/8 px-4 py-2 text-sm font-medium text-foreground">
+                    Under 60 seconds to complete
+                  </Badge>
+                  {selectedService ? (
+                    <Badge variant="secondary" className="bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700">
+                      {selectedService.label} selected
+                    </Badge>
+                  ) : null}
+                </div>
+
+                <div className="mb-8">
+                  <h3 className="font-serif text-3xl font-bold text-foreground md:text-[2.6rem]">Get Your Free Estimate</h3>
+                  <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">
+                    Short form, real callback, and enough detail for us to give you a useful answer instead of a generic quote.
+                  </p>
+                </div>
+
+                <div className="mb-8">
+                  <div className="mb-3 flex items-center justify-between gap-3 text-sm font-medium">
+                    {["Service", "Contact", "Property"].map((label, index) => {
+                      const stepNumber = index + 1;
+                      const isActive = stepNumber <= step;
+
                       return (
-                        <button
-                          key={option.value}
-                          type="button"
-                          onClick={() => setFormData({ ...formData, serviceType: option.value })}
-                          className={`flex items-center gap-4 p-4 rounded-lg border-2 text-left transition-all ${
-                            isSelected
-                              ? 'border-primary bg-primary/5 shadow-md'
-                              : 'border-border hover:border-primary/40 hover:bg-muted/50'
-                          }`}
-                        >
-                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center ${
-                            isSelected ? 'bg-primary text-primary-foreground' : 'bg-muted text-muted-foreground'
-                          }`}>
-                            <Icon className="w-5 h-5" />
+                        <div key={label} className="flex items-center gap-2 text-left">
+                          <div
+                            className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold transition-colors ${
+                              isActive ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                            }`}
+                          >
+                            {stepNumber < step ? <CheckCircle2 className="h-4 w-4" /> : stepNumber}
                           </div>
-                          <div>
-                            <div className="font-semibold text-foreground">{option.label}</div>
-                            <div className="text-sm text-muted-foreground">{option.sublabel}</div>
-                          </div>
-                          {isSelected && (
-                            <CheckCircle2 className="w-5 h-5 text-primary ml-auto" />
-                          )}
-                        </button>
+                          <span className={isActive ? "text-foreground" : "text-muted-foreground"}>{label}</span>
+                        </div>
                       );
                     })}
                   </div>
-                  <p className="text-xs text-muted-foreground">
-                    <span className="text-emerald-600 font-medium">Book now for 2026:</span> Early reservations get first choice of install dates
-                  </p>
-                  <Button
-                    type="button"
-                    size="lg"
-                    className="w-full mt-4 text-lg font-bold"
-                    disabled={!canProceedStep1}
-                    onClick={() => {
-                      setShowErrors(true);
-                      if (canProceedStep1) {
-                        setStep(2);
-                      }
-                    }}
-                  >
-                    Next <ChevronRight className="w-5 h-5 ml-1" />
-                  </Button>
-                </motion.div>
-              )}
-
-              {/* Step 2: Contact Info */}
-              {step === 2 && (
-                <motion.div
-                  key="step2"
-                  variants={stepVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.2 }}
-                  className="space-y-5"
-                >
-                  <h3 className="text-xl font-semibold text-foreground mb-4">How can we reach you?</h3>
-                  <div className="space-y-2">
-                    <Label htmlFor="fullName">Full Name *</Label>
-                    <Input
-                      id="fullName"
-                      value={formData.fullName}
-                      onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                      required
-                      data-testid="input-full-name"
-                      placeholder="John Smith"
-                      autoFocus
-                      autoComplete="name"
+                  <div className="h-2 w-full rounded-full bg-muted">
+                    <div
+                      className="h-2 rounded-full bg-primary transition-all duration-500"
+                      style={{ width: `${progressWidth}%` }}
                     />
-                    {showErrors && fullNameError ? <p className="text-sm text-destructive">{fullNameError}</p> : null}
                   </div>
+                </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Email *</Label>
-                    <Input
-                      id="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      required
-                      data-testid="input-email"
-                      placeholder="john@example.com"
-                      autoComplete="email"
-                      inputMode="email"
-                    />
-                    {showErrors && emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
-                  </div>
+                <form onSubmit={handleSubmit} className="relative">
+                  <FormSpamTrap fieldId="quote-website" value={website} onChange={setWebsite} />
 
-                  <div className="space-y-2">
-                    <Label htmlFor="phone">Phone Number *</Label>
-                    <Input
-                      id="phone"
-                      type="tel"
-                      value={formData.phone}
-                      onChange={(e) => setFormData({ ...formData, phone: formatPhoneNumber(e.target.value) })}
-                      required
-                      data-testid="input-phone"
-                      placeholder="(425) 555-0123"
-                      maxLength={14}
-                      autoComplete="tel"
-                      inputMode="tel"
-                    />
-                    {showErrors && phoneError ? <p className="text-sm text-destructive">{phoneError}</p> : null}
-                  </div>
+                  <AnimatePresence mode="wait">
+                    {step === 1 ? (
+                      <motion.div
+                        key="step1"
+                        variants={stepVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{ duration: 0.2 }}
+                        className="space-y-4"
+                      >
+                        <div className="mb-5">
+                          <h4 className="text-xl font-semibold text-foreground">Which service do you need?</h4>
+                          <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                            Choose the closest fit. We can adjust the final scope once we review the property.
+                          </p>
+                        </div>
 
-                  <div className="flex gap-3 mt-6">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      size="lg"
-                      className="flex-1"
-                      onClick={() => setStep(1)}
-                    >
-                      <ChevronLeft className="w-5 h-5 mr-1" /> Back
-                    </Button>
-                    <Button
-                      type="button"
-                      size="lg"
-                      className="flex-[2] text-lg font-bold"
-                      disabled={!canProceedStep2}
-                      onClick={() => {
-                        setShowErrors(true);
-                        if (canProceedStep2) {
-                          setStep(3);
-                        }
-                      }}
-                    >
-                      Next <ChevronRight className="w-5 h-5 ml-1" />
-                    </Button>
-                  </div>
-                </motion.div>
-              )}
+                        <div className="grid gap-3">
+                          {SERVICE_OPTIONS.map((option) => {
+                            const Icon = option.icon;
+                            const isSelected = formData.serviceType === option.value;
 
-              {/* Step 3: Property Details */}
-              {step === 3 && (
-                <motion.div
-                  key="step3"
-                  variants={stepVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.2 }}
-                  className="space-y-5"
-                >
-                  <h3 className="text-xl font-semibold text-foreground mb-4">Where's the property?</h3>
-                  <AddressAutocompleteField
-                    address={formData.address}
-                    addressConfirmed={formData.addressConfirmed}
-                    error={showErrors ? addressError : null}
-                    inputId="address"
-                    label="Property Address"
-                    onAddressChange={(value) =>
-                      setFormData((current) => ({
-                        ...current,
-                        address: value,
-                      }))
-                    }
-                    onAddressConfirmedChange={(value) =>
-                      setFormData((current) => ({
-                        ...current,
-                        addressConfirmed: value,
-                      }))
-                    }
-                    onZipCodeChange={(value) =>
-                      setFormData((current) => ({
-                        ...current,
-                        zipCode: value || current.zipCode,
-                      }))
-                    }
-                    placeholder="Start typing your service address"
-                    required
-                    resetKey={formResetKey}
-                    zipCode={formData.zipCode}
-                  />
+                            return (
+                              <button
+                                key={option.value}
+                                type="button"
+                                onClick={() =>
+                                  setFormData((current) => ({
+                                    ...current,
+                                    serviceType: option.value,
+                                  }))
+                                }
+                                className={`flex items-center gap-4 rounded-2xl border-2 p-4 text-left transition-all ${
+                                  isSelected
+                                    ? "border-primary bg-primary/5 shadow-md"
+                                    : "border-border bg-white hover:border-primary/35 hover:bg-muted/40"
+                                }`}
+                              >
+                                <div
+                                  className={`flex h-11 w-11 items-center justify-center rounded-2xl ${
+                                    isSelected ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
+                                  }`}
+                                >
+                                  <Icon className="h-5 w-5" />
+                                </div>
+                                <div className="min-w-0">
+                                  <div className="font-semibold text-foreground">{option.label}</div>
+                                  <div className="text-sm text-muted-foreground">{option.sublabel}</div>
+                                </div>
+                                {isSelected ? <CheckCircle2 className="ml-auto h-5 w-5 text-primary" /> : null}
+                              </button>
+                            );
+                          })}
+                        </div>
 
-                  <div className="space-y-2">
-                    <Label htmlFor="zipCode">Zip Code *</Label>
-                    <Input
-                      id="zipCode"
-                      value={formData.zipCode}
-                      onChange={(e) =>
-                        setFormData({
-                          ...formData,
-                          zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
-                        })
-                      }
-                      required
-                      data-testid="input-zip-code"
-                      placeholder="98028"
-                      autoComplete="postal-code"
-                      inputMode="numeric"
-                    />
-                    {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
-                  </div>
+                        <p className="text-xs text-muted-foreground">
+                          <span className="font-semibold text-emerald-600">2026 calendar is open:</span> early reservations get the best install windows.
+                        </p>
 
-                  <div className="flex gap-3 mt-6">
-                    <Button
-                      type="button"
-                      variant="outline"
-                      size="lg"
-                      className="flex-1"
-                      onClick={() => setStep(2)}
-                    >
-                      <ChevronLeft className="w-5 h-5 mr-1" /> Back
-                    </Button>
-                    <Button
-                      type="submit"
-                      size="lg"
-                      className="flex-[2] text-xl font-bold shadow-xl hover:shadow-2xl transition-all duration-300"
-                      data-testid="button-submit-quote"
-                      disabled={!canSubmitStep3 || createQuoteMutation.isPending}
-                    >
-                      {createQuoteMutation.isPending ? "Submitting..." : "Light Up My Home ✨"}
-                    </Button>
-                  </div>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </form>
+                        <Button
+                          type="button"
+                          size="lg"
+                          className="mt-4 w-full text-lg font-bold"
+                          disabled={!canProceedStep1}
+                          onClick={() => {
+                            setShowErrors(true);
+                            if (canProceedStep1) {
+                              setStep(2);
+                            }
+                          }}
+                        >
+                          Continue
+                          <ChevronRight className="ml-2 h-5 w-5" />
+                        </Button>
+                      </motion.div>
+                    ) : null}
 
-          <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-6">
-            <div className="w-1.5 h-1.5 bg-primary rounded-full" />
-            <span className="font-semibold">Licensed, Bonded & Insured Professional Service</span>
-          </div>
+                    {step === 2 ? (
+                      <motion.div
+                        key="step2"
+                        variants={stepVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{ duration: 0.2 }}
+                        className="space-y-5"
+                      >
+                        <div className="mb-5">
+                          <h4 className="text-xl font-semibold text-foreground">How should we reach you?</h4>
+                          <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                            Use the best phone and email for estimate follow-up and scheduling.
+                          </p>
+                        </div>
 
-          <p className="text-xs text-muted-foreground text-center mt-3">
-            By submitting this form, you consent to receive text messages and calls from Christmas Light Installers Northwest for marketing and customer care. Message frequency may vary. Reply "STOP" to unsubscribe. We will never share your information with 3rd parties.
-          </p>
-          </>
-          )}
-        </Card>
+                        <div className="space-y-2">
+                          <Label htmlFor="fullName">Full Name *</Label>
+                          <Input
+                            id="fullName"
+                            value={formData.fullName}
+                            onChange={(e) =>
+                              setFormData((current) => ({
+                                ...current,
+                                fullName: e.target.value,
+                              }))
+                            }
+                            required
+                            data-testid="input-full-name"
+                            placeholder="John Smith"
+                            autoFocus
+                            autoComplete="name"
+                          />
+                          {showErrors && fullNameError ? <p className="text-sm text-destructive">{fullNameError}</p> : null}
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="email">Email *</Label>
+                          <Input
+                            id="email"
+                            type="email"
+                            value={formData.email}
+                            onChange={(e) =>
+                              setFormData((current) => ({
+                                ...current,
+                                email: e.target.value,
+                              }))
+                            }
+                            required
+                            data-testid="input-email"
+                            placeholder="john@example.com"
+                            autoComplete="email"
+                            inputMode="email"
+                          />
+                          {showErrors && emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
+                        </div>
+
+                        <div className="space-y-2">
+                          <Label htmlFor="phone">Phone Number *</Label>
+                          <Input
+                            id="phone"
+                            type="tel"
+                            value={formData.phone}
+                            onChange={(e) =>
+                              setFormData((current) => ({
+                                ...current,
+                                phone: formatPhoneNumber(e.target.value),
+                              }))
+                            }
+                            required
+                            data-testid="input-phone"
+                            placeholder="(425) 555-0123"
+                            maxLength={14}
+                            autoComplete="tel"
+                            inputMode="tel"
+                          />
+                          {showErrors && phoneError ? <p className="text-sm text-destructive">{phoneError}</p> : null}
+                        </div>
+
+                        <div className="mt-6 flex gap-3">
+                          <Button type="button" variant="outline" size="lg" className="flex-1" onClick={() => setStep(1)}>
+                            <ChevronLeft className="mr-1 h-5 w-5" />
+                            Back
+                          </Button>
+                          <Button
+                            type="button"
+                            size="lg"
+                            className="flex-[2] text-lg font-bold"
+                            disabled={!canProceedStep2}
+                            onClick={() => {
+                              setShowErrors(true);
+                              if (canProceedStep2) {
+                                setStep(3);
+                              }
+                            }}
+                          >
+                            Continue
+                            <ChevronRight className="ml-2 h-5 w-5" />
+                          </Button>
+                        </div>
+                      </motion.div>
+                    ) : null}
+
+                    {step === 3 ? (
+                      <motion.div
+                        key="step3"
+                        variants={stepVariants}
+                        initial="enter"
+                        animate="center"
+                        exit="exit"
+                        transition={{ duration: 0.2 }}
+                        className="space-y-5"
+                      >
+                        <div className="mb-5">
+                          <h4 className="text-xl font-semibold text-foreground">Which property are we quoting?</h4>
+                          <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                            This lets us confirm service area coverage and estimate install scope accurately.
+                          </p>
+                        </div>
+
+                        <AddressAutocompleteField
+                          address={formData.address}
+                          addressConfirmed={formData.addressConfirmed}
+                          error={showErrors ? addressError : null}
+                          inputId="address"
+                          label="Property Address"
+                          onAddressChange={(value) =>
+                            setFormData((current) => ({
+                              ...current,
+                              address: value,
+                            }))
+                          }
+                          onAddressConfirmedChange={(value) =>
+                            setFormData((current) => ({
+                              ...current,
+                              addressConfirmed: value,
+                            }))
+                          }
+                          onZipCodeChange={(value) =>
+                            setFormData((current) => ({
+                              ...current,
+                              zipCode: value || current.zipCode,
+                            }))
+                          }
+                          placeholder="Start typing your service address"
+                          required
+                          resetKey={formResetKey}
+                          zipCode={formData.zipCode}
+                        />
+
+                        <div className="space-y-2">
+                          <Label htmlFor="zipCode">Zip Code *</Label>
+                          <Input
+                            id="zipCode"
+                            value={formData.zipCode}
+                            onChange={(e) =>
+                              setFormData((current) => ({
+                                ...current,
+                                zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
+                              }))
+                            }
+                            required
+                            data-testid="input-zip-code"
+                            placeholder="98028"
+                            autoComplete="postal-code"
+                            inputMode="numeric"
+                          />
+                          {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
+                        </div>
+
+                        <div className="rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4">
+                          <p className="text-sm leading-6 text-emerald-900">
+                            We use the address to confirm routing and get you a more accurate estimate. We do not sell your
+                            information.
+                          </p>
+                        </div>
+
+                        <div className="mt-6 flex gap-3">
+                          <Button type="button" variant="outline" size="lg" className="flex-1" onClick={() => setStep(2)}>
+                            <ChevronLeft className="mr-1 h-5 w-5" />
+                            Back
+                          </Button>
+                          <Button
+                            type="submit"
+                            size="lg"
+                            className="flex-[2] text-lg font-bold shadow-xl transition-all duration-300 hover:shadow-2xl"
+                            data-testid="button-submit-quote"
+                            disabled={!canSubmitStep3 || createQuoteMutation.isPending}
+                          >
+                            {createQuoteMutation.isPending ? "Submitting..." : "Get My Estimate"}
+                          </Button>
+                        </div>
+                      </motion.div>
+                    ) : null}
+                  </AnimatePresence>
+                </form>
+
+                <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">
+                  <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                  <span className="font-semibold">Licensed, bonded, insured, and serving the greater Seattle area</span>
+                </div>
+
+                <p className="mt-3 text-center text-xs leading-5 text-muted-foreground">
+                  By submitting this form, you consent to receive text messages and calls from Christmas Light Installers
+                  Northwest for marketing and customer care. Message frequency may vary. Reply "STOP" to unsubscribe. We
+                  will never share your information with third parties.
+                </p>
+              </div>
+            )}
+          </Card>
+        </div>
       </div>
     </section>
   );

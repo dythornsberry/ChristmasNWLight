@@ -22,7 +22,7 @@ import strikingNightDisplay from '@assets/2025-09-04-min_1762058047477.jpg';
 import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
 import gableWreathHome from '@assets/2023-12-22-3_1762398937574.jpg';
 import beforeImage from '@assets/c641dcd4-0863-4aee-af16-36343abfeba4-min_1762397866171_optimized.webp';
-import afterImage from '@assets/IMG_5469-min_1762397650439.jpeg';
+import afterImage from '@assets/IMG_5469-min_1762397650439_optimized.webp';
 
 export default function Home() {
   const googleReviewsUrl = "https://share.google/lxhOxXmbPwABIqdNa";
@@ -155,13 +155,13 @@ export default function Home() {
 
       <ReviewsStrip />
 
-      <Portfolio items={portfolioItems} />
+      <QuoteFormSection />
 
       <SimpleServices onGetQuote={scrollToQuote} />
 
-      <QuoteFormSection />
-
       <BeforeAfter beforeImage={beforeImage} afterImage={afterImage} />
+
+      <Portfolio items={portfolioItems} />
 
       <Stats stats={stats} />
 

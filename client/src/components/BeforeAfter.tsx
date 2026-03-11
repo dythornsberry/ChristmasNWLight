@@ -23,23 +23,13 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
     setSliderPosition(Math.min(Math.max(percentage, 0), 100));
   };
 
-  const handleMouseDown = () => {
+  const handlePointerDown = (clientX: number) => {
     setIsDragging(true);
+    handleMove(clientX);
   };
 
-  const handleMouseUp = () => {
+  const handlePointerUp = () => {
     setIsDragging(false);
-  };
-
-  const handleMouseMove = (e: React.MouseEvent) => {
-    if (!isDragging) return;
-    handleMove(e.clientX);
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    if (e.touches.length > 0) {
-      handleMove(e.touches[0].clientX);
-    }
   };
 
   return (
@@ -60,15 +50,29 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
         <Card className="overflow-hidden max-w-5xl mx-auto">
           <div 
             ref={containerRef}
-            className="relative aspect-video cursor-col-resize select-none"
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onMouseMove={handleMouseMove}
-            onMouseLeave={handleMouseUp}
-            onTouchStart={() => setIsDragging(true)}
-            onTouchEnd={() => setIsDragging(false)}
-            onTouchMove={handleTouchMove}
+            className="relative aspect-video cursor-col-resize select-none touch-none"
+            onClick={(e) => handleMove(e.clientX)}
+            onMouseDown={(e) => handlePointerDown(e.clientX)}
+            onMouseUp={handlePointerUp}
+            onMouseMove={(e) => {
+              if (!isDragging) return;
+              handleMove(e.clientX);
+            }}
+            onMouseLeave={handlePointerUp}
+            onTouchStart={(e) => {
+              if (e.touches.length > 0) {
+                handlePointerDown(e.touches[0].clientX);
+              }
+            }}
+            onTouchEnd={handlePointerUp}
+            onTouchCancel={handlePointerUp}
+            onTouchMove={(e) => {
+              if (e.touches.length > 0) {
+                handleMove(e.touches[0].clientX);
+              }
+            }}
             data-testid="before-after-slider"
+            style={{ touchAction: "none" }}
           >
             {/* After Image (Background) */}
             <div className="absolute inset-0">
@@ -76,8 +80,9 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
                 src={afterImage} 
                 alt="After professional Christmas light installation"
                 className="w-full h-full object-cover select-none pointer-events-none"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                fetchPriority="low"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
                 style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
@@ -97,8 +102,9 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
                 src={beforeImage} 
                 alt="Before Christmas light installation"
                 className="w-full h-full object-cover select-none pointer-events-none"
-                loading="lazy"
+                loading="eager"
                 decoding="async"
+                fetchPriority="low"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
                 style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
@@ -120,6 +126,30 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
             </div>
           </div>
         </Card>
+
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
+          <button
+            type="button"
+            onClick={() => setSliderPosition(0)}
+            className="rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+          >
+            See before
+          </button>
+          <button
+            type="button"
+            onClick={() => setSliderPosition(50)}
+            className="rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+          >
+            Split view
+          </button>
+          <button
+            type="button"
+            onClick={() => setSliderPosition(100)}
+            className="rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
+          >
+            See after
+          </button>
+        </div>
 
         <div className="text-center mt-8">
           <p className="text-muted-foreground max-w-2xl mx-auto">
