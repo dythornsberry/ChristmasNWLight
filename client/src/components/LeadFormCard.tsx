@@ -116,7 +116,9 @@ export default function LeadFormCard({
   const stepLabels = hasServiceStep ? ["Service", "Contact", "Property"] : ["Contact", "Property"];
   const selectedService = serviceOptions.find((option) => option.value === formData.serviceType);
   const addressRequired = requiresProjectAddress(formData.serviceType || initialServiceType);
-  const zipRequired = addressRequired || Boolean(formData.address.trim());
+  const shouldCollectManualZip =
+    !googlePlacesEnabled || !formData.addressConfirmed || !formData.zipCode.trim();
+  const zipRequired = (addressRequired || Boolean(formData.address.trim())) && shouldCollectManualZip;
 
   const resetForm = () => {
     setStep(1);
@@ -507,27 +509,29 @@ export default function LeadFormCard({
                     zipCode={formData.zipCode}
                   />
 
-                  <div className="space-y-2">
-                    <Label htmlFor={`${testIdPrefix}-zipCode`}>
-                      ZIP Code {zipRequired ? "*" : "(optional)"}
-                    </Label>
-                    <Input
-                      id={`${testIdPrefix}-zipCode`}
-                      value={formData.zipCode}
-                      onChange={(e) =>
-                        setFormData((current) => ({
-                          ...current,
-                          zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
-                        }))
-                      }
-                      required={zipRequired}
-                      autoComplete="postal-code"
-                      inputMode="numeric"
-                      placeholder="98028"
-                      data-testid={`${testIdPrefix}-zip-code`}
-                    />
-                    {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
-                  </div>
+                  {shouldCollectManualZip ? (
+                    <div className="space-y-2">
+                      <Label htmlFor={`${testIdPrefix}-zipCode`}>
+                        ZIP Code {zipRequired ? "*" : "(optional)"}
+                      </Label>
+                      <Input
+                        id={`${testIdPrefix}-zipCode`}
+                        value={formData.zipCode}
+                        onChange={(e) =>
+                          setFormData((current) => ({
+                            ...current,
+                            zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
+                          }))
+                        }
+                        required={zipRequired}
+                        autoComplete="postal-code"
+                        inputMode="numeric"
+                        placeholder="98028"
+                        data-testid={`${testIdPrefix}-zip-code`}
+                      />
+                      {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
+                    </div>
+                  ) : null}
 
                   <div className="rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4">
                     <div className="flex items-start gap-3">

@@ -88,6 +88,8 @@ export default function QuoteFormSection() {
 
   const selectedService = SERVICE_OPTIONS.find((option) => option.value === formData.serviceType);
   const progressWidth = step === 1 ? 34 : step === 2 ? 67 : 100;
+  const shouldCollectManualZip =
+    !googlePlacesEnabled || !formData.addressConfirmed || !formData.zipCode.trim();
 
   const resetForm = () => {
     setIsSubmitted(false);
@@ -142,7 +144,7 @@ export default function QuoteFormSection() {
   const fullNameError = getNameValidationError(formData.fullName, "full name");
   const emailError = getEmailValidationError(formData.email);
   const phoneError = getPhoneValidationError(formData.phone);
-  const zipCodeError = getZipCodeValidationError(formData.zipCode);
+  const zipCodeError = getZipCodeValidationError(formData.zipCode, { required: shouldCollectManualZip });
   const manualAddressError = getAddressValidationError(formData.address, { required: true });
   const addressError =
     manualAddressError ||
@@ -555,25 +557,27 @@ export default function QuoteFormSection() {
                           zipCode={formData.zipCode}
                         />
 
-                        <div className="space-y-2">
-                          <Label htmlFor="zipCode">Zip Code *</Label>
-                          <Input
-                            id="zipCode"
-                            value={formData.zipCode}
-                            onChange={(e) =>
-                              setFormData((current) => ({
-                                ...current,
-                                zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
-                              }))
-                            }
-                            required
-                            data-testid="input-zip-code"
-                            placeholder="98028"
-                            autoComplete="postal-code"
-                            inputMode="numeric"
-                          />
-                          {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
-                        </div>
+                        {shouldCollectManualZip ? (
+                          <div className="space-y-2">
+                            <Label htmlFor="zipCode">Zip Code *</Label>
+                            <Input
+                              id="zipCode"
+                              value={formData.zipCode}
+                              onChange={(e) =>
+                                setFormData((current) => ({
+                                  ...current,
+                                  zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
+                                }))
+                              }
+                              required
+                              data-testid="input-zip-code"
+                              placeholder="98028"
+                              autoComplete="postal-code"
+                              inputMode="numeric"
+                            />
+                            {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
+                          </div>
+                        ) : null}
 
                         <div className="rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4">
                           <p className="text-sm leading-6 text-emerald-900">
