@@ -1,7 +1,9 @@
-import { Star } from "lucide-react";
-import { Badge } from "@/components/ui/badge";
+import { Link } from "wouter";
+import { ArrowRight, ExternalLink, Star } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function ReviewsStrip() {
+  const googleReviewsUrl = "https://share.google/lxhOxXmbPwABIqdNa";
   const quickReviews = [
     { name: "Kyle", text: "Second year using Christmas NW - exceptional stress-free experience!" },
     { name: "Margaret H.", text: "Fantastic business! Professional, knowledgeable, amazing holiday display." },
@@ -48,6 +50,21 @@ export default function ReviewsStrip() {
                   <p className="text-sm text-foreground font-medium mt-1">- {review.name}</p>
                 </div>
               ))}
+            </div>
+
+            <div className="mt-6 flex flex-wrap justify-center md:justify-start gap-3">
+              <a href={googleReviewsUrl} target="_blank" rel="noreferrer" data-testid="link-google-reviews">
+                <Button variant="outline" className="border-primary/20">
+                  Read Google Reviews
+                  <ExternalLink className="w-4 h-4 ml-2" />
+                </Button>
+              </a>
+              <Link href="/testimonials">
+                <Button variant="ghost" data-testid="button-home-testimonials">
+                  See More Customer Stories
+                  <ArrowRight className="w-4 h-4 ml-2" />
+                </Button>
+              </Link>
             </div>
           </div>
         </div>

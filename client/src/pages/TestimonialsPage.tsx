@@ -2,6 +2,7 @@ import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
+import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
@@ -97,6 +98,10 @@ export default function TestimonialsPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHead
+        title="Christmas Northwest Reviews | 5-Star Holiday Lighting in Greater Seattle"
+        description="Read Christmas Northwest customer reviews and testimonials from homeowners and commercial clients across Greater Seattle, Kenmore, Kirkland, Bothell, and Bellevue."
+      />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
 

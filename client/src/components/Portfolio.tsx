@@ -49,6 +49,7 @@ export default function Portfolio({ items }: PortfolioProps) {
                   onDragStart={(e) => e.preventDefault()}
                   style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
                   loading="lazy"
+                  decoding="async"
                 />
                 {/* Watermark */}
                 <div 

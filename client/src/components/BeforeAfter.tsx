@@ -76,6 +76,8 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
                 src={afterImage} 
                 alt="After professional Christmas light installation"
                 className="w-full h-full object-cover select-none pointer-events-none"
+                loading="lazy"
+                decoding="async"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
                 style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
@@ -95,6 +97,8 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
                 src={beforeImage} 
                 alt="Before Christmas light installation"
                 className="w-full h-full object-cover select-none pointer-events-none"
+                loading="lazy"
+                decoding="async"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
                 style={{ userSelect: 'none', WebkitUserSelect: 'none' }}

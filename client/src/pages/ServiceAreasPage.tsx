@@ -3,6 +3,7 @@ import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
+import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -67,6 +68,10 @@ export default function ServiceAreasPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHead
+        title="Christmas Northwest Service Areas | Seattle Eastside & North End"
+        description="See where Christmas Northwest installs holiday lighting across Greater Seattle, including Kenmore, Kirkland, Bothell, Woodinville, Bellevue, Redmond, Sammamish, and nearby areas."
+      />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
 

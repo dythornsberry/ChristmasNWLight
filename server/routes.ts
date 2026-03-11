@@ -1,6 +1,7 @@
 import type { Express, Request, Response, NextFunction } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { hasDatabase } from "./db";
 import { insertQuoteRequestSchema } from "@shared/schema";
 import { sendLeadNotificationEmail } from "./gmail";
 import cron from "node-cron";
@@ -217,11 +218,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Health check endpoint
   app.get("/api/health", async (req, res) => {
     try {
-      // Test database connection by fetching recent logs
       await storage.getRecentErrorLogs(1);
       res.json({ 
         status: 'healthy', 
-        database: 'connected',
+        database: hasDatabase ? 'connected' : 'disabled',
+        storage: hasDatabase ? 'database' : 'memory',
         timestamp: new Date().toISOString() 
       });
     } catch (error) {
@@ -262,9 +263,11 @@ export async function registerRoutes(app: Express): Promise<Server> {
       { url: '/faq', priority: '0.9', changefreq: 'weekly' },
       { url: '/about', priority: '0.7', changefreq: 'monthly' },
       { url: '/services', priority: '0.8', changefreq: 'monthly' },
+      { url: '/permanent-lighting', priority: '0.8', changefreq: 'monthly' },
       { url: '/product-guide', priority: '0.7', changefreq: 'monthly' },
       { url: '/year-round-services', priority: '0.8', changefreq: 'monthly' },
       { url: '/service-areas', priority: '0.7', changefreq: 'monthly' },
+      { url: '/testimonials', priority: '0.7', changefreq: 'monthly' },
       { url: '/contact', priority: '0.6', changefreq: 'monthly' },
       
       // City landing pages (high priority for local SEO - all 14 markets)

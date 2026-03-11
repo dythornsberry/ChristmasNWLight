@@ -1,0 +1,21 @@
+export function formatPhoneNumber(value: string) {
+  const digits = value.replace(/\D/g, "").slice(0, 10);
+
+  if (digits.length <= 3) {
+    return digits;
+  }
+
+  if (digits.length <= 6) {
+    return `(${digits.slice(0, 3)}) ${digits.slice(3)}`;
+  }
+
+  return `(${digits.slice(0, 3)}) ${digits.slice(3, 6)}-${digits.slice(6)}`;
+}
+
+export function hasCompletePhoneNumber(value: string) {
+  return value.replace(/\D/g, "").length === 10;
+}
+
+export function combineName(firstName: string, lastName: string) {
+  return `${firstName.trim()} ${lastName.trim()}`.replace(/\s+/g, " ").trim();
+}

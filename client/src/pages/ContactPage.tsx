@@ -3,10 +3,15 @@ import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
+import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { apiRequest, queryClient } from "@/lib/queryClient";
+import { trackLeadConversion } from "@/lib/analytics";
+import { formatPhoneNumber, hasCompletePhoneNumber } from "@/lib/leads";
+import { useMutation } from "@tanstack/react-query";
 import {
   Select,
   SelectContent,
@@ -14,52 +19,92 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, Clock, MapPin, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
-import { useLocation } from "wouter";
+ 
+const CONTACT_SERVICE_OPTIONS = [
+  { value: "christmas-2026-new", label: "Christmas Lighting" },
+  { value: "christmas-2026-returning", label: "Returning Customer" },
+  { value: "permanent-lighting", label: "Permanent Lighting" },
+  { value: "year-round-services", label: "Year-Round Outdoor Services" },
+  { value: "general-inquiry", label: "General Question" },
+];
 
 export default function ContactPage() {
   const { toast } = useToast();
-  const [, setLocation] = useLocation();
+  const formId = "contact-request-form";
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
+    fullName: "",
     email: "",
     phone: "",
     address: "",
-    referralSource: ""
+    zipCode: "",
+    serviceType: "christmas-2026-new",
   });
 
   const scrollToQuote = () => {
-    setLocation('/');
-    setTimeout(() => {
-      const element = document.getElementById('quote');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    const element = document.getElementById(formId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
   };
+
+  const createQuoteMutation = useMutation({
+    mutationFn: async (data: typeof formData) => {
+      return await apiRequest("POST", "/api/quote-requests", data);
+    },
+    onSuccess: (_response, variables) => {
+      toast({
+        title: "Request Received!",
+        description: "Thanks. We'll reach out within 1 business day to talk through your project.",
+      });
+      trackLeadConversion("contact_page_quote", {
+        form_location: "contact_page",
+        service_type: variables.serviceType,
+      });
+      queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
+      setFormData({
+        fullName: "",
+        email: "",
+        phone: "",
+        address: "",
+        zipCode: "",
+        serviceType: "christmas-2026-new",
+      });
+    },
+    onError: () => {
+      toast({
+        title: "Submission Problem",
+        description: "We couldn't submit your request. Please call us or try again in a moment.",
+        variant: "destructive",
+      });
+    },
+  });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Received!",
-      description: "Thank you for reaching out! We'll get back to you within 1 business day with a custom quote and answer to any questions you have.",
-    });
-    // Reset form
-    setFormData({
-      firstName: "",
-      lastName: "",
-      email: "",
-      phone: "",
-      address: "",
-      referralSource: ""
+    createQuoteMutation.mutate({
+      ...formData,
+      fullName: formData.fullName.trim(),
+      email: formData.email.trim(),
+      address: formData.address.trim(),
+      zipCode: formData.zipCode.trim(),
     });
   };
 
+  const canSubmit =
+    formData.fullName.trim() !== "" &&
+    formData.email.trim() !== "" &&
+    hasCompletePhoneNumber(formData.phone) &&
+    /^\d{5}$/.test(formData.zipCode) &&
+    formData.serviceType !== "";
+
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHead
+        title="Contact Christmas Northwest | Request a Christmas Lighting Quote"
+        description="Request a free quote from Christmas Northwest for Christmas lighting, permanent lighting, or year-round outdoor services in Greater Seattle."
+      />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
 
@@ -69,13 +114,13 @@ export default function ContactPage() {
           <div className="max-w-7xl mx-auto px-6">
             <div className="text-center max-w-4xl mx-auto mb-16">
               <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
-                <span className="text-primary font-semibold">Contact Us</span>
+                <span className="text-primary font-semibold">Free Estimates</span>
               </div>
               <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-foreground">
-                Get in Touch
+                Talk to Christmas Northwest
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-6">
-                Ready to transform your home with beautiful holiday lighting? We're here to help! Fill out the form below or give us a call. Our team is responsive and friendly, and we typically get back to you within 1 business day.
+                Call us now or send a few project details below. We typically respond within 1 business day with next steps, pricing guidance, and the fastest available install dates.
               </p>
               <div className="flex flex-wrap justify-center gap-6 text-foreground">
                 <div className="flex items-center gap-2">
@@ -90,6 +135,10 @@ export default function ContactPage() {
                   <CheckCircle2 className="w-5 h-5 text-primary" />
                   <span className="font-semibold">Licensed & Insured</span>
                 </div>
+                <div className="flex items-center gap-2">
+                  <CheckCircle2 className="w-5 h-5 text-primary" />
+                  <span className="font-semibold">Most Homes $800-$2,000</span>
+                </div>
               </div>
             </div>
 
@@ -97,35 +146,43 @@ export default function ContactPage() {
               {/* Contact Form */}
               <div className="lg:col-span-2">
                 <Card className="p-8 md:p-10">
-                  <h2 className="text-2xl font-bold mb-6 text-foreground">Send Us a Message</h2>
+                  <h2 className="text-2xl font-bold mb-2 text-foreground">Request a Quote or Callback</h2>
+                  <p className="text-muted-foreground mb-6">
+                    Short form, no obligation. Tell us what you need and we'll reach out fast.
+                  </p>
                   
-                  <form onSubmit={handleSubmit} className="space-y-6">
-                    <div className="grid grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <Label htmlFor="firstName">First Name *</Label>
-                        <Input
-                          id="firstName"
-                          value={formData.firstName}
-                          onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
-                          required
-                          data-testid="input-contact-first-name"
-                          placeholder="John"
-                        />
-                      </div>
-                      <div className="space-y-2">
-                        <Label htmlFor="lastName">Last Name *</Label>
-                        <Input
-                          id="lastName"
-                          value={formData.lastName}
-                          onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
-                          required
-                          data-testid="input-contact-last-name"
-                          placeholder="Smith"
-                        />
-                      </div>
+                  <form id={formId} onSubmit={handleSubmit} className="space-y-6 scroll-mt-28">
+                    <div className="space-y-2">
+                      <Label htmlFor="serviceType">What can we help you with? *</Label>
+                      <Select
+                        value={formData.serviceType}
+                        onValueChange={(value) => setFormData({ ...formData, serviceType: value })}
+                      >
+                        <SelectTrigger id="serviceType" data-testid="select-contact-service-type">
+                          <SelectValue placeholder="Choose a service" />
+                        </SelectTrigger>
+                        <SelectContent>
+                          {CONTACT_SERVICE_OPTIONS.map((option) => (
+                            <SelectItem key={option.value} value={option.value}>
+                              {option.label}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
                     </div>
 
-                    <div className="grid grid-cols-2 gap-4">
+                    <div className="grid md:grid-cols-2 gap-4">
+                      <div className="space-y-2">
+                        <Label htmlFor="fullName">Full Name *</Label>
+                        <Input
+                          id="fullName"
+                          value={formData.fullName}
+                          onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+                          required
+                          data-testid="input-contact-full-name"
+                          placeholder="John Smith"
+                        />
+                      </div>
                       <div className="space-y-2">
                         <Label htmlFor="email">Email Address *</Label>
                         <Input
@@ -138,52 +195,50 @@ export default function ContactPage() {
                           placeholder="john@example.com"
                         />
                       </div>
+                    </div>
+
+                    <div className="grid md:grid-cols-2 gap-4">
                       <div className="space-y-2">
                         <Label htmlFor="phone">Phone Number *</Label>
                         <Input
                           id="phone"
                           type="tel"
                           value={formData.phone}
-                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          onChange={(e) => setFormData({ ...formData, phone: formatPhoneNumber(e.target.value) })}
                           required
                           data-testid="input-contact-phone"
-                          placeholder="(206) 555-1234"
+                          placeholder="(425) 555-0123"
+                          maxLength={14}
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="zipCode">Zip Code *</Label>
+                        <Input
+                          id="zipCode"
+                          inputMode="numeric"
+                          value={formData.zipCode}
+                          onChange={(e) =>
+                            setFormData({
+                              ...formData,
+                              zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
+                            })
+                          }
+                          required
+                          data-testid="input-contact-zip-code"
+                          placeholder="98028"
                         />
                       </div>
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="address">Property Address *</Label>
+                      <Label htmlFor="address">Property Address</Label>
                       <Input
                         id="address"
                         value={formData.address}
                         onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                        required
                         data-testid="input-contact-address"
-                        placeholder="123 Main St, Seattle, WA 98103"
+                        placeholder="123 Main St, Seattle, WA"
                       />
-                    </div>
-
-                    <div className="space-y-2">
-                      <Label htmlFor="referralSource">How Did You Hear About Us?</Label>
-                      <Select 
-                        value={formData.referralSource}
-                        onValueChange={(value) => setFormData({ ...formData, referralSource: value })}
-                      >
-                        <SelectTrigger id="referralSource" data-testid="select-contact-referral">
-                          <SelectValue placeholder="Select an option" />
-                        </SelectTrigger>
-                        <SelectContent>
-                          <SelectItem value="google">Google Search</SelectItem>
-                          <SelectItem value="facebook">Facebook</SelectItem>
-                          <SelectItem value="instagram">Instagram</SelectItem>
-                          <SelectItem value="nextdoor">Nextdoor</SelectItem>
-                          <SelectItem value="neighbor">Neighbor / Friend Referral</SelectItem>
-                          <SelectItem value="yard-sign">Yard Sign</SelectItem>
-                          <SelectItem value="returning">Returning Customer</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                        </SelectContent>
-                      </Select>
                     </div>
 
                     <Button 
@@ -191,13 +246,14 @@ export default function ContactPage() {
                       size="lg"
                       className="w-full bg-primary text-primary-foreground font-semibold"
                       data-testid="button-contact-submit"
+                      disabled={!canSubmit || createQuoteMutation.isPending}
                     >
-                      Send Message
+                      {createQuoteMutation.isPending ? "Submitting..." : "Request My Free Estimate"}
                     </Button>
                     
                     <div className="flex items-center justify-center gap-2 text-sm text-muted-foreground mt-4">
                       <CheckCircle2 className="w-4 h-4 text-primary" />
-                      <span>We'll respond within 1 business day</span>
+                      <span>We respond within 1 business day and usually much faster during the season.</span>
                     </div>
                   </form>
                 </Card>

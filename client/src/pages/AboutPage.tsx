@@ -2,6 +2,7 @@ import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
+import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -57,6 +58,10 @@ export default function AboutPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHead
+        title="About Christmas Northwest | Holiday Lighting Experts in Greater Seattle"
+        description="Learn about Christmas Northwest, the Greater Seattle holiday lighting team focused on premium installs, fast response times, and stress-free full-service displays."
+      />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
       <main className="flex-1">

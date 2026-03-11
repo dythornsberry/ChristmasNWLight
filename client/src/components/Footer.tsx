@@ -1,9 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Facebook, Instagram, Mail, Youtube } from "lucide-react";
+import { Facebook, Instagram, Youtube } from "lucide-react";
 import { SiGoogle } from "react-icons/si";
 import { Link } from "wouter";
-import logo from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761493054119.png';
 
 export default function Footer() {
   const handleLinkClick = () => {
@@ -27,7 +25,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-foreground">Company</h4>
             <ul className="space-y-2 text-muted-foreground">
               <li><Link href="/about" onClick={handleLinkClick} className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/#testimonials" onClick={handleLinkClick} className="hover:text-primary transition-colors">Testimonials</Link></li>
+              <li><Link href="/testimonials" onClick={handleLinkClick} className="hover:text-primary transition-colors">Testimonials</Link></li>
               <li><Link href="/service-areas" onClick={handleLinkClick} className="hover:text-primary transition-colors">Service Areas</Link></li>
             </ul>
           </div>

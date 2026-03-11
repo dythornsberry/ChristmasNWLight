@@ -20,9 +20,11 @@ export default function ProductGuide() {
   const scrollToQuote = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(() => {
-      const quoteSection = document.getElementById('quote-form');
+      const quoteSection = document.getElementById('quote');
       if (quoteSection) {
         quoteSection.scrollIntoView({ behavior: 'smooth' });
+      } else {
+        window.location.href = '/#quote';
       }
     }, 100);
   };

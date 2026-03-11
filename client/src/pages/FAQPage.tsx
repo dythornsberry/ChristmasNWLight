@@ -7,17 +7,18 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import PageHead from "@/components/PageHead";
+import StructuredData from "@/components/StructuredData";
 
 export default function FAQPage() {
   const scrollToQuote = () => {
-    const element = document.getElementById('quote-form');
+    const element = document.getElementById('quote');
     if (element) {
       const offset = 100;
       const elementPosition = element.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - offset;
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
     } else {
-      window.location.href = '/#quote-form';
+      window.location.href = '/#quote';
     }
   };
 
@@ -175,101 +176,54 @@ export default function FAQPage() {
     }
   ];
 
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqCategories.flatMap((category) =>
+      category.questions.map((faq) => ({
+        "@type": "Question",
+        "name": faq.question,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": faq.answer
+        }
+      }))
+    )
+  };
+
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Christmas Northwest",
+    "alternateName": "ChristmasNW",
+    "description": "Professional Christmas light installation serving Greater Seattle and the Eastside with custom design, installation, maintenance, takedown, and storage.",
+    "url": "https://christmasnw.com/faq",
+    "image": "https://christmasnw.com/og-image.png",
+    "logo": "https://christmasnw.com/logo.png",
+    "telephone": "+14252150935",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kenmore",
+      "addressRegion": "WA",
+      "postalCode": "98028",
+      "addressCountry": "US"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "bestRating": "5",
+      "reviewCount": "85",
+      "ratingCount": "85"
+    },
+    "sameAs": [
+      "https://www.facebook.com/ChristmasNW",
+      "https://www.instagram.com/christmasnw/",
+      "https://share.google/lxhOxXmbPwABIqdNa"
+    ]
+  };
+
   useEffect(() => {
     window.scrollTo(0, 0);
-    
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqCategories.flatMap(category => 
-        category.questions.map(faq => ({
-          "@type": "Question",
-          "name": faq.question,
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": faq.answer
-          }
-        }))
-      )
-    };
-
-    const localBusinessSchema = {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "ChristmasNW",
-      "description": "Professional Christmas light installation serving Greater Seattle and the Eastside since 2021. Based in Kenmore, serving Bellevue, Kirkland, Redmond, Woodinville, Bothell, Sammamish and surrounding communities. 300+ homes annually with same-week installation, commercial-grade equipment, and full-service experience including storage.",
-      "image": "https://christmasnw.com/logo.png",
-      "telephone": "+14252150935",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Kenmore",
-        "addressLocality": "Kenmore",
-        "addressRegion": "WA",
-        "postalCode": "98028",
-        "addressCountry": "US"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 47.7573,
-        "longitude": -122.2443
-      },
-      "url": "https://christmasnw.com",
-      "priceRange": "$800-$6000+",
-      "areaServed": [
-        "Seattle, WA",
-        "Kenmore, WA",
-        "Bothell, WA",
-        "Kirkland, WA",
-        "Lynnwood, WA",
-        "Woodinville, WA",
-        "Bellevue, WA",
-        "Medina, WA",
-        "Clyde Hill, WA",
-        "Yarrow Point, WA",
-        "Sammamish, WA",
-        "Redmond, WA",
-        "Edmonds, WA",
-        "Shoreline, WA",
-        "Mill Creek, WA"
-      ],
-      "openingHoursSpecification": [
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          "opens": "08:00",
-          "closes": "18:00"
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": "Saturday",
-          "opens": "09:00",
-          "closes": "17:00"
-        }
-      ],
-      "aggregateRating": {
-        "@type": "AggregateRating",
-        "ratingValue": "5.0",
-        "bestRating": "5",
-        "worstRating": "1",
-        "ratingCount": "85",
-        "reviewCount": "85"
-      }
-    };
-
-    const faqSchemaScript = document.createElement('script');
-    faqSchemaScript.type = 'application/ld+json';
-    faqSchemaScript.text = JSON.stringify(faqSchema);
-    document.head.appendChild(faqSchemaScript);
-
-    const businessSchemaScript = document.createElement('script');
-    businessSchemaScript.type = 'application/ld+json';
-    businessSchemaScript.text = JSON.stringify(localBusinessSchema);
-    document.head.appendChild(businessSchemaScript);
-
-    return () => {
-      document.head.removeChild(faqSchemaScript);
-      document.head.removeChild(businessSchemaScript);
-    };
   }, []);
 
   return (
@@ -278,6 +232,8 @@ export default function FAQPage() {
         title="FAQ - Frequently Asked Questions | ChristmasNW - Seattle Christmas Lights"
         description="Get answers to common questions about Christmas light installation in Seattle, Bellevue, Bothell, Kirkland, and Greater Seattle. Pricing, service areas, installation process, and more."
       />
+      <StructuredData data={faqSchema} />
+      <StructuredData data={localBusinessSchema} />
       <div className="min-h-screen bg-background">
         <UrgencyBanner />
         <StickyHeader onGetQuote={scrollToQuote} />

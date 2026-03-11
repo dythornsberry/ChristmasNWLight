@@ -15,6 +15,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { trackLeadConversion } from "@/lib/analytics";
+import { combineName, formatPhoneNumber } from "@/lib/leads";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useMutation } from "@tanstack/react-query";
@@ -46,19 +48,23 @@ export default function YearRoundServices() {
   const createQuoteMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
       const payload = {
-        fullName: `${data.firstName} ${data.lastName}`.trim(),
-        email: data.email,
+        fullName: combineName(data.firstName, data.lastName),
+        email: data.email.trim(),
         phone: data.phone,
-        address: data.address,
-        zipCode: data.zipCode,
+        address: data.address.trim(),
+        zipCode: data.zipCode.trim(),
         serviceType: data.serviceType,
       };
       return await apiRequest("POST", "/api/quote-requests", payload);
     },
-    onSuccess: () => {
+    onSuccess: (_response, variables) => {
       toast({
         title: "Request Received!",
         description: "We'll contact you within 24 hours to discuss your project.",
+      });
+      trackLeadConversion("year_round_services_quote", {
+        form_location: "year_round_services_page",
+        service_type: variables.serviceType,
       });
       setFormData({
         firstName: "",
@@ -82,7 +88,10 @@ export default function YearRoundServices() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    createQuoteMutation.mutate(formData);
+    createQuoteMutation.mutate({
+      ...formData,
+      zipCode: formData.zipCode.replace(/\D/g, "").slice(0, 5),
+    });
   };
 
   const scrollToQuote = () => {
@@ -418,10 +427,11 @@ export default function YearRoundServices() {
                     id="phone"
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) => setFormData({ ...formData, phone: formatPhoneNumber(e.target.value) })}
                     required
                     data-testid="input-year-round-phone"
                     placeholder="(425) 555-0123"
+                    maxLength={14}
                   />
                 </div>
 
@@ -442,7 +452,12 @@ export default function YearRoundServices() {
                   <Input
                     id="zipCode"
                     value={formData.zipCode}
-                    onChange={(e) => setFormData({ ...formData, zipCode: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({
+                        ...formData,
+                        zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
+                      })
+                    }
                     required
                     data-testid="input-year-round-zip-code"
                     placeholder="98028"

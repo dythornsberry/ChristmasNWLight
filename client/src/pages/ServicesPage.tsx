@@ -2,6 +2,7 @@ import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
+import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import {
@@ -106,6 +107,10 @@ export default function ServicesPage() {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHead
+        title="Christmas Light Installation Services | Residential, Commercial & Custom Displays"
+        description="Explore Christmas Northwest services for residential rooflines, tree wrapping, commercial displays, custom holiday lighting, maintenance, takedown, and storage in Greater Seattle."
+      />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
 

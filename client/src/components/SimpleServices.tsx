@@ -1,7 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Home, Building2, Check } from "lucide-react";
-import warmWhiteHouse from '@assets/1-2-min_1762064533191.jpeg';
+import warmWhiteHouse from '@assets/1-2-min_1762064533191_optimized.webp';
 import commercialWalkway from '@assets/Lit-walkway_1762708951439.jpg';
 
 interface SimpleServicesProps {
@@ -20,6 +20,8 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
                 src={warmWhiteHouse}
                 alt="Classic Warm White Elegance - Residential Christmas Lighting"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="p-8">
@@ -62,6 +64,8 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
                 src={commercialWalkway}
                 alt="Commercial Christmas Lighting - Lit Walkway"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="p-8">

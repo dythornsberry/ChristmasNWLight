@@ -3,7 +3,6 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { Phone, Menu } from "lucide-react";
 import { Link, useLocation } from "wouter";
-import logoImage from '@assets/Christmas-NW3000px-1536x803-1 (1)_1761493054119.png';
 
 interface StickyHeaderProps {
   onGetQuote: () => void;
@@ -29,17 +28,17 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
 
   return (
     <header className="sticky top-10 z-50 bg-card border-b border-border shadow-md">
-      <div className="max-w-7xl mx-auto px-4 py-3">
+      <div className="max-w-7xl mx-auto px-4 py-2.5 md:py-3">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
           <Link href="/" onClick={handleNavClick} data-testid="link-logo" className="flex-shrink-0">
             <img 
-              src={logoImage} 
+              src="/logo.png"
               alt="Christmas Northwest" 
-              className="h-16 md:h-20 cursor-pointer"
+              className="h-12 sm:h-16 md:h-20 cursor-pointer"
               style={{ 
                 maxHeight: '80px', 
-                minHeight: '64px',
+                minHeight: '48px',
                 width: 'auto',
                 display: 'block'
               }}
@@ -67,7 +66,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
           <div className="flex items-center gap-2 md:gap-4">
             <a 
               href="tel:4252150935" 
-              className="md:flex items-center gap-2 text-sm md:text-base font-semibold text-foreground hover-elevate active-elevate-2 px-2 md:px-3 py-2 rounded-md whitespace-nowrap"
+              className="hidden md:flex items-center gap-2 text-sm md:text-base font-semibold text-foreground hover-elevate active-elevate-2 px-2 md:px-3 py-2 rounded-md whitespace-nowrap"
               data-testid="link-header-phone"
             >
               <Phone className="w-4 h-4" />
@@ -75,10 +74,11 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
             </a>
             <Button 
               onClick={onGetQuote}
-              className="bg-primary text-primary-foreground font-semibold"
+              className="bg-primary text-primary-foreground font-semibold px-4 sm:px-6"
               data-testid="button-header-quote"
             >
-              Light Up My Home ✨
+              <span className="sm:hidden">Get Quote</span>
+              <span className="hidden sm:inline">Light Up My Home ✨</span>
             </Button>
 
             {/* Mobile Menu */}
