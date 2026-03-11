@@ -8,11 +8,11 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Lightbulb, Sparkles, TreePine, MapPin, Home, Zap, Flower2, Circle } from "lucide-react";
 
-import c9RooflinePhoto from '@assets/81s3L7gNl1L_1762096860729.jpg';
+import c9RooflinePhoto from '@assets/81s3L7gNl1L_optimized.webp';
 import miniLightsPhoto from '@assets/Incan-Clear-6x15-Column-Wrap-02-lifestyle_1762096913912.jpg';
 import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
 import groundLightsPhoto from '@assets/Ground-Lighting-Installation-Fort-Collins-CO_1762096982865.jpg';
-import treeWrapsPhoto from '@assets/81yZtNElctL_1762096926030.jpg';
+import treeWrapsPhoto from '@assets/81yZtNElctL_optimized.webp';
 import bulbSizePhoto from '@assets/bulb size_1762106464988.jpg';
 import lightSpheresPhoto from '@assets/spritzers_1762145407991.jpg';
 

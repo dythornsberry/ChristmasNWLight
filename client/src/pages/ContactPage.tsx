@@ -164,11 +164,13 @@ export default function ContactPage() {
 
                   <div className="rounded-lg overflow-hidden border border-border">
                     <iframe
-                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d21493.75663829!2d-122.25914!3d47.7575!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54901507c9c3b3cd%3A0x5d6f3f8a8c8a8c8a!2sKenmore%2C%20WA!5e0!3m2!1sen!2sus!4v1234567890"
+                      src="https://www.google.com/maps?q=Kenmore%2C%20WA&z=11&output=embed"
                       width="100%"
                       height="200"
                       style={{ border: 0 }}
                       loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="Christmas Northwest service area map centered on Kenmore, Washington"
                       data-testid="map-kenmore"
                     />
                   </div>

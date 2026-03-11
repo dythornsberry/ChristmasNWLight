@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { Shield, Clock, Award, Sparkles, CheckCircle2, TrendingUp, Users, Star } from "lucide-react";
 import dylanPhoto from '@assets/dylan_owner_optimized.jpeg';
-import crewTeamPhoto from '@assets/IMG_3713_optimized.jpeg';
+import crewTeamPhoto from '@assets/IMG_3713_optimized.webp';
 import fleetPhoto from '@assets/IMG_9313_optimized.jpeg';
 import truckActionShot from '@assets/IMG_1466_optimized.jpeg';
 import { useLocation } from "wouter";

@@ -23,8 +23,8 @@ import multicolorRoofline from '@assets/49563b654a08482eca22f0a3090b7ad0.jpg_176
 import truckInstallHome from '@assets/2024-11-12-3_1762398937574.jpg';
 import redColumnAccents from '@assets/a885e41a3786af553f91476ed6121d32.jpg-2_1762395700253.webp';
 import rooflineWrappedTrees from '@assets/IMG_7339-min_1763866884565.jpeg';
-import multicolorTreeHouse from '@assets/IMG_6617-min_1763866884564.jpeg';
-import stunningEstate from '@assets/2023-12-07-2_1762398525155.jpg';
+import multicolorTreeHouse from '@assets/IMG_6617-min_optimized.webp';
+import stunningEstate from '@assets/2023-12-07-2_optimized.webp';
 
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import { createPortal } from "react-dom";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
@@ -8,7 +8,7 @@ import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { X, ChevronLeft, ChevronRight, Youtube } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, PlayCircle, Youtube } from "lucide-react";
 import { useLocation } from "wouter";
 
 // Import all gallery images
@@ -52,7 +52,7 @@ import redColumnAccentHome from '@assets/d8c6cab5281de0583599e22ee0ea1bbd_176239
 import landscapeLightingHome from '@assets/9f3e6664c053b1463aadbe6b559a13e9_1762398299920.webp';
 import pergolaTreeHome from '@assets/2023-11-10-4_1762398479907.jpg';
 import largeHomeWarmWhite from '@assets/unnamed-17_1762398507427.jpg';
-import stunningEstate from '@assets/2023-12-07-2_1762398525155.jpg';
+import stunningEstate from '@assets/2023-12-07-2_optimized.webp';
 import redBlueHalloween from '@assets/44acdea9569a33cda9a195b7b4f8df4b_1762398316523.webp';
 import modernHomeWithDeer from '@assets/5b74f72f0d7ce55a601aed3e7375310a.jpg_1762398340287.webp';
 import modernArchitectureHome from '@assets/2024-11-26-2_1762398937574.jpg';
@@ -67,13 +67,13 @@ import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
 import warmWhiteBushEstateAngle2 from '@assets/2025-11-19-2-min_1763645900967.jpg';
 import multicolorModernDeck from '@assets/2024-11-13-5-min_1763645900967.jpg';
 import multicolorTwoStoryHome from '@assets/2025-11-19-3-min_1763645900967.jpg';
-import porchRailings from '@assets/IMG_0581-min_1763866884564.jpeg';
+import porchRailings from '@assets/IMG_0581-min_optimized.webp';
 import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
 import rooflineWrappedTrees from '@assets/IMG_7339-min_1763866884565.jpeg';
-import singleStoryWithWreath from '@assets/IMG_7362-min_1763866884565.jpeg';
+import singleStoryWithWreath from '@assets/IMG_7362-min_optimized.webp';
 import wrappedBushesDriveway from '@assets/IMG_7487-min_optimized.webp';
 import twoStoryWithChimney from '@assets/IMG_2546-min_1763866884565.jpeg';
-import multicolorTreeHouse from '@assets/IMG_6617-min_1763866884564.jpeg';
+import multicolorTreeHouse from '@assets/IMG_6617-min_optimized.webp';
 import twoStoryLawnDecorations from '@assets/IMG_6949-min_1763866884565.jpeg';
 import hillsideHomeWithTrees from '@assets/IMG_7349-min_1763866884565.jpeg';
 import multipleWrappedTrees from '@assets/IMG_7468-min_optimized.webp';
@@ -87,6 +87,14 @@ interface GalleryImage {
   alt: string;
   category: string;
   title: string;
+}
+
+interface VideoShowcaseItem {
+  id: string;
+  title: string;
+  location: string;
+  description: string;
+  youtubeId: string;
 }
 
 const galleryImages: GalleryImage[] = [
@@ -158,10 +166,157 @@ const galleryImages: GalleryImage[] = [
   { id: 66, src: warmWhiteWithColorAccents, alt: "Modern home with warm white roofline, green tree lighting, red shrub accents, and landscape lighting at dusk", category: "Custom", title: "Warm White with Green and Red Accents" }
 ];
 
+const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
+  {
+    id: "halloween-bellevue",
+    title: "Halloween Display",
+    location: "Bellevue, WA",
+    description: "Watch a real Halloween lighting install from design through final night reveal.",
+    youtubeId: "qcnKBhSJQW4",
+  },
+  {
+    id: "tree-woodinville",
+    title: "Big Tree Installation",
+    location: "Woodinville, WA",
+    description: "See how we wrap a large tree safely and evenly for a premium holiday focal point.",
+    youtubeId: "kyQ0PU9XDIk",
+  },
+  {
+    id: "permanent-redmond",
+    title: "Permanent Lighting Demo",
+    location: "Redmond, WA",
+    description: "A quick look at a color-changing permanent lighting system in action.",
+    youtubeId: "f7vQhLxL9B8",
+  },
+  {
+    id: "permanent-install",
+    title: "Year-Round Permanent Lights",
+    location: "Greater Seattle Area",
+    description: "Our permanent lighting install process, start to finish, on a real home.",
+    youtubeId: "ozZItKmCPKE",
+  },
+  {
+    id: "halloween-2",
+    title: "Halloween Light Display",
+    location: "Greater Seattle Area",
+    description: "Another seasonal transformation using professional outdoor-grade materials.",
+    youtubeId: "fkd4TWuDYa4",
+  },
+  {
+    id: "multicolor-issaquah",
+    title: "Multicolor Display",
+    location: "Issaquah, WA",
+    description: "A full multicolor roofline and tree install for homeowners who want a bold look.",
+    youtubeId: "mfZ_QQIDusE",
+  },
+];
+
+const FEATURED_IMAGE_COUNT = 9;
+const DEFAULT_REMAINING_VISIBLE = 12;
+
+function GalleryImageCard({
+  image,
+  index,
+  onOpen,
+  eager = false,
+}: {
+  image: GalleryImage;
+  index: number;
+  onOpen: (index: number) => void;
+  eager?: boolean;
+}) {
+  const handleKeyDown = (event: ReactKeyboardEvent<HTMLDivElement>) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      onOpen(index);
+    }
+  };
+
+  return (
+    <Card
+      className="group overflow-hidden hover-elevate cursor-pointer"
+      onClick={() => onOpen(index)}
+      onKeyDown={handleKeyDown}
+      role="button"
+      tabIndex={0}
+      data-testid={`card-gallery-${image.id}`}
+    >
+      <div className="relative aspect-[4/3] overflow-hidden">
+        <img
+          src={image.src}
+          alt={image.alt}
+          loading={eager ? "eager" : "lazy"}
+          fetchPriority={eager ? "high" : "auto"}
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
+          onContextMenu={(event) => event.preventDefault()}
+          onDragStart={(event) => event.preventDefault()}
+          style={{ userSelect: "none", WebkitUserSelect: "none" }}
+        />
+        <div
+          className="absolute bottom-3 right-3 px-4 py-2 pointer-events-none z-10"
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.65)",
+            borderRadius: "0.375rem",
+          }}
+        >
+          <p className="text-white text-sm font-bold tracking-wide">ChristmasNW.com</p>
+        </div>
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
+          <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            View Full Size
+          </span>
+        </div>
+      </div>
+      <div className="p-4">
+        <Badge variant="secondary" className="mb-2">
+          {image.category}
+        </Badge>
+        <h3 className="font-semibold text-foreground">{image.title}</h3>
+      </div>
+    </Card>
+  );
+}
+
+function VideoShowcaseCard({ item }: { item: VideoShowcaseItem }) {
+  return (
+    <a
+      href={`https://www.youtube.com/watch?v=${item.youtubeId}`}
+      target="_blank"
+      rel="noreferrer"
+      className="group block overflow-hidden rounded-2xl border border-border bg-background shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
+      data-testid={`card-video-${item.id}`}
+    >
+      <div className="relative aspect-[9/16] overflow-hidden bg-slate-950">
+        <img
+          src={`https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`}
+          alt={`${item.title} video thumbnail`}
+          loading="lazy"
+          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+        <div className="absolute left-4 top-4 rounded-full bg-white/92 px-3 py-1 text-xs font-semibold text-slate-900">
+          Watch the install
+        </div>
+        <div className="absolute inset-0 flex items-center justify-center">
+          <div className="rounded-full bg-white/92 p-4 text-primary shadow-xl transition-transform duration-300 group-hover:scale-110">
+            <PlayCircle className="h-10 w-10" />
+          </div>
+        </div>
+        <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+          <p className="text-sm font-medium text-white/80">{item.location}</p>
+          <h3 className="mt-1 text-xl font-semibold">{item.title}</h3>
+          <p className="mt-2 text-sm leading-6 text-white/80">{item.description}</p>
+        </div>
+      </div>
+    </a>
+  );
+}
+
 export default function GalleryPage() {
   const [, setLocation] = useLocation();
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [visibleRemainingCount, setVisibleRemainingCount] = useState(DEFAULT_REMAINING_VISIBLE);
 
   const scrollToQuote = () => {
     setLocation('/');
@@ -178,6 +333,10 @@ export default function GalleryPage() {
   const filteredImages = selectedCategory === "All" 
     ? galleryImages 
     : galleryImages.filter(img => img.category === selectedCategory);
+  const featuredImages = filteredImages.slice(0, FEATURED_IMAGE_COUNT);
+  const remainingImages = filteredImages.slice(FEATURED_IMAGE_COUNT);
+  const remainingImagesToRender = remainingImages.slice(0, visibleRemainingCount);
+  const hasMoreRemainingImages = remainingImages.length > visibleRemainingCount;
 
   const openLightbox = (index: number) => {
     setLightboxIndex(index);
@@ -215,6 +374,11 @@ export default function GalleryPage() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [lightboxIndex]);
+
+  useEffect(() => {
+    setVisibleRemainingCount(DEFAULT_REMAINING_VISIBLE);
+    setLightboxIndex(null);
+  }, [selectedCategory]);
 
   const videoSchemas = {
     "@context": "https://schema.org",
@@ -327,7 +491,7 @@ export default function GalleryPage() {
   return (
     <>
       <PageHead 
-        title="Christmas Light Installation Gallery 2026 | Seattle, Bellevue, Bothell | ChristmasNW"
+        title="Christmas Light Installation Gallery 2026 | Seattle, Bellevue, Bothell | Christmas Northwest"
         description="View our portfolio of professional Christmas light installations across Greater Seattle. See completed projects in Bellevue, Bothell, Kirkland, Redmond, and Kenmore. Watch installation videos and get inspired for your 2026 holiday display."
       />
       
@@ -393,48 +557,14 @@ export default function GalleryPage() {
 
             {/* Top 9 Gallery Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredImages.slice(0, 9).map((image, index) => (
-                <Card 
-                  key={image.id} 
-                  className="group overflow-hidden hover-elevate cursor-pointer"
-                  onClick={() => openLightbox(index)}
-                  data-testid={`card-gallery-${image.id}`}
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={image.src} 
-                      alt={image.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
-                      onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}
-                      style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
-                    />
-                    {/* Watermark */}
-                    <div 
-                      className="absolute bottom-3 right-3 px-4 py-2 pointer-events-none z-10"
-                      style={{
-                        backgroundColor: 'rgba(0, 0, 0, 0.65)',
-                        borderRadius: '0.375rem'
-                      }}
-                    >
-                      <p className="text-white text-sm font-bold tracking-wide">
-                        ChristmasNW.com
-                      </p>
-                    </div>
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                      <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        View Full Size
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <Badge variant="secondary" className="mb-2">
-                      {image.category}
-                    </Badge>
-                    <h3 className="font-semibold text-foreground">{image.title}</h3>
-                  </div>
-                </Card>
+              {featuredImages.map((image, index) => (
+                <GalleryImageCard
+                  key={image.id}
+                  image={image}
+                  index={index}
+                  onOpen={openLightbox}
+                  eager={index < 3}
+                />
               ))}
             </div>
 
@@ -458,113 +588,9 @@ export default function GalleryPage() {
 
             {/* Video Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {/* Halloween Install - Bellevue */}
-              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-halloween-bellevue">
-                <div className="aspect-[9/16] relative">
-                  <iframe
-                    src="https://www.youtube.com/embed/qcnKBhSJQW4"
-                    title="Halloween Lighting Installation in Bellevue WA"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-                <div className="p-4 text-center" data-testid="caption-video-halloween-bellevue">
-                  <h3 className="font-semibold text-foreground mb-1">Halloween Display</h3>
-                  <p className="text-sm text-muted-foreground">Bellevue, WA</p>
-                </div>
-              </div>
-
-              {/* Tree Lighting - Woodinville */}
-              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-tree-woodinville">
-                <div className="aspect-[9/16] relative">
-                  <iframe
-                    src="https://www.youtube.com/embed/kyQ0PU9XDIk"
-                    title="Tree Lighting Installation in Woodinville WA"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-                <div className="p-4 text-center" data-testid="caption-video-tree-woodinville">
-                  <h3 className="font-semibold text-foreground mb-1">Big Tree Installation</h3>
-                  <p className="text-sm text-muted-foreground">Woodinville, WA</p>
-                </div>
-              </div>
-
-              {/* Permanent Lighting Demo - Redmond */}
-              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-permanent-redmond">
-                <div className="aspect-[9/16] relative">
-                  <iframe
-                    src="https://www.youtube.com/embed/f7vQhLxL9B8"
-                    title="Permanent Lighting Demo in Redmond WA"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-                <div className="p-4 text-center" data-testid="caption-video-permanent-redmond">
-                  <h3 className="font-semibold text-foreground mb-1">Permanent Lighting Demo</h3>
-                  <p className="text-sm text-muted-foreground">Redmond, WA</p>
-                </div>
-              </div>
-
-              {/* Permanent Lighting Install */}
-              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-permanent-install">
-                <div className="aspect-[9/16] relative">
-                  <iframe
-                    src="https://www.youtube.com/embed/ozZItKmCPKE"
-                    title="Permanent Lighting Installation"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-                <div className="p-4 text-center" data-testid="caption-video-permanent-install">
-                  <h3 className="font-semibold text-foreground mb-1">Year-Round Permanent Lights</h3>
-                  <p className="text-sm text-muted-foreground">Greater Seattle Area</p>
-                </div>
-              </div>
-
-              {/* Halloween Install 2 */}
-              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-halloween-2">
-                <div className="aspect-[9/16] relative">
-                  <iframe
-                    src="https://www.youtube.com/embed/fkd4TWuDYa4"
-                    title="Halloween Lighting Installation"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-                <div className="p-4 text-center" data-testid="caption-video-halloween-2">
-                  <h3 className="font-semibold text-foreground mb-1">Halloween Light Display</h3>
-                  <p className="text-sm text-muted-foreground">Greater Seattle Area</p>
-                </div>
-              </div>
-
-              {/* Multicolor Install - Issaquah */}
-              <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow bg-background" data-testid="card-video-multicolor-issaquah">
-                <div className="aspect-[9/16] relative">
-                  <iframe
-                    src="https://www.youtube.com/embed/mfZ_QQIDusE"
-                    title="Multicolor Christmas Lighting Installation in Issaquah WA"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    loading="lazy"
-                    className="absolute inset-0 w-full h-full"
-                  />
-                </div>
-                <div className="p-4 text-center" data-testid="caption-video-multicolor-issaquah">
-                  <h3 className="font-semibold text-foreground mb-1">Multicolor Display</h3>
-                  <p className="text-sm text-muted-foreground">Issaquah, WA</p>
-                </div>
-              </div>
+              {VIDEO_SHOWCASE_ITEMS.map((item) => (
+                <VideoShowcaseCard key={item.id} item={item} />
+              ))}
             </div>
 
             {/* Channel CTA */}
@@ -594,59 +620,46 @@ export default function GalleryPage() {
               </h2>
               <p className="text-lg text-muted-foreground">
                 {selectedCategory === "All" 
-                  ? `Browse ${filteredImages.length - 9} more beautiful installations` 
-                  : `${filteredImages.length - 9} more ${selectedCategory} installations`}
+                  ? `Browse ${remainingImages.length} more beautiful installations` 
+                  : `${remainingImages.length} more ${selectedCategory} installations`}
               </p>
             </div>
 
             {/* Remaining Photos Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {filteredImages.slice(9).map((image, index) => (
-                <Card 
-                  key={image.id} 
-                  className="group overflow-hidden hover-elevate cursor-pointer"
-                  onClick={() => openLightbox(index + 9)}
-                  data-testid={`card-gallery-${image.id}`}
-                >
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img 
-                      src={image.src} 
-                      alt={image.alt}
-                      loading="lazy"
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
-                      onContextMenu={(e) => e.preventDefault()}
-                      onDragStart={(e) => e.preventDefault()}
-                      style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
-                    />
-                    {/* Watermark */}
-                    <div 
-                      className="absolute bottom-3 right-3 px-4 py-2 pointer-events-none z-10"
-                      style={{
-                        backgroundColor: 'rgba(0, 0, 0, 0.65)',
-                        borderRadius: '0.375rem'
-                      }}
-                    >
-                      <p className="text-white text-sm font-bold tracking-wide">
-                        ChristmasNW.com
-                      </p>
-                    </div>
-                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
-                      <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        View Full Size
-                      </span>
-                    </div>
-                  </div>
-                  <div className="p-4">
-                    <Badge variant="secondary" className="mb-2">
-                      {image.category}
-                    </Badge>
-                    <h3 className="font-semibold text-foreground">{image.title}</h3>
-                  </div>
-                </Card>
+              {remainingImagesToRender.map((image, index) => (
+                <GalleryImageCard
+                  key={image.id}
+                  image={image}
+                  index={index + FEATURED_IMAGE_COUNT}
+                  onOpen={openLightbox}
+                />
               ))}
             </div>
 
-            {filteredImages.length <= 9 && (
+            {hasMoreRemainingImages ? (
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  onClick={() =>
+                    setVisibleRemainingCount((current) =>
+                      Math.min(current + DEFAULT_REMAINING_VISIBLE, remainingImages.length),
+                    )
+                  }
+                >
+                  Show 12 More Installations
+                </Button>
+                <Button
+                  size="lg"
+                  onClick={() => setVisibleRemainingCount(remainingImages.length)}
+                >
+                  Show All {remainingImages.length}
+                </Button>
+              </div>
+            ) : null}
+
+            {filteredImages.length <= FEATURED_IMAGE_COUNT && (
               <div className="text-center py-12">
                 <p className="text-muted-foreground">All installations shown above.</p>
               </div>
