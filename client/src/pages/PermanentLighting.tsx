@@ -9,18 +9,34 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { trackLeadConversion } from "@/lib/analytics";
-import { combineName, formatPhoneNumber } from "@/lib/leads";
+import {
+  combineName,
+  formatPhoneNumber,
+  getAddressValidationError,
+  getEmailValidationError,
+  getNameValidationError,
+  getPhoneValidationError,
+  getZipCodeValidationError,
+} from "@/lib/leads";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useMutation } from "@tanstack/react-query";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Sparkles, Smartphone, Zap, Shield, Palette, Clock } from "lucide-react";
+import AddressAutocompleteField from "@/components/AddressAutocompleteField";
+import FormSpamTrap from "@/components/FormSpamTrap";
+import { hasGooglePlacesApiKey } from "@/lib/googleMaps";
 
 import permanentLighting1 from "@assets/Gallery_GeorgeS_Edited-scaled-square_1762286184697.jpg";
 import permanentLighting2 from "@assets/dsc00331_edited_1762286184697.jpg";
 
 export default function PermanentLighting() {
   const { toast } = useToast();
+  const formStartedAtRef = useRef(Date.now());
+  const googlePlacesEnabled = hasGooglePlacesApiKey();
+  const [formResetKey, setFormResetKey] = useState(0);
+  const [showErrors, setShowErrors] = useState(false);
+  const [website, setWebsite] = useState("");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -28,18 +44,21 @@ export default function PermanentLighting() {
     phone: "",
     address: "",
     zipCode: "",
-    serviceType: "permanent-lighting"
+    serviceType: "permanent-lighting",
+    addressConfirmed: false,
   });
 
   const createQuoteMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
       const payload = {
         fullName: combineName(data.firstName, data.lastName),
-        email: data.email.trim(),
         phone: data.phone,
         address: data.address.trim(),
         zipCode: data.zipCode.trim(),
         serviceType: data.serviceType,
+        email: data.email.trim(),
+        website,
+        formStartedAt: formStartedAtRef.current,
       };
       return await apiRequest("POST", "/api/quote-requests", payload);
     },
@@ -52,6 +71,10 @@ export default function PermanentLighting() {
         form_location: "permanent_lighting_page",
         service_type: variables.serviceType,
       });
+      formStartedAtRef.current = Date.now();
+      setShowErrors(false);
+      setWebsite("");
+      setFormResetKey((value) => value + 1);
       setFormData({
         firstName: "",
         lastName: "",
@@ -59,21 +82,50 @@ export default function PermanentLighting() {
         phone: "",
         address: "",
         zipCode: "",
-        serviceType: "permanent-lighting"
+        serviceType: "permanent-lighting",
+        addressConfirmed: false,
       });
       queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
     },
-    onError: () => {
+    onError: (error) => {
       toast({
-        title: "Error",
-        description: "There was a problem submitting your request. Please try again.",
+        title: "Submission Problem",
+        description:
+          error instanceof Error
+            ? error.message
+            : "There was a problem submitting your request. Please try again.",
         variant: "destructive",
       });
     },
   });
 
+  const firstNameError = getNameValidationError(formData.firstName, "first name");
+  const lastNameError = getNameValidationError(formData.lastName, "last name");
+  const emailError = getEmailValidationError(formData.email);
+  const phoneError = getPhoneValidationError(formData.phone);
+  const zipCodeError = getZipCodeValidationError(formData.zipCode);
+  const manualAddressError = getAddressValidationError(formData.address, { required: true });
+  const addressError =
+    manualAddressError ||
+    (googlePlacesEnabled && !formData.addressConfirmed
+      ? "Select the property from the Google suggestions."
+      : null);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setShowErrors(true);
+
+    if (
+      firstNameError ||
+      lastNameError ||
+      emailError ||
+      phoneError ||
+      zipCodeError ||
+      addressError
+    ) {
+      return;
+    }
+
     createQuoteMutation.mutate({
       ...formData,
       zipCode: formData.zipCode.replace(/\D/g, "").slice(0, 5),
@@ -298,7 +350,12 @@ export default function PermanentLighting() {
                 </p>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="relative space-y-5">
+                <FormSpamTrap
+                  fieldId="permanent-website"
+                  value={website}
+                  onChange={setWebsite}
+                />
                 <div className="grid md:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name *</Label>
@@ -309,7 +366,9 @@ export default function PermanentLighting() {
                       required
                       data-testid="input-permanent-first-name"
                       placeholder="John"
+                      autoComplete="given-name"
                     />
+                    {showErrors && firstNameError ? <p className="text-sm text-destructive">{firstNameError}</p> : null}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last Name *</Label>
@@ -320,7 +379,9 @@ export default function PermanentLighting() {
                       required
                       data-testid="input-permanent-last-name"
                       placeholder="Smith"
+                      autoComplete="family-name"
                     />
+                    {showErrors && lastNameError ? <p className="text-sm text-destructive">{lastNameError}</p> : null}
                   </div>
                 </div>
 
@@ -334,7 +395,10 @@ export default function PermanentLighting() {
                     required
                     data-testid="input-permanent-email"
                     placeholder="john@example.com"
+                    autoComplete="email"
+                    inputMode="email"
                   />
+                  {showErrors && emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
                 </div>
 
                 <div className="space-y-2">
@@ -348,20 +412,41 @@ export default function PermanentLighting() {
                     data-testid="input-permanent-phone"
                     placeholder="(425) 555-0123"
                     maxLength={14}
+                    autoComplete="tel"
+                    inputMode="tel"
                   />
+                  {showErrors && phoneError ? <p className="text-sm text-destructive">{phoneError}</p> : null}
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="address">Street Address *</Label>
-                  <Input
-                    id="address"
-                    value={formData.address}
-                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    required
-                    data-testid="input-permanent-address"
-                    placeholder="123 Main Street"
-                  />
-                </div>
+                <AddressAutocompleteField
+                  address={formData.address}
+                  addressConfirmed={formData.addressConfirmed}
+                  error={showErrors ? addressError : null}
+                  inputId="address"
+                  label="Street Address"
+                  onAddressChange={(value) =>
+                    setFormData((current) => ({
+                      ...current,
+                      address: value,
+                    }))
+                  }
+                  onAddressConfirmedChange={(value) =>
+                    setFormData((current) => ({
+                      ...current,
+                      addressConfirmed: value,
+                    }))
+                  }
+                  onZipCodeChange={(value) =>
+                    setFormData((current) => ({
+                      ...current,
+                      zipCode: value || current.zipCode,
+                    }))
+                  }
+                  placeholder="Start typing the installation address"
+                  required
+                  resetKey={formResetKey}
+                  zipCode={formData.zipCode}
+                />
 
                 <div className="space-y-2">
                   <Label htmlFor="zipCode">Zip Code *</Label>
@@ -377,14 +462,26 @@ export default function PermanentLighting() {
                     required
                     data-testid="input-permanent-zip-code"
                     placeholder="98028"
+                    autoComplete="postal-code"
+                    inputMode="numeric"
                   />
+                  {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
                 </div>
 
                 <Button 
                   type="submit" 
                   size="lg"
                   className="w-full text-xl py-7 shadow-xl hover:shadow-amber-500/20 font-bold"
-                  disabled={createQuoteMutation.isPending}
+                  disabled={
+                    Boolean(
+                      firstNameError ||
+                      lastNameError ||
+                      emailError ||
+                      phoneError ||
+                      zipCodeError ||
+                      addressError,
+                    ) || createQuoteMutation.isPending
+                  }
                   data-testid="button-submit-permanent"
                 >
                   {createQuoteMutation.isPending ? "Sending..." : "Get My Free Estimate"}

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
@@ -10,7 +10,15 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { trackLeadConversion } from "@/lib/analytics";
-import { formatPhoneNumber, hasCompletePhoneNumber } from "@/lib/leads";
+import {
+  formatPhoneNumber,
+  getAddressValidationError,
+  getEmailValidationError,
+  getNameValidationError,
+  getPhoneValidationError,
+  getZipCodeValidationError,
+  requiresProjectAddress,
+} from "@/lib/leads";
 import { useMutation } from "@tanstack/react-query";
 import {
   Select,
@@ -21,6 +29,9 @@ import {
 } from "@/components/ui/select";
 import { Phone, Mail, Clock, MapPin, CheckCircle2 } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import AddressAutocompleteField from "@/components/AddressAutocompleteField";
+import FormSpamTrap from "@/components/FormSpamTrap";
+import { hasGooglePlacesApiKey } from "@/lib/googleMaps";
  
 const CONTACT_SERVICE_OPTIONS = [
   { value: "christmas-2026-new", label: "Christmas Lighting" },
@@ -33,6 +44,11 @@ const CONTACT_SERVICE_OPTIONS = [
 export default function ContactPage() {
   const { toast } = useToast();
   const formId = "contact-request-form";
+  const formStartedAtRef = useRef(Date.now());
+  const googlePlacesEnabled = hasGooglePlacesApiKey();
+  const [formResetKey, setFormResetKey] = useState(0);
+  const [showErrors, setShowErrors] = useState(false);
+  const [website, setWebsite] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -40,6 +56,7 @@ export default function ContactPage() {
     address: "",
     zipCode: "",
     serviceType: "christmas-2026-new",
+    addressConfirmed: false,
   });
 
   const scrollToQuote = () => {
@@ -51,7 +68,11 @@ export default function ContactPage() {
 
   const createQuoteMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      return await apiRequest("POST", "/api/quote-requests", data);
+      return await apiRequest("POST", "/api/quote-requests", {
+        ...data,
+        website,
+        formStartedAt: formStartedAtRef.current,
+      });
     },
     onSuccess: (_response, variables) => {
       toast({
@@ -63,6 +84,10 @@ export default function ContactPage() {
         service_type: variables.serviceType,
       });
       queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
+      formStartedAtRef.current = Date.now();
+      setShowErrors(false);
+      setWebsite("");
+      setFormResetKey((value) => value + 1);
       setFormData({
         fullName: "",
         email: "",
@@ -70,33 +95,55 @@ export default function ContactPage() {
         address: "",
         zipCode: "",
         serviceType: "christmas-2026-new",
+        addressConfirmed: false,
       });
     },
-    onError: () => {
+    onError: (error) => {
       toast({
         title: "Submission Problem",
-        description: "We couldn't submit your request. Please call us or try again in a moment.",
+        description:
+          error instanceof Error
+            ? error.message
+            : "We couldn't submit your request. Please call us or try again in a moment.",
         variant: "destructive",
       });
     },
   });
 
+  const fullNameError = getNameValidationError(formData.fullName, "full name");
+  const emailError = getEmailValidationError(formData.email);
+  const phoneError = getPhoneValidationError(formData.phone);
+  const zipCodeError = getZipCodeValidationError(formData.zipCode);
+  const addressRequired = requiresProjectAddress(formData.serviceType);
+  const manualAddressError = getAddressValidationError(formData.address, { required: addressRequired });
+  const addressError =
+    manualAddressError ||
+    (addressRequired && googlePlacesEnabled && !formData.addressConfirmed
+      ? "Select the property from the Google suggestions."
+      : null);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setShowErrors(true);
+
+    if (fullNameError || emailError || phoneError || zipCodeError || addressError) {
+      return;
+    }
+
     createQuoteMutation.mutate({
       ...formData,
       fullName: formData.fullName.trim(),
-      email: formData.email.trim(),
       address: formData.address.trim(),
       zipCode: formData.zipCode.trim(),
     });
   };
 
   const canSubmit =
-    formData.fullName.trim() !== "" &&
-    formData.email.trim() !== "" &&
-    hasCompletePhoneNumber(formData.phone) &&
-    /^\d{5}$/.test(formData.zipCode) &&
+    !fullNameError &&
+    !emailError &&
+    !phoneError &&
+    !zipCodeError &&
+    !addressError &&
     formData.serviceType !== "";
 
   return (
@@ -151,7 +198,12 @@ export default function ContactPage() {
                     Short form, no obligation. Tell us what you need and we'll reach out fast.
                   </p>
                   
-                  <form id={formId} onSubmit={handleSubmit} className="space-y-6 scroll-mt-28">
+                  <form id={formId} onSubmit={handleSubmit} className="relative space-y-6 scroll-mt-28">
+                    <FormSpamTrap
+                      fieldId="contact-website"
+                      value={website}
+                      onChange={setWebsite}
+                    />
                     <div className="space-y-2">
                       <Label htmlFor="serviceType">What can we help you with? *</Label>
                       <Select
@@ -181,7 +233,9 @@ export default function ContactPage() {
                           required
                           data-testid="input-contact-full-name"
                           placeholder="John Smith"
+                          autoComplete="name"
                         />
+                        {showErrors && fullNameError ? <p className="text-sm text-destructive">{fullNameError}</p> : null}
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="email">Email Address *</Label>
@@ -193,7 +247,10 @@ export default function ContactPage() {
                           required
                           data-testid="input-contact-email"
                           placeholder="john@example.com"
+                          autoComplete="email"
+                          inputMode="email"
                         />
+                        {showErrors && emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
                       </div>
                     </div>
 
@@ -209,13 +266,15 @@ export default function ContactPage() {
                           data-testid="input-contact-phone"
                           placeholder="(425) 555-0123"
                           maxLength={14}
+                          autoComplete="tel"
+                          inputMode="tel"
                         />
+                        {showErrors && phoneError ? <p className="text-sm text-destructive">{phoneError}</p> : null}
                       </div>
                       <div className="space-y-2">
                         <Label htmlFor="zipCode">Zip Code *</Label>
                         <Input
                           id="zipCode"
-                          inputMode="numeric"
                           value={formData.zipCode}
                           onChange={(e) =>
                             setFormData({
@@ -226,20 +285,42 @@ export default function ContactPage() {
                           required
                           data-testid="input-contact-zip-code"
                           placeholder="98028"
+                          autoComplete="postal-code"
+                          inputMode="numeric"
                         />
+                        {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
                       </div>
                     </div>
 
-                    <div className="space-y-2">
-                      <Label htmlFor="address">Property Address</Label>
-                      <Input
-                        id="address"
-                        value={formData.address}
-                        onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                        data-testid="input-contact-address"
-                        placeholder="123 Main St, Seattle, WA"
-                      />
-                    </div>
+                    <AddressAutocompleteField
+                      address={formData.address}
+                      addressConfirmed={formData.addressConfirmed}
+                      error={showErrors ? addressError : null}
+                      inputId="address"
+                      label={addressRequired ? "Property Address" : "Property Address (optional)"}
+                      onAddressChange={(value) =>
+                        setFormData((current) => ({
+                          ...current,
+                          address: value,
+                        }))
+                      }
+                      onAddressConfirmedChange={(value) =>
+                        setFormData((current) => ({
+                          ...current,
+                          addressConfirmed: value,
+                        }))
+                      }
+                      onZipCodeChange={(value) =>
+                        setFormData((current) => ({
+                          ...current,
+                          zipCode: value || current.zipCode,
+                        }))
+                      }
+                      placeholder="Start typing the property address"
+                      required={addressRequired}
+                      resetKey={formResetKey}
+                      zipCode={formData.zipCode}
+                    />
 
                     <Button 
                       type="submit" 

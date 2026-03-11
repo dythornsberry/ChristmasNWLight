@@ -5,12 +5,16 @@ import { hasDatabase } from "./db";
 import { insertQuoteRequestSchema } from "@shared/schema";
 import { sendLeadNotificationEmail } from "./gmail";
 import cron from "node-cron";
+import { ZodError } from "zod";
 
 // Webhook URL for Zapier notifications (set via environment variable)
 const ZAPIER_WEBHOOK_URL = process.env.ZAPIER_WEBHOOK_URL;
 
 // Admin API key for protected endpoints (set via environment variable)
 const ADMIN_API_KEY = process.env.ADMIN_API_KEY;
+const LEAD_RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const LEAD_RATE_LIMIT_MAX_REQUESTS = 5;
+const leadSubmissionsByIp = new Map<string, number[]>();
 
 // Middleware to check admin API key
 function requireAdminAuth(req: Request, res: Response, next: NextFunction) {
@@ -26,6 +30,18 @@ function requireAdminAuth(req: Request, res: Response, next: NextFunction) {
   }
   
   next();
+}
+
+function isLeadRateLimited(ipAddress: string) {
+  const now = Date.now();
+  const recentAttempts = (leadSubmissionsByIp.get(ipAddress) ?? []).filter(
+    (timestamp) => now - timestamp < LEAD_RATE_LIMIT_WINDOW_MS,
+  );
+
+  recentAttempts.push(now);
+  leadSubmissionsByIp.set(ipAddress, recentAttempts);
+
+  return recentAttempts.length > LEAD_RATE_LIMIT_MAX_REQUESTS;
 }
 
 async function sendWebhookNotification(data: any) {
@@ -127,6 +143,34 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const ipAddress = req.ip || req.socket.remoteAddress || 'unknown';
     
     try {
+      if (typeof req.body?.website === "string" && req.body.website.trim() !== "") {
+        await storage.createErrorLog({
+          eventType: 'form_submission_spam',
+          status: 'error',
+          requestData,
+          userAgent,
+          ipAddress,
+          errorMessage: 'Hidden field was populated',
+        });
+
+        return res.status(202).json({ ok: true });
+      }
+
+      if (isLeadRateLimited(ipAddress)) {
+        await storage.createErrorLog({
+          eventType: 'form_submission_rate_limited',
+          status: 'error',
+          requestData,
+          userAgent,
+          ipAddress,
+          errorMessage: 'Too many quote requests from the same IP address',
+        });
+
+        return res.status(429).json({
+          error: "Too many quote requests from this device. Please wait a few minutes and try again.",
+        });
+      }
+
       // Log the attempt
       await storage.createErrorLog({
         eventType: 'form_submission_attempt',
@@ -163,7 +207,12 @@ export async function registerRoutes(app: Express): Promise<Server> {
       
       res.status(201).json(quoteRequest);
     } catch (error) {
-      const errorMessage = error instanceof Error ? error.message : 'Unknown error';
+      const errorMessage =
+        error instanceof ZodError
+          ? error.issues[0]?.message ?? "Invalid quote request data"
+          : error instanceof Error
+            ? error.message
+            : 'Unknown error';
       console.error("❌ Error creating quote request:", errorMessage);
       
       // Log the error to database
@@ -188,7 +237,10 @@ export async function registerRoutes(app: Express): Promise<Server> {
         timestamp: new Date().toISOString()
       }).catch(e => console.error('Failed to send error alert:', e));
       
-      res.status(400).json({ error: "Invalid quote request data" });
+      res.status(error instanceof ZodError ? 422 : 400).json({
+        error: errorMessage,
+        details: error instanceof ZodError ? error.issues.map((issue) => issue.message) : undefined,
+      });
     }
   });
 

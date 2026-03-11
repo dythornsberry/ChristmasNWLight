@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,11 +6,21 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useToast } from "@/hooks/use-toast";
 import { trackLeadConversion } from "@/lib/analytics";
-import { formatPhoneNumber, hasCompletePhoneNumber } from "@/lib/leads";
+import {
+  formatPhoneNumber,
+  getAddressValidationError,
+  getEmailValidationError,
+  getNameValidationError,
+  getPhoneValidationError,
+  getZipCodeValidationError,
+} from "@/lib/leads";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useMutation } from "@tanstack/react-query";
 import { DollarSign, CheckCircle2, Phone, ChevronRight, ChevronLeft, Sparkles, TreePine, Sun, Wrench, Lamp } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import AddressAutocompleteField from "@/components/AddressAutocompleteField";
+import FormSpamTrap from "@/components/FormSpamTrap";
+import { hasGooglePlacesApiKey } from "@/lib/googleMaps";
 
 const SERVICE_OPTIONS = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New Customer", icon: TreePine },
@@ -22,23 +32,52 @@ const SERVICE_OPTIONS = [
 
 export default function QuoteFormSection() {
   const { toast } = useToast();
+  const formStartedAtRef = useRef(Date.now());
+  const googlePlacesEnabled = hasGooglePlacesApiKey();
   const [step, setStep] = useState(1);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [formResetKey, setFormResetKey] = useState(0);
+  const [showErrors, setShowErrors] = useState(false);
+  const [website, setWebsite] = useState("");
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
     phone: "",
     address: "",
     zipCode: "",
-    serviceType: ""
+    serviceType: "",
+    addressConfirmed: false,
   });
+
+  const resetForm = () => {
+    setIsSubmitted(false);
+    setStep(1);
+    setShowErrors(false);
+    setWebsite("");
+    setFormResetKey((value) => value + 1);
+    formStartedAtRef.current = Date.now();
+    setFormData({
+      fullName: "",
+      email: "",
+      phone: "",
+      address: "",
+      zipCode: "",
+      serviceType: "",
+      addressConfirmed: false,
+    });
+  };
 
   const createQuoteMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      return await apiRequest("POST", "/api/quote-requests", data);
+      return await apiRequest("POST", "/api/quote-requests", {
+        ...data,
+        website,
+        formStartedAt: formStartedAtRef.current,
+      });
     },
     onSuccess: (_response, variables) => {
       setIsSubmitted(true);
+      setWebsite("");
       toast({
         title: "Quote Request Received!",
         description: "We'll contact you within 24 hours with your custom estimate.",
@@ -49,32 +88,48 @@ export default function QuoteFormSection() {
         service_type: variables.serviceType,
       });
     },
-    onError: () => {
+    onError: (error) => {
       toast({
-        title: "Error",
-        description: "There was a problem submitting your quote request. Please try again.",
+        title: "Submission Problem",
+        description:
+          error instanceof Error
+            ? error.message
+            : "There was a problem submitting your quote request. Please try again.",
         variant: "destructive",
       });
     },
   });
 
+  const fullNameError = getNameValidationError(formData.fullName, "full name");
+  const emailError = getEmailValidationError(formData.email);
+  const phoneError = getPhoneValidationError(formData.phone);
+  const zipCodeError = getZipCodeValidationError(formData.zipCode);
+  const manualAddressError = getAddressValidationError(formData.address, { required: true });
+  const addressError =
+    manualAddressError ||
+    (googlePlacesEnabled && !formData.addressConfirmed
+      ? "Select the property from the Google suggestions."
+      : null);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setShowErrors(true);
+
+    if (fullNameError || emailError || phoneError || zipCodeError || addressError) {
+      return;
+    }
+
     createQuoteMutation.mutate({
       ...formData,
       fullName: formData.fullName.trim(),
-      email: formData.email.trim(),
       address: formData.address.trim(),
       zipCode: formData.zipCode.trim(),
     });
   };
 
   const canProceedStep1 = formData.serviceType !== "";
-  const canProceedStep2 =
-    formData.fullName.trim() !== "" &&
-    formData.email.trim() !== "" &&
-    hasCompletePhoneNumber(formData.phone);
-  const canSubmitStep3 = /^\d{5}$/.test(formData.zipCode);
+  const canProceedStep2 = !fullNameError && !emailError && !phoneError;
+  const canSubmitStep3 = !zipCodeError && !addressError;
 
   const stepVariants = {
     enter: { opacity: 0, x: 30 },
@@ -134,18 +189,7 @@ export default function QuoteFormSection() {
               </div>
               <Button
                 variant="outline"
-                onClick={() => {
-                  setIsSubmitted(false);
-                  setStep(1);
-                  setFormData({
-                    fullName: "",
-                    email: "",
-                    phone: "",
-                    address: "",
-                    zipCode: "",
-                    serviceType: ""
-                  });
-                }}
+                onClick={resetForm}
               >
                 Submit Another Request
               </Button>
@@ -197,7 +241,12 @@ export default function QuoteFormSection() {
             </div>
           </div>
 
-          <form onSubmit={handleSubmit}>
+          <form onSubmit={handleSubmit} className="relative">
+            <FormSpamTrap
+              fieldId="quote-website"
+              value={website}
+              onChange={setWebsite}
+            />
             <AnimatePresence mode="wait">
               {/* Step 1: Service Type */}
               {step === 1 && (
@@ -250,7 +299,12 @@ export default function QuoteFormSection() {
                     size="lg"
                     className="w-full mt-4 text-lg font-bold"
                     disabled={!canProceedStep1}
-                    onClick={() => setStep(2)}
+                    onClick={() => {
+                      setShowErrors(true);
+                      if (canProceedStep1) {
+                        setStep(2);
+                      }
+                    }}
                   >
                     Next <ChevronRight className="w-5 h-5 ml-1" />
                   </Button>
@@ -279,7 +333,9 @@ export default function QuoteFormSection() {
                       data-testid="input-full-name"
                       placeholder="John Smith"
                       autoFocus
+                      autoComplete="name"
                     />
+                    {showErrors && fullNameError ? <p className="text-sm text-destructive">{fullNameError}</p> : null}
                   </div>
 
                   <div className="space-y-2">
@@ -292,7 +348,10 @@ export default function QuoteFormSection() {
                       required
                       data-testid="input-email"
                       placeholder="john@example.com"
+                      autoComplete="email"
+                      inputMode="email"
                     />
+                    {showErrors && emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
                   </div>
 
                   <div className="space-y-2">
@@ -306,7 +365,10 @@ export default function QuoteFormSection() {
                       data-testid="input-phone"
                       placeholder="(425) 555-0123"
                       maxLength={14}
+                      autoComplete="tel"
+                      inputMode="tel"
                     />
+                    {showErrors && phoneError ? <p className="text-sm text-destructive">{phoneError}</p> : null}
                   </div>
 
                   <div className="flex gap-3 mt-6">
@@ -324,7 +386,12 @@ export default function QuoteFormSection() {
                       size="lg"
                       className="flex-[2] text-lg font-bold"
                       disabled={!canProceedStep2}
-                      onClick={() => setStep(3)}
+                      onClick={() => {
+                        setShowErrors(true);
+                        if (canProceedStep2) {
+                          setStep(3);
+                        }
+                      }}
                     >
                       Next <ChevronRight className="w-5 h-5 ml-1" />
                     </Button>
@@ -344,17 +411,35 @@ export default function QuoteFormSection() {
                   className="space-y-5"
                 >
                   <h3 className="text-xl font-semibold text-foreground mb-4">Where's the property?</h3>
-                  <div className="space-y-2">
-                    <Label htmlFor="address">Street Address</Label>
-                    <Input
-                      id="address"
-                      value={formData.address}
-                      onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                      data-testid="input-address"
-                      placeholder="123 Main Street (optional)"
-                      autoFocus
-                    />
-                  </div>
+                  <AddressAutocompleteField
+                    address={formData.address}
+                    addressConfirmed={formData.addressConfirmed}
+                    error={showErrors ? addressError : null}
+                    inputId="address"
+                    label="Property Address"
+                    onAddressChange={(value) =>
+                      setFormData((current) => ({
+                        ...current,
+                        address: value,
+                      }))
+                    }
+                    onAddressConfirmedChange={(value) =>
+                      setFormData((current) => ({
+                        ...current,
+                        addressConfirmed: value,
+                      }))
+                    }
+                    onZipCodeChange={(value) =>
+                      setFormData((current) => ({
+                        ...current,
+                        zipCode: value || current.zipCode,
+                      }))
+                    }
+                    placeholder="Start typing your service address"
+                    required
+                    resetKey={formResetKey}
+                    zipCode={formData.zipCode}
+                  />
 
                   <div className="space-y-2">
                     <Label htmlFor="zipCode">Zip Code *</Label>
@@ -370,7 +455,10 @@ export default function QuoteFormSection() {
                       required
                       data-testid="input-zip-code"
                       placeholder="98028"
+                      autoComplete="postal-code"
+                      inputMode="numeric"
                     />
+                    {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
                   </div>
 
                   <div className="flex gap-3 mt-6">

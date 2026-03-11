@@ -16,13 +16,24 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { trackLeadConversion } from "@/lib/analytics";
-import { combineName, formatPhoneNumber } from "@/lib/leads";
+import {
+  combineName,
+  formatPhoneNumber,
+  getAddressValidationError,
+  getEmailValidationError,
+  getNameValidationError,
+  getPhoneValidationError,
+  getZipCodeValidationError,
+} from "@/lib/leads";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest, queryClient } from "@/lib/queryClient";
 import { useMutation } from "@tanstack/react-query";
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { Sparkles, Sun, Droplets, Home, ArrowRight } from "lucide-react";
 import { Link } from "wouter";
+import AddressAutocompleteField from "@/components/AddressAutocompleteField";
+import FormSpamTrap from "@/components/FormSpamTrap";
+import { hasGooglePlacesApiKey } from "@/lib/googleMaps";
 
 import gutterBefore1 from "@assets/BeforeAfter-gutter_1762287067360.jpg";
 import gutterBefore2 from "@assets/images-2_1762287067360.jpeg";
@@ -35,6 +46,11 @@ import bistroLights2 from "@assets/tzr-string-lights-highlands-home-daylight_Cou
 
 export default function YearRoundServices() {
   const { toast } = useToast();
+  const formStartedAtRef = useRef(Date.now());
+  const googlePlacesEnabled = hasGooglePlacesApiKey();
+  const [formResetKey, setFormResetKey] = useState(0);
+  const [showErrors, setShowErrors] = useState(false);
+  const [website, setWebsite] = useState("");
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -42,18 +58,21 @@ export default function YearRoundServices() {
     phone: "",
     address: "",
     zipCode: "",
-    serviceType: ""
+    serviceType: "",
+    addressConfirmed: false,
   });
 
   const createQuoteMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
       const payload = {
         fullName: combineName(data.firstName, data.lastName),
-        email: data.email.trim(),
         phone: data.phone,
         address: data.address.trim(),
         zipCode: data.zipCode.trim(),
         serviceType: data.serviceType,
+        email: data.email.trim(),
+        website,
+        formStartedAt: formStartedAtRef.current,
       };
       return await apiRequest("POST", "/api/quote-requests", payload);
     },
@@ -66,6 +85,10 @@ export default function YearRoundServices() {
         form_location: "year_round_services_page",
         service_type: variables.serviceType,
       });
+      formStartedAtRef.current = Date.now();
+      setShowErrors(false);
+      setWebsite("");
+      setFormResetKey((value) => value + 1);
       setFormData({
         firstName: "",
         lastName: "",
@@ -73,21 +96,51 @@ export default function YearRoundServices() {
         phone: "",
         address: "",
         zipCode: "",
-        serviceType: ""
+        serviceType: "",
+        addressConfirmed: false,
       });
       queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
     },
-    onError: () => {
+    onError: (error) => {
       toast({
-        title: "Error",
-        description: "There was a problem submitting your request. Please try again.",
+        title: "Submission Problem",
+        description:
+          error instanceof Error
+            ? error.message
+            : "There was a problem submitting your request. Please try again.",
         variant: "destructive",
       });
     },
   });
 
+  const firstNameError = getNameValidationError(formData.firstName, "first name");
+  const lastNameError = getNameValidationError(formData.lastName, "last name");
+  const emailError = getEmailValidationError(formData.email);
+  const phoneError = getPhoneValidationError(formData.phone);
+  const zipCodeError = getZipCodeValidationError(formData.zipCode);
+  const manualAddressError = getAddressValidationError(formData.address, { required: true });
+  const addressError =
+    manualAddressError ||
+    (googlePlacesEnabled && !formData.addressConfirmed
+      ? "Select the property from the Google suggestions."
+      : null);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setShowErrors(true);
+
+    if (
+      firstNameError ||
+      lastNameError ||
+      emailError ||
+      phoneError ||
+      zipCodeError ||
+      addressError ||
+      !formData.serviceType
+    ) {
+      return;
+    }
+
     createQuoteMutation.mutate({
       ...formData,
       zipCode: formData.zipCode.replace(/\D/g, "").slice(0, 5),
@@ -382,7 +435,12 @@ export default function YearRoundServices() {
                 </p>
               </div>
               
-              <form onSubmit={handleSubmit} className="space-y-5">
+              <form onSubmit={handleSubmit} className="relative space-y-5">
+                <FormSpamTrap
+                  fieldId="year-round-website"
+                  value={website}
+                  onChange={setWebsite}
+                />
                 <div className="grid md:grid-cols-2 gap-5">
                   <div className="space-y-2">
                     <Label htmlFor="firstName">First Name *</Label>
@@ -393,7 +451,9 @@ export default function YearRoundServices() {
                       required
                       data-testid="input-year-round-first-name"
                       placeholder="John"
+                      autoComplete="given-name"
                     />
+                    {showErrors && firstNameError ? <p className="text-sm text-destructive">{firstNameError}</p> : null}
                   </div>
                   <div className="space-y-2">
                     <Label htmlFor="lastName">Last Name *</Label>
@@ -404,7 +464,9 @@ export default function YearRoundServices() {
                       required
                       data-testid="input-year-round-last-name"
                       placeholder="Smith"
+                      autoComplete="family-name"
                     />
+                    {showErrors && lastNameError ? <p className="text-sm text-destructive">{lastNameError}</p> : null}
                   </div>
                 </div>
 
@@ -418,7 +480,10 @@ export default function YearRoundServices() {
                     required
                     data-testid="input-year-round-email"
                     placeholder="john@example.com"
+                    autoComplete="email"
+                    inputMode="email"
                   />
+                  {showErrors && emailError ? <p className="text-sm text-destructive">{emailError}</p> : null}
                 </div>
 
                 <div className="space-y-2">
@@ -432,20 +497,41 @@ export default function YearRoundServices() {
                     data-testid="input-year-round-phone"
                     placeholder="(425) 555-0123"
                     maxLength={14}
+                    autoComplete="tel"
+                    inputMode="tel"
                   />
+                  {showErrors && phoneError ? <p className="text-sm text-destructive">{phoneError}</p> : null}
                 </div>
 
-                <div className="space-y-2">
-                  <Label htmlFor="address">Street Address *</Label>
-                  <Input
-                    id="address"
-                    value={formData.address}
-                    onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                    required
-                    data-testid="input-year-round-address"
-                    placeholder="123 Main Street"
-                  />
-                </div>
+                <AddressAutocompleteField
+                  address={formData.address}
+                  addressConfirmed={formData.addressConfirmed}
+                  error={showErrors ? addressError : null}
+                  inputId="address"
+                  label="Street Address"
+                  onAddressChange={(value) =>
+                    setFormData((current) => ({
+                      ...current,
+                      address: value,
+                    }))
+                  }
+                  onAddressConfirmedChange={(value) =>
+                    setFormData((current) => ({
+                      ...current,
+                      addressConfirmed: value,
+                    }))
+                  }
+                  onZipCodeChange={(value) =>
+                    setFormData((current) => ({
+                      ...current,
+                      zipCode: value || current.zipCode,
+                    }))
+                  }
+                  placeholder="Start typing the service address"
+                  required
+                  resetKey={formResetKey}
+                  zipCode={formData.zipCode}
+                />
 
                 <div className="space-y-2">
                   <Label htmlFor="zipCode">Zip Code *</Label>
@@ -461,7 +547,10 @@ export default function YearRoundServices() {
                     required
                     data-testid="input-year-round-zip-code"
                     placeholder="98028"
+                    autoComplete="postal-code"
+                    inputMode="numeric"
                   />
+                  {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
                 </div>
 
                 <div className="space-y-2">
@@ -487,7 +576,18 @@ export default function YearRoundServices() {
                   size="lg" 
                   className="w-full text-xl font-bold mt-8 shadow-xl hover:shadow-2xl transition-all duration-300"
                   data-testid="button-submit-year-round-quote"
-                  disabled={!formData.serviceType || createQuoteMutation.isPending}
+                  disabled={
+                    !formData.serviceType ||
+                    Boolean(
+                      firstNameError ||
+                      lastNameError ||
+                      emailError ||
+                      phoneError ||
+                      zipCodeError ||
+                      addressError,
+                    ) ||
+                    createQuoteMutation.isPending
+                  }
                 >
                   {createQuoteMutation.isPending ? "Submitting..." : "Get My Free Estimate"}
                 </Button>
