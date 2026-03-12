@@ -28,17 +28,17 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
 
   return (
     <header className="sticky top-10 z-50 bg-card border-b border-border shadow-md">
-      <div className="max-w-7xl mx-auto px-4 py-2.5 md:py-3">
-        <div className="flex items-center justify-between gap-4">
+      <div className="max-w-7xl mx-auto px-3 py-2 md:px-4 md:py-3">
+        <div className="flex items-center justify-between gap-2 md:gap-4">
           {/* Logo */}
           <Link href="/" onClick={handleNavClick} data-testid="link-logo" className="flex-shrink-0">
             <img 
               src="/logo.png"
               alt="Christmas Northwest" 
-              className="h-12 sm:h-16 md:h-20 cursor-pointer"
+              className="h-9 sm:h-16 md:h-20 cursor-pointer"
               style={{ 
                 maxHeight: '80px', 
-                minHeight: '48px',
+                minHeight: '36px',
                 width: 'auto',
                 display: 'block'
               }}
@@ -63,7 +63,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
           </nav>
 
           {/* Right Side: Phone, CTA, Mobile Menu */}
-          <div className="flex items-center gap-2 md:gap-4">
+          <div className="ml-auto flex items-center gap-1.5 sm:gap-2 md:gap-4">
             <a 
               href="tel:4252150935" 
               className="hidden md:flex items-center gap-2 text-sm md:text-base font-semibold text-foreground hover-elevate active-elevate-2 px-2 md:px-3 py-2 rounded-md whitespace-nowrap"
@@ -74,11 +74,10 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
             </a>
             <Button 
               onClick={onGetQuote}
-              className="bg-primary text-primary-foreground font-semibold px-4 sm:px-6"
+              className="hidden h-9 bg-primary px-3 text-xs font-semibold text-primary-foreground sm:inline-flex sm:h-10 sm:px-4 sm:text-sm md:px-6"
               data-testid="button-header-quote"
             >
-              <span className="sm:hidden">Get Quote</span>
-              <span className="hidden sm:inline">Light Up My Home ✨</span>
+              <span>Light Up My Home ✨</span>
             </Button>
 
             {/* Mobile Menu */}
@@ -87,7 +86,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
                 <Button 
                   variant="ghost" 
                   size="icon"
-                  className="lg:hidden"
+                  className="h-9 w-9 lg:hidden"
                   data-testid="button-mobile-menu"
                 >
                   <Menu className="w-5 h-5" />
