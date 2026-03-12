@@ -286,7 +286,7 @@ function VideoShowcaseCard({ item }: { item: VideoShowcaseItem }) {
       className="group block overflow-hidden rounded-2xl border border-border bg-background shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
       data-testid={`card-video-${item.id}`}
     >
-      <div className="relative aspect-[9/16] overflow-hidden bg-slate-950">
+      <div className="relative aspect-[4/5] overflow-hidden bg-slate-950 sm:aspect-[9/16]">
         <img
           src={`https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`}
           alt={`${item.title} video thumbnail`}
@@ -302,9 +302,9 @@ function VideoShowcaseCard({ item }: { item: VideoShowcaseItem }) {
             <PlayCircle className="h-10 w-10" />
           </div>
         </div>
-        <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-          <p className="text-sm font-medium text-white/80">{item.location}</p>
-          <h3 className="mt-1 text-xl font-semibold">{item.title}</h3>
+        <div className="absolute inset-x-0 bottom-0 p-4 text-white sm:p-5">
+          <p className="text-xs font-medium text-white/80 sm:text-sm">{item.location}</p>
+          <h3 className="mt-1 text-lg font-semibold sm:text-xl">{item.title}</h3>
           <p className="mt-2 text-sm leading-6 text-white/80">{item.description}</p>
         </div>
       </div>
@@ -509,28 +509,28 @@ export default function GalleryPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-muted/30 to-background">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center max-w-4xl mx-auto mb-12">
-              <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
+        <section className="bg-gradient-to-b from-muted/30 to-background py-14 sm:py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mx-auto mb-10 max-w-4xl text-center sm:mb-12">
+              <div className="mb-5 inline-block rounded-lg bg-primary/10 px-3.5 py-2 sm:mb-6 sm:px-4">
                 <span className="text-primary font-semibold">Our Work</span>
               </div>
-              <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-foreground">
+              <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
                 Installation Gallery
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="mx-auto max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
                 Explore our collection of beautiful holiday lighting installations. Every home tells a story, and we're proud to showcase the magic we've created for families across Greater Seattle.
               </p>
             </div>
 
             {/* Category Filters */}
-            <div className="flex flex-wrap gap-3 justify-center mb-12">
+            <div className="mb-10 grid grid-cols-2 gap-2 sm:mb-12 sm:flex sm:flex-wrap sm:justify-center sm:gap-3">
               {categories.map((category) => (
                 <Button
                   key={category}
                   variant={selectedCategory === category ? "default" : "secondary"}
                   size="sm"
-                  className="px-6 py-2 text-sm font-semibold"
+                  className="w-full px-4 py-2 text-sm font-semibold sm:w-auto sm:px-6"
                   onClick={() => setSelectedCategory(category)}
                   data-testid={`button-filter-${category.toLowerCase().replace(' ', '-')}`}
                 >
@@ -542,13 +542,13 @@ export default function GalleryPage() {
         </section>
 
         {/* Top 9 Premium Photos */}
-        <section className="py-16 bg-background">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
+        <section className="bg-background py-14 sm:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 Featured Premium Installations
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground sm:text-lg">
                 {selectedCategory === "All" 
                   ? "Our most impressive custom work showcasing the quality and variety we bring to every project" 
                   : `Showcasing our best ${selectedCategory} installations`}
@@ -556,7 +556,7 @@ export default function GalleryPage() {
             </div>
 
             {/* Top 9 Gallery Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {featuredImages.map((image, index) => (
                 <GalleryImageCard
                   key={image.id}
@@ -572,22 +572,22 @@ export default function GalleryPage() {
         </section>
 
         {/* Video Section - "See These Come to Life" */}
-        <section className="py-20 bg-muted/30">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
+        <section className="bg-muted/30 py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+              <div className="mb-5 inline-block rounded-lg bg-primary/10 px-3.5 py-2 sm:mb-6 sm:px-4">
                 <span className="text-primary font-semibold">Watch Our Work</span>
               </div>
-              <h2 className="font-serif text-3xl md:text-5xl font-bold mb-6 text-foreground">
+              <h2 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-5xl">
                 See These Installations Come to Life
               </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed">
+              <p className="text-base leading-7 text-muted-foreground sm:text-lg">
                 Watch real installations from start to finish. See the quality, craftsmanship, and care we bring to every project across Greater Seattle.
               </p>
             </div>
 
             {/* Video Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
               {VIDEO_SHOWCASE_ITEMS.map((item) => (
                 <VideoShowcaseCard key={item.id} item={item} />
               ))}
@@ -600,7 +600,7 @@ export default function GalleryPage() {
               </p>
               <Button 
                 variant="outline"
-                className="font-semibold"
+                className="w-full font-semibold sm:w-auto"
                 onClick={() => window.open('https://youtube.com/@christmasnw?si=N5gu7fRN9vyEFMUd', '_blank')}
                 data-testid="button-youtube-channel"
               >
@@ -612,13 +612,13 @@ export default function GalleryPage() {
         </section>
 
         {/* Remaining Photos Section */}
-        <section className="py-16 bg-background">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
+        <section className="bg-background py-14 sm:py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 More Premium Installations
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground sm:text-lg">
                 {selectedCategory === "All" 
                   ? `Browse ${remainingImages.length} more beautiful installations` 
                   : `${remainingImages.length} more ${selectedCategory} installations`}
@@ -626,7 +626,7 @@ export default function GalleryPage() {
             </div>
 
             {/* Remaining Photos Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3 lg:gap-6">
               {remainingImagesToRender.map((image, index) => (
                 <GalleryImageCard
                   key={image.id}
@@ -638,10 +638,11 @@ export default function GalleryPage() {
             </div>
 
             {hasMoreRemainingImages ? (
-              <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
+              <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
                 <Button
                   variant="outline"
                   size="lg"
+                  className="w-full sm:w-auto"
                   onClick={() =>
                     setVisibleRemainingCount((current) =>
                       Math.min(current + DEFAULT_REMAINING_VISIBLE, remainingImages.length),
@@ -652,6 +653,7 @@ export default function GalleryPage() {
                 </Button>
                 <Button
                   size="lg"
+                  className="w-full sm:w-auto"
                   onClick={() => setVisibleRemainingCount(remainingImages.length)}
                 >
                   Show All {remainingImages.length}
@@ -668,26 +670,26 @@ export default function GalleryPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-primary via-primary to-primary/90">
-          <div className="max-w-4xl mx-auto px-6 text-center">
+        <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
               Ready to Transform Your Home?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+            <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
               Let's create a beautiful holiday display for your home. Get your free quote today and join the hundreds of satisfied homeowners we serve every season.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 
                 onClick={scrollToQuote}
                 variant="outline"
-                className="bg-background text-foreground hover:bg-background/90 font-semibold border-2 border-primary-foreground/20"
+                className="border-2 border-primary-foreground/20 bg-background font-semibold text-foreground hover:bg-background/90 sm:w-auto"
                 data-testid="button-gallery-cta-quote"
               >
-                Light Up My Home ✨
+                Get a Quote
               </Button>
               <Button 
                 variant="outline"
-                className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-semibold"
+                className="border-2 border-primary-foreground/50 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
                 onClick={() => window.location.href = 'tel:4252150935'}
                 data-testid="button-gallery-cta-call"
               >

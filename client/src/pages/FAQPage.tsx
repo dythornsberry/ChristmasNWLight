@@ -239,26 +239,26 @@ export default function FAQPage() {
         <StickyHeader onGetQuote={scrollToQuote} />
 
         {/* Hero Section */}
-        <section className="pt-32 pb-16 bg-gradient-to-b from-primary/5 to-background">
-          <div className="max-w-4xl mx-auto px-6 text-center">
-            <div className="inline-flex items-center justify-center w-16 h-16 bg-primary/10 rounded-full mb-6">
-              <HelpCircle className="w-8 h-8 text-primary" />
+        <section className="bg-gradient-to-b from-primary/5 to-background pb-12 pt-24 sm:pb-16 sm:pt-28 md:pt-32">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+            <div className="mb-5 inline-flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 sm:mb-6 sm:h-16 sm:w-16">
+              <HelpCircle className="h-7 w-7 text-primary sm:h-8 sm:w-8" />
             </div>
-            <h1 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-5xl">
               Frequently Asked Questions
             </h1>
-            <p className="text-xl text-muted-foreground leading-relaxed max-w-3xl mx-auto">
-              Everything you need to know about professional Christmas light installation in Bellevue, Kirkland, Redmond, Woodinville, Bothell, Sammamish, and the Greater Seattle Eastside. Based in Kenmore, serving 300+ homes annually since 2021.
+            <p className="mx-auto max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
+              Answers about pricing, timing, service areas, and how our installs work across Greater Seattle.
             </p>
           </div>
         </section>
 
         {/* FAQ Categories */}
-        <section className="py-16">
-          <div className="max-w-4xl mx-auto px-6">
+        <section className="py-12 sm:py-16">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
             {faqCategories.map((category, categoryIndex) => (
               <div key={categoryIndex} className="mb-12" data-testid={`faq-category-${categoryIndex}`}>
-                <h2 className="font-serif text-2xl md:text-3xl font-bold mb-6 text-foreground">
+                <h2 className="mb-6 font-serif text-xl font-bold text-foreground sm:text-2xl md:text-3xl">
                   {category.category}
                 </h2>
                 <Accordion type="single" collapsible className="space-y-4">
@@ -266,13 +266,13 @@ export default function FAQPage() {
                     <AccordionItem
                       key={questionIndex}
                       value={`category-${categoryIndex}-question-${questionIndex}`}
-                      className="border rounded-lg px-6 bg-card"
+                      className="rounded-lg border bg-card px-4 sm:px-6"
                       data-testid={`faq-item-${categoryIndex}-${questionIndex}`}
                     >
-                      <AccordionTrigger className="text-left font-semibold text-foreground hover:text-primary">
+                      <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:text-primary sm:text-lg">
                         {faq.question}
                       </AccordionTrigger>
-                      <AccordionContent className="text-muted-foreground leading-relaxed">
+                      <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>
@@ -284,29 +284,29 @@ export default function FAQPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-primary via-primary to-primary/90">
-          <div className="max-w-4xl mx-auto px-6 text-center">
+        <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
               Still Have Questions?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+            <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
               We're here to help! Get in touch for personalized answers or request your free quote to get started with professional Christmas light installation in Greater Seattle and the Eastside.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button
                 onClick={scrollToQuote}
                 size="lg"
                 variant="outline"
-                className="bg-background text-foreground hover:bg-background/90 font-semibold text-lg px-8"
+                className="bg-background px-8 text-base font-semibold text-foreground hover:bg-background/90 sm:w-auto sm:text-lg"
                 data-testid="button-faq-get-quote"
               >
-                Light Up My Home ✨
+                Get a Quote
               </Button>
               <Button
                 onClick={() => window.location.href = 'tel:+14252150935'}
                 size="lg"
                 variant="outline"
-                className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-semibold text-lg px-8"
+                className="border-2 border-primary-foreground/50 bg-transparent px-8 text-base font-semibold text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto sm:text-lg"
                 data-testid="button-faq-call"
               >
                 Call (425) 215-0935

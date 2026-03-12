@@ -78,44 +78,44 @@ export default function ServiceAreasPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-muted/30 to-background">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="bg-gradient-to-b from-muted/30 to-background py-14 sm:py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="text-center max-w-4xl mx-auto">
-              <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
+              <div className="mb-5 inline-block rounded-lg bg-primary/10 px-3.5 py-2 sm:mb-6 sm:px-4">
                 <span className="text-primary font-semibold">Service Areas</span>
               </div>
-              <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-foreground">
+              <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
                 Serving Greater Seattle
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+              <p className="mb-6 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
                 Christmas Northwest proudly serves homeowners and businesses throughout Greater Seattle and the Eastside. Based in Kenmore with our warehouse in Woodinville, we bring premium holiday lighting to communities across Bellevue, Kirkland, Redmond, Bothell, Sammamish, and surrounding areas.
               </p>
               <Button 
                 onClick={scrollToQuote}
-                className="bg-primary text-primary-foreground font-semibold"
+                className="w-full bg-primary font-semibold text-primary-foreground sm:w-auto"
                 data-testid="button-areas-hero-quote"
               >
-                Light Up My Home ✨
+                Get a Quote
               </Button>
             </div>
           </div>
         </section>
 
         {/* Primary Service Areas */}
-        <section className="py-20 bg-background">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 Primary Service Areas
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
                 We focus on delivering exceptional service to these core communities where we've built strong relationships with hundreds of homeowners.
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
               {primaryAreas.map((area, index) => (
-                <Card key={index} className="p-8 hover-elevate" data-testid={`card-area-${index}`}>
+                <Card key={index} className="p-6 hover-elevate sm:p-8" data-testid={`card-area-${index}`}>
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                       <MapPin className="w-6 h-6 text-primary" />
@@ -136,19 +136,19 @@ export default function ServiceAreasPage() {
         </section>
 
         {/* Service Area Map */}
-        <section className="py-20 bg-muted/30">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
+        <section className="bg-muted/30 py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 Our Service Territory
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
                 Explore our complete service area covering Greater Seattle and the Eastside.
               </p>
             </div>
             
             {/* Zip Code Checker */}
-            <Card className="p-8 mb-12 max-w-2xl mx-auto" data-testid="card-zip-checker">
+            <Card className="mx-auto mb-12 max-w-2xl p-5 sm:p-8" data-testid="card-zip-checker">
               <div className="text-center mb-6">
                 <h3 className="font-serif text-2xl font-bold mb-2 text-foreground">
                   Check Your Zip Code
@@ -158,7 +158,7 @@ export default function ServiceAreasPage() {
                 </p>
               </div>
               
-              <div className="flex gap-3">
+              <div className="flex flex-col gap-3 sm:flex-row">
                 <div className="flex-1">
                   <Label htmlFor="zipCode" className="sr-only">Zip Code</Label>
                   <Input
@@ -177,6 +177,7 @@ export default function ServiceAreasPage() {
                 <Button 
                   onClick={handleZipCheck}
                   disabled={zipCode.length !== 5}
+                  className="w-full sm:w-auto"
                   data-testid="button-check-zip"
                 >
                   Check Coverage
@@ -191,10 +192,10 @@ export default function ServiceAreasPage() {
                     <div className="text-sm text-muted-foreground">Get your free quote today and join hundreds of satisfied homeowners.</div>
                     <Button 
                       onClick={scrollToQuote}
-                      className="mt-3"
+                      className="mt-3 w-full sm:w-auto"
                       data-testid="button-zip-quote"
                     >
-                      Light Up My Home ✨
+                      Get a Quote
                     </Button>
                   </div>
                 </div>
@@ -211,6 +212,7 @@ export default function ServiceAreasPage() {
                     <Button 
                       onClick={() => setLocation('/contact')}
                       variant="outline"
+                      className="w-full sm:w-auto"
                       data-testid="button-zip-contact"
                     >
                       Contact Us
@@ -221,11 +223,11 @@ export default function ServiceAreasPage() {
             </Card>
 
             {/* Embedded Google Map */}
-            <div className="rounded-lg overflow-hidden border-2 border-border shadow-xl mb-12">
+            <div className="mb-12 overflow-hidden rounded-lg border-2 border-border shadow-xl">
               <iframe 
                 src="https://www.google.com/maps/d/embed?mid=15rkY40rp-zfqZWUBMldquSqKXJ55HXo&ehbc=2E312F" 
                 width="100%" 
-                height="600"
+                className="h-[360px] w-full sm:h-[480px] md:h-[600px]"
                 style={{ border: 0 }}
                 loading="lazy"
                 data-testid="map-service-areas"
@@ -242,7 +244,7 @@ export default function ServiceAreasPage() {
               </p>
             </div>
             
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {additionalAreas.map((area, index) => (
                 <div 
                   key={index} 
@@ -258,9 +260,9 @@ export default function ServiceAreasPage() {
         </section>
 
         {/* Coverage Details */}
-        <section className="py-20 bg-background">
-          <div className="max-w-5xl mx-auto px-6">
-            <Card className="p-8 md:p-12">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-5xl px-4 sm:px-6">
+            <Card className="p-6 sm:p-8 md:p-12">
               <div className="text-center">
                 <MapPin className="w-12 h-12 text-primary mx-auto mb-6" />
                 <h2 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-foreground">
@@ -269,10 +271,10 @@ export default function ServiceAreasPage() {
                 <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
                   We may still be able to serve you! Contact us with your location and we'll let you know if we can accommodate your holiday lighting needs. We're always looking to expand our service area to help more homeowners enjoy beautiful, professionally installed holiday displays.
                 </p>
-                <div className="flex flex-wrap justify-center gap-4">
+                <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
                   <Button 
                     onClick={() => setLocation('/contact')}
-                    className="bg-primary text-primary-foreground font-semibold"
+                    className="bg-primary font-semibold text-primary-foreground sm:w-auto"
                     data-testid="button-areas-contact"
                   >
                     Contact Us
@@ -280,6 +282,7 @@ export default function ServiceAreasPage() {
                   <Button 
                     variant="outline"
                     onClick={() => window.location.href = 'tel:4252150935'}
+                    className="sm:w-auto"
                     data-testid="button-areas-call"
                   >
                     Call (425) 215-0935
@@ -318,26 +321,26 @@ export default function ServiceAreasPage() {
         />
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-primary via-primary to-primary/90">
-          <div className="max-w-4xl mx-auto px-6 text-center">
+        <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
               Ready to Light Up Your Home?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+            <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
               Serving hundreds of homes across Greater Seattle. Get your free quote today and join your neighbors in creating a stunning holiday display.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 
                 onClick={scrollToQuote}
                 variant="outline"
-                className="bg-background text-foreground hover:bg-background/90 font-semibold border-2 border-primary-foreground/20"
+                className="border-2 border-primary-foreground/20 bg-background font-semibold text-foreground hover:bg-background/90 sm:w-auto"
                 data-testid="button-areas-cta-quote"
               >
-                Light Up My Home ✨
+                Get a Quote
               </Button>
               <Button 
                 variant="outline"
-                className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-semibold"
+                className="border-2 border-primary-foreground/50 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
                 onClick={() => window.location.href = 'tel:4252150935'}
                 data-testid="button-areas-cta-call"
               >

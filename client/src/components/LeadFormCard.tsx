@@ -83,7 +83,7 @@ export default function LeadFormCard({
   contactStepDescription = "Use the best name, email, and phone number for estimate follow-up.",
   propertyStepTitle = "Which property should we review?",
   propertyStepDescription = "We use the service address to confirm routing, scope, and the right next step.",
-  responseNote = "We'll follow up within 24 hours.",
+  responseNote = "We'll follow up soon.",
   serviceBadgeText,
   addressLabel = "Property Address",
   addressPlaceholder = "Start typing the service address",
@@ -233,8 +233,8 @@ export default function LeadFormCard({
           </div>
         </div>
       ) : (
-        <div className="px-6 py-8 sm:px-8 md:px-10 lg:px-12 lg:py-10">
-          <div className="mb-8 flex flex-wrap items-center gap-3">
+        <div className="px-5 py-6 sm:px-8 sm:py-8 md:px-10 lg:px-12 lg:py-10">
+          <div className="mb-6 flex flex-wrap items-center gap-2 sm:mb-8 sm:gap-3">
             {serviceBadgeText ? (
               <Badge variant="outline" className="border-primary/20 bg-primary/5 px-4 py-2 text-sm font-semibold text-foreground">
                 {serviceBadgeText}
@@ -250,19 +250,19 @@ export default function LeadFormCard({
             </Badge>
           </div>
 
-          <div className="mb-8">
-            <h2 className="font-serif text-3xl font-bold text-foreground md:text-[2.6rem]">{title}</h2>
-            <p className="mt-3 max-w-2xl text-base leading-7 text-muted-foreground md:text-lg">{description}</p>
+          <div className="mb-6 sm:mb-8">
+            <h2 className="font-serif text-2xl font-bold text-foreground sm:text-3xl md:text-[2.6rem]">{title}</h2>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-muted-foreground sm:text-base md:text-lg">{description}</p>
           </div>
 
-          <div className="mb-8">
-            <div className="mb-3 flex items-center justify-between gap-3 text-sm font-medium">
+          <div className="mb-6 sm:mb-8">
+            <div className="mb-3 flex items-start justify-between gap-2 text-xs font-medium sm:items-center sm:gap-3 sm:text-sm">
               {stepLabels.map((label, index) => {
                 const stepNumber = index + 1;
                 const isActive = stepNumber <= step;
 
                 return (
-                  <div key={label} className="flex items-center gap-2 text-left">
+                  <div key={label} className="flex min-w-0 flex-1 flex-col items-center gap-1 text-center sm:flex-none sm:flex-row sm:gap-2 sm:text-left">
                     <div
                       className={`flex h-8 w-8 items-center justify-center rounded-full text-sm font-bold transition-colors ${
                         isActive ? "bg-primary text-primary-foreground" : "bg-muted text-muted-foreground"
@@ -270,7 +270,7 @@ export default function LeadFormCard({
                     >
                       {stepNumber < step ? <CheckCircle2 className="h-4 w-4" /> : stepNumber}
                     </div>
-                    <span className={isActive ? "text-foreground" : "text-muted-foreground"}>{label}</span>
+                    <span className={cn("leading-tight", isActive ? "text-foreground" : "text-muted-foreground")}>{label}</span>
                   </div>
                 );
               })}
@@ -315,7 +315,7 @@ export default function LeadFormCard({
                               addressConfirmed: requiresProjectAddress(option.value) ? current.addressConfirmed : false,
                             }))
                           }
-                          className={`flex items-center gap-4 rounded-2xl border-2 p-4 text-left transition-all ${
+                          className={`flex items-center gap-3 rounded-2xl border-2 p-3.5 text-left transition-all sm:gap-4 sm:p-4 ${
                             isSelected
                               ? "border-primary bg-primary/5 shadow-md"
                               : "border-border bg-white hover:border-primary/35 hover:bg-muted/40"
@@ -330,7 +330,7 @@ export default function LeadFormCard({
                           </div>
                           <div className="min-w-0">
                             <div className="font-semibold text-foreground">{option.label}</div>
-                            {option.sublabel ? <div className="text-sm text-muted-foreground">{option.sublabel}</div> : null}
+                            {option.sublabel ? <div className="text-sm leading-5 text-muted-foreground">{option.sublabel}</div> : null}
                           </div>
                           {isSelected ? <CheckCircle2 className="ml-auto h-5 w-5 text-primary" /> : null}
                         </button>
@@ -437,9 +437,9 @@ export default function LeadFormCard({
                     {showErrors && phoneError ? <p className="text-sm text-destructive">{phoneError}</p> : null}
                   </div>
 
-                  <div className="mt-6 flex gap-3">
+                  <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row">
                     {hasServiceStep ? (
-                      <Button type="button" variant="outline" size="lg" className="flex-1" onClick={() => setStep(1)}>
+                      <Button type="button" variant="outline" size="lg" className="w-full sm:flex-1" onClick={() => setStep(1)}>
                         <ChevronLeft className="mr-1 h-5 w-5" />
                         Back
                       </Button>
@@ -447,7 +447,7 @@ export default function LeadFormCard({
                     <Button
                       type="button"
                       size="lg"
-                      className={cn("text-lg font-bold", hasServiceStep ? "flex-[2]" : "w-full")}
+                      className={cn("w-full text-lg font-bold", hasServiceStep ? "sm:flex-[2]" : "w-full")}
                       disabled={!canProceedContact}
                       onClick={() => {
                         setShowErrors(true);
@@ -542,15 +542,15 @@ export default function LeadFormCard({
                     </div>
                   </div>
 
-                  <div className="mt-6 flex gap-3">
-                    <Button type="button" variant="outline" size="lg" className="flex-1" onClick={() => setStep(contactStep)}>
+                  <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row">
+                    <Button type="button" variant="outline" size="lg" className="w-full sm:flex-1" onClick={() => setStep(contactStep)}>
                       <ChevronLeft className="mr-1 h-5 w-5" />
                       Back
                     </Button>
                     <Button
                       type="submit"
                       size="lg"
-                      className="flex-[2] text-lg font-bold shadow-xl transition-all duration-300 hover:shadow-2xl"
+                      className="w-full text-lg font-bold shadow-xl transition-all duration-300 hover:shadow-2xl sm:flex-[2]"
                       disabled={!canSubmitProperty || createQuoteMutation.isPending || Boolean(serviceTypeError)}
                       data-testid={`${testIdPrefix}-submit`}
                     >

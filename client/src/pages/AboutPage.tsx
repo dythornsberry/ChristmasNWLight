@@ -66,25 +66,25 @@ export default function AboutPage() {
       <StickyHeader onGetQuote={scrollToQuote} />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-muted/30 to-background">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center max-w-4xl mx-auto mb-16">
-              <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
+        <section className="bg-gradient-to-b from-muted/30 to-background py-14 sm:py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mx-auto mb-10 max-w-4xl text-center sm:mb-14 md:mb-16">
+              <div className="mb-5 inline-block rounded-lg bg-primary/10 px-3.5 py-2 sm:mb-6 sm:px-4">
                 <span className="text-primary font-semibold">About Christmas Northwest</span>
               </div>
-              <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-foreground">
+              <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
                 Your Trusted Holiday Lighting Experts
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed">
+              <p className="text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
                 We've earned the trust of homeowners across Greater Seattle with premium installations, professional service, and stunning results.
               </p>
             </div>
 
             {/* Milestones Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+            <div className="mb-16 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
               {milestones.map((milestone, index) => (
-                <Card key={index} className="p-6 text-center" data-testid={`card-milestone-${index}`}>
-                  <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid={`text-milestone-number-${index}`}>
+                <Card key={index} className="p-4 text-center sm:p-6" data-testid={`card-milestone-${index}`}>
+                  <div className="mb-2 text-3xl font-bold text-primary sm:text-4xl md:text-5xl" data-testid={`text-milestone-number-${index}`}>
                     {milestone.number}
                   </div>
                   <div className="font-semibold text-foreground mb-1">
@@ -100,18 +100,18 @@ export default function AboutPage() {
         </section>
 
         {/* Our Story Section */}
-        <section className="py-20 bg-background">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mb-12 text-center sm:mb-16">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 Our Story
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
                 From humble beginnings to serving hundreds of homes, Christmas Northwest has grown into Greater Seattle's trusted holiday lighting partner.
               </p>
             </div>
 
-            <div className="grid lg:grid-cols-2 gap-16 items-center mb-16">
+            <div className="mb-16 grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
                 <img 
                   src={dylanPhoto} 
@@ -121,7 +121,7 @@ export default function AboutPage() {
                 />
               </div>
               <div>
-                <div className="space-y-4 text-lg text-muted-foreground leading-relaxed">
+                <div className="space-y-4 text-base leading-7 text-muted-foreground sm:text-lg">
                   <p>
                     Christmas Northwest was founded on a simple belief: every home deserves a beautiful, professionally installed holiday lighting display that brings joy without the hassle.
                   </p>
@@ -135,17 +135,18 @@ export default function AboutPage() {
                     From design consultation to professional takedown and storage, we handle every detail so you can simply enjoy the magic of the season.
                   </p>
                 </div>
-                <div className="mt-8 flex flex-wrap gap-4">
+                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
                   <Button 
                     onClick={scrollToQuote}
-                    className="bg-primary text-primary-foreground font-semibold"
+                    className="bg-primary font-semibold text-primary-foreground sm:w-auto"
                     data-testid="button-about-quote"
                   >
-                    Light Up My Home ✨
+                    Get a Quote
                   </Button>
                   <Button 
                     variant="outline"
                     onClick={() => setLocation('/contact')}
+                    className="sm:w-auto"
                     data-testid="button-about-contact"
                   >
                     Contact Us
@@ -159,8 +160,8 @@ export default function AboutPage() {
               <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center text-foreground">
                 Our Journey
               </h3>
-              <div className="grid md:grid-cols-4 gap-6">
-                <Card className="p-6 text-center" data-testid="card-timeline-0">
+              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+                <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-0">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Star className="w-8 h-8 text-primary" />
                   </div>
@@ -170,7 +171,7 @@ export default function AboutPage() {
                     Founded Christmas Northwest to bring professional holiday lighting to Greater Seattle
                   </div>
                 </Card>
-                <Card className="p-6 text-center" data-testid="card-timeline-1">
+                <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-1">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="w-8 h-8 text-primary" />
                   </div>
@@ -180,7 +181,7 @@ export default function AboutPage() {
                     Doubled our service area and began serving commercial properties
                   </div>
                 </Card>
-                <Card className="p-6 text-center" data-testid="card-timeline-2">
+                <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-2">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users className="w-8 h-8 text-primary" />
                   </div>
@@ -190,7 +191,7 @@ export default function AboutPage() {
                     Earned 85+ five-star Google reviews from happy customers
                   </div>
                 </Card>
-                <Card className="p-6 text-center" data-testid="card-timeline-3">
+                <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-3">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Award className="w-8 h-8 text-primary" />
                   </div>
@@ -228,7 +229,7 @@ export default function AboutPage() {
               <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center text-foreground">
                 Our Fleet & Team
               </h3>
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid gap-6 md:grid-cols-2 md:gap-8">
                 <div>
                   <img 
                     src={crewTeamPhoto} 
@@ -262,21 +263,21 @@ export default function AboutPage() {
         </section>
 
         {/* Credentials Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-16">
+        <section className="bg-muted/30 py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mb-12 text-center sm:mb-16">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 Why Choose Christmas Northwest?
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
                 We combine years of experience with premium materials and professional service to deliver exceptional results.
               </p>
             </div>
             
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid gap-5 sm:gap-6 md:grid-cols-2 md:gap-8">
               {credentials.map((credential, index) => (
-                <Card key={index} className="p-8">
-                  <div className="flex gap-6">
+                <Card key={index} className="p-6 sm:p-8">
+                  <div className="flex flex-col gap-5 sm:flex-row sm:gap-6">
                     <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center">
                       <credential.icon className="w-8 h-8 text-primary" />
                     </div>
@@ -296,26 +297,26 @@ export default function AboutPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-primary via-primary to-primary/90">
-          <div className="max-w-4xl mx-auto px-6 text-center">
+        <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
               Ready to Transform Your Home?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+            <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
               Join hundreds of satisfied homeowners across Greater Seattle. Get your free quote today and experience the Christmas Northwest difference.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 
                 onClick={scrollToQuote}
                 variant="outline"
-                className="bg-background text-foreground hover:bg-background/90 font-semibold border-2 border-primary-foreground/20"
+                className="border-2 border-primary-foreground/20 bg-background font-semibold text-foreground hover:bg-background/90 sm:w-auto"
                 data-testid="button-about-cta-quote"
               >
-                Light Up My Home ✨
+                Get a Quote
               </Button>
               <Button 
                 variant="outline"
-                className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-semibold"
+                className="border-2 border-primary-foreground/50 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
                 onClick={() => window.location.href = 'tel:4252150935'}
                 data-testid="button-about-cta-call"
               >

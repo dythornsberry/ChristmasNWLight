@@ -43,36 +43,36 @@ export default function YearRoundServices() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-background via-muted/30 to-background">
-          <div className="max-w-6xl mx-auto px-6 text-center">
+        <section className="relative bg-gradient-to-br from-background via-muted/30 to-background py-14 sm:py-20 md:py-32">
+          <div className="mx-auto max-w-5xl px-4 text-center sm:px-6">
             <Badge 
               variant="outline" 
-              className="mb-6 px-6 py-2.5 text-base md:text-lg font-semibold border-2 border-amber-500/40 bg-amber-500/10"
+              className="mb-5 border-2 border-amber-500/40 bg-amber-500/10 px-4 py-2 text-sm font-semibold sm:mb-6 sm:px-6 sm:py-2.5 sm:text-base md:text-lg"
               data-testid="badge-year-round"
             >
               <Sun className="w-5 h-5 mr-2 text-amber-600" />
               Premium Outdoor Lighting & Property Care
             </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground font-serif leading-tight">
+            <h1 className="mb-5 font-serif text-3xl font-bold leading-tight text-foreground sm:text-5xl md:mb-6 md:text-6xl lg:text-7xl">
               We Don't Hibernate<br />After the Holidays
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
-              Your trusted outdoor lighting specialists now offer premium year-round services for Greater Seattle homeowners who demand excellence.
+            <p className="mx-auto mb-8 max-w-2xl text-base leading-7 text-muted-foreground sm:text-xl md:mb-10 md:max-w-3xl md:text-2xl">
+              Premium year-round lighting and exterior services for Greater Seattle homeowners who already trust our Christmas work.
             </p>
             <Button 
               size="lg" 
               onClick={scrollToQuote}
-              className="text-xl px-10 py-7 shadow-2xl hover:shadow-amber-500/20 font-bold"
+              className="w-full px-8 py-6 text-base font-bold shadow-2xl hover:shadow-amber-500/20 sm:w-auto sm:px-10 sm:py-7 sm:text-xl"
               data-testid="button-hero-quote"
             >
-              Light Up My Home
+              Get a Quote
             </Button>
           </div>
         </section>
 
         {/* Permanent Lighting Section - Link to Dedicated Page */}
-        <section className="py-20 bg-background">
-          <div className="max-w-6xl mx-auto px-6">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
             <Card className="overflow-hidden">
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="overflow-hidden">
@@ -83,7 +83,7 @@ export default function YearRoundServices() {
                     loading="lazy"
                   />
                 </div>
-                <div className="p-8 md:p-12 flex flex-col justify-center">
+                <div className="flex flex-col justify-center p-6 sm:p-8 md:p-12">
                   <Badge 
                     variant="outline" 
                     className="mb-4 px-4 py-1.5 text-sm font-semibold border-amber-500/40 bg-amber-500/10 w-fit"
@@ -92,10 +92,10 @@ export default function YearRoundServices() {
                     <Sparkles className="w-4 h-4 mr-2 text-amber-600" />
                     High Demand
                   </Badge>
-                  <h2 className="text-3xl md:text-4xl font-bold mb-4 text-foreground font-serif">
+                  <h2 className="mb-4 font-serif text-3xl font-bold text-foreground sm:text-4xl">
                     Permanent Lighting Solutions
                   </h2>
-                  <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
+                  <p className="mb-6 text-base leading-7 text-muted-foreground sm:text-lg">
                     One installation, every holiday, forever. Control colors from your phone for Christmas, Fourth of July, Halloween, or elegant white year-round.
                   </p>
                   <div className="flex items-baseline gap-2 mb-6">
@@ -104,7 +104,7 @@ export default function YearRoundServices() {
                   <Link href="/permanent-lighting">
                     <Button 
                       size="lg"
-                      className="w-full md:w-auto text-lg font-semibold"
+                      className="w-full text-base font-semibold sm:w-auto sm:text-lg"
                       data-testid="button-permanent-learn-more"
                     >
                       Learn More <ArrowRight className="w-5 h-5 ml-2" />
@@ -117,9 +117,9 @@ export default function YearRoundServices() {
         </section>
 
         {/* Gutter Cleaning Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-12">
+        <section className="bg-muted/30 py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
               <Badge 
                 variant="outline" 
                 className="mb-4 px-5 py-2 text-base font-semibold border-amber-500/40 bg-amber-500/10"
@@ -128,29 +128,29 @@ export default function YearRoundServices() {
                 <Droplets className="w-4 h-4 mr-2 text-amber-600" />
                 Bundled Service
               </Badge>
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground font-serif">
+              <h2 className="mb-4 font-serif text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
                 Professional Gutter & Roof Maintenance
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl">
                 Powered by our sister company Seattle ProWash, offering the same premium quality you trust for Christmas lights.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card className="p-8">
+            <div className="mb-12 grid gap-5 sm:gap-6 md:grid-cols-2 md:gap-8">
+              <Card className="p-6 sm:p-8">
                 <h3 className="text-2xl font-bold mb-4 text-foreground">Seamless Convenience</h3>
-                <p className="text-lg text-muted-foreground mb-4">
+                <p className="mb-4 text-base text-muted-foreground sm:text-lg">
                   Why hire two companies when one can do it all? When we take down your Christmas lights in early January, we can clean your gutters at the same time. Already on your roof. Already insured. Already trusted.
                 </p>
                 <div className="flex items-baseline gap-2 mt-6">
                   <span className="text-3xl font-bold text-foreground">$300-$500</span>
-                  <span className="text-lg text-muted-foreground">Most homes</span>
+                  <span className="text-base text-muted-foreground sm:text-lg">Most homes</span>
                 </div>
               </Card>
 
-              <Card className="p-8">
+              <Card className="p-6 sm:p-8">
                 <h3 className="text-2xl font-bold mb-4 text-foreground">Premium Service Includes</h3>
-                <ul className="space-y-3 text-lg text-muted-foreground">
+                <ul className="space-y-3 text-base text-muted-foreground sm:text-lg">
                   <li className="flex items-start gap-3">
                     <span className="text-amber-600 font-bold">✓</span>
                     <span>Complete gutter cleaning and debris removal</span>
@@ -175,7 +175,7 @@ export default function YearRoundServices() {
               </Card>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid gap-5 md:grid-cols-3 md:gap-6">
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-gutter-photo-1">
                 <img 
                   src={gutterBefore1} 
@@ -205,9 +205,9 @@ export default function YearRoundServices() {
         </section>
 
         {/* Landscape/Bistro/Event Lighting Section */}
-        <section className="py-20 bg-background">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-12">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
               <Badge 
                 variant="outline" 
                 className="mb-4 px-5 py-2 text-base font-semibold border-amber-500/40 bg-amber-500/10"
@@ -216,18 +216,18 @@ export default function YearRoundServices() {
                 <Home className="w-4 h-4 mr-2 text-amber-600" />
                 Custom Solutions
               </Badge>
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground font-serif">
+              <h2 className="mb-4 font-serif text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
                 Landscape, Bistro & Event Lighting
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl">
                 Create unforgettable outdoor spaces with professional lighting design. Perfect for entertaining, ambiance, or special events.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 mb-12">
-              <Card className="p-8">
+            <div className="mb-12 grid gap-5 sm:gap-6 md:grid-cols-2 md:gap-8">
+              <Card className="p-6 sm:p-8">
                 <h3 className="text-2xl font-bold mb-4 text-foreground">Transform Your Outdoor Space</h3>
-                <p className="text-lg text-muted-foreground mb-4">
+                <p className="mb-4 text-base text-muted-foreground sm:text-lg">
                   From elegant pathway lighting to stunning bistro string lights for your patio, we bring the same attention to detail that makes your home shine at Christmas. Professional installation, premium materials, beautiful results.
                 </p>
                 <div className="flex items-baseline gap-2 mt-6">
@@ -235,9 +235,9 @@ export default function YearRoundServices() {
                 </div>
               </Card>
 
-              <Card className="p-8">
+              <Card className="p-6 sm:p-8">
                 <h3 className="text-2xl font-bold mb-4 text-foreground">Popular Applications</h3>
-                <ul className="space-y-3 text-lg text-muted-foreground">
+                <ul className="space-y-3 text-base text-muted-foreground sm:text-lg">
                   <li className="flex items-start gap-3">
                     <span className="text-amber-600 font-bold">✓</span>
                     <span>Bistro string lights for patios and decks</span>
@@ -262,7 +262,7 @@ export default function YearRoundServices() {
               </Card>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid gap-5 md:grid-cols-3 md:gap-6">
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-landscape-photo-1">
                 <img 
                   src={landscapeLighting1} 
@@ -301,8 +301,8 @@ export default function YearRoundServices() {
         </section>
 
         {/* Quote Form Section */}
-        <section id="year-round-quote" className="py-20 bg-muted/30">
-          <div className="max-w-4xl mx-auto px-6">
+        <section id="year-round-quote" className="bg-muted/30 py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <LeadFormCard
               title="Get Your Free Estimate"
               description="Tell us which year-round service you want, then we’ll follow up with the best next step and pricing guidance."
@@ -318,7 +318,7 @@ export default function YearRoundServices() {
               serviceStepDescription="Choose the project type first so we can route your request to the right estimate workflow."
               propertyStepDescription="We use the address to confirm service area coverage and give you a more accurate estimate for the selected service."
               addressPlaceholder="Start typing the service address"
-              responseNote="We'll contact you within 24 hours to discuss your project."
+              responseNote="We'll be in touch soon to talk through your project."
               trustNote="Same professional team, same premium quality, and a cleaner year-round estimate flow"
               testIdPrefix="year-round"
             />
@@ -326,46 +326,46 @@ export default function YearRoundServices() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-background">
-          <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground font-serif">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
+              <h2 className="mb-4 font-serif text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
                 Frequently Asked Questions
               </h2>
             </div>
 
             <div className="space-y-6">
-              <Card className="p-8">
+              <Card className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold mb-3 text-foreground">When is the best time to clean gutters?</h3>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base text-muted-foreground sm:text-lg">
                   We recommend cleaning gutters at least twice a year - once in late fall after leaves drop, and again in early spring. Many of our clients schedule gutter cleaning when we take down their Christmas lights in January, making it convenient and efficient.
                 </p>
               </Card>
 
-              <Card className="p-8">
+              <Card className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold mb-3 text-foreground">How long does permanent lighting last?</h3>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base text-muted-foreground sm:text-lg">
                   Our commercial-grade permanent lighting systems are built to last 10+ years with minimal maintenance. The LED bulbs are rated for 50,000+ hours, and the track system is designed to withstand Pacific Northwest weather year-round.
                 </p>
               </Card>
 
-              <Card className="p-8">
+              <Card className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold mb-3 text-foreground">Do you serve the same areas as your Christmas lighting service?</h3>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base text-muted-foreground sm:text-lg">
                   Yes! We serve the entire Greater Seattle area including Bothell, Woodinville, Kirkland, Redmond, Sammamish, Issaquah, Bellevue, and surrounding communities. Same trusted team, same service area.
                 </p>
               </Card>
 
-              <Card className="p-8">
+              <Card className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold mb-3 text-foreground">Is Seattle ProWash a separate company?</h3>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base text-muted-foreground sm:text-lg">
                   Seattle ProWash is our sister company specializing in professional gutter and roof cleaning. It's the same ownership, same quality standards, and often the same crew you know from Christmas lights. We simply wanted a dedicated brand for year-round property maintenance.
                 </p>
               </Card>
 
-              <Card className="p-8">
+              <Card className="p-6 sm:p-8">
                 <h3 className="text-xl font-bold mb-3 text-foreground">Can I get multiple services at once?</h3>
-                <p className="text-lg text-muted-foreground">
+                <p className="text-base text-muted-foreground sm:text-lg">
                   Absolutely! Many clients bundle gutter cleaning with Christmas light takedown in January, or add permanent lighting to their annual Christmas service. We're happy to provide package pricing for multiple services.
                 </p>
               </Card>

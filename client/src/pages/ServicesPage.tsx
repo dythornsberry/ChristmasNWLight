@@ -117,36 +117,36 @@ export default function ServicesPage() {
 
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="py-16 md:py-24 bg-gradient-to-b from-muted/30 to-background">
-          <div className="max-w-7xl mx-auto px-6">
+        <section className="bg-gradient-to-b from-muted/30 to-background py-14 sm:py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="text-center max-w-4xl mx-auto">
-              <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
+              <div className="mb-5 inline-block rounded-lg bg-primary/10 px-3.5 py-2 sm:mb-6 sm:px-4">
                 <span className="text-primary font-semibold">Our Services</span>
               </div>
-              <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-foreground">
+              <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
                 Professional Holiday Lighting Services
               </h1>
-              <p className="text-xl text-muted-foreground leading-relaxed mb-4">
+              <p className="mb-4 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
                 From residential rooflines to commercial displays, we offer comprehensive holiday lighting solutions designed to transform your property and exceed your expectations.
               </p>
-              <p className="text-lg text-primary font-semibold">
+              <p className="text-base font-semibold text-primary sm:text-lg">
                 Starting at $800 for residential installations
               </p>
               <Button 
                 onClick={scrollToQuote}
-                className="bg-primary text-primary-foreground font-semibold"
+                className="mt-4 w-full bg-primary font-semibold text-primary-foreground sm:w-auto"
                 data-testid="button-services-hero-quote"
               >
-                Light Up My Home ✨
+                Get a Quote
               </Button>
             </div>
           </div>
         </section>
 
         {/* Services Grid */}
-        <section className="py-20 bg-background">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="space-y-16">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="space-y-10 sm:space-y-16">
               {services.map((service, index) => (
                 <Card key={index} className="overflow-hidden" data-testid={`card-service-${index}`}>
                   <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
@@ -161,13 +161,13 @@ export default function ServicesPage() {
                     </div>
                     
                     {/* Content */}
-                    <div className="p-8 md:p-12 flex flex-col justify-center">
-                      <div className="flex items-center gap-4 mb-4">
+                    <div className="flex flex-col justify-center p-6 sm:p-8 md:p-12">
+                      <div className="mb-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
                         <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
                           <service.icon className="w-6 h-6 text-primary" />
                         </div>
                         <div>
-                          <h2 className="font-serif text-2xl md:text-3xl font-bold text-foreground">
+                          <h2 className="font-serif text-xl font-bold text-foreground sm:text-2xl md:text-3xl">
                             {service.title}
                           </h2>
                           <p className="text-sm text-primary font-semibold">
@@ -176,7 +176,7 @@ export default function ServicesPage() {
                         </div>
                       </div>
                       
-                      <p className="text-muted-foreground mb-6 leading-relaxed">
+                      <p className="mb-6 text-sm leading-7 text-muted-foreground sm:text-base">
                         {service.description}
                       </p>
                       
@@ -189,7 +189,7 @@ export default function ServicesPage() {
                         ))}
                       </ul>
                       
-                      <div className="flex flex-wrap gap-3">
+                      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
                         <Button 
                           onClick={scrollToQuote}
                           className="bg-primary text-primary-foreground font-semibold"
@@ -214,19 +214,20 @@ export default function ServicesPage() {
         </section>
 
         {/* Service Comparison Table */}
-        <section className="py-20 bg-muted/30">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
+        <section className="bg-muted/30 py-16 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
+              <h2 className="mb-4 font-serif text-3xl font-bold text-foreground md:text-4xl">
                 Compare Our Services
               </h2>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+              <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
                 See which features are included with each service package to find the perfect fit for your needs.
               </p>
             </div>
             
-            <Card className="overflow-x-auto">
-              <table className="w-full" data-testid="table-service-comparison">
+            <Card className="overflow-hidden">
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-[760px]" data-testid="table-service-comparison">
                 <thead>
                   <tr className="border-b border-border">
                     <th className="p-4 text-left font-bold text-foreground">Feature</th>
@@ -295,74 +296,75 @@ export default function ServicesPage() {
                     <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
                   </tr>
                 </tbody>
-              </table>
+                </table>
+              </div>
             </Card>
           </div>
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-background">
-          <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-12">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 Frequently Asked Questions
               </h2>
-              <p className="text-lg text-muted-foreground">
+              <p className="text-base text-muted-foreground sm:text-lg">
                 Common questions about our holiday lighting services.
               </p>
             </div>
             
             <Accordion type="single" collapsible className="space-y-4" data-testid="accordion-service-faq">
               <AccordionItem value="item-1">
-                <AccordionTrigger className="text-left font-semibold">
+                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
                   How long does installation take?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
                   Most residential roofline installations are completed within 2-4 hours. Larger homes or custom design packages may take 4-8 hours depending on complexity. We work efficiently to minimize disruption to your day, and most projects are scheduled within a week of booking.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-2">
-                <AccordionTrigger className="text-left font-semibold">
+                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
                   Are replacement bulbs included in the price?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
                   Yes! Bulb replacement is included at no additional cost throughout the season. If any lights malfunction, we'll come out and replace them quickly. Our commercial-grade LED lights are extremely reliable, but we stand behind every installation with 24/7 seasonal support.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-3">
-                <AccordionTrigger className="text-left font-semibold">
+                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
                   What happens if lights go out during the season?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
                   We offer 24/7 support during the holiday season. Simply give us a call or send us a message, and we'll schedule a service visit to diagnose and fix the issue. Most problems can be resolved within 1-2 business days, and there's no charge for bulb replacement or minor repairs.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-4">
-                <AccordionTrigger className="text-left font-semibold">
+                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
                   Do you provide the lights, or do I need to purchase them?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
                   We provide all lights, clips, timers, and installation materials as part of our service. You don't need to purchase anything. We use only commercial-grade LED lights that are weatherproof, energy-efficient, and designed to last for years. After the season, we professionally remove and store everything for you.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-5">
-                <AccordionTrigger className="text-left font-semibold">
+                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
                   When do you take down the lights?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
                   Takedown is included in all our installation packages. We typically remove lights in early to mid-January, depending on your preference and weather conditions. After removal, we carefully organize, label, and store your lights in our climate-controlled facility until the next season.
                 </AccordionContent>
               </AccordionItem>
 
               <AccordionItem value="item-6">
-                <AccordionTrigger className="text-left font-semibold">
+                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
                   Can I choose different light colors?
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground">
+                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
                   Absolutely! We offer warm white, pure white, multicolor, red & green, red & white, and many other custom color combinations. During your consultation, we'll discuss your vision and recommend the best colors to complement your home's architecture and your personal style. You can even mix colors for a truly unique display.
                 </AccordionContent>
               </AccordionItem>
@@ -398,26 +400,26 @@ export default function ServicesPage() {
         />
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-primary via-primary to-primary/90">
-          <div className="max-w-4xl mx-auto px-6 text-center">
+        <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
               Not Sure Which Service You Need?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+            <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
               Our team will help you design the perfect holiday lighting solution for your property. Get a free consultation and quote today.
             </p>
-            <div className="flex flex-wrap justify-center gap-4">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 
                 onClick={scrollToQuote}
                 variant="outline"
-                className="bg-background text-foreground hover:bg-background/90 font-semibold border-2 border-primary-foreground/20"
+                className="border-2 border-primary-foreground/20 bg-background font-semibold text-foreground hover:bg-background/90 sm:w-auto"
                 data-testid="button-services-cta-quote"
               >
-                Light Up My Home ✨
+                Get a Quote
               </Button>
               <Button 
                 variant="outline"
-                className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-semibold"
+                className="border-2 border-primary-foreground/50 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
                 onClick={() => window.location.href = 'tel:4252150935'}
                 data-testid="button-services-cta-call"
               >

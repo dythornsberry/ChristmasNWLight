@@ -31,47 +31,47 @@ export default function PermanentLighting() {
       
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="relative py-20 md:py-32 bg-gradient-to-br from-background via-muted/30 to-background">
-          <div className="max-w-6xl mx-auto px-6 text-center">
+        <section className="relative bg-gradient-to-br from-background via-muted/30 to-background py-14 sm:py-20 md:py-32">
+          <div className="mx-auto max-w-6xl px-4 text-center sm:px-6">
             <Badge 
               variant="outline" 
-              className="mb-6 px-6 py-2.5 text-base md:text-lg font-semibold border-2 border-amber-500/40 bg-amber-500/10"
+              className="mb-5 border-2 border-amber-500/40 bg-amber-500/10 px-4 py-2 text-sm font-semibold sm:mb-6 sm:px-6 sm:py-2.5 sm:text-base md:text-lg"
               data-testid="badge-permanent-hero"
             >
               <Sparkles className="w-5 h-5 mr-2 text-amber-600" />
               High Demand Service
             </Badge>
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 text-foreground font-serif leading-tight">
+            <h1 className="mb-5 font-serif text-3xl font-bold leading-tight text-foreground sm:text-5xl md:mb-6 md:text-6xl lg:text-7xl">
               One Installation.<br />Every Holiday. Forever.
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed">
+            <p className="mx-auto mb-8 max-w-2xl text-base leading-7 text-muted-foreground sm:text-xl md:mb-10 md:max-w-3xl md:text-2xl">
               Permanent outdoor lighting that transforms with the seasons. Christmas red and green, Fourth of July, Halloween, or elegant white year-round. All from your phone.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <div className="mx-auto flex max-w-xl flex-col gap-3 sm:flex-row sm:items-center sm:justify-center sm:gap-4">
               <Button 
                 size="lg" 
                 onClick={scrollToQuote}
-                className="text-xl px-10 py-7 shadow-2xl hover:shadow-amber-500/20 font-bold"
+                className="w-full px-8 py-6 text-base font-bold shadow-2xl hover:shadow-amber-500/20 sm:w-auto sm:px-10 sm:py-7 sm:text-xl"
                 data-testid="button-permanent-hero-quote"
               >
                 Get a Free Estimate
               </Button>
-              <p className="text-lg text-muted-foreground">Starting at $1,500</p>
+              <p className="text-base text-muted-foreground sm:text-lg">Starting at $1,500</p>
             </div>
           </div>
         </section>
 
         {/* Benefits Grid */}
-        <section className="py-20 bg-background">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground font-serif">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
+              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
                 Why Homeowners Love Permanent Lighting
               </h2>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-8 mb-16">
-              <Card className="p-8 text-center">
+            <div className="mb-16 grid gap-5 sm:gap-6 md:grid-cols-3 md:gap-8">
+              <Card className="p-6 text-center sm:p-8">
                 <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Smartphone className="w-8 h-8 text-amber-600" />
                 </div>
@@ -81,7 +81,7 @@ export default function PermanentLighting() {
                 </p>
               </Card>
 
-              <Card className="p-8 text-center">
+              <Card className="p-6 text-center sm:p-8">
                 <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Palette className="w-8 h-8 text-amber-600" />
                 </div>
@@ -91,7 +91,7 @@ export default function PermanentLighting() {
                 </p>
               </Card>
 
-              <Card className="p-8 text-center">
+              <Card className="p-6 text-center sm:p-8">
                 <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Clock className="w-8 h-8 text-amber-600" />
                 </div>
@@ -101,7 +101,7 @@ export default function PermanentLighting() {
                 </p>
               </Card>
 
-              <Card className="p-8 text-center">
+              <Card className="p-6 text-center sm:p-8">
                 <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Zap className="w-8 h-8 text-amber-600" />
                 </div>
@@ -111,7 +111,7 @@ export default function PermanentLighting() {
                 </p>
               </Card>
 
-              <Card className="p-8 text-center">
+              <Card className="p-6 text-center sm:p-8">
                 <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Shield className="w-8 h-8 text-amber-600" />
                 </div>
@@ -121,7 +121,7 @@ export default function PermanentLighting() {
                 </p>
               </Card>
 
-              <Card className="p-8 text-center">
+              <Card className="p-6 text-center sm:p-8">
                 <div className="w-16 h-16 bg-amber-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
                   <Sparkles className="w-8 h-8 text-amber-600" />
                 </div>
@@ -135,18 +135,18 @@ export default function PermanentLighting() {
         </section>
 
         {/* Gallery Section */}
-        <section className="py-20 bg-muted/30">
-          <div className="max-w-6xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground font-serif">
+        <section className="bg-muted/30 py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
+              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
                 See It In Action
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl">
                 Local installations by our team in the Greater Seattle area.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <div className="mx-auto grid max-w-4xl gap-5 sm:gap-8 md:grid-cols-2">
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-perm-gallery-1">
                 <img 
                   src={permanentLighting1} 
@@ -174,19 +174,19 @@ export default function PermanentLighting() {
         </section>
 
         {/* Pricing Section */}
-        <section className="py-20 bg-background">
-          <div className="max-w-4xl mx-auto px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4 text-foreground font-serif">
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <div className="mb-10 text-center sm:mb-12">
+              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
                 Transparent Pricing
               </h2>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl">
                 Every project is custom, but here's what to expect.
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              <Card className="p-8 text-center">
+            <div className="grid gap-5 md:grid-cols-3 md:gap-6">
+              <Card className="p-6 text-center sm:p-8">
                 <h3 className="text-lg font-semibold text-muted-foreground mb-2">Starter</h3>
                 <div className="text-3xl font-bold text-foreground mb-4">$1,500 - $2,500</div>
                 <p className="text-muted-foreground">
@@ -194,7 +194,7 @@ export default function PermanentLighting() {
                 </p>
               </Card>
 
-              <Card className="p-8 text-center border-2 border-amber-500/40">
+              <Card className="border-2 border-amber-500/40 p-6 text-center sm:p-8">
                 <Badge className="mb-4 bg-amber-500/10 text-amber-600 border-amber-500/40">Most Popular</Badge>
                 <h3 className="text-lg font-semibold text-muted-foreground mb-2">Standard</h3>
                 <div className="text-3xl font-bold text-foreground mb-4">$2,500 - $4,000</div>
@@ -203,7 +203,7 @@ export default function PermanentLighting() {
                 </p>
               </Card>
 
-              <Card className="p-8 text-center">
+              <Card className="p-6 text-center sm:p-8">
                 <h3 className="text-lg font-semibold text-muted-foreground mb-2">Premium</h3>
                 <div className="text-3xl font-bold text-foreground mb-4">$4,000+</div>
                 <p className="text-muted-foreground">
@@ -219,8 +219,8 @@ export default function PermanentLighting() {
         </section>
 
         {/* Quote Form Section */}
-        <section id="permanent-quote" className="py-20 bg-muted/30">
-          <div className="max-w-4xl mx-auto px-6">
+        <section id="permanent-quote" className="bg-muted/30 py-16 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <LeadFormCard
               title="Get Your Free Estimate"
               description="Short form, fast callback, and enough detail for us to quote the right permanent lighting system for your home."
@@ -235,7 +235,7 @@ export default function PermanentLighting() {
               propertyStepDescription="We use the installation address to estimate roofline complexity, access, and the right permanent lighting layout."
               addressLabel="Installation Address"
               addressPlaceholder="Start typing the installation address"
-              responseNote="We'll contact you within 24 hours to discuss your permanent lighting project."
+              responseNote="We'll be in touch soon to talk through your permanent lighting project."
               trustNote="Permanent systems, commercial-grade materials, and local installation expertise"
               testIdPrefix="permanent"
             />
