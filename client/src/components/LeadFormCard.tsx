@@ -386,7 +386,6 @@ export default function LeadFormCard({
                         }))
                       }
                       required
-                      autoFocus
                       autoComplete="name"
                       placeholder="John Smith"
                       data-testid={`${testIdPrefix}-full-name`}

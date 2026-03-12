@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
@@ -7,12 +8,31 @@ import LeadFormCard from "@/components/LeadFormCard";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Smartphone, Zap, Shield, Palette, Clock } from "lucide-react";
+import { Sparkles, Smartphone, Zap, Shield, Palette, Clock, PlayCircle } from "lucide-react";
 
 import permanentLighting1 from "@assets/Gallery_GeorgeS_Edited-scaled-square_1762286184697.jpg";
 import permanentLighting2 from "@assets/dsc00331_edited_1762286184697.jpg";
 
+const permanentLightingVideos = [
+  {
+    title: "Permanent Lighting Demo",
+    location: "Redmond, WA",
+    description: "See a finished color-changing system in action on a real home.",
+    youtubeId: "f7vQhLxL9B8",
+  },
+  {
+    title: "Permanent Lighting Install",
+    location: "Greater Seattle Area",
+    description: "A quick look at how our permanent lighting installs come together from start to finish.",
+    youtubeId: "ozZItKmCPKE",
+  },
+];
+
 export default function PermanentLighting() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const scrollToQuote = () => {
     const quoteSection = document.getElementById("permanent-quote");
     if (quoteSection) {
@@ -24,7 +44,7 @@ export default function PermanentLighting() {
     <div className="min-h-screen flex flex-col">
       <PageHead 
         title="Permanent Outdoor Lighting | Christmas Northwest - Greater Seattle"
-        description="Transform your home with permanent outdoor lighting. Smartphone-controlled LED systems, millions of colors, professional installation. Starting at $1,500. Serving Greater Seattle."
+        description="Transform your home with permanent outdoor lighting. Smartphone-controlled LED systems, millions of colors, professional installation, and pricing tiers for small, medium, and larger homes across Greater Seattle."
       />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
@@ -56,7 +76,7 @@ export default function PermanentLighting() {
               >
                 Get a Free Estimate
               </Button>
-              <p className="text-base text-muted-foreground sm:text-lg">Starting at $1,500</p>
+              <p className="text-base text-muted-foreground sm:text-lg">Most homes $2,000-$5,000</p>
             </div>
           </div>
         </section>
@@ -173,6 +193,57 @@ export default function PermanentLighting() {
           </div>
         </section>
 
+        <section className="bg-background py-16 sm:py-20">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6">
+            <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
+              <Badge
+                variant="outline"
+                className="mb-4 border-amber-500/40 bg-amber-500/10 px-4 py-1.5 text-sm font-semibold"
+              >
+                Permanent Lighting Videos
+              </Badge>
+              <h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl md:text-5xl">
+                Watch Real Permanent Lighting Projects
+              </h2>
+              <p className="mt-4 text-base leading-7 text-muted-foreground sm:text-lg">
+                These quick videos give homeowners a better feel for the look, color control, and finish of a permanent lighting system.
+              </p>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-2">
+              {permanentLightingVideos.map((video) => (
+                <a
+                  key={video.youtubeId}
+                  href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="group overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
+                >
+                  <div className="relative aspect-video overflow-hidden bg-slate-950">
+                    <img
+                      src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                      alt={`${video.title} video thumbnail`}
+                      loading="lazy"
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                      <div className="rounded-full bg-white/90 p-4 text-primary shadow-xl transition-transform duration-300 group-hover:scale-110">
+                        <PlayCircle className="h-10 w-10" />
+                      </div>
+                    </div>
+                    <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                      <p className="text-sm font-medium text-white/80">{video.location}</p>
+                      <h3 className="mt-1 text-xl font-semibold">{video.title}</h3>
+                      <p className="mt-2 text-sm leading-6 text-white/80">{video.description}</p>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Pricing Section */}
         <section className="bg-background py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
@@ -181,39 +252,39 @@ export default function PermanentLighting() {
                 Transparent Pricing
               </h2>
               <p className="mx-auto max-w-2xl text-base text-muted-foreground sm:text-lg md:text-xl">
-                Every project is custom, but here's what to expect.
+                Permanent lighting is custom to the roofline, but these ranges are a better starting point for real homes.
               </p>
             </div>
 
             <div className="grid gap-5 md:grid-cols-3 md:gap-6">
               <Card className="p-6 text-center sm:p-8">
-                <h3 className="text-lg font-semibold text-muted-foreground mb-2">Starter</h3>
-                <div className="text-3xl font-bold text-foreground mb-4">$1,500 - $2,500</div>
+                <h3 className="text-lg font-semibold text-muted-foreground mb-2">Small Homes</h3>
+                <div className="text-3xl font-bold text-foreground mb-4">$2,000 - $3,000</div>
                 <p className="text-muted-foreground">
-                  Single roofline, simple layout. Great for smaller homes or testing the waters.
+                  Cleaner rooflines, fewer peaks, and shorter runs for a simple permanent lighting layout.
                 </p>
               </Card>
 
               <Card className="border-2 border-amber-500/40 p-6 text-center sm:p-8">
                 <Badge className="mb-4 bg-amber-500/10 text-amber-600 border-amber-500/40">Most Popular</Badge>
-                <h3 className="text-lg font-semibold text-muted-foreground mb-2">Standard</h3>
-                <div className="text-3xl font-bold text-foreground mb-4">$2,500 - $4,000</div>
+                <h3 className="text-lg font-semibold text-muted-foreground mb-2">Medium Homes</h3>
+                <div className="text-3xl font-bold text-foreground mb-4">$3,000 - $5,000</div>
                 <p className="text-muted-foreground">
-                  Full roofline coverage, peaks and valleys. The complete look most homeowners want.
+                  Full roofline coverage with more corners, peaks, and a fuller look around the main home.
                 </p>
               </Card>
 
               <Card className="p-6 text-center sm:p-8">
-                <h3 className="text-lg font-semibold text-muted-foreground mb-2">Premium</h3>
-                <div className="text-3xl font-bold text-foreground mb-4">$4,000+</div>
+                <h3 className="text-lg font-semibold text-muted-foreground mb-2">Extra Large Homes</h3>
+                <div className="text-3xl font-bold text-foreground mb-4">$5,000 - $8,000+</div>
                 <p className="text-muted-foreground">
-                  Complex rooflines, multiple structures, or larger homes. Custom quote required.
+                  Larger rooflines, detached structures, and more complex architecture that takes more material and install time.
                 </p>
               </Card>
             </div>
 
             <p className="text-center text-muted-foreground mt-8">
-              All prices include professional installation, materials, and 5-year warranty. No hidden fees.
+              All ranges include professional installation, materials, and our 5-year warranty. Final pricing depends on roofline length, complexity, and access.
             </p>
           </div>
         </section>
