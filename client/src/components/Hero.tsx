@@ -83,10 +83,22 @@ export default function Hero({ onGetQuote }: HeroProps) {
         </div>
       </div>
 
-      {/* DESKTOP: side-by-side split layout */}
-      <div className="hidden lg:grid lg:min-h-[calc(100svh-3rem)] lg:grid-cols-[45%_55%]">
-        {/* Left: content panel */}
-        <div className="flex flex-col justify-center px-10 py-16 xl:px-16 xl:py-20">
+      {/* DESKTOP: full-bleed image with gradient overlay */}
+      <div className="relative hidden lg:block lg:min-h-[calc(100svh-3rem)]">
+        {/* Full-width hero image */}
+        <img
+          src={heroImage}
+          alt="Beautiful Christmas lights illuminating a Seattle-area home at dusk"
+          className="absolute inset-0 h-full w-full object-cover object-[60%_center]"
+          loading="eager"
+          // @ts-expect-error -- React 18 doesn't map fetchPriority; lowercase is the valid HTML attr
+          fetchpriority="high"
+        />
+        {/* Gradient overlay - dark on left for text, fades to transparent on right to show lights */}
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-950 via-slate-950/85 via-35% to-transparent" />
+
+        {/* Content positioned over the gradient */}
+        <div className="relative flex h-full min-h-[calc(100svh-3rem)] flex-col justify-center px-10 py-16 xl:px-16 xl:py-20">
           <Badge
             variant="secondary"
             className="mb-6 h-auto w-fit gap-2 border border-emerald-500/30 bg-emerald-600 px-4 py-2.5 text-sm text-white shadow-lg md:text-base"
@@ -103,7 +115,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
             Beautiful holiday lighting without the hassle.
           </h1>
 
-          <p className="mb-8 max-w-lg text-lg leading-relaxed text-slate-300 xl:text-xl">
+          <p className="mb-8 max-w-lg text-lg leading-relaxed text-slate-200 xl:text-xl">
             Design, installation, maintenance, takedown, and storage - all handled by one local team.
           </p>
 
@@ -121,7 +133,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
               <Button
                 size="lg"
                 variant="outline"
-                className="border-slate-600 bg-slate-800/60 text-base text-white hover:bg-slate-700/60"
+                className="border-slate-500 bg-slate-800/60 text-base text-white backdrop-blur-sm hover:bg-slate-700/60"
               >
                 <Phone className="mr-2 h-5 w-5" />
                 Call (425) 215-0935
@@ -129,7 +141,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
             </a>
           </div>
 
-          <div className="flex flex-wrap gap-x-6 gap-y-3 text-base text-slate-300">
+          <div className="flex flex-wrap gap-x-6 gap-y-3 text-base text-slate-200">
             <div className="flex items-center gap-2">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
               <span>5.0 Google rating</span>
@@ -143,20 +155,6 @@ export default function Hero({ onGetQuote }: HeroProps) {
               <span>Quick response during the season</span>
             </div>
           </div>
-        </div>
-
-        {/* Right: full hero image - NO overlay, lights fully visible */}
-        <div className="relative">
-          <img
-            src={heroImage}
-            alt="Beautiful Christmas lights illuminating a Seattle-area home at dusk"
-            className="absolute inset-0 h-full w-full object-cover object-[65%_center]"
-            loading="eager"
-            // @ts-expect-error -- React 18 doesn't map fetchPriority; lowercase is the valid HTML attr
-            fetchpriority="high"
-          />
-          {/* Subtle left-edge blend into the dark panel */}
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-slate-950 to-transparent" />
         </div>
       </div>
     </section>
