@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { Phone, Menu } from "lucide-react";
+import { Phone, Menu, Sparkles } from "lucide-react";
 import { Link, useLocation } from "wouter";
 
 interface StickyHeaderProps {
@@ -77,7 +77,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
               className="hidden h-9 bg-primary px-3 text-xs font-semibold text-primary-foreground sm:inline-flex sm:h-10 sm:px-4 sm:text-sm md:px-6"
               data-testid="button-header-quote"
             >
-              <span>Light Up My Home ✨</span>
+              <span>Get a Quote</span>
             </Button>
 
             {/* Mobile Menu */}
@@ -128,7 +128,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
                       className="w-full bg-primary text-primary-foreground font-semibold text-lg"
                       data-testid="mobile-button-quote"
                     >
-                      Light Up My Home ✨
+                      Get a Quote
                     </Button>
                   </div>
                 </div>

@@ -246,7 +246,8 @@ function GalleryImageCard({
           src={image.src}
           alt={image.alt}
           loading={eager ? "eager" : "lazy"}
-          fetchPriority={eager ? "high" : "auto"}
+          // @ts-expect-error -- React 18 doesn't map fetchPriority; lowercase is the valid HTML attr
+          fetchpriority={eager ? "high" : "auto"}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
           onContextMenu={(event) => event.preventDefault()}
           onDragStart={(event) => event.preventDefault()}

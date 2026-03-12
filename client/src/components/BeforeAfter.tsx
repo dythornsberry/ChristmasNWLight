@@ -82,7 +82,6 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
                 className="w-full h-full object-cover select-none pointer-events-none"
                 loading="eager"
                 decoding="async"
-                fetchPriority="low"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
                 style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
@@ -104,7 +103,6 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
                 className="w-full h-full object-cover select-none pointer-events-none"
                 loading="eager"
                 decoding="async"
-                fetchPriority="low"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
                 style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
