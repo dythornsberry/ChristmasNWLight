@@ -41,7 +41,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </h1>
 
           <p className="mb-6 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg">
-            Design, installation, maintenance, takedown, and storage &mdash; handled by one local team.
+            Design, installation, maintenance, takedown, and storage - all handled by one local team.
           </p>
 
           <div className="mb-6 flex flex-col gap-2.5 sm:flex-row sm:gap-3">
@@ -104,7 +104,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </h1>
 
           <p className="mb-8 max-w-lg text-lg leading-relaxed text-slate-300 xl:text-xl">
-            Design, installation, maintenance, takedown, and storage &mdash; handled by one local team.
+            Design, installation, maintenance, takedown, and storage - all handled by one local team.
           </p>
 
           <div className="mb-8 flex flex-wrap gap-3">
