@@ -268,6 +268,23 @@
     @apply border-border;
   }
 
+  html {
+    font-size: 16px;
+  }
+
+  /* Bump base font-size on larger screens so text doesn't feel tiny */
+  @media (min-width: 1024px) {
+    html {
+      font-size: 17px;
+    }
+  }
+
+  @media (min-width: 1440px) {
+    html {
+      font-size: 18px;
+    }
+  }
+
   html,
   body {
     @apply font-sans antialiased bg-background text-foreground;
