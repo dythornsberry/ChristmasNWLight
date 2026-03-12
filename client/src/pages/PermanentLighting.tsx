@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
@@ -8,7 +8,7 @@ import LeadFormCard from "@/components/LeadFormCard";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Smartphone, Zap, Shield, Palette, Clock, PlayCircle } from "lucide-react";
+import { Sparkles, Smartphone, Zap, Shield, Palette, Clock, Youtube, Play } from "lucide-react";
 
 import permanentLighting1 from "@assets/Gallery_GeorgeS_Edited-scaled-square_1762286184697.jpg";
 import permanentLighting2 from "@assets/dsc00331_edited_1762286184697.jpg";
@@ -29,6 +29,8 @@ const permanentLightingVideos = [
 ];
 
 export default function PermanentLighting() {
+  const [playingVideos, setPlayingVideos] = useState<Record<string, boolean>>({});
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -212,33 +214,59 @@ export default function PermanentLighting() {
 
             <div className="grid gap-6 md:grid-cols-2">
               {permanentLightingVideos.map((video) => (
-                <a
+                <div
                   key={video.youtubeId}
-                  href={`https://www.youtube.com/watch?v=${video.youtubeId}`}
-                  target="_blank"
-                  rel="noreferrer"
                   className="group overflow-hidden rounded-2xl border border-border bg-card shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
                 >
                   <div className="relative aspect-video overflow-hidden bg-slate-950">
-                    <img
-                      src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                      alt={`${video.title} video thumbnail`}
-                      loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/15 to-transparent" />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="rounded-full bg-white/90 p-4 text-primary shadow-xl transition-transform duration-300 group-hover:scale-110">
-                        <PlayCircle className="h-10 w-10" />
-                      </div>
-                    </div>
-                    <div className="absolute inset-x-0 bottom-0 p-5 text-white">
-                      <p className="text-sm font-medium text-white/80">{video.location}</p>
-                      <h3 className="mt-1 text-xl font-semibold">{video.title}</h3>
-                      <p className="mt-2 text-sm leading-6 text-white/80">{video.description}</p>
-                    </div>
+                    {playingVideos[video.youtubeId] ? (
+                      <iframe
+                        src={`https://www.youtube.com/embed/${video.youtubeId}?autoplay=1&rel=0`}
+                        title={video.title}
+                        className="h-full w-full"
+                        loading="lazy"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      />
+                    ) : (
+                      <button
+                        type="button"
+                        onClick={() =>
+                          setPlayingVideos((current) => ({
+                            ...current,
+                            [video.youtubeId]: true,
+                          }))
+                        }
+                        className="relative h-full w-full text-left"
+                        data-testid={`button-permanent-video-${video.youtubeId}`}
+                      >
+                        <img
+                          src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                          alt={`${video.title} video thumbnail`}
+                          loading="lazy"
+                          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
+                        <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-[#ff0000] px-3 py-1.5 text-sm font-semibold text-white shadow-lg">
+                          <Youtube className="h-4 w-4" />
+                          <span>YouTube</span>
+                        </div>
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="inline-flex items-center gap-2 rounded-full bg-[#ff0000] px-5 py-3 text-base font-semibold text-white shadow-xl transition-transform duration-300 group-hover:scale-105">
+                            <Play className="h-5 w-5 fill-current" />
+                            <span>Play Video</span>
+                          </div>
+                        </div>
+                        <div className="absolute inset-x-0 bottom-0 p-5 text-white">
+                          <p className="text-sm font-medium text-white/80">{video.location}</p>
+                          <h3 className="mt-1 text-xl font-semibold">{video.title}</h3>
+                          <p className="mt-2 text-sm leading-6 text-white/80">{video.description}</p>
+                        </div>
+                      </button>
+                    )}
                   </div>
-                </a>
+                </div>
               ))}
             </div>
           </div>
