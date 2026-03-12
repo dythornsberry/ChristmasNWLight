@@ -45,7 +45,7 @@ export default function Footer() {
             <h4 className="font-semibold mb-4 text-foreground">Contact Info</h4>
             <ul className="space-y-2 text-muted-foreground text-base mb-4">
               <li><a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a></li>
-              <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors">christmaslightsnw@gmail.com</a></li>
+              <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors break-all">christmaslightsnw@gmail.com</a></li>
               <li>Kenmore, WA</li>
             </ul>
             <div className="flex gap-2">
