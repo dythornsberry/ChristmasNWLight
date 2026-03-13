@@ -365,7 +365,7 @@ export default function ServicesPage() {
                   Can I choose different light colors?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
-                  Absolutely! We offer warm white, pure white, multicolor, red & green, red & white, and many other custom color combinations. During your consultation, we'll discuss your vision and recommend the best colors to complement your home's architecture and your personal style. You can even mix colors for a truly unique display.
+                  Absolutely! We offer warm white, pure white, multicolor, red & green, red & white, and many other custom color combinations. During your consultation, we'll discuss your vision and recommend the best colors to complement your home's architecture and your personal style. You can even mix colors for a unique display.
                 </AccordionContent>
               </AccordionItem>
             </Accordion>

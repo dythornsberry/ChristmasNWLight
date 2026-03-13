@@ -30,7 +30,7 @@ export default function Home() {
   const stats = [
     {
       icon: Award,
-      number: "5.0",
+      number: "4.9",
       label: "Google Rating",
       description: "85+ reviews from real Seattle homeowners"
     },

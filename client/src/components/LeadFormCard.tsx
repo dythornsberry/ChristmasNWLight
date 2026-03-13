@@ -213,8 +213,8 @@ export default function LeadFormCard({
       {isSubmitted ? (
         <div className="px-6 py-10 text-center sm:px-10 md:px-12" data-testid={`${testIdPrefix}-success`}>
           <div className="mb-6 flex justify-center">
-            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-emerald-100">
-              <CheckCircle2 className="h-10 w-10 text-emerald-600" />
+            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-status-online/20">
+              <CheckCircle2 className="h-10 w-10 text-status-online" />
             </div>
           </div>
           <h3 className="font-serif text-3xl font-bold text-foreground md:text-4xl">{successTitle}</h3>
@@ -241,7 +241,7 @@ export default function LeadFormCard({
               </Badge>
             ) : null}
             {selectedService ? (
-              <Badge variant="secondary" className="bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700">
+              <Badge variant="secondary" className="bg-status-online/10 px-4 py-2 text-sm font-medium text-status-online">
                 {selectedService.label}
               </Badge>
             ) : null}
@@ -532,10 +532,10 @@ export default function LeadFormCard({
                     </div>
                   ) : null}
 
-                  <div className="rounded-2xl border border-emerald-200 bg-emerald-50/80 p-4">
+                  <div className="rounded-2xl border border-status-online/30 bg-status-online/10 p-4">
                     <div className="flex items-start gap-3">
-                      <MapPin className="mt-0.5 h-4 w-4 text-emerald-700" />
-                      <p className="text-sm leading-6 text-emerald-900">
+                      <MapPin className="mt-0.5 h-4 w-4 text-status-online" />
+                      <p className="text-sm leading-6 text-foreground">
                         We use the property details to confirm service area coverage and give you a more accurate next step.
                       </p>
                     </div>

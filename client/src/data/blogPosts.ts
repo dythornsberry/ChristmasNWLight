@@ -45,7 +45,7 @@ The benefit? You can adjust your display for different occasions. Go with tradit
 
 Instead of covering every surface, the trend is toward strategic highlighting. We're doing a lot of accent lighting that emphasizes your home's best architectural features: columns, arches, window frames, and rooflines.
 
-This approach works especially well on newer homes in areas like Downtown Bellevue or Somerset that have interesting architectural details. Less truly is more when you're drawing attention to craftsmanship rather than hiding it under a blanket of lights.
+This approach works especially well on newer homes in areas like Downtown Bellevue or Somerset that have interesting architectural details. Less is more when you're drawing attention to craftsmanship rather than hiding it under a blanket of lights.
 
 ## 5. Sustainable and Long-Lasting Materials
 
@@ -84,7 +84,7 @@ Warm white lights (also called soft white or warm glow) have become the default 
 
 **They work with any architecture.** Whether you have a modern farmhouse, a classic colonial, or a Pacific Northwest contemporary, warm white lights enhance rather than compete with your home's design.
 
-**They feel sophisticated.** There's something inherently elegant about the soft glow of warm white. It looks intentional and curated, like someone put thought into the design rather than just throwing up whatever was on sale.
+**They feel sophisticated.** There's something about the soft glow of warm white that just looks right. It looks intentional, like someone put thought into the design rather than just throwing up whatever was on sale.
 
 **They're versatile beyond Christmas.** Many of our clients keep warm white roofline lights up year-round (yes, we do that). They work for New Year's, they're perfect for summer evening gatherings, and they add a welcoming glow any time of year.
 
@@ -444,7 +444,7 @@ Let me walk you through the safety protocols we follow on every installation and
 
 ## The Ladder Situation
 
-Falls are the leading cause of holiday decoration injuries, and it's not even close. Most of these accidents are preventable.
+Falls are by far the leading cause of holiday decoration injuries. Most of these accidents are preventable.
 
 ### What Professionals Do Differently
 
@@ -452,7 +452,7 @@ Falls are the leading cause of holiday decoration injuries, and it's not even cl
 
 **We follow the 4-to-1 rule.** For every four feet of ladder height, the base should be one foot away from the wall. Most homeowners eyeball this and get it wrong, leading to unstable setups.
 
-**We never work alone.** Every ladder operation has a spotter. It's not about skill level, it's about physics. Someone needs to stabilize the base and be there if something goes wrong.
+**We never work alone.** Every ladder operation has a spotter. Physics matter more than skill level. Someone needs to stabilize the base and be there if something goes wrong.
 
 **We know when not to use a ladder.** Steep roofs, loose gutters, wet conditions, windy days - these all call for alternative approaches or rescheduling. We've walked away from jobs when conditions weren't safe.
 
@@ -653,7 +653,7 @@ That's the real starting point. Now let's talk about what actually drives that p
 
 ## The Three Cost Factors That Matter
 
-If you understand these three things, you'll understand why Christmas light installation costs what it does. It's not arbitrary. It's not markup. It's legitimate labor and materials.
+If you understand these three things, you'll understand why Christmas light installation costs what it does. These costs reflect legitimate labor, insurance, and high-quality materials.
 
 ### 1. Size of Home or Features ($)
 
@@ -745,7 +745,7 @@ When you book with us, the investment includes:
 - Professional removal in January
 - Careful inspection and testing of all lights
 - Climate-controlled storage until next year
-- Organized inventory so next year's setup is seamless
+- Organized inventory so next year's setup is ready to go
 
 **Service**
 - Free mid-season maintenance checks
@@ -771,7 +771,7 @@ You searched for this answer at 10:30 PM because you wanted to know what to expe
 
 Most contractors won't tell you their pricing upfront. They make you call for a quote, schedule a consultation, and then reveal numbers. That puts YOU at a disadvantage. You have to negotiate, decide under pressure, or feel like you're being sold rather than served.
 
-We believe pricing should be transparent. Not because our price is always the cheapest (it's not), but because we respect your time and your intelligence. You deserve to know what you're paying for and why.
+We believe pricing should be transparent. You deserve to know what you're paying for and why.
 
 ## The Real Question: Is Professional Installation Worth It?
 

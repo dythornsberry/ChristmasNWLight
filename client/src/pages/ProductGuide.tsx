@@ -158,7 +158,7 @@ export default function ProductGuide() {
         "Creates magical glow effect",
         "Perfect for feature trees",
         "Professional placement and installation",
-        "Truly unique and eye-catching"
+        "Unique and eye-catching"
       ]
     }
   ];

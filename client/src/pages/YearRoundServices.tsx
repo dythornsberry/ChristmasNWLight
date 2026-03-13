@@ -138,7 +138,7 @@ export default function YearRoundServices() {
 
             <div className="mb-12 grid gap-5 sm:gap-6 md:grid-cols-2 md:gap-8">
               <Card className="p-6 sm:p-8">
-                <h3 className="text-2xl font-bold mb-4 text-foreground">Seamless Convenience</h3>
+                <h3 className="text-2xl font-bold mb-4 text-foreground">One Crew, One Visit</h3>
                 <p className="mb-4 text-base text-muted-foreground sm:text-lg">
                   Why hire two companies when one can do it all? When we take down your Christmas lights in early January, we can clean your gutters at the same time. Already on your roof. Already insured. Already trusted.
                 </p>

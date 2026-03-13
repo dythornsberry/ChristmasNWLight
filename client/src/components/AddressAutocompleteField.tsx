@@ -203,7 +203,7 @@ export default function AddressAutocompleteField({
             Start typing and pick the property from the Google suggestions. ZIP code fills automatically.
           </p>
           {addressConfirmed && address ? (
-            <div className="rounded-md border border-emerald-200 bg-emerald-50 px-3 py-2 text-sm text-emerald-800">
+            <div className="rounded-md border border-status-online/30 bg-status-online/10 px-3 py-2 text-sm text-slate-900">
               <div className="flex items-start gap-2">
                 <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
                 <div>
