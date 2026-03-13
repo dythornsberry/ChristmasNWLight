@@ -275,13 +275,13 @@
   /* Bump base font-size on larger screens so text doesn't feel tiny */
   @media (min-width: 1024px) {
     html {
-      font-size: 17px;
+      font-size: 18px;
     }
   }
 
   @media (min-width: 1440px) {
     html {
-      font-size: 18px;
+      font-size: 19px;
     }
   }
 
