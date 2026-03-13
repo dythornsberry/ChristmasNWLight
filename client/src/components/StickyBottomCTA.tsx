@@ -34,7 +34,7 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
             data-testid="button-sticky-quote-mobile"
           >
             <Sparkles className="w-5 h-5" />
-            Get My Quote
+            Light My House!
           </Button>
           <a href="tel:4252150935" data-testid="button-sticky-call-mobile">
             <Button 

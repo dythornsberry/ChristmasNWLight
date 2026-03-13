@@ -391,7 +391,7 @@ export default function QuoteFormSection() {
                         <Button
                           type="button"
                           size="lg"
-                          className="mt-4 w-full text-lg font-bold"
+                          className="mt-4 w-full bg-primary text-lg font-bold text-primary-foreground shadow-xl hover:bg-primary/90"
                           disabled={!canProceedStep1}
                           onClick={() => {
                             setShowErrors(true);
@@ -494,7 +494,7 @@ export default function QuoteFormSection() {
                           <Button
                             type="button"
                             size="lg"
-                            className="flex-[2] text-lg font-bold"
+                            className="flex-[2] bg-primary text-lg font-bold text-primary-foreground shadow-xl hover:bg-primary/90"
                             disabled={!canProceedStep2}
                             onClick={() => {
                               setShowErrors(true);

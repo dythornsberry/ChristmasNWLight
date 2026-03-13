@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, Clock, Phone, Shield, Star } from "lucide-react";
+import { Clock, Phone, Shield, Sparkles, Star } from "lucide-react";
 import heroImage from "@assets/generated_images/Hero_home_Christmas_lights_dusk_a9a01c87_optimized.webp";
 
 interface HeroProps {
@@ -30,7 +30,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
         <div className="px-5 pb-10 pt-6 sm:px-8 sm:pb-12 sm:pt-8">
           <Badge
             variant="secondary"
-            className="mb-4 h-auto w-fit gap-2 border border-emerald-500/30 bg-emerald-600 px-3 py-2 text-xs text-white shadow-lg sm:text-sm"
+            className="mb-4 h-auto w-fit gap-2 border border-status-online/30 bg-status-online px-3 py-2 text-xs text-white shadow-lg sm:text-sm"
           >
             <Clock className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
             2026 booking is open
@@ -51,8 +51,8 @@ export default function Hero({ onGetQuote }: HeroProps) {
               className="w-full bg-primary text-base font-bold shadow-xl sm:w-auto sm:text-lg"
               data-testid="button-hero-cta"
             >
-              Get a Free Quote
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Sparkles className="mr-2 h-5 w-5" />
+              Light My House!
             </Button>
             <a href="tel:4252150935" className="block w-full sm:w-auto">
               <Button
@@ -69,14 +69,14 @@ export default function Hero({ onGetQuote }: HeroProps) {
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-300">
             <div className="flex items-center gap-1.5">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              <span>5.0 Google rating</span>
+              <span>4.9 Google rating</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Shield className="h-4 w-4 text-emerald-400" />
+              <Shield className="h-4 w-4 text-status-online" />
               <span>Licensed & insured</span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Clock className="h-4 w-4 text-emerald-400" />
+              <Clock className="h-4 w-4 text-status-online" />
               <span>Quick response</span>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
         <div className="relative flex h-full min-h-[calc(100svh-3rem)] flex-col justify-center px-10 py-16 xl:px-16 xl:py-20">
           <Badge
             variant="secondary"
-            className="mb-6 h-auto w-fit gap-2 border border-emerald-500/30 bg-emerald-600 px-4 py-2.5 text-sm text-white shadow-lg md:text-base"
+            className="mb-6 h-auto w-fit gap-2 border border-status-online/30 bg-status-online px-4 py-2.5 text-sm text-white shadow-lg md:text-base"
           >
             <Clock className="h-4 w-4 md:h-5 md:w-5" />
             2026 booking is open
@@ -126,8 +126,8 @@ export default function Hero({ onGetQuote }: HeroProps) {
               className="bg-primary text-lg font-bold shadow-2xl transition-all duration-300 hover:bg-primary/90 hover:shadow-[0_0_30px_rgba(220,38,38,0.3)]"
               data-testid="button-hero-cta"
             >
-              Get a Free Quote
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Sparkles className="mr-2 h-5 w-5" />
+              Light My House!
             </Button>
             <a href="tel:4252150935">
               <Button
@@ -144,14 +144,14 @@ export default function Hero({ onGetQuote }: HeroProps) {
           <div className="flex flex-wrap gap-x-6 gap-y-3 text-base text-slate-200">
             <div className="flex items-center gap-2">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              <span>5.0 Google rating</span>
+              <span>4.9 Google rating</span>
             </div>
             <div className="flex items-center gap-2">
-              <Shield className="h-4 w-4 text-emerald-400" />
+              <Shield className="h-4 w-4 text-status-online" />
               <span>Licensed, bonded &amp; insured</span>
             </div>
             <div className="flex items-center gap-2">
-              <Clock className="h-4 w-4 text-emerald-400" />
+              <Clock className="h-4 w-4 text-status-online" />
               <span>Quick response during the season</span>
             </div>
           </div>
