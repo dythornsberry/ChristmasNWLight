@@ -216,7 +216,7 @@ export default function QuoteFormSection() {
                     key={item.title}
                     className="rounded-3xl border border-white/70 bg-white/80 p-5 shadow-[0_18px_50px_-28px_rgba(15,23,42,0.45)] backdrop-blur"
                   >
-                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-2xl bg-status-online/10 text-status-online">
                       <Icon className="h-5 w-5" />
                     </div>
                     <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
@@ -593,11 +593,18 @@ export default function QuoteFormSection() {
                           <Button
                             type="submit"
                             size="lg"
-                            className="flex-[2] text-lg font-bold shadow-xl transition-all duration-300 hover:shadow-2xl"
+                            className="flex-[2] bg-primary text-lg font-bold text-primary-foreground shadow-xl transition-all duration-300 hover:shadow-2xl hover:bg-primary/90"
                             data-testid="button-submit-quote"
                             disabled={!canSubmitStep3 || createQuoteMutation.isPending}
                           >
-                            {createQuoteMutation.isPending ? "Submitting..." : "Get My Quote"}
+                            {createQuoteMutation.isPending ? (
+                              "Submitting..."
+                            ) : (
+                              <>
+                                <Sparkles className="mr-2 h-5 w-5" />
+                                Light My House!
+                              </>
+                            )}
                           </Button>
                         </div>
                       </motion.div>
