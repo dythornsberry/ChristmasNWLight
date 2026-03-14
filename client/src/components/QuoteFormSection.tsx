@@ -34,7 +34,7 @@ import {
   getPhoneValidationError,
   getZipCodeValidationError,
 } from "@/lib/leads";
-import { apiRequest, queryClient } from "@/lib/queryClient";
+import { queryClient } from "@/lib/queryClient";
 
 const SERVICE_OPTIONS = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New customer", icon: TreePine },
@@ -110,12 +110,30 @@ export default function QuoteFormSection() {
   };
 
   const createQuoteMutation = useMutation({
-    mutationFn: async (data: typeof formData) =>
-      apiRequest("POST", "/api/quote-requests", {
+    mutationFn: async (data: typeof formData) => {
+      const webhookUrl = import.meta.env.VITE_ZAPIER_WEBHOOK_URL;
+      if (!webhookUrl) throw new Error("Form submission is temporarily unavailable.");
+
+      // Skip if honeypot is filled (spam bot)
+      if (website) return;
+
+      const payload = {
         ...data,
-        website,
-        formStartedAt: formStartedAtRef.current,
-      }),
+        fullName: data.fullName.trim(),
+        address: data.address.trim(),
+        zipCode: data.zipCode.trim(),
+        source: "christmasnw.com",
+        submittedAt: new Date().toISOString(),
+      };
+
+      const res = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Submission failed. Please try again.");
+    },
     onSuccess: (_response, variables) => {
       setIsSubmitted(true);
       setWebsite("");
@@ -123,7 +141,6 @@ export default function QuoteFormSection() {
         title: "Quote request received",
         description: "We will be in touch soon.",
       });
-      queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
       trackLeadConversion("homepage_quote", {
         form_location: "homepage",
         service_type: variables.serviceType,

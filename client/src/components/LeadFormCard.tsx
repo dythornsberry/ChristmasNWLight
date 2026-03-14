@@ -29,7 +29,7 @@ import {
   getZipCodeValidationError,
   requiresProjectAddress,
 } from "@/lib/leads";
-import { apiRequest, queryClient } from "@/lib/queryClient";
+import { queryClient } from "@/lib/queryClient";
 import { cn } from "@/lib/utils";
 
 export interface LeadServiceOption {
@@ -139,15 +139,31 @@ export default function LeadFormCard({
   };
 
   const createQuoteMutation = useMutation({
-    mutationFn: async (data: typeof formData) =>
-      apiRequest("POST", "/api/quote-requests", {
+    mutationFn: async (data: typeof formData) => {
+      const webhookUrl = import.meta.env.VITE_ZAPIER_WEBHOOK_URL;
+      if (!webhookUrl) throw new Error("Form submission is temporarily unavailable.");
+
+      // Skip if honeypot is filled (spam bot)
+      if (website) return;
+
+      const payload = {
         ...data,
         fullName: data.fullName.trim(),
         address: data.address.trim(),
         zipCode: data.zipCode.trim(),
-        website,
-        formStartedAt: formStartedAtRef.current,
-      }),
+        source: "christmasnw.com",
+        formLocation,
+        submittedAt: new Date().toISOString(),
+      };
+
+      const res = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) throw new Error("Submission failed. Please try again.");
+    },
     onSuccess: (_response, variables) => {
       setIsSubmitted(true);
       setWebsite("");
@@ -159,7 +175,6 @@ export default function LeadFormCard({
         form_location: formLocation,
         service_type: variables.serviceType,
       });
-      queryClient.invalidateQueries({ queryKey: ["/api/quote-requests"] });
     },
     onError: (error) => {
       toast({
