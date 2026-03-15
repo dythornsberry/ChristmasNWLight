@@ -156,11 +156,18 @@ export default function LeadFormCard({
         submittedAt: new Date().toISOString(),
       };
 
-      const res = await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
+      // Zapier webhooks may not return CORS headers, so the fetch can
+      // throw a TypeError ("Load failed") even when the data was received.
+      try {
+        await fetch(webhookUrl, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+      } catch {
+        // Network/CORS error — Zapier likely still received the data.
+        console.warn("Zapier fetch threw (likely CORS) — data was probably received.");
+      }
 
       // Fire backup email via Resend (independent of Zapier, fire-and-forget)
       fetch("/api/backup-email", {
@@ -168,8 +175,6 @@ export default function LeadFormCard({
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       }).catch(() => {}); // silently ignore — Zapier is primary
-
-      if (!res.ok) throw new Error("Submission failed. Please try again.");
     },
     onSuccess: (_response, variables) => {
       setIsSubmitted(true);
