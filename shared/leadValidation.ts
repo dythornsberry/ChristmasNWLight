@@ -64,6 +64,13 @@ export function normalizePhoneDigits(value: string) {
   return value.replace(/\D/g, "");
 }
 
+export function toE164(value: string) {
+  const digits = normalizePhoneDigits(value);
+  if (digits.length === 10) return `+1${digits}`;
+  if (digits.length === 11 && digits.startsWith("1")) return `+${digits}`;
+  return `+${digits}`;
+}
+
 export function hasCompletePhoneNumber(value: string) {
   return normalizePhoneDigits(value).length === 10;
 }

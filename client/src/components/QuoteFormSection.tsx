@@ -33,6 +33,7 @@ import {
   getNameValidationError,
   getPhoneValidationError,
   getZipCodeValidationError,
+  toE164,
 } from "@/lib/leads";
 import { queryClient } from "@/lib/queryClient";
 
@@ -122,6 +123,7 @@ export default function QuoteFormSection() {
         fullName: data.fullName.trim(),
         address: data.address.trim(),
         zipCode: data.zipCode.trim(),
+        phoneE164: toE164(data.phone),
         source: "christmasnw.com",
         submittedAt: new Date().toISOString(),
       };
