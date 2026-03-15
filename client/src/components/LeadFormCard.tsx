@@ -117,9 +117,9 @@ export default function LeadFormCard({
   const stepLabels = hasServiceStep ? ["Service", "Contact", "Property"] : ["Contact", "Property"];
   const selectedService = serviceOptions.find((option) => option.value === formData.serviceType);
   const addressRequired = requiresProjectAddress(formData.serviceType || initialServiceType);
-  const shouldCollectManualZip =
-    !googlePlacesEnabled || !formData.addressConfirmed || !formData.zipCode.trim();
-  const zipRequired = (addressRequired || Boolean(formData.address.trim())) && shouldCollectManualZip;
+  // Show manual ZIP input only when Google autocomplete hasn't filled it
+  const shouldCollectManualZip = !formData.zipCode.trim();
+  const zipRequired = false; // ZIP is optional — nice to have, never blocks
 
   const resetForm = () => {
     setStep(1);
@@ -205,26 +205,23 @@ export default function LeadFormCard({
   const fullNameError = getNameValidationError(formData.fullName, "full name");
   const emailError = getEmailValidationError(formData.email);
   const phoneError = getPhoneValidationError(formData.phone);
-  const zipCodeError = getZipCodeValidationError(formData.zipCode, { required: zipRequired });
-  const manualAddressError = getAddressValidationError(formData.address, { required: addressRequired });
-  const addressError =
-    manualAddressError ||
-    (addressRequired && googlePlacesEnabled && !formData.addressConfirmed
-      ? "Select the property from the Google suggestions."
-      : null);
+  // ZIP is optional — only show format error if they typed something invalid
+  const zipCodeError = formData.zipCode.trim() && !/^\d{5}$/.test(formData.zipCode.trim())
+    ? "Enter a valid 5-digit ZIP code."
+    : null;
+  // Address just needs to be non-empty when required — Google Places is a convenience, not a requirement
+  const addressError = addressRequired && !formData.address.trim() ? "Enter the service address." : null;
   const serviceTypeError = !formData.serviceType ? "Choose the service you need." : null;
 
   const canProceedService = !serviceTypeError;
   const canProceedContact = !fullNameError && !emailError && !phoneError;
-  // When address is confirmed via Google Places, don't let a partial ZIP block submission
-  const canSubmitProperty = !addressError && (formData.addressConfirmed || !zipCodeError);
+  const canSubmitProperty = !addressError;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowErrors(true);
 
-    const zipBlocks = zipCodeError && !formData.addressConfirmed;
-    if (serviceTypeError || fullNameError || emailError || phoneError || zipBlocks || addressError) {
+    if (serviceTypeError || fullNameError || emailError || phoneError || addressError) {
       return;
     }
 

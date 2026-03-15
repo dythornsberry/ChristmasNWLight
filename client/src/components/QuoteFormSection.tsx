@@ -89,8 +89,8 @@ export default function QuoteFormSection() {
 
   const selectedService = SERVICE_OPTIONS.find((option) => option.value === formData.serviceType);
   const progressWidth = step === 1 ? 34 : step === 2 ? 67 : 100;
-  const shouldCollectManualZip =
-    !googlePlacesEnabled || !formData.addressConfirmed || !formData.zipCode.trim();
+  // Show manual ZIP input only when Google autocomplete hasn't filled it
+  const shouldCollectManualZip = !formData.zipCode.trim();
 
   const resetForm = () => {
     setIsSubmitted(false);
@@ -178,20 +178,18 @@ export default function QuoteFormSection() {
   const fullNameError = getNameValidationError(formData.fullName, "full name");
   const emailError = getEmailValidationError(formData.email);
   const phoneError = getPhoneValidationError(formData.phone);
-  const zipCodeError = getZipCodeValidationError(formData.zipCode, { required: shouldCollectManualZip });
-  const manualAddressError = getAddressValidationError(formData.address, { required: true });
-  const addressError =
-    manualAddressError ||
-    (googlePlacesEnabled && !formData.addressConfirmed
-      ? "Select the property from the Google suggestions."
-      : null);
+  // ZIP is optional — nice to have, never blocks submission
+  const zipCodeError = formData.zipCode.trim() && !/^\d{5}$/.test(formData.zipCode.trim())
+    ? "Enter a valid 5-digit ZIP code."
+    : null;
+  // Address just needs to be non-empty — Google Places is a convenience, not a requirement
+  const addressError = !formData.address.trim() ? "Enter the service address." : null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowErrors(true);
 
-    const zipBlocks = zipCodeError && !formData.addressConfirmed;
-    if (fullNameError || emailError || phoneError || zipBlocks || addressError) {
+    if (fullNameError || emailError || phoneError || addressError) {
       return;
     }
 
@@ -205,8 +203,7 @@ export default function QuoteFormSection() {
 
   const canProceedStep1 = formData.serviceType !== "";
   const canProceedStep2 = !fullNameError && !emailError && !phoneError;
-  // When address is confirmed via Google Places, don't let a partial ZIP block submission
-  const canSubmitStep3 = !addressError && (formData.addressConfirmed || !zipCodeError);
+  const canSubmitStep3 = !addressError;
 
   const stepVariants = {
     enter: { opacity: 0, x: 32 },
