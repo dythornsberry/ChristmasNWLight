@@ -20,24 +20,17 @@ interface AddressAutocompleteFieldProps {
   zipCode: string;
 }
 
-type GoogleAddressComponent = {
-  longText?: string;
-  shortText?: string;
-  types?: string[];
-};
-
-type PlaceAutocompleteElementInstance = HTMLElement & {
-  includedPrimaryTypes?: string[];
-  includedRegionCodes?: string[];
-  locationBias?: unknown;
-  placeholder?: string;
+type LegacyAddressComponent = {
+  long_name: string;
+  short_name: string;
+  types: string[];
 };
 
 function getAddressComponent(
-  addressComponents: GoogleAddressComponent[] | undefined,
+  components: LegacyAddressComponent[] | undefined,
   type: string,
 ) {
-  return addressComponents?.find((component) => component.types?.includes(type))?.longText ?? "";
+  return components?.find((c) => c.types.includes(type))?.long_name ?? "";
 }
 
 export default function AddressAutocompleteField({
@@ -58,115 +51,91 @@ export default function AddressAutocompleteField({
     hasGooglePlacesApiKey() ? "loading" : "idle",
   );
   const [statusMessage, setStatusMessage] = useState("");
-  const containerRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const autocompleteRef = useRef<any>(null);
   const googleEnabled = useMemo(() => hasGooglePlacesApiKey(), []);
 
+  // Clear input value when resetKey changes (form reset)
   useEffect(() => {
-    if (!googleEnabled || !containerRef.current) {
+    if (resetKey > 0 && inputRef.current) {
+      inputRef.current.value = "";
+    }
+  }, [resetKey]);
+
+  useEffect(() => {
+    if (!googleEnabled || !inputRef.current) {
       return;
     }
 
     let cancelled = false;
-    let element: PlaceAutocompleteElementInstance | null = null;
 
     setStatus("loading");
     setStatusMessage("");
 
     loadPlacesLibrary()
-      .then(({ PlaceAutocompleteElement }) => {
-        if (cancelled || !containerRef.current) {
+      .then((placesLib: any) => {
+        if (cancelled || !inputRef.current) {
           return;
         }
 
-        const nextElement = new PlaceAutocompleteElement() as PlaceAutocompleteElementInstance;
-        nextElement.includedPrimaryTypes = ["street_address"];
-        nextElement.includedRegionCodes = ["us"];
-        nextElement.locationBias = {
-          center: { lat: 47.615, lng: -122.205 },
-          radius: 75000,
-        };
-        nextElement.placeholder = placeholder;
-        nextElement.className = "address-autocomplete-element";
+        const autocomplete = new placesLib.Autocomplete(inputRef.current, {
+          componentRestrictions: { country: "us" },
+          types: ["address"],
+          fields: ["formatted_address", "address_components"],
+        });
 
-        const handleInput = () => {
-          onAddressChange("");
-          onAddressConfirmedChange(false);
-        };
+        // Bias results toward Seattle area
+        const gMaps = (window as any).google?.maps;
+        if (gMaps) {
+          const seattleBounds = new gMaps.LatLngBounds(
+            new gMaps.LatLng(47.0, -122.7),
+            new gMaps.LatLng(48.2, -121.7),
+          );
+          autocomplete.setBounds(seattleBounds);
+        }
 
-        const handleSelect = async (event: Event) => {
-          const customEvent = event as Event & {
-            placePrediction?: {
-              toPlace: () => {
-                fetchFields: (options: { fields: string[] }) => Promise<void>;
-                addressComponents?: GoogleAddressComponent[];
-                formattedAddress?: string;
-              };
-            };
-            detail?: {
-              placePrediction?: {
-                toPlace: () => {
-                  fetchFields: (options: { fields: string[] }) => Promise<void>;
-                  addressComponents?: GoogleAddressComponent[];
-                  formattedAddress?: string;
-                };
-              };
-            };
-          };
+        autocomplete.addListener("place_changed", () => {
+          if (cancelled) return;
 
-          const prediction = customEvent.placePrediction ?? customEvent.detail?.placePrediction;
-          if (!prediction) {
+          const place = autocomplete.getPlace();
+          if (!place || !place.formatted_address) {
+            onAddressConfirmedChange(false);
             return;
           }
 
-          setStatusMessage("Loading address details...");
+          const formattedAddress = place.formatted_address;
+          const selectedZipCode = getAddressComponent(
+            place.address_components,
+            "postal_code",
+          );
 
-          try {
-            const place = prediction.toPlace();
-            await place.fetchFields({
-              fields: ["formattedAddress", "addressComponents"],
-            });
+          onAddressChange(formattedAddress);
+          onZipCodeChange(selectedZipCode);
+          onAddressConfirmedChange(true);
+          setStatusMessage("");
+        });
 
-            if (cancelled) {
-              return;
-            }
-
-            const formattedAddress = place.formattedAddress ?? "";
-            const selectedZipCode = getAddressComponent(place.addressComponents, "postal_code");
-
-            onAddressChange(formattedAddress);
-            onZipCodeChange(selectedZipCode);
-            onAddressConfirmedChange(Boolean(formattedAddress));
-            setStatusMessage("");
-          } catch (_error) {
-            if (!cancelled) {
-              setStatus("error");
-              setStatusMessage("We couldn't confirm that address. Try again or enter it manually.");
-              onAddressConfirmedChange(false);
-            }
-          }
-        };
-
-        nextElement.addEventListener("input", handleInput);
-        nextElement.addEventListener("gmp-select", handleSelect as EventListener);
-
-        containerRef.current.replaceChildren(nextElement);
-        element = nextElement;
+        autocompleteRef.current = autocomplete;
         setStatus("ready");
       })
       .catch(() => {
         if (!cancelled) {
           setStatus("error");
-          setStatusMessage("Address suggestions are temporarily unavailable. Enter your address manually.");
+          setStatusMessage(
+            "Address suggestions are temporarily unavailable. Enter your address manually.",
+          );
         }
       });
 
     return () => {
       cancelled = true;
-      if (element) {
-        element.replaceChildren();
-      }
-      if (containerRef.current) {
-        containerRef.current.replaceChildren();
+      if (autocompleteRef.current) {
+        const gMaps = (window as any).google?.maps;
+        if (gMaps) {
+          gMaps.event.clearInstanceListeners(autocompleteRef.current);
+        }
+        autocompleteRef.current = null;
       }
     };
   }, [
@@ -174,7 +143,6 @@ export default function AddressAutocompleteField({
     onAddressChange,
     onAddressConfirmedChange,
     onZipCodeChange,
-    placeholder,
     resetKey,
   ]);
 
@@ -188,10 +156,24 @@ export default function AddressAutocompleteField({
       {googleEnabled && status !== "error" ? (
         <>
           <div
-            className={cn("address-autocomplete-shell", error && "border-destructive")}
+            className={cn(
+              "address-autocomplete-shell",
+              error && "border-destructive",
+            )}
             data-invalid={Boolean(error)}
           >
-            <div ref={containerRef} className="w-full" data-testid={`${inputId}-autocomplete`} />
+            <Input
+              ref={inputRef}
+              id={inputId}
+              type="text"
+              autoComplete="off"
+              placeholder={placeholder}
+              className="border-0 shadow-none focus-visible:ring-0 px-0 h-auto"
+              onChange={() => {
+                onAddressChange("");
+                onAddressConfirmedChange(false);
+              }}
+            />
             {status === "loading" ? (
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <Loader2 className="h-4 w-4 animate-spin" />
@@ -200,7 +182,8 @@ export default function AddressAutocompleteField({
             ) : null}
           </div>
           <p className="text-xs text-muted-foreground">
-            Start typing and pick the property from the Google suggestions. ZIP code fills automatically.
+            Start typing and pick the property from the Google suggestions. ZIP
+            code fills automatically.
           </p>
           {addressConfirmed && address ? (
             <div className="rounded-md border border-status-online/30 bg-status-online/10 px-3 py-2 text-sm text-slate-900">
@@ -215,9 +198,7 @@ export default function AddressAutocompleteField({
             </div>
           ) : null}
           {statusMessage ? (
-            <p className="text-sm text-muted-foreground">
-              {statusMessage}
-            </p>
+            <p className="text-sm text-muted-foreground">{statusMessage}</p>
           ) : null}
         </>
       ) : (
