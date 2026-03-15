@@ -216,13 +216,15 @@ export default function LeadFormCard({
 
   const canProceedService = !serviceTypeError;
   const canProceedContact = !fullNameError && !emailError && !phoneError;
-  const canSubmitProperty = !zipCodeError && !addressError;
+  // When address is confirmed via Google Places, don't let a partial ZIP block submission
+  const canSubmitProperty = !addressError && (formData.addressConfirmed || !zipCodeError);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowErrors(true);
 
-    if (serviceTypeError || fullNameError || emailError || phoneError || zipCodeError || addressError) {
+    const zipBlocks = zipCodeError && !formData.addressConfirmed;
+    if (serviceTypeError || fullNameError || emailError || phoneError || zipBlocks || addressError) {
       return;
     }
 

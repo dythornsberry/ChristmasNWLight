@@ -190,7 +190,8 @@ export default function QuoteFormSection() {
     e.preventDefault();
     setShowErrors(true);
 
-    if (fullNameError || emailError || phoneError || zipCodeError || addressError) {
+    const zipBlocks = zipCodeError && !formData.addressConfirmed;
+    if (fullNameError || emailError || phoneError || zipBlocks || addressError) {
       return;
     }
 
@@ -204,7 +205,8 @@ export default function QuoteFormSection() {
 
   const canProceedStep1 = formData.serviceType !== "";
   const canProceedStep2 = !fullNameError && !emailError && !phoneError;
-  const canSubmitStep3 = !zipCodeError && !addressError;
+  // When address is confirmed via Google Places, don't let a partial ZIP block submission
+  const canSubmitStep3 = !addressError && (formData.addressConfirmed || !zipCodeError);
 
   const stepVariants = {
     enter: { opacity: 0, x: 32 },
