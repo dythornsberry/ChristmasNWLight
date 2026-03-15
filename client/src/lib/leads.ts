@@ -8,6 +8,7 @@ export {
   hasCompletePhoneNumber,
   normalizeLeadEmail,
   requiresProjectAddress,
+  toE164,
 } from "@shared/leadValidation";
 
 export function combineName(firstName: string, lastName: string) {
