@@ -112,9 +112,6 @@ export default function QuoteFormSection() {
 
   const createQuoteMutation = useMutation({
     mutationFn: async (data: typeof formData) => {
-      const webhookUrl = import.meta.env.VITE_ZAPIER_WEBHOOK_URL;
-      if (!webhookUrl) throw new Error("Form submission is temporarily unavailable.");
-
       // Skip if honeypot is filled (spam bot)
       if (website) return;
 
@@ -128,20 +125,16 @@ export default function QuoteFormSection() {
         submittedAt: new Date().toISOString(),
       };
 
-      // Zapier webhooks may not return CORS headers, so the fetch can
-      // throw a TypeError ("Load failed") even when the data was received.
-      // We catch network errors and treat them as success since we have
-      // the Resend backup email as a safety net.
-      try {
-        await fetch(webhookUrl, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-      } catch {
-        // Network/CORS error — Zapier likely still received the data.
-        // Resend backup below ensures we never lose a lead.
-        console.warn("Zapier fetch threw (likely CORS) — data was probably received.");
+      // Submit via server-side proxy to avoid CORS issues with Zapier
+      const res = await fetch("/api/submit-quote", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      if (!res.ok) {
+        console.error("Zapier proxy error:", res.status);
+        // Don't throw — backup email below will still capture the lead
       }
 
       // Fire backup email via Resend (independent of Zapier, fire-and-forget)
