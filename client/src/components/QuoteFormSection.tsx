@@ -132,6 +132,13 @@ export default function QuoteFormSection() {
         body: JSON.stringify(payload),
       });
 
+      // Fire backup email via Resend (independent of Zapier, fire-and-forget)
+      fetch("/api/backup-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      }).catch(() => {}); // silently ignore — Zapier is primary
+
       if (!res.ok) throw new Error("Submission failed. Please try again.");
     },
     onSuccess: (_response, variables) => {
