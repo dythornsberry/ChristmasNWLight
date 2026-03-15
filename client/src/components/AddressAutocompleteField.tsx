@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { CheckCircle2, Loader2, MapPin } from "lucide-react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -56,6 +56,12 @@ export default function AddressAutocompleteField({
   const autocompleteRef = useRef<any>(null);
   const googleEnabled = useMemo(() => hasGooglePlacesApiKey(), []);
 
+  // Keep stable refs to callbacks so the place_changed listener never goes stale
+  const callbacksRef = useRef({ onAddressChange, onAddressConfirmedChange, onZipCodeChange });
+  useEffect(() => {
+    callbacksRef.current = { onAddressChange, onAddressConfirmedChange, onZipCodeChange };
+  }, [onAddressChange, onAddressConfirmedChange, onZipCodeChange]);
+
   // Clear input value when resetKey changes (form reset)
   useEffect(() => {
     if (resetKey > 0 && inputRef.current) {
@@ -100,7 +106,7 @@ export default function AddressAutocompleteField({
 
           const place = autocomplete.getPlace();
           if (!place || !place.formatted_address) {
-            onAddressConfirmedChange(false);
+            callbacksRef.current.onAddressConfirmedChange(false);
             return;
           }
 
@@ -110,9 +116,9 @@ export default function AddressAutocompleteField({
             "postal_code",
           );
 
-          onAddressChange(formattedAddress);
-          onZipCodeChange(selectedZipCode);
-          onAddressConfirmedChange(true);
+          callbacksRef.current.onAddressChange(formattedAddress);
+          callbacksRef.current.onZipCodeChange(selectedZipCode);
+          callbacksRef.current.onAddressConfirmedChange(true);
           setStatusMessage("");
         });
 
@@ -138,13 +144,13 @@ export default function AddressAutocompleteField({
         autocompleteRef.current = null;
       }
     };
-  }, [
-    googleEnabled,
-    onAddressChange,
-    onAddressConfirmedChange,
-    onZipCodeChange,
-    resetKey,
-  ]);
+    // Only re-create when googleEnabled or resetKey changes — callbacks use refs
+  }, [googleEnabled, resetKey]);
+
+  const handleInputChange = useCallback(() => {
+    callbacksRef.current.onAddressChange("");
+    callbacksRef.current.onAddressConfirmedChange(false);
+  }, []);
 
   return (
     <div className="space-y-2">
@@ -169,10 +175,7 @@ export default function AddressAutocompleteField({
               autoComplete="off"
               placeholder={placeholder}
               className="border-0 shadow-none focus-visible:ring-0 px-0 h-auto"
-              onChange={() => {
-                onAddressChange("");
-                onAddressConfirmedChange(false);
-              }}
+              onChange={handleInputChange}
             />
             {status === "loading" ? (
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
