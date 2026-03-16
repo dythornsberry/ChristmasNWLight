@@ -59,11 +59,67 @@ export default function BlogPostPage() {
     );
   }
 
+  const blogPostingSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "description": post.metaDescription,
+    "author": {
+      "@type": "Organization",
+      "name": "Christmas Northwest"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "Christmas Northwest",
+      "url": "https://christmasnw.com"
+    },
+    "datePublished": post.publishDate,
+    "articleBody": post.content.replace(/<[^>]*>/g, '').substring(0, 500),
+    "image": "https://christmasnw.com/og-image.png",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://christmasnw.com/blog/${post.slug}`
+    }
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://christmasnw.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://christmasnw.com/blog"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": post.title,
+        "item": `https://christmasnw.com/blog/${post.slug}`
+      }
+    ]
+  };
+
   return (
     <>
-      <PageHead 
-        title={`${post.title} | Christmas Northwest Blog`}
+      <PageHead
+        title={`${post.title} | Christmas Northwest`}
         description={post.metaDescription}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPostingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       <div className="min-h-screen flex flex-col">

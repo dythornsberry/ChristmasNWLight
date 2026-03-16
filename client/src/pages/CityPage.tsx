@@ -10,6 +10,12 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, Shield, Clock, MapPin } from "lucide-react";
 
+interface CityLocalContent {
+  intro: string;
+  lightingStyles: string;
+  neighborhoodHighlights: string;
+}
+
 interface CityPageProps {
   cityName: string;
   citySlug: string;
@@ -19,17 +25,19 @@ interface CityPageProps {
   longitude: string;
   neighborhoods?: string[];
   nearbyLandmarks?: string[];
+  localContent?: CityLocalContent;
 }
 
-export default function CityPage({ 
-  cityName, 
-  citySlug, 
-  zipCode, 
+export default function CityPage({
+  cityName,
+  citySlug,
+  zipCode,
   county,
   latitude,
   longitude,
   neighborhoods = [],
-  nearbyLandmarks = []
+  nearbyLandmarks = [],
+  localContent
 }: CityPageProps) {
   const [, setLocation] = useLocation();
 
@@ -75,8 +83,8 @@ export default function CityPage({
         "Saturday",
         "Sunday"
       ],
-      "opens": "08:00",
-      "closes": "20:00"
+      "opens": "00:00",
+      "closes": "23:59"
     },
     "areaServed": {
       "@type": "City",
@@ -125,11 +133,42 @@ export default function CityPage({
     },
   ];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://christmasnw.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Service Areas",
+        "item": "https://christmasnw.com/service-areas"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": cityName,
+        "item": `https://christmasnw.com/${citySlug}`
+      }
+    ]
+  };
+
   return (
     <>
-      <PageHead 
-        title={`Christmas Light Installation ${cityName} WA 2026 | Professional Holiday Lighting`}
-        description={`Professional Christmas light installation in ${cityName}, Washington. Premium, all-inclusive service with commercial-grade equipment. Same-week installation available. Serving ${cityName} since 2018. Free quote today!`}
+      <PageHead
+        title={`Christmas Light Installation ${cityName} WA | Christmas Northwest`}
+        description={`Professional Christmas light installation in ${cityName}, WA. Premium all-inclusive service with commercial-grade LED lights and same-week installation.`}
+      />
+
+      {/* BreadcrumbList Schema */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* LocalBusiness Schema for this city */}
@@ -260,6 +299,30 @@ export default function CityPage({
                   <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
                     We've installed beautiful holiday displays near: {nearbyLandmarks.join(', ')}
                   </p>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Local Content Section */}
+          {localContent && (
+            <section className="py-20 bg-background">
+              <div className="max-w-7xl mx-auto px-6">
+                <div className="max-w-4xl mx-auto">
+                  <h2 className="font-serif text-4xl md:text-5xl font-bold mb-8 text-foreground text-center">
+                    Christmas Light Installation in {cityName}
+                  </h2>
+                  <div className="space-y-6 text-base leading-7 text-muted-foreground sm:text-lg">
+                    <p>{localContent.intro}</p>
+                    <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground pt-4">
+                      Popular Lighting Styles in {cityName}
+                    </h3>
+                    <p>{localContent.lightingStyles}</p>
+                    <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground pt-4">
+                      Neighborhoods We Know Best
+                    </h3>
+                    <p>{localContent.neighborhoodHighlights}</p>
+                  </div>
                 </div>
               </div>
             </section>

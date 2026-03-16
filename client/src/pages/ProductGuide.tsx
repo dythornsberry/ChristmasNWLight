@@ -167,8 +167,8 @@ export default function ProductGuide() {
     <div className="min-h-screen bg-background">
       <UrgencyBanner />
       <PageHead 
-        title="Premium Christmas Lighting Products | C9 Bulbs, Bush Lighting, Light Spheres | Christmas Northwest"
-        description="Discover our commercial-grade LED Christmas lighting products: C9 Bulbs for rooflines, Mini Lights for details, Bush & Shrub Lighting, Ground Lights for pathways, Tree Wraps, and Light Spheres. Energy-efficient, weather-resistant, professional quality. Seattle area."
+        title="Premium Christmas Lighting Products | Christmas Northwest"
+        description="Commercial-grade LED Christmas lighting products: C9 bulbs, mini lights, bush lighting, ground lights, tree wraps, and light spheres. Weather-resistant and energy-efficient."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
       

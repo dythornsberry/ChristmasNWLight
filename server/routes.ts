@@ -309,42 +309,42 @@ export async function registerRoutes(app: Express): Promise<Server> {
     const baseUrl = process.env.SITE_URL || `${req.protocol}://${req.get('host')}`;
 
     const pages = [
-      { url: '/', priority: '1.0', changefreq: 'daily' },
-      { url: '/gallery', priority: '0.9', changefreq: 'weekly' },
-      { url: '/investment-guide', priority: '0.9', changefreq: 'monthly' },
-      { url: '/faq', priority: '0.9', changefreq: 'weekly' },
-      { url: '/about', priority: '0.7', changefreq: 'monthly' },
-      { url: '/services', priority: '0.8', changefreq: 'monthly' },
-      { url: '/permanent-lighting', priority: '0.8', changefreq: 'monthly' },
-      { url: '/product-guide', priority: '0.7', changefreq: 'monthly' },
-      { url: '/year-round-services', priority: '0.8', changefreq: 'monthly' },
-      { url: '/service-areas', priority: '0.7', changefreq: 'monthly' },
-      { url: '/testimonials', priority: '0.7', changefreq: 'monthly' },
-      { url: '/contact', priority: '0.6', changefreq: 'monthly' },
-      
+      { url: '/', priority: '1.0', changefreq: 'daily', lastmod: '2026-03-16' },
+      { url: '/gallery', priority: '0.9', changefreq: 'weekly', lastmod: '2026-03-10' },
+      { url: '/investment-guide', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-15' },
+      { url: '/faq', priority: '0.9', changefreq: 'weekly', lastmod: '2026-02-01' },
+      { url: '/about', priority: '0.7', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/services', priority: '0.8', changefreq: 'monthly', lastmod: '2026-03-16' },
+      { url: '/permanent-lighting', priority: '0.8', changefreq: 'monthly', lastmod: '2026-03-16' },
+      { url: '/product-guide', priority: '0.7', changefreq: 'monthly', lastmod: '2025-11-15' },
+      { url: '/year-round-services', priority: '0.8', changefreq: 'monthly', lastmod: '2026-03-16' },
+      { url: '/service-areas', priority: '0.7', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/testimonials', priority: '0.7', changefreq: 'monthly', lastmod: '2026-02-15' },
+      { url: '/contact', priority: '0.6', changefreq: 'monthly', lastmod: '2026-01-10' },
+
       // City landing pages (high priority for local SEO - all 14 markets)
-      { url: '/bellevue', priority: '0.9', changefreq: 'monthly' },
-      { url: '/kirkland', priority: '0.9', changefreq: 'monthly' },
-      { url: '/seattle', priority: '0.9', changefreq: 'monthly' },
-      { url: '/woodinville', priority: '0.9', changefreq: 'monthly' },
-      { url: '/bothell', priority: '0.9', changefreq: 'monthly' },
-      { url: '/kenmore', priority: '0.9', changefreq: 'monthly' },
-      { url: '/redmond', priority: '0.9', changefreq: 'monthly' },
-      { url: '/sammamish', priority: '0.9', changefreq: 'monthly' },
-      { url: '/newcastle', priority: '0.9', changefreq: 'monthly' },
-      { url: '/mercer-island', priority: '0.9', changefreq: 'monthly' },
-      { url: '/shoreline', priority: '0.9', changefreq: 'monthly' },
-      { url: '/lake-forest-park', priority: '0.9', changefreq: 'monthly' },
-      { url: '/issaquah', priority: '0.9', changefreq: 'monthly' },
-      { url: '/mill-creek', priority: '0.9', changefreq: 'monthly' },
-      
+      { url: '/bellevue', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/kirkland', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/seattle', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/woodinville', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/bothell', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/kenmore', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/redmond', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/sammamish', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/newcastle', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/mercer-island', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/shoreline', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/lake-forest-park', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/issaquah', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+      { url: '/mill-creek', priority: '0.9', changefreq: 'monthly', lastmod: '2026-01-10' },
+
       // Blog
-      { url: '/blog', priority: '0.8', changefreq: 'weekly' },
-      { url: '/blog/christmas-lighting-trends-2025', priority: '0.7', changefreq: 'monthly' },
-      { url: '/blog/warm-white-vs-multicolor-lights', priority: '0.7', changefreq: 'monthly' },
-      { url: '/blog/professional-christmas-light-installation-guide', priority: '0.7', changefreq: 'monthly' },
-      { url: '/blog/book-christmas-lights-september', priority: '0.7', changefreq: 'monthly' },
-      { url: '/blog/christmas-light-installation-safety', priority: '0.7', changefreq: 'monthly' },
+      { url: '/blog', priority: '0.8', changefreq: 'weekly', lastmod: '2026-03-01' },
+      { url: '/blog/christmas-lighting-trends-2025', priority: '0.7', changefreq: 'monthly', lastmod: '2026-01-15' },
+      { url: '/blog/warm-white-vs-multicolor-lights', priority: '0.7', changefreq: 'monthly', lastmod: '2025-10-20' },
+      { url: '/blog/professional-christmas-light-installation-guide', priority: '0.7', changefreq: 'monthly', lastmod: '2025-09-15' },
+      { url: '/blog/book-christmas-lights-september', priority: '0.7', changefreq: 'monthly', lastmod: '2025-09-01' },
+      { url: '/blog/christmas-light-installation-safety', priority: '0.7', changefreq: 'monthly', lastmod: '2025-10-10' },
     ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
@@ -353,7 +353,7 @@ ${pages.map(page => `  <url>
     <loc>${baseUrl}${page.url}</loc>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
-    <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+    <lastmod>${page.lastmod}</lastmod>
   </url>`).join('\n')}
 </urlset>`;
 

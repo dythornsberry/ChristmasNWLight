@@ -106,11 +106,46 @@ export default function ServicesPage() {
     }
   ];
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Christmas Light Installation Services",
+    "description": "Professional Christmas light installation services including residential rooflines, tree wrapping, commercial displays, custom holiday lighting, maintenance, takedown, and storage in Greater Seattle.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Christmas Northwest",
+      "telephone": "+1-425-215-0935",
+      "url": "https://christmasnw.com"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Washington",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "United States"
+      }
+    },
+    "serviceType": "Christmas Light Installation",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "800",
+        "priceCurrency": "USD",
+        "unitText": "starting price"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
-        title="Christmas Light Installation Services | Residential, Commercial & Custom Displays"
-        description="Explore Christmas Northwest services for residential rooflines, tree wrapping, commercial displays, custom holiday lighting, maintenance, takedown, and storage in Greater Seattle."
+        title="Christmas Light Installation Services | Christmas Northwest"
+        description="Professional Christmas light installation in Greater Seattle. Residential rooflines, tree wrapping, commercial displays, custom designs, maintenance, and storage."
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />

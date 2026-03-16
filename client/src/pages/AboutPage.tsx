@@ -123,7 +123,7 @@ export default function AboutPage() {
               <div>
                 <div className="space-y-4 text-base leading-7 text-muted-foreground sm:text-lg">
                   <p>
-                    Christmas Northwest was founded on a simple belief: every home deserves a beautiful, professionally installed holiday lighting display that brings joy without the hassle.
+                    Christmas Northwest, legally operating as Christmas Light Installers Northwest, was founded on a simple belief: every home deserves a beautiful, professionally installed holiday lighting display that brings joy without the hassle.
                   </p>
                   <p>
                     We've had the privilege of serving homeowners across Greater Seattle. Our team combines technical expertise with artistic vision to create stunning displays that transform ordinary homes into extraordinary holiday showcases.

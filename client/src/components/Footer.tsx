@@ -47,6 +47,7 @@ export default function Footer() {
               <li><a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a></li>
               <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors break-all">christmaslightsnw@gmail.com</a></li>
               <li>Kenmore, WA</li>
+              <li className="text-primary font-semibold">Available 24/7</li>
             </ul>
             <div className="flex gap-2">
               <a 

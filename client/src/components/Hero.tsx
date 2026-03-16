@@ -37,7 +37,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </Badge>
 
           <h1 className="mb-4 font-serif text-[2.25rem] font-black leading-[0.95] tracking-tight text-white sm:text-5xl">
-            Beautiful holiday lighting without the hassle.
+            Professional Christmas Light Installation in Seattle
           </h1>
 
           <p className="mb-6 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg">
@@ -112,7 +112,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </p>
 
           <h1 className="mb-5 max-w-xl font-serif text-[3.5rem] font-black leading-[0.92] tracking-tight text-white xl:text-[4.25rem]">
-            Beautiful holiday lighting without the hassle.
+            Professional Christmas Light Installation in Seattle
           </h1>
 
           <p className="mb-8 max-w-lg text-lg leading-relaxed text-slate-200 xl:text-xl">

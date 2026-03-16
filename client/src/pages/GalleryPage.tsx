@@ -513,8 +513,8 @@ export default function GalleryPage() {
   return (
     <>
       <PageHead 
-        title="Christmas Light Installation Gallery 2026 | Seattle, Bellevue, Bothell | Christmas Northwest"
-        description="View our portfolio of professional Christmas light installations across Greater Seattle. See completed projects in Bellevue, Bothell, Kirkland, Redmond, and Kenmore. Watch installation videos and get inspired for your 2026 holiday display."
+        title="Christmas Light Installation Gallery | Christmas Northwest"
+        description="Browse professional Christmas light installations across Greater Seattle. See real projects in Bellevue, Bothell, Kirkland, and Redmond plus installation videos."
       />
       
       {/* VideoObject Schema Markup for YouTube Shorts */}

@@ -105,8 +105,8 @@ export default function InvestmentGuide() {
     <div className="min-h-screen bg-background">
       <UrgencyBanner />
       <PageHead 
-        title="Christmas Light Installation Pricing | $800-$6,000+ | Transparent Rates | Christmas Northwest"
-        description="Transparent Christmas light installation pricing for Greater Seattle. Essential Display $800-$1,500, Signature Display $1,500-$3,000, Premier Estate $3,000+. All-inclusive service: installation, maintenance, storage, reinstall. Free quotes!"
+        title="Christmas Light Installation Pricing | Christmas Northwest"
+        description="Transparent Christmas light pricing in Greater Seattle. Real examples from $800 to $6,000+. All-inclusive: installation, maintenance, storage, and reinstall."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
       

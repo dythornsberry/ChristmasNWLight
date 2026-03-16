@@ -32,11 +32,37 @@ export default function YearRoundServices() {
     }
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Year-Round Outdoor Services",
+    "description": "Year-round outdoor lighting and property care in Greater Seattle. Professional gutter cleaning, permanent lighting systems, and custom landscape lighting.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Christmas Northwest",
+      "telephone": "+1-425-215-0935",
+      "url": "https://christmasnw.com"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Washington",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "United States"
+      }
+    },
+    "serviceType": "Outdoor Lighting and Gutter Cleaning"
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHead 
-        title="Year-Round Services - Christmas Northwest | Gutter Cleaning & Permanent Lighting"
-        description="Premium year-round outdoor lighting and property care services in Greater Seattle. Professional gutter cleaning $300-$500, permanent lighting systems starting at $1,500, and custom landscape lighting by your trusted Christmas light experts."
+      <PageHead
+        title="Year-Round Services | Christmas Northwest"
+        description="Year-round outdoor lighting and property care in Greater Seattle. Gutter cleaning $300-$500, permanent lighting from $1,500, and custom landscape lighting."
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />

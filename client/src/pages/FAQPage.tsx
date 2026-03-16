@@ -229,7 +229,7 @@ export default function FAQPage() {
   return (
     <>
       <PageHead 
-        title="Christmas Light Installation FAQ | Christmas Northwest Seattle"
+        title="Christmas Light Installation FAQ | Christmas Northwest"
         description="Get answers to common questions about Christmas light installation in Seattle, Bellevue, Bothell, Kirkland, and Greater Seattle. Pricing, service areas, installation process, and more."
       />
       <StructuredData data={faqSchema} />

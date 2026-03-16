@@ -42,11 +42,46 @@ export default function PermanentLighting() {
     }
   };
 
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Permanent Outdoor Lighting Installation",
+    "description": "Permanent outdoor lighting systems with smartphone control, millions of colors, and professional installation. One-time install for year-round use across Greater Seattle.",
+    "provider": {
+      "@type": "LocalBusiness",
+      "name": "Christmas Northwest",
+      "telephone": "+1-425-215-0935",
+      "url": "https://christmasnw.com"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Washington",
+      "containedInPlace": {
+        "@type": "Country",
+        "name": "United States"
+      }
+    },
+    "serviceType": "Permanent Outdoor Lighting",
+    "offers": {
+      "@type": "Offer",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "price": "2000",
+        "priceCurrency": "USD",
+        "unitText": "starting price"
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHead 
-        title="Permanent Outdoor Lighting | Christmas Northwest - Greater Seattle"
-        description="Transform your home with permanent outdoor lighting. Smartphone-controlled LED systems, millions of colors, professional installation, and pricing tiers for small, medium, and larger homes across Greater Seattle."
+      <PageHead
+        title="Permanent Outdoor Lighting | Christmas Northwest"
+        description="Permanent outdoor lighting with smartphone control and millions of colors. Professional installation starting at $2,000 in Greater Seattle."
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
