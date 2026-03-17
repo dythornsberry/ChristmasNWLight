@@ -54,7 +54,7 @@ export default function CityPage({
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": `Christmas Northwest - ${cityName} Christmas Light Installation`,
+    "name": "Christmas Northwest",
     "image": "https://christmasnw.com/logo.png",
     "description": `Professional Christmas light installation in ${cityName}, WA. Premium, all-inclusive holiday lighting service with commercial-grade equipment. Serving ${cityName} and ${county} County since 2018.`,
     "address": {
