@@ -13,6 +13,8 @@ export default function About({ teamImage }: AboutProps) {
               src={teamImage} 
               alt="Christmas Northwest professional installation team"
               className="w-full rounded-lg shadow-2xl border-4 border-amber-500/10"
+              loading="lazy"
+              decoding="async"
             />
           </div>
 

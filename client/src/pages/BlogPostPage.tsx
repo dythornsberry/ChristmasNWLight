@@ -43,7 +43,7 @@ export default function BlogPostPage() {
           <StickyHeader onGetQuote={scrollToQuote} />
           <main className="flex-1 flex items-center justify-center py-24">
             <div className="text-center max-w-2xl mx-auto px-6">
-              <h1 className="font-serif text-4xl font-bold mb-6">Post Not Found</h1>
+              <h2 className="font-serif text-4xl font-bold mb-6">Post Not Found</h2>
               <p className="text-xl text-muted-foreground mb-8">
                 The blog post you're looking for doesn't exist.
               </p>

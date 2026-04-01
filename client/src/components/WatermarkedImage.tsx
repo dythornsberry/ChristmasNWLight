@@ -72,6 +72,7 @@ export default function WatermarkedImage({
           alt={alt}
           className="w-full h-full object-cover"
           loading="lazy"
+          decoding="async"
         />
         {/* Watermark Overlay */}
         <div 
@@ -117,6 +118,7 @@ export default function WatermarkedImage({
               src={src} 
               alt={alt}
               className="max-w-full max-h-[90vh] object-contain"
+              decoding="async"
             />
             {/* Watermark in lightbox too */}
             <div 

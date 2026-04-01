@@ -5,6 +5,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import StructuredData from "@/components/StructuredData";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -246,6 +247,7 @@ function GalleryImageCard({
           src={image.src}
           alt={image.alt}
           loading={eager ? "eager" : "lazy"}
+          decoding={eager ? "sync" : "async"}
           // @ts-expect-error -- React 18 doesn't map fetchPriority; lowercase is the valid HTML attr
           fetchpriority={eager ? "high" : "auto"}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
@@ -309,6 +311,7 @@ function VideoShowcaseCard({ item }: { item: VideoShowcaseItem }) {
               src={`https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`}
               alt={`${item.title} video thumbnail`}
               loading="lazy"
+              decoding="async"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
@@ -510,13 +513,48 @@ export default function GalleryPage() {
     ]
   };
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Christmas Northwest",
+    "description": "Browse the Christmas Northwest portfolio of professional holiday light installations across Greater Seattle. Residential rooflines, tree wrapping, custom displays, and commercial projects in Bellevue, Bothell, Kirkland, Redmond, Kenmore, and more.",
+    "url": "https://christmasnw.com/gallery",
+    "telephone": "+14252150935",
+    "email": "christmaslightsnw@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kenmore",
+      "addressRegion": "WA",
+      "postalCode": "98028",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.7573,
+      "longitude": -122.2443
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } }
+    ]
+  };
+
   return (
     <>
-      <PageHead 
+      <PageHead
         title="Christmas Light Installation Gallery | Christmas Northwest"
         description="Browse professional Christmas light installations across Greater Seattle. See real projects in Bellevue, Bothell, Kirkland, and Redmond plus installation videos."
       />
-      
+      <StructuredData data={localBusinessSchema} />
+
       {/* VideoObject Schema Markup for YouTube Shorts */}
       <script
         type="application/ld+json"
@@ -767,6 +805,7 @@ export default function GalleryPage() {
               src={filteredImages[lightboxIndex].src}
               alt={filteredImages[lightboxIndex].alt}
               className="max-w-full max-h-[85vh] object-contain select-none pointer-events-none"
+              decoding="async"
               onContextMenu={(e) => e.preventDefault()}
               onDragStart={(e) => e.preventDefault()}
               style={{ userSelect: 'none', WebkitUserSelect: 'none' }}

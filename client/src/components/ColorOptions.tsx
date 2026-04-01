@@ -35,6 +35,8 @@ export default function ColorOptions({ colors }: ColorOptionsProps) {
                   src={color.image} 
                   alt={color.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="p-6 text-center">

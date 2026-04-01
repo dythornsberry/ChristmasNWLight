@@ -3,6 +3,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import StructuredData from "@/components/StructuredData";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
@@ -56,12 +57,60 @@ export default function AboutPage() {
     { number: "Free", label: "Takedown", description: "Included in every package" }
   ];
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Christmas Northwest",
+    "description": "Christmas Northwest is a Greater Seattle holiday lighting company offering premium residential and commercial installations, fast response times, and full-service displays including design, install, maintenance, takedown, and storage.",
+    "url": "https://christmasnw.com/about",
+    "telephone": "+14252150935",
+    "email": "christmaslightsnw@gmail.com",
+    "priceRange": "$800-$6,000+",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kenmore",
+      "addressRegion": "WA",
+      "postalCode": "98028",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.7573,
+      "longitude": -122.2443
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } }
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Dylan Thornsberry",
+      "jobTitle": "Owner"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "bestRating": "5",
+      "reviewCount": "85",
+      "ratingCount": "85"
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="About Christmas Northwest | Holiday Lighting Experts in Greater Seattle"
         description="Learn about Christmas Northwest, the Greater Seattle holiday lighting team focused on premium installs, fast response times, and stress-free full-service displays."
       />
+      <StructuredData data={localBusinessSchema} />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
       <main className="flex-1">
@@ -117,6 +166,8 @@ export default function AboutPage() {
                   src={dylanPhoto} 
                   alt="Dylan Thornsberry, Owner of Christmas Northwest"
                   className="w-full rounded-lg shadow-xl"
+                  loading="lazy"
+                  decoding="async"
                   data-testid="img-about-dylan"
                 />
               </div>
@@ -235,6 +286,8 @@ export default function AboutPage() {
                     src={crewTeamPhoto} 
                     alt="Christmas Northwest installation crew"
                     className="w-full rounded-lg shadow-xl mb-4"
+                    loading="lazy"
+                    decoding="async"
                     data-testid="img-crew-team"
                   />
                   <p className="text-center text-muted-foreground">Our installation crew ready to light up your home</p>
@@ -244,6 +297,8 @@ export default function AboutPage() {
                     src={fleetPhoto} 
                     alt="Christmas Northwest fleet at Woodinville warehouse"
                     className="w-full rounded-lg shadow-xl mb-4"
+                    loading="lazy"
+                    decoding="async"
                     data-testid="img-fleet"
                   />
                   <p className="text-center text-muted-foreground">Our fleet at our Woodinville warehouse</p>
@@ -254,6 +309,8 @@ export default function AboutPage() {
                   src={truckActionShot} 
                   alt="Christmas Northwest truck during installation"
                   className="w-full rounded-lg shadow-xl mb-4 max-w-3xl mx-auto"
+                  loading="lazy"
+                  decoding="async"
                   data-testid="img-truck-action"
                 />
                 <p className="text-center text-muted-foreground">Our crew during a professional installation</p>

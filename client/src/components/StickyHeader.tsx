@@ -42,6 +42,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
                 width: 'auto',
                 display: 'block'
               }}
+              decoding="async"
               data-testid="img-logo"
             />
           </Link>

@@ -107,6 +107,7 @@ export default function YearRoundServices() {
                     alt="Permanent lighting system with rainbow colors on home roofline"
                     className="w-full h-full object-cover min-h-[300px]"
                     loading="lazy"
+                    decoding="async"
                   />
                 </div>
                 <div className="flex flex-col justify-center p-6 sm:p-8 md:p-12">
@@ -208,6 +209,7 @@ export default function YearRoundServices() {
                   alt="Before and after gutter cleaning showing dramatic transformation from debris-filled to clean gutters"
                   className="w-full aspect-video object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-gutter-photo-2">
@@ -216,6 +218,7 @@ export default function YearRoundServices() {
                   alt="Professional gutter cleaning before and after comparison"
                   className="w-full aspect-video object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-gutter-photo-3">
@@ -224,6 +227,7 @@ export default function YearRoundServices() {
                   alt="Gutter maintenance showing clean results after Seattle ProWash service"
                   className="w-full aspect-video object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
               </div>
             </div>
@@ -295,6 +299,7 @@ export default function YearRoundServices() {
                   alt="Professional landscape pathway lighting with uplighting on trees and shrubs creating warm outdoor ambiance"
                   className="w-full aspect-video object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="bg-muted/30 p-4 text-center">
                   <p className="text-sm font-semibold text-foreground">Pathway & Landscape Lighting</p>
@@ -306,6 +311,7 @@ export default function YearRoundServices() {
                   alt="Bistro string lights creating magical atmosphere over outdoor patio and fire pit area"
                   className="w-full aspect-video object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="bg-muted/30 p-4 text-center">
                   <p className="text-sm font-semibold text-foreground">Bistro String Lights</p>
@@ -317,6 +323,7 @@ export default function YearRoundServices() {
                   alt="Professional bistro light installation over outdoor entertainment area with dining and seating"
                   className="w-full aspect-video object-cover"
                   loading="lazy"
+                  decoding="async"
                 />
                 <div className="bg-muted/30 p-4 text-center">
                   <p className="text-sm font-semibold text-foreground">Outdoor Entertainment Lighting</p>

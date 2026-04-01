@@ -3,6 +3,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import StructuredData from "@/components/StructuredData";
 import InternalLinksSection from "@/components/InternalLinksSection";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -137,6 +138,49 @@ export default function ServicesPage() {
     }
   };
 
+  const localBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Christmas Northwest",
+    "description": "Professional Christmas light installation services in Greater Seattle including residential rooflines, tree wrapping, commercial displays, custom designs, maintenance, takedown, and storage.",
+    "url": "https://christmasnw.com/services",
+    "telephone": "+14252150935",
+    "email": "christmaslightsnw@gmail.com",
+    "priceRange": "$800-$6,000+",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kenmore",
+      "addressRegion": "WA",
+      "postalCode": "98028",
+      "addressCountry": "US"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 47.7573,
+      "longitude": -122.2443
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } }
+    ],
+    "serviceType": [
+      "Residential roofline lighting",
+      "Tree and greenery wrapping",
+      "Commercial holiday displays",
+      "Custom lighting design",
+      "Maintenance and takedown",
+      "Light storage"
+    ]
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
@@ -147,6 +191,7 @@ export default function ServicesPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      <StructuredData data={localBusinessSchema} />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
 
@@ -191,6 +236,8 @@ export default function ServicesPage() {
                         src={service.image} 
                         alt={service.title}
                         className="w-full h-full object-cover min-h-[300px]"
+                        loading="lazy"
+                        decoding="async"
                         data-testid={`img-service-${index}`}
                       />
                     </div>
