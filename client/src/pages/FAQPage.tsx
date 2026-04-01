@@ -201,6 +201,8 @@ export default function FAQPage() {
     "image": "https://christmasnw.com/og-image.png",
     "logo": "https://christmasnw.com/logo.png",
     "telephone": "+14252150935",
+    "email": "christmaslightsnw@gmail.com",
+    "foundingDate": "2021",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kenmore",

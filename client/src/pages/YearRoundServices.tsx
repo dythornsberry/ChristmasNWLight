@@ -40,7 +40,7 @@ export default function YearRoundServices() {
     "provider": {
       "@type": "LocalBusiness",
       "name": "Christmas Northwest",
-      "telephone": "+1-425-215-0935",
+      "telephone": "+14252150935",
       "url": "https://christmasnw.com"
     },
     "areaServed": {

@@ -1,28 +1,35 @@
 # robots.txt for ChristmasNW.com
-# Allow all search engines to crawl the entire site
 
 User-agent: *
 Allow: /
 
-# Sitemap location
 Sitemap: https://christmasnw.com/sitemap.xml
 
-# Crawl-delay for polite crawling (optional)
-Crawl-delay: 1
-
-# Allow common search engine bots
+# Search engines
 User-agent: Googlebot
 Allow: /
 
 User-agent: Bingbot
 Allow: /
 
-User-agent: Slurp
+# AI search crawlers - explicitly allowed
+User-agent: GPTBot
 Allow: /
 
-User-agent: DuckDuckBot
+User-agent: OAI-SearchBot
 Allow: /
 
-# Block bad bots (optional - add known scrapers/spammers here if needed)
-# User-agent: BadBot
-# Disallow: /
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /

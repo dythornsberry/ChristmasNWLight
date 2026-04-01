@@ -544,6 +544,17 @@ export default function GalleryPage() {
       { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
       { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
       { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } }
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "85"
+    },
+    "priceRange": "$800-$6,000+",
+    "sameAs": [
+      "https://www.facebook.com/ChristmasNW",
+      "https://www.instagram.com/christmasnw",
+      "https://www.youtube.com/@christmasnw"
     ]
   };
 

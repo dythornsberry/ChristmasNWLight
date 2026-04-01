@@ -165,6 +165,14 @@
     <priority>0.8</priority>
   </url>
 
+  <!-- Legal -->
+  <url>
+    <loc>https://christmasnw.com/privacy-policy</loc>
+    <lastmod>2026-04-01</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.3</priority>
+  </url>
+
   <!-- Blog Index -->
   <url>
     <loc>https://christmasnw.com/blog</loc>

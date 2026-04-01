@@ -115,7 +115,7 @@ export default function ServicesPage() {
     "provider": {
       "@type": "LocalBusiness",
       "name": "Christmas Northwest",
-      "telephone": "+1-425-215-0935",
+      "telephone": "+14252150935",
       "url": "https://christmasnw.com"
     },
     "areaServed": {
@@ -178,6 +178,16 @@ export default function ServicesPage() {
       "Custom lighting design",
       "Maintenance and takedown",
       "Light storage"
+    ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "5.0",
+      "reviewCount": "85"
+    },
+    "sameAs": [
+      "https://www.facebook.com/ChristmasNW",
+      "https://www.instagram.com/christmasnw",
+      "https://www.youtube.com/@christmasnw"
     ]
   };
 

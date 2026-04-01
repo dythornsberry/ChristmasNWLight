@@ -116,6 +116,7 @@ export default function Footer() {
               © 2026 Christmas Northwest. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
+              <Link href="/privacy-policy" onClick={handleLinkClick} className="hover:text-primary transition-colors">Privacy Policy</Link>
               <span>Licensed, Bonded & Insured</span>
               <span>Greater Seattle Area</span>
             </div>

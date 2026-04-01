@@ -53,15 +53,15 @@ export default function CityPage({
 
   const localBusinessSchema = {
     "@context": "https://schema.org",
-    "@type": "LocalBusiness",
+    "@type": "ProfessionalService",
     "name": "Christmas Northwest",
     "image": "https://christmasnw.com/logo.png",
-    "description": `Professional Christmas light installation in ${cityName}, WA. Premium, all-inclusive holiday lighting service with commercial-grade equipment. Serving ${cityName} and ${county} County since 2018.`,
+    "description": `Professional Christmas light installation in ${cityName}, WA. Premium, all-inclusive holiday lighting service with commercial-grade equipment. Serving ${cityName} and ${county} County since 2021.`,
     "address": {
       "@type": "PostalAddress",
-      "addressLocality": cityName,
+      "addressLocality": "Kenmore",
       "addressRegion": "WA",
-      "postalCode": zipCode,
+      "postalCode": "98028",
       "addressCountry": "US"
     },
     "geo": {
@@ -70,30 +70,46 @@ export default function CityPage({
       "longitude": longitude
     },
     "url": `https://christmasnw.com/${citySlug}`,
-    "telephone": "+1-425-215-0935",
-    "priceRange": "$$$",
-    "openingHoursSpecification": {
-      "@type": "OpeningHoursSpecification",
-      "dayOfWeek": [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday"
-      ],
-      "opens": "00:00",
-      "closes": "23:59"
-    },
-    "areaServed": {
-      "@type": "City",
-      "name": cityName,
-      "containedInPlace": {
-        "@type": "State",
-        "name": "Washington"
+    "telephone": "+14252150935",
+    "email": "christmaslightsnw@gmail.com",
+    "priceRange": "$800-$6,000+",
+    "foundingDate": "2021",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": "Saturday",
+        "opens": "09:00",
+        "closes": "17:00"
       }
-    },
+    ],
+    "areaServed": [
+      { "@type": "City", "name": cityName, "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Lake Forest Park", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Issaquah", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Newcastle", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Mercer Island", "address": { "addressRegion": "WA" } }
+    ],
+    "sameAs": [
+      "https://www.facebook.com/ChristmasNW",
+      "https://www.instagram.com/christmasnw",
+      "https://www.youtube.com/@christmasnw"
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",

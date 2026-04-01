@@ -90,11 +90,17 @@ export default function AboutPage() {
       { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
       { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } }
     ],
+    "foundingDate": "2021",
     "founder": {
       "@type": "Person",
       "name": "Dylan Thornsberry",
       "jobTitle": "Owner"
     },
+    "sameAs": [
+      "https://www.facebook.com/ChristmasNW",
+      "https://www.instagram.com/christmasnw/",
+      "https://www.youtube.com/@christmasnw"
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "5.0",

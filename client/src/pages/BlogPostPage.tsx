@@ -65,8 +65,9 @@ export default function BlogPostPage() {
     "headline": post.title,
     "description": post.metaDescription,
     "author": {
-      "@type": "Organization",
-      "name": "Christmas Northwest"
+      "@type": "Person",
+      "name": "Dylan Thornsberry",
+      "url": "https://christmasnw.com/about"
     },
     "publisher": {
       "@type": "Organization",
@@ -74,6 +75,7 @@ export default function BlogPostPage() {
       "url": "https://christmasnw.com"
     },
     "datePublished": post.publishDate,
+    "dateModified": post.publishDate,
     "articleBody": post.content.replace(/<[^>]*>/g, '').substring(0, 500),
     "image": "https://christmasnw.com/og-image.png",
     "mainEntityOfPage": {

@@ -30,7 +30,7 @@ export default function Home() {
   const stats = [
     {
       icon: Award,
-      number: "4.9",
+      number: "5.0",
       label: "Google Rating",
       description: "85+ reviews from real Seattle homeowners"
     },
@@ -104,7 +104,11 @@ export default function Home() {
       { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
       { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
       { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } }
+      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Lake Forest Park", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Issaquah", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Newcastle", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Mercer Island", "address": { "addressRegion": "WA" } }
     ],
     "openingHoursSpecification": [
       {
@@ -134,9 +138,11 @@ export default function Home() {
       "Christmas light takedown and storage",
       "Permanent outdoor lighting"
     ],
+    "foundingDate": "2021",
     "sameAs": [
       "https://www.facebook.com/ChristmasNW",
       "https://www.instagram.com/christmasnw/",
+      "https://www.youtube.com/@christmasnw",
       googleReviewsUrl
     ]
   };

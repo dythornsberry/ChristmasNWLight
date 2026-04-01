@@ -69,7 +69,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-300">
             <div className="flex items-center gap-1.5">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              <span>4.9 Google rating</span>
+              <span>5.0 Google rating</span>
             </div>
             <div className="flex items-center gap-1.5">
               <Shield className="h-4 w-4 text-status-online" />
@@ -144,7 +144,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           <div className="flex flex-wrap gap-x-6 gap-y-3 text-base text-slate-200">
             <div className="flex items-center gap-2">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              <span>4.9 Google rating</span>
+              <span>5.0 Google rating</span>
             </div>
             <div className="flex items-center gap-2">
               <Shield className="h-4 w-4 text-status-online" />

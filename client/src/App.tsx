@@ -36,6 +36,7 @@ const IssaquahPage = lazy(() => import("@/pages/IssaquahPage"));
 const MillCreekPage = lazy(() => import("@/pages/MillCreekPage"));
 const BlogPage = lazy(() => import("@/pages/BlogPage"));
 const BlogPostPage = lazy(() => import("@/pages/BlogPostPage"));
+const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
 function PageLoader() {
@@ -88,6 +89,9 @@ function Router() {
         {/* Blog */}
         <Route path="/blog" component={BlogPage} />
         <Route path="/blog/:slug" component={BlogPostPage} />
+
+        {/* Legal */}
+        <Route path="/privacy-policy" component={PrivacyPolicy} />
 
         <Route component={NotFound} />
       </Switch>
