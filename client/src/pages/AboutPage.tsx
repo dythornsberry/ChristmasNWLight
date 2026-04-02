@@ -237,7 +237,7 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Star className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="text-2xl font-bold text-primary mb-2">Year 1</div>
+                  <div className="text-2xl font-bold text-primary mb-2">2021</div>
                   <div className="font-semibold text-foreground mb-2">Launched</div>
                   <div className="text-sm text-muted-foreground">
                     Founded Christmas Northwest to bring professional holiday lighting to Greater Seattle
@@ -247,7 +247,7 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <TrendingUp className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="text-2xl font-bold text-primary mb-2">Year 2</div>
+                  <div className="text-2xl font-bold text-primary mb-2">2022</div>
                   <div className="font-semibold text-foreground mb-2">Rapid Growth</div>
                   <div className="text-sm text-muted-foreground">
                     Doubled our service area and began serving commercial properties
@@ -257,7 +257,7 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Users className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="text-2xl font-bold text-primary mb-2">Year 3</div>
+                  <div className="text-2xl font-bold text-primary mb-2">2023</div>
                   <div className="font-semibold text-foreground mb-2">5-Star Reviews</div>
                   <div className="text-sm text-muted-foreground">
                     Earned 85+ five-star Google reviews from happy customers
@@ -267,7 +267,7 @@ export default function AboutPage() {
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Award className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="text-2xl font-bold text-primary mb-2">Year 4</div>
+                  <div className="text-2xl font-bold text-primary mb-2">2024</div>
                   <div className="font-semibold text-foreground mb-2">5-Star Excellence</div>
                   <div className="text-sm text-muted-foreground">
                     Achieved 85+ five-star reviews and industry-leading customer satisfaction

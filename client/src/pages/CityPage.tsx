@@ -153,8 +153,8 @@ export default function CityPage({
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": latitude,
-      "longitude": longitude
+      "latitude": "47.7573",
+      "longitude": "-122.2443"
     },
     "url": `https://christmasnw.com/${citySlug}`,
     "telephone": "+14252150935",

@@ -72,7 +72,11 @@ export default function BlogPostPage() {
     "publisher": {
       "@type": "Organization",
       "name": "Christmas Northwest",
-      "url": "https://christmasnw.com"
+      "url": "https://christmasnw.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://christmasnw.com/logo.png"
+      }
     },
     "datePublished": post.publishDate,
     "dateModified": post.publishDate,
@@ -155,14 +159,15 @@ export default function BlogPostPage() {
                 <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground leading-tight" data-testid="text-post-title">
                   {post.title}
                 </h1>
-                <div className="flex items-center gap-6 text-muted-foreground">
+                <div className="flex flex-wrap items-center gap-4 sm:gap-6 text-muted-foreground">
+                  <span className="font-medium text-foreground" data-testid="text-author">By Dylan Thornsberry</span>
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
                     <span data-testid="text-publish-date">
-                      {new Date(post.publishDate).toLocaleDateString('en-US', { 
-                        month: 'long', 
-                        day: 'numeric', 
-                        year: 'numeric' 
+                      {new Date(post.publishDate).toLocaleDateString('en-US', {
+                        month: 'long',
+                        day: 'numeric',
+                        year: 'numeric'
                       })}
                     </span>
                   </div>

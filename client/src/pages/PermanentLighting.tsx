@@ -42,6 +42,15 @@ export default function PermanentLighting() {
     }
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://christmasnw.com" },
+      { "@type": "ListItem", "position": 2, "name": "Permanent Lighting", "item": "https://christmasnw.com/permanent-lighting" }
+    ]
+  };
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -53,14 +62,16 @@ export default function PermanentLighting() {
       "telephone": "+14252150935",
       "url": "https://christmasnw.com"
     },
-    "areaServed": {
-      "@type": "State",
-      "name": "Washington",
-      "containedInPlace": {
-        "@type": "Country",
-        "name": "United States"
-      }
-    },
+    "areaServed": [
+      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } }
+    ],
     "serviceType": "Permanent Outdoor Lighting",
     "offers": {
       "@type": "Offer",
@@ -78,6 +89,10 @@ export default function PermanentLighting() {
       <PageHead
         title="Permanent Outdoor Lighting | Christmas Northwest"
         description="Permanent outdoor lighting with smartphone control and millions of colors. Professional installation starting at $2,000 in Greater Seattle."
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"

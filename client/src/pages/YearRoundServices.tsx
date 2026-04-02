@@ -32,6 +32,15 @@ export default function YearRoundServices() {
     }
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://christmasnw.com" },
+      { "@type": "ListItem", "position": 2, "name": "Year-Round Services", "item": "https://christmasnw.com/year-round-services" }
+    ]
+  };
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -43,14 +52,16 @@ export default function YearRoundServices() {
       "telephone": "+14252150935",
       "url": "https://christmasnw.com"
     },
-    "areaServed": {
-      "@type": "State",
-      "name": "Washington",
-      "containedInPlace": {
-        "@type": "Country",
-        "name": "United States"
-      }
-    },
+    "areaServed": [
+      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
+      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } }
+    ],
     "serviceType": "Outdoor Lighting and Gutter Cleaning"
   };
 
@@ -59,6 +70,10 @@ export default function YearRoundServices() {
       <PageHead
         title="Year-Round Services | Christmas Northwest"
         description="Year-round outdoor lighting and property care in Greater Seattle. Gutter cleaning $300-$500, permanent lighting from $1,500, and custom landscape lighting."
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <script
         type="application/ld+json"

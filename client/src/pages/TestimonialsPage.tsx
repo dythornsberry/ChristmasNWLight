@@ -135,7 +135,7 @@ export default function TestimonialsPage() {
       "@type": "AggregateRating",
       ratingValue: 5.0,
       bestRating: 5,
-      reviewCount: testimonials.length,
+      reviewCount: 85,
     },
     review: reviewSchemaItems,
   };
