@@ -76,10 +76,12 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
           >
             {/* After Image (Background) */}
             <div className="absolute inset-0">
-              <img 
-                src={afterImage} 
+              <img
+                src={afterImage}
                 alt="After professional Christmas light installation"
                 className="w-full h-full object-cover select-none pointer-events-none"
+                width={960}
+                height={540}
                 loading="eager"
                 decoding="async"
                 onContextMenu={(e) => e.preventDefault()}
@@ -97,10 +99,12 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
               className="absolute inset-0 overflow-hidden"
               style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
             >
-              <img 
-                src={beforeImage} 
+              <img
+                src={beforeImage}
                 alt="Before Christmas light installation"
                 className="w-full h-full object-cover select-none pointer-events-none"
+                width={960}
+                height={540}
                 loading="eager"
                 decoding="async"
                 onContextMenu={(e) => e.preventDefault()}

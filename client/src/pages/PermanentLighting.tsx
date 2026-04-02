@@ -205,10 +205,12 @@ export default function PermanentLighting() {
 
             <div className="mx-auto grid max-w-4xl gap-5 sm:gap-8 md:grid-cols-2">
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-perm-gallery-1">
-                <img 
-                  src={permanentLighting1} 
+                <img
+                  src={permanentLighting1}
                   alt="Permanent lighting system showing rainbow colors on home roofline"
                   className="w-full aspect-video object-cover"
+                  width={640}
+                  height={360}
                   loading="lazy"
                   decoding="async"
                 />
@@ -217,10 +219,12 @@ export default function PermanentLighting() {
                 </div>
               </div>
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-perm-gallery-2">
-                <img 
-                  src={permanentLighting2} 
+                <img
+                  src={permanentLighting2}
                   alt="Multi-color permanent lighting on residential roofline"
                   className="w-full aspect-video object-cover"
+                  width={640}
+                  height={360}
                   loading="lazy"
                   decoding="async"
                 />
@@ -283,6 +287,8 @@ export default function PermanentLighting() {
                           alt={`${video.title} video thumbnail`}
                           loading="lazy"
                           decoding="async"
+                          width={480}
+                          height={360}
                           className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />

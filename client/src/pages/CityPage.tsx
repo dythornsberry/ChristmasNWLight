@@ -1,4 +1,4 @@
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
@@ -9,6 +9,93 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, Shield, Clock, MapPin } from "lucide-react";
+
+const nearbyCitiesMap: Record<string, { name: string; slug: string }[]> = {
+  seattle: [
+    { name: "Shoreline", slug: "shoreline" },
+    { name: "Kenmore", slug: "kenmore" },
+    { name: "Kirkland", slug: "kirkland" },
+    { name: "Bellevue", slug: "bellevue" },
+  ],
+  bellevue: [
+    { name: "Kirkland", slug: "kirkland" },
+    { name: "Redmond", slug: "redmond" },
+    { name: "Newcastle", slug: "newcastle" },
+    { name: "Mercer Island", slug: "mercer-island" },
+  ],
+  kirkland: [
+    { name: "Bellevue", slug: "bellevue" },
+    { name: "Woodinville", slug: "woodinville" },
+    { name: "Redmond", slug: "redmond" },
+    { name: "Bothell", slug: "bothell" },
+  ],
+  bothell: [
+    { name: "Kenmore", slug: "kenmore" },
+    { name: "Woodinville", slug: "woodinville" },
+    { name: "Kirkland", slug: "kirkland" },
+    { name: "Mill Creek", slug: "mill-creek" },
+  ],
+  kenmore: [
+    { name: "Bothell", slug: "bothell" },
+    { name: "Shoreline", slug: "shoreline" },
+    { name: "Lake Forest Park", slug: "lake-forest-park" },
+    { name: "Kirkland", slug: "kirkland" },
+  ],
+  woodinville: [
+    { name: "Kirkland", slug: "kirkland" },
+    { name: "Bothell", slug: "bothell" },
+    { name: "Redmond", slug: "redmond" },
+    { name: "Sammamish", slug: "sammamish" },
+  ],
+  redmond: [
+    { name: "Bellevue", slug: "bellevue" },
+    { name: "Kirkland", slug: "kirkland" },
+    { name: "Woodinville", slug: "woodinville" },
+    { name: "Sammamish", slug: "sammamish" },
+  ],
+  sammamish: [
+    { name: "Redmond", slug: "redmond" },
+    { name: "Issaquah", slug: "issaquah" },
+    { name: "Bellevue", slug: "bellevue" },
+    { name: "Woodinville", slug: "woodinville" },
+  ],
+  newcastle: [
+    { name: "Bellevue", slug: "bellevue" },
+    { name: "Mercer Island", slug: "mercer-island" },
+    { name: "Issaquah", slug: "issaquah" },
+    { name: "Redmond", slug: "redmond" },
+  ],
+  "mercer-island": [
+    { name: "Bellevue", slug: "bellevue" },
+    { name: "Newcastle", slug: "newcastle" },
+    { name: "Seattle", slug: "seattle" },
+    { name: "Issaquah", slug: "issaquah" },
+  ],
+  shoreline: [
+    { name: "Seattle", slug: "seattle" },
+    { name: "Kenmore", slug: "kenmore" },
+    { name: "Lake Forest Park", slug: "lake-forest-park" },
+    { name: "Bothell", slug: "bothell" },
+  ],
+  "lake-forest-park": [
+    { name: "Kenmore", slug: "kenmore" },
+    { name: "Shoreline", slug: "shoreline" },
+    { name: "Bothell", slug: "bothell" },
+    { name: "Seattle", slug: "seattle" },
+  ],
+  issaquah: [
+    { name: "Sammamish", slug: "sammamish" },
+    { name: "Newcastle", slug: "newcastle" },
+    { name: "Bellevue", slug: "bellevue" },
+    { name: "Mercer Island", slug: "mercer-island" },
+  ],
+  "mill-creek": [
+    { name: "Bothell", slug: "bothell" },
+    { name: "Woodinville", slug: "woodinville" },
+    { name: "Kenmore", slug: "kenmore" },
+    { name: "Kirkland", slug: "kirkland" },
+  ],
+};
 
 interface CityLocalContent {
   intro: string;
@@ -339,6 +426,32 @@ export default function CityPage({
                     </h3>
                     <p>{localContent.neighborhoodHighlights}</p>
                   </div>
+                </div>
+              </div>
+            </section>
+          )}
+
+          {/* Nearby Service Areas */}
+          {nearbyCitiesMap[citySlug] && (
+            <section className="py-20 bg-muted/30">
+              <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-12">
+                  <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
+                    Nearby Service Areas
+                  </h2>
+                  <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
+                    We also install Christmas lights in these communities near {cityName}.
+                  </p>
+                </div>
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
+                  {nearbyCitiesMap[citySlug].map((nearby) => (
+                    <Link key={nearby.slug} href={`/${nearby.slug}`}>
+                      <Card className="p-5 text-center cursor-pointer transition-all hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg">
+                        <MapPin className="w-5 h-5 text-primary mx-auto mb-2" />
+                        <p className="font-semibold text-foreground">{nearby.name}</p>
+                      </Card>
+                    </Link>
+                  ))}
                 </div>
               </div>
             </section>

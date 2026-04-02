@@ -16,10 +16,12 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
           {/* Residential Christmas Lighting */}
           <Card className="overflow-hidden group hover-elevate">
             <div className="aspect-[4/3] overflow-hidden">
-              <img 
+              <img
                 src={warmWhiteHouse}
                 alt="Classic Warm White Elegance - Residential Christmas Lighting"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                width={400}
+                height={300}
                 loading="lazy"
                 decoding="async"
               />
@@ -60,10 +62,12 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
           {/* Commercial & Large Properties */}
           <Card className="overflow-hidden group hover-elevate">
             <div className="aspect-[4/3] overflow-hidden">
-              <img 
+              <img
                 src={commercialWalkway}
                 alt="Commercial Christmas Lighting - Lit Walkway"
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                width={400}
+                height={300}
                 loading="lazy"
                 decoding="async"
               />

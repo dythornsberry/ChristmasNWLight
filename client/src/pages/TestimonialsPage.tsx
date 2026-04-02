@@ -3,6 +3,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import StructuredData from "@/components/StructuredData";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
@@ -19,6 +20,15 @@ export default function TestimonialsPage() {
         element.scrollIntoView({ behavior: 'smooth' });
       }
     }, 100);
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://christmasnw.com" },
+      { "@type": "ListItem", "position": 2, "name": "Testimonials", "item": "https://christmasnw.com/testimonials" }
+    ]
   };
 
   const testimonials = [
@@ -96,11 +106,51 @@ export default function TestimonialsPage() {
     }
   ];
 
+  const reviewSchemaItems = testimonials.map((t) => {
+    const monthYear = t.date.split(" ");
+    const monthIndex = ["January","February","March","April","May","June","July","August","September","October","November","December"].indexOf(monthYear[0]) + 1;
+    const isoDate = `${monthYear[1]}-${String(monthIndex).padStart(2, "0")}-01`;
+    return {
+      "@type": "Review",
+      author: { "@type": "Person", name: t.name },
+      reviewRating: { "@type": "Rating", ratingValue: t.rating, bestRating: 5 },
+      reviewBody: t.text,
+      datePublished: isoDate,
+    };
+  });
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    name: "Christmas Northwest",
+    url: "https://christmasnw.com",
+    telephone: "+14252150935",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Kenmore",
+      addressRegion: "WA",
+      addressCountry: "US",
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: 5.0,
+      bestRating: 5,
+      reviewCount: testimonials.length,
+    },
+    review: reviewSchemaItems,
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="Customer Reviews | Christmas Northwest"
         description="Read Christmas Northwest customer reviews and testimonials from homeowners and commercial clients across Greater Seattle, Kenmore, Kirkland, Bothell, and Bellevue."
+        path="/testimonials"
+      />
+      <StructuredData data={structuredData} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />

@@ -67,10 +67,12 @@ export default function WatermarkedImage({
   return (
     <>
       <Wrapper {...wrapperProps}>
-        <img 
-          src={src} 
+        <img
+          src={src}
           alt={alt}
           className="w-full h-full object-cover"
+          width={800}
+          height={600}
           loading="lazy"
           decoding="async"
         />
@@ -114,10 +116,12 @@ export default function WatermarkedImage({
             <X className="w-6 h-6" />
           </Button>
           <div className="relative max-w-7xl max-h-[90vh] cursor-default" onClick={(e) => e.stopPropagation()}>
-            <img 
-              src={src} 
+            <img
+              src={src}
               alt={alt}
               className="max-w-full max-h-[90vh] object-contain"
+              width={1200}
+              height={900}
               decoding="async"
             />
             {/* Watermark in lightbox too */}

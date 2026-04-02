@@ -57,6 +57,15 @@ export default function AboutPage() {
     { number: "Free", label: "Takedown", description: "Included in every package" }
   ];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://christmasnw.com" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://christmasnw.com/about" }
+    ]
+  };
+
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -117,6 +126,10 @@ export default function AboutPage() {
         description="Learn about Christmas Northwest, the Greater Seattle holiday lighting team focused on premium installs, fast response times, and stress-free full-service displays."
       />
       <StructuredData data={localBusinessSchema} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
       <main className="flex-1">
@@ -168,10 +181,12 @@ export default function AboutPage() {
 
             <div className="mb-16 grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
               <div>
-                <img 
-                  src={dylanPhoto} 
+                <img
+                  src={dylanPhoto}
                   alt="Dylan Thornsberry, Owner of Christmas Northwest"
                   className="w-full rounded-lg shadow-xl"
+                  width={800}
+                  height={600}
                   loading="lazy"
                   decoding="async"
                   data-testid="img-about-dylan"
@@ -288,10 +303,12 @@ export default function AboutPage() {
               </h3>
               <div className="grid gap-6 md:grid-cols-2 md:gap-8">
                 <div>
-                  <img 
-                    src={crewTeamPhoto} 
+                  <img
+                    src={crewTeamPhoto}
                     alt="Christmas Northwest installation crew"
                     className="w-full rounded-lg shadow-xl mb-4"
+                    width={800}
+                    height={600}
                     loading="lazy"
                     decoding="async"
                     data-testid="img-crew-team"
@@ -299,10 +316,12 @@ export default function AboutPage() {
                   <p className="text-center text-muted-foreground">Our installation crew ready to light up your home</p>
                 </div>
                 <div>
-                  <img 
-                    src={fleetPhoto} 
+                  <img
+                    src={fleetPhoto}
                     alt="Christmas Northwest fleet at Woodinville warehouse"
                     className="w-full rounded-lg shadow-xl mb-4"
+                    width={800}
+                    height={600}
                     loading="lazy"
                     decoding="async"
                     data-testid="img-fleet"
@@ -311,10 +330,12 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="mt-8">
-                <img 
-                  src={truckActionShot} 
+                <img
+                  src={truckActionShot}
                   alt="Christmas Northwest truck during installation"
                   className="w-full rounded-lg shadow-xl mb-4 max-w-3xl mx-auto"
+                  width={960}
+                  height={640}
                   loading="lazy"
                   decoding="async"
                   data-testid="img-truck-action"

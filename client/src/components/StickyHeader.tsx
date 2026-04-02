@@ -32,12 +32,14 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
         <div className="flex items-center justify-between gap-2 md:gap-4">
           {/* Logo */}
           <Link href="/" onClick={handleNavClick} data-testid="link-logo" className="flex-shrink-0">
-            <img 
+            <img
               src="/logo.png"
-              alt="Christmas Northwest" 
+              alt="Christmas Northwest"
               className="h-9 sm:h-16 md:h-20 cursor-pointer"
-              style={{ 
-                maxHeight: '80px', 
+              width={200}
+              height={80}
+              style={{
+                maxHeight: '80px',
                 minHeight: '36px',
                 width: 'auto',
                 display: 'block'

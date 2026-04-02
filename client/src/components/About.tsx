@@ -9,10 +9,12 @@ export default function About({ teamImage }: AboutProps) {
         <div className="grid lg:grid-cols-2 gap-20 items-center">
           {/* Image First */}
           <div className="order-2 lg:order-1">
-            <img 
-              src={teamImage} 
+            <img
+              src={teamImage}
               alt="Christmas Northwest professional installation team"
               className="w-full rounded-lg shadow-2xl border-4 border-amber-500/10"
+              width={800}
+              height={600}
               loading="lazy"
               decoding="async"
             />

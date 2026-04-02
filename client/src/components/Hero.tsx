@@ -18,6 +18,8 @@ export default function Hero({ onGetQuote }: HeroProps) {
             src={heroImage}
             alt="Beautiful Christmas lights illuminating a Seattle-area home at dusk"
             className="h-full w-full object-cover object-[70%_center]"
+            width={1920}
+            height={1080}
             loading="eager"
             // @ts-expect-error -- React 18 doesn't map fetchPriority; lowercase is the valid HTML attr
             fetchpriority="high"
@@ -90,6 +92,8 @@ export default function Hero({ onGetQuote }: HeroProps) {
           src={heroImage}
           alt="Beautiful Christmas lights illuminating a Seattle-area home at dusk"
           className="absolute inset-0 h-full w-full object-cover object-[60%_center]"
+          width={1920}
+          height={1080}
           loading="eager"
           // @ts-expect-error -- React 18 doesn't map fetchPriority; lowercase is the valid HTML attr
           fetchpriority="high"

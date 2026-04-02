@@ -176,6 +176,15 @@ export default function FAQPage() {
     }
   ];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://christmasnw.com" },
+      { "@type": "ListItem", "position": 2, "name": "FAQ", "item": "https://christmasnw.com/faq" }
+    ]
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -236,6 +245,10 @@ export default function FAQPage() {
       />
       <StructuredData data={faqSchema} />
       <StructuredData data={localBusinessSchema} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <div className="min-h-screen bg-background">
         <UrgencyBanner />
         <StickyHeader onGetQuote={scrollToQuote} />

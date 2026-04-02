@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { MapPin, CheckCircle2, AlertCircle } from "lucide-react";
-import { useLocation } from "wouter";
+import { useLocation, Link } from "wouter";
 
 export default function ServiceAreasPage() {
   const [, setLocation] = useLocation();
@@ -46,25 +46,25 @@ export default function ServiceAreasPage() {
   };
 
   const primaryAreas = [
-    { name: "Kenmore", description: "Our home base in the heart of the Eastside" },
-    { name: "Kirkland", description: "Bringing holiday magic to lakeside homes" },
-    { name: "Bothell", description: "Illuminating neighborhoods throughout Bothell" },
-    { name: "Woodinville", description: "Custom lighting for wine country estates" }
+    { name: "Kenmore", slug: "kenmore", description: "Our home base in the heart of the Eastside" },
+    { name: "Kirkland", slug: "kirkland", description: "Bringing holiday magic to lakeside homes" },
+    { name: "Bothell", slug: "bothell", description: "Illuminating neighborhoods throughout Bothell" },
+    { name: "Woodinville", slug: "woodinville", description: "Custom lighting for wine country estates" }
   ];
 
   const additionalAreas = [
-    "Redmond",
-    "Sammamish",
-    "Lake Forest Park",
-    "Shoreline",
-    "Mill Creek",
-    "Mountlake Terrace",
-    "Lynnwood",
-    "Bellevue",
-    "Issaquah",
-    "Newcastle",
-    "Mercer Island",
-    "Seattle (North)"
+    { name: "Seattle", slug: "seattle" },
+    { name: "Bellevue", slug: "bellevue" },
+    { name: "Redmond", slug: "redmond" },
+    { name: "Sammamish", slug: "sammamish" },
+    { name: "Newcastle", slug: "newcastle" },
+    { name: "Mercer Island", slug: "mercer-island" },
+    { name: "Shoreline", slug: "shoreline" },
+    { name: "Lake Forest Park", slug: "lake-forest-park" },
+    { name: "Issaquah", slug: "issaquah" },
+    { name: "Mill Creek", slug: "mill-creek" },
+    { name: "Mountlake Terrace", slug: null },
+    { name: "Lynnwood", slug: null },
   ];
 
   return (
@@ -115,21 +115,23 @@ export default function ServiceAreasPage() {
             
             <div className="grid gap-4 sm:gap-6 md:grid-cols-2">
               {primaryAreas.map((area, index) => (
-                <Card key={index} className="p-6 hover-elevate sm:p-8" data-testid={`card-area-${index}`}>
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <MapPin className="w-6 h-6 text-primary" />
+                <Link key={index} href={`/${area.slug}`}>
+                  <Card className="p-6 hover-elevate sm:p-8 cursor-pointer transition-all hover:border-primary/30" data-testid={`card-area-${index}`}>
+                    <div className="flex items-start gap-4">
+                      <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                        <MapPin className="w-6 h-6 text-primary" />
+                      </div>
+                      <div>
+                        <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
+                          {area.name}
+                        </h3>
+                        <p className="text-muted-foreground">
+                          {area.description}
+                        </p>
+                      </div>
                     </div>
-                    <div>
-                      <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
-                        {area.name}
-                      </h3>
-                      <p className="text-muted-foreground">
-                        {area.description}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
@@ -246,14 +248,26 @@ export default function ServiceAreasPage() {
             
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {additionalAreas.map((area, index) => (
-                <div 
-                  key={index} 
-                  className="flex items-center gap-2 bg-card p-4 rounded-lg border border-border"
-                  data-testid={`area-item-${index}`}
-                >
-                  <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="font-medium text-foreground">{area}</span>
-                </div>
+                area.slug ? (
+                  <Link key={index} href={`/${area.slug}`}>
+                    <div
+                      className="flex items-center gap-2 bg-card p-4 rounded-lg border border-border cursor-pointer transition-colors hover:border-primary/30"
+                      data-testid={`area-item-${index}`}
+                    >
+                      <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="font-medium text-foreground">{area.name}</span>
+                    </div>
+                  </Link>
+                ) : (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 bg-card p-4 rounded-lg border border-border"
+                    data-testid={`area-item-${index}`}
+                  >
+                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0" />
+                    <span className="font-medium text-foreground">{area.name}</span>
+                  </div>
+                )
               ))}
             </div>
           </div>

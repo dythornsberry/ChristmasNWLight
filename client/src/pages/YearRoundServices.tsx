@@ -102,10 +102,12 @@ export default function YearRoundServices() {
             <Card className="overflow-hidden">
               <div className="grid md:grid-cols-2 gap-0">
                 <div className="overflow-hidden">
-                  <img 
-                    src={permanentLighting1} 
+                  <img
+                    src={permanentLighting1}
                     alt="Permanent lighting system with rainbow colors on home roofline"
                     className="w-full h-full object-cover min-h-[300px]"
+                    width={800}
+                    height={600}
                     loading="lazy"
                     decoding="async"
                   />
@@ -204,28 +206,34 @@ export default function YearRoundServices() {
 
             <div className="grid gap-5 md:grid-cols-3 md:gap-6">
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-gutter-photo-1">
-                <img 
-                  src={gutterBefore1} 
+                <img
+                  src={gutterBefore1}
                   alt="Before and after gutter cleaning showing dramatic transformation from debris-filled to clean gutters"
                   className="w-full aspect-video object-cover"
+                  width={640}
+                  height={360}
                   loading="lazy"
                   decoding="async"
                 />
               </div>
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-gutter-photo-2">
-                <img 
-                  src={gutterBefore2} 
+                <img
+                  src={gutterBefore2}
                   alt="Professional gutter cleaning before and after comparison"
                   className="w-full aspect-video object-cover"
+                  width={640}
+                  height={360}
                   loading="lazy"
                   decoding="async"
                 />
               </div>
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-gutter-photo-3">
-                <img 
-                  src={gutterBefore3} 
+                <img
+                  src={gutterBefore3}
                   alt="Gutter maintenance showing clean results after Seattle ProWash service"
                   className="w-full aspect-video object-cover"
+                  width={640}
+                  height={360}
                   loading="lazy"
                   decoding="async"
                 />
@@ -294,10 +302,12 @@ export default function YearRoundServices() {
 
             <div className="grid gap-5 md:grid-cols-3 md:gap-6">
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-landscape-photo-1">
-                <img 
-                  src={landscapeLighting1} 
+                <img
+                  src={landscapeLighting1}
                   alt="Professional landscape pathway lighting with uplighting on trees and shrubs creating warm outdoor ambiance"
                   className="w-full aspect-video object-cover"
+                  width={640}
+                  height={360}
                   loading="lazy"
                   decoding="async"
                 />
@@ -306,10 +316,12 @@ export default function YearRoundServices() {
                 </div>
               </div>
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-landscape-photo-2">
-                <img 
-                  src={bistroLights1} 
+                <img
+                  src={bistroLights1}
                   alt="Bistro string lights creating magical atmosphere over outdoor patio and fire pit area"
                   className="w-full aspect-video object-cover"
+                  width={640}
+                  height={360}
                   loading="lazy"
                   decoding="async"
                 />
@@ -318,10 +330,12 @@ export default function YearRoundServices() {
                 </div>
               </div>
               <div className="overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow" data-testid="card-landscape-photo-3">
-                <img 
-                  src={bistroLights2} 
+                <img
+                  src={bistroLights2}
                   alt="Professional bistro light installation over outdoor entertainment area with dining and seating"
                   className="w-full aspect-video object-cover"
+                  width={640}
+                  height={360}
                   loading="lazy"
                   decoding="async"
                 />

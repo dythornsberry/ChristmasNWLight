@@ -31,10 +31,12 @@ export default function ColorOptions({ colors }: ColorOptionsProps) {
               data-testid={`card-color-${index}`}
             >
               <div className="relative aspect-[4/3] overflow-hidden">
-                <img 
-                  src={color.image} 
+                <img
+                  src={color.image}
                   alt={color.name}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  width={400}
+                  height={300}
                   loading="lazy"
                   decoding="async"
                 />

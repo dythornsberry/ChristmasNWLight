@@ -251,6 +251,8 @@ function GalleryImageCard({
           // @ts-expect-error -- React 18 doesn't map fetchPriority; lowercase is the valid HTML attr
           fetchpriority={eager ? "high" : "auto"}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
+          width={400}
+          height={300}
           onContextMenu={(event) => event.preventDefault()}
           onDragStart={(event) => event.preventDefault()}
           style={{ userSelect: "none", WebkitUserSelect: "none" }}
@@ -313,6 +315,8 @@ function VideoShowcaseCard({ item }: { item: VideoShowcaseItem }) {
               loading="lazy"
               decoding="async"
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+              width={480}
+              height={360}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
             <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-[#ff0000] px-3 py-1.5 text-xs font-semibold text-white shadow-lg">
@@ -513,6 +517,15 @@ export default function GalleryPage() {
     ]
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://christmasnw.com" },
+      { "@type": "ListItem", "position": 2, "name": "Gallery", "item": "https://christmasnw.com/gallery" }
+    ]
+  };
+
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
@@ -565,6 +578,10 @@ export default function GalleryPage() {
         description="Browse professional Christmas light installations across Greater Seattle. See real projects in Bellevue, Bothell, Kirkland, and Redmond plus installation videos."
       />
       <StructuredData data={localBusinessSchema} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
 
       {/* VideoObject Schema Markup for YouTube Shorts */}
       <script
@@ -816,6 +833,8 @@ export default function GalleryPage() {
               src={filteredImages[lightboxIndex].src}
               alt={filteredImages[lightboxIndex].alt}
               className="max-w-full max-h-[85vh] object-contain select-none pointer-events-none"
+              width={1200}
+              height={900}
               decoding="async"
               onContextMenu={(e) => e.preventDefault()}
               onDragStart={(e) => e.preventDefault()}

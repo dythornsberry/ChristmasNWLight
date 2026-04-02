@@ -107,6 +107,15 @@ export default function ServicesPage() {
     }
   ];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://christmasnw.com" },
+      { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://christmasnw.com/services" }
+    ]
+  };
+
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
@@ -202,6 +211,10 @@ export default function ServicesPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
       <StructuredData data={localBusinessSchema} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
 
@@ -242,10 +255,12 @@ export default function ServicesPage() {
                   <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
                     {/* Image */}
                     <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                      <img 
-                        src={service.image} 
+                      <img
+                        src={service.image}
                         alt={service.title}
                         className="w-full h-full object-cover min-h-[300px]"
+                        width={800}
+                        height={600}
                         loading="lazy"
                         decoding="async"
                         data-testid={`img-service-${index}`}
