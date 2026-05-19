@@ -1,8 +1,6 @@
 /**
- * Cloudflare Pages Middleware: Trailing Slash Redirect
- * 301 redirects any URL with a trailing slash to the non-trailing-slash version.
- * Fixes duplicate content / canonical issues flagged by Google Search Console.
- * Example: /gallery/ → /gallery, /faq/ → /faq
+ * Cloudflare Pages Middleware: Retired Service Redirects
+ * Redirects service pages we no longer offer to the main services page.
  */
 export async function onRequest(context) {
   const url = new URL(context.request.url);
@@ -19,12 +17,6 @@ export async function onRequest(context) {
 
   if (url.pathname === '/permanent-lighting' || url.pathname === '/year-round-services') {
     url.pathname = '/services';
-    return Response.redirect(url.toString(), 301);
-  }
-
-  // 301 redirect trailing slashes to non-trailing-slash
-  if (url.pathname.length > 1 && url.pathname.endsWith('/')) {
-    url.pathname = url.pathname.slice(0, -1);
     return Response.redirect(url.toString(), 301);
   }
 
