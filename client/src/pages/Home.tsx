@@ -135,8 +135,7 @@ export default function Home() {
       "Christmas light installation",
       "Holiday lighting design",
       "Seasonal lighting maintenance",
-      "Christmas light takedown and storage",
-      "Permanent outdoor lighting"
+      "Christmas light takedown and storage"
     ],
     "foundingDate": "2021",
     "sameAs": [

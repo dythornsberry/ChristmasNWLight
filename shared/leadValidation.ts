@@ -1,13 +1,7 @@
 export const leadServiceTypes = [
   "christmas-2026-new",
   "christmas-2026-returning",
-  "permanent-lighting",
-  "gutter-maintenance",
-  "landscape-lighting",
-  "year-round-services",
   "general-inquiry",
-  "gutter-cleaning",
-  "landscape-bistro-event",
 ] as const;
 
 export type LeadServiceType = (typeof leadServiceTypes)[number];

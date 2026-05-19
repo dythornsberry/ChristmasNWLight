@@ -86,7 +86,7 @@ Warm white lights (also called soft white or warm glow) have become the default 
 
 **They feel sophisticated.** There's something about the soft glow of warm white that just looks right. It looks intentional, like someone put thought into the design rather than just throwing up whatever was on sale.
 
-**They're versatile beyond Christmas.** Many of our clients keep warm white roofline lights up year-round (yes, we do that). They work for New Year's, they're perfect for summer evening gatherings, and they add a welcoming glow any time of year.
+**They make the whole season feel polished.** Warm white roofline lights work beautifully from Thanksgiving through New Year's, and they give your home a welcoming glow without competing with its architecture.
 
 ### The Drawbacks
 
@@ -407,11 +407,7 @@ When you book with us in September, here's what we need:
 
 Everything else can be finalized in October. You're just locking in your spot and your pricing.
 
-## The Exception: Year-Round Permanent Lighting
-
-If you're considering permanent LED systems that can be used year-round, timing matters less. These installations are less weather-dependent and can be done almost any time.
-
-But for traditional seasonal Christmas lighting, September booking is the insider move.
+For seasonal Christmas lighting, September booking is the insider move.
 
 ## Bottom Line
 

@@ -141,23 +141,6 @@ export default function FAQPage() {
       ]
     },
     {
-      category: "Year-Round Services",
-      questions: [
-        {
-          question: "Do you offer permanent outdoor lighting?",
-          answer: "Yes, we offer permanent outdoor lighting, but we only install these in the off season because of the time and expertise required for a professional installation. These architectural LED lights can be controlled via smartphone app to display any color for any holiday or occasion. Contact us during the off season for a custom quote. Learn more on our Year-Round Services page."
-        },
-        {
-          question: "Do you provide gutter cleaning services?",
-          answer: "Yes, we can bundle gutter cleaning with your Christmas light installation service if your gutters are in decent shape. If they're really neglected or have heavy buildup, we'll recommend waiting until the off season when we can give them proper attention. During takedown in January, many homeowners bundle gutter cleaning as part of their overall maintenance."
-        },
-        {
-          question: "Can you install landscape or bistro lighting?",
-          answer: "Yes, we install custom landscape lighting and bistro lights for patios and outdoor entertainment areas, but all of these services are done in the off season. We focus exclusively on Christmas lighting from October through January, then handle our other specialty projects the rest of the year. Contact us during the off season for a custom quote based on your specific project."
-        }
-      ]
-    },
-    {
       category: "Booking & Payment",
       questions: [
         {

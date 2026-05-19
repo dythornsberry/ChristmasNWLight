@@ -5,13 +5,11 @@ import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
 import LeadFormCard, { type LeadServiceOption } from "@/components/LeadFormCard";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, Clock, Home, Mail, MapPin, MessageSquare, Phone, Sparkles, Sun, TreePine } from "lucide-react";
+import { CheckCircle2, Clock, Mail, MapPin, MessageSquare, Phone, Sparkles, TreePine } from "lucide-react";
 
 const CONTACT_SERVICE_OPTIONS: LeadServiceOption[] = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New installation or redesign", icon: TreePine },
   { value: "christmas-2026-returning", label: "Returning Customer", sublabel: "Existing client support or rebook", icon: Sparkles },
-  { value: "permanent-lighting", label: "Permanent Lighting", sublabel: "Year-round programmable lighting", icon: Sun },
-  { value: "year-round-services", label: "Year-Round Services", sublabel: "Gutters, bistro lights, and more", icon: Home },
   { value: "general-inquiry", label: "General Question", sublabel: "Fast callback without a project address", icon: MessageSquare },
 ];
 
@@ -29,7 +27,7 @@ export default function ContactPage() {
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="Contact Christmas Northwest | Request a Christmas Lighting Quote"
-        description="Request a free quote from Christmas Northwest for Christmas lighting, permanent lighting, or year-round outdoor services in Greater Seattle."
+        description="Request a free quote from Christmas Northwest for professional Christmas lighting in Greater Seattle."
       />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />

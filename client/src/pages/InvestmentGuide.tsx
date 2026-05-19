@@ -106,30 +106,54 @@ export default function InvestmentGuide() {
       <UrgencyBanner />
       <PageHead 
         title="Christmas Light Installation Pricing | Christmas Northwest"
-        description="Transparent Christmas light pricing in Greater Seattle. Real examples from $800 to $6,000+. All-inclusive: installation, maintenance, storage, and reinstall."
+        description="Transparent Christmas light installation pricing in Greater Seattle. Real examples from $800 to $6,000+. All-inclusive: installation, maintenance, takedown, storage, and easy rebooking support."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
       
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary/90 to-accent pt-32 pb-24">
+      <section className="relative bg-gradient-to-br from-primary via-primary/90 to-accent pt-24 pb-16 md:pt-32 md:pb-24">
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center">
             <Badge variant="secondary" className="mb-6 border border-gold/20">
               <DollarSign className="w-4 h-4 mr-2" />
               Transparent Pricing
             </Badge>
-            <h1 className="font-serif text-5xl md:text-6xl font-black text-primary-foreground mb-6 leading-tight">
-              Pricing Guide
+            <h1 className="font-serif text-4xl md:text-6xl font-black text-primary-foreground mb-5 leading-tight">
+              Transparent Christmas Light Installation Pricing
               <br />
-              <span className="text-4xl md:text-5xl">An Investment Into Your Holidays</span>
+              <span className="text-3xl md:text-5xl">For Seattle & the Eastside</span>
             </h1>
-            <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed mb-6">
-              All-inclusive pricing with no hidden fees. Installation, maintenance, storage, and next-year reinstallation included.
+            <p className="text-base text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed mb-5 sm:text-xl md:mb-6">
+              Clear examples, no hidden fees, and a custom quote based on your home. Installation, maintenance, takedown, storage, and easy rebooking support are included.
             </p>
-            <Badge variant="secondary" className="bg-amber-500 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto mx-auto w-fit border-2 border-white/30 shadow-xl">
-              <Clock className="w-5 h-5" />
-              Fast Turnaround - Installed Within a Week
-            </Badge>
+            <div className="mx-auto mb-5 grid max-w-3xl grid-cols-3 gap-2 rounded-lg border border-white/20 bg-white/10 p-2 text-primary-foreground shadow-2xl backdrop-blur md:mb-6 md:gap-3 md:p-3">
+              <div className="rounded-md bg-white/10 px-2 py-2 md:px-4 md:py-3">
+                <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Most homes</p>
+                <p className="text-sm font-black sm:text-lg md:text-xl">$900-$2,500</p>
+              </div>
+              <div className="rounded-md bg-white/10 px-2 py-2 md:px-4 md:py-3">
+                <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Premium</p>
+                <p className="text-sm font-black sm:text-lg md:text-xl">$3,500+</p>
+              </div>
+              <div className="rounded-md bg-white/10 px-2 py-2 md:px-4 md:py-3">
+                <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Quote</p>
+                <p className="text-sm font-black sm:text-lg md:text-xl">Free</p>
+              </div>
+            </div>
+            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
+              <Button
+                onClick={scrollToQuote}
+                size="lg"
+                className="border border-gold/20 bg-background px-8 text-lg font-bold text-foreground shadow-2xl hover:bg-background/90"
+                data-testid="button-pricing-hero-quote"
+              >
+                Get My Christmas Light Quote
+              </Button>
+              <Badge variant="secondary" className="bg-amber-500 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto w-fit border-2 border-white/30 shadow-xl">
+                <Clock className="w-5 h-5" />
+                Fast Scheduling Available
+              </Badge>
+            </div>
           </div>
         </div>
       </section>
@@ -488,7 +512,7 @@ export default function InvestmentGuide() {
                 </li>
                 <li className="flex items-start gap-2 text-sm text-foreground">
                   <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  Next year reinstallation included
+                  Easy rebooking support for next season
                 </li>
               </ul>
             </Card>

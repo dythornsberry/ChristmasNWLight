@@ -494,11 +494,6 @@ export default function ServicesPage() {
               description: "See real residential and large-property installations completed by our team.",
             },
             {
-              href: "/permanent-lighting",
-              label: "Permanent Lighting",
-              description: "Compare seasonal installs against year-round programmable lighting systems.",
-            },
-            {
               href: "/contact",
               label: "Contact & Quote",
               description: "Reach the team directly if you want a callback or a project-specific recommendation.",

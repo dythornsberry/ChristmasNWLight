@@ -16,8 +16,6 @@ const ContactPage = lazy(() => import("@/pages/ContactPage"));
 const GalleryPage = lazy(() => import("@/pages/GalleryPage"));
 const ProductGuide = lazy(() => import("@/pages/ProductGuide"));
 const InvestmentGuide = lazy(() => import("@/pages/InvestmentGuide"));
-const YearRoundServices = lazy(() => import("@/pages/YearRoundServices"));
-const PermanentLighting = lazy(() => import("@/pages/PermanentLighting"));
 const FAQPage = lazy(() => import("@/pages/FAQPage"));
 const TestimonialsPage = lazy(() => import("@/pages/TestimonialsPage"));
 const BellevuePage = lazy(() => import("@/pages/BellevuePage"));
@@ -63,8 +61,6 @@ function Router() {
         <Route path="/gallery" component={GalleryPage} />
         <Route path="/product-guide" component={ProductGuide} />
         <Route path="/investment-guide" component={InvestmentGuide} />
-        <Route path="/year-round-services" component={YearRoundServices} />
-        <Route path="/permanent-lighting" component={PermanentLighting} />
         <Route path="/service-areas" component={ServiceAreasPage} />
         <Route path="/faq" component={FAQPage} />
         <Route path="/testimonials" component={TestimonialsPage} />

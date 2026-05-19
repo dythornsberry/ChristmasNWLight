@@ -7,14 +7,11 @@ import {
   ChevronRight,
   Clock3,
   DollarSign,
-  Lamp,
   MapPin,
   Phone,
   Shield,
   Sparkles,
-  Sun,
   TreePine,
-  Wrench,
 } from "lucide-react";
 import AddressAutocompleteField from "@/components/AddressAutocompleteField";
 import FormSpamTrap from "@/components/FormSpamTrap";
@@ -32,7 +29,6 @@ import {
   getEmailValidationError,
   getNameValidationError,
   getPhoneValidationError,
-  getZipCodeValidationError,
   toE164,
 } from "@/lib/leads";
 import { queryClient } from "@/lib/queryClient";
@@ -40,9 +36,6 @@ import { queryClient } from "@/lib/queryClient";
 const SERVICE_OPTIONS = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New customer", icon: TreePine },
   { value: "christmas-2026-returning", label: "Christmas Lighting", sublabel: "Returning customer", icon: Sparkles },
-  { value: "permanent-lighting", label: "Permanent Outdoor Lighting", sublabel: "Year-round lighting", icon: Sun },
-  { value: "gutter-maintenance", label: "Gutter & Roof Maintenance", sublabel: "Cleaning and repair", icon: Wrench },
-  { value: "landscape-lighting", label: "Landscape / Bistro Lighting", sublabel: "Accent and patio lighting", icon: Lamp },
 ];
 
 const FORM_HIGHLIGHTS = [

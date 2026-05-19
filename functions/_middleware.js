@@ -17,6 +17,11 @@ export async function onRequest(context) {
     return context.next();
   }
 
+  if (url.pathname === '/permanent-lighting' || url.pathname === '/year-round-services') {
+    url.pathname = '/services';
+    return Response.redirect(url.toString(), 301);
+  }
+
   // 301 redirect trailing slashes to non-trailing-slash
   if (url.pathname.length > 1 && url.pathname.endsWith('/')) {
     url.pathname = url.pathname.slice(0, -1);

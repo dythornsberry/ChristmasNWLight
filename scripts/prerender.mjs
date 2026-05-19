@@ -33,8 +33,6 @@ const ROUTES = [
   "/service-areas",
   "/product-guide",
   "/investment-guide",
-  "/year-round-services",
-  "/permanent-lighting",
   "/blog",
   "/bellevue",
   "/kirkland",

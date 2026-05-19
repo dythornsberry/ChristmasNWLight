@@ -183,20 +183,6 @@ const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     youtubeId: "kyQ0PU9XDIk",
   },
   {
-    id: "permanent-redmond",
-    title: "Permanent Lighting Demo",
-    location: "Redmond, WA",
-    description: "A quick look at a color-changing permanent lighting system in action.",
-    youtubeId: "f7vQhLxL9B8",
-  },
-  {
-    id: "permanent-install",
-    title: "Year-Round Permanent Lights",
-    location: "Greater Seattle Area",
-    description: "Our permanent lighting install process, start to finish, on a real home.",
-    youtubeId: "ozZItKmCPKE",
-  },
-  {
     id: "halloween-2",
     title: "Halloween Light Display",
     location: "Greater Seattle Area",
@@ -437,40 +423,6 @@ export default function GalleryPage() {
         "uploadDate": "2024-11-20T12:00:00Z",
         "contentUrl": "https://www.youtube.com/watch?v=kyQ0PU9XDIk",
         "embedUrl": "https://www.youtube.com/embed/kyQ0PU9XDIk",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Christmas Northwest",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://christmasnw.com/logo.png"
-          }
-        }
-      },
-      {
-        "@type": "VideoObject",
-        "name": "Permanent Outdoor Lighting System Demo in Redmond WA",
-        "description": "See our year-round permanent lighting system in action in Redmond, Washington. Customizable RGB lights that work for every holiday and season, professionally installed for long-term durability.",
-        "thumbnailUrl": "https://img.youtube.com/vi/f7vQhLxL9B8/maxresdefault.jpg",
-        "uploadDate": "2024-09-10T12:00:00Z",
-        "contentUrl": "https://www.youtube.com/watch?v=f7vQhLxL9B8",
-        "embedUrl": "https://www.youtube.com/embed/f7vQhLxL9B8",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Christmas Northwest",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://christmasnw.com/logo.png"
-          }
-        }
-      },
-      {
-        "@type": "VideoObject",
-        "name": "Year-Round Permanent Lighting Installation Process",
-        "description": "Complete walk-through of our permanent outdoor lighting installation. See the professional process from planning to final installation for a year-round lighting system in Greater Seattle.",
-        "thumbnailUrl": "https://img.youtube.com/vi/ozZItKmCPKE/maxresdefault.jpg",
-        "uploadDate": "2024-08-25T12:00:00Z",
-        "contentUrl": "https://www.youtube.com/watch?v=ozZItKmCPKE",
-        "embedUrl": "https://www.youtube.com/embed/ozZItKmCPKE",
         "publisher": {
           "@type": "Organization",
           "name": "Christmas Northwest",
