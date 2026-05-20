@@ -74,7 +74,6 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Christmas Northwest",
-    "alternateName": "ChristmasNW",
     "description": "Professional Christmas light installation serving Seattle and the Eastside. Custom design, installation, maintenance, takedown, and storage for homeowners who want a polished holiday display without the hassle.",
     "url": "https://christmasnw.com",
     "image": "https://christmasnw.com/og-image.png",
