@@ -1,0 +1,6 @@
+/permanent-lighting /services 301
+/permanent-lighting/ /services 301
+/permanent-lighting/* /services 301
+/year-round-services /services 301
+/year-round-services/ /services 301
+/year-round-services/* /services 301
