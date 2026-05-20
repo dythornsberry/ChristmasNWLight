@@ -15,7 +15,9 @@ export async function onRequest(context) {
     return context.next();
   }
 
-  if (url.pathname === '/permanent-lighting' || url.pathname === '/year-round-services') {
+  const pathWithoutTrailingSlash = url.pathname.replace(/\/$/, '');
+
+  if (pathWithoutTrailingSlash === '/permanent-lighting' || pathWithoutTrailingSlash === '/year-round-services') {
     url.pathname = '/services';
     return Response.redirect(url.toString(), 301);
   }
