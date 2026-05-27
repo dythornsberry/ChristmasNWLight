@@ -30,9 +30,9 @@ export default function Home() {
   const stats = [
     {
       icon: Award,
-      number: "5.0",
+      number: "4.9",
       label: "Google Rating",
-      description: "85+ reviews from real Seattle homeowners"
+      description: "92 reviews from real Seattle homeowners"
     },
     {
       icon: Clock,
@@ -112,23 +112,17 @@ export default function Home() {
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        "opens": "08:00",
-        "closes": "18:00"
-      },
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": "Saturday",
-        "opens": "09:00",
-        "closes": "17:00"
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
       }
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
+      "ratingValue": "4.9",
       "bestRating": "5",
-      "reviewCount": "85",
-      "ratingCount": "85"
+      "reviewCount": "92",
+      "ratingCount": "92"
     },
     "serviceType": [
       "Christmas light installation",
@@ -157,19 +151,19 @@ export default function Home() {
       
       <Hero onGetQuote={scrollToQuote} />
 
-      <ReviewsStrip />
-
       <QuoteFormSection />
 
       <SimpleServices onGetQuote={scrollToQuote} />
 
       <BeforeAfter beforeImage={beforeImage} afterImage={afterImage} />
 
-      <Portfolio items={portfolioItems} />
-
       <Stats stats={stats} />
 
       <WhyChooseUs />
+
+      <Portfolio items={portfolioItems} />
+
+      <ReviewsStrip />
 
       <Process />
 

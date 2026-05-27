@@ -76,7 +76,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
             </a>
             <Button 
               onClick={onGetQuote}
-              className="hidden h-9 bg-primary px-3 text-xs font-semibold text-primary-foreground sm:inline-flex sm:h-10 sm:px-4 sm:text-sm md:px-6"
+              className="inline-flex h-9 bg-primary px-3 text-xs font-semibold text-primary-foreground sm:h-10 sm:px-4 sm:text-sm md:px-6"
               data-testid="button-header-quote"
             >
               <span>Get a Quote</span>

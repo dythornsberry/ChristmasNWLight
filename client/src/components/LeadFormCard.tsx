@@ -26,7 +26,6 @@ import {
   getEmailValidationError,
   getNameValidationError,
   getPhoneValidationError,
-  getZipCodeValidationError,
   requiresProjectAddress,
   toE164,
 } from "@/lib/leads";

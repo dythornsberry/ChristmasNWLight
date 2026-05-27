@@ -656,8 +656,8 @@ export default function QuoteFormSection() {
                 </div>
 
                 <p className="mt-3 text-center text-xs leading-5 text-muted-foreground">
-                  By submitting this form, you consent to receive text messages and calls from Christmas Light Installers
-                  Northwest for marketing and customer care. Message frequency may vary. Reply "STOP" to unsubscribe. We
+                  By submitting this form, you consent to receive text messages and calls from Christmas Northwest
+                  for marketing and customer care. Message frequency may vary. Reply "STOP" to unsubscribe. We
                   will never share your information with third parties.
                 </p>
               </div>
