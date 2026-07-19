@@ -13,6 +13,7 @@ import crewTeamPhoto from '@assets/IMG_3713_optimized.webp';
 import fleetPhoto from '@assets/IMG_9313_optimized.jpeg';
 import truckActionShot from '@assets/IMG_1466_optimized.jpeg';
 import { useLocation } from "wouter";
+import { CURRENT_SEASON_NUMBER, CURRENT_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 
 export default function AboutPage() {
   const [, setLocation] = useLocation();
@@ -36,24 +37,24 @@ export default function AboutPage() {
     {
       icon: Award,
       title: "Commercial-Grade LED Lights",
-      description: "Premium, energy-efficient LED lights built to last multiple seasons with vibrant, consistent colors."
+      description: "Energy-efficient LED lights selected for consistent color and wet Pacific Northwest winters."
     },
     {
       icon: Sparkles,
-      title: "Premium Custom Designs",
-      description: "Tailored lighting designs that complement your property's architecture and exceed your vision."
+      title: "Custom Designs",
+      description: "A lighting plan tailored to your property's architecture, priorities, and budget."
     },
     {
       icon: Clock,
-      title: "Week-of-Booking Installation",
-      description: "Installations completed within a week of booking, so you can enjoy your lights quickly."
+      title: "Clear Scheduling",
+      description: "We confirm scope, pricing, and the available installation window before you book."
     }
   ];
 
   const milestones = [
-    { number: "5.0", label: "Google Rating", description: "85+ five-star reviews" },
-    { number: "24hr", label: "Response Time", description: "Quick replies, same-week repairs" },
-    { number: "100%", label: "Satisfaction", description: "We fix issues at no extra cost" },
+    { number: GOOGLE_RATING, label: "Google Rating", description: `${GOOGLE_REVIEW_COUNT} Google reviews` },
+    { number: "24hr", label: "Response Time", description: "Quick seasonal replies" },
+    { number: "Season-long", label: "Maintenance", description: "Display repairs are included" },
     { number: "Free", label: "Takedown", description: "Included in every package" }
   ];
 
@@ -70,11 +71,11 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Christmas Northwest",
-    "description": "Christmas Northwest is a Greater Seattle holiday lighting company offering premium residential and commercial installations, fast response times, and full-service displays including design, install, maintenance, takedown, and storage.",
+    "description": "Christmas Northwest is a Greater Seattle holiday lighting company offering residential and commercial installations, seasonal support, and full-service displays including design, installation, maintenance, takedown, and storage.",
     "url": "https://christmasnw.com/about",
     "telephone": "+14252150935",
     "email": "christmaslightsnw@gmail.com",
-    "priceRange": "$800-$6,000+",
+    "priceRange": "$800-$4,000+",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kenmore",
@@ -112,10 +113,10 @@ export default function AboutPage() {
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
+      "ratingValue": GOOGLE_RATING,
       "bestRating": "5",
-      "reviewCount": "85",
-      "ratingCount": "85"
+      "reviewCount": GOOGLE_REVIEW_COUNT,
+      "ratingCount": GOOGLE_REVIEW_COUNT
     }
   };
 
@@ -123,7 +124,7 @@ export default function AboutPage() {
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="About Christmas Northwest | Holiday Lighting Experts in Greater Seattle"
-        description="Learn about Christmas Northwest, the Greater Seattle holiday lighting team focused on premium installs, fast response times, and stress-free full-service displays."
+        description="Meet Christmas Northwest, a local Greater Seattle team providing Christmas light design, installation, maintenance, takedown, and storage since 2021."
       />
       <StructuredData data={localBusinessSchema} />
       <script
@@ -144,7 +145,7 @@ export default function AboutPage() {
                 Your Trusted Holiday Lighting Experts
               </h1>
               <p className="text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-                We've earned the trust of homeowners across Greater Seattle with premium installations, professional service, and stunning results.
+                We are a local crew focused on clean installations, responsive seasonal support, and straightforward service from quote through takedown.
               </p>
             </div>
 
@@ -175,7 +176,7 @@ export default function AboutPage() {
                 Our Story
               </h2>
               <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
-                From humble beginnings to serving hundreds of homes, Christmas Northwest has grown into Greater Seattle's trusted holiday lighting partner.
+                Founded in 2021, Christmas Northwest has grown through repeat customers, referrals, and projects across Greater Seattle.
               </p>
             </div>
 
@@ -198,10 +199,10 @@ export default function AboutPage() {
                     Christmas Northwest was founded on a simple belief: every home deserves a beautiful, professionally installed holiday lighting display that brings joy without the hassle.
                   </p>
                   <p>
-                    We've had the privilege of serving homeowners across Greater Seattle. Our team combines technical expertise with artistic vision to create stunning displays that transform ordinary homes into extraordinary holiday showcases.
+                    We serve homeowners across Greater Seattle with fitted rooflines, tree wrapping, landscape lighting, and larger custom displays.
                   </p>
                   <p>
-                    What sets us apart is our commitment to quality and speed. Installations are completed within a week of booking, using only commercial-grade LED lights and premium materials. We're fully licensed, bonded, and insured, giving you complete peace of mind.
+                    We use commercial-grade LED products and confirm scheduling before each project. Christmas Northwest is licensed, bonded, and insured.
                   </p>
                   <p className="font-semibold text-foreground">
                     From design consultation to professional takedown and storage, we handle every detail so you can simply enjoy the magic of the season.
@@ -258,19 +259,19 @@ export default function AboutPage() {
                     <Users className="w-8 h-8 text-primary" />
                   </div>
                   <div className="text-2xl font-bold text-primary mb-2">2023</div>
-                  <div className="font-semibold text-foreground mb-2">5-Star Reviews</div>
+                  <div className="font-semibold text-foreground mb-2">5-Star Service</div>
                   <div className="text-sm text-muted-foreground">
-                    Earned 85+ five-star Google reviews from happy customers
+                    Built a strong reputation for responsive service and polished installations
                   </div>
                 </Card>
                 <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-3">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Award className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="text-2xl font-bold text-primary mb-2">2024</div>
-                  <div className="font-semibold text-foreground mb-2">5-Star Excellence</div>
+                  <div className="text-2xl font-bold text-primary mb-2">{CURRENT_SEASON_YEAR}</div>
+                  <div className="font-semibold text-foreground mb-2">Season {CURRENT_SEASON_NUMBER}</div>
                   <div className="text-sm text-muted-foreground">
-                    Achieved 85+ five-star reviews and industry-leading customer satisfaction
+                    Entering season {CURRENT_SEASON_NUMBER} with {GOOGLE_REVIEW_COUNT} Google reviews and service across Greater Seattle
                   </div>
                 </Card>
               </div>
@@ -354,7 +355,7 @@ export default function AboutPage() {
                 Why Choose Christmas Northwest?
               </h2>
               <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
-                We combine years of experience with premium materials and professional service to deliver exceptional results.
+                Commercial-grade materials, careful installation, and responsive support throughout the season.
               </p>
             </div>
             
@@ -384,10 +385,10 @@ export default function AboutPage() {
         <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
-              Ready to Transform Your Home?
+              Ready to Plan Your Display?
             </h2>
             <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
-              Join hundreds of satisfied homeowners across Greater Seattle. Get your free quote today and experience the Christmas Northwest difference.
+              Tell us what you want to light and we will follow up with options, availability, and a custom estimate.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 

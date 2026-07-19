@@ -43,7 +43,7 @@ export default function Services({ services, onLearnMore }: ServicesProps) {
     {
       icon: Award,
       title: "Proven Excellence",
-      description: "Now in our 4th season serving 300+ homes annually with 5-star service. Homeowners who value quality trust us year after year."
+      description: "A local team serving Greater Seattle with repeat customers, verified Google reviews, and season-long support."
     }
   ];
 

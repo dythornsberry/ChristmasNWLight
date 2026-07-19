@@ -12,19 +12,10 @@ import { useLocation } from "wouter";
 
 import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
 import signaturePhoto from '@assets/2024-11-11-2-min_1762058047476.jpg';
-import premierPhoto from '@assets/2024-12-03-min_1762058047476.jpg';
 import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
+import largeCustomDisplay from '@assets/optimized/portfolio-yard.webp';
 import redTreeSnowmen from '@assets/2024-11-28-2-min_1762058047476.jpg';
 import uniqueArchitecture from '@assets/2024-12-25-min_1762058047476.jpg';
-import purpleHalloweenHouse from '@assets/IMG_5468-min_1762396975618.jpeg';
-import halloweenShowcase from '@assets/IMG_5469-min_1764000951410.jpeg';
-import multicolorPeaksColumns from '@assets/2025-09-04-min_1762058047477.jpg';
-import multicolorRoofline from '@assets/49563b654a08482eca22f0a3090b7ad0.jpg_1762395736248.webp';
-import truckInstallHome from '@assets/2024-11-12-3_1762398937574.jpg';
-import redColumnAccents from '@assets/a885e41a3786af553f91476ed6121d32.jpg-2_1762395700253.webp';
-import rooflineWrappedTrees from '@assets/IMG_7339-min_1763866884565.jpeg';
-import multicolorTreeHouse from '@assets/IMG_6617-min_optimized.webp';
-import stunningEstate from '@assets/2023-12-07-2_optimized.webp';
 
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();
@@ -42,42 +33,42 @@ export default function InvestmentGuide() {
   const pricingTiers = [
     {
       id: 1,
-      name: "Example 1",
-      range: "~$900",
+      name: "Clean Roofline",
+      range: "Starting at $800",
       icon: Home,
       image: modernTwoStoryRoofline,
-      description: "Clean roofline lighting in Bothell",
+      description: "A straightforward roofline with easy access",
       includes: [],
       ideal: ""
     },
     {
       id: 2,
-      name: "Example 2",
-      range: "~$2,000",
+      name: "Roofline + Accents",
+      range: "$1,500–$1,800",
       icon: Building2,
       image: signaturePhoto,
       popular: true,
-      description: "Roofline with wreath, bushes, archway, mistletoe pattern in Bothell",
+      description: "Roofline plus selected wreath, entry, bush, or small-tree accents",
       includes: [],
       ideal: ""
     },
     {
       id: 3,
-      name: "Example 3",
-      range: "~$3,500",
+      name: "Full-Property Display",
+      range: "$2,500–$3,500",
       icon: Sparkles,
       image: warmWhiteBushEstate,
-      description: "Full roofline with dozens of wrapped trees and bushes in Bellevue",
+      description: "Broader roofline coverage with multiple landscape or tree elements",
       includes: [],
       ideal: ""
     },
     {
       id: 4,
-      name: "Example 4",
-      range: "$5,000+",
+      name: "Large Custom Display",
+      range: "$4,000+",
       icon: Sparkles,
-      image: halloweenShowcase,
-      description: "Complete Halloween display: roofline, ridgeline, 50+ bushes, columns, garage door",
+      image: largeCustomDisplay,
+      description: "Multi-level rooflines, landscaping, trees, and custom accents",
       includes: [],
       ideal: ""
     }
@@ -106,7 +97,7 @@ export default function InvestmentGuide() {
       <UrgencyBanner />
       <PageHead 
         title="Christmas Light Installation Pricing | Christmas Northwest"
-        description="Transparent Christmas light installation pricing in Greater Seattle. Real examples from $800 to $6,000+. All-inclusive: installation, maintenance, takedown, storage, and easy rebooking support."
+        description="Transparent Christmas light installation pricing in Greater Seattle. Compare common project scopes from $800 rooflines to $4,000+ custom displays. Installation, maintenance, takedown, and storage included."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
       
@@ -128,12 +119,12 @@ export default function InvestmentGuide() {
             </p>
             <div className="mx-auto mb-5 grid max-w-3xl grid-cols-3 gap-2 rounded-lg border border-white/20 bg-white/10 p-2 text-primary-foreground shadow-2xl backdrop-blur md:mb-6 md:gap-3 md:p-3">
               <div className="rounded-md bg-white/10 px-2 py-2 md:px-4 md:py-3">
-                <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Most homes</p>
-                <p className="text-sm font-black sm:text-lg md:text-xl">$900-$2,500</p>
+                <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Typical projects</p>
+                <p className="text-sm font-black sm:text-lg md:text-xl">$800-$3,500</p>
               </div>
               <div className="rounded-md bg-white/10 px-2 py-2 md:px-4 md:py-3">
-                <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Premium</p>
-                <p className="text-sm font-black sm:text-lg md:text-xl">$3,500+</p>
+                <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Large custom</p>
+                <p className="text-sm font-black sm:text-lg md:text-xl">$4,000+</p>
               </div>
               <div className="rounded-md bg-white/10 px-2 py-2 md:px-4 md:py-3">
                 <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Quote</p>
@@ -170,7 +161,7 @@ export default function InvestmentGuide() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
             {pricingTiers.map((tier) => (
               <div
                 key={tier.id}
@@ -200,103 +191,6 @@ export default function InvestmentGuide() {
             ))}
           </div>
 
-          <div className="mt-16 pt-16 border-t-2 border-border">
-            <h3 className="font-serif text-3xl font-bold text-foreground mb-12 text-center">
-              More Real Examples
-            </h3>
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Multicolor Peaks and Columns */}
-              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-1">
-                <WatermarkedImage
-                  src={multicolorPeaksColumns}
-                  alt="Multicolor peaks and columns example"
-                  className="h-full w-full"
-                  enableLightbox={true}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 className="font-serif text-lg font-bold text-white mb-1">Multicolor Peaks</h4>
-                  <p className="text-2xl font-black text-amber-400">$1,600</p>
-                </div>
-              </div>
-
-              {/* Wrapped Trees and Roofline */}
-              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-2">
-                <WatermarkedImage
-                  src={multicolorTreeHouse}
-                  alt="Multicolor tree with roofline"
-                  className="h-full w-full"
-                  enableLightbox={true}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 className="font-serif text-lg font-bold text-white mb-1">Tree & Roofline</h4>
-                  <p className="text-2xl font-black text-amber-400">$3,500</p>
-                </div>
-              </div>
-
-              {/* Warm White Ridges and Rooflines */}
-              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-3">
-                <WatermarkedImage
-                  src={multicolorRoofline}
-                  alt="Warm white ridges and rooflines"
-                  className="h-full w-full"
-                  enableLightbox={true}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 className="font-serif text-base font-bold text-white mb-1">Warm White Roofline & Ridges (Gingerbread style)</h4>
-                  <p className="text-2xl font-black text-amber-400">$2,500</p>
-                </div>
-              </div>
-
-              {/* Installation in Progress */}
-              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-4">
-                <WatermarkedImage
-                  src={truckInstallHome}
-                  alt="Installation in progress"
-                  className="h-full w-full"
-                  enableLightbox={true}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 className="font-serif text-lg font-bold text-white mb-1">Red & White Basics</h4>
-                  <p className="text-2xl font-black text-amber-400">$1,000</p>
-                </div>
-              </div>
-
-              {/* Red Column Accents */}
-              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-5">
-                <WatermarkedImage
-                  src={redColumnAccents}
-                  alt="Red and warm white column accents"
-                  className="h-full w-full"
-                  enableLightbox={true}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 className="font-serif text-lg font-bold text-white mb-1">Red Column Accents</h4>
-                  <p className="text-2xl font-black text-amber-400">$1,500</p>
-                </div>
-              </div>
-
-              {/* Estate with Trees and Columns */}
-              <div className="relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group" data-testid="card-additional-6">
-                <WatermarkedImage
-                  src={stunningEstate}
-                  alt="Estate with trees and columns"
-                  className="h-full w-full"
-                  enableLightbox={true}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <h4 className="font-serif text-lg font-bold text-white mb-1">Estate Trees & Columns</h4>
-                  <p className="text-2xl font-black text-amber-400">$3,200</p>
-                </div>
-              </div>
-            </div>
-          </div>
-
           <Card className="mt-12 p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-gold/20 max-w-3xl mx-auto">
             <p className="text-base text-center text-muted-foreground leading-relaxed">
               <strong className="text-foreground">Every home is unique.</strong> These are real customer examples to show transparent pricing. Your home may cost more or less depending on size, roof complexity, and how much coverage you want. A small home with a steep roof may cost more than a larger single-story home. Your custom quote is based on your specific property.
@@ -324,10 +218,10 @@ export default function InvestmentGuide() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Understanding Price Per Unit
+              How Custom Quotes Are Built
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Here's how we break down costs for the most common installation types
+              Roof access, footage, trees, and labor determine the final scope and price
             </p>
           </div>
 
@@ -412,7 +306,7 @@ export default function InvestmentGuide() {
                     <p className="text-lg font-bold text-primary mt-1">~$275</p>
                   </div>
                   <div className="border-t border-border pt-3">
-                    <p className="font-semibold text-sm text-foreground">Large Maple or Pine (Magazine Quality)</p>
+                    <p className="font-semibold text-sm text-foreground">Large Maple or Pine (Dense Full Wrap)</p>
                     <p className="text-xs text-muted-foreground">25-30 ft tall, all branches wrapped, 30 strands × 74 lights = 2,220 total lights</p>
                     <p className="text-lg font-bold text-accent mt-1">$1,650+</p>
                   </div>
@@ -430,9 +324,9 @@ export default function InvestmentGuide() {
                 <DollarSign className="w-8 h-8 text-primary" />
               </div>
               <div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Why Professional Installation Adds Value</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">Why Tree Wrapping Costs More</h3>
                 <p className="text-base text-foreground leading-relaxed">
-                  DIY mini light installation looks easy until you're climbing ladders in December wrapping branches. Professional installation with proper equipment, safety measures, and efficient labor delivers results that are worth every dollar. Plus you avoid rentals, product waste, storage headaches, and the risk of injury.
+                  Tree wrapping is detailed ladder work. The quote accounts for setup, safe access, even spacing, testing, takedown, and the equipment required for taller trees.
                 </p>
               </div>
             </div>
@@ -448,7 +342,7 @@ export default function InvestmentGuide() {
               What Affects Your Investment
             </h2>
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Understanding these factors helps you plan your perfect display
+              These are the main variables we review before preparing your estimate
             </p>
           </div>
 
@@ -484,7 +378,7 @@ export default function InvestmentGuide() {
         <div className="max-w-5xl mx-auto px-6">
           <div className="text-center mb-16">
             <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Why Our Pricing Delivers Exceptional Value
+              What Your Quote Includes
             </h2>
           </div>
 
@@ -553,7 +447,7 @@ export default function InvestmentGuide() {
                 Save Time, Money, and Hassle
               </h3>
               <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                When you factor in ladder rentals, product costs, storage solutions, your time, and the risk of injury, professional installation delivers exceptional value. Most clients save money compared to DIY while getting a superior result with zero stress.
+                Your quote covers the agreed design, installation labor, commercial-grade products, seasonal maintenance, January takedown, and storage. You receive one project price instead of separate charges for each visit.
               </p>
             </div>
           </Card>

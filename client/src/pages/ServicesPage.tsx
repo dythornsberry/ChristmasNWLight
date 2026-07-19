@@ -20,6 +20,7 @@ import customImage from '@assets/img16_1761853506444.webp';
 import treeImage from '@assets/img9_1761853506444_feature.webp';
 import maintenanceImage from '@assets/img8_1761853506443.webp';
 import { useLocation } from "wouter";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 
 export default function ServicesPage() {
   const [, setLocation] = useLocation();
@@ -38,7 +39,7 @@ export default function ServicesPage() {
     {
       icon: Home,
       title: "Residential Roofline Installations",
-      description: "Transform your home's exterior with expertly installed roofline lighting. We use color-matched clips, hidden wiring, and premium LED lights to create a clean, professional look that enhances your home's architecture. Perfect for traditional or modern homes.",
+      description: "We install commercial-grade LED lights along rooflines, peaks, and gutters using color-matched clips and carefully routed wiring. The layout is designed around your home's architecture and your preferred colors.",
       features: [
         "Custom color selection (warm white, pure white, multicolor)",
         "Professional-grade mounting hardware",
@@ -52,13 +53,13 @@ export default function ServicesPage() {
     {
       icon: TreePine,
       title: "Tree & Greenery Wrapping",
-      description: "Bring your outdoor trees, bushes, and greenery to life with elegant wrapped lighting. Our expert installers carefully wrap each branch to create a magical glow that highlights your landscaping. Ideal for evergreens, deciduous trees, and decorative shrubs.",
+      description: "We wrap trunks, branches, bushes, and other landscape features at a consistent spacing. Density and color are planned to coordinate with the roofline and the scale of the property.",
       features: [
         "Precision branch-by-branch wrapping",
         "Customizable density and pattern",
         "Multiple color options available",
         "Safe installation without damage",
-        "Stunning day and night appearance"
+        "Clean, consistent spacing"
       ],
       image: treeImage,
       startingPrice: "$300+"
@@ -66,7 +67,7 @@ export default function ServicesPage() {
     {
       icon: Building2,
       title: "Commercial Displays",
-      description: "Make your business stand out this holiday season with professional commercial lighting installations. We work with retail stores, office buildings, restaurants, and property management companies to create impressive displays that attract customers and enhance your brand.",
+      description: "We design and install seasonal lighting for retail spaces, offices, restaurants, and managed properties. Scheduling and maintenance are coordinated to limit disruption to customers, tenants, and staff.",
       features: [
         "Large-scale installation capability",
         "Brand-aligned color schemes",
@@ -80,7 +81,7 @@ export default function ServicesPage() {
     {
       icon: Sparkles,
       title: "Custom Design Packages",
-      description: "Create a one-of-a-kind holiday display with our custom design services. From elaborate roofline patterns to ground displays, wreaths, garland, pathway lighting, and specialty features, we'll bring your unique vision to life with premium materials and expert installation.",
+      description: "Custom projects can combine rooflines, ground displays, wreaths, garland, pathway lights, and landscape lighting. We turn your priorities into one coordinated plan and quote.",
       features: [
         "Personalized design consultation",
         "Combination of multiple elements",
@@ -94,9 +95,9 @@ export default function ServicesPage() {
     {
       icon: Wrench,
       title: "Maintenance & Takedown",
-      description: "Enjoy worry-free holidays with our maintenance and takedown services. We handle bulb replacements, troubleshooting, and repairs throughout the season. When the holidays end, we professionally remove, organize, and store your lights in climate-controlled facilities.",
+      description: "Seasonal bulb replacement and troubleshooting are included while your display is installed. After the holidays, we remove, label, organize, and store the lighting for the next season.",
       features: [
-        "24/7 seasonal availability for repairs",
+        "Seasonal repair support",
         "Quick bulb and section replacement",
         "Careful removal to prevent damage",
         "Organized labeling and storage",
@@ -155,7 +156,7 @@ export default function ServicesPage() {
     "url": "https://christmasnw.com/services",
     "telephone": "+14252150935",
     "email": "christmaslightsnw@gmail.com",
-    "priceRange": "$800-$6,000+",
+    "priceRange": "$800-$4,000+",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kenmore",
@@ -190,8 +191,8 @@ export default function ServicesPage() {
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "85"
+      "ratingValue": GOOGLE_RATING,
+      "reviewCount": GOOGLE_REVIEW_COUNT
     },
     "sameAs": [
       "https://www.facebook.com/ChristmasNW",
@@ -230,10 +231,10 @@ export default function ServicesPage() {
                 Professional Holiday Lighting Services
               </h1>
               <p className="mb-4 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-                From residential rooflines to commercial displays, we offer comprehensive holiday lighting solutions designed to transform your property and exceed your expectations.
+                Choose roofline lighting, tree and greenery wrapping, commercial displays, or a custom combination. Every project includes design, installation, seasonal maintenance, takedown, and storage.
               </p>
               <p className="text-base font-semibold text-primary sm:text-lg">
-                Starting at $800 for residential installations
+                Residential projects start around $800
               </p>
               <Button 
                 onClick={scrollToQuote}
@@ -427,7 +428,7 @@ export default function ServicesPage() {
                   How long does installation take?
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
-                  Most residential roofline installations are completed within 2-4 hours. Larger homes or custom design packages may take 4-8 hours depending on complexity. We work efficiently to minimize disruption to your day, and most projects are scheduled within a week of booking.
+                  Many residential roofline installations are completed in a single visit. Larger homes and custom designs take longer. Your quote will include the expected installation scope, and we confirm the available date before booking.
                 </AccordionContent>
               </AccordionItem>
 

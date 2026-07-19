@@ -14,15 +14,16 @@ import Footer from "@/components/Footer";
 import PageHead from "@/components/PageHead";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import StructuredData from "@/components/StructuredData";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 import { TrendingUp, Users, Award, Clock } from "lucide-react";
-import completeHolidayScene from '@assets/2024-12-03-min_1762058047476.jpg';
-import familyHolidayTradition from '@assets/2024-11-17-3-min_1762058047475.jpg';
-import premiumCustomDisplay from '@assets/2025-10-28-min_1762058047476.jpg';
-import strikingNightDisplay from '@assets/2025-09-04-min_1762058047477.jpg';
-import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
-import gableWreathHome from '@assets/2023-12-22-3_1762398937574.jpg';
-import beforeImage from '@assets/c641dcd4-0863-4aee-af16-36343abfeba4-min_1762397866171_optimized.webp';
-import afterImage from '@assets/IMG_5469-min_1762397650439_optimized.webp';
+import completeHolidayScene from '@assets/optimized/portfolio-yard.webp';
+import familyHolidayTradition from '@assets/optimized/portfolio-family.webp';
+import premiumCustomDisplay from '@assets/optimized/portfolio-trees.webp';
+import strikingNightDisplay from '@assets/optimized/portfolio-multicolor.webp';
+import warmWhiteBushEstate from '@assets/optimized/portfolio-warm-white.webp';
+import gableWreathHome from '@assets/optimized/portfolio-gables.webp';
+import beforeImage from '@assets/optimized/before-home.webp';
+import afterImage from '@assets/optimized/after-home.webp';
 
 export default function Home() {
   const googleReviewsUrl = "https://share.google/lxhOxXmbPwABIqdNa";
@@ -30,15 +31,15 @@ export default function Home() {
   const stats = [
     {
       icon: Award,
-      number: "4.9",
+      number: GOOGLE_RATING,
       label: "Google Rating",
-      description: "92 reviews from real Seattle homeowners"
+      description: `${GOOGLE_REVIEW_COUNT} reviews from real Seattle homeowners`
     },
     {
       icon: Clock,
       number: "24hr",
       label: "Response Time",
-      description: "Quick replies and same-week repairs"
+      description: "Quick replies throughout the season"
     },
     {
       icon: TrendingUp,
@@ -48,9 +49,9 @@ export default function Home() {
     },
     {
       icon: Users,
-      number: "100%",
-      label: "Satisfaction",
-      description: "We fix any issues at no extra cost"
+      number: "Season-long",
+      label: "Maintenance",
+      description: "Repairs are included while your display is up"
     }
   ];
 
@@ -80,7 +81,7 @@ export default function Home() {
     "logo": "https://christmasnw.com/logo.png",
     "telephone": "+14252150935",
     "email": "christmaslightsnw@gmail.com",
-    "priceRange": "$800-$6,000+",
+    "priceRange": "$800-$4,000+",
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kenmore",
@@ -119,10 +120,10 @@ export default function Home() {
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "4.9",
+      "ratingValue": GOOGLE_RATING,
       "bestRating": "5",
-      "reviewCount": "92",
-      "ratingCount": "92"
+      "reviewCount": GOOGLE_REVIEW_COUNT,
+      "ratingCount": GOOGLE_REVIEW_COUNT
     },
     "serviceType": [
       "Christmas light installation",
@@ -143,7 +144,7 @@ export default function Home() {
     <div className="min-h-screen pb-24 md:pb-0">
       <PageHead
         title="Christmas Light Installation in Seattle & the Eastside | Christmas Northwest"
-        description="Premium Christmas light installation for Seattle, Bellevue, Kirkland, Bothell, Kenmore, Woodinville, and nearby areas. Design, installation, maintenance, takedown, and storage included."
+        description="Full-service Christmas light installation for Seattle, Bellevue, Kirkland, Bothell, Kenmore, Woodinville, and nearby areas. Design, installation, maintenance, takedown, and storage included."
       />
       <StructuredData data={localBusinessSchema} />
       <UrgencyBanner />

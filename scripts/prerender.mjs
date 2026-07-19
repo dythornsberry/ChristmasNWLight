@@ -34,6 +34,13 @@ const ROUTES = [
   "/product-guide",
   "/investment-guide",
   "/blog",
+  "/blog/christmas-lighting-trends-2026",
+  "/blog/warm-white-vs-multicolor-lights",
+  "/blog/professional-christmas-light-installation-guide",
+  "/blog/book-christmas-lights-september",
+  "/blog/christmas-light-installation-safety",
+  "/blog/how-much-does-christmas-light-installation-cost",
+  "/privacy-policy",
   "/bellevue",
   "/kirkland",
   "/seattle",
@@ -149,6 +156,27 @@ async function prerender() {
 
       // Give a moment for PageHead useEffect to fire and update <head>
       await page.evaluate(() => new Promise((r) => setTimeout(r, 500)));
+
+      // Client-rendered adjacent text nodes are separate in the live DOM, but
+      // HTML serialization merges them. React's server renderer uses empty
+      // comments to preserve those boundaries for hydration, so add the same
+      // separators before saving the snapshot.
+      await page.evaluate(() => {
+        const root = document.getElementById("root");
+        if (!root) return;
+
+        const parents = [root, ...root.querySelectorAll("*")];
+        for (const parent of parents) {
+          let child = parent.firstChild;
+          while (child?.nextSibling) {
+            const next = child.nextSibling;
+            if (child.nodeType === Node.TEXT_NODE && next.nodeType === Node.TEXT_NODE) {
+              parent.insertBefore(document.createComment(""), next);
+            }
+            child = next;
+          }
+        }
+      });
 
       // Get the full HTML
       let html = await page.content();

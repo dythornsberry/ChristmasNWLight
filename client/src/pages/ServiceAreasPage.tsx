@@ -88,7 +88,7 @@ export default function ServiceAreasPage() {
                 Serving Greater Seattle
               </h1>
               <p className="mb-6 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-                Christmas Northwest proudly serves homeowners and businesses throughout Greater Seattle and the Eastside. Based in Kenmore with our warehouse in Woodinville, we bring premium holiday lighting to communities across Bellevue, Kirkland, Redmond, Bothell, Sammamish, and surrounding areas.
+                Based in Kenmore with our warehouse in Woodinville, we install and maintain Christmas lighting throughout Greater Seattle and the Eastside.
               </p>
               <Button 
                 onClick={scrollToQuote}
@@ -109,7 +109,7 @@ export default function ServiceAreasPage() {
                 Primary Service Areas
               </h2>
               <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
-                We focus on delivering exceptional service to these core communities where we've built strong relationships with hundreds of homeowners.
+                These communities are closest to our regular installation routes and service team.
               </p>
             </div>
             
@@ -191,7 +191,7 @@ export default function ServiceAreasPage() {
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                   <div>
                     <div className="font-semibold text-foreground">Great news! We serve your area.</div>
-                    <div className="text-sm text-muted-foreground">Get your free quote today and join hundreds of satisfied homeowners.</div>
+                    <div className="text-sm text-muted-foreground">Request a free quote and we will confirm availability for your address.</div>
                     <Button 
                       onClick={scrollToQuote}
                       className="mt-3 w-full sm:w-auto"
@@ -232,6 +232,7 @@ export default function ServiceAreasPage() {
                 className="h-[360px] w-full sm:h-[480px] md:h-[600px]"
                 style={{ border: 0 }}
                 loading="lazy"
+                title="Christmas Northwest service territory map"
                 data-testid="map-service-areas"
               />
             </div>
@@ -242,7 +243,7 @@ export default function ServiceAreasPage() {
                 We Also Serve
               </h3>
               <p className="text-muted-foreground max-w-3xl mx-auto mb-8">
-                In addition to our primary service areas, we extend our premium holiday lighting services to the following communities.
+                We also schedule projects in the following communities when route capacity allows.
               </p>
             </div>
             
@@ -309,7 +310,7 @@ export default function ServiceAreasPage() {
 
         <InternalLinksSection
           title="Explore Nearby Pages"
-          description="These pages help visitors move from service-area research into trust-building content and quote-ready pages."
+          description="Browse nearby service areas, compare lighting options, or request a quote for your property."
           links={[
             {
               href: "/kenmore",
@@ -319,7 +320,7 @@ export default function ServiceAreasPage() {
             {
               href: "/kirkland",
               label: "Kirkland Lighting",
-              description: "Browse a local landing page built for one of our core Eastside markets.",
+              description: "See Christmas lighting coverage and project options for one of our core Eastside service areas.",
             },
             {
               href: "/services",
@@ -341,7 +342,7 @@ export default function ServiceAreasPage() {
               Ready to Light Up Your Home?
             </h2>
             <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
-              Serving hundreds of homes across Greater Seattle. Get your free quote today and join your neighbors in creating a stunning holiday display.
+              Tell us where the property is and what you want to light. We will confirm coverage, availability, and next steps.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 

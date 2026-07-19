@@ -29,7 +29,7 @@ export default function Portfolio({ items }: PortfolioProps) {
             Our Work
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-            Premium installations that transform homes into holiday showcases
+            Selected Christmas light installations completed by our local team
           </p>
         </div>
         
@@ -90,7 +90,7 @@ export default function Portfolio({ items }: PortfolioProps) {
             <ArrowRight className="w-5 h-5 ml-3" />
           </Button>
           <p className="text-base text-muted-foreground mt-4">
-            Explore 50+ premium installations with category filtering
+            Explore 50+ installations with category filtering
           </p>
         </div>
       </div>

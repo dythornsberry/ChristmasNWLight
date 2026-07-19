@@ -1,3 +1,5 @@
+import { CURRENT_SEASON_NUMBER } from "@/lib/business";
+
 interface AboutProps {
   teamImage: string;
 }
@@ -35,7 +37,7 @@ export default function About({ teamImage }: AboutProps) {
                 Imagine stepping outside to a beautifully lit home after a long day. No more tangled lights or risky ladder climbs. Just a stunning holiday display designed for ultimate enjoyment.
               </p>
               <p>
-                Now in our fourth season, Christmas Northwest has earned the trust of hundreds of homes every year across Greater Seattle. We transform tired holiday displays into stunning, low-maintenance showcases with expert installations completed within a week of booking.
+                Now entering season {CURRENT_SEASON_NUMBER}, Christmas Northwest has earned the trust of homeowners across Greater Seattle. We transform tired holiday displays into stunning, low-maintenance showcases with expert installations completed within a week of booking.
               </p>
               <p>
                 Our holiday lighting contractors provide everything from beautiful roofline and tree installations to full-scale custom designs that completely transform your property. Whatever your needs, our team will work efficiently to minimize disruptions and deliver results that exceed your expectations.

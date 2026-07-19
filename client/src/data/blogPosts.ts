@@ -10,12 +10,19 @@ export interface BlogPost {
   metaDescription: string;
 }
 
+export function formatBlogDate(value: string, format: "short" | "long" = "short") {
+  const date = new Date(`${value}T12:00:00`);
+  return date.toLocaleDateString("en-US", format === "long"
+    ? { month: "long", day: "numeric", year: "numeric" }
+    : { month: "short", day: "numeric", year: "numeric" });
+}
+
 export const blogPosts: BlogPost[] = [
   {
     id: 1,
     title: "Top 5 Christmas Lighting Trends for 2026",
     slug: "christmas-lighting-trends-2026",
-    excerpt: "Discover the hottest holiday lighting trends that will make your home the star of the neighborhood this season.",
+    excerpt: "Five lighting approaches we expect to see more often in Seattle-area installations this season.",
     category: "Trends",
     publishDate: "2026-01-15",
     readTime: "5 min read",
@@ -27,7 +34,7 @@ The holiday season is almost here, and homeowners across the Greater Seattle are
 
 Forget the days of multicolor chaos. The biggest trend we're seeing this year is sophisticated all-white displays that create texture through placement and bulb variety. Think warm white C9 bulbs along the roofline, paired with cool white mini lights in the trees and bushes. The contrast creates depth without feeling busy.
 
-We've installed dozens of these displays in Bellevue and Kirkland already, and the results are stunning. One client in Juanita combined warm white icicle lights with cool white net lights on their shrubs. The layered effect looks like a winter wonderland, especially when it snows.
+Mixing warm white roofline bulbs with a second texture on shrubs or trees can add depth without adding more colors. The effect is easiest to control when each layer has a clear purpose.
 
 ## 2. Icicle and Cascading Effects
 
@@ -49,7 +56,7 @@ This approach works especially well on newer homes in areas like Downtown Bellev
 
 ## 5. Sustainable and Long-Lasting Materials
 
-Homeowners are getting smarter about their lighting investments. There's growing interest in commercial-grade LEDs that will last 10+ seasons rather than drugstore strings that fail after two years.
+Commercial-grade LEDs are built for repeated outdoor use and are easier for an installation team to service than mixed consumer-grade strands.
 
 Yes, the upfront cost is higher. But when you factor in replacement costs, energy savings, and the hassle of dealing with burnouts mid-season, quality LEDs pay for themselves. Plus, they're better for the environment.
 
@@ -59,7 +66,7 @@ You don't need to follow every trend. Pick one or two that match your home's sty
 
 The most important thing? Professional installation. Even the best lights look terrible if they're crooked, uneven, or fall down in the first windstorm. That's where we come in.
 
-Ready to make your home the star of the neighborhood this season? We're booking installations now for the Greater Seattle area, with priority dates going fast.
+If you are planning a display for this season, choose the ideas that fit your home and ask for a quote early enough to compare design and scheduling options.
     `
   },
   {
@@ -70,7 +77,7 @@ Ready to make your home the star of the neighborhood this season? We're booking 
     category: "Buying Guide",
     publishDate: "2026-01-14",
     readTime: "4 min read",
-    metaDescription: "Warm white vs multicolor Christmas lights: Learn which style fits your home best. Expert advice from Seattle's top holiday lighting professionals.",
+    metaDescription: "Warm white vs multicolor Christmas lights: compare the look, use cases, and tradeoffs of each style for a Seattle-area home.",
     content: `
 One of the first questions we hear from new clients is: "Should I go with warm white lights or multicolor?" It's a bigger decision than you might think. The choice affects your home's curb appeal, your energy bill, and how you'll feel every time you pull into your driveway this December.
 
@@ -150,7 +157,7 @@ Or better yet, work with us to design something custom. We can show you examples
     content: `
 Every October, we get calls from homeowners who spent their weekend on a ladder, got halfway through installing lights, and realized this project is harder than it looks. Or worse, we get calls from someone who finished the installation only to have half the lights fail when they plugged them in.
 
-Professional Christmas light installation isn't just about convenience. It's about safety, reliability, and getting a result that looks like it belongs in a magazine instead of a cautionary tale.
+Professional Christmas light installation is mainly about safety, consistent spacing, reliable outdoor-rated materials, and having one team responsible for seasonal maintenance.
 
 Here's what actually goes into a professional installation.
 
@@ -206,7 +213,7 @@ We respect the DIY spirit. But Christmas light installation has some unique chal
 
 Most homeowners don't own a ladder tall enough for their roofline. Borrowing or renting one is possible, but commercial ladders are expensive and awkward to transport. And if you're not used to working on ladders, especially on an angled roof, it's genuinely dangerous.
 
-Last year, we heard about three separate instances in Kirkland alone where homeowners fell off ladders during DIY installations. One resulted in a broken arm. Not worth it.
+Roof and ladder work carries real fall risk, especially on wet surfaces or multi-story homes. If the work is beyond what you can safely reach and secure, hire an insured professional.
 
 ### The Equipment Issue
 
@@ -233,7 +240,7 @@ In the first year, maybe. But consider:
 
 With professional installation, you're paying for expertise, commercial-grade equipment, liability insurance, and the peace of mind that everything will work perfectly and look great.
 
-Most of our clients spend $800-2,000 for a complete installation depending on home size and complexity. That includes the lights (which we store for you), installation, removal, and storage until next year.
+Residential projects start around $800 for a clean roofline. Roofline-plus-accent projects are commonly $1,500-$1,800, full-property displays are commonly $2,500-$3,500, and large custom displays start around $4,000. Installation, seasonal maintenance, removal, and storage are included.
 
 ## The Storage Benefit Nobody Talks About
 
@@ -257,7 +264,7 @@ Not all installation companies are created equal. Here's what to avoid:
 
 If you have a single-story ranch house with easy roof access and you genuinely enjoy this kind of project, DIY might work fine.
 
-But if you have a two-story home, limited time, or you want a display that looks professionally done, calling in experts makes sense. You'll save time, avoid risk, and end up with results that make your neighbors jealous instead of concerned.
+If you have a two-story home, limited time, or a design that requires several circuits and access points, professional installation can save time and reduce risk.
 
 Ready to skip the ladder and enjoy the holidays? We're booking installations now across the Greater Seattle area.
     `
@@ -266,11 +273,11 @@ Ready to skip the ladder and enjoy the holidays? We're booking installations now
     id: 4,
     title: "Why You Should Book Your Christmas Lights in September (Insider Tips)",
     slug: "book-christmas-lights-september",
-    excerpt: "The early bird really does get the worm. Learn why booking early saves you money and stress.",
+    excerpt: "See how booking earlier affects design time, material choices, and available installation windows.",
     category: "Planning",
     publishDate: "2026-01-12",
     readTime: "6 min read",
-    metaDescription: "Learn why booking Christmas light installation in September guarantees better dates, pricing, and service. Insider tips from Seattle lighting pros.",
+    metaDescription: "Learn why an early Christmas light installation request gives you more scheduling and design options in the Seattle area.",
     content: `
 It's barely autumn, and you're already thinking about Christmas lights? If your first reaction is "isn't it too early?", I have some news that might change your planning strategy forever.
 
@@ -288,7 +295,7 @@ Let me walk you through what happens in the Christmas lighting industry every ye
 
 **Early November:** Rush begins. Everyone who "meant to call earlier" is now calling at once. We're still taking jobs, but you're getting whatever dates we have left, not necessarily the dates you want.
 
-**Mid-November to Thanksgiving:** Panic mode. People calling who assumed we'd have availability and are shocked to learn we're booked through the season. We sometimes squeeze in emergency jobs, but it requires premium pricing and less-than-ideal installation windows.
+**Mid-November to Thanksgiving:** This is usually the tightest part of the calendar. Remaining dates depend on weather, route efficiency, and project size.
 
 **December:** Forget about it. We're doing touch-ups and repairs for existing clients, not taking new installations.
 
@@ -318,23 +325,21 @@ This is what you get when you book in late October. Installation might happen Th
 
 ### December Installation (If You Can Get It)
 
-Only available for emergency situations or if we have a rare cancellation. You're paying a premium, installation might happen in rain or snow, and you get minimal time to enjoy the results.
+December availability varies by year, route, weather, and the size of the requested project. At that point, the remaining installation windows are usually limited.
 
 ## The Pricing Factor
 
-Most companies (including us) offer early booking discounts. The logic is simple: early bookings help us plan our staffing, schedule our crews efficiently, and purchase materials in advance.
-
-Our September bookings typically save 10-15% compared to November pricing. On an $1,200 installation, that's $120-180 back in your pocket. Not insignificant.
+Early booking gives us more time to plan routing, staffing, design details, and material needs. Any seasonal promotion will be stated in your quote rather than assumed.
 
 But even beyond the discount, there's hidden value in early booking:
 
 ### Design Time
 
-When you book early, we can spend real time on custom design. We'll visit your home, sketch out ideas, maybe even mock up different options. In November, we're too busy for that level of service. You get a good installation, but not the white-glove treatment.
+An early inquiry leaves more time to review roofline, landscape, and color options before the installation schedule becomes tight.
 
 ### Material Selection
 
-Book early and you get first choice of our premium inventory. LED colors, specialty bulbs, specific styles, all available. Book late and you get what's left. Most clients don't notice, but if you have a specific vision, early booking ensures we can execute it perfectly.
+Specific colors and specialty products are easier to plan when the request arrives before the busiest installation weeks. Availability is confirmed as part of the quote.
 
 ## What Our September Bookers Get
 
@@ -342,51 +347,23 @@ Let me be specific about the advantages you get when you book with us in Septemb
 
 ### Priority Scheduling
 
-You pick your installation date, within reason. Want it done the weekend after Halloween? No problem. Want to wait until the week after Thanksgiving? Sure, if that's what works for you.
-
-Late bookers get whatever slots remain, which might be "we can fit you in on this Tuesday morning" with no flexibility.
+Earlier customers can choose from more available installation windows. The final date still depends on route planning, weather, and project size.
 
 ### Custom Design Session
 
-We'll spend an hour or more at your property, talking through ideas, showing you options, and creating a lighting plan that's tailored to your home's architecture and your personal style.
+We review your priorities and create a lighting plan tailored to the home's architecture. Earlier inquiries leave more room to compare options before approving the scope.
 
-November bookers get a quick walkthrough and a standard package. Still professional, but not custom.
+### Seasonal Service
 
-### Premium Guarantee
-
-If anything goes wrong during the season (bulb burns out, strand fails, wind damage), you're at the top of our repair schedule. We'll be there within 48 hours, usually sooner.
-
-Late bookers are in the general queue behind our VIP clients.
+If a bulb or section fails while the display is installed, contact us. Service visits are routed by urgency, location, weather, and crew availability.
 
 ### Storage Peace of Mind
 
-When you're an early booker, we tag and inventory your specific setup carefully. Your lights, your clips, your custom configuration, all stored perfectly for next year.
+Your lighting setup is labeled and stored for the next season. That process is included regardless of when you book.
 
-Rush jobs get stored, but with less white-glove treatment.
+## The Practical Difference
 
-## Real Examples from Last Season
-
-Let me share some specific stories from last year that illustrate these points.
-
-**The Bellevue Family (Booked August 29th)**
-
-This family called us in late August, which is extremely early. They got:
-- Installation date of November 2nd (their first choice)
-- Custom design with specialty icicle effects they specifically requested
-- 15% early booking discount
-- First call for any issues (never needed it)
-
-They told us they were the first house lit up on their street and loved being able to enjoy the display through all of November and December.
-
-**The Kirkland Homeowner (Booked November 18th)**
-
-This client called the week before Thanksgiving. We were able to squeeze them in, but:
-- Installation didn't happen until November 27th
-- Standard package only, no custom design
-- Full price, no discount
-- They got about 4.5 weeks of display time before New Year's
-
-Still looked great, but rushed compared to what early bookers got.
+Booking early does not guarantee a specific day or discount. It simply gives you more available windows and more time to settle the design before the busiest part of the season.
 
 ## What If You're Reading This in October or November?
 
@@ -411,13 +388,7 @@ For seasonal Christmas lighting, September booking is the insider move.
 
 ## Bottom Line
 
-Book in September for the best dates, best pricing, best service, and maximum enjoyment time. Book in October for good dates and decent pricing. Book in November if you must, but expect limited availability and premium rates.
-
-The family who books in September gets to enjoy their display from early November through New Year's. The family who waits until Thanksgiving gets a rushed installation and maybe a month of enjoyment.
-
-Which would you rather be?
-
-Ready to lock in your preferred dates for this season? Let's talk.
+September and October generally provide more scheduling flexibility than November. If you have a specific design or date range in mind, request a quote early and we will confirm what is actually available.
     `
   },
   {
@@ -631,39 +602,32 @@ Ready to enjoy a beautiful display without the risks? We're booking now for safe
     readTime: "8 min read",
     metaDescription: "Transparent pricing guide for professional Christmas light installation in Seattle. Real examples, cost factors, and honest pricing ranges for 2026.",
     content: `
-You typed it into Google at 10:30 PM on a Sunday night: "How much does professional Christmas light installation cost?"
-
-Most websites would tell you to call for a quote. We're going to tell you exactly what you need to know right now.
-
-The answer is: It depends. But not in the way you think.
+Professional Christmas light installation is priced around the property, access, and requested coverage. The ranges below provide a useful starting point before a site-specific quote.
 
 ## The Honest Range
 
-For professional Christmas light installation in the Greater Seattle area, you can expect to invest between $800 and $3,500+, depending on your home and what you want.
+For professional Christmas light installation in the Greater Seattle area, projects start around $800 and increase with property size, access, and coverage.
 
-- **Basic installation**: $800-$1,200 for a typical single-story home with roofline and simple tree lighting
-- **Mid-range installation**: $1,200-$2,000 for a two-story home with multiple features, wrapped trees, and landscape accents
-- **Premium installation**: $2,000-$3,500+ for large estates, complex designs, or extensive custom work
+- **Clean roofline**: starting around $800 for a straightforward roofline with easy access
+- **Roofline plus accents**: around $1,500-$1,800 for added wreaths, bushes, or entry features
+- **Full-property display**: around $2,500-$3,500 for broader roofline and landscape coverage
+- **Large custom display**: $4,000+ for extensive rooflines, trees, landscaping, and custom features
 
 That's the real starting point. Now let's talk about what actually drives that price.
 
 ## The Three Cost Factors That Matter
 
-If you understand these three things, you'll understand why Christmas light installation costs what it does. These costs reflect legitimate labor, insurance, and high-quality materials.
+These three variables account for most of the difference between one quote and another.
 
 ### 1. Size of Home or Features ($)
 
 Bigger properties cost more. This is straightforward.
 
-A small cottage with 80 linear feet of roofline? That's maybe 4 strands of lights and 2-3 hours of work. A 3-story estate with 300+ linear feet of roofline? That's 15-20 strands and 6-8 hours of work, plus the complexity of managing that many electrical connections safely.
-
-Same with trees. Wrapping a 12-foot landscaping shrub takes 30 minutes. Wrapping a 40-foot spruce takes 2-3 hours and requires a lift in some cases.
-
-**Real example from Bellevue:** A beautiful estate in the Bellevue area had approximately 150 feet of roofline, 5 wrapped trees, and extensive bush wrapping throughout the landscaping. Total footage: roughly 2,000+ linear feet of lighting coverage. Installation cost: $3,000. The majority of the work was the meticulous bush and hedge wrapping - that takes significantly more time and precision than roofline work alone, which is why this landed at the higher end despite smaller roofline footage.
+More roofline footage requires more product and installation time. Trees and shrubs also vary widely: a small landscape feature can be reached from the ground, while a tall tree may require ladders, a lift, and substantially more wrapping.
 
 ### 2. Roof Steepness ($$)
 
-This one surprises people, but it's the biggest variable in pricing.
+Roof pitch and roofing material can materially affect the quote.
 
 A steep roof isn't just harder to navigate. It's exponentially more dangerous and time-consuming. What takes 2 hours on a gentle roof takes 4-5 hours on a steep roof because:
 
@@ -672,13 +636,11 @@ A steep roof isn't just harder to navigate. It's exponentially more dangerous an
 - **Slower clip placement**: You can't work as fast when you're securing your footing with every step.
 - **Material type matters**: Tile roofs, cedar shake, standing seam metal - each requires different fastening techniques and takes longer.
 
-A flat or low-slope roof (under 4/12 pitch) is straightforward. A medium slope (4/12 to 7/12 pitch) adds complexity. A steep roof (over 7/12 pitch) adds significant complexity and time.
-
-**Real example from Mill Creek:** This home had an 8/12 pitch metal roof with a challenging two-level design. What might cost $600 on a flat roof cost $1,100 on this roof. The difference? The roof pitch added 4 extra hours of work due to safety requirements and slower clip placement. Metal roofs also require different fastening techniques than typical asphalt. That's the price difference right there.
+A low-slope asphalt roof is generally faster to access than a steep, multi-level, tile, cedar, or standing-seam metal roof. We review the actual roof before finalizing the scope.
 
 ### 3. Roof Complexity: Jumper Wires and Connections ($$$)
 
-This is the variable nobody expects, but it's crucial for understanding pricing.
+Separate rooflines, trees, columns, and landscape areas require a coordinated power and routing plan.
 
 A simple design: one roofline strand that plugs into one outlet. That's baseline.
 
@@ -690,37 +652,25 @@ More connection points means:
 - More testing required before completion
 - More potential issues to troubleshoot
 
-We can connect up to 3 light strands together maximum without overloading the circuit. Beyond that, you need to split the load across multiple outlets. Every time you need to add a new outlet or reroute a connection, that's extra labor.
+The electrical plan depends on the product specifications, total load, outlet locations, and available circuits. Larger displays may need multiple zones and more routing and testing time.
 
-**Real example from Sammamish:** A two-story home wanted comprehensive lighting: roofline (split into 3 sections), wrapped trees (4 of them), column wraps (6 columns), and landscape lighting (12 separate accent lights). The sheer number of electrical connections needed to safely power all this took an extra 3 hours beyond the basic installation time. Installation cost: $2,100. A simpler version of the same home would have been $1,200.
+## Four Common Project Scopes
 
-## Real Seattle Examples with Actual Pricing
+These four scopes match the examples on our pricing page and make it easier to compare levels of coverage:
 
-Let me give you three real examples from homes we installed last year. Locations and client names changed for privacy, but the scope and pricing are accurate.
+### Clean Roofline — Starting Around $800
+A fitted roofline on a smaller or straightforward home, with installation, maintenance, takedown, and storage included.
 
-### Example 1: Sammamish Two-Story Home
-**Property:** 2-story residential, approximately 200 linear feet of roofline, 4/12 roof pitch, standard asphalt shingles
-**Design:** Warm white C9 roofline, 2 wrapped trees, basic landscape lighting
-**Installation Time:** 5 hours
-**Cost:** ~$1,400
+### Roofline + Accents — Around $1,500-$1,800
+Roofline lighting plus selected features such as a wreath, entry detail, bushes, or a small tree.
 
-Why this price? Moderate complexity, single roof pitch, straightforward design. Two strands on the roof, power to the trees, simple electrical layout.
+### Full-Property Display — Around $2,500-$3,500
+Broader roofline coverage combined with multiple landscape or tree elements across the front of the property.
 
-### Example 2: Bothell Contemporary Home
-**Property:** 2-story, approximately 250 linear feet of roofline, 6/12 pitch, tile roof
-**Design:** Warm white roofline, 3 wrapped trees, column wraps on entry (6 columns), landscape accents
-**Installation Time:** 7.5 hours
-**Cost:** ~$2,100
+### Large Custom Display — $4,000+
+Multi-level rooflines, extensive tree or landscape wrapping, specialty access, or several coordinated display zones.
 
-Why this price? Tile roof added complexity (longer fastening time). Steeper pitch required more safety time. Three electrical zones due to the number of features. More labor time = higher cost.
-
-### Example 3: Clyde Hill Estate
-**Property:** Large home, 320+ linear feet of roofline, complex design across two levels, 7/12 pitch
-**Design:** Warm white comprehensive display with multiple wrapped trees and wrapped bushes throughout the landscaping
-**Installation Time:** 10 hours across 2 days
-**Cost:** ~$3,500
-
-Why this price? Large footage, steep roof, complex multi-level design. The extensive bush and tree wrapping required meticulous placement and precise electrical management. Multiple electrical zones due to the number of lighting features. Total lighting coverage exceeded 2,000 linear feet. Complex roof pitch required careful planning and safety measures. This represents a premium installation with extensive features across a challenging property.
+The exact quote can move up or down based on footage, access, roof material, tree size, and the amount of detail requested.
 
 ## What's Included in Our Pricing
 
@@ -763,23 +713,17 @@ When you book with us, the investment includes:
 
 ## Why This Matters: The Transparency Principle
 
-You searched for this answer at 10:30 PM because you wanted to know what to expect. Maybe you're trying to budget. Maybe you want to compare us to other companies. Maybe you're wondering if DIY makes sense.
-
-Most contractors won't tell you their pricing upfront. They make you call for a quote, schedule a consultation, and then reveal numbers. That puts YOU at a disadvantage. You have to negotiate, decide under pressure, or feel like you're being sold rather than served.
-
-We believe pricing should be transparent. You deserve to know what you're paying for and why.
+Published ranges help you decide whether a professional installation fits your budget. Your written quote should still identify the agreed coverage and what is included after the season.
 
 ## The Real Question: Is Professional Installation Worth It?
 
-If you're asking "Can I save money with DIY?", technically yes, maybe $500-1,000 depending on your setup.
+DIY may cost less in cash, while professional service covers labor, access equipment, commercial-grade products, maintenance, takedown, and storage. The right choice depends on your property and priorities.
 
-If you're asking "Is professional installation worth the investment?", absolutely yes, and here's why:
-
-**Safety**: Professional installation means no ladder falls, no electrical fires, no risk of injury. That alone is worth it.
+**Safety**: Trained and insured installers use appropriate access and electrical practices for the property. No outdoor installation is risk-free.
 
 **Results**: Uneven spacing, sagging strands, and lights pointing random directions are obvious signs of DIY. Professional installation looks polished and planned.
 
-**Time**: Two days of your time versus our four-hour professional installation. What's your time worth?
+**Time**: The crew handles planning, installation, service, takedown, and storage instead of leaving those tasks to the homeowner.
 
 **Durability**: Commercial-grade equipment lasts 10+ seasons. Drugstore lights last 1-2 before failing.
 

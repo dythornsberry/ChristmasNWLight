@@ -37,7 +37,7 @@ export default function Process() {
             How It Works
           </h2>
           <p className="text-base text-muted-foreground">
-            Four simple steps to your perfect holiday display
+            Four clear steps from estimate to takedown
           </p>
         </div>
 

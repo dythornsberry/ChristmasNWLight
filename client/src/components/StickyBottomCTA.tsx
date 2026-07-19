@@ -34,17 +34,22 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
             data-testid="button-sticky-quote-mobile"
           >
             <Sparkles className="w-5 h-5" />
-            Light My House!
+            Get Free Estimate
           </Button>
-          <a href="tel:4252150935" data-testid="button-sticky-call-mobile">
-            <Button 
-              size="icon"
-              variant="outline"
-              className="h-11 w-11"
+          <Button
+            asChild
+            size="icon"
+            variant="outline"
+            className="h-11 w-11"
+          >
+            <a
+              href="tel:4252150935"
+              data-testid="button-sticky-call-mobile"
+              aria-label="Call Christmas Northwest at (425) 215-0935"
             >
               <Phone className="w-5 h-5" />
-            </Button>
-          </a>
+            </a>
+          </Button>
         </div>
       </div>
     </div>

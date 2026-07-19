@@ -30,16 +30,32 @@ export default function Analytics() {
       return;
     }
 
-    const script = document.createElement("script");
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
-    script.dataset.gaLoader = GA_MEASUREMENT_ID;
-    document.head.appendChild(script);
+    const loadAnalytics = () => {
+      if (document.querySelector(`script[data-ga-loader="${GA_MEASUREMENT_ID}"]`)) {
+        return;
+      }
+
+      const script = document.createElement("script");
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`;
+      script.dataset.gaLoader = GA_MEASUREMENT_ID;
+      document.head.appendChild(script);
+    };
+
+    const interactionEvents: Array<keyof WindowEventMap> = ["pointerdown", "keydown", "touchstart"];
+    const handleFirstInteraction = () => {
+      loadAnalytics();
+      interactionEvents.forEach((eventName) => window.removeEventListener(eventName, handleFirstInteraction));
+    };
+
+    interactionEvents.forEach((eventName) =>
+      window.addEventListener(eventName, handleFirstInteraction, { passive: true, once: true }),
+    );
+    const fallbackTimer = window.setTimeout(loadAnalytics, 10000);
 
     return () => {
-      if (document.head.contains(script)) {
-        document.head.removeChild(script);
-      }
+      window.clearTimeout(fallbackTimer);
+      interactionEvents.forEach((eventName) => window.removeEventListener(eventName, handleFirstInteraction));
     };
   }, []);
 
