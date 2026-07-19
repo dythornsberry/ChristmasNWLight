@@ -335,13 +335,8 @@ export default function GalleryPage() {
   const [visibleRemainingCount, setVisibleRemainingCount] = useState(DEFAULT_REMAINING_VISIBLE);
 
   const scrollToQuote = () => {
-    setLocation('/');
-    setTimeout(() => {
-      const element = document.getElementById('quote');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    setLocation('/contact');
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   const categories = ["All", "Warm White", "Multicolor", "Trees", "Custom", "Halloween"];

@@ -15,13 +15,8 @@ export default function TestimonialsPage() {
   const [, setLocation] = useLocation();
 
   const scrollToQuote = () => {
-    setLocation('/');
-    setTimeout(() => {
-      const element = document.getElementById('quote');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    setLocation('/contact');
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   const breadcrumbSchema = {

@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useLocation } from "wouter";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
@@ -11,16 +12,11 @@ import StructuredData from "@/components/StructuredData";
 import { CURRENT_SEASON_NUMBER, GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 
 export default function FAQPage() {
+  const [, setLocation] = useLocation();
+
   const scrollToQuote = () => {
-    const element = document.getElementById('quote');
-    if (element) {
-      const offset = 100;
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - offset;
-      window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
-    } else {
-      window.location.href = '/#quote';
-    }
+    setLocation('/contact');
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   const faqCategories = [

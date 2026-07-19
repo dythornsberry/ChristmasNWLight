@@ -1,3 +1,4 @@
+import { useLocation } from "wouter";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
@@ -17,16 +18,11 @@ import bulbSizePhoto from '@assets/bulb size_1762106464988.jpg';
 import lightSpheresPhoto from '@assets/spritzers_1762145407991.jpg';
 
 export default function ProductGuide() {
+  const [, setLocation] = useLocation();
+
   const scrollToQuote = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(() => {
-      const quoteSection = document.getElementById('quote');
-      if (quoteSection) {
-        quoteSection.scrollIntoView({ behavior: 'smooth' });
-      } else {
-        window.location.href = '/#quote';
-      }
-    }, 100);
+    setLocation('/contact');
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   const products = [
