@@ -9,7 +9,7 @@ interface PageHeadProps {
 
 export default function PageHead({ title, description, path, robots }: PageHeadProps) {
   useEffect(() => {
-    const siteUrl = (import.meta.env.VITE_SITE_URL || window.location.origin).replace(/\/$/, "");
+    const siteUrl = (import.meta.env.VITE_SITE_URL || "https://christmasnw.com").replace(/\/$/, "");
     const pathname = path || window.location.pathname;
     const canonicalUrl = new URL(pathname, `${siteUrl}/`).toString();
 

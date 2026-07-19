@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, Shield, Clock, MapPin } from "lucide-react";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 
 const nearbyCitiesMap: Record<string, { name: string; slug: string }[]> = {
   seattle: [
@@ -143,7 +144,7 @@ export default function CityPage({
     "@type": "ProfessionalService",
     "name": "Christmas Northwest",
     "image": "https://christmasnw.com/logo.png",
-    "description": `Professional Christmas light installation in ${cityName}, WA. Premium, all-inclusive holiday lighting service with commercial-grade equipment. Serving ${cityName} and ${county} County since 2021.`,
+    "description": `Professional Christmas light installation in ${cityName}, WA. Design, installation, maintenance, takedown, and storage from a local, insured team serving ${county} County.`,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kenmore",
@@ -159,7 +160,7 @@ export default function CityPage({
     "url": `https://christmasnw.com/${citySlug}`,
     "telephone": "+14252150935",
     "email": "christmaslightsnw@gmail.com",
-    "priceRange": "$800-$6,000+",
+    "priceRange": "$800-$4,000+",
     "foundingDate": "2021",
     "openingHoursSpecification": [
       {
@@ -193,18 +194,18 @@ export default function CityPage({
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "85",
+      "ratingValue": GOOGLE_RATING,
+      "reviewCount": GOOGLE_REVIEW_COUNT,
       "bestRating": "5",
       "worstRating": "1"
     }
   };
 
   const benefits = [
-    { icon: Check, title: "Same-Week Installation", description: `Fast, professional service in ${cityName}` },
-    { icon: Shield, title: "100% Satisfaction Guarantee", description: "We make it right or you don't pay" },
-    { icon: Clock, title: "Storage Included", description: "Free storage until next season" },
-    { icon: Star, title: "Commercial-Grade Lights", description: "Premium C9 bulbs that last" },
+    { icon: Check, title: "Clear Scheduling", description: `We confirm available installation dates before you book` },
+    { icon: Shield, title: "Licensed & Insured", description: "Professional crews and liability coverage" },
+    { icon: Clock, title: "Storage Included", description: "Your display is organized and stored between seasons" },
+    { icon: Star, title: "Commercial-Grade Lights", description: "Outdoor-rated LEDs fitted to your property" },
   ];
 
   const relatedLinks = [
@@ -259,7 +260,7 @@ export default function CityPage({
     <>
       <PageHead
         title={`Christmas Light Installation ${cityName} WA | Christmas Northwest`}
-        description={`Professional Christmas light installation in ${cityName}, WA. Premium all-inclusive service with commercial-grade LED lights and same-week installation.`}
+        description={`Professional Christmas light installation in ${cityName}, WA. Design, installation, maintenance, takedown, and storage with commercial-grade LED lights.`}
       />
 
       {/* BreadcrumbList Schema */}
@@ -295,7 +296,7 @@ export default function CityPage({
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-                  Transform your {cityName} home into a holiday showcase. Premium, all-inclusive service with commercial-grade equipment and same-week installation.
+                  Custom-fit rooflines, trees, landscaping, and accents with installation, maintenance, takedown, and storage included.
                 </p>
 
                 <div className="flex flex-wrap gap-4 justify-center mb-12">
@@ -322,11 +323,11 @@ export default function CityPage({
                 <div className="flex flex-wrap items-center justify-center gap-8 text-muted-foreground">
                   <div className="flex items-center gap-2">
                     <Star className="w-5 h-5 text-primary fill-primary" />
-                    <span className="font-semibold">5.0 Rating</span>
+                    <span className="font-semibold">{GOOGLE_RATING} Rating</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Check className="w-5 h-5 text-primary" />
-                    <span className="font-semibold">85+ Reviews</span>
+                    <span className="font-semibold">{GOOGLE_REVIEW_COUNT} Reviews</span>
                   </div>
                   <div className="flex items-center gap-2">
                     <Shield className="w-5 h-5 text-primary" />
@@ -394,7 +395,7 @@ export default function CityPage({
                     Serving Homes Near {cityName}'s Landmarks
                   </h2>
                   <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                    We've installed beautiful holiday displays near: {nearbyLandmarks.join(', ')}
+                    We serve properties near {nearbyLandmarks.join(', ')} and throughout {cityName}.
                   </p>
                 </div>
               </div>
@@ -453,7 +454,7 @@ export default function CityPage({
 
           <InternalLinksSection
             title={`More ${cityName} Planning Resources`}
-            description={`These pages help ${cityName} homeowners compare services, confirm coverage, and move toward a quote with less friction.`}
+            description={`Compare services, browse real projects, confirm nearby coverage, or request a quote for your ${cityName} property.`}
             links={relatedLinks}
           />
 
@@ -461,10 +462,10 @@ export default function CityPage({
           <section className="py-24 bg-gradient-to-r from-primary via-primary to-primary/90">
             <div className="max-w-4xl mx-auto px-6 text-center">
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-8 text-primary-foreground">
-                Ready to Transform Your {cityName} Home?
+                Ready to Plan Your {cityName} Display?
               </h2>
               <p className="text-xl text-primary-foreground/90 mb-10 leading-relaxed">
-                Join hundreds of satisfied homeowners in {cityName}. Get your free quote today and experience the premium difference.
+                Tell us what you want to light and we will follow up with availability, design options, and a custom estimate.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button 

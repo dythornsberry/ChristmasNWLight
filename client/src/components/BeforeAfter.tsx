@@ -40,7 +40,7 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
             See The Transformation
           </h2>
           <p className="text-lg text-muted-foreground mb-4">
-            Drag the slider to see how we turn ordinary homes into extraordinary holiday displays
+            Drag the slider to compare this home before and after installation
           </p>
           <p className="text-sm text-muted-foreground">
             Same house, before and after our professional installation
@@ -82,7 +82,7 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
                 className="w-full h-full object-cover select-none pointer-events-none"
                 width={960}
                 height={540}
-                loading="eager"
+                loading="lazy"
                 decoding="async"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
@@ -105,7 +105,7 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
                 className="w-full h-full object-cover select-none pointer-events-none"
                 width={960}
                 height={540}
-                loading="eager"
+                loading="lazy"
                 decoding="async"
                 onContextMenu={(e) => e.preventDefault()}
                 onDragStart={(e) => e.preventDefault()}
@@ -155,8 +155,7 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
 
         <div className="text-center mt-8">
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            This stunning transformation showcases what professional-grade lights and expert installation can do for your home. 
-            We handle everything from custom design to installation, maintenance, and seasonal storage.
+            This project combines a fitted roofline with landscape lighting. We handled the design, installation, maintenance, takedown, and storage.
           </p>
         </div>
       </div>

@@ -20,8 +20,8 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
           Ready to Light Up Your Home?
         </h2>
         <p className="text-lg sm:text-xl md:text-2xl text-white/95 mb-10 leading-relaxed max-w-3xl mx-auto">
-          Get your free design estimate and see how we transform homes into holiday showcases.
-          Spots fill fast once fall arrives.
+          Tell us what you want to light and we will prepare a custom estimate for your property.
+          Early reservations get the widest choice of installation dates.
         </p>
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 justify-center">
@@ -36,17 +36,17 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
             Get My Free Estimate
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
-          <a href="tel:4252150935">
-            <Button
-              size="lg"
-              variant="outline"
-              className="w-full sm:w-auto text-lg sm:text-xl font-bold border-2 border-white/40 bg-white/10 text-white backdrop-blur-sm hover:bg-white/20 transition-all duration-300"
-              data-testid="button-cta-call"
-            >
+          <Button
+            asChild
+            size="lg"
+            variant="outline"
+            className="w-full border-2 border-white/40 bg-white/10 text-lg font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/20 sm:w-auto sm:text-xl"
+          >
+            <a href="tel:4252150935" data-testid="button-cta-call">
               <Phone className="mr-2 h-5 w-5" />
               (425) 215-0935
-            </Button>
-          </a>
+            </a>
+          </Button>
         </div>
 
         <p className="text-white/80 text-sm sm:text-base mt-8">

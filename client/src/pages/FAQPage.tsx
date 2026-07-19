@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import PageHead from "@/components/PageHead";
 import StructuredData from "@/components/StructuredData";
+import { CURRENT_SEASON_NUMBER, GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 
 export default function FAQPage() {
   const scrollToQuote = () => {
@@ -36,7 +37,7 @@ export default function FAQPage() {
         },
         {
           question: "What if I don't like my lights after installation?",
-          answer: "We offer a 100% satisfaction guarantee. If you're not completely happy with your installation, we'll make adjustments or provide a full refund. We've served 300+ homes annually and built our reputation on customer satisfaction, so your happiness is our top priority."
+          answer: "If something does not look right, contact us. We will review the concern and make reasonable adjustments so the finished display matches the approved scope."
         },
         {
           question: "How do I know the price is fair?",
@@ -49,7 +50,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "How much does Christmas light installation cost in 2026?",
-          answer: "Our professional Christmas light installation starts at $800 for residential homes in the Seattle metro area. Most installations range from $1,000-$2,000 for typical homes. Here's what to expect: Basic rooflines without complex cuts usually cost $800-$1,500. Comprehensive displays with bushes, trees, and multiple design elements typically run $1,000-$2,000. Larger estates with extensive property coverage (50+ bushes, multiple trees, full roofline and ridgeline, columns, ground lights) can reach $10,000 or more, especially tree jobs which are labor-intensive due to setup and takedown time. All prices include commercial-grade LED lights, professional installation, maintenance throughout the season, professional takedown in January, and climate-controlled storage until next year. Get an exact quote based on your specific home and design preferences."
+          answer: "Residential projects currently start around $800 for a clean roofline. Roofline-plus-accent projects are commonly $1,500-$1,800, full-property displays are commonly $2,500-$3,500, and large custom projects start around $4,000. Roof access, footage, trees, landscaping, and design complexity all affect the final price. Installation, seasonal maintenance, takedown, and storage are included."
         },
         {
           question: "What's included in your Christmas light installation service?",
@@ -61,7 +62,7 @@ export default function FAQPage() {
         },
         {
           question: "Do you charge extra for bulb replacements or repairs during the season?",
-          answer: "No! Bulb replacements and repairs are included at no extra charge throughout the entire holiday season. We use commercial-grade LED lights that are extremely reliable, but if anything goes out, we'll come fix it quickly (usually within 1-2 business days). This is part of our 100% satisfaction guarantee."
+          answer: "No. Bulb replacements and display repairs are included throughout the holiday season. Contact us when you notice an issue and we will schedule service as quickly as weather, safety, and the route allow."
         }
       ]
     },
@@ -74,7 +75,7 @@ export default function FAQPage() {
         },
         {
           question: "When should I schedule my Christmas light installation for 2026?",
-          answer: "We recommend scheduling in October or early November to secure your preferred installation date and avoid the holiday rush. We offer installations from October through December, with priority given to early bookings. Our busiest time is mid-November through early December, so booking early ensures you get the exact date you want."
+          answer: "Book as early as you can if you want the widest choice of dates. Installations generally run from October through December, and availability becomes tighter as Thanksgiving approaches. We confirm the actual installation window before you approve the project."
         },
         {
           question: "What's your installation process?",
@@ -82,7 +83,7 @@ export default function FAQPage() {
         },
         {
           question: "How quickly can you install my lights?",
-          answer: "We pride ourselves on same-week installation during most of the season. Once you book, we typically complete your installation within 5-7 days. During our busiest weeks in mid-November and early December, it may take slightly longer, which is why we encourage early booking."
+          answer: "Timing depends on the week, weather, route, and project size. Early in the season we may have near-term openings; the weeks around Thanksgiving fill quickly. We will give you the available installation window before you book."
         },
         {
           question: "When do you take down Christmas lights?",
@@ -99,15 +100,15 @@ export default function FAQPage() {
         },
         {
           question: "Do you offer a satisfaction guarantee?",
-          answer: "Yes! We offer a 100% satisfaction guarantee. If you're not completely happy with your installation, we'll make it right or provide a full refund. We've served over 300 homes annually and have built our reputation on quality workmanship and customer satisfaction. Your happiness is our top priority."
+          answer: "We stand behind the approved installation. If something is not right, contact us and we will review it promptly and make reasonable adjustments."
         },
         {
           question: "Are you licensed and insured?",
-          answer: "Absolutely. ChristmasNW is fully licensed, bonded, and insured. We've been serving the Greater Seattle area since 2021 (entering our fourth season) and have completed installations for over 300 homes annually. Your property and our team are fully protected at every stage of installation and maintenance."
+          answer: `Absolutely. ChristmasNW is fully licensed, bonded, and insured. We've been serving the Greater Seattle area since 2021 and are entering season ${CURRENT_SEASON_NUMBER}. Your property and our team are fully protected at every stage of installation and maintenance.`
         },
         {
           question: "What makes your service different from competitors?",
-          answer: "We offer same-week installation (not weeks of waiting), commercial-grade LED equipment (not flimsy consumer lights), included year-round storage (no clutter in your garage), 24/7 seasonal support with fast 48-hour touch-ups, and a true done-for-you experience. Plus, we're local to the Eastside, based in Kenmore with our warehouse in Woodinville, so we can respond quickly to any needs throughout the season."
+          answer: "We provide one coordinated service: custom-fit commercial-grade lights, installation, seasonal maintenance, January takedown, and storage. We are based in Kenmore with a Woodinville warehouse, which helps us support Seattle and Eastside routes throughout the season."
         }
       ]
     },
@@ -204,10 +205,10 @@ export default function FAQPage() {
     },
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
+      "ratingValue": GOOGLE_RATING,
       "bestRating": "5",
-      "reviewCount": "85",
-      "ratingCount": "85"
+      "reviewCount": GOOGLE_REVIEW_COUNT,
+      "ratingCount": GOOGLE_REVIEW_COUNT
     },
     "sameAs": [
       "https://www.facebook.com/ChristmasNW",

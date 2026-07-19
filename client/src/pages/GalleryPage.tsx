@@ -11,6 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight, Play, Youtube } from "lucide-react";
 import { useLocation } from "wouter";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 
 // Import all gallery images
 import img1 from '@assets/2024-11-25-min_1762058047474.jpg';
@@ -179,7 +180,7 @@ const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     id: "tree-woodinville",
     title: "Big Tree Installation",
     location: "Woodinville, WA",
-    description: "See how we wrap a large tree safely and evenly for a premium holiday focal point.",
+    description: "See how we place lights evenly across a large feature tree.",
     youtubeId: "kyQ0PU9XDIk",
   },
   {
@@ -418,7 +419,7 @@ export default function GalleryPage() {
       {
         "@type": "VideoObject",
         "name": "Big Tree Christmas Light Installation in Woodinville WA",
-        "description": "Professional Christmas tree lighting installation in Woodinville, Washington. Watch as we transform a big tree with thousands of commercial-grade lights creating a holiday centerpiece.",
+        "description": "Professional Christmas tree lighting installation in Woodinville, Washington, showing the placement of commercial-grade lights on a large feature tree.",
         "thumbnailUrl": "https://img.youtube.com/vi/kyQ0PU9XDIk/maxresdefault.jpg",
         "uploadDate": "2024-11-20T12:00:00Z",
         "contentUrl": "https://www.youtube.com/watch?v=kyQ0PU9XDIk",
@@ -512,10 +513,10 @@ export default function GalleryPage() {
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
-      "ratingValue": "5.0",
-      "reviewCount": "85"
+      "ratingValue": GOOGLE_RATING,
+      "reviewCount": GOOGLE_REVIEW_COUNT
     },
-    "priceRange": "$800-$6,000+",
+    "priceRange": "$800-$4,000+",
     "sameAs": [
       "https://www.facebook.com/ChristmasNW",
       "https://www.instagram.com/christmasnw",
@@ -581,17 +582,17 @@ export default function GalleryPage() {
           </div>
         </section>
 
-        {/* Top 9 Premium Photos */}
+        {/* Featured Photos */}
         <section className="bg-background py-14 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="mb-10 text-center sm:mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Featured Premium Installations
+                Featured Installations
               </h2>
               <p className="text-base text-muted-foreground sm:text-lg">
                 {selectedCategory === "All" 
-                  ? "Our most impressive custom work showcasing the quality and variety we bring to every project" 
-                  : `Showcasing our best ${selectedCategory} installations`}
+                  ? "A selection of roofline, landscape, tree, and full-property projects completed by our team"
+                  : `Browse selected ${selectedCategory} installations`}
               </p>
             </div>
 
@@ -656,11 +657,11 @@ export default function GalleryPage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="mb-10 text-center sm:mb-12">
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                More Premium Installations
+                More Installations
               </h2>
               <p className="text-base text-muted-foreground sm:text-lg">
                 {selectedCategory === "All" 
-                  ? `Browse ${remainingImages.length} more beautiful installations` 
+                  ? `Browse ${remainingImages.length} more installations`
                   : `${remainingImages.length} more ${selectedCategory} installations`}
               </p>
             </div>
@@ -713,10 +714,10 @@ export default function GalleryPage() {
         <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
-              Ready to Transform Your Home?
+              Ready to Plan Your Display?
             </h2>
             <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
-              Let's create a beautiful holiday display for your home. Get your free quote today and join the hundreds of satisfied homeowners we serve every season.
+              Share your property and design ideas with us. We will follow up with availability and a custom estimate.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 

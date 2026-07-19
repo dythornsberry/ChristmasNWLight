@@ -1,4 +1,4 @@
-import { Shield, Home, Trash2, ThumbsUp } from "lucide-react";
+import { Shield, Home, Trash2, Wrench } from "lucide-react";
 
 const reasons = [
   {
@@ -17,9 +17,9 @@ const reasons = [
     description: "We remove everything in January, no extra charge"
   },
   {
-    icon: ThumbsUp,
-    title: "100% Satisfaction",
-    description: "We fix any issues at no extra cost"
+    icon: Wrench,
+    title: "Season-Long Support",
+    description: "If a light fails, contact us and we will make it right"
   }
 ];
 

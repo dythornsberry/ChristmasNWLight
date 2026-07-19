@@ -25,6 +25,7 @@ import { trackLeadConversion } from "@/lib/analytics";
 import { hasGooglePlacesApiKey } from "@/lib/googleMaps";
 import {
   formatPhoneNumber,
+  deliverQuoteLead,
   getAddressValidationError,
   getEmailValidationError,
   getNameValidationError,
@@ -32,10 +33,11 @@ import {
   toE164,
 } from "@/lib/leads";
 import { queryClient } from "@/lib/queryClient";
+import { CURRENT_SEASON_YEAR } from "@/lib/business";
 
 const SERVICE_OPTIONS = [
-  { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New customer", icon: TreePine },
-  { value: "christmas-2026-returning", label: "Christmas Lighting", sublabel: "Returning customer", icon: Sparkles },
+  { value: `christmas-${CURRENT_SEASON_YEAR}-new`, label: "Christmas Lighting", sublabel: "New customer", icon: TreePine },
+  { value: `christmas-${CURRENT_SEASON_YEAR}-returning`, label: "Christmas Lighting", sublabel: "Returning customer", icon: Sparkles },
 ];
 
 const FORM_HIGHLIGHTS = [
@@ -118,24 +120,7 @@ export default function QuoteFormSection() {
         submittedAt: new Date().toISOString(),
       };
 
-      // Submit via server-side proxy to avoid CORS issues with Zapier
-      const res = await fetch("/api/submit-quote", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        console.error("Zapier proxy error:", res.status);
-        // Don't throw — backup email below will still capture the lead
-      }
-
-      // Fire backup email via Resend (independent of Zapier, fire-and-forget)
-      fetch("/api/backup-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      }).catch(() => {}); // silently ignore — Zapier is primary
+      await deliverQuoteLead(payload);
     },
     onSuccess: (_response, variables) => {
       setIsSubmitted(true);
@@ -297,7 +282,7 @@ export default function QuoteFormSection() {
                     data-testid="badge-pricing-indicator"
                   >
                     <DollarSign className="mr-2 h-4 w-4 text-amber-600" />
-                    Most homes $800-$2,000
+                    Typical projects $800-$3,500
                   </Badge>
                   <Badge variant="secondary" className="bg-primary/8 px-4 py-2 text-sm font-medium text-foreground">
                     Under 60 seconds to complete
@@ -423,7 +408,7 @@ export default function QuoteFormSection() {
                         </div>
 
                         <p className="text-xs text-muted-foreground">
-                          <span className="font-semibold text-emerald-600">2026 calendar is open:</span> early spots usually get the best install windows.
+                          <span className="font-semibold text-emerald-600">{CURRENT_SEASON_YEAR} calendar is open:</span> early spots usually get the best install windows.
                         </p>
 
                         <Button

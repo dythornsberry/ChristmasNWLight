@@ -1,4 +1,5 @@
-import { useLocation } from "wouter";
+import { useState } from "react";
+import { Link, useLocation } from "wouter";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
@@ -7,7 +8,7 @@ import PageHead from "@/components/PageHead";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, ArrowRight } from "lucide-react";
-import { getAllBlogPosts } from "@/data/blogPosts";
+import { formatBlogDate, getAllBlogPosts } from "@/data/blogPosts";
 
 export default function BlogPage() {
   const [, setLocation] = useLocation();
@@ -25,12 +26,16 @@ export default function BlogPage() {
   const blogPosts = getAllBlogPosts();
 
   const categories = ["All", "Trends", "Buying Guide", "Installation", "Planning", "Safety"];
+  const [selectedCategory, setSelectedCategory] = useState("All");
+  const filteredPosts = selectedCategory === "All"
+    ? blogPosts
+    : blogPosts.filter((post) => post.category === selectedCategory);
 
   return (
     <>
       <PageHead 
         title="Holiday Lighting Tips & Guides | Christmas Northwest"
-        description="Expert tips, trends, and guides for holiday lighting. Learn about Christmas light installation, safety, pricing, and the latest trends from Seattle's premier lighting professionals."
+        description="Practical holiday lighting guides from Christmas Northwest. Learn about installation timing, safety, pricing, product choices, and design options for Seattle-area homes."
       />
 
       <div className="min-h-screen flex flex-col">
@@ -43,39 +48,45 @@ export default function BlogPage() {
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center max-w-4xl mx-auto mb-12">
                 <div className="inline-block px-4 py-2 bg-primary/10 rounded-lg mb-6">
-                  <span className="text-primary font-semibold">Expert Insights</span>
+                  <span className="text-primary font-semibold">From the Field</span>
                 </div>
                 <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-foreground">
                   Holiday Lighting Tips & Guides
                 </h1>
                 <p className="text-xl text-muted-foreground leading-relaxed">
-                  Expert advice, trends, and insights from Seattle's premier Christmas lighting professionals
+                  Practical answers from a local installation team serving Seattle and the Eastside
                 </p>
               </div>
 
               {/* Category Filters */}
               <div className="flex flex-wrap gap-3 justify-center mb-12">
                 {categories.map((category) => (
-                  <Badge
+                  <button
                     key={category}
-                    variant="secondary"
-                    className="px-6 py-2 cursor-pointer text-sm font-semibold hover-elevate"
-                    data-testid={`badge-blog-${category.toLowerCase().replace(' ', '-')}`}
+                    type="button"
+                    onClick={() => setSelectedCategory(category)}
+                    className="rounded-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    aria-pressed={selectedCategory === category}
                   >
-                    {category}
-                  </Badge>
+                    <Badge
+                      variant={selectedCategory === category ? "default" : "secondary"}
+                      className="cursor-pointer px-6 py-2 text-sm font-semibold hover-elevate"
+                      data-testid={`badge-blog-${category.toLowerCase().replace(' ', '-')}`}
+                    >
+                      {category}
+                    </Badge>
+                  </button>
                 ))}
               </div>
 
               {/* Blog Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {blogPosts.map((post) => (
-                  <Card 
-                    key={post.id}
-                    className="group overflow-hidden hover-elevate cursor-pointer"
-                    onClick={() => setLocation(`/blog/${post.slug}`)}
-                    data-testid={`card-blog-${post.id}`}
-                  >
+                {filteredPosts.map((post) => (
+                  <Link key={post.id} href={`/blog/${post.slug}`} className="block h-full">
+                    <Card
+                      className="group h-full cursor-pointer overflow-hidden hover-elevate"
+                      data-testid={`card-blog-${post.id}`}
+                    >
                     {/* Placeholder image area */}
                     <div className="relative aspect-[16/9] bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
                       <div className="text-6xl opacity-20">📝</div>
@@ -98,7 +109,7 @@ export default function BlogPage() {
                       <div className="flex items-center justify-between text-sm text-muted-foreground">
                         <div className="flex items-center gap-2">
                           <Calendar className="w-4 h-4" />
-                          <span>{new Date(post.publishDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                          <span>{formatBlogDate(post.publishDate)}</span>
                         </div>
                         <span>{post.readTime}</span>
                       </div>
@@ -108,7 +119,8 @@ export default function BlogPage() {
                         <ArrowRight className="w-4 h-4" />
                       </div>
                     </div>
-                  </Card>
+                    </Card>
+                  </Link>
                 ))}
               </div>
 
@@ -116,10 +128,10 @@ export default function BlogPage() {
               <div className="mt-16 text-center">
                 <Card className="p-8 max-w-2xl mx-auto bg-muted/30">
                   <h3 className="font-bold text-2xl mb-3 text-foreground">
-                    More Articles Coming Soon!
+                    Need Advice for Your Property?
                   </h3>
                   <p className="text-muted-foreground">
-                    We're publishing new guides and articles regularly to help you create the perfect holiday lighting display. Check back soon for more expert insights!
+                    Browse the guides above or request a quote for recommendations based on your roofline, landscaping, and budget.
                   </p>
                 </Card>
               </div>

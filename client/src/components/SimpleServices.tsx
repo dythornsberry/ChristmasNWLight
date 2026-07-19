@@ -1,8 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Home, Building2, Check } from "lucide-react";
-import warmWhiteHouse from '@assets/1-2-min_1762064533191_feature.webp';
-import commercialWalkway from '@assets/Lit-walkway_1762708951439.jpg';
+import warmWhiteHouse from '@assets/optimized/residential-card.webp';
+import commercialWalkway from '@assets/optimized/commercial-card.webp';
 
 interface SimpleServicesProps {
   onGetQuote: () => void;
@@ -80,7 +80,7 @@ export default function SimpleServices({ onGetQuote }: SimpleServicesProps) {
                 <h3 className="text-2xl font-serif font-bold text-foreground">Commercial & Large Properties</h3>
               </div>
               <p className="text-muted-foreground mb-6 leading-relaxed">
-                Grand displays for estates, businesses, and large properties. Make a statement with premium commercial-grade installations.
+                Coordinated lighting for estates, storefronts, offices, and multi-building properties using commercial-grade products.
               </p>
               <ul className="space-y-3 mb-6">
                 {[

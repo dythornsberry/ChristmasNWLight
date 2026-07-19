@@ -22,6 +22,7 @@ import { trackLeadConversion } from "@/lib/analytics";
 import { hasGooglePlacesApiKey } from "@/lib/googleMaps";
 import {
   formatPhoneNumber,
+  deliverQuoteLead,
   getAddressValidationError,
   getEmailValidationError,
   getNameValidationError,
@@ -154,23 +155,7 @@ export default function LeadFormCard({
         submittedAt: new Date().toISOString(),
       };
 
-      // Submit via server-side proxy to avoid CORS issues with Zapier
-      const res = await fetch("/api/submit-quote", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!res.ok) {
-        console.error("Zapier proxy error:", res.status);
-      }
-
-      // Fire backup email via Resend (independent of Zapier, fire-and-forget)
-      fetch("/api/backup-email", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      }).catch(() => {}); // silently ignore — Zapier is primary
+      await deliverQuoteLead(payload);
     },
     onSuccess: (_response, variables) => {
       setIsSubmitted(true);

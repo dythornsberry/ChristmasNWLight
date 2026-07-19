@@ -35,7 +35,7 @@ export default function ProductGuide() {
       name: "C9 Bulbs",
       icon: Lightbulb,
       image: c9RooflinePhoto,
-      description: "Our premium commercial-grade C9 bulbs are the industry standard for roofline installations. These classic, bright bulbs create a bold, timeless holiday display that's visible from the street.",
+      description: "Commercial-grade C9 LED bulbs are our standard choice for rooflines. Their larger size produces a clear, consistent outline that is easy to see from the street.",
       colors: ["Warm White", "Multicolor", "Red", "Green", "Blue", "Purple"],
       useCases: [
         "Rooflines and gutters",
@@ -56,7 +56,7 @@ export default function ProductGuide() {
       name: "Mini Lights",
       icon: Sparkles,
       image: miniLightsPhoto,
-      description: "Delicate yet durable mini lights perfect for detailed work and creating elegant, sophisticated displays. These versatile lights add warmth and charm to any feature.",
+      description: "Mini lights work well where C9 bulbs would be too large, including columns, branches, trunks, fences, and smaller architectural details.",
       colors: ["Warm White", "Cool White", "Multicolor"],
       useCases: [
         "Column wraps",
@@ -78,7 +78,7 @@ export default function ProductGuide() {
       name: "Bush & Shrub Lighting",
       icon: Flower2,
       image: warmWhiteBushEstate,
-      description: "Transform your landscaping into glowing works of art with professional bush and shrub lighting. Our expert wrapping technique creates stunning illuminated features that add depth and warmth to your display.",
+      description: "Bush and shrub lighting adds a lower layer of light beneath the roofline. We plan the coverage and spacing to suit the size and shape of each plant.",
       colors: ["Warm White", "Multicolor", "Red & Green"],
       useCases: [
         "Front yard foundation bushes",
@@ -89,7 +89,7 @@ export default function ProductGuide() {
       ],
       benefits: [
         "Professional wrapping technique",
-        "Creates stunning visual impact",
+        "Adds a visible layer below the roofline",
         "Adds depth to overall display",
         "Highlights beautiful landscaping",
         "Complements roofline lighting perfectly"
@@ -100,7 +100,7 @@ export default function ProductGuide() {
       name: "Ground & Pathway Lights",
       icon: MapPin,
       image: groundLightsPhoto,
-      description: "Professional-grade stake lights that illuminate walkways, driveways, and landscape features. Perfect for guiding guests safely while adding sophisticated accent lighting.",
+      description: "Stake lights define walkways, driveways, and landscape edges. They can improve nighttime visibility while tying separate parts of a display together.",
       colors: ["Warm White", "Red", "Green", "Blue"],
       useCases: [
         "Walkways and paths",
@@ -122,7 +122,7 @@ export default function ProductGuide() {
       name: "Tree Wraps",
       icon: TreePine,
       image: treeWrapsPhoto,
-      description: "Transform tree trunks into stunning vertical features with professional wrapping techniques. Create elegant columns of light that complement your roofline display.",
+      description: "Wrapped tree trunks add height and structure to a display. We use consistent spacing and coordinate the color with nearby roofline or landscape lighting.",
       colors: ["Warm White", "Multicolor", "Red & Green"],
       useCases: [
         "Tree trunk wrapping",
@@ -144,7 +144,7 @@ export default function ProductGuide() {
       name: "Light Spheres",
       icon: Circle,
       image: lightSpheresPhoto,
-      description: "Magical illuminated spheres that bring your trees to life from within. These stunning light balls create a breathtaking glow effect that looks incredible at night.",
+      description: "Light spheres hang within tree canopies to add points of light above the yard. They are available in warm white, multicolor, and color-changing options.",
       colors: ["Warm White", "Multicolor", "Color-Changing"],
       useCases: [
         "Hanging in tree branches",
@@ -154,11 +154,11 @@ export default function ProductGuide() {
         "Illuminating from within"
       ],
       benefits: [
-        "Spectacular visual impact",
-        "Creates magical glow effect",
-        "Perfect for feature trees",
-        "Professional placement and installation",
-        "Unique and eye-catching"
+        "Adds light within the tree canopy",
+        "Available in several color options",
+        "Works well in feature trees",
+        "Placement and installation included",
+        "Coordinates with roofline lighting"
       ]
     }
   ];
@@ -167,7 +167,7 @@ export default function ProductGuide() {
     <div className="min-h-screen bg-background">
       <UrgencyBanner />
       <PageHead 
-        title="Premium Christmas Lighting Products | Christmas Northwest"
+        title="Commercial-Grade Christmas Lighting Products | Christmas Northwest"
         description="Commercial-grade LED Christmas lighting products: C9 bulbs, mini lights, bush lighting, ground lights, tree wraps, and light spheres. Weather-resistant and energy-efficient."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
@@ -178,7 +178,7 @@ export default function ProductGuide() {
           <div className="text-center">
             <Badge variant="secondary" className="mb-6 border border-gold/20">
               <Home className="w-4 h-4 mr-2" />
-              Premium Products
+              Our Lighting Products
             </Badge>
             <h1 className="font-serif text-5xl md:text-6xl font-black text-primary-foreground mb-6 leading-tight">
               Professional-Grade
@@ -186,7 +186,7 @@ export default function ProductGuide() {
               Holiday Lighting Products
             </h1>
             <p className="text-xl text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed">
-              We use only commercial-grade, energy-efficient LED products designed to withstand Pacific Northwest weather while creating stunning displays.
+              We use commercial-grade, energy-efficient LED products selected for wet Pacific Northwest winters and consistent seasonal performance.
             </p>
           </div>
         </div>

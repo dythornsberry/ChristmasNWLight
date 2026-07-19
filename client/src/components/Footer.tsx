@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { SiGoogle } from "react-icons/si";
 import { Link } from "wouter";
@@ -12,7 +11,7 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Services</h4>
+            <p className="font-semibold mb-4 text-foreground">Services</p>
             <ul className="space-y-2 text-muted-foreground">
               <li><Link href="/" onClick={handleLinkClick} className="hover:text-primary transition-colors">Christmas Lighting</Link></li>
               <li><Link href="/product-guide" onClick={handleLinkClick} className="hover:text-primary transition-colors">Product Guide</Link></li>
@@ -20,7 +19,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Company</h4>
+            <p className="font-semibold mb-4 text-foreground">Company</p>
             <ul className="space-y-2 text-muted-foreground">
               <li><Link href="/about" onClick={handleLinkClick} className="hover:text-primary transition-colors">About Us</Link></li>
               <li><Link href="/testimonials" onClick={handleLinkClick} className="hover:text-primary transition-colors">Testimonials</Link></li>
@@ -29,7 +28,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Quick Links</h4>
+            <p className="font-semibold mb-4 text-foreground">Quick Links</p>
             <ul className="space-y-2 text-muted-foreground">
               <li><Link href="/gallery" onClick={handleLinkClick} className="hover:text-primary transition-colors">Gallery</Link></li>
               <li><Link href="/blog" onClick={handleLinkClick} className="hover:text-primary transition-colors">Blog</Link></li>
@@ -40,7 +39,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4 text-foreground">Contact Info</h4>
+            <p className="font-semibold mb-4 text-foreground">Contact Info</p>
             <ul className="space-y-2 text-muted-foreground text-base mb-4">
               <li><a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a></li>
               <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors break-all">christmaslightsnw@gmail.com</a></li>
@@ -53,56 +52,40 @@ export default function Footer() {
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit our Facebook page"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                data-testid="button-facebook"
               >
-                <Button 
-                  size="icon" 
-                  variant="ghost"
-                  data-testid="button-facebook"
-                >
-                  <Facebook className="w-4 h-4" />
-                </Button>
+                <Facebook className="w-4 h-4" aria-hidden="true" />
               </a>
               <a 
                 href="https://www.instagram.com/christmasnw/" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit our Instagram page"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                data-testid="button-instagram"
               >
-                <Button 
-                  size="icon" 
-                  variant="ghost"
-                  data-testid="button-instagram"
-                >
-                  <Instagram className="w-4 h-4" />
-                </Button>
+                <Instagram className="w-4 h-4" aria-hidden="true" />
               </a>
               <a 
                 href="https://youtube.com/@christmasnw?si=N5gu7fRN9vyEFMUd" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit our YouTube channel"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                data-testid="button-youtube"
               >
-                <Button 
-                  size="icon" 
-                  variant="ghost"
-                  data-testid="button-youtube"
-                >
-                  <Youtube className="w-4 h-4" />
-                </Button>
+                <Youtube className="w-4 h-4" aria-hidden="true" />
               </a>
               <a 
                 href="https://share.google/lxhOxXmbPwABIqdNa" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit our Google Business Profile"
+                className="inline-flex h-9 w-9 items-center justify-center rounded-md text-foreground transition-colors hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                data-testid="button-google"
               >
-                <Button 
-                  size="icon" 
-                  variant="ghost"
-                  data-testid="button-google"
-                >
-                  <SiGoogle className="w-4 h-4" />
-                </Button>
+                <SiGoogle className="w-4 h-4" aria-hidden="true" />
               </a>
             </div>
           </div>

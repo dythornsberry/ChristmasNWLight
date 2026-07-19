@@ -8,7 +8,56 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
-import { getBlogPost } from "@/data/blogPosts";
+import { formatBlogDate, getBlogPost } from "@/data/blogPosts";
+import type { ReactNode } from "react";
+
+function renderInlineMarkdown(text: string) {
+  return text.split(/(\*\*.*?\*\*)/g).filter(Boolean).map((part, index) =>
+    part.startsWith("**") && part.endsWith("**")
+      ? <strong key={index}>{part.slice(2, -2)}</strong>
+      : part,
+  );
+}
+
+function renderArticleContent(content: string) {
+  const blocks: ReactNode[] = [];
+  let listItems: string[] = [];
+
+  const flushList = () => {
+    if (listItems.length === 0) return;
+    const items = listItems;
+    listItems = [];
+    blocks.push(
+      <ul key={`list-${blocks.length}`}>
+        {items.map((item, index) => <li key={index}>{renderInlineMarkdown(item)}</li>)}
+      </ul>,
+    );
+  };
+
+  content.split("\n").forEach((rawLine) => {
+    const line = rawLine.trim();
+    if (!line) {
+      flushList();
+      return;
+    }
+    if (line.startsWith("- ")) {
+      listItems.push(line.slice(2));
+      return;
+    }
+
+    flushList();
+    if (line.startsWith("### ")) {
+      blocks.push(<h3 key={`h3-${blocks.length}`}>{renderInlineMarkdown(line.slice(4))}</h3>);
+    } else if (line.startsWith("## ")) {
+      blocks.push(<h2 key={`h2-${blocks.length}`}>{renderInlineMarkdown(line.slice(3))}</h2>);
+    } else {
+      blocks.push(<p key={`p-${blocks.length}`}>{renderInlineMarkdown(line)}</p>);
+    }
+  });
+  flushList();
+
+  return blocks;
+}
 
 export default function BlogPostPage() {
   const [, params] = useRoute("/blog/:slug");
@@ -37,6 +86,7 @@ export default function BlogPostPage() {
         <PageHead 
           title="Blog Post Not Found | Christmas Northwest"
           description="The blog post you're looking for doesn't exist."
+          robots="noindex, nofollow"
         />
         <div className="min-h-screen flex flex-col">
           <UrgencyBanner />
@@ -164,11 +214,7 @@ export default function BlogPostPage() {
                   <div className="flex items-center gap-2">
                     <Calendar className="w-4 h-4" />
                     <span data-testid="text-publish-date">
-                      {new Date(post.publishDate).toLocaleDateString('en-US', {
-                        month: 'long',
-                        day: 'numeric',
-                        year: 'numeric'
-                      })}
+                      {formatBlogDate(post.publishDate, "long")}
                     </span>
                   </div>
                   <div className="flex items-center gap-2">
@@ -179,37 +225,21 @@ export default function BlogPostPage() {
               </div>
 
               {/* Article Content */}
-              <div 
+              <div
                 className="prose prose-lg max-w-none prose-headings:font-serif prose-headings:font-bold prose-h2:text-3xl prose-h2:mt-12 prose-h2:mb-4 prose-h3:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-p:text-foreground/90 prose-p:leading-relaxed prose-p:mb-6 prose-strong:text-foreground prose-strong:font-semibold prose-ul:my-6 prose-li:text-foreground/90 prose-li:mb-2"
                 data-testid="content-blog-post"
-                dangerouslySetInnerHTML={{ __html: post.content.split('\n').map(line => {
-                  if (line.trim().startsWith('## ')) {
-                    return `<h2>${line.replace('## ', '')}</h2>`;
-                  }
-                  if (line.trim().startsWith('### ')) {
-                    return `<h3>${line.replace('### ', '')}</h3>`;
-                  }
-                  if (line.trim().startsWith('**') && line.trim().endsWith('**')) {
-                    return `<p><strong>${line.trim().slice(2, -2)}</strong></p>`;
-                  }
-                  if (line.trim().startsWith('- ')) {
-                    return `<li>${line.replace('- ', '')}</li>`;
-                  }
-                  if (line.trim() === '') {
-                    return '';
-                  }
-                  return `<p>${line}</p>`;
-                }).join('\n') }}
-              />
+              >
+                {renderArticleContent(post.content)}
+              </div>
 
               {/* CTA Section */}
               <Card className="p-8 md:p-12 mt-16 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
                 <div className="text-center max-w-2xl mx-auto">
                   <h2 className="font-serif text-3xl font-bold mb-4 text-foreground">
-                    Ready to Transform Your Home This Holiday Season?
+                    Ready to Plan Your Christmas Lights?
                   </h2>
                   <p className="text-lg text-muted-foreground mb-8">
-                    Let our professional team create a stunning Christmas light display for your home. Premium quality, stress-free service, and spectacular results guaranteed.
+                    Tell us about your property and the areas you want to light. We will follow up with options, availability, and a custom estimate.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button 

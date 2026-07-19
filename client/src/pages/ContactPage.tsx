@@ -61,7 +61,7 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-center justify-center gap-2 md:justify-start">
                   <CheckCircle2 className="w-5 h-5 text-primary" />
-                  <span className="font-semibold">Most Homes $800-$2,000</span>
+                  <span className="font-semibold">Typical Projects $800-$3,500</span>
                 </div>
               </div>
             </div>
