@@ -18,13 +18,8 @@ export default function ServiceAreasPage() {
   const [zipCheckResult, setZipCheckResult] = useState<"unknown" | "covered" | "not-covered">("unknown");
 
   const scrollToQuote = () => {
-    setLocation('/');
-    setTimeout(() => {
-      const element = document.getElementById('quote');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    setLocation('/contact');
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   // Service area zip codes

@@ -1,6 +1,7 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
 import { SiGoogle } from "react-icons/si";
 import { Link } from "wouter";
+import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   const handleLinkClick = () => {
@@ -13,7 +14,7 @@ export default function Footer() {
           <div>
             <p className="font-semibold mb-4 text-foreground">Services</p>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link href="/" onClick={handleLinkClick} className="hover:text-primary transition-colors">Christmas Lighting</Link></li>
+              <li><Link href="/services" onClick={handleLinkClick} className="hover:text-primary transition-colors">Christmas Lighting</Link></li>
               <li><Link href="/product-guide" onClick={handleLinkClick} className="hover:text-primary transition-colors">Product Guide</Link></li>
             </ul>
           </div>
@@ -46,6 +47,9 @@ export default function Footer() {
               <li>Kenmore, WA</li>
               <li className="text-primary font-semibold">Available 24/7</li>
             </ul>
+            <Link href="/contact" onClick={handleLinkClick} data-testid="button-footer-quote">
+              <Button className="mb-4 w-full sm:w-auto font-bold">Get a Quote</Button>
+            </Link>
             <div className="flex gap-2">
               <a 
                 href="https://www.facebook.com/ChristmasNW" 

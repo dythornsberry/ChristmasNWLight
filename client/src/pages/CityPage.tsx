@@ -1,15 +1,22 @@
-import { useLocation, Link } from "wouter";
+import { Link } from "wouter";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
 import InternalLinksSection from "@/components/InternalLinksSection";
+import LeadFormCard, { type LeadServiceOption } from "@/components/LeadFormCard";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, Star, Shield, Clock, MapPin } from "lucide-react";
+import { Check, Star, Shield, Clock, MapPin, MessageSquare, Sparkles, TreePine } from "lucide-react";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
+
+const CITY_SERVICE_OPTIONS: LeadServiceOption[] = [
+  { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New installation or redesign", icon: TreePine },
+  { value: "christmas-2026-returning", label: "Returning Customer", sublabel: "Existing client support or rebook", icon: Sparkles },
+  { value: "general-inquiry", label: "General Question", sublabel: "Fast callback without a project address", icon: MessageSquare },
+];
 
 const nearbyCitiesMap: Record<string, { name: string; slug: string }[]> = {
   seattle: [
@@ -127,16 +134,11 @@ export default function CityPage({
   nearbyLandmarks = [],
   localContent
 }: CityPageProps) {
-  const [, setLocation] = useLocation();
-
   const scrollToQuote = () => {
-    setLocation('/');
-    setTimeout(() => {
-      const element = document.getElementById('quote');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    const element = document.getElementById('quote');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const localBusinessSchema = {
@@ -308,15 +310,15 @@ export default function CityPage({
                   >
                     Light Up My Home ✨
                   </Button>
-                  <Button
-                    onClick={() => window.location.href = 'tel:4252150935'}
-                    variant="outline"
-                    size="lg"
-                    className="text-lg font-bold px-10 py-7 border-2"
-                    data-testid="button-hero-call"
-                  >
-                    Call (425) 215-0935
-                  </Button>
+                  <a href="tel:4252150935" data-testid="button-hero-call">
+                    <Button
+                      variant="outline"
+                      size="lg"
+                      className="text-lg font-bold px-10 py-7 border-2"
+                    >
+                      Call (425) 215-0935
+                    </Button>
+                  </a>
                 </div>
 
                 {/* Trust Badges */}
@@ -338,8 +340,29 @@ export default function CityPage({
             </div>
           </section>
 
+          {/* Quote Form — city visitors get a form right on this page */}
+          <section id="quote" className="scroll-mt-28 py-20 bg-muted/30">
+            <div className="max-w-4xl mx-auto px-6">
+              <LeadFormCard
+                title={`Get Your Free ${cityName} Estimate`}
+                description={`Tell us what you want to light and where the property is in ${cityName}. We'll follow up with availability and pricing.`}
+                submitLabel="Request My Free Estimate"
+                successTitle="Thanks. We've got your request."
+                successDescription={`Our team will review the details and follow up with the best next step for your ${cityName} property.`}
+                trackingLabel="city_page_quote"
+                formLocation={`city_${citySlug}`}
+                serviceOptions={CITY_SERVICE_OPTIONS}
+                initialServiceType="christmas-2026-new"
+                showServiceStep
+                serviceBadgeText={`${cityName} estimate form`}
+                responseNote="Thanks. We'll be in touch soon to talk through your project."
+                testIdPrefix={`city-${citySlug}`}
+              />
+            </div>
+          </section>
+
           {/* Why Choose Us for {cityName} */}
-          <section className="py-20 bg-muted/30">
+          <section className="py-20 bg-background">
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center mb-16">
                 <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-foreground">
@@ -477,15 +500,15 @@ export default function CityPage({
                 >
                   Light Up My Home ✨
                 </Button>
-                <Button 
-                  variant="outline"
-                  size="lg"
-                  className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-bold text-lg px-10"
-                  onClick={() => window.location.href = 'tel:4252150935'}
-                  data-testid={`button-${citySlug}-cta-call`}
-                >
-                  Call (425) 215-0935
-                </Button>
+                <a href="tel:4252150935" data-testid={`button-${citySlug}-cta-call`}>
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-bold text-lg px-10"
+                  >
+                    Call (425) 215-0935
+                  </Button>
+                </a>
               </div>
             </div>
           </section>

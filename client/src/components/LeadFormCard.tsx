@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { AnimatePresence, motion } from "framer-motion";
 import {
   CheckCircle2,
   ChevronLeft,
@@ -207,11 +206,8 @@ export default function LeadFormCard({
     createQuoteMutation.mutate(formData);
   };
 
-  const stepVariants = {
-    enter: { opacity: 0, x: 30 },
-    center: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -30 },
-  };
+  // CSS enter animation per step (tailwindcss-animate); replaces framer-motion
+  const stepAnimationClass = "animate-in fade-in slide-in-from-right-8 duration-200";
 
   const progressWidth = `${(step / stepLabels.length) * 100}%`;
 
@@ -290,17 +286,9 @@ export default function LeadFormCard({
           <form onSubmit={handleSubmit} className="relative">
             <FormSpamTrap fieldId={`${testIdPrefix}-website`} value={website} onChange={setWebsite} />
 
-            <AnimatePresence mode="wait">
+            <>
               {hasServiceStep && step === 1 ? (
-                <motion.div
-                  key="service-step"
-                  variants={stepVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.2 }}
-                  className="space-y-4"
-                >
+                <div key="service-step" className={cn("space-y-4", stepAnimationClass)}>
                   <div className="mb-5">
                     <h3 className="text-xl font-semibold text-foreground">{serviceStepTitle}</h3>
                     <p className="mt-2 text-sm leading-6 text-muted-foreground">{serviceStepDescription}</p>
@@ -363,19 +351,11 @@ export default function LeadFormCard({
                     Continue
                     <ChevronRight className="ml-2 h-5 w-5" />
                   </Button>
-                </motion.div>
+                </div>
               ) : null}
 
               {step === contactStep ? (
-                <motion.div
-                  key="contact-step"
-                  variants={stepVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.2 }}
-                  className="space-y-5"
-                >
+                <div key="contact-step" className={cn("space-y-5", stepAnimationClass)}>
                   <div className="mb-5">
                     <h3 className="text-xl font-semibold text-foreground">{contactStepTitle}</h3>
                     <p className="mt-2 text-sm leading-6 text-muted-foreground">{contactStepDescription}</p>
@@ -467,19 +447,11 @@ export default function LeadFormCard({
                       <ChevronRight className="ml-2 h-5 w-5" />
                     </Button>
                   </div>
-                </motion.div>
+                </div>
               ) : null}
 
               {step === propertyStep ? (
-                <motion.div
-                  key="property-step"
-                  variants={stepVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{ duration: 0.2 }}
-                  className="space-y-5"
-                >
+                <div key="property-step" className={cn("space-y-5", stepAnimationClass)}>
                   <div className="mb-5">
                     <h3 className="text-xl font-semibold text-foreground">{propertyStepTitle}</h3>
                     <p className="mt-2 text-sm leading-6 text-muted-foreground">{propertyStepDescription}</p>
@@ -563,9 +535,9 @@ export default function LeadFormCard({
                       {createQuoteMutation.isPending ? "Submitting..." : submitLabel}
                     </Button>
                   </div>
-                </motion.div>
+                </div>
               ) : null}
-            </AnimatePresence>
+            </>
           </form>
 
           <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">

@@ -1,6 +1,5 @@
 import { useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { AnimatePresence, motion } from "framer-motion";
 import {
   CheckCircle2,
   ChevronLeft,
@@ -44,7 +43,7 @@ const FORM_HIGHLIGHTS = [
   {
     icon: Clock3,
     title: "Fast response",
-    description: "Quick response, often within an hour during the season.",
+    description: "Most quote requests get a reply within 24 hours, faster during the season.",
   },
   {
     icon: Shield,
@@ -176,11 +175,8 @@ export default function QuoteFormSection() {
   const canProceedStep2 = !fullNameError && !emailError && !phoneError;
   const canSubmitStep3 = !addressError;
 
-  const stepVariants = {
-    enter: { opacity: 0, x: 32 },
-    center: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -32 },
-  };
+  // CSS enter animation per step (tailwindcss-animate); replaces framer-motion
+  const stepAnimationClass = "animate-in fade-in slide-in-from-right-8 duration-200";
 
   return (
     <section
@@ -349,17 +345,9 @@ export default function QuoteFormSection() {
                 >
                   <FormSpamTrap fieldId="quote-website" value={website} onChange={setWebsite} />
 
-                  <AnimatePresence mode="wait">
+                  <>
                     {step === 1 ? (
-                      <motion.div
-                        key="step1"
-                        variants={stepVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{ duration: 0.2 }}
-                        className="space-y-4"
-                      >
+                      <div key="step1" className={`space-y-4 ${stepAnimationClass}`}>
                         <div className="mb-5">
                           <h4 className="text-xl font-semibold text-foreground">Which service do you need?</h4>
                           <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -426,19 +414,11 @@ export default function QuoteFormSection() {
                           Continue
                           <ChevronRight className="ml-2 h-5 w-5" />
                         </Button>
-                      </motion.div>
+                      </div>
                     ) : null}
 
                     {step === 2 ? (
-                      <motion.div
-                        key="step2"
-                        variants={stepVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{ duration: 0.2 }}
-                        className="space-y-5"
-                      >
+                      <div key="step2" className={`space-y-5 ${stepAnimationClass}`}>
                         <div className="mb-5">
                           <h4 className="text-xl font-semibold text-foreground">How should we reach you?</h4>
                           <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -530,19 +510,11 @@ export default function QuoteFormSection() {
                             <ChevronRight className="ml-2 h-5 w-5" />
                           </Button>
                         </div>
-                      </motion.div>
+                      </div>
                     ) : null}
 
                     {step === 3 ? (
-                      <motion.div
-                        key="step3"
-                        variants={stepVariants}
-                        initial="enter"
-                        animate="center"
-                        exit="exit"
-                        transition={{ duration: 0.2 }}
-                        className="space-y-5"
-                      >
+                      <div key="step3" className={`space-y-5 ${stepAnimationClass}`}>
                         <div className="mb-5">
                           <h4 className="text-xl font-semibold text-foreground">Which property are we quoting?</h4>
                           <p className="mt-2 text-sm leading-6 text-muted-foreground">
@@ -582,7 +554,7 @@ export default function QuoteFormSection() {
 
                         {shouldCollectManualZip ? (
                           <div className="space-y-2">
-                            <Label htmlFor="zipCode">Zip Code *</Label>
+                            <Label htmlFor="zipCode">ZIP Code (optional)</Label>
                             <Input
                               id="zipCode"
                               value={formData.zipCode}
@@ -592,7 +564,6 @@ export default function QuoteFormSection() {
                                   zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
                                 }))
                               }
-                              required
                               data-testid="input-zip-code"
                               placeholder="98028"
                               autoComplete="postal-code"
@@ -630,9 +601,9 @@ export default function QuoteFormSection() {
                             )}
                           </Button>
                         </div>
-                      </motion.div>
+                      </div>
                     ) : null}
-                  </AnimatePresence>
+                  </>
                 </form>
 
                 <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-sm text-muted-foreground">

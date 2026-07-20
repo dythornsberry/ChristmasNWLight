@@ -66,13 +66,8 @@ export default function BlogPostPage() {
   const post = params?.slug ? getBlogPost(params.slug) : undefined;
 
   const scrollToQuote = () => {
-    setLocation('/');
-    setTimeout(() => {
-      const element = document.getElementById('quote');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
-    }, 100);
+    setLocation('/contact');
+    window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
   const goToBlog = () => {
