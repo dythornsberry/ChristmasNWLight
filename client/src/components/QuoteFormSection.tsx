@@ -14,6 +14,7 @@ import {
   TreePine,
 } from "lucide-react";
 import AddressAutocompleteField from "@/components/AddressAutocompleteField";
+import { Checkbox } from "@/components/ui/checkbox";
 import FormSpamTrap from "@/components/FormSpamTrap";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -80,6 +81,7 @@ export default function QuoteFormSection() {
     zipCode: "",
     serviceType: "",
     addressConfirmed: false,
+    seasonalConfirmed: false,
   });
 
   const selectedService = SERVICE_OPTIONS.find((option) => option.value === formData.serviceType);
@@ -102,6 +104,7 @@ export default function QuoteFormSection() {
       zipCode: "",
       serviceType: "",
       addressConfirmed: false,
+      seasonalConfirmed: false,
     });
   };
 
@@ -155,12 +158,15 @@ export default function QuoteFormSection() {
     : null;
   // Address just needs to be non-empty — Google Places is a convenience, not a requirement
   const addressError = !formData.address.trim() ? "Enter the service address." : null;
+  const seasonalConfirmError = !formData.seasonalConfirmed
+    ? "Please check the box so we know we're quoting the right service."
+    : null;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setShowErrors(true);
 
-    if (fullNameError || emailError || phoneError || addressError) {
+    if (fullNameError || emailError || phoneError || addressError || seasonalConfirmError) {
       return;
     }
 
@@ -588,6 +594,31 @@ export default function QuoteFormSection() {
                             We use the address to make sure we are looking at the right property. We do not sell your information.
                           </p>
                         </div>
+
+                        <label
+                          className={`flex cursor-pointer items-start gap-3 rounded-2xl border-2 p-4 transition-colors ${
+                            showErrors && seasonalConfirmError ? "border-destructive bg-destructive/5" : "border-border bg-muted/40"
+                          }`}
+                          data-testid="homepage-seasonal-confirm"
+                        >
+                          <Checkbox
+                            checked={formData.seasonalConfirmed}
+                            onCheckedChange={(checked) =>
+                              setFormData((current) => ({ ...current, seasonalConfirmed: checked === true }))
+                            }
+                            className="mt-0.5"
+                          />
+                          <span className="text-sm leading-6 text-muted-foreground">
+                            <span className="font-semibold text-foreground">
+                              I'm requesting seasonal holiday lighting (projects start at $800).
+                            </span>{" "}
+                            Christmas Northwest provides the professional lights and decorations, installs them, and
+                            takes them down — it's all done for you. You never have to touch a bulb.
+                          </span>
+                        </label>
+                        {showErrors && seasonalConfirmError ? (
+                          <p className="text-sm text-destructive">{seasonalConfirmError}</p>
+                        ) : null}
 
                         <div className="mt-6 flex gap-3">
                           <Button type="button" variant="outline" size="lg" className="flex-1" onClick={() => setStep(2)}>

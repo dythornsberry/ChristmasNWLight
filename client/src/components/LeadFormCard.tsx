@@ -11,6 +11,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import AddressAutocompleteField from "@/components/AddressAutocompleteField";
+import { Checkbox } from "@/components/ui/checkbox";
 import FormSpamTrap from "@/components/FormSpamTrap";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -109,6 +110,7 @@ export default function LeadFormCard({
     zipCode: "",
     serviceType: initialServiceType,
     addressConfirmed: false,
+    seasonalConfirmed: false,
   });
 
   const hasServiceStep = Boolean(showServiceStep && serviceOptions.length > 0);
@@ -136,6 +138,7 @@ export default function LeadFormCard({
       zipCode: "",
       serviceType: initialServiceType,
       addressConfirmed: false,
+      seasonalConfirmed: false,
     });
   };
 
@@ -191,6 +194,9 @@ export default function LeadFormCard({
   // Address just needs to be non-empty when required — Google Places is a convenience, not a requirement
   const addressError = addressRequired && !formData.address.trim() ? "Enter the service address." : null;
   const serviceTypeError = !formData.serviceType ? "Choose the service you need." : null;
+  const seasonalConfirmError = !formData.seasonalConfirmed
+    ? "Please check the box so we know we're quoting the right service."
+    : null;
 
   const canProceedService = !serviceTypeError;
   const canProceedContact = !fullNameError && !emailError && !phoneError;
@@ -200,7 +206,7 @@ export default function LeadFormCard({
     e.preventDefault();
     setShowErrors(true);
 
-    if (serviceTypeError || fullNameError || emailError || phoneError || addressError) {
+    if (serviceTypeError || fullNameError || emailError || phoneError || addressError || seasonalConfirmError) {
       return;
     }
 
@@ -529,6 +535,31 @@ export default function LeadFormCard({
                       </p>
                     </div>
                   </div>
+
+                  <label
+                    className={`flex cursor-pointer items-start gap-3 rounded-2xl border-2 p-4 transition-colors ${
+                      showErrors && seasonalConfirmError ? "border-destructive bg-destructive/5" : "border-border bg-muted/40"
+                    }`}
+                    data-testid={`${testIdPrefix}-seasonal-confirm`}
+                  >
+                    <Checkbox
+                      checked={formData.seasonalConfirmed}
+                      onCheckedChange={(checked) =>
+                        setFormData((current) => ({ ...current, seasonalConfirmed: checked === true }))
+                      }
+                      className="mt-0.5"
+                    />
+                    <span className="text-sm leading-6 text-muted-foreground">
+                      <span className="font-semibold text-foreground">
+                        I'm requesting seasonal holiday lighting (projects start at $800).
+                      </span>{" "}
+                      Christmas Northwest provides the professional lights and decorations, installs them, and takes
+                      them down — it's all done for you. You never have to touch a bulb.
+                    </span>
+                  </label>
+                  {showErrors && seasonalConfirmError ? (
+                    <p className="text-sm text-destructive">{seasonalConfirmError}</p>
+                  ) : null}
 
                   <div className="mt-6 flex flex-col-reverse gap-3 sm:flex-row">
                     <Button type="button" variant="outline" size="lg" className="w-full sm:flex-1" onClick={() => setStep(contactStep)}>
