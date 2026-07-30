@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import PageHead from "@/components/PageHead";
 import StructuredData from "@/components/StructuredData";
-import { CURRENT_SEASON_NUMBER, GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
+import { CURRENT_SEASON_NUMBER, CURRENT_SEASON_YEAR, FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL } from "@/lib/business";
 
 export default function FAQPage() {
   const [, setLocation] = useLocation();
@@ -45,7 +45,7 @@ export default function FAQPage() {
       category: "Pricing & Packages",
       questions: [
         {
-          question: "How much does Christmas light installation cost in 2026?",
+          question: `How much does Christmas light installation cost in ${CURRENT_SEASON_YEAR}?`,
           answer: "Residential projects currently start around $800 for a clean roofline. Roofline-plus-accent projects are commonly $1,500-$1,800, full-property displays are commonly $2,500-$3,500, and large custom projects start around $4,000. Roof access, footage, trees, landscaping, and design complexity all affect the final price. Installation, seasonal maintenance, takedown, and storage are included."
         },
         {
@@ -70,7 +70,7 @@ export default function FAQPage() {
           answer: "Most residential installations are completed in 2-4 hours depending on your home's size and design complexity. Larger homes or custom design packages may take 4-8 hours. We work efficiently to minimize disruption to your day. After you book, most projects are scheduled and completed within one week during our busy season."
         },
         {
-          question: "When should I schedule my Christmas light installation for 2026?",
+          question: `When should I schedule my Christmas light installation for ${CURRENT_SEASON_YEAR}?`,
           answer: "Book as early as you can if you want the widest choice of dates. Installations generally run from October through December, and availability becomes tighter as Thanksgiving approaches. We confirm the actual installation window before you approve the project."
         },
         {
@@ -145,7 +145,7 @@ export default function FAQPage() {
       category: "Booking & Payment",
       questions: [
         {
-          question: "How do I book Christmas light installation for 2026?",
+          question: `How do I book Christmas light installation for ${CURRENT_SEASON_YEAR}?`,
           answer: "Booking is easy! Fill out our free quote form on this page, or call us directly at (425) 215-0935. We'll discuss your design vision, provide a detailed quote, and once approved, we'll schedule your installation date."
         },
         {
@@ -211,8 +211,8 @@ export default function FAQPage() {
       "ratingCount": GOOGLE_REVIEW_COUNT
     },
     "sameAs": [
-      "https://www.facebook.com/ChristmasNW",
-      "https://www.instagram.com/christmasnw/",
+      FACEBOOK_URL,
+      INSTAGRAM_URL,
       "https://share.google/lxhOxXmbPwABIqdNa"
     ]
   };
@@ -225,7 +225,7 @@ export default function FAQPage() {
     <>
       <PageHead 
         title="Christmas Light Installation FAQ | Christmas Northwest"
-        description="Get answers to common questions about Christmas light installation in Seattle, Bellevue, Bothell, Kirkland, and Greater Seattle. Pricing, service areas, installation process, and more."
+        description="Answers to common Christmas light installation questions for Greater Seattle: pricing, process, timing, service areas, and what's included."
       />
       <StructuredData data={faqSchema} />
       <StructuredData data={localBusinessSchema} />

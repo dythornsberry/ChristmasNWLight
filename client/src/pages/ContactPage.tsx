@@ -3,14 +3,46 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import StructuredData from "@/components/StructuredData";
 import LeadFormCard, { type LeadServiceOption } from "@/components/LeadFormCard";
 import { Card } from "@/components/ui/card";
 import { CheckCircle2, Clock, Mail, MapPin, Phone, Sparkles, TreePine } from "lucide-react";
+import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
 const CONTACT_SERVICE_OPTIONS: LeadServiceOption[] = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New installation or redesign", icon: TreePine },
   { value: "christmas-2026-returning", label: "Returning Customer", sublabel: "Existing client support or rebook", icon: Sparkles },
 ];
+
+const contactBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Christmas Northwest",
+  "description": "Professional seasonal Christmas light installation for Seattle and the Eastside — design, installation, maintenance, takedown, and storage.",
+  "url": "https://christmasnw.com/contact",
+  "telephone": "+14252150935",
+  "email": "christmaslightsnw@gmail.com",
+  "priceRange": "$800-$4,000+",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Kenmore",
+    "addressRegion": "WA",
+    "postalCode": "98028",
+    "addressCountry": "US"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.7573,
+    "longitude": -122.2443
+  },
+  "areaServed": servedCitiesSchema(),
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": GOOGLE_RATING,
+    "reviewCount": GOOGLE_REVIEW_COUNT
+  },
+  "sameAs": [FACEBOOK_URL, INSTAGRAM_URL, YOUTUBE_URL]
+};
 
 export default function ContactPage() {
   const formId = "contact-request-form";
@@ -28,6 +60,7 @@ export default function ContactPage() {
         title="Contact Christmas Northwest | Request a Christmas Lighting Quote"
         description="Request a free quote from Christmas Northwest for professional Christmas lighting in Greater Seattle."
       />
+      <StructuredData data={contactBusinessSchema} />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
 

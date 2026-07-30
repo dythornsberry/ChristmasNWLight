@@ -1,9 +1,14 @@
 /**
- * Cloudflare Pages Middleware: Retired Service Redirects
- * Redirects service pages we no longer offer to the main services page.
+ * Cloudflare Pages Middleware: host canonicalization + retired service redirects.
  */
 export async function onRequest(context) {
   const url = new URL(context.request.url);
+
+  // Consolidate www onto the apex domain (canonical host)
+  if (url.hostname === 'www.christmasnw.com') {
+    url.hostname = 'christmasnw.com';
+    return Response.redirect(url.toString(), 301);
+  }
 
   // Skip root path
   if (url.pathname === '/') {

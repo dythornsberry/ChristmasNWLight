@@ -12,8 +12,9 @@
 
 import { createServer } from "node:http";
 import { readFileSync, writeFileSync, mkdirSync, existsSync } from "node:fs";
-import { join, extname } from "node:path";
+import { join, extname, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { execSync } from "node:child_process";
 import puppeteer from "puppeteer";
 
 const __dirname = fileURLToPath(new URL(".", import.meta.url));
@@ -196,12 +197,13 @@ async function prerender() {
       html = html.replace(/<script[^>]*elfsight[^>]*><\/script>/g, "");
       html = html.replace(/<style[^>]*>div\.eapps-widget[\s\S]*?<\/style>/g, "");
 
-      // Determine output path
-      const outDir = route === "/"
-        ? DIST
-        : join(DIST, route);
-      mkdirSync(outDir, { recursive: true });
-      const outFile = join(outDir, "index.html");
+      // Flat output (about.html, not about/index.html): Cloudflare Pages serves
+      // /about from about.html directly with 200, instead of 308-redirecting to
+      // /about/ — keeps served URLs identical to canonicals and the sitemap.
+      const outFile = route === "/"
+        ? join(DIST, "index.html")
+        : join(DIST, `${route.slice(1)}.html`);
+      mkdirSync(dirname(outFile), { recursive: true });
       writeFileSync(outFile, html, "utf-8");
 
       done++;
@@ -220,6 +222,62 @@ async function prerender() {
   if (done < total) {
     process.exit(1);
   }
+
+  writeSitemap();
+}
+
+// ---------- sitemap ----------
+
+// Map each route to the source file whose git history drives its <lastmod>.
+// Blog posts all live in blogPosts.ts; city pages each have their own file.
+function routeSourceFile(route) {
+  if (route === "/") return "client/src/pages/Home.tsx";
+  if (route.startsWith("/blog/")) return "client/src/data/blogPosts.ts";
+  const PAGE_FILES = {
+    "/about": "AboutPage.tsx",
+    "/services": "ServicesPage.tsx",
+    "/gallery": "GalleryPage.tsx",
+    "/faq": "FAQPage.tsx",
+    "/contact": "ContactPage.tsx",
+    "/testimonials": "TestimonialsPage.tsx",
+    "/service-areas": "ServiceAreasPage.tsx",
+    "/product-guide": "ProductGuide.tsx",
+    "/investment-guide": "InvestmentGuide.tsx",
+    "/blog": "BlogPage.tsx",
+    "/privacy-policy": "PrivacyPolicy.tsx",
+  };
+  if (PAGE_FILES[route]) return `client/src/pages/${PAGE_FILES[route]}`;
+  // City routes: /mercer-island -> MercerIslandPage.tsx
+  const city = route
+    .slice(1)
+    .split("-")
+    .map((part) => part[0].toUpperCase() + part.slice(1))
+    .join("");
+  return `client/src/pages/${city}Page.tsx`;
+}
+
+function writeSitemap() {
+  const repoRoot = join(__dirname, "..");
+  const urls = ROUTES.map((route) => {
+    let lastmod = "";
+    try {
+      const file = routeSourceFile(route);
+      const date = execSync(`git log -1 --format=%cs -- "${file}"`, {
+        cwd: repoRoot,
+        encoding: "utf-8",
+      }).trim();
+      if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {
+        lastmod = `\n    <lastmod>${date}</lastmod>`;
+      }
+    } catch {
+      // No git available (or file untracked) — omit lastmod rather than fake it.
+    }
+    return `  <url>\n    <loc>${SITE_URL}${route === "/" ? "/" : route}</loc>${lastmod}\n  </url>`;
+  });
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`;
+  writeFileSync(join(DIST, "sitemap.xml"), xml, "utf-8");
+  console.log(`Wrote sitemap.xml with ${ROUTES.length} URLs (git-derived lastmod).`);
 }
 
 prerender().catch((err) => {

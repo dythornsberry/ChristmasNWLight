@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, Shield, Clock, MapPin, Sparkles, TreePine } from "lucide-react";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
+import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
 const CITY_SERVICE_OPTIONS: LeadServiceOption[] = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New installation or redesign", icon: TreePine },
@@ -155,8 +155,8 @@ export default function CityPage({
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "47.7573",
-      "longitude": "-122.2443"
+      "latitude": 47.7573,
+      "longitude": -122.2443
     },
     "url": `https://christmasnw.com/${citySlug}`,
     "telephone": "+14252150935",
@@ -171,27 +171,11 @@ export default function CityPage({
         "closes": "23:59"
       }
     ],
-    "areaServed": [
-      { "@type": "City", "name": cityName, "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Lake Forest Park", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Issaquah", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Newcastle", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Mercer Island", "address": { "addressRegion": "WA" } }
-    ],
+    "areaServed": servedCitiesSchema(cityName),
     "sameAs": [
-      "https://www.facebook.com/ChristmasNW",
-      "https://www.instagram.com/christmasnw",
-      "https://www.youtube.com/@christmasnw"
+      FACEBOOK_URL,
+      INSTAGRAM_URL,
+      YOUTUBE_URL
     ],
     "aggregateRating": {
       "@type": "AggregateRating",

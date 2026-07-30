@@ -164,7 +164,7 @@ export default function ProductGuide() {
       <UrgencyBanner />
       <PageHead 
         title="Commercial-Grade Christmas Lighting Products | Christmas Northwest"
-        description="Commercial-grade LED Christmas lighting products: C9 bulbs, mini lights, bush lighting, ground lights, tree wraps, and light spheres. Weather-resistant and energy-efficient."
+        description="Commercial-grade LED Christmas lighting: C9 bulbs, mini lights, bush and ground lighting, tree wraps, and light spheres. Weatherproof and efficient."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
       

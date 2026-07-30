@@ -92,7 +92,7 @@ export default function InvestmentGuide() {
       <UrgencyBanner />
       <PageHead 
         title="Christmas Light Installation Pricing | Christmas Northwest"
-        description="Transparent Christmas light installation pricing in Greater Seattle. Compare common project scopes from $800 rooflines to $4,000+ custom displays. Installation, maintenance, takedown, and storage included."
+        description="Transparent Christmas light installation pricing for Seattle: $800 rooflines to $4,000+ custom displays. Install, takedown, and storage included."
       />
       <StickyHeader onGetQuote={scrollToQuote} />
       

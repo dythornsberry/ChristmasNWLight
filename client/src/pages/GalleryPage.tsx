@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight, Play, Youtube } from "lucide-react";
 import { useLocation } from "wouter";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
+import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
 // Import all gallery images
 import img1 from '@assets/2024-11-25-min_1762058047474.jpg';
@@ -234,9 +234,10 @@ function GalleryImageCard({
           src={image.src}
           alt={image.alt}
           loading={eager ? "eager" : "lazy"}
-          decoding={eager ? "sync" : "async"}
+          decoding="async"
           // @ts-expect-error -- React 18 doesn't map fetchPriority; lowercase is the valid HTML attr
-          fetchpriority={eager ? "high" : "auto"}
+          // Only the first image is the LCP candidate — one high-priority fetch, not three
+          fetchpriority={index === 0 ? "high" : "auto"}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 select-none pointer-events-none"
           width={400}
           height={300}
@@ -494,18 +495,7 @@ export default function GalleryPage() {
       "latitude": 47.7573,
       "longitude": -122.2443
     },
-    "areaServed": [
-      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } }
-    ],
+    "areaServed": servedCitiesSchema(),
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": GOOGLE_RATING,
@@ -513,9 +503,9 @@ export default function GalleryPage() {
     },
     "priceRange": "$800-$4,000+",
     "sameAs": [
-      "https://www.facebook.com/ChristmasNW",
-      "https://www.instagram.com/christmasnw",
-      "https://www.youtube.com/@christmasnw"
+      FACEBOOK_URL,
+      INSTAGRAM_URL,
+      YOUTUBE_URL
     ]
   };
 
@@ -523,7 +513,7 @@ export default function GalleryPage() {
     <>
       <PageHead
         title="Christmas Light Installation Gallery | Christmas Northwest"
-        description="Browse professional Christmas light installations across Greater Seattle. See real projects in Bellevue, Bothell, Kirkland, and Redmond plus installation videos."
+        description="Real Christmas light installations across Greater Seattle — Bellevue, Bothell, Kirkland, Redmond — plus installation videos."
       />
       <StructuredData data={localBusinessSchema} />
       <script

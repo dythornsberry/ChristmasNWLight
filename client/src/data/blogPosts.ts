@@ -1,6 +1,8 @@
 export interface BlogPost {
   id: number;
   title: string;
+  /** Short <title> override (≤60 chars incl. brand); falls back to title. */
+  seoTitle?: string;
   slug: string;
   excerpt: string;
   category: string;
@@ -72,6 +74,7 @@ If you are planning a display for this season, choose the ideas that fit your ho
   {
     id: 2,
     title: "How to Choose Between Warm White and Multicolor Lights",
+    seoTitle: "Warm White vs Multicolor Christmas Lights",
     slug: "warm-white-vs-multicolor-lights",
     excerpt: "Not sure which lighting style suits your home? We break down the pros and cons of each to help you decide.",
     category: "Buying Guide",
@@ -148,6 +151,7 @@ Or better yet, work with us to design something custom. We can show you examples
   {
     id: 3,
     title: "The Complete Guide to Professional Christmas Light Installation",
+    seoTitle: "Professional Christmas Light Installation Guide",
     slug: "professional-christmas-light-installation-guide",
     excerpt: "Learn what goes into a professional installation and why DIY might not be worth the risk.",
     category: "Installation",
@@ -272,6 +276,7 @@ Ready to skip the ladder and enjoy the holidays? We're booking installations now
   {
     id: 4,
     title: "Why You Should Book Your Christmas Lights in September (Insider Tips)",
+    seoTitle: "Book Christmas Lights in September — Here's Why",
     slug: "book-christmas-lights-september",
     excerpt: "See how booking earlier affects design time, material choices, and available installation windows.",
     category: "Planning",
@@ -394,6 +399,7 @@ September and October generally provide more scheduling flexibility than Novembe
   {
     id: 5,
     title: "Christmas Light Installation Safety: What Professionals Do That DIY Doesn't",
+    seoTitle: "Christmas Light Installation Safety: Pro vs DIY",
     slug: "christmas-light-installation-safety",
     excerpt: "Keep your family safe this season with these essential safety tips from our professional installers.",
     category: "Safety",
@@ -595,6 +601,7 @@ Ready to enjoy a beautiful display without the risks? We're booking now for safe
   {
     id: 6,
     title: "How Much Does Professional Christmas Light Installation Cost? Real Pricing Breakdown",
+    seoTitle: "Christmas Light Installation Cost in Seattle (2026)",
     slug: "how-much-does-christmas-light-installation-cost",
     excerpt: "Stop guessing. Here's exactly what professional Christmas light installation costs in the Seattle area, with real examples and pricing factors explained.",
     category: "Buying Guide",

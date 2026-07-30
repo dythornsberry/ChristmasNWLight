@@ -47,9 +47,10 @@ export default function AddressAutocompleteField({
   resetKey = 0,
   zipCode,
 }: AddressAutocompleteFieldProps) {
-  const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">(
-    hasGooglePlacesApiKey() ? "loading" : "idle",
-  );
+  const [status, setStatus] = useState<"idle" | "loading" | "ready" | "error">("idle");
+  // Don't load the Google Maps script until the user actually touches the
+  // address field — saves ~100KB+ of JS and API quota on every page view.
+  const [activated, setActivated] = useState(false);
   const [statusMessage, setStatusMessage] = useState("");
   const inputRef = useRef<HTMLInputElement | null>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -70,7 +71,7 @@ export default function AddressAutocompleteField({
   }, [resetKey]);
 
   useEffect(() => {
-    if (!googleEnabled || !inputRef.current) {
+    if (!googleEnabled || !activated || !inputRef.current) {
       return;
     }
 
@@ -144,8 +145,8 @@ export default function AddressAutocompleteField({
         autocompleteRef.current = null;
       }
     };
-    // Only re-create when googleEnabled or resetKey changes — callbacks use refs
-  }, [googleEnabled, resetKey]);
+    // Only re-create when activation/googleEnabled/resetKey changes — callbacks use refs
+  }, [googleEnabled, activated, resetKey]);
 
   const handleInputChange = useCallback(() => {
     callbacksRef.current.onAddressChange("");
@@ -176,6 +177,7 @@ export default function AddressAutocompleteField({
               placeholder={placeholder}
               className="border-0 shadow-none focus-visible:ring-0 px-0 h-auto"
               onChange={handleInputChange}
+              onFocus={() => setActivated(true)}
             />
             {status === "loading" ? (
               <div className="flex items-center gap-2 text-sm text-muted-foreground">

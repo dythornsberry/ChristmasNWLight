@@ -161,7 +161,7 @@ export default function BlogPostPage() {
   return (
     <>
       <PageHead
-        title={`${post.title} | Christmas Northwest`}
+        title={post.seoTitle ?? `${post.title} | Christmas Northwest`}
         description={post.metaDescription}
       />
       <script

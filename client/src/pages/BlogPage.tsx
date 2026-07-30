@@ -30,7 +30,7 @@ export default function BlogPage() {
     <>
       <PageHead 
         title="Holiday Lighting Tips & Guides | Christmas Northwest"
-        description="Practical holiday lighting guides from Christmas Northwest. Learn about installation timing, safety, pricing, product choices, and design options for Seattle-area homes."
+        description="Practical holiday lighting guides: installation timing, safety, pricing, products, and design ideas for Seattle-area homes."
       />
 
       <div className="min-h-screen flex flex-col">

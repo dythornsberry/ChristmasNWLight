@@ -45,14 +45,14 @@ export default function Footer() {
               <li><a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a></li>
               <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors break-all">christmaslightsnw@gmail.com</a></li>
               <li>Kenmore, WA</li>
-              <li className="text-primary font-semibold">Available 24/7</li>
+              <li className="text-primary font-semibold">24/7 support during the season</li>
             </ul>
             <Link href="/contact" onClick={handleLinkClick} data-testid="button-footer-quote">
               <Button className="mb-4 w-full sm:w-auto font-bold">Get a Quote</Button>
             </Link>
             <div className="flex gap-2">
               <a 
-                href="https://www.facebook.com/ChristmasNW" 
+                href="https://www.facebook.com/ChristmasNorthwest"
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit our Facebook page"
@@ -98,7 +98,7 @@ export default function Footer() {
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-muted-foreground">
-              © 2026 Christmas Northwest. All rights reserved.
+              © {new Date().getFullYear()} Christmas Northwest. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-muted-foreground">
               <Link href="/privacy-policy" onClick={handleLinkClick} className="hover:text-primary transition-colors">Privacy Policy</Link>

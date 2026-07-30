@@ -13,7 +13,7 @@ import crewTeamPhoto from '@assets/IMG_3713_optimized.webp';
 import fleetPhoto from '@assets/IMG_9313_optimized.jpeg';
 import truckActionShot from '@assets/IMG_1466_optimized.jpeg';
 import { useLocation } from "wouter";
-import { CURRENT_SEASON_NUMBER, CURRENT_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
+import { CURRENT_SEASON_NUMBER, CURRENT_SEASON_YEAR, FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
 export default function AboutPage() {
   const [, setLocation] = useLocation();
@@ -83,18 +83,7 @@ export default function AboutPage() {
       "latitude": 47.7573,
       "longitude": -122.2443
     },
-    "areaServed": [
-      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } }
-    ],
+    "areaServed": servedCitiesSchema(),
     "foundingDate": "2021",
     "founder": {
       "@type": "Person",
@@ -102,9 +91,9 @@ export default function AboutPage() {
       "jobTitle": "Owner"
     },
     "sameAs": [
-      "https://www.facebook.com/ChristmasNW",
-      "https://www.instagram.com/christmasnw/",
-      "https://www.youtube.com/@christmasnw"
+      FACEBOOK_URL,
+      INSTAGRAM_URL,
+      YOUTUBE_URL
     ],
     "aggregateRating": {
       "@type": "AggregateRating",

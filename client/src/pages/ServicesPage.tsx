@@ -20,7 +20,7 @@ import customImage from '@assets/img16_1761853506444.webp';
 import treeImage from '@assets/img9_1761853506444_feature.webp';
 import maintenanceImage from '@assets/img8_1761853506443.webp';
 import { useLocation } from "wouter";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
+import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 import SeasonalServiceNote from "@/components/SeasonalServiceNote";
 
 export default function ServicesPage() {
@@ -124,22 +124,14 @@ export default function ServicesPage() {
       "telephone": "+14252150935",
       "url": "https://christmasnw.com"
     },
-    "areaServed": {
-      "@type": "State",
-      "name": "Washington",
-      "containedInPlace": {
-        "@type": "Country",
-        "name": "United States"
-      }
-    },
+    "areaServed": servedCitiesSchema(),
     "serviceType": "Christmas Light Installation",
     "offers": {
       "@type": "Offer",
       "priceSpecification": {
-        "@type": "PriceSpecification",
-        "price": "800",
-        "priceCurrency": "USD",
-        "unitText": "starting price"
+        "@type": "UnitPriceSpecification",
+        "minPrice": 800,
+        "priceCurrency": "USD"
       }
     }
   };
@@ -165,18 +157,7 @@ export default function ServicesPage() {
       "latitude": 47.7573,
       "longitude": -122.2443
     },
-    "areaServed": [
-      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } }
-    ],
+    "areaServed": servedCitiesSchema(),
     "serviceType": [
       "Residential roofline lighting",
       "Tree and greenery wrapping",
@@ -191,9 +172,9 @@ export default function ServicesPage() {
       "reviewCount": GOOGLE_REVIEW_COUNT
     },
     "sameAs": [
-      "https://www.facebook.com/ChristmasNW",
-      "https://www.instagram.com/christmasnw",
-      "https://www.youtube.com/@christmasnw"
+      FACEBOOK_URL,
+      INSTAGRAM_URL,
+      YOUTUBE_URL
     ]
   };
 
@@ -201,7 +182,7 @@ export default function ServicesPage() {
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="Christmas Light Installation Services | Christmas Northwest"
-        description="Professional Christmas light installation in Greater Seattle. Residential rooflines, tree wrapping, commercial displays, custom designs, maintenance, and storage."
+        description="Professional Christmas light installation in Greater Seattle: rooflines, tree wrapping, commercial displays, custom designs, and storage."
       />
       <script
         type="application/ld+json"

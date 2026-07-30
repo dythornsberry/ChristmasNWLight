@@ -62,7 +62,7 @@ export default function TestimonialsPage() {
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="Customer Reviews | Christmas Northwest"
-        description="Read Christmas Northwest customer reviews and testimonials from homeowners and commercial clients across Greater Seattle, Kenmore, Kirkland, Bothell, and Bellevue."
+        description="Christmas Northwest reviews from homeowners and commercial clients across Kenmore, Kirkland, Bothell, Bellevue, and Greater Seattle."
         path="/testimonials"
       />
       <StructuredData data={structuredData} />

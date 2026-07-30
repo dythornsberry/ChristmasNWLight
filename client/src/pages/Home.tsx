@@ -14,7 +14,7 @@ import Footer from "@/components/Footer";
 import PageHead from "@/components/PageHead";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import StructuredData from "@/components/StructuredData";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
+import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL } from "@/lib/business";
 import { TrendingUp, Users, Award, Clock } from "lucide-react";
 import completeHolidayScene from '@assets/optimized/portfolio-yard.webp';
 import familyHolidayTradition from '@assets/optimized/portfolio-family.webp';
@@ -133,9 +133,9 @@ export default function Home() {
     ],
     "foundingDate": "2021",
     "sameAs": [
-      "https://www.facebook.com/ChristmasNW",
-      "https://www.instagram.com/christmasnw/",
-      "https://www.youtube.com/@christmasnw",
+      FACEBOOK_URL,
+      INSTAGRAM_URL,
+      YOUTUBE_URL,
       googleReviewsUrl
     ]
   };
@@ -143,8 +143,8 @@ export default function Home() {
   return (
     <div className="min-h-screen pb-24 md:pb-0">
       <PageHead
-        title="Christmas Light Installation in Seattle & the Eastside | Christmas Northwest"
-        description="Full-service Christmas light installation for Seattle, Bellevue, Kirkland, Bothell, Kenmore, Woodinville, and nearby areas. Design, installation, maintenance, takedown, and storage included."
+        title="Seattle Christmas Light Installation | Christmas Northwest"
+        description="Full-service Christmas light installation for Seattle and the Eastside. Design, install, maintenance, takedown, and storage — one local team handles it all."
       />
       <StructuredData data={localBusinessSchema} />
       <UrgencyBanner />
