@@ -21,6 +21,7 @@ import treeImage from '@assets/img9_1761853506444_feature.webp';
 import maintenanceImage from '@assets/img8_1761853506443.webp';
 import { useLocation } from "wouter";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
+import SeasonalServiceNote from "@/components/SeasonalServiceNote";
 
 export default function ServicesPage() {
   const [, setLocation] = useLocation();
@@ -238,6 +239,7 @@ export default function ServicesPage() {
               >
                 Get a Quote
               </Button>
+              <SeasonalServiceNote className="mt-8" />
             </div>
           </div>
         </section>

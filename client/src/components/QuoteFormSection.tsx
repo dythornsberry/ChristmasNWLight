@@ -395,6 +395,11 @@ export default function QuoteFormSection() {
                           })}
                         </div>
 
+                        <p className="text-xs leading-5 text-muted-foreground">
+                          Heads up: we install our own commercial-grade seasonal lights — no permanent
+                          lighting or customer-provided lights.
+                        </p>
+
                         <p className="text-xs text-muted-foreground">
                           <span className="font-semibold text-emerald-600">{CURRENT_SEASON_YEAR} calendar is open:</span> early spots usually get the best install windows.
                         </p>

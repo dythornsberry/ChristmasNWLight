@@ -333,6 +333,11 @@ export default function LeadFormCard({
                     })}
                   </div>
 
+                  <p className="text-xs leading-5 text-muted-foreground">
+                    Heads up: we install our own commercial-grade seasonal lights — no permanent
+                    lighting or customer-provided lights.
+                  </p>
+
                   {showErrors && serviceTypeError ? <p className="text-sm text-destructive">{serviceTypeError}</p> : null}
 
                   <Button

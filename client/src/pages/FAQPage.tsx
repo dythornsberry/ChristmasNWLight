@@ -120,6 +120,10 @@ export default function FAQPage() {
           answer: "Yes! We offer fully customized designs tailored to your home and preferences. Choose from warm white (classic elegant look), multicolor (festive traditional look), or custom color combinations. We also offer specialty designs including tree wrapping, ground lighting, pathway lights, and architectural accent lighting. Our design consultation is included in every installation."
         },
         {
+          question: "Do you install permanent or year-round lighting?",
+          answer: "No — we're a seasonal service. We install in the fall, maintain your display all season, and take everything down in January. If you're looking for permanent track lighting, we're not the right fit, but for the holidays we'll take better care of you than anyone."
+        },
+        {
           question: "Can you install my client-owned lights or Govee lights?",
           answer: "No. We only install our own professional-grade commercial lighting equipment. We cannot install client-provided lights, Govee lights, or lights from other companies. This policy ensures consistent quality, safety standards, warranty coverage, and allows us to provide our comprehensive maintenance and support throughout the season. Using our equipment means we can guarantee everything will work perfectly and be maintained all season long."
         },
