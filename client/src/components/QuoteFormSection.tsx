@@ -421,9 +421,11 @@ export default function QuoteFormSection() {
                           className="mt-4 w-full bg-primary text-lg font-bold text-primary-foreground shadow-xl hover:bg-primary/90"
                           disabled={!canProceedStep1}
                           onClick={() => {
-                            setShowErrors(true);
                             if (canProceedStep1) {
+                              setShowErrors(false);
                               setStep(2);
+                            } else {
+                              setShowErrors(true);
                             }
                           }}
                         >
@@ -516,9 +518,11 @@ export default function QuoteFormSection() {
                             className="flex-[2] bg-primary text-lg font-bold text-primary-foreground shadow-xl hover:bg-primary/90"
                             disabled={!canProceedStep2}
                             onClick={() => {
-                              setShowErrors(true);
                               if (canProceedStep2) {
+                                setShowErrors(false);
                                 setStep(3);
+                              } else {
+                                setShowErrors(true);
                               }
                             }}
                           >

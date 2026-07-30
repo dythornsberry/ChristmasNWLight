@@ -357,9 +357,11 @@ export default function LeadFormCard({
                     className="mt-4 w-full text-lg font-bold"
                     disabled={!canProceedService}
                     onClick={() => {
-                      setShowErrors(true);
                       if (canProceedService) {
+                        setShowErrors(false);
                         setStep(contactStep);
+                      } else {
+                        setShowErrors(true);
                       }
                     }}
                     data-testid={`${testIdPrefix}-next-service`}
@@ -452,9 +454,11 @@ export default function LeadFormCard({
                       className={cn("w-full text-lg font-bold", hasServiceStep ? "sm:flex-[2]" : "w-full")}
                       disabled={!canProceedContact}
                       onClick={() => {
-                        setShowErrors(true);
                         if (canProceedContact) {
+                          setShowErrors(false);
                           setStep(propertyStep);
+                        } else {
+                          setShowErrors(true);
                         }
                       }}
                       data-testid={`${testIdPrefix}-next-contact`}
