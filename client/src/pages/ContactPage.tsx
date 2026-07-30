@@ -79,9 +79,7 @@ export default function ContactPage() {
                   initialServiceType="christmas-2026-new"
                   showServiceStep
                   serviceBadgeText="Contact page estimate form"
-                  propertyStepDescription="If this is a true general question, you can leave the property fields blank. For quotes, the address helps us route and price the job accurately."
                   responseNote="Thanks. We'll be in touch soon to talk through your project."
-                  trustNote="Seattle-area service business, fast replies, and no-pressure estimate follow-up"
                   testIdPrefix="contact"
                 />
               </div>
