@@ -5,12 +5,11 @@ import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
 import LeadFormCard, { type LeadServiceOption } from "@/components/LeadFormCard";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, Clock, Mail, MapPin, MessageSquare, Phone, Sparkles, TreePine } from "lucide-react";
+import { CheckCircle2, Clock, Mail, MapPin, Phone, Sparkles, TreePine } from "lucide-react";
 
 const CONTACT_SERVICE_OPTIONS: LeadServiceOption[] = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New installation or redesign", icon: TreePine },
   { value: "christmas-2026-returning", label: "Returning Customer", sublabel: "Existing client support or rebook", icon: Sparkles },
-  { value: "general-inquiry", label: "General Question", sublabel: "Fast callback — pricing, availability, anything else", icon: MessageSquare },
 ];
 
 export default function ContactPage() {

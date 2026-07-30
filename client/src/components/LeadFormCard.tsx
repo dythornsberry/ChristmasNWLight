@@ -4,6 +4,7 @@ import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
+  Info,
   MapPin,
   Phone,
   Sparkles,
@@ -333,10 +334,14 @@ export default function LeadFormCard({
                     })}
                   </div>
 
-                  <p className="text-xs leading-5 text-muted-foreground">
-                    Heads up: we install our own commercial-grade seasonal lights — no permanent
-                    lighting or customer-provided lights.
-                  </p>
+                  <div className="flex items-start gap-2.5 rounded-xl border border-border bg-muted/50 p-3">
+                    <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                    <p className="text-sm leading-5 text-muted-foreground">
+                      <span className="font-semibold text-foreground">Seasonal lights only.</span>{" "}
+                      We install our own commercial-grade lights — no permanent lighting, no
+                      customer-provided lights.
+                    </p>
+                  </div>
 
                   {showErrors && serviceTypeError ? <p className="text-sm text-destructive">{serviceTypeError}</p> : null}
 

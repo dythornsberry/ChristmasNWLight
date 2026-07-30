@@ -9,13 +9,12 @@ import LeadFormCard, { type LeadServiceOption } from "@/components/LeadFormCard"
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, Star, Shield, Clock, MapPin, MessageSquare, Sparkles, TreePine } from "lucide-react";
+import { Check, Star, Shield, Clock, MapPin, Sparkles, TreePine } from "lucide-react";
 import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 
 const CITY_SERVICE_OPTIONS: LeadServiceOption[] = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New installation or redesign", icon: TreePine },
   { value: "christmas-2026-returning", label: "Returning Customer", sublabel: "Existing client support or rebook", icon: Sparkles },
-  { value: "general-inquiry", label: "General Question", sublabel: "Fast callback — pricing, availability, anything else", icon: MessageSquare },
 ];
 
 const nearbyCitiesMap: Record<string, { name: string; slug: string }[]> = {

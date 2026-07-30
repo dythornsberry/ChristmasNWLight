@@ -6,6 +6,7 @@ import {
   ChevronRight,
   Clock3,
   DollarSign,
+  Info,
   MapPin,
   Phone,
   Shield,
@@ -395,10 +396,14 @@ export default function QuoteFormSection() {
                           })}
                         </div>
 
-                        <p className="text-xs leading-5 text-muted-foreground">
-                          Heads up: we install our own commercial-grade seasonal lights — no permanent
-                          lighting or customer-provided lights.
-                        </p>
+                        <div className="flex items-start gap-2.5 rounded-xl border border-border bg-muted/50 p-3">
+                          <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
+                          <p className="text-sm leading-5 text-muted-foreground">
+                            <span className="font-semibold text-foreground">Seasonal lights only.</span>{" "}
+                            We install our own commercial-grade lights — no permanent lighting, no
+                            customer-provided lights.
+                          </p>
+                        </div>
 
                         <p className="text-xs text-muted-foreground">
                           <span className="font-semibold text-emerald-600">{CURRENT_SEASON_YEAR} calendar is open:</span> early spots usually get the best install windows.
