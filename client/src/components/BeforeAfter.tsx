@@ -33,17 +33,14 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
   };
 
   return (
-    <section className="py-20 bg-background">
+    <section className="bg-background py-16 md:py-20">
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="mb-10 text-center">
           <h2 className="font-serif text-4xl md:text-5xl font-bold mb-4 text-foreground">
-            See The Transformation
+            Before &amp; after
           </h2>
-          <p className="text-lg text-muted-foreground mb-4">
-            Drag the slider to compare this home before and after installation
-          </p>
-          <p className="text-sm text-muted-foreground">
-            Same house, before and after our professional installation
+          <p className="text-base text-muted-foreground md:text-lg">
+            Drag to reveal the finished display.
           </p>
         </div>
 
@@ -151,12 +148,6 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
           >
             See after
           </button>
-        </div>
-
-        <div className="text-center mt-8">
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            This project combines a fitted roofline with landscape lighting. We handled the design, installation, maintenance, takedown, and storage.
-          </p>
         </div>
       </div>
     </section>

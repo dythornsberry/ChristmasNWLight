@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Clock, Phone, Shield, Sparkles, Star } from "lucide-react";
-import { CURRENT_SEASON_YEAR, GOOGLE_RATING } from "@/lib/business";
+import { CURRENT_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 import heroImage from "@assets/optimized/hero-real-desktop.webp";
 import heroImageMobile from "@assets/optimized/hero-real-mobile.webp";
 
@@ -49,7 +49,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </h1>
 
           <p className="mb-6 max-w-lg text-base leading-relaxed text-slate-300 sm:text-lg lg:mb-8 lg:text-slate-200 xl:text-xl">
-            Design, installation, maintenance, takedown, and storage—all handled by one local team.
+            We design, install, maintain, remove, and store your lights.
           </p>
 
           <div className="mb-6 flex flex-col gap-2.5 sm:flex-row sm:gap-3 lg:mb-8 lg:flex-wrap">
@@ -79,15 +79,11 @@ export default function Hero({ onGetQuote }: HeroProps) {
           <div className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-slate-300 lg:gap-x-6 lg:gap-y-3 lg:text-base lg:text-slate-200">
             <div className="flex items-center gap-1.5 lg:gap-2">
               <Star className="h-4 w-4 fill-amber-400 text-amber-400" />
-              <span>{GOOGLE_RATING} Google rating</span>
+              <span>{GOOGLE_RATING} from {GOOGLE_REVIEW_COUNT} Google reviews</span>
             </div>
             <div className="flex items-center gap-1.5 lg:gap-2">
               <Shield className="h-4 w-4 text-emerald-400" />
               <span>Licensed, bonded &amp; insured</span>
-            </div>
-            <div className="flex items-center gap-1.5 lg:gap-2">
-              <Clock className="h-4 w-4 text-emerald-400" />
-              <span>Quick seasonal response</span>
             </div>
           </div>
         </div>

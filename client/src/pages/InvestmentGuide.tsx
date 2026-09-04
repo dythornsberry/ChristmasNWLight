@@ -7,152 +7,119 @@ import WatermarkedImage from "@/components/WatermarkedImage";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { DollarSign, Home, Building2, Sparkles, CheckCircle2, TrendingUp, Clock, Shield, Phone } from "lucide-react";
+import { CheckCircle2, DollarSign, Home, Phone, Sparkles, TrendingUp } from "lucide-react";
 import { useLocation } from "wouter";
 
 import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
 import signaturePhoto from '@assets/2024-11-11-2-min_1762058047476.jpg';
 import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
 import largeCustomDisplay from '@assets/optimized/portfolio-yard.webp';
-import redTreeSnowmen from '@assets/2024-11-28-2-min_1762058047476.jpg';
-import uniqueArchitecture from '@assets/2024-12-25-min_1762058047476.jpg';
+
+const pricingTiers = [
+  {
+    id: 1,
+    name: "Clean Roofline",
+    range: "Starting at $800",
+    image: modernTwoStoryRoofline,
+    description: "A clean roofline on a straightforward home.",
+  },
+  {
+    id: 2,
+    name: "Roofline + Accents",
+    range: "$1,500–$1,800",
+    image: signaturePhoto,
+    popular: true,
+    description: "Roofline plus an entry, wreath, bushes, or a small tree.",
+  },
+  {
+    id: 3,
+    name: "Full-Property Display",
+    range: "$2,500–$3,500",
+    image: warmWhiteBushEstate,
+    description: "Broader roofline coverage with landscape or tree lighting.",
+  },
+  {
+    id: 4,
+    name: "Large Custom Display",
+    range: "$4,000+",
+    image: largeCustomDisplay,
+    description: "Multi-level rooflines, larger trees, and custom features.",
+  },
+];
+
+const pricingFactors = [
+  {
+    icon: Home,
+    title: "Coverage",
+    description: "How much roofline, landscaping, and tree lighting you want.",
+  },
+  {
+    icon: TrendingUp,
+    title: "Access",
+    description: "Height, roof pitch, materials, and equipment needs.",
+  },
+  {
+    icon: Sparkles,
+    title: "Design",
+    description: "Custom cuts, dense tree wraps, and specialty accents.",
+  },
+];
+
+const includedItems = [
+  "Custom design",
+  "Commercial-grade lights",
+  "Professional installation",
+  "Season-long maintenance",
+  "January takedown",
+  "Storage between seasons",
+];
 
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();
 
-  const scrollToQuote = () => {
+  const goToQuote = () => {
     setLocation('/contact');
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
-  const pricingTiers = [
-    {
-      id: 1,
-      name: "Clean Roofline",
-      range: "Starting at $800",
-      icon: Home,
-      image: modernTwoStoryRoofline,
-      description: "A straightforward roofline with easy access",
-      includes: [],
-      ideal: ""
-    },
-    {
-      id: 2,
-      name: "Roofline + Accents",
-      range: "$1,500–$1,800",
-      icon: Building2,
-      image: signaturePhoto,
-      popular: true,
-      description: "Roofline plus selected wreath, entry, bush, or small-tree accents",
-      includes: [],
-      ideal: ""
-    },
-    {
-      id: 3,
-      name: "Full-Property Display",
-      range: "$2,500–$3,500",
-      icon: Sparkles,
-      image: warmWhiteBushEstate,
-      description: "Broader roofline coverage with multiple landscape or tree elements",
-      includes: [],
-      ideal: ""
-    },
-    {
-      id: 4,
-      name: "Large Custom Display",
-      range: "$4,000+",
-      icon: Sparkles,
-      image: largeCustomDisplay,
-      description: "Multi-level rooflines, landscaping, trees, and custom accents",
-      includes: [],
-      ideal: ""
-    }
-  ];
-
-  const pricingFactors = [
-    {
-      icon: Home,
-      title: "Size of Home or Feature",
-      description: "More footage means more cost. A 50-foot tree costs more than a 10-foot tree. A house with 500 feet of roofline costs significantly more than 100 feet of roofline."
-    },
-    {
-      icon: TrendingUp,
-      title: "Roof Steepness",
-      description: "Steep roofs cost more, especially tile, cedar, metal, or specialty roofs. These are difficult to walk on and often have to be done entirely from a ladder, requiring extra time and safety measures."
-    },
-    {
-      icon: Sparkles,
-      title: "Roof Complexity",
-      description: "The number of jumper wires and connections needed affects installation complexity. More jumpers mean more time and labor to properly set up your lighting system."
-    }
-  ];
-
   return (
     <div className="min-h-screen bg-background">
       <UrgencyBanner />
-      <PageHead 
+      <PageHead
         title="Christmas Light Installation Pricing | Christmas Northwest"
-        description="Transparent Christmas light installation pricing for Seattle: $800 rooflines to $4,000+ custom displays. Install, takedown, and storage included."
+        description="Christmas light installation pricing for Seattle: $800 rooflines to $4,000+ custom displays. Installation, maintenance, takedown, and storage included."
       />
-      <StickyHeader onGetQuote={scrollToQuote} />
-      
-      {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary via-primary/90 to-accent pt-24 pb-16 md:pt-32 md:pb-24">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center">
-            <Badge variant="secondary" className="mb-6 border border-gold/20">
-              <DollarSign className="w-4 h-4 mr-2" />
-              Transparent Pricing
-            </Badge>
-            <h1 className="font-serif text-4xl md:text-6xl font-black text-primary-foreground mb-5 leading-tight">
-              Transparent Christmas Light Installation Pricing
-              <br />
-              <span className="text-3xl md:text-5xl">For Seattle & the Eastside</span>
-            </h1>
-            <p className="text-base text-primary-foreground/90 max-w-3xl mx-auto leading-relaxed mb-5 sm:text-xl md:mb-6">
-              Clear examples, no hidden fees, and a custom quote based on your home. Installation, maintenance, takedown, storage, and easy rebooking support are included.
-            </p>
-            <div className="mx-auto mb-5 grid max-w-3xl grid-cols-3 gap-2 rounded-lg border border-white/20 bg-white/10 p-2 text-primary-foreground shadow-2xl backdrop-blur md:mb-6 md:gap-3 md:p-3">
-              <div className="rounded-md bg-white/10 px-2 py-2 md:px-4 md:py-3">
-                <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Typical projects</p>
-                <p className="text-sm font-black sm:text-lg md:text-xl">$800-$3,500</p>
-              </div>
-              <div className="rounded-md bg-white/10 px-2 py-2 md:px-4 md:py-3">
-                <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Large custom</p>
-                <p className="text-sm font-black sm:text-lg md:text-xl">$4,000+</p>
-              </div>
-              <div className="rounded-md bg-white/10 px-2 py-2 md:px-4 md:py-3">
-                <p className="text-xs font-semibold text-primary-foreground/75 md:text-sm">Quote</p>
-                <p className="text-sm font-black sm:text-lg md:text-xl">Free</p>
-              </div>
-            </div>
-            <div className="flex flex-col items-center justify-center gap-4 sm:flex-row">
-              <Button
-                onClick={scrollToQuote}
-                size="lg"
-                className="border border-gold/20 bg-background px-8 text-lg font-bold text-foreground shadow-2xl hover:bg-background/90"
-                data-testid="button-pricing-hero-quote"
-              >
-                Get My Christmas Light Quote
-              </Button>
-              <Badge variant="secondary" className="bg-amber-500 text-white backdrop-blur-sm px-5 py-3 text-base flex items-center gap-2 h-auto w-fit border-2 border-white/30 shadow-xl">
-                <Clock className="w-5 h-5" />
-                Fast Scheduling Available
-              </Badge>
-            </div>
-          </div>
+      <StickyHeader onGetQuote={goToQuote} />
+
+      <section className="bg-gradient-to-br from-primary via-primary/90 to-accent py-16 md:py-24">
+        <div className="mx-auto max-w-5xl px-6 text-center">
+          <Badge variant="secondary" className="mb-5 border border-gold/20">
+            <DollarSign className="mr-2 h-4 w-4" />
+            Starting at $800
+          </Badge>
+          <h1 className="font-serif text-4xl font-black leading-tight text-primary-foreground md:text-6xl">
+            Christmas light installation pricing
+          </h1>
+          <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-primary-foreground/90 md:text-xl">
+            Most home displays fall between $800 and $3,500. Larger custom projects start around $4,000.
+          </p>
+          <Button
+            onClick={goToQuote}
+            size="lg"
+            className="mt-8 border border-gold/20 bg-background px-8 text-lg font-bold text-foreground shadow-2xl hover:bg-background/90"
+            data-testid="button-pricing-hero-quote"
+          >
+            Get My Quote
+          </Button>
         </div>
       </section>
 
-      {/* Pricing Tiers */}
-      <section className="py-24 bg-background">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-              Real Customer Examples
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Here's what real installations cost so you can see transparent pricing. Every home is unique, but these examples give you a clear idea of what to expect.
+      <section className="bg-background py-16 md:py-20">
+        <div className="mx-auto max-w-7xl px-6">
+          <div className="mb-10 text-center">
+            <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl">Four common project sizes</h2>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-muted-foreground">
+              These examples are a guide. Your quote is based on your property and design.
             </p>
           </div>
 
@@ -160,207 +127,45 @@ export default function InvestmentGuide() {
             {pricingTiers.map((tier) => (
               <div
                 key={tier.id}
-                className={`relative overflow-hidden shadow-lg hover-elevate rounded-lg h-96 cursor-pointer group ${
+                className={`group relative h-96 cursor-pointer overflow-hidden rounded-lg shadow-lg hover-elevate ${
                   tier.popular ? 'ring-2 ring-primary' : ''
                 }`}
                 data-testid={`card-pricing-${tier.id}`}
               >
-                {tier.popular && (
-                  <div className="absolute top-4 right-4 z-20 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold">
-                    POPULAR
+                {tier.popular ? (
+                  <div className="absolute right-4 top-4 z-20 rounded-full bg-primary px-3 py-1 text-xs font-bold text-primary-foreground">
+                    MOST COMMON
                   </div>
-                )}
+                ) : null}
                 <WatermarkedImage
                   src={tier.image}
                   alt={`${tier.name} example`}
                   className="h-full w-full"
                   enableLightbox={true}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none" />
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <p className="text-sm text-amber-200 mb-2 leading-snug">{tier.description}</p>
-                  <h3 className="font-serif text-lg font-bold text-white mb-2">{tier.name}</h3>
-                  <p className="text-3xl font-black text-amber-400">{tier.range}</p>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent" />
+                <div className="absolute inset-x-0 bottom-0 p-6">
+                  <h3 className="font-serif text-xl font-bold text-white">{tier.name}</h3>
+                  <p className="mt-2 text-3xl font-black text-amber-400">{tier.range}</p>
+                  <p className="mt-3 text-sm leading-snug text-white/85">{tier.description}</p>
                 </div>
               </div>
             ))}
           </div>
-
-          <Card className="mt-12 p-8 bg-gradient-to-br from-accent/10 to-primary/10 border-gold/20 max-w-3xl mx-auto">
-            <p className="text-base text-center text-muted-foreground leading-relaxed">
-              <strong className="text-foreground">Every home is unique.</strong> These are real customer examples to show transparent pricing. Your home may cost more or less depending on size, roof complexity, and how much coverage you want. A small home with a steep roof may cost more than a larger single-story home. Your custom quote is based on your specific property.
-            </p>
-          </Card>
-
-          <div className="text-center mt-12">
-            <Button
-              onClick={scrollToQuote}
-              size="lg"
-              className="text-xl font-bold shadow-2xl hover:shadow-primary/20 border border-gold/20"
-              data-testid="button-request-custom-quote"
-            >
-              Light Up My Home ✨
-            </Button>
-            <p className="text-base text-muted-foreground mt-4">
-              Free design consultation • No obligation • Same-day response
-            </p>
-          </div>
         </div>
       </section>
 
-      {/* Price Per Unit Breakdown */}
-      <section className="py-24 bg-gradient-to-br from-primary/5 to-accent/5">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-              How Custom Quotes Are Built
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Roof access, footage, trees, and labor determine the final scope and price
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* Roofline Pricing */}
-            <Card className="p-8 shadow-lg">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-primary/10 border border-primary/20">
-                  <Home className="w-8 h-8 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground">Roofline Lighting</h3>
-                  <p className="text-lg font-bold text-primary mt-1">$5–$12 per linear foot</p>
-                </div>
-              </div>
-              <div className="rounded-lg overflow-hidden mb-6 h-48">
-                <WatermarkedImage
-                  src={uniqueArchitecture}
-                  alt="Steep roofline with complex architecture"
-                  className="h-full object-cover"
-                  enableLightbox={true}
-                />
-              </div>
-              <div className="space-y-4">
-                <p className="text-xs text-muted-foreground italic mb-3">
-                  Example: Complex, steep roof with many angles and cuts requires extra care
-                </p>
-                <p className="text-base text-foreground leading-relaxed">
-                  Cost depends on several factors:
-                </p>
-                <ul className="space-y-2">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground"><strong>Roof steepness:</strong> Steep roofs cost more due to safety requirements</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground"><strong>Roof type:</strong> Tile, metal, cedar, or specialty roofing requires extra care</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground"><strong>Complexity:</strong> Number of peaks, valleys, and jumper connections</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-primary flex-shrink-0 mt-0.5" />
-                    <span className="text-sm text-foreground"><strong>Easy takedown:</strong> Roofline lights are simple to remove, keeping labor efficient</span>
-                  </li>
-                </ul>
-              </div>
-            </Card>
-
-            {/* Tree Lighting Pricing */}
-            <Card className="p-8 shadow-lg">
-              <div className="flex items-start gap-4 mb-6">
-                <div className="p-3 rounded-xl bg-accent/10 border border-accent/20">
-                  <Sparkles className="w-8 h-8 text-accent" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-foreground">Tree Lighting (Mini Lights)</h3>
-                  <p className="text-lg font-bold text-accent mt-1">$275–$1,650+ per tree</p>
-                </div>
-              </div>
-              <div className="rounded-lg overflow-hidden mb-6 h-48">
-                <WatermarkedImage
-                  src={redTreeSnowmen}
-                  alt="Red tree wrap with snowmen decorations"
-                  className="h-full object-cover"
-                  enableLightbox={true}
-                />
-              </div>
-              <div className="space-y-4">
-                <p className="text-xs text-muted-foreground italic mb-3">
-                  Example: Tree with custom design shows how many strands are needed
-                </p>
-                <p className="text-base text-foreground leading-relaxed">
-                  Trees are priced by the number of light strands needed. Each strand contains 74 individual lights:
-                </p>
-                <div className="bg-card/50 border border-border rounded-lg p-4 space-y-3">
-                  <div>
-                    <p className="font-semibold text-sm text-foreground">Simple Tree (Budget)</p>
-                    <p className="text-xs text-muted-foreground">5 strands × 74 lights = 370 total lights</p>
-                    <p className="text-lg font-bold text-primary mt-1">~$275</p>
-                  </div>
-                  <div className="border-t border-border pt-3">
-                    <p className="font-semibold text-sm text-foreground">Large Maple or Pine (Dense Full Wrap)</p>
-                    <p className="text-xs text-muted-foreground">25-30 ft tall, all branches wrapped, 30 strands × 74 lights = 2,220 total lights</p>
-                    <p className="text-lg font-bold text-accent mt-1">$1,650+</p>
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground bg-yellow-50 dark:bg-yellow-950/30 border border-yellow-200 dark:border-yellow-800 rounded p-3 mt-4">
-                  <strong>Important:</strong> Setup takes just as long as takedown. Mini lights wrap around branches and trunks, requiring labor-intensive wrapping and unwrapping. Large trees may need special equipment like aerial lifts or specialized ladder setups, significantly increasing professional installation costs.
-                </p>
-              </div>
-            </Card>
-          </div>
-
-          <Card className="p-8 bg-gradient-to-br from-primary/10 to-accent/10 border border-gold/20 shadow-lg">
-            <div className="flex gap-6">
-              <div className="flex-shrink-0 pt-1">
-                <DollarSign className="w-8 h-8 text-primary" />
-              </div>
-              <div>
-                <h3 className="text-xl font-bold text-foreground mb-3">Why Tree Wrapping Costs More</h3>
-                <p className="text-base text-foreground leading-relaxed">
-                  Tree wrapping is detailed ladder work. The quote accounts for setup, safe access, even spacing, testing, takedown, and the equipment required for taller trees.
-                </p>
-              </div>
-            </div>
-          </Card>
-        </div>
-      </section>
-
-      {/* What Affects Pricing */}
-      <section className="py-24 bg-card/30">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-              What Affects Your Investment
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              These are the main variables we review before preparing your estimate
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            {pricingFactors.map((factor, index) => {
+      <section className="bg-muted/30 py-16 md:py-20">
+        <div className="mx-auto max-w-5xl px-6">
+          <h2 className="text-center font-serif text-4xl font-bold text-foreground md:text-5xl">What changes the price?</h2>
+          <div className="mt-10 grid gap-5 md:grid-cols-3">
+            {pricingFactors.map((factor) => {
               const Icon = factor.icon;
               return (
-                <Card key={index} className="p-8 shadow-lg hover-elevate" data-testid={`card-factor-${index}`}>
-                  <div className="flex gap-6">
-                    <div className="flex-shrink-0">
-                      <div className="w-14 h-14 rounded-xl bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center border border-gold/20">
-                        <Icon className="w-7 h-7 text-primary" />
-                      </div>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-foreground mb-3">
-                        {factor.title}
-                      </h3>
-                      <p className="text-base text-muted-foreground leading-relaxed">
-                        {factor.description}
-                      </p>
-                    </div>
-                  </div>
+                <Card key={factor.title} className="p-6 text-center shadow-sm">
+                  <Icon className="mx-auto h-8 w-8 text-primary" />
+                  <h3 className="mt-4 text-xl font-bold text-foreground">{factor.title}</h3>
+                  <p className="mt-2 text-muted-foreground">{factor.description}</p>
                 </Card>
               );
             })}
@@ -368,124 +173,40 @@ export default function InvestmentGuide() {
         </div>
       </section>
 
-      {/* Value Proposition */}
-      <section className="py-24 bg-background">
-        <div className="max-w-5xl mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-              What Your Quote Includes
-            </h2>
+      <section className="bg-background py-16 md:py-20">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl">Every quote includes</h2>
+          <div className="mt-8 grid gap-3 text-left sm:grid-cols-2 md:grid-cols-3">
+            {includedItems.map((item) => (
+              <div key={item} className="flex items-center gap-3 rounded-lg border border-border bg-card p-4">
+                <CheckCircle2 className="h-5 w-5 flex-shrink-0 text-primary" />
+                <span className="font-medium text-foreground">{item}</span>
+              </div>
+            ))}
           </div>
-
-          <div className="grid md:grid-cols-2 gap-8">
-            <Card className="p-8 shadow-lg">
-              <Shield className="w-12 h-12 text-primary mb-6" />
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                All-Inclusive Service
-              </h3>
-              <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                Unlike competitors who charge separately for installation, removal, storage, and repairs, our pricing includes everything.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm text-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  Professional installation & design
-                </li>
-                <li className="flex items-start gap-2 text-sm text-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  Seasonal maintenance visits
-                </li>
-                <li className="flex items-start gap-2 text-sm text-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  Secure year-round storage
-                </li>
-                <li className="flex items-start gap-2 text-sm text-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  Easy rebooking support for next season
-                </li>
-              </ul>
-            </Card>
-
-            <Card className="p-8 shadow-lg">
-              <Sparkles className="w-12 h-12 text-primary mb-6" />
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Commercial-Grade Quality
-              </h3>
-              <p className="text-base text-muted-foreground leading-relaxed mb-4">
-                We use only professional-grade LED products designed for longevity and performance, not cheap big-box store lights.
-              </p>
-              <ul className="space-y-2">
-                <li className="flex items-start gap-2 text-sm text-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  90% more energy efficient
-                </li>
-                <li className="flex items-start gap-2 text-sm text-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  Weather-resistant construction
-                </li>
-                <li className="flex items-start gap-2 text-sm text-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  25x longer lifespan
-                </li>
-                <li className="flex items-start gap-2 text-sm text-foreground">
-                  <CheckCircle2 className="w-4 h-4 text-primary mt-0.5 flex-shrink-0" />
-                  Brilliant, consistent color
-                </li>
-              </ul>
-            </Card>
-          </div>
-
-          <Card className="mt-8 p-8 bg-gradient-to-br from-primary/5 to-accent/5 border-gold/20 shadow-lg">
-            <div className="text-center">
-              <DollarSign className="w-16 h-16 text-primary mx-auto mb-6" />
-              <h3 className="text-2xl font-bold text-foreground mb-4">
-                Save Time, Money, and Hassle
-              </h3>
-              <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                Your quote covers the agreed design, installation labor, commercial-grade products, seasonal maintenance, January takedown, and storage. You receive one project price instead of separate charges for each visit.
-              </p>
-            </div>
-          </Card>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-24 bg-gradient-to-br from-primary/10 to-accent/10">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2 className="font-serif text-4xl md:text-5xl font-bold text-foreground mb-6">
-            Ready to See Your Custom Quote?
-          </h2>
-          <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-            Every home is unique. Get a personalized quote based on your specific property, design preferences, and coverage goals.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button
-              onClick={scrollToQuote}
-              size="lg"
-              className="text-xl font-bold shadow-2xl hover:shadow-primary/20 border border-gold/20 min-w-[240px]"
-              data-testid="button-get-quote"
-            >
-              Light Up My Home ✨
+      <section className="bg-gradient-to-br from-primary/10 to-accent/10 py-16 md:py-20">
+        <div className="mx-auto max-w-4xl px-6 text-center">
+          <h2 className="font-serif text-4xl font-bold text-foreground md:text-5xl">Want an exact price?</h2>
+          <p className="mt-4 text-lg text-muted-foreground">Send us your address and a few details.</p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+            <Button onClick={goToQuote} size="lg" className="min-w-[220px] text-lg font-bold" data-testid="button-get-quote">
+              Get My Quote
             </Button>
-            <Button
-              onClick={() => window.location.href = 'tel:4252150935'}
-              size="lg"
-              variant="outline"
-              className="text-xl font-bold shadow-xl min-w-[240px]"
-              data-testid="button-call"
-            >
-              <Phone className="w-5 h-5 mr-3" />
-              Call (425) 215-0935
+            <Button asChild size="lg" variant="outline" className="min-w-[220px] text-lg font-bold">
+              <a href="tel:4252150935" data-testid="button-call">
+                <Phone className="mr-3 h-5 w-5" />
+                (425) 215-0935
+              </a>
             </Button>
           </div>
-          <p className="text-sm text-muted-foreground mt-6">
-            Same-day response • No pressure • Licensed & insured
-          </p>
         </div>
       </section>
 
       <Footer />
-      <StickyBottomCTA onGetQuote={scrollToQuote} />
+      <StickyBottomCTA onGetQuote={goToQuote} />
     </div>
   );
 }
