@@ -100,7 +100,7 @@ export default function FAQPage() {
         },
         {
           question: "Are you licensed and insured?",
-          answer: `Absolutely. ChristmasNW is fully licensed, bonded, and insured. We've been serving the Greater Seattle area since 2021 and are entering season ${CURRENT_SEASON_NUMBER}. Your property and our team are fully protected at every stage of installation and maintenance.`
+          answer: `Absolutely. Christmas Northwest is fully licensed, bonded, and insured. We've been serving the Greater Seattle area since 2021 and are entering season ${CURRENT_SEASON_NUMBER}. Your property and our team are fully protected at every stage of installation and maintenance.`
         },
         {
           question: "What makes your service different from competitors?",

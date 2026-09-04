@@ -125,7 +125,7 @@ const galleryImages: GalleryImage[] = [
   { id: 23, src: img6, alt: "Child admiring big lit tree", category: "Trees", title: "Big Wrapped Tree" },
   { id: 24, src: img7, alt: "Brick mansion with warm white lights", category: "Warm White", title: "Brick Mansion Warm White" },
   { id: 25, src: multicolorTreeHome, alt: "Modern home with multicolor rooflines and wrapped tree with landscape lighting", category: "Multicolor", title: "Multicolor Roofline and Tree" },
-  { id: 26, src: truckInstallHome, alt: "Professional installation in progress with warm white rooflines and Christmas NW truck", category: "Warm White", title: "Installation in Progress" },
+  { id: 26, src: truckInstallHome, alt: "Professional installation in progress with warm white rooflines and Christmas Northwest truck", category: "Warm White", title: "Installation in Progress" },
   { id: 27, src: img10, alt: "Home with unique architecture", category: "Warm White", title: "Unique Architecture" },
   { id: 28, src: img13, alt: "Tree with firework starburst lights", category: "Trees", title: "Starburst Tree" },
   { id: 29, src: img14, alt: "Warm white roofline with multicolor tree", category: "Multicolor", title: "Warm White and Multicolor Tree" },
