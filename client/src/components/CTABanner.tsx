@@ -7,7 +7,7 @@ interface CTABannerProps {
 
 export default function CTABanner({ onGetQuote }: CTABannerProps) {
   return (
-    <section className="py-20 bg-gradient-to-br from-primary via-primary/95 to-primary/90 relative overflow-hidden">
+    <section id="quote" className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/95 to-primary/90 py-16 md:py-20">
       {/* Decorative elements */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-10 left-10 w-32 h-32 border-2 border-white rounded-full" />
@@ -16,12 +16,11 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
       </div>
 
       <div className="max-w-4xl mx-auto px-6 text-center relative z-10">
-        <h2 className="font-serif text-4xl sm:text-5xl md:text-6xl font-bold mb-8 text-white">
-          Ready to Light Up Your Home?
+        <h2 className="mb-5 font-serif text-4xl font-bold text-white sm:text-5xl">
+          Ready for a quote?
         </h2>
-        <p className="text-lg sm:text-xl md:text-2xl text-white/95 mb-10 leading-relaxed max-w-3xl mx-auto">
-          Tell us what you want to light and we will prepare a custom estimate for your property.
-          Early reservations get the widest choice of installation dates.
+        <p className="mx-auto mb-8 max-w-2xl text-lg leading-relaxed text-white/95 sm:text-xl">
+          Tell us what you want lit. We’ll handle the rest.
         </p>
 
         <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-6 justify-center">
@@ -33,7 +32,7 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
             data-testid="button-cta-quote"
           >
             <Sparkles className="mr-2 h-5 w-5" />
-            Get My Free Estimate
+            Get My Estimate
             <ArrowRight className="ml-2 h-5 w-5" />
           </Button>
           <Button
@@ -48,10 +47,6 @@ export default function CTABanner({ onGetQuote }: CTABannerProps) {
             </a>
           </Button>
         </div>
-
-        <p className="text-white/80 text-sm sm:text-base mt-8">
-          Early reservations get first choice of installation dates
-        </p>
       </div>
     </section>
   );

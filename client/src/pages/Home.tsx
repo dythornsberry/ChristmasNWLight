@@ -4,71 +4,32 @@ import Hero from "@/components/Hero";
 import ReviewsStrip from "@/components/ReviewsStrip";
 import Portfolio from "@/components/Portfolio";
 import SimpleServices from "@/components/SimpleServices";
-import WhyChooseUs from "@/components/WhyChooseUs";
-import QuoteFormSection from "@/components/QuoteFormSection";
 import BeforeAfter from "@/components/BeforeAfter";
-import Stats from "@/components/Stats";
-import Process from "@/components/Process";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
 import PageHead from "@/components/PageHead";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import StructuredData from "@/components/StructuredData";
 import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL } from "@/lib/business";
-import { TrendingUp, Users, Award, Clock } from "lucide-react";
+import { useLocation } from "wouter";
 import completeHolidayScene from '@assets/optimized/portfolio-yard.webp';
-import familyHolidayTradition from '@assets/optimized/portfolio-family.webp';
 import premiumCustomDisplay from '@assets/optimized/portfolio-trees.webp';
-import strikingNightDisplay from '@assets/optimized/portfolio-multicolor.webp';
 import warmWhiteBushEstate from '@assets/optimized/portfolio-warm-white.webp';
-import gableWreathHome from '@assets/optimized/portfolio-gables.webp';
 import beforeImage from '@assets/optimized/before-home.webp';
 import afterImage from '@assets/optimized/after-home.webp';
 
 export default function Home() {
+  const [, setLocation] = useLocation();
   const googleReviewsUrl = "https://share.google/lxhOxXmbPwABIqdNa";
-
-  const stats = [
-    {
-      icon: Award,
-      number: GOOGLE_RATING,
-      label: "Google Rating",
-      description: `${GOOGLE_REVIEW_COUNT} reviews from real Seattle homeowners`
-    },
-    {
-      icon: Clock,
-      number: "24hr",
-      label: "Response Time",
-      description: "Quick replies throughout the season"
-    },
-    {
-      icon: TrendingUp,
-      number: "$800+",
-      label: "Starting Price",
-      description: "All-inclusive: install, maintain, remove"
-    },
-    {
-      icon: Users,
-      number: "Season-long",
-      label: "Maintenance",
-      description: "Repairs are included while your display is up"
-    }
-  ];
 
   const portfolioItems = [
     { id: 1, image: warmWhiteBushEstate, category: "Warm White", title: "Warm White Bushes" },
-    { id: 2, image: strikingNightDisplay, category: "Multicolor", title: "Multicolor Peaks and Columns" },
-    { id: 3, image: familyHolidayTradition, category: "Custom", title: "Family Photo" },
-    { id: 4, image: completeHolidayScene, category: "Custom", title: "Full Yard Display" },
-    { id: 5, image: premiumCustomDisplay, category: "Custom", title: "Wrapped Trees" },
-    { id: 6, image: gableWreathHome, category: "Custom", title: "Gables and Wreaths" },
+    { id: 2, image: completeHolidayScene, category: "Custom", title: "Full Yard Display" },
+    { id: 3, image: premiumCustomDisplay, category: "Custom", title: "Wrapped Trees" },
   ];
 
-  const scrollToQuote = () => {
-    const element = document.getElementById('quote');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const goToQuote = () => {
+    setLocation('/contact');
   };
 
   const localBusinessSchema = {
@@ -148,31 +109,23 @@ export default function Home() {
       />
       <StructuredData data={localBusinessSchema} />
       <UrgencyBanner />
-      <StickyHeader onGetQuote={scrollToQuote} />
+      <StickyHeader onGetQuote={goToQuote} />
       
-      <Hero onGetQuote={scrollToQuote} />
-
-      <QuoteFormSection />
-
-      <SimpleServices onGetQuote={scrollToQuote} />
+      <Hero onGetQuote={goToQuote} />
 
       <BeforeAfter beforeImage={beforeImage} afterImage={afterImage} />
 
-      <Stats stats={stats} />
-
-      <WhyChooseUs />
+      <SimpleServices onGetQuote={goToQuote} />
 
       <Portfolio items={portfolioItems} />
 
       <ReviewsStrip />
 
-      <Process />
-
-      <CTABanner onGetQuote={scrollToQuote} />
+      <CTABanner onGetQuote={goToQuote} />
 
       <Footer />
 
-      <StickyBottomCTA onGetQuote={scrollToQuote} />
+      <StickyBottomCTA onGetQuote={goToQuote} />
     </div>
   );
 }
