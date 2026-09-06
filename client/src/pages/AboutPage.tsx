@@ -7,13 +7,13 @@ import StructuredData from "@/components/StructuredData";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Shield, Clock, Award, Sparkles, CheckCircle2, TrendingUp, Users, Star } from "lucide-react";
+import { Shield, Clock, Award, Sparkles, CheckCircle2, Star } from "lucide-react";
 import dylanPhoto from '@assets/dylan_owner_optimized.jpeg';
 import crewTeamPhoto from '@assets/IMG_3713_optimized.webp';
 import fleetPhoto from '@assets/IMG_9313_optimized.jpeg';
 import truckActionShot from '@assets/IMG_1466_optimized.jpeg';
 import { useLocation } from "wouter";
-import { CURRENT_SEASON_NUMBER, CURRENT_SEASON_YEAR, FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
+import { CURRENT_SEASON_NUMBER, CURRENT_SEASON_YEAR, FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
 export default function AboutPage() {
   const [, setLocation] = useLocation();
@@ -48,7 +48,7 @@ export default function AboutPage() {
 
   const milestones = [
     { number: GOOGLE_RATING, label: "Google Rating", description: `${GOOGLE_REVIEW_COUNT} Google reviews` },
-    { number: "24hr", label: "Response Time", description: "Quick seasonal replies" },
+    { number: "24hr", label: "Response Time", description: "We respond within 24 hours" },
     { number: "Season-long", label: "Maintenance", description: "Display repairs are included" },
     { number: "Free", label: "Takedown", description: "Included in every package" }
   ];
@@ -84,7 +84,7 @@ export default function AboutPage() {
       "longitude": -122.2443
     },
     "areaServed": servedCitiesSchema(),
-    "foundingDate": "2021",
+    "foundingDate": String(FIRST_SEASON_YEAR),
     "founder": {
       "@type": "Person",
       "name": "Dylan Thornsberry",
@@ -108,7 +108,7 @@ export default function AboutPage() {
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="About Christmas Northwest | Holiday Lighting Experts in Greater Seattle"
-        description="Meet Christmas Northwest, a local Greater Seattle team providing Christmas light design, installation, maintenance, takedown, and storage since 2021."
+        description={`Meet Christmas Northwest, a local Greater Seattle team providing Christmas light design, installation, maintenance, takedown, and storage since ${FIRST_SEASON_YEAR}.`}
       />
       <StructuredData data={localBusinessSchema} />
       <script
@@ -126,10 +126,10 @@ export default function AboutPage() {
                 <span className="text-primary font-semibold">About Christmas Northwest</span>
               </div>
               <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
-                Your Trusted Holiday Lighting Experts
+                Locally owned.
               </h1>
               <p className="text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-                We are a local crew focused on clean installations, responsive seasonal support, and straightforward service from quote through takedown.
+                Lighting homes across Greater Seattle since {FIRST_SEASON_YEAR}.
               </p>
             </div>
 
@@ -160,7 +160,7 @@ export default function AboutPage() {
                 Our Story
               </h2>
               <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
-                Founded in 2021, Christmas Northwest has grown through repeat customers, referrals, and projects across Greater Seattle.
+                Since our first season in {FIRST_SEASON_YEAR}, Christmas Northwest has grown through repeat customers, referrals, and projects across Greater Seattle.
               </p>
             </div>
 
@@ -180,16 +180,13 @@ export default function AboutPage() {
               <div>
                 <div className="space-y-4 text-base leading-7 text-muted-foreground sm:text-lg">
                   <p>
-                    Christmas Northwest was founded on a simple belief: every home deserves a beautiful, professionally installed holiday lighting display that brings joy without the hassle.
-                  </p>
-                  <p>
                     We serve homeowners across Greater Seattle with fitted rooflines, tree wrapping, landscape lighting, and larger custom displays.
                   </p>
                   <p>
                     We use commercial-grade LED products and confirm scheduling before each project. Christmas Northwest is licensed, bonded, and insured.
                   </p>
                   <p className="font-semibold text-foreground">
-                    From design consultation to professional takedown and storage, we handle every detail so you can simply enjoy the magic of the season.
+                    We install, maintain, take down, and store your lights.
                   </p>
                 </div>
                 <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
@@ -217,35 +214,15 @@ export default function AboutPage() {
               <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center text-foreground">
                 Our Journey
               </h3>
-              <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-4">
+              <div className="mx-auto grid max-w-3xl gap-5 sm:grid-cols-2">
                 <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-0">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
                     <Star className="w-8 h-8 text-primary" />
                   </div>
-                  <div className="text-2xl font-bold text-primary mb-2">2021</div>
-                  <div className="font-semibold text-foreground mb-2">Launched</div>
+                  <div className="text-2xl font-bold text-primary mb-2">{FIRST_SEASON_YEAR}</div>
+                  <div className="font-semibold text-foreground mb-2">Our First Season</div>
                   <div className="text-sm text-muted-foreground">
-                    Founded Christmas Northwest to bring professional holiday lighting to Greater Seattle
-                  </div>
-                </Card>
-                <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-1">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <TrendingUp className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="text-2xl font-bold text-primary mb-2">2022</div>
-                  <div className="font-semibold text-foreground mb-2">Rapid Growth</div>
-                  <div className="text-sm text-muted-foreground">
-                    Doubled our service area and began serving commercial properties
-                  </div>
-                </Card>
-                <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-2">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Users className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="text-2xl font-bold text-primary mb-2">2023</div>
-                  <div className="font-semibold text-foreground mb-2">5-Star Service</div>
-                  <div className="text-sm text-muted-foreground">
-                    Built a strong reputation for responsive service and polished installations
+                    Our first Christmas light installations in Greater Seattle
                   </div>
                 </Card>
                 <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-3">
@@ -274,9 +251,6 @@ export default function AboutPage() {
                   </Avatar>
                   <h4 className="font-bold text-lg text-foreground mb-1">Dylan Thornsberry</h4>
                   <p className="text-sm text-primary font-semibold mb-2">Owner</p>
-                  <p className="text-sm text-muted-foreground">
-                    Hands-on owner dedicated to delivering quality holiday lighting across Greater Seattle
-                  </p>
                 </Card>
               </div>
             </div>

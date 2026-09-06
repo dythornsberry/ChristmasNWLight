@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, Shield, Clock, MapPin, Sparkles, TreePine } from "lucide-react";
-import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
+import { FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
 const CITY_SERVICE_OPTIONS: LeadServiceOption[] = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New installation or redesign", icon: TreePine },
@@ -162,7 +162,7 @@ export default function CityPage({
     "telephone": "+14252150935",
     "email": "christmaslightsnw@gmail.com",
     "priceRange": "$800-$4,000+",
-    "foundingDate": "2021",
+    "foundingDate": String(FIRST_SEASON_YEAR),
     "openingHoursSpecification": [
       {
         "@type": "OpeningHoursSpecification",

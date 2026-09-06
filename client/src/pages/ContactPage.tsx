@@ -6,7 +6,7 @@ import PageHead from "@/components/PageHead";
 import StructuredData from "@/components/StructuredData";
 import LeadFormCard, { type LeadServiceOption } from "@/components/LeadFormCard";
 import { Card } from "@/components/ui/card";
-import { CheckCircle2, Clock, Mail, MapPin, Phone, Sparkles, TreePine } from "lucide-react";
+import { Mail, MapPin, Phone, Sparkles, TreePine } from "lucide-react";
 import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
 const CONTACT_SERVICE_OPTIONS: LeadServiceOption[] = [
@@ -58,7 +58,7 @@ export default function ContactPage() {
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="Contact Christmas Northwest | Request a Christmas Lighting Quote"
-        description="Request a free quote from Christmas Northwest for professional Christmas lighting in Greater Seattle."
+        description="Get a free Christmas lighting quote in Greater Seattle. Displays from $800, with installation, maintenance, takedown, and storage included."
       />
       <StructuredData data={contactBusinessSchema} />
       <UrgencyBanner />
@@ -68,51 +68,32 @@ export default function ContactPage() {
         <section className="bg-gradient-to-b from-muted/30 to-background py-14 sm:py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14 md:mb-16">
-              <div className="mb-5 inline-block rounded-lg bg-primary/10 px-3.5 py-2 sm:mb-6 sm:px-4">
-                <span className="text-primary font-semibold">Free Estimates</span>
-              </div>
               <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
-                Talk to Christmas Northwest
+                Get a Christmas lighting quote
               </h1>
               <p className="mb-6 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-                Call us now or send a few project details below. We reply quickly during the season and follow up
-                with the best next step for your home or property.
+                We install, maintain, take down, and store your lights. One team, all season.
               </p>
-              <div className="grid grid-cols-1 gap-3 text-left text-foreground sm:grid-cols-2 sm:gap-4 md:flex md:flex-wrap md:justify-center md:gap-6">
-                <div className="flex items-center justify-center gap-2 md:justify-start">
-                  <Clock className="w-5 h-5 text-primary" />
-                  <span className="font-semibold">Quick Response</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 md:justify-start">
-                  <Phone className="w-5 h-5 text-primary" />
-                  <span className="font-semibold">24/7 Seasonal Support</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 md:justify-start">
-                  <CheckCircle2 className="w-5 h-5 text-primary" />
-                  <span className="font-semibold">Licensed & Insured</span>
-                </div>
-                <div className="flex items-center justify-center gap-2 md:justify-start">
-                  <CheckCircle2 className="w-5 h-5 text-primary" />
-                  <span className="font-semibold">Typical Projects $800-$3,500</span>
-                </div>
-              </div>
+              <p className="font-semibold text-primary">Starting at $800 <span aria-hidden="true">·</span> Licensed & insured</p>
             </div>
 
             <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
-              <div className="lg:col-span-2" id={formId}>
+              <div className="scroll-mt-28 lg:col-span-2" id={formId}>
                 <LeadFormCard
-                  title="Request a Quote or Callback"
-                  description="Short form, no obligation, and a cleaner way to tell us what you need without filling out a long page."
-                  submitLabel="Request My Free Estimate"
+                  title="Get a Quote"
+                  description="We'll review your property and follow up with options and pricing. Your quote is free."
+                  submitLabel="Get a Quote"
                   successTitle="Thanks. We’ve got your request."
-                  successDescription="Our team will review the details and follow up with the best next step for your project."
+                  successDescription="We'll be in touch to discuss your lights and quote."
                   trackingLabel="contact_page_quote"
                   formLocation="contact_page"
                   serviceOptions={CONTACT_SERVICE_OPTIONS}
                   initialServiceType="christmas-2026-new"
                   showServiceStep
-                  serviceBadgeText="Contact page estimate form"
-                  responseNote="Thanks. We'll be in touch soon to talk through your project."
+                  serviceStepDescription="Choose a new installation or help with an existing one."
+                  contactStepDescription="Let us know how to contact you about your quote."
+                  propertyStepDescription="Enter the address you'd like us to light."
+                  responseNote="We respond within 24 hours."
                   testIdPrefix="contact"
                 />
               </div>
@@ -134,9 +115,6 @@ export default function ContactPage() {
                       </a>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Call us for immediate assistance or questions about our services.
-                  </p>
                 </Card>
 
                 <Card className="p-5 sm:p-6" data-testid="card-contact-email">
@@ -155,25 +133,6 @@ export default function ContactPage() {
                       </a>
                     </div>
                   </div>
-                  <p className="text-sm text-muted-foreground">
-                    Send us an email and we'll get back to you as soon as we can.
-                  </p>
-                </Card>
-
-                <Card className="p-5 sm:p-6" data-testid="card-contact-hours">
-                  <div className="flex items-center gap-3 mb-4">
-                    <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <Clock className="w-5 h-5 text-primary" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-foreground">Hours</div>
-                      <div className="text-sm text-muted-foreground">October - January</div>
-                    </div>
-                  </div>
-                  <div className="space-y-1 text-sm text-muted-foreground">
-                    <div className="font-semibold text-foreground">24/7 During Season</div>
-                    <div>Seven Days a Week</div>
-                  </div>
                 </Card>
 
                 <Card className="p-5 sm:p-6" data-testid="card-contact-location">
@@ -187,7 +146,7 @@ export default function ContactPage() {
                     </div>
                   </div>
                   <p className="text-sm text-muted-foreground mb-4">
-                    Based in Kenmore, WA. Serving Kirkland, Bothell, Woodinville, Bellevue, Seattle, and surrounding areas.
+                    Based in Kenmore. Serving Seattle and the Eastside.
                   </p>
 
                   <div className="rounded-lg overflow-hidden border border-border">

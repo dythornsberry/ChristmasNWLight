@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Phone } from "lucide-react";
+import { Phone } from "lucide-react";
 
 interface StickyBottomCTAProps {
   onGetQuote: () => void;
@@ -33,8 +33,7 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
             onClick={onGetQuote}
             data-testid="button-sticky-quote-mobile"
           >
-            <Sparkles className="w-5 h-5" />
-            Get Free Estimate
+            Get a Quote
           </Button>
           <Button
             asChild

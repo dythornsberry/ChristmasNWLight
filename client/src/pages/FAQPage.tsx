@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import PageHead from "@/components/PageHead";
 import StructuredData from "@/components/StructuredData";
-import { CURRENT_SEASON_NUMBER, CURRENT_SEASON_YEAR, FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL } from "@/lib/business";
+import { CURRENT_SEASON_YEAR, FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL } from "@/lib/business";
 
 export default function FAQPage() {
   const [, setLocation] = useLocation();
@@ -21,140 +21,90 @@ export default function FAQPage() {
 
   const faqCategories = [
     {
-      category: "Common Questions",
-      questions: [
-        {
-          question: "How quickly can you get me installed?",
-          answer: "Within 3 days of your quote, we can book your installation date. The actual installation happens right after that, depending on how big the job is. Larger or more complex projects may take a bit longer to schedule, but we work hard to get you installed as quickly as possible."
-        },
-        {
-          question: "Do you offer design help or do I pick the design?",
-          answer: "We handle all the design work for you. During your free quote consultation, we discuss your vision: warm white (elegant), multicolor (festive), or a custom look. We then create a professional design recommendation based on your home's architecture and your preferences. You approve the design before we install, so you're in complete control."
-        },
-        {
-          question: "What if I don't like my lights after installation?",
-          answer: "If something does not look right, contact us. We will review the concern and make reasonable adjustments so the finished display matches the approved scope."
-        },
-        {
-          question: "How do I know the price is fair?",
-          answer: "We're transparent about pricing. Our Investment Guide shows real customer examples with actual photos and prices, so you can see exactly what installations cost. Pricing depends on roofline length, complexity, roof type/steepness, tree size, bush count, and design. We break down per-unit pricing ($5-$12/ft for rooflines, $275-$1,650+ per tree) so you understand what you're paying for. Get a free custom quote based on your specific home."
-        }
-      ]
-    },
-    {
-      category: "Pricing & Packages",
+      category: "Pricing & what's included",
       questions: [
         {
           question: `How much does Christmas light installation cost in ${CURRENT_SEASON_YEAR}?`,
-          answer: "Residential projects currently start around $800 for a clean roofline. Roofline-plus-accent projects are commonly $1,500-$1,800, full-property displays are commonly $2,500-$3,500, and large custom projects start around $4,000. Roof access, footage, trees, landscaping, and design complexity all affect the final price. Installation, seasonal maintenance, takedown, and storage are included."
+          answer: "A clean roofline starts at $800. Roofline + accents typically runs $1,500–$1,800, a full-property display $2,500–$3,500, and a large custom display $4,000+. Your quote depends on coverage, roof access, and design."
         },
         {
-          question: "What's included in your Christmas light installation service?",
-          answer: "Everything is included! You get commercial-grade LED lights and materials, professional design consultation, expert installation by our trained team, all necessary clips and mounting hardware, professional-grade timers, unlimited bulb replacement and repairs throughout the season, 24/7 seasonal support, professional takedown after the holidays, and year-round climate-controlled storage. It's completely done-for-you service. No ladder climbing, no storage hassles, no stress."
+          question: "What's included?",
+          answer: "We provide the lights, clips, and timers, plan the display, install it, and maintain it through the season. January takedown and storage until next season are included."
         },
         {
-          question: "Is light takedown and storage included in the price?",
-          answer: "Yes, absolutely. Professional takedown in January and year-round climate-controlled storage are included at no additional cost. We carefully remove all lights, organize them by home, and store them safely in our facilities until next season. You never have to worry about finding storage space or untangling lights."
+          question: "What if a light goes out?",
+          answer: "Call or message us. Seasonal bulb replacement and display repairs are included. We'll arrange a service visit as weather and the route allow."
         },
         {
-          question: "Do you charge extra for bulb replacements or repairs during the season?",
-          answer: "No. Bulb replacements and display repairs are included throughout the holiday season. Contact us when you notice an issue and we will schedule service as quickly as weather, safety, and the route allow."
+          question: "Is the quote free?",
+          answer: "Yes. Send us your address or call (425) 215-0935. We'll recommend a design and price it for your home, with no obligation to book."
         }
       ]
     },
     {
-      category: "Installation Process & Timeline",
+      category: "Design & lights",
       questions: [
         {
-          question: "How long does Christmas light installation take?",
-          answer: "Most residential installations are completed in 2-4 hours depending on your home's size and design complexity. Larger homes or custom design packages may take 4-8 hours. We work efficiently to minimize disruption to your day. After you book, most projects are scheduled and completed within one week during our busy season."
+          question: "Can you help me choose a design?",
+          answer: "Yes. We plan rooflines, wreaths, bushes, and trees around your home. Choose warm white, multicolor, or custom colors, and approve the design before installation."
         },
         {
-          question: `When should I schedule my Christmas light installation for ${CURRENT_SEASON_YEAR}?`,
-          answer: "Book as early as you can if you want the widest choice of dates. Installations generally run from October through December, and availability becomes tighter as Thanksgiving approaches. We confirm the actual installation window before you approve the project."
+          question: "What kind of lights do you use?",
+          answer: "We use commercial-grade outdoor LED lights, fitted to your roofline, with matching lights for trees, shrubs, and other accents."
         },
         {
-          question: "What's your installation process?",
-          answer: "Our process is simple and stress-free: First, fill out our free quote form online or call us at (425) 215-0935. We'll discuss your design vision and provide a detailed quote. Once you approve the design, we'll book your installation date. Our professional team arrives on your scheduled date and completes the installation, typically within a few hours. We test everything to ensure it's perfect, then you simply enjoy your beautiful display all season long while we handle any maintenance needs."
+          question: "Do you install lights I already own?",
+          answer: "We only install and maintain our own lighting and materials. We don't install customer-provided lights, including Govee."
         },
         {
-          question: "How quickly can you install my lights?",
-          answer: "Timing depends on the week, weather, route, and project size. Early in the season we may have near-term openings; the weeks around Thanksgiving fill quickly. We will give you the available installation window before you book."
+          question: "Do you offer permanent lighting?",
+          answer: "Our service is seasonal: we install in the fall, maintain your display, then take down and store the lights in January. We don't install permanent lighting."
         },
         {
-          question: "When do you take down Christmas lights?",
-          answer: "We professionally remove all lights in January, typically within 2-3 weeks after New Year's. We'll coordinate a specific takedown date with you. The takedown is just as careful and professional as the installation. We remove everything safely, organize your lights, and store them in our climate-controlled facilities until next season."
+          question: "Can you recreate a display I had before?",
+          answer: "Share a photo with us. We can usually create a similar design using our own lights."
+        },
+        {
+          question: "Can I book tree lighting on its own?",
+          answer: "Tree lighting is available as an addition to a roofline or primary home display. We don't book standalone tree installations."
         }
       ]
     },
     {
-      category: "Service Quality & Warranty",
+      category: "Booking & timing",
       questions: [
         {
-          question: "What if my lights go out or malfunction during the season?",
-          answer: "We offer 24/7 support during the holiday season. Simply call us at (425) 215-0935 or send us a message, and we'll schedule a service visit to diagnose and fix the issue. Most problems can be resolved within 1-2 business days, and there's no charge for bulb replacement or minor repairs. Our commercial-grade LED lights are extremely reliable, but we stand behind every installation."
+          question: `When should I book for ${CURRENT_SEASON_YEAR}?`,
+          answer: "Book early for the best choice of dates. Installations run from October through December, and the weeks around Thanksgiving fill quickly. We confirm availability before you book."
         },
         {
-          question: "Do you offer a satisfaction guarantee?",
-          answer: "We stand behind the approved installation. If something is not right, contact us and we will review it promptly and make reasonable adjustments."
+          question: "What happens after I request a quote?",
+          answer: "We review your property and follow up with options and pricing. Once you approve your quote, we schedule installation."
         },
         {
-          question: "Are you licensed and insured?",
-          answer: `Absolutely. Christmas Northwest is fully licensed, bonded, and insured. We've been serving the Greater Seattle area since 2021 and are entering season ${CURRENT_SEASON_NUMBER}. Your property and our team are fully protected at every stage of installation and maintenance.`
-        },
-        {
-          question: "What makes your service different from competitors?",
-          answer: "We provide one coordinated service: custom-fit commercial-grade lights, installation, seasonal maintenance, January takedown, and storage. We are based in Kenmore with a Woodinville warehouse, which helps us support Seattle and Eastside routes throughout the season."
-        }
-      ]
-    },
-    {
-      category: "Equipment & Design",
-      questions: [
-        {
-          question: "What type of Christmas lights do you use?",
-          answer: "We use exclusively commercial-grade LED lights designed for professional installations. These are not the lights you buy at hardware stores. They're weatherproof, energy-efficient, significantly brighter, and built to last for years. We offer both warm white and multicolor options, along with specialty products like C9 bulbs, mini lights, ground stakes, tree wraps, and light spheres."
-        },
-        {
-          question: "Can I choose custom colors or designs?",
-          answer: "Yes! We offer fully customized designs tailored to your home and preferences. Choose from warm white (classic elegant look), multicolor (festive traditional look), or custom color combinations. We also offer specialty designs including tree wrapping, ground lighting, pathway lights, and architectural accent lighting. Our design consultation is included in every installation."
-        },
-        {
-          question: "Do you install permanent or year-round lighting?",
-          answer: "No — we're a seasonal service. We install in the fall, maintain your display all season, and take everything down in January. If you're looking for permanent track lighting, we're not the right fit, but for the holidays we'll take better care of you than anyone."
-        },
-        {
-          question: "Can you install my client-owned lights or Govee lights?",
-          answer: "No. We only install our own professional-grade commercial lighting equipment. We cannot install client-provided lights, Govee lights, or lights from other companies. This policy ensures consistent quality, safety standards, warranty coverage, and allows us to provide our comprehensive maintenance and support throughout the season. Using our equipment means we can guarantee everything will work perfectly and be maintained all season long."
-        },
-        {
-          question: "Do you hang lights that I already own?",
-          answer: "No. We only install our own professional-grade lighting and materials. Whether it's lights from previous years, consumer brand lights, smart home systems like Govee, or any other third-party equipment - we cannot use them. This ensures every installation meets our quality standards, safety requirements, and allows us to provide our full warranty and 24/7 maintenance support."
-        },
-        {
-          question: "Can you match the lights I had from another company?",
-          answer: "Yes, we can typically match or improve upon previous installations using our own commercial-grade equipment. During your design consultation, share photos or describe what you had before, and we'll create a similar or enhanced design using our professional-grade materials. We cannot use those previous lights - only our own equipment."
-        },
-        {
-          question: "Do you install trees by themselves?",
-          answer: "No. We only install trees as an addition to a roofline installation. Tree wrapping is labor-intensive and requires setup and takedown time equal to installation time, so we include it as part of a comprehensive home display. If you're interested in tree lighting, it must be combined with roofline or other primary home lighting as part of your project."
-        }
-      ]
-    },
-    {
-      category: "Booking & Payment",
-      questions: [
-        {
-          question: `How do I book Christmas light installation for ${CURRENT_SEASON_YEAR}?`,
-          answer: "Booking is easy! Fill out our free quote form on this page, or call us directly at (425) 215-0935. We'll discuss your design vision, provide a detailed quote, and once approved, we'll schedule your installation date."
+          question: "When do you take down and store the lights?",
+          answer: "We coordinate takedown in January, allowing for weather and access. We label and store your lights for next season. Both are included in your quote."
         },
         {
           question: "When is payment due?",
-          answer: "Payment is due after installation is complete. About 99% of our clients pay online by credit card, debit card, or ACH transfer. We also accept any other payment method you prefer."
+          answer: "Payment is due after installation. You can pay online by credit card, debit card, or ACH transfer, or contact us about another payment method."
+        }
+      ]
+    },
+    {
+      category: "Our team",
+      questions: [
+        {
+          question: "Do you offer a satisfaction guarantee?",
+          answer: "If something doesn't match the approved design, contact us. We'll review it and make reasonable adjustments."
         },
         {
-          question: "Can I get a free quote without committing?",
-          answer: "Yes! Our quotes are always free with no obligation. Fill out our quote form or call us, and we'll provide a detailed estimate based on your home and design preferences. You're under no obligation to book. We simply want to help you understand your options and pricing."
+          question: "Are you licensed and insured?",
+          answer: `Yes. Christmas Northwest is licensed, bonded, and insured. We've served Greater Seattle since ${FIRST_SEASON_YEAR}.`
+        },
+        {
+          question: "Where do you work?",
+          answer: "We serve Seattle and the Eastside, including Kenmore, Bothell, Kirkland, Woodinville, and Bellevue. Our team is based in Kenmore, with a warehouse in Woodinville."
         }
       ]
     }
@@ -195,7 +145,7 @@ export default function FAQPage() {
     "logo": "https://christmasnw.com/logo.png",
     "telephone": "+14252150935",
     "email": "christmaslightsnw@gmail.com",
-    "foundingDate": "2021",
+    "foundingDate": String(FIRST_SEASON_YEAR),
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kenmore",
@@ -247,7 +197,7 @@ export default function FAQPage() {
               Frequently Asked Questions
             </h1>
             <p className="mx-auto max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-              Answers about pricing, timing, service areas, and how our installs work across Greater Seattle.
+              Pricing, booking, and what to expect.
             </p>
           </div>
         </section>
@@ -289,7 +239,7 @@ export default function FAQPage() {
               Still Have Questions?
             </h2>
             <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
-              We're here to help! Get in touch for personalized answers or request your free quote to get started with professional Christmas light installation in Greater Seattle and the Eastside.
+              Call us or send a quote request. We'll help you plan your display.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button

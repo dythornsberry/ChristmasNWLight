@@ -45,7 +45,7 @@ export default function Footer() {
               <li><a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a></li>
               <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors break-all">christmaslightsnw@gmail.com</a></li>
               <li>Kenmore, WA</li>
-              <li className="text-primary font-semibold">24/7 support during the season</li>
+              <li className="text-primary font-semibold">We respond within 24 hours</li>
             </ul>
             <Link href="/contact" onClick={handleLinkClick} data-testid="button-footer-quote">
               <Button className="mb-4 w-full sm:w-auto font-bold">Get a Quote</Button>

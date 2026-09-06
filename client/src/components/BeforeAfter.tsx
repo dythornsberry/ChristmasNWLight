@@ -129,7 +129,7 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
         <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
           <button
             type="button"
-            onClick={() => setSliderPosition(0)}
+            onClick={() => setSliderPosition(100)}
             className="rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
           >
             See before
@@ -143,7 +143,7 @@ export default function BeforeAfter({ beforeImage, afterImage }: BeforeAfterProp
           </button>
           <button
             type="button"
-            onClick={() => setSliderPosition(100)}
+            onClick={() => setSliderPosition(0)}
             className="rounded-full border border-border px-4 py-2 text-sm font-medium text-foreground transition-colors hover:bg-muted"
           >
             See after

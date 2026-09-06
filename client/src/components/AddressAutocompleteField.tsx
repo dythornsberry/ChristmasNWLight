@@ -148,8 +148,8 @@ export default function AddressAutocompleteField({
     // Only re-create when activation/googleEnabled/resetKey changes — callbacks use refs
   }, [googleEnabled, activated, resetKey]);
 
-  const handleInputChange = useCallback(() => {
-    callbacksRef.current.onAddressChange("");
+  const handleInputChange = useCallback((value: string) => {
+    callbacksRef.current.onAddressChange(value);
     callbacksRef.current.onAddressConfirmedChange(false);
   }, []);
 
@@ -174,9 +174,10 @@ export default function AddressAutocompleteField({
               id={inputId}
               type="text"
               autoComplete="off"
+              defaultValue={address}
               placeholder={placeholder}
               className="border-0 shadow-none focus-visible:ring-0 px-0 h-auto"
-              onChange={handleInputChange}
+              onChange={(event) => handleInputChange(event.currentTarget.value)}
               onFocus={() => setActivated(true)}
             />
             {status === "loading" ? (
@@ -187,8 +188,7 @@ export default function AddressAutocompleteField({
             ) : null}
           </div>
           <p className="text-xs text-muted-foreground">
-            Start typing and pick the property from the Google suggestions. ZIP
-            code fills automatically.
+            Choose a suggestion or enter your full address manually.
           </p>
           {addressConfirmed && address ? (
             <div className="rounded-md border border-status-online/30 bg-status-online/10 px-3 py-2 text-sm text-slate-900">
@@ -213,7 +213,7 @@ export default function AddressAutocompleteField({
             value={address}
             onChange={(event) => {
               onAddressChange(event.target.value);
-              onAddressConfirmedChange(Boolean(event.target.value.trim()));
+              onAddressConfirmedChange(false);
             }}
             autoComplete="street-address"
             placeholder={placeholder}
@@ -222,7 +222,7 @@ export default function AddressAutocompleteField({
             <MapPin className="h-4 w-4" />
             {googleEnabled
               ? "Address suggestions are temporarily unavailable, so you can type the address manually."
-              : "Enter the full service address. Google autocomplete can be enabled later without changing the form."}
+              : "Enter the full service address, including city and ZIP code."}
           </div>
         </div>
       )}

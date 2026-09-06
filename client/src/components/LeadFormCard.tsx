@@ -5,7 +5,6 @@ import {
   ChevronLeft,
   ChevronRight,
   Info,
-  MapPin,
   Phone,
   Sparkles,
   type LucideIcon,
@@ -80,11 +79,11 @@ export default function LeadFormCard({
   initialServiceType = "",
   showServiceStep = false,
   serviceStepTitle = "What can we help you with?",
-  serviceStepDescription = "Choose the service that best fits your project. We can fine-tune details after we review the property.",
+  serviceStepDescription = "New lights or help with an existing display?",
   contactStepTitle = "How should we reach you?",
-  contactStepDescription = "Use the best name, email, and phone number for estimate follow-up.",
+  contactStepDescription = "We’ll contact you about your quote.",
   propertyStepTitle = "Which property should we review?",
-  propertyStepDescription = "We use the service address to confirm routing, scope, and the right next step.",
+  propertyStepDescription = "Enter the address where you’d like your lights installed.",
   responseNote = "We'll follow up soon.",
   serviceBadgeText,
   addressLabel = "Property Address",
@@ -117,10 +116,7 @@ export default function LeadFormCard({
   const contactStep = hasServiceStep ? 2 : 1;
   const propertyStep = hasServiceStep ? 3 : 2;
   const stepLabels = hasServiceStep ? ["Service", "Contact", "Property"] : ["Contact", "Property"];
-  const selectedService = serviceOptions.find((option) => option.value === formData.serviceType);
   const addressRequired = requiresProjectAddress(formData.serviceType || initialServiceType);
-  // Show manual ZIP input only when Google autocomplete hasn't filled it
-  const shouldCollectManualZip = !formData.zipCode.trim();
   const zipRequired = false; // ZIP is optional — nice to have, never blocks
 
   const resetForm = () => {
@@ -200,7 +196,6 @@ export default function LeadFormCard({
 
   const canProceedService = !serviceTypeError;
   const canProceedContact = !fullNameError && !emailError && !phoneError;
-  const canSubmitProperty = !addressError;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -244,21 +239,13 @@ export default function LeadFormCard({
         </div>
       ) : (
         <div className="px-5 py-6 sm:px-8 sm:py-8 md:px-10 lg:px-12 lg:py-10">
-          <div className="mb-6 flex flex-wrap items-center gap-2 sm:mb-8 sm:gap-3">
-            {serviceBadgeText ? (
+          {serviceBadgeText ? (
+            <div className="mb-4">
               <Badge variant="outline" className="border-primary/20 bg-primary/5 px-4 py-2 text-sm font-semibold text-foreground">
                 {serviceBadgeText}
               </Badge>
-            ) : null}
-            {selectedService ? (
-              <Badge variant="secondary" className="bg-status-online/10 px-4 py-2 text-sm font-medium text-status-online">
-                {selectedService.label}
-              </Badge>
-            ) : null}
-            <Badge variant="secondary" className="bg-amber-50 px-4 py-2 text-sm font-medium text-amber-700">
-              Short, step-by-step form
-            </Badge>
-          </div>
+            </div>
+          ) : null}
 
           <div className="mb-6 sm:mb-8">
             <h2 className="font-serif text-2xl font-bold text-foreground sm:text-3xl md:text-[2.6rem]">{title}</h2>
@@ -343,9 +330,7 @@ export default function LeadFormCard({
                   <div className="flex items-start gap-2.5 rounded-xl border border-border bg-muted/50 p-3">
                     <Info className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                     <p className="text-sm leading-5 text-muted-foreground">
-                      <span className="font-semibold text-foreground">Temporary seasonal lighting.</span>{" "}
-                      We supply, install, and take down our own commercial-grade lights — no
-                      permanent lighting, no customer-provided lights.
+                      We provide the lights. Seasonal installations only; we don’t install customer-owned lights.
                     </p>
                   </div>
 
@@ -384,12 +369,10 @@ export default function LeadFormCard({
                     <Input
                       id={`${testIdPrefix}-fullName`}
                       value={formData.fullName}
-                      onChange={(e) =>
-                        setFormData((current) => ({
-                          ...current,
-                          fullName: e.target.value,
-                        }))
-                      }
+                      onChange={(e) => {
+                        const fullName = e.currentTarget.value;
+                        setFormData((current) => ({ ...current, fullName }));
+                      }}
                       required
                       autoComplete="name"
                       placeholder="John Smith"
@@ -404,12 +387,10 @@ export default function LeadFormCard({
                       id={`${testIdPrefix}-email`}
                       type="email"
                       value={formData.email}
-                      onChange={(e) =>
-                        setFormData((current) => ({
-                          ...current,
-                          email: e.target.value,
-                        }))
-                      }
+                      onChange={(e) => {
+                        const email = e.currentTarget.value;
+                        setFormData((current) => ({ ...current, email }));
+                      }}
                       required
                       autoComplete="email"
                       inputMode="email"
@@ -425,12 +406,10 @@ export default function LeadFormCard({
                       id={`${testIdPrefix}-phone`}
                       type="tel"
                       value={formData.phone}
-                      onChange={(e) =>
-                        setFormData((current) => ({
-                          ...current,
-                          phone: formatPhoneNumber(e.target.value),
-                        }))
-                      }
+                      onChange={(e) => {
+                        const phone = formatPhoneNumber(e.currentTarget.value);
+                        setFormData((current) => ({ ...current, phone }));
+                      }}
                       required
                       maxLength={14}
                       autoComplete="tel"
@@ -452,7 +431,6 @@ export default function LeadFormCard({
                       type="button"
                       size="lg"
                       className={cn("w-full text-lg font-bold", hasServiceStep ? "sm:flex-[2]" : "w-full")}
-                      disabled={!canProceedContact}
                       onClick={() => {
                         if (canProceedContact) {
                           setShowErrors(false);
@@ -498,7 +476,7 @@ export default function LeadFormCard({
                     onZipCodeChange={(value) =>
                       setFormData((current) => ({
                         ...current,
-                        zipCode: value || current.zipCode,
+                        zipCode: value,
                       }))
                     }
                     placeholder={addressPlaceholder}
@@ -507,20 +485,17 @@ export default function LeadFormCard({
                     zipCode={formData.zipCode}
                   />
 
-                  {shouldCollectManualZip ? (
-                    <div className="space-y-2">
+                  <div className="space-y-2">
                       <Label htmlFor={`${testIdPrefix}-zipCode`}>
                         ZIP Code {zipRequired ? "*" : "(optional)"}
                       </Label>
                       <Input
                         id={`${testIdPrefix}-zipCode`}
                         value={formData.zipCode}
-                        onChange={(e) =>
-                          setFormData((current) => ({
-                            ...current,
-                            zipCode: e.target.value.replace(/\D/g, "").slice(0, 5),
-                          }))
-                        }
+                        onChange={(e) => {
+                          const zipCode = e.currentTarget.value.replace(/\D/g, "").slice(0, 5);
+                          setFormData((current) => ({ ...current, zipCode }));
+                        }}
                         required={zipRequired}
                         autoComplete="postal-code"
                         inputMode="numeric"
@@ -528,17 +503,8 @@ export default function LeadFormCard({
                         data-testid={`${testIdPrefix}-zip-code`}
                       />
                       {showErrors && zipCodeError ? <p className="text-sm text-destructive">{zipCodeError}</p> : null}
-                    </div>
-                  ) : null}
-
-                  <div className="rounded-2xl border border-status-online/30 bg-status-online/10 p-4">
-                    <div className="flex items-start gap-3">
-                      <MapPin className="mt-0.5 h-4 w-4 text-status-online" />
-                      <p className="text-sm leading-6 text-foreground">
-                        We use the property details to confirm service area coverage and give you a more accurate next step.
-                      </p>
-                    </div>
                   </div>
+
 
                   <label
                     className={`flex cursor-pointer items-start gap-3 rounded-2xl border-2 p-4 transition-colors ${
@@ -556,9 +522,7 @@ export default function LeadFormCard({
                     <span className="text-sm leading-6 text-muted-foreground">
                       <span className="font-semibold text-foreground">
                         I'm requesting seasonal holiday lighting (projects start at $800).
-                      </span>{" "}
-                      Christmas Northwest provides the professional lights and decorations, installs them, and takes
-                      them down — it's all done for you. You never have to touch a bulb.
+                      </span>
                     </span>
                   </label>
                   {showErrors && seasonalConfirmError ? (
@@ -574,7 +538,7 @@ export default function LeadFormCard({
                       type="submit"
                       size="lg"
                       className="w-full text-lg font-bold shadow-xl transition-all duration-300 hover:shadow-2xl sm:flex-[2]"
-                      disabled={!canSubmitProperty || createQuoteMutation.isPending || Boolean(serviceTypeError)}
+                      disabled={createQuoteMutation.isPending}
                       data-testid={`${testIdPrefix}-submit`}
                     >
                       {createQuoteMutation.isPending ? "Submitting..." : submitLabel}

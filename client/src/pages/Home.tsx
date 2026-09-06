@@ -4,28 +4,25 @@ import Hero from "@/components/Hero";
 import ReviewsStrip from "@/components/ReviewsStrip";
 import Portfolio from "@/components/Portfolio";
 import SimpleServices from "@/components/SimpleServices";
-import BeforeAfter from "@/components/BeforeAfter";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
 import PageHead from "@/components/PageHead";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import StructuredData from "@/components/StructuredData";
-import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL } from "@/lib/business";
+import { FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL } from "@/lib/business";
 import { useLocation } from "wouter";
-import completeHolidayScene from '@assets/optimized/portfolio-yard.webp';
-import premiumCustomDisplay from '@assets/optimized/portfolio-trees.webp';
+import warmWhiteGables from '@assets/optimized/portfolio-gables.webp';
+import warmWhiteEntry from '@assets/optimized/residential-card.webp';
 import warmWhiteBushEstate from '@assets/optimized/portfolio-warm-white.webp';
-import beforeImage from '@assets/optimized/before-home.webp';
-import afterImage from '@assets/optimized/after-home.webp';
 
 export default function Home() {
   const [, setLocation] = useLocation();
   const googleReviewsUrl = "https://share.google/lxhOxXmbPwABIqdNa";
 
   const portfolioItems = [
-    { id: 1, image: warmWhiteBushEstate, category: "Warm White", title: "Warm White Bushes" },
-    { id: 2, image: completeHolidayScene, category: "Custom", title: "Full Yard Display" },
-    { id: 3, image: premiumCustomDisplay, category: "Custom", title: "Wrapped Trees" },
+    { id: 1, image: warmWhiteGables, category: "Warm White", title: "Rooflines & wreaths" },
+    { id: 2, image: warmWhiteEntry, category: "Warm White", title: "Porches & pathways" },
+    { id: 3, image: warmWhiteBushEstate, category: "Warm White", title: "Rooflines & landscape lighting" },
   ];
 
   const goToQuote = () => {
@@ -92,7 +89,7 @@ export default function Home() {
       "Seasonal lighting maintenance",
       "Christmas light takedown and storage"
     ],
-    "foundingDate": "2021",
+    "foundingDate": String(FIRST_SEASON_YEAR),
     "sameAs": [
       FACEBOOK_URL,
       INSTAGRAM_URL,
@@ -105,23 +102,19 @@ export default function Home() {
     <div className="min-h-screen pb-24 md:pb-0">
       <PageHead
         title="Seattle Christmas Light Installation | Christmas Northwest"
-        description="Full-service Christmas light installation for Seattle and the Eastside. Design, install, maintenance, takedown, and storage — one local team handles it all."
+        description="Christmas light installation in Seattle and the Eastside, starting at $800. We install, maintain, take down, and store your lights."
       />
       <StructuredData data={localBusinessSchema} />
       <UrgencyBanner />
       <StickyHeader onGetQuote={goToQuote} />
       
-      <Hero onGetQuote={goToQuote} />
-
-      <BeforeAfter beforeImage={beforeImage} afterImage={afterImage} />
-
-      <SimpleServices onGetQuote={goToQuote} />
-
-      <Portfolio items={portfolioItems} />
-
-      <ReviewsStrip />
-
-      <CTABanner onGetQuote={goToQuote} />
+      <main>
+        <Hero onGetQuote={goToQuote} />
+        <SimpleServices />
+        <Portfolio items={portfolioItems} />
+        <ReviewsStrip />
+        <CTABanner onGetQuote={goToQuote} />
+      </main>
 
       <Footer />
 

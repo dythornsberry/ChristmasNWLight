@@ -4,105 +4,42 @@ import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
 import StructuredData from "@/components/StructuredData";
-import InternalLinksSection from "@/components/InternalLinksSection";
-import { Card } from "@/components/ui/card";
+import SimpleServices from "@/components/SimpleServices";
 import { Button } from "@/components/ui/button";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
-import { Home, TreePine, Building2, Sparkles, Wrench, Check, X } from "lucide-react";
-import residentialImage from '@assets/img4_1761853506443.webp';
-import commercialImage from '@assets/img7_1761853506443.webp';
-import customImage from '@assets/img16_1761853506444.webp';
-import treeImage from '@assets/img9_1761853506444_feature.webp';
-import maintenanceImage from '@assets/img8_1761853506443.webp';
-import { useLocation } from "wouter";
+import { Link, useLocation } from "wouter";
 import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
-import SeasonalServiceNote from "@/components/SeasonalServiceNote";
+import rooflineImage from '@assets/IMG_6862-min_1763866884565.jpeg';
+import accentsImage from '@assets/2025-11-19-min_1763645900967.jpg';
+import largerDisplayImage from '@assets/2023-12-07-2_optimized.webp';
+
+const services = [
+  {
+    title: "Clean rooflines",
+    description: "Lights fitted neatly along your roofline, peaks, and gutters.",
+    image: rooflineImage,
+    alt: "Warm white Christmas lights following the roofline of a modern two-story home",
+  },
+  {
+    title: "Trees & accents",
+    description: "Add wrapped trees, lit shrubs, or a wreath to your roofline display.",
+    image: accentsImage,
+    alt: "Warm white roofline and shrubs lighting the path to a home",
+  },
+  {
+    title: "Larger properties",
+    description: "Custom Christmas displays for larger homes, businesses, and managed properties.",
+    image: largerDisplayImage,
+    alt: "Large home with Christmas lights wrapping trees and entrance columns",
+  },
+];
 
 export default function ServicesPage() {
   const [, setLocation] = useLocation();
 
-  const scrollToQuote = () => {
+  const goToQuote = () => {
     setLocation('/contact');
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
-
-  const services = [
-    {
-      icon: Home,
-      title: "Residential Roofline Installations",
-      description: "We install commercial-grade LED lights along rooflines, peaks, and gutters using color-matched clips and carefully routed wiring. The layout is designed around your home's architecture and your preferred colors.",
-      features: [
-        "Custom color selection (warm white, pure white, multicolor)",
-        "Professional-grade mounting hardware",
-        "Hidden wire placement",
-        "Dusk-to-dawn smart timers",
-        "Weather-resistant installation"
-      ],
-      image: residentialImage,
-      startingPrice: "$800+"
-    },
-    {
-      icon: TreePine,
-      title: "Tree & Greenery Wrapping",
-      description: "We wrap trunks, branches, bushes, and other landscape features at a consistent spacing. Density and color are planned to coordinate with the roofline and the scale of the property.",
-      features: [
-        "Precision branch-by-branch wrapping",
-        "Customizable density and pattern",
-        "Multiple color options available",
-        "Safe installation without damage",
-        "Clean, consistent spacing"
-      ],
-      image: treeImage,
-      startingPrice: "$300+"
-    },
-    {
-      icon: Building2,
-      title: "Commercial Displays",
-      description: "We design and install seasonal lighting for retail spaces, offices, restaurants, and managed properties. Scheduling and maintenance are coordinated to limit disruption to customers, tenants, and staff.",
-      features: [
-        "Large-scale installation capability",
-        "Brand-aligned color schemes",
-        "Flexible scheduling to minimize disruption",
-        "Maintenance throughout the season",
-        "Professional design consultation"
-      ],
-      image: commercialImage,
-      startingPrice: "Custom Quote"
-    },
-    {
-      icon: Sparkles,
-      title: "Custom Design Packages",
-      description: "Custom projects can combine rooflines, ground displays, wreaths, garland, pathway lights, and landscape lighting. We turn your priorities into one coordinated plan and quote.",
-      features: [
-        "Personalized design consultation",
-        "Combination of multiple elements",
-        "Wreaths, garland, and decorative features",
-        "Pathway and landscape lighting",
-        "Coordinated color schemes throughout"
-      ],
-      image: customImage,
-      startingPrice: "$1,500+"
-    },
-    {
-      icon: Wrench,
-      title: "Maintenance & Takedown",
-      description: "Seasonal bulb replacement and troubleshooting are included while your display is installed. After the holidays, we remove, label, organize, and store the lighting for the next season.",
-      features: [
-        "Seasonal repair support",
-        "Quick bulb and section replacement",
-        "Careful removal to prevent damage",
-        "Organized labeling and storage",
-        "Climate-controlled storage facilities"
-      ],
-      image: maintenanceImage,
-      startingPrice: "Included"
-    }
-  ];
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -171,348 +108,91 @@ export default function ServicesPage() {
       "ratingValue": GOOGLE_RATING,
       "reviewCount": GOOGLE_REVIEW_COUNT
     },
-    "sameAs": [
-      FACEBOOK_URL,
-      INSTAGRAM_URL,
-      YOUTUBE_URL
-    ]
+    "sameAs": [FACEBOOK_URL, INSTAGRAM_URL, YOUTUBE_URL]
   };
 
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="Christmas Light Installation Services | Christmas Northwest"
-        description="Professional Christmas light installation in Greater Seattle: rooflines, tree wrapping, commercial displays, custom designs, and storage."
+        description="Christmas light installation in Greater Seattle, starting at $800. We install, maintain, take down, and store your lights."
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
+      <StructuredData data={serviceSchema} />
       <StructuredData data={localBusinessSchema} />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
+      <StructuredData data={breadcrumbSchema} />
       <UrgencyBanner />
-      <StickyHeader onGetQuote={scrollToQuote} />
+      <StickyHeader onGetQuote={goToQuote} />
 
       <main className="flex-1">
-        {/* Hero Section */}
-        <section className="bg-gradient-to-b from-muted/30 to-background py-14 sm:py-16 md:py-24">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="text-center max-w-4xl mx-auto">
-              <div className="mb-5 inline-block rounded-lg bg-primary/10 px-3.5 py-2 sm:mb-6 sm:px-4">
-                <span className="text-primary font-semibold">Our Services</span>
-              </div>
-              <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
-                Professional Holiday Lighting Services
-              </h1>
-              <p className="mb-4 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-                Choose roofline lighting, tree and greenery wrapping, commercial displays, or a custom combination. Every project includes design, installation, seasonal maintenance, takedown, and storage.
-              </p>
-              <p className="text-base font-semibold text-primary sm:text-lg">
-                Residential projects start around $800
-              </p>
-              <Button 
-                onClick={scrollToQuote}
-                className="mt-4 w-full bg-primary font-semibold text-primary-foreground sm:w-auto"
-                data-testid="button-services-hero-quote"
-              >
+        <section className="bg-[#f6f3ed] py-14 md:py-20">
+          <div className="mx-auto max-w-4xl px-6 text-center">
+            <p className="mb-4 text-sm font-medium text-primary">Christmas lighting in Greater Seattle</p>
+            <h1 className="font-serif text-4xl font-medium leading-tight tracking-tight text-foreground md:text-6xl">
+              Christmas lights,<br className="hidden sm:block" /> taken care of.
+            </h1>
+            <p className="mx-auto mt-5 max-w-2xl text-lg leading-7 text-muted-foreground">
+              We install, maintain, take down, and store your lights. You enjoy the season.
+            </p>
+            <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+              <Button onClick={goToQuote} size="lg" className="w-full font-semibold sm:w-auto" data-testid="button-services-hero-quote">
                 Get a Quote
               </Button>
-              <SeasonalServiceNote className="mt-8" />
+              <Link href="/investment-guide" className="text-sm font-medium text-primary underline-offset-4 hover:underline">
+                Starting at $800 · See pricing
+              </Link>
             </div>
           </div>
         </section>
 
-        {/* Services Grid */}
-        <section className="bg-background py-16 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="space-y-10 sm:space-y-16">
+        <section className="bg-background py-12 md:py-16" aria-labelledby="service-options-heading">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-8 flex flex-wrap items-baseline justify-between gap-3">
+              <h2 id="service-options-heading" className="font-serif text-3xl font-medium tracking-tight md:text-4xl">A display that fits your home.</h2>
+              <p className="text-sm text-muted-foreground">Warm white or color. Your choice.</p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-3">
               {services.map((service, index) => (
-                <Card key={index} className="overflow-hidden" data-testid={`card-service-${index}`}>
-                  <div className={`grid lg:grid-cols-2 gap-0 ${index % 2 === 1 ? 'lg:grid-flow-dense' : ''}`}>
-                    {/* Image */}
-                    <div className={index % 2 === 1 ? 'lg:col-start-2' : ''}>
-                      <img
-                        src={service.image}
-                        alt={service.title}
-                        className="w-full h-full object-cover min-h-[300px]"
-                        width={800}
-                        height={600}
-                        loading="lazy"
-                        decoding="async"
-                        data-testid={`img-service-${index}`}
-                      />
-                    </div>
-                    
-                    {/* Content */}
-                    <div className="flex flex-col justify-center p-6 sm:p-8 md:p-12">
-                      <div className="mb-4 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-4">
-                        <div className="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
-                          <service.icon className="w-6 h-6 text-primary" />
-                        </div>
-                        <div>
-                          <h2 className="font-serif text-xl font-bold text-foreground sm:text-2xl md:text-3xl">
-                            {service.title}
-                          </h2>
-                          <p className="text-sm text-primary font-semibold">
-                            Starting at {service.startingPrice}
-                          </p>
-                        </div>
-                      </div>
-                      
-                      <p className="mb-6 text-sm leading-7 text-muted-foreground sm:text-base">
-                        {service.description}
-                      </p>
-                      
-                      <ul className="space-y-2 mb-8">
-                        {service.features.map((feature, fIndex) => (
-                          <li key={fIndex} className="flex items-start gap-2 text-sm text-muted-foreground">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0" />
-                            <span>{feature}</span>
-                          </li>
-                        ))}
-                      </ul>
-                      
-                      <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-                        <Button 
-                          onClick={scrollToQuote}
-                          className="bg-primary text-primary-foreground font-semibold"
-                          data-testid={`button-service-quote-${index}`}
-                        >
-                          Get a Quote
-                        </Button>
-                        <Button 
-                          variant="outline"
-                          onClick={() => setLocation('/contact')}
-                          data-testid={`button-service-contact-${index}`}
-                        >
-                          Learn More
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                </Card>
+                <article key={service.title} data-testid={`card-service-${index}`}>
+                  <img
+                    src={service.image}
+                    alt={service.alt}
+                    className="aspect-[4/3] w-full rounded-lg object-cover"
+                    width={800}
+                    height={600}
+                    loading="lazy"
+                    decoding="async"
+                    data-testid={`img-service-${index}`}
+                  />
+                  <h3 className="mt-5 text-xl font-semibold text-foreground">{service.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-muted-foreground">{service.description}</p>
+                </article>
               ))}
             </div>
-          </div>
-        </section>
-
-        {/* Service Comparison Table */}
-        <section className="bg-muted/30 py-16 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="mb-10 text-center sm:mb-12">
-              <h2 className="mb-4 font-serif text-3xl font-bold text-foreground md:text-4xl">
-                Compare Our Services
-              </h2>
-              <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
-                See which features are included with each service package to find the perfect fit for your needs.
-              </p>
+            <div className="mt-8 text-center">
+              <Link href="/gallery" className="text-sm font-medium text-primary underline-offset-4 hover:underline">See more of our work →</Link>
             </div>
-            
-            <Card className="overflow-hidden">
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-[760px]" data-testid="table-service-comparison">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="p-4 text-left font-bold text-foreground">Feature</th>
-                    <th className="p-4 text-center font-bold text-foreground">Roofline</th>
-                    <th className="p-4 text-center font-bold text-foreground">Tree Wrapping</th>
-                    <th className="p-4 text-center font-bold text-foreground">Commercial</th>
-                    <th className="p-4 text-center font-bold text-foreground">Custom Design</th>
-                    <th className="p-4 text-center font-bold text-foreground">Maintenance</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className="border-b border-border">
-                    <td className="p-4 text-sm text-muted-foreground">Color Selection</td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
-                  </tr>
-                  <tr className="border-b border-border">
-                    <td className="p-4 text-sm text-muted-foreground">Professional Installation</td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
-                  </tr>
-                  <tr className="border-b border-border">
-                    <td className="p-4 text-sm text-muted-foreground">Custom Patterns</td>
-                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
-                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
-                  </tr>
-                  <tr className="border-b border-border">
-                    <td className="p-4 text-sm text-muted-foreground">Maintenance Included</td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                  </tr>
-                  <tr className="border-b border-border">
-                    <td className="p-4 text-sm text-muted-foreground">Takedown & Storage</td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                  </tr>
-                  <tr className="border-b border-border">
-                    <td className="p-4 text-sm text-muted-foreground">Design Consultation</td>
-                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
-                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><X className="w-5 h-5 text-muted-foreground mx-auto" /></td>
-                  </tr>
-                  <tr>
-                    <td className="p-4 text-sm text-muted-foreground">24/7 Season Support</td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                    <td className="p-4 text-center"><Check className="w-5 h-5 text-primary mx-auto" /></td>
-                  </tr>
-                </tbody>
-                </table>
-              </div>
-            </Card>
           </div>
         </section>
 
-        {/* FAQ Section */}
-        <section className="bg-background py-16 sm:py-20">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6">
-            <div className="mb-10 text-center sm:mb-12">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Frequently Asked Questions
-              </h2>
-              <p className="text-base text-muted-foreground sm:text-lg">
-                Common questions about our holiday lighting services.
-              </p>
+        <SimpleServices />
+
+        <section className="bg-background py-14 md:py-20">
+          <div className="mx-auto max-w-3xl px-6 text-center">
+            <h2 className="font-serif text-3xl font-medium tracking-tight text-foreground md:text-4xl">Let's light your home.</h2>
+            <p className="mt-4 text-base text-muted-foreground">Send your address. We'll put together a design and a free quote.</p>
+            <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
+              <Button onClick={goToQuote} size="lg" className="w-full font-semibold sm:w-auto" data-testid="button-services-cta-quote">Get a Quote</Button>
+              <a href="tel:4252150935" className="text-sm font-medium text-primary underline-offset-4 hover:underline" data-testid="button-services-cta-call">(425) 215-0935</a>
             </div>
-            
-            <Accordion type="single" collapsible className="space-y-4" data-testid="accordion-service-faq">
-              <AccordionItem value="item-1">
-                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
-                  How long does installation take?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
-                  Many residential roofline installations are completed in a single visit. Larger homes and custom designs take longer. Your quote will include the expected installation scope, and we confirm the available date before booking.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-2">
-                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
-                  Are replacement bulbs included in the price?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
-                  Yes! Bulb replacement is included at no additional cost throughout the season. If any lights malfunction, we'll come out and replace them quickly. Our commercial-grade LED lights are extremely reliable, but we stand behind every installation with 24/7 seasonal support.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-3">
-                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
-                  What happens if lights go out during the season?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
-                  We offer 24/7 support during the holiday season. Simply give us a call or send us a message, and we'll schedule a service visit to diagnose and fix the issue. Most problems can be resolved within 1-2 business days, and there's no charge for bulb replacement or minor repairs.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-4">
-                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
-                  Do you provide the lights, or do I need to purchase them?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
-                  We provide all lights, clips, timers, and installation materials as part of our service. You don't need to purchase anything. We use only commercial-grade LED lights that are weatherproof, energy-efficient, and designed to last for years. After the season, we professionally remove and store everything for you.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-5">
-                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
-                  When do you take down the lights?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
-                  Takedown is included in all our installation packages. We typically remove lights in early to mid-January, depending on your preference and weather conditions. After removal, we carefully organize, label, and store your lights in our climate-controlled facility until the next season.
-                </AccordionContent>
-              </AccordionItem>
-
-              <AccordionItem value="item-6">
-                <AccordionTrigger className="text-left text-base font-semibold sm:text-lg">
-                  Can I choose different light colors?
-                </AccordionTrigger>
-                <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
-                  Absolutely! We offer warm white, pure white, multicolor, red & green, red & white, and many other custom color combinations. During your consultation, we'll discuss your vision and recommend the best colors to complement your home's architecture and your personal style. You can even mix colors for a unique display.
-                </AccordionContent>
-              </AccordionItem>
-            </Accordion>
-          </div>
-        </section>
-
-        <InternalLinksSection
-          title="Plan the Rest of Your Project"
-          description="These pages help homeowners compare options, confirm service area coverage, and build trust before they request a quote."
-          links={[
-            {
-              href: "/service-areas",
-              label: "Service Areas",
-              description: "Check the Seattle and Eastside cities we serve before you request a quote.",
-            },
-            {
-              href: "/gallery",
-              label: "Photo Gallery",
-              description: "See real residential and large-property installations completed by our team.",
-            },
-            {
-              href: "/contact",
-              label: "Contact & Quote",
-              description: "Reach the team directly if you want a callback or a project-specific recommendation.",
-            },
-          ]}
-        />
-
-        {/* CTA Section */}
-        <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
-          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
-              Not Sure Which Service You Need?
-            </h2>
-            <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
-              Our team will help you design the perfect holiday lighting solution for your property. Get a free consultation and quote today.
+            <p className="mt-8 text-sm leading-6 text-muted-foreground">
+              Seasonal service using our own lights. <Link href="/faq" className="text-primary underline underline-offset-4">Questions? Read our FAQ.</Link>
             </p>
-            <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
-              <Button 
-                onClick={scrollToQuote}
-                variant="outline"
-                className="border-2 border-primary-foreground/20 bg-background font-semibold text-foreground hover:bg-background/90 sm:w-auto"
-                data-testid="button-services-cta-quote"
-              >
-                Get a Quote
-              </Button>
-              <Button 
-                variant="outline"
-                className="border-2 border-primary-foreground/50 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
-                onClick={() => window.location.href = 'tel:4252150935'}
-                data-testid="button-services-cta-call"
-              >
-                Call (425) 215-0935
-              </Button>
-            </div>
           </div>
         </section>
       </main>
 
       <Footer />
-      <StickyBottomCTA onGetQuote={scrollToQuote} />
+      <StickyBottomCTA onGetQuote={goToQuote} />
     </div>
   );
 }

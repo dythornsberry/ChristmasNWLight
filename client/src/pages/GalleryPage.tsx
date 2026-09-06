@@ -538,14 +538,11 @@ export default function GalleryPage() {
         <section className="bg-gradient-to-b from-muted/30 to-background py-14 sm:py-16 md:py-24">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="mx-auto mb-10 max-w-4xl text-center sm:mb-12">
-              <div className="mb-5 inline-block rounded-lg bg-primary/10 px-3.5 py-2 sm:mb-6 sm:px-4">
-                <span className="text-primary font-semibold">Our Work</span>
-              </div>
               <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
-                Installation Gallery
+                Christmas lights, on real homes.
               </h1>
               <p className="mx-auto max-w-3xl text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-                Explore our collection of beautiful holiday lighting installations. Every home tells a story, and we're proud to showcase the magic we've created for families across Greater Seattle.
+                Rooflines, wrapped trees, and Christmas displays around Greater Seattle.
               </p>
             </div>
 
@@ -556,8 +553,9 @@ export default function GalleryPage() {
                   key={category}
                   variant={selectedCategory === category ? "default" : "secondary"}
                   size="sm"
-                  className="w-full px-4 py-2 text-sm font-semibold sm:w-auto sm:px-6"
+                  className="min-h-11 w-full px-4 py-2 text-sm font-semibold sm:w-auto sm:px-6"
                   onClick={() => setSelectedCategory(category)}
+                  aria-pressed={selectedCategory === category}
                   data-testid={`button-filter-${category.toLowerCase().replace(' ', '-')}`}
                 >
                   {category}
@@ -574,11 +572,6 @@ export default function GalleryPage() {
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 Featured Installations
               </h2>
-              <p className="text-base text-muted-foreground sm:text-lg">
-                {selectedCategory === "All" 
-                  ? "A selection of roofline, landscape, tree, and full-property projects completed by our team"
-                  : `Browse selected ${selectedCategory} installations`}
-              </p>
             </div>
 
             {/* Top 9 Gallery Grid */}
@@ -601,29 +594,23 @@ export default function GalleryPage() {
         <section className="bg-muted/30 py-16 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-12">
-              <div className="mb-5 inline-block rounded-lg bg-primary/10 px-3.5 py-2 sm:mb-6 sm:px-4">
-                <span className="text-primary font-semibold">Watch Our Work</span>
-              </div>
               <h2 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-5xl">
-                See These Installations Come to Life
+                Watch an installation
               </h2>
               <p className="text-base leading-7 text-muted-foreground sm:text-lg">
-                Watch real installations from start to finish. See the quality, craftsmanship, and care we bring to every project across Greater Seattle.
+                A closer look at our work.
               </p>
             </div>
 
             {/* Video Grid */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-              {VIDEO_SHOWCASE_ITEMS.map((item) => (
+              {VIDEO_SHOWCASE_ITEMS.filter((item) => selectedCategory === "Halloween" ? item.id.startsWith("halloween") : !item.id.startsWith("halloween")).map((item) => (
                 <VideoShowcaseCard key={item.id} item={item} />
               ))}
             </div>
 
             {/* Channel CTA */}
             <div className="text-center mt-12">
-              <p className="text-muted-foreground mb-4">
-                Want to see more? Check out our YouTube channel for additional videos and behind-the-scenes content.
-              </p>
               <Button 
                 variant="outline"
                 className="w-full font-semibold sm:w-auto"
