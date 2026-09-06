@@ -204,12 +204,12 @@ export default function AboutPage() {
                 </Button>
               </div>
               <figure className="flex items-center gap-4 md:flex-col md:text-center" data-testid="owner-portrait">
-                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-muted sm:h-28 sm:w-28">
-                  {/* Frame the original photo around Dylan's face; leave the asset untouched. */}
+                <div className="relative h-36 w-36 shrink-0 overflow-hidden rounded-full bg-muted sm:h-40 sm:w-40">
+                  {/* Keep a relaxed head-and-shoulders crop; leave the original asset untouched. */}
                   <img
                     src={dylanPhoto}
                     alt="Dylan Thornsberry, owner of Christmas Northwest"
-                    className="absolute -left-[56%] -top-[66%] h-auto w-[400%] max-w-none"
+                    className="absolute -left-[19%] -top-[31%] h-auto w-[250%] max-w-none"
                     width={800}
                     height={800}
                     loading="lazy"
