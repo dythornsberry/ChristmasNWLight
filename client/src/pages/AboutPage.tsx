@@ -6,14 +6,12 @@ import PageHead from "@/components/PageHead";
 import StructuredData from "@/components/StructuredData";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
-import { Shield, Clock, Award, Sparkles, CheckCircle2, Star } from "lucide-react";
+import { Shield, Clock, Award, Sparkles } from "lucide-react";
 import dylanPhoto from '@assets/dylan_owner_optimized.jpeg';
 import crewTeamPhoto from '@assets/IMG_3713_optimized.webp';
 import fleetPhoto from '@assets/IMG_9313_optimized.jpeg';
-import truckActionShot from '@assets/IMG_1466_optimized.jpeg';
 import { useLocation } from "wouter";
-import { CURRENT_SEASON_NUMBER, CURRENT_SEASON_YEAR, FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
+import { FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
 export default function AboutPage() {
   const [, setLocation] = useLocation();
@@ -119,9 +117,9 @@ export default function AboutPage() {
       <StickyHeader onGetQuote={scrollToQuote} />
       <main className="flex-1">
         {/* Hero Section */}
-        <section className="bg-gradient-to-b from-muted/30 to-background py-14 sm:py-16 md:py-24">
+        <section className="bg-gradient-to-b from-muted/30 to-background py-12 sm:py-16">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="mx-auto mb-10 max-w-4xl text-center sm:mb-14 md:mb-16">
+            <div className="mx-auto mb-8 max-w-4xl text-center sm:mb-10">
               <div className="mb-5 inline-block rounded-lg bg-primary/10 px-3.5 py-2 sm:mb-6 sm:px-4">
                 <span className="text-primary font-semibold">About Christmas Northwest</span>
               </div>
@@ -133,8 +131,37 @@ export default function AboutPage() {
               </p>
             </div>
 
+            <div className="grid gap-6 md:grid-cols-2 md:gap-8" role="group" aria-label="Our fleet and team">
+              <figure>
+                <img
+                  src={crewTeamPhoto}
+                  alt="Christmas Northwest installation crew beside our branded truck"
+                  className="aspect-[4/3] w-full rounded-lg object-cover"
+                  width={1200}
+                  height={900}
+                  fetchPriority="high"
+                  decoding="async"
+                  data-testid="img-crew-team"
+                />
+                <figcaption className="mt-3 text-sm text-muted-foreground sm:text-base">Our installation crew</figcaption>
+              </figure>
+              <figure>
+                <img
+                  src={fleetPhoto}
+                  alt="Christmas Northwest fleet at our Woodinville warehouse"
+                  className="aspect-[4/3] w-full rounded-lg object-cover"
+                  width={1200}
+                  height={900}
+                  loading="lazy"
+                  decoding="async"
+                  data-testid="img-fleet"
+                />
+                <figcaption className="mt-3 text-sm text-muted-foreground sm:text-base">Our fleet in Woodinville</figcaption>
+              </figure>
+            </div>
+
             {/* Milestones Grid */}
-            <div className="mb-16 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+            <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
               {milestones.map((milestone, index) => (
                 <Card key={index} className="p-4 text-center sm:p-6" data-testid={`card-milestone-${index}`}>
                   <div className="mb-2 text-3xl font-bold text-primary sm:text-4xl md:text-5xl" data-testid={`text-milestone-number-${index}`}>
@@ -152,155 +179,49 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Our Story Section */}
+        {/* Local service and a small owner portrait */}
         <section className="bg-background py-16 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="mb-12 text-center sm:mb-16">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Our Story
-              </h2>
-              <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
-                Since our first season in {FIRST_SEASON_YEAR}, Christmas Northwest has grown through repeat customers, referrals, and projects across Greater Seattle.
-              </p>
-            </div>
-
-            <div className="mb-16 grid items-center gap-8 sm:gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="mx-auto max-w-4xl px-4 sm:px-6">
+            <div className="grid items-center gap-10 md:grid-cols-[1fr_auto] md:gap-16">
               <div>
-                <img
-                  src={dylanPhoto}
-                  alt="Dylan Thornsberry, Owner of Christmas Northwest"
-                  className="w-full rounded-lg shadow-xl"
-                  width={800}
-                  height={600}
-                  loading="lazy"
-                  decoding="async"
-                  data-testid="img-about-dylan"
-                />
-              </div>
-              <div>
+                <h2 className="mb-5 font-serif text-3xl font-bold text-foreground md:text-4xl">
+                  Local crew. Full-season service.
+                </h2>
                 <div className="space-y-4 text-base leading-7 text-muted-foreground sm:text-lg">
                   <p>
                     We serve homeowners across Greater Seattle with fitted rooflines, tree wrapping, landscape lighting, and larger custom displays.
-                  </p>
-                  <p>
-                    We use commercial-grade LED products and confirm scheduling before each project. Christmas Northwest is licensed, bonded, and insured.
                   </p>
                   <p className="font-semibold text-foreground">
                     We install, maintain, take down, and store your lights.
                   </p>
                 </div>
-                <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-4">
-                  <Button 
-                    onClick={scrollToQuote}
-                    className="bg-primary font-semibold text-primary-foreground sm:w-auto"
-                    data-testid="button-about-quote"
-                  >
-                    Get a Quote
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    onClick={() => setLocation('/contact')}
-                    className="sm:w-auto"
-                    data-testid="button-about-contact"
-                  >
-                    Contact Us
-                  </Button>
-                </div>
+                <Button
+                  onClick={scrollToQuote}
+                  className="mt-7 bg-primary font-semibold text-primary-foreground"
+                  data-testid="button-about-quote"
+                >
+                  Get a Quote
+                </Button>
               </div>
-            </div>
-
-            {/* Company Timeline */}
-            <div className="mb-16">
-              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center text-foreground">
-                Our Journey
-              </h3>
-              <div className="mx-auto grid max-w-3xl gap-5 sm:grid-cols-2">
-                <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-0">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Star className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="text-2xl font-bold text-primary mb-2">{FIRST_SEASON_YEAR}</div>
-                  <div className="font-semibold text-foreground mb-2">Our First Season</div>
-                  <div className="text-sm text-muted-foreground">
-                    Our first Christmas light installations in Greater Seattle
-                  </div>
-                </Card>
-                <Card className="p-5 text-center sm:p-6" data-testid="card-timeline-3">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Award className="w-8 h-8 text-primary" />
-                  </div>
-                  <div className="text-2xl font-bold text-primary mb-2">{CURRENT_SEASON_YEAR}</div>
-                  <div className="font-semibold text-foreground mb-2">Season {CURRENT_SEASON_NUMBER}</div>
-                  <div className="text-sm text-muted-foreground">
-                    Entering season {CURRENT_SEASON_NUMBER} with {GOOGLE_REVIEW_COUNT} Google reviews and service across Greater Seattle
-                  </div>
-                </Card>
-              </div>
-            </div>
-
-            {/* Meet the Owner */}
-            <div>
-              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center text-foreground">
-                Meet the Owner
-              </h3>
-              <div className="max-w-md mx-auto">
-                <Card className="p-6 text-center" data-testid="card-team-0">
-                  <Avatar className="w-24 h-24 mx-auto mb-4">
-                    <AvatarImage src={dylanPhoto} alt="Dylan Thornsberry - Owner" />
-                    <AvatarFallback className="text-2xl font-bold bg-primary/10 text-primary">DT</AvatarFallback>
-                  </Avatar>
-                  <h4 className="font-bold text-lg text-foreground mb-1">Dylan Thornsberry</h4>
-                  <p className="text-sm text-primary font-semibold mb-2">Owner</p>
-                </Card>
-              </div>
-            </div>
-
-            {/* Our Fleet & Team Photos */}
-            <div className="mt-16">
-              <h3 className="font-serif text-2xl md:text-3xl font-bold mb-8 text-center text-foreground">
-                Our Fleet & Team
-              </h3>
-              <div className="grid gap-6 md:grid-cols-2 md:gap-8">
-                <div>
+              <figure className="flex items-center gap-4 md:flex-col md:text-center" data-testid="owner-portrait">
+                <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-full bg-muted sm:h-28 sm:w-28">
+                  {/* Frame the original photo around Dylan's face; leave the asset untouched. */}
                   <img
-                    src={crewTeamPhoto}
-                    alt="Christmas Northwest installation crew"
-                    className="w-full rounded-lg shadow-xl mb-4"
+                    src={dylanPhoto}
+                    alt="Dylan Thornsberry, owner of Christmas Northwest"
+                    className="absolute -left-[56%] -top-[66%] h-auto w-[400%] max-w-none"
                     width={800}
-                    height={600}
+                    height={800}
                     loading="lazy"
                     decoding="async"
-                    data-testid="img-crew-team"
+                    data-testid="img-about-dylan"
                   />
-                  <p className="text-center text-muted-foreground">Our installation crew ready to light up your home</p>
                 </div>
-                <div>
-                  <img
-                    src={fleetPhoto}
-                    alt="Christmas Northwest fleet at Woodinville warehouse"
-                    className="w-full rounded-lg shadow-xl mb-4"
-                    width={800}
-                    height={600}
-                    loading="lazy"
-                    decoding="async"
-                    data-testid="img-fleet"
-                  />
-                  <p className="text-center text-muted-foreground">Our fleet at our Woodinville warehouse</p>
-                </div>
-              </div>
-              <div className="mt-8">
-                <img
-                  src={truckActionShot}
-                  alt="Christmas Northwest truck during installation"
-                  className="w-full rounded-lg shadow-xl mb-4 max-w-3xl mx-auto"
-                  width={960}
-                  height={640}
-                  loading="lazy"
-                  decoding="async"
-                  data-testid="img-truck-action"
-                />
-                <p className="text-center text-muted-foreground">Our crew during a professional installation</p>
-              </div>
+                <figcaption>
+                  <p className="font-semibold text-foreground">Dylan Thornsberry</p>
+                  <p className="mt-1 text-sm text-muted-foreground">Owner</p>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </section>
