@@ -6,43 +6,15 @@ import PageHead from "@/components/PageHead";
 import SimpleServices from "@/components/SimpleServices";
 import CTABanner from "@/components/CTABanner";
 import { useLocation } from "wouter";
+import { pricingExamples } from "@/lib/pricing";
 
 import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
 import signaturePhoto from '@assets/2024-11-11-2-min_1762058047476.jpg';
 import warmWhiteBushEstate from '@assets/optimized/portfolio-warm-white.webp';
 import largeCustomDisplay from '@assets/optimized/portfolio-yard.webp';
 
-const pricingTiers = [
-  {
-    id: 1,
-    name: "Clean Roofline",
-    range: "Starting at $800",
-    image: modernTwoStoryRoofline,
-    description: "A clean roofline on a straightforward home.",
-  },
-  {
-    id: 2,
-    name: "Roofline + Accents",
-    range: "$1,500–$1,800",
-    image: signaturePhoto,
-    popular: true,
-    description: "Roofline plus an entry, wreath, bushes, or a small tree.",
-  },
-  {
-    id: 3,
-    name: "Full-Property Display",
-    range: "$2,500–$3,500",
-    image: warmWhiteBushEstate,
-    description: "Broader roofline coverage with landscape or tree lighting.",
-  },
-  {
-    id: 4,
-    name: "Large Custom Display",
-    range: "$4,000+",
-    image: largeCustomDisplay,
-    description: "Multi-level rooflines, larger trees, and custom features.",
-  },
-];
+const pricingImages = [modernTwoStoryRoofline, signaturePhoto, warmWhiteBushEstate, largeCustomDisplay];
+const pricingTiers = pricingExamples.map((example, index) => ({ ...example, image: pricingImages[index] }));
 
 
 export default function InvestmentGuide() {

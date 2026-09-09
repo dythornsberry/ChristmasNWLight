@@ -15,7 +15,6 @@ export default function Portfolio({ items }: { items: PortfolioItem[] }) {
         <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
           <div>
             <h2 className="font-serif text-3xl font-medium tracking-tight md:text-4xl">A few homes we've lit.</h2>
-            <p className="mt-3 text-sm text-muted-foreground">Rooflines, wreaths, and landscape lighting.</p>
           </div>
           <Link href="/gallery" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary hover:underline" data-testid="button-view-gallery">
             View gallery <ArrowRight className="h-4 w-4" aria-hidden="true" />
@@ -31,7 +30,6 @@ export default function Portfolio({ items }: { items: PortfolioItem[] }) {
             </Link>
           ))}
         </div>
-        <p className="mt-7 text-sm text-muted-foreground">Warm white or color, we’ll help you choose a look.</p>
       </div>
     </section>
   );

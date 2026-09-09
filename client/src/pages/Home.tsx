@@ -3,6 +3,7 @@ import StickyHeader from "@/components/StickyHeader";
 import Hero from "@/components/Hero";
 import ReviewsStrip from "@/components/ReviewsStrip";
 import Portfolio from "@/components/Portfolio";
+import PricingPreview from "@/components/PricingPreview";
 import SimpleServices from "@/components/SimpleServices";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
@@ -110,8 +111,9 @@ export default function Home() {
       
       <main>
         <Hero onGetQuote={goToQuote} />
-        <SimpleServices />
         <Portfolio items={portfolioItems} />
+        <PricingPreview />
+        <SimpleServices />
         <ReviewsStrip />
         <CTABanner onGetQuote={goToQuote} />
       </main>

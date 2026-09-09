@@ -49,6 +49,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
   const navLinks = [
     { href: "/gallery", label: "Gallery", testId: "nav-gallery" },
     { href: "/investment-guide", label: "Pricing", testId: "nav-investment-guide" },
+    { href: "/product-guide", label: "Our Lights", testId: "nav-product-guide" },
     { href: "/about", label: "About", testId: "nav-about" },
     { href: "/faq", label: "FAQ", testId: "nav-faq" },
   ];
@@ -105,8 +106,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
             {/* Mobile Menu */}
             <Button
               variant="ghost"
-              size="icon"
-              className="h-11 w-11 lg:hidden"
+              className="h-11 gap-1.5 px-2 lg:hidden"
               data-testid="button-mobile-menu"
               aria-label="Open navigation menu"
               aria-expanded={open}
@@ -114,10 +114,21 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
               onClick={() => setOpen(true)}
             >
               <Menu className="w-5 h-5" />
+              <span className="text-xs font-medium">Menu</span>
             </Button>
           </div>
         </div>
       </div>
+      <nav className="grid grid-cols-2 border-t border-border lg:hidden" aria-label="Quick links">
+        {navLinks.slice(0, 2).map((link) => (
+          <Link key={link.href} href={link.href} onClick={handleNavClick}
+            aria-current={location === link.href ? "page" : undefined}
+            className={`flex min-h-11 items-center justify-center border-border text-sm font-medium first:border-r hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary ${location === link.href ? "bg-primary/5 text-primary" : "text-foreground"}`}
+            data-testid={`quick-${link.testId}`}>
+            {link.label}
+          </Link>
+        ))}
+      </nav>
       {open ? (
         <>
           <button
