@@ -25,7 +25,7 @@ export default function FAQPage() {
       questions: [
         {
           question: `How much does Christmas light installation cost in ${CURRENT_SEASON_YEAR}?`,
-          answer: "A clean roofline starts at $800. Roofline + accents typically runs $1,500–$1,800, a full-property display $2,500–$3,500, and a large custom display $4,000+. Your quote depends on coverage, roof access, and design."
+          answer: "A clean roofline starts at $800. Roofline + accents typically runs $1,000–$2,000, a full-property display $2,500–$3,500, and a large custom display $4,000+. Your quote depends on coverage, roof access, and design."
         },
         {
           question: "What's included?",

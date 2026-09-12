@@ -11,7 +11,7 @@ import { pricingExamples } from "@/lib/pricing";
 import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
 import signaturePhoto from '@assets/2024-11-11-2-min_1762058047476.jpg';
 import warmWhiteBushEstate from '@assets/optimized/portfolio-warm-white.webp';
-import largeCustomDisplay from '@assets/optimized/portfolio-yard.webp';
+import largeCustomDisplay from '@assets/optimized/large-custom-display-night.webp';
 
 const pricingImages = [modernTwoStoryRoofline, signaturePhoto, warmWhiteBushEstate, largeCustomDisplay];
 const pricingTiers = pricingExamples.map((example, index) => ({ ...example, image: pricingImages[index] }));
@@ -44,8 +44,8 @@ export default function InvestmentGuide() {
             <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
               {pricingTiers.map((tier) => (
                 <article key={tier.id} data-testid={`card-pricing-${tier.id}`}>
-                  <div className="aspect-[4/3] overflow-hidden rounded-lg bg-muted">
-                    <img src={tier.image} alt={`${tier.name} Christmas lighting example`} className="h-full w-full object-cover" width={720} height={540} loading="lazy" decoding="async" />
+                  <div className="aspect-video overflow-hidden rounded-lg bg-muted">
+                    <img src={tier.image} alt={tier.id === 4 ? "Large custom Christmas lighting installation with roofline, tree, and landscape lights, edited for a nighttime appearance" : `${tier.name} Christmas lighting example`} className="h-full w-full object-cover" width={720} height={405} loading="lazy" decoding="async" />
                   </div>
                   <h2 className="mt-5 text-lg font-semibold">{tier.name}</h2>
                   <p className="mt-2 text-2xl font-semibold tracking-tight text-primary">{tier.range}</p>

@@ -553,12 +553,13 @@ export default function GalleryPage() {
                   key={category}
                   variant={selectedCategory === category ? "default" : "secondary"}
                   size="sm"
-                  className="min-h-11 w-full px-4 py-2 text-sm font-semibold sm:w-auto sm:px-6"
+                  className="min-h-12 w-full flex-col gap-0.5 px-4 py-2 text-sm font-semibold sm:w-auto sm:px-6"
                   onClick={() => setSelectedCategory(category)}
                   aria-pressed={selectedCategory === category}
                   data-testid={`button-filter-${category.toLowerCase().replace(' ', '-')}`}
                 >
                   {category}
+                  {category === "Warm White" ? <span className="text-[11px] font-medium leading-none">Most popular</span> : null}
                 </Button>
               ))}
             </div>

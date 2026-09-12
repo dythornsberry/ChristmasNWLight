@@ -159,75 +159,67 @@ export default function AddressAutocompleteField({
         {label}
         {required ? " *" : ""}
       </Label>
-
+      <div
+        className={cn(
+          googleEnabled && status !== "error" && "address-autocomplete-shell",
+          error && "border-destructive",
+        )}
+        data-invalid={Boolean(error)}
+      >
+        {/* Keep one input mounted when Places fails, preserving in-progress typing. */}
+        <Input
+          ref={inputRef}
+          id={inputId}
+          type="text"
+          required={required}
+          aria-invalid={Boolean(error)}
+          aria-describedby={error ? `${inputId}-error` : undefined}
+          autoComplete={googleEnabled && status !== "error" ? "off" : "street-address"}
+          defaultValue={address}
+          placeholder={placeholder}
+          className={googleEnabled && status !== "error" ? "border-0 shadow-none focus-visible:ring-0 px-0 h-auto" : undefined}
+          onChange={(event) => handleInputChange(event.currentTarget.value)}
+          onFocus={() => setActivated(true)}
+          onKeyDown={(event) => {
+            // Enter chooses a Places suggestion without submitting the quote.
+            if (event.key === "Enter" && autocompleteRef.current) event.preventDefault();
+          }}
+        />
+        {status === "loading" ? (
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
+            <Loader2 className="h-4 w-4 animate-spin" />
+            Loading address search...
+          </div>
+        ) : null}
+      </div>
       {googleEnabled && status !== "error" ? (
-        <>
-          <div
-            className={cn(
-              "address-autocomplete-shell",
-              error && "border-destructive",
-            )}
-            data-invalid={Boolean(error)}
-          >
-            <Input
-              ref={inputRef}
-              id={inputId}
-              type="text"
-              autoComplete="off"
-              defaultValue={address}
-              placeholder={placeholder}
-              className="border-0 shadow-none focus-visible:ring-0 px-0 h-auto"
-              onChange={(event) => handleInputChange(event.currentTarget.value)}
-              onFocus={() => setActivated(true)}
-            />
-            {status === "loading" ? (
-              <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                <Loader2 className="h-4 w-4 animate-spin" />
-                Loading address search...
-              </div>
-            ) : null}
-          </div>
-          <p className="text-xs text-muted-foreground">
-            Choose a suggestion or enter your full address manually.
-          </p>
-          {addressConfirmed && address ? (
-            <div className="rounded-md border border-status-online/30 bg-status-online/10 px-3 py-2 text-sm text-slate-900">
-              <div className="flex items-start gap-2">
-                <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
-                <div>
-                  <div className="font-medium">Verified address</div>
-                  <div>{address}</div>
-                  {zipCode ? <div>ZIP: {zipCode}</div> : null}
-                </div>
-              </div>
-            </div>
-          ) : null}
-          {statusMessage ? (
-            <p className="text-sm text-muted-foreground">{statusMessage}</p>
-          ) : null}
-        </>
+        <p className="text-xs text-muted-foreground">
+          Choose a suggestion or enter your full address manually.
+        </p>
       ) : (
-        <div className="space-y-2">
-          <Input
-            id={inputId}
-            value={address}
-            onChange={(event) => {
-              onAddressChange(event.target.value);
-              onAddressConfirmedChange(false);
-            }}
-            autoComplete="street-address"
-            placeholder={placeholder}
-          />
-          <div className="flex items-center gap-2 text-xs text-muted-foreground">
-            <MapPin className="h-4 w-4" />
-            {googleEnabled
-              ? "Address suggestions are temporarily unavailable, so you can type the address manually."
-              : "Enter the full service address, including city and ZIP code."}
-          </div>
+        <div className="flex items-center gap-2 text-xs text-muted-foreground">
+          <MapPin className="h-4 w-4 shrink-0" />
+          {googleEnabled
+            ? "Address suggestions are temporarily unavailable, so you can type the address manually."
+            : "Enter the full service address, including city and ZIP code."}
         </div>
       )}
-
-      {error ? <p className="text-sm text-destructive">{error}</p> : null}
+      {addressConfirmed && address ? (
+        <div className="rounded-md border border-status-online/30 bg-status-online/10 px-3 py-2 text-sm text-slate-900">
+          <div className="flex items-start gap-2">
+            <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" />
+            <div>
+              <div className="font-medium">Verified address</div>
+              <div>{address}</div>
+              {zipCode ? <div>ZIP: {zipCode}</div> : null}
+            </div>
+          </div>
+        </div>
+      ) : null}
+      {status !== "error" && statusMessage ? (
+        <p className="text-sm text-muted-foreground">{statusMessage}</p>
+      ) : null}
+      {error ? <p id={`${inputId}-error`} className="text-sm text-destructive">{error}</p> : null}
     </div>
   );
 }

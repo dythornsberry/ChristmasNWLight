@@ -41,7 +41,7 @@ export default function ProductGuide() {
             <div className="mb-9 flex flex-wrap items-end justify-between gap-4">
               <div>
                 <h1 id="lights-heading" className="font-serif text-4xl font-medium tracking-tight md:text-5xl">The lights we use.</h1>
-                <p className="mt-4 text-base leading-7 text-muted-foreground">Warm white or color. We’ll help you choose a look.</p>
+                <p className="mt-4 text-base leading-7 text-muted-foreground">Warm white is our most popular choice. Custom colors available, too.</p>
               </div>
               <Link href="/gallery" className="inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-primary hover:underline">
                 See our installations <ArrowRight className="h-4 w-4" aria-hidden="true" />

@@ -336,7 +336,6 @@ export default function CityPage({
                 formLocation={`city_${citySlug}`}
                 serviceOptions={CITY_SERVICE_OPTIONS}
                 initialServiceType="christmas-2026-new"
-                showServiceStep
                 serviceBadgeText={`${cityName} estimate form`}
                 responseNote="Thanks. We'll be in touch soon to talk through your project."
                 testIdPrefix={`city-${citySlug}`}

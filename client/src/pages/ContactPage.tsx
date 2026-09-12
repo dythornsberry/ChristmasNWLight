@@ -65,13 +65,13 @@ export default function ContactPage() {
       <StickyHeader onGetQuote={scrollToQuote} />
 
       <main className="flex-1">
-        <section className="bg-gradient-to-b from-muted/30 to-background py-14 sm:py-16 md:py-24">
+        <section className="bg-background py-8 md:py-12">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="mx-auto mb-10 max-w-3xl text-center sm:mb-14 md:mb-16">
-              <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
+            <div className="mx-auto mb-8 max-w-3xl text-center">
+              <h1 className="mb-3 font-serif text-3xl font-bold text-foreground sm:text-4xl">
                 Get a Christmas lighting quote
               </h1>
-              <p className="mb-6 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
+              <p className="mb-4 text-base leading-7 text-muted-foreground">
                 We install, maintain, take down, and store your lights. One team, all season.
               </p>
               <p className="font-semibold text-primary">Starting at $800 <span aria-hidden="true">·</span> Licensed & insured</p>
@@ -81,7 +81,7 @@ export default function ContactPage() {
               <div className="scroll-mt-28 lg:col-span-2" id={formId}>
                 <LeadFormCard
                   title="Get a Quote"
-                  description="We'll review your property and follow up with options and pricing. Your quote is free."
+                  description="We'll review your property and follow up with a free quote."
                   submitLabel="Get a Quote"
                   successTitle="Thanks. We’ve got your request."
                   successDescription="We'll be in touch to discuss your lights and quote."
@@ -89,10 +89,6 @@ export default function ContactPage() {
                   formLocation="contact_page"
                   serviceOptions={CONTACT_SERVICE_OPTIONS}
                   initialServiceType="christmas-2026-new"
-                  showServiceStep
-                  serviceStepDescription="Choose a new installation or help with an existing one."
-                  contactStepDescription="Let us know how to contact you about your quote."
-                  propertyStepDescription="Enter the address you'd like us to light."
                   responseNote="We respond within 24 hours."
                   testIdPrefix="contact"
                 />
