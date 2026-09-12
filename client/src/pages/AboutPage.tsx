@@ -8,10 +8,40 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Shield, Clock, Award, Sparkles } from "lucide-react";
 import dylanPhoto from '@assets/dylan_owner_optimized.jpeg';
-import crewTeamPhoto from '@assets/IMG_3713_optimized.webp';
 import fleetPhoto from '@assets/IMG_9313_optimized.jpeg';
 import { useLocation } from "wouter";
 import { FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
+
+const installers = [
+  {
+    name: "Ryder",
+    photo: "/images/team/ryder.webp",
+    bio: "Ryder is in his third year with our team. When he's not installing Christmas lights, he enjoys the outdoors and working on cars.",
+    scale: 1.45,
+    origin: "50% 70%",
+  },
+  {
+    name: "Kyle",
+    photo: "/images/team/kyle.webp",
+    bio: "Kyle is in his third year with our team. Outside work, he enjoys fishing and riding his motorcycle.",
+    scale: 1.45,
+    origin: "50% 90%",
+  },
+  {
+    name: "Riley",
+    photo: "/images/team/riley.webp",
+    bio: "Riley joined our team this year. Outside of installing Christmas lights, he enjoys riding dirt bikes and quads and getting out fishing.",
+    scale: 1.45,
+    origin: "50% 45%",
+  },
+  {
+    name: "James",
+    photo: "/images/team/james.webp",
+    bio: "James joined our Christmas light installation team this year.",
+    scale: 1.8,
+    origin: "50% 85%",
+  },
+];
 
 export default function AboutPage() {
   const [, setLocation] = useLocation();
@@ -134,31 +164,58 @@ export default function AboutPage() {
             <div className="grid gap-6 md:grid-cols-2 md:gap-8" role="group" aria-label="Our fleet and team">
               <figure>
                 <img
-                  src={crewTeamPhoto}
-                  alt="Christmas Northwest installation crew beside our branded truck"
-                  className="aspect-[4/3] w-full rounded-lg object-cover"
-                  width={1200}
-                  height={900}
-                  fetchPriority="high"
-                  decoding="async"
-                  data-testid="img-crew-team"
-                />
-                <figcaption className="mt-3 text-sm text-muted-foreground sm:text-base">Our installation crew</figcaption>
-              </figure>
-              <figure>
-                <img
                   src={fleetPhoto}
                   alt="Christmas Northwest fleet at our Woodinville warehouse"
                   className="aspect-[4/3] w-full rounded-lg object-cover"
                   width={1200}
                   height={900}
-                  loading="lazy"
+                  fetchPriority="high"
                   decoding="async"
                   data-testid="img-fleet"
                 />
                 <figcaption className="mt-3 text-sm text-muted-foreground sm:text-base">Our fleet in Woodinville</figcaption>
               </figure>
+              <figure>
+                <img
+                  src="/images/team/crew.webp"
+                  alt="Christmas Northwest installers Kyle, Riley, Ryder, and James, from left to right"
+                  className="aspect-[4/3] w-full rounded-lg object-cover object-[center_75%]"
+                  width={1600}
+                  height={2133}
+                  loading="lazy"
+                  decoding="async"
+                  data-testid="img-crew-team"
+                />
+                <figcaption className="mt-3 text-sm text-muted-foreground sm:text-base">Our installation crew</figcaption>
+              </figure>
             </div>
+
+            <section className="mt-12 sm:mt-16" aria-labelledby="meet-the-crew">
+              <h2 id="meet-the-crew" className="mb-8 font-serif text-3xl font-bold text-foreground sm:text-4xl">
+                Meet the crew
+              </h2>
+              <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+                {installers.map((installer) => (
+                  <article key={installer.name} data-testid={`installer-${installer.name.toLowerCase()}`}>
+                    <div className="aspect-[4/5] overflow-hidden rounded-lg bg-muted">
+                      <img
+                        src={installer.photo}
+                        alt={`${installer.name}, Christmas Northwest installer`}
+                        className="h-full w-full object-cover"
+                        style={{ transform: `scale(${installer.scale})`, transformOrigin: installer.origin }}
+                        width={800}
+                        height={1000}
+                        loading="lazy"
+                        decoding="async"
+                      />
+                    </div>
+                    <h3 className="mt-5 text-xl font-semibold text-foreground">{installer.name}</h3>
+                    <p className="mt-1 text-sm font-medium text-primary">Installer</p>
+                    <p className="mt-3 text-base leading-7 text-muted-foreground">{installer.bio}</p>
+                  </article>
+                ))}
+              </div>
+            </section>
 
             {/* Milestones Grid */}
             <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
