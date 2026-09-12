@@ -37,7 +37,7 @@ const installers = [
   {
     name: "James",
     photo: "/images/team/james.webp",
-    bio: "James joined our Christmas light installation team this year.",
+    bio: "James is in his first year installing Christmas lights. Outside work, he enjoys snowboarding and photography.",
     scale: 1.8,
     origin: "50% 85%",
   },
