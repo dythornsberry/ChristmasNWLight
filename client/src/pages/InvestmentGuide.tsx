@@ -45,7 +45,15 @@ export default function InvestmentGuide() {
               {pricingTiers.map((tier) => (
                 <article key={tier.id} data-testid={`card-pricing-${tier.id}`}>
                   <div className="aspect-video overflow-hidden rounded-lg bg-muted">
-                    <img src={tier.image} alt={tier.id === 4 ? "Large custom Christmas lighting installation with roofline, tree, and landscape lights, edited for a nighttime appearance" : `${tier.name} Christmas lighting example`} className="h-full w-full object-cover" width={720} height={405} loading="lazy" decoding="async" />
+                    <img
+                      src={tier.image}
+                      alt={tier.id === 4 ? "Large custom Christmas lighting installation with roofline, tree, and landscape lights, edited for a nighttime appearance" : `${tier.name} Christmas lighting example`}
+                      className={`h-full w-full object-cover${tier.id === 4 ? " origin-[90%_85%] scale-[1.4]" : ""}`}
+                      width={720}
+                      height={405}
+                      loading="lazy"
+                      decoding="async"
+                    />
                   </div>
                   <h2 className="mt-5 text-lg font-semibold">{tier.name}</h2>
                   <p className="mt-2 text-2xl font-semibold tracking-tight text-primary">{tier.range}</p>
