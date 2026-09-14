@@ -5,6 +5,7 @@ import ReviewsStrip from "@/components/ReviewsStrip";
 import Portfolio from "@/components/Portfolio";
 import PricingPreview from "@/components/PricingPreview";
 import SimpleServices from "@/components/SimpleServices";
+import HomeTeam from "@/components/HomeTeam";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
 import PageHead from "@/components/PageHead";
@@ -100,7 +101,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen pb-24 md:pb-0">
+    <div className="home-page min-h-screen pb-24 md:pb-0">
       <PageHead
         title="Seattle Christmas Light Installation | Christmas Northwest"
         description="Christmas light installation in Seattle and the Eastside, starting at $800. We install, maintain, take down, and store your lights."
@@ -111,10 +112,11 @@ export default function Home() {
       
       <main>
         <Hero onGetQuote={goToQuote} />
-        <Portfolio items={portfolioItems} />
-        <PricingPreview />
-        <SimpleServices />
         <ReviewsStrip />
+        <Portfolio items={portfolioItems} />
+        <SimpleServices />
+        <PricingPreview />
+        <HomeTeam />
         <CTABanner onGetQuote={goToQuote} />
       </main>
 

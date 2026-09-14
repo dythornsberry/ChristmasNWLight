@@ -47,9 +47,9 @@ export default function Footer() {
               <li>Kenmore, WA</li>
               <li className="text-primary font-semibold">We respond within 24 hours</li>
             </ul>
-            <Link href="/contact" onClick={handleLinkClick} data-testid="button-footer-quote">
-              <Button className="mb-4 w-full sm:w-auto font-bold">Get a Quote</Button>
-            </Link>
+            <Button asChild className="mb-4 w-full sm:w-auto font-semibold">
+              <Link href="/contact" onClick={handleLinkClick} data-testid="button-footer-quote">Get a Quote</Link>
+            </Button>
             <div className="flex gap-2">
               <a 
                 href="https://www.facebook.com/ChristmasNorthwest"
@@ -100,7 +100,7 @@ export default function Footer() {
             <p className="text-sm text-muted-foreground">
               © {new Date().getFullYear()} Christmas Northwest. All rights reserved.
             </p>
-            <div className="flex gap-6 text-sm text-muted-foreground">
+            <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
               <Link href="/privacy-policy" onClick={handleLinkClick} className="hover:text-primary transition-colors">Privacy Policy</Link>
               <span>Licensed, Bonded & Insured</span>
               <span>Greater Seattle Area</span>

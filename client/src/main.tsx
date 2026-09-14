@@ -1,6 +1,7 @@
 import { createRoot, hydrateRoot } from "react-dom/client";
 import App, { preloadInitialPage } from "./App";
 import "./index.css";
+import "./home.css";
 
 const rootElement = document.getElementById("root")!;
 const initialPath = window.location.pathname.replace(/\/+$/, "") || "/";
