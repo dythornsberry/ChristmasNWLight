@@ -21,20 +21,6 @@ const installers = [
     origin: "50% 70%",
   },
   {
-    name: "Kyle",
-    photo: "/images/team/kyle.webp",
-    bio: "Kyle is in his third year with our team. Outside work, he enjoys fishing and riding his motorcycle.",
-    scale: 1.45,
-    origin: "50% 90%",
-  },
-  {
-    name: "Riley",
-    photo: "/images/team/riley.webp",
-    bio: "Riley joined our team this year. Outside of installing Christmas lights, he enjoys riding dirt bikes and quads and getting out fishing.",
-    scale: 1.45,
-    origin: "50% 45%",
-  },
-  {
     name: "James",
     photo: "/images/team/james.webp",
     bio: "James is in his first year installing Christmas lights. Outside work, he enjoys snowboarding and photography.",
@@ -161,12 +147,12 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-2 md:gap-8" role="group" aria-label="Our fleet and team">
+            <div className="mx-auto max-w-3xl">
               <figure>
                 <img
                   src={fleetPhoto}
                   alt="Christmas Northwest fleet at our Woodinville warehouse"
-                  className="aspect-[4/3] w-full rounded-lg object-cover"
+                  className="aspect-[4/3] w-full rounded-lg object-cover md:aspect-video"
                   width={1200}
                   height={900}
                   fetchPriority="high"
@@ -175,26 +161,13 @@ export default function AboutPage() {
                 />
                 <figcaption className="mt-3 text-sm text-muted-foreground sm:text-base">Our fleet in Woodinville</figcaption>
               </figure>
-              <figure>
-                <img
-                  src="/images/team/crew.webp"
-                  alt="Christmas Northwest installers Kyle, Riley, Ryder, and James, from left to right"
-                  className="aspect-[4/3] w-full rounded-lg object-cover object-[center_75%]"
-                  width={1600}
-                  height={2133}
-                  loading="lazy"
-                  decoding="async"
-                  data-testid="img-crew-team"
-                />
-                <figcaption className="mt-3 text-sm text-muted-foreground sm:text-base">Our installation crew</figcaption>
-              </figure>
             </div>
 
-            <section className="mt-12 sm:mt-16" aria-labelledby="meet-the-crew">
+            <section className="mx-auto mt-12 max-w-3xl sm:mt-16" aria-labelledby="meet-the-crew">
               <h2 id="meet-the-crew" className="mb-8 font-serif text-3xl font-bold text-foreground sm:text-4xl">
                 Meet the crew
               </h2>
-              <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+              <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2">
                 {installers.map((installer) => (
                   <article key={installer.name} data-testid={`installer-${installer.name.toLowerCase()}`}>
                     <div className="aspect-[4/5] overflow-hidden rounded-lg bg-muted">
