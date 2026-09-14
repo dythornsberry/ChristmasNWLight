@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
-import headerLogo from "@assets/optimized/logo-header.webp";
+import headerLogo from "@assets/christmas-nw-logo-original.png";
 
 interface StickyHeaderProps {
   onGetQuote: () => void;
@@ -69,8 +69,8 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
               src={headerLogo}
               alt="Christmas Northwest"
               className="h-[52px] w-20 object-cover sm:h-[60px] sm:w-24"
-              width={128}
-              height={128}
+              width={1536}
+              height={1536}
               decoding="async"
               data-testid="img-logo"
             />
