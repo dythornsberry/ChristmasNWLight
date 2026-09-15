@@ -233,12 +233,12 @@ export default function FAQPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
+        <section className="brand-cta py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-brand-blue">
               Still Have Questions?
             </h2>
-            <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
+            <p className="mb-8 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
               Call us or send a quote request. We'll help you plan your display.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
@@ -246,7 +246,7 @@ export default function FAQPage() {
                 onClick={scrollToQuote}
                 size="lg"
                 variant="outline"
-                className="bg-background px-8 text-base font-semibold text-foreground hover:bg-background/90 sm:w-auto sm:text-lg"
+                className="border-primary bg-primary px-8 text-base font-semibold text-primary-foreground hover:bg-primary/90 sm:w-auto sm:text-lg"
                 data-testid="button-faq-get-quote"
               >
                 Get a Quote
@@ -255,7 +255,7 @@ export default function FAQPage() {
                 onClick={() => window.location.href = 'tel:+14252150935'}
                 size="lg"
                 variant="outline"
-                className="border-2 border-primary-foreground/50 bg-transparent px-8 text-base font-semibold text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto sm:text-lg"
+                className="border border-brand-blue/40 bg-transparent px-8 text-base font-semibold text-brand-blue hover:bg-brand-blue/5 sm:w-auto sm:text-lg"
                 data-testid="button-faq-call"
               >
                 Call (425) 215-0935

@@ -8,44 +8,44 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
   return (
-    <footer id="contact" className="bg-card border-t border-card-border">
+    <footer id="contact" className="brand-footer border-t border-white/20">
       <div className="max-w-7xl mx-auto px-6 py-12">
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           <div>
             <p className="font-semibold mb-4 text-foreground">Services</p>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link href="/services" onClick={handleLinkClick} className="hover:text-primary transition-colors">Christmas Lighting</Link></li>
-              <li><Link href="/product-guide" onClick={handleLinkClick} className="hover:text-primary transition-colors">Product Guide</Link></li>
+              <li><Link href="/services" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Christmas Lighting</Link></li>
+              <li><Link href="/product-guide" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Product Guide</Link></li>
             </ul>
           </div>
 
           <div>
             <p className="font-semibold mb-4 text-foreground">Company</p>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link href="/about" onClick={handleLinkClick} className="hover:text-primary transition-colors">About Us</Link></li>
-              <li><Link href="/testimonials" onClick={handleLinkClick} className="hover:text-primary transition-colors">Testimonials</Link></li>
-              <li><Link href="/service-areas" onClick={handleLinkClick} className="hover:text-primary transition-colors">Service Areas</Link></li>
+              <li><Link href="/about" onClick={handleLinkClick} className="hover:text-foreground transition-colors">About Us</Link></li>
+              <li><Link href="/testimonials" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Testimonials</Link></li>
+              <li><Link href="/service-areas" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Service Areas</Link></li>
             </ul>
           </div>
 
           <div>
             <p className="font-semibold mb-4 text-foreground">Quick Links</p>
             <ul className="space-y-2 text-muted-foreground">
-              <li><Link href="/gallery" onClick={handleLinkClick} className="hover:text-primary transition-colors">Gallery</Link></li>
-              <li><Link href="/blog" onClick={handleLinkClick} className="hover:text-primary transition-colors">Blog</Link></li>
-              <li><Link href="/investment-guide" onClick={handleLinkClick} className="hover:text-primary transition-colors">Pricing</Link></li>
-              <li><Link href="/faq" onClick={handleLinkClick} className="hover:text-primary transition-colors">FAQ</Link></li>
-              <li><Link href="/contact" onClick={handleLinkClick} className="hover:text-primary transition-colors">Contact</Link></li>
+              <li><Link href="/gallery" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Gallery</Link></li>
+              <li><Link href="/blog" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Blog</Link></li>
+              <li><Link href="/investment-guide" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Pricing</Link></li>
+              <li><Link href="/faq" onClick={handleLinkClick} className="hover:text-foreground transition-colors">FAQ</Link></li>
+              <li><Link href="/contact" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Contact</Link></li>
             </ul>
           </div>
 
           <div>
             <p className="font-semibold mb-4 text-foreground">Contact Info</p>
             <ul className="space-y-2 text-muted-foreground text-base mb-4">
-              <li><a href="tel:4252150935" className="hover:text-primary transition-colors">(425) 215-0935</a></li>
-              <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-primary transition-colors break-all">christmaslightsnw@gmail.com</a></li>
+              <li><a href="tel:4252150935" className="hover:text-foreground transition-colors">(425) 215-0935</a></li>
+              <li><a href="mailto:christmaslightsnw@gmail.com" className="hover:text-foreground transition-colors break-all">christmaslightsnw@gmail.com</a></li>
               <li>Kenmore, WA</li>
-              <li className="text-primary font-semibold">We respond within 24 hours</li>
+              <li className="text-foreground font-semibold">We respond within 24 hours</li>
             </ul>
             <Button asChild className="mb-4 w-full sm:w-auto font-semibold">
               <Link href="/contact" onClick={handleLinkClick} data-testid="button-footer-quote">Get a Quote</Link>
@@ -101,7 +101,7 @@ export default function Footer() {
               © {new Date().getFullYear()} Christmas Northwest. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-muted-foreground">
-              <Link href="/privacy-policy" onClick={handleLinkClick} className="hover:text-primary transition-colors">Privacy Policy</Link>
+              <Link href="/privacy-policy" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Privacy Policy</Link>
               <span>Licensed, Bonded & Insured</span>
               <span>Greater Seattle Area</span>
             </div>

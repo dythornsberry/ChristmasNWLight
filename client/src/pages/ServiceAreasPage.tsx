@@ -331,26 +331,26 @@ export default function ServiceAreasPage() {
         />
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
+        <section className="brand-cta py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-brand-blue">
               Ready to Light Up Your Home?
             </h2>
-            <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
+            <p className="mb-8 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
               Tell us where the property is and what you want to light. We will confirm coverage, availability, and next steps.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 
                 onClick={scrollToQuote}
                 variant="outline"
-                className="border-2 border-primary-foreground/20 bg-background font-semibold text-foreground hover:bg-background/90 sm:w-auto"
+                className="border-primary bg-primary font-semibold text-primary-foreground hover:bg-primary/90 sm:w-auto"
                 data-testid="button-areas-cta-quote"
               >
                 Get a Quote
               </Button>
               <Button 
                 variant="outline"
-                className="border-2 border-primary-foreground/50 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
+                className="border border-brand-blue/40 bg-transparent font-semibold text-brand-blue hover:bg-brand-blue/5 sm:w-auto"
                 onClick={() => window.location.href = 'tel:4252150935'}
                 data-testid="button-areas-cta-call"
               >

@@ -8,7 +8,8 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Shield, Clock, Award, Sparkles } from "lucide-react";
 import dylanPhoto from '@assets/dylan_owner_optimized.jpeg';
-import fleetPhoto from '@assets/IMG_9313_optimized.jpeg';
+import boxTruckPhoto from '@assets/optimized/christmas-northwest-box-truck-1600.webp';
+import boxTruckPhotoSmall from '@assets/optimized/christmas-northwest-box-truck-800.webp';
 import { useLocation } from "wouter";
 import { FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
@@ -150,16 +151,18 @@ export default function AboutPage() {
             <div className="mx-auto max-w-3xl">
               <figure>
                 <img
-                  src={fleetPhoto}
-                  alt="Christmas Northwest fleet at our Woodinville warehouse"
-                  className="aspect-[4/3] w-full rounded-lg object-cover md:aspect-video"
-                  width={1200}
-                  height={900}
+                  src={boxTruckPhoto}
+                  srcSet={`${boxTruckPhotoSmall} 800w, ${boxTruckPhoto} 1600w`}
+                  sizes="(min-width: 1440px) 912px, (min-width: 1024px) 864px, (min-width: 816px) 768px, (min-width: 640px) calc(100vw - 48px), calc(100vw - 32px)"
+                  alt="Christmas Northwest box truck beside a completed multicolor Christmas light installation at dusk"
+                  className="aspect-[4/3] w-full rounded-lg object-cover"
+                  width={1600}
+                  height={1200}
                   fetchPriority="high"
                   decoding="async"
                   data-testid="img-fleet"
                 />
-                <figcaption className="mt-3 text-sm text-muted-foreground sm:text-base">Our fleet in Woodinville</figcaption>
+                <figcaption className="mt-3 text-sm text-muted-foreground sm:text-base">Our box truck beside a completed holiday lighting installation.</figcaption>
               </figure>
             </div>
 
@@ -291,26 +294,26 @@ export default function AboutPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="bg-gradient-to-r from-primary via-primary to-primary/90 py-16 sm:py-20">
+        <section className="brand-cta py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-brand-blue">
               Ready to Plan Your Display?
             </h2>
-            <p className="mb-8 text-base leading-7 text-primary-foreground/90 sm:text-lg md:text-xl">
+            <p className="mb-8 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
               Tell us what you want to light and we will follow up with options, availability, and a custom estimate.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 
                 onClick={scrollToQuote}
                 variant="outline"
-                className="border-2 border-primary-foreground/20 bg-background font-semibold text-foreground hover:bg-background/90 sm:w-auto"
+                className="border-primary bg-primary font-semibold text-primary-foreground hover:bg-primary/90 sm:w-auto"
                 data-testid="button-about-cta-quote"
               >
                 Get a Quote
               </Button>
               <Button 
                 variant="outline"
-                className="border-2 border-primary-foreground/50 bg-transparent font-semibold text-primary-foreground hover:bg-primary-foreground/10 sm:w-auto"
+                className="border border-brand-blue/40 bg-transparent font-semibold text-brand-blue hover:bg-brand-blue/5 sm:w-auto"
                 onClick={() => window.location.href = 'tel:4252150935'}
                 data-testid="button-about-cta-call"
               >

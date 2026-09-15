@@ -1,13 +1,24 @@
 import { Link } from "wouter";
 import { ArrowRight, ShieldCheck } from "lucide-react";
-import fleetPhoto from "@assets/IMG_9313_optimized.jpeg";
+import ramPhoto from "@assets/optimized/christmas-northwest-ram-1600.webp";
+import ramPhotoSmall from "@assets/optimized/christmas-northwest-ram-800.webp";
 import { FIRST_SEASON_YEAR } from "@/lib/business";
 
 export default function HomeTeam() {
   return (
     <section className="home-team" aria-labelledby="home-team-title">
       <div className="home-container home-team-layout">
-        <img src={fleetPhoto} alt="Christmas Northwest trucks at our Woodinville warehouse" width={1200} height={900} loading="lazy" decoding="async" />
+        <img
+          src={ramPhoto}
+          srcSet={`${ramPhotoSmall} 800w, ${ramPhoto} 1600w`}
+          sizes="(min-width: 1280px) 600px, (min-width: 640px) 50vw, calc(100vw - 40px)"
+          alt="Christmas Northwest's wrapped Ram 1500 at a home with warm-white roofline lights"
+          width={1600}
+          height={1200}
+          loading="lazy"
+          decoding="async"
+          data-testid="img-home-ram"
+        />
         <div>
           <p className="home-eyebrow">Based here. Lighting homes here.</p>
           <h2 id="home-team-title">Meet Christmas Northwest.</h2>

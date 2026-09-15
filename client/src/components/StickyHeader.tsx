@@ -79,7 +79,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-7" aria-label="Main navigation">
             {navLinks.map((link) => (
-              <Link key={link.href} href={link.href} onClick={handleNavClick} data-testid={link.testId} aria-current={location === link.href ? "page" : undefined} className={`py-3 text-sm font-medium hover:text-primary ${location === link.href ? "text-primary" : "text-foreground"}`}>
+              <Link key={link.href} href={link.href} onClick={handleNavClick} data-testid={link.testId} aria-current={location === link.href ? "page" : undefined} className={`py-3 text-sm font-medium hover:text-brand-teal ${location === link.href ? "text-brand-teal" : "text-foreground"}`}>
                 {link.label}
               </Link>
             ))}
@@ -123,7 +123,7 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
         {navLinks.slice(0, 2).map((link) => (
           <Link key={link.href} href={link.href} onClick={handleNavClick}
             aria-current={location === link.href ? "page" : undefined}
-            className={`flex min-h-11 items-center justify-center border-border text-sm font-medium first:border-r hover:bg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary ${location === link.href ? "bg-primary/5 text-primary" : "text-foreground"}`}
+            className={`flex min-h-11 items-center justify-center border-border text-sm font-medium first:border-r hover:bg-brand-soft focus-visible:outline focus-visible:outline-2 focus-visible:outline-brand-teal ${location === link.href ? "bg-brand-soft text-brand-teal" : "text-foreground"}`}
             data-testid={`quick-${link.testId}`}>
             {link.label}
           </Link>
@@ -156,10 +156,10 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
                 <Button
                   key={link.href}
                   asChild
-                  variant={location === link.href ? "default" : "ghost"}
-                  className="w-full justify-start text-lg"
+                  variant="ghost"
+                  className={`w-full justify-start text-lg ${location === link.href ? "bg-brand-soft text-brand-teal" : ""}`}
                 >
-                  <Link href={link.href} onClick={handleNavClick} data-testid={`mobile-${link.testId}`}>
+                  <Link href={link.href} onClick={handleNavClick} aria-current={location === link.href ? "page" : undefined} data-testid={`mobile-${link.testId}`}>
                     {link.label}
                   </Link>
                 </Button>

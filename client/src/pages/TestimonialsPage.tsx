@@ -161,26 +161,26 @@ export default function TestimonialsPage() {
         </section>
 
         {/* CTA Section */}
-        <section className="py-20 bg-gradient-to-r from-primary via-primary to-primary/90">
+        <section className="brand-cta py-20">
           <div className="max-w-4xl mx-auto px-6 text-center">
-            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-primary-foreground">
+            <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-brand-blue">
               Ready for a Quote of Your Own?
             </h2>
-            <p className="text-xl text-primary-foreground/90 mb-8 leading-relaxed">
+            <p className="text-xl text-muted-foreground mb-8 leading-relaxed">
               Tell us about your home and the display you have in mind. We will follow up with clear next steps and pricing.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button 
                 onClick={scrollToQuote}
                 variant="outline"
-                className="bg-background text-foreground hover:bg-background/90 font-semibold border-2 border-primary-foreground/20"
+                className="border-primary bg-primary text-primary-foreground hover:bg-primary/90 font-semibold"
                 data-testid="button-testimonials-cta-quote"
               >
                 Light Up My Home ✨
               </Button>
               <Button 
                 variant="outline"
-                className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-semibold"
+                className="border border-brand-blue/40 bg-transparent text-brand-blue hover:bg-brand-blue/5 font-semibold"
                 onClick={() => window.location.href = 'tel:4252150935'}
                 data-testid="button-testimonials-cta-call"
               >

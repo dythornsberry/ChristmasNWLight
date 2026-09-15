@@ -464,12 +464,12 @@ export default function CityPage({
           />
 
           {/* CTA Section */}
-          <section className="py-24 bg-gradient-to-r from-primary via-primary to-primary/90">
+          <section className="brand-cta py-24">
             <div className="max-w-4xl mx-auto px-6 text-center">
-              <h2 className="font-serif text-4xl md:text-5xl font-bold mb-8 text-primary-foreground">
+              <h2 className="font-serif text-4xl md:text-5xl font-bold mb-8 text-brand-blue">
                 Ready to Plan Your {cityName} Display?
               </h2>
-              <p className="text-xl text-primary-foreground/90 mb-10 leading-relaxed">
+              <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
                 Tell us what you want to light and we will follow up with availability, design options, and a custom estimate.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
@@ -477,7 +477,7 @@ export default function CityPage({
                   onClick={scrollToQuote}
                   variant="outline"
                   size="lg"
-                  className="bg-background text-foreground hover:bg-background/90 font-bold text-lg px-10 border-2"
+                  className="border-primary bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg px-10"
                   data-testid={`button-${citySlug}-cta-quote`}
                 >
                   Light Up My Home ✨
@@ -486,7 +486,7 @@ export default function CityPage({
                   <Button
                     variant="outline"
                     size="lg"
-                    className="bg-transparent text-primary-foreground border-2 border-primary-foreground/50 hover:bg-primary-foreground/10 font-bold text-lg px-10"
+                    className="border border-brand-blue/40 bg-transparent text-brand-blue hover:bg-brand-blue/5 font-bold text-lg px-10"
                   >
                     Call (425) 215-0935
                   </Button>

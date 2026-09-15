@@ -124,7 +124,7 @@ export default function ServicesPage() {
       <StickyHeader onGetQuote={goToQuote} />
 
       <main className="flex-1">
-        <section className="bg-[#f6f3ed] py-14 md:py-20">
+        <section className="bg-brand-soft py-14 md:py-20">
           <div className="mx-auto max-w-4xl px-6 text-center">
             <p className="mb-4 text-sm font-medium text-primary">Christmas lighting in Greater Seattle</p>
             <h1 className="font-serif text-4xl font-medium leading-tight tracking-tight text-foreground md:text-6xl">

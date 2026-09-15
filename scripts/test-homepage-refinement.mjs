@@ -112,8 +112,8 @@ try {
         const included = document.querySelector(".home-included");
         const quote = document.querySelector(".home-quote-section");
         return {
-          included: !included || getComputedStyle(included).backgroundColor === "rgb(245, 245, 244)",
-          quote: !quote || getComputedStyle(quote).backgroundColor === "rgb(32, 32, 32)",
+          included: !included || getComputedStyle(included).backgroundColor === "rgb(242, 246, 247)",
+          quote: !quote || getComputedStyle(quote).backgroundColor === "rgb(242, 246, 247)",
           fits: document.documentElement.scrollWidth <= innerWidth,
         };
       });

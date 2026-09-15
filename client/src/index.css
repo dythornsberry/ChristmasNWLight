@@ -4,6 +4,13 @@
 
 /* LIGHT MODE */
 :root {
+  /* Web palette adapted from the Christmas Northwest truck-wrap artwork. */
+  --brand-blue: 199 85% 20%;
+  --brand-teal: 193 79% 27%;
+  --brand-soft: 194 25% 96%;
+  --brand-on-blue: 0 0% 100%;
+  --brand-on-blue-muted: 195 22% 83%;
+
   --button-outline: rgba(0,0,0, .10);
   --badge-outline: rgba(0,0,0, .05);
 
@@ -126,6 +133,30 @@
   /* Fallback for older browsers */
   --destructive-border: hsl(var(--destructive));
   --destructive-border: hsl(from hsl(var(--destructive)) h s calc(l + var(--opaque-button-border-intensity)) / alpha);
+}
+
+.brand-cta {
+  background: hsl(var(--brand-soft));
+  color: hsl(var(--brand-blue));
+}
+
+.brand-footer {
+  --foreground: var(--brand-on-blue);
+  --muted-foreground: var(--brand-on-blue-muted);
+  --muted: 199 64% 28%;
+  --border: 199 35% 37%;
+  --ring: var(--brand-on-blue);
+  background: hsl(var(--brand-blue));
+  color: hsl(var(--foreground));
+}
+
+.brand-footer a:focus-visible {
+  outline: 2px solid hsl(var(--brand-on-blue));
+  outline-offset: 4px;
+}
+
+.brand-footer [data-testid="button-footer-quote"] {
+  border-color: hsl(var(--brand-on-blue) / .6);
 }
 
 .address-autocomplete-shell {

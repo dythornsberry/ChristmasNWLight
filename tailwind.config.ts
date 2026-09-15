@@ -11,6 +11,11 @@ export default {
         sm: ".1875rem", /* 3px */
       },
       colors: {
+        brand: {
+          blue: "hsl(var(--brand-blue) / <alpha-value>)",
+          teal: "hsl(var(--brand-teal) / <alpha-value>)",
+          soft: "hsl(var(--brand-soft) / <alpha-value>)",
+        },
         // Flat / base colors (regular buttons)
         background: "hsl(var(--background) / <alpha-value>)",
         foreground: "hsl(var(--foreground) / <alpha-value>)",
