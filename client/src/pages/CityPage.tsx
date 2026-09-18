@@ -4,7 +4,6 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
-import InternalLinksSection from "@/components/InternalLinksSection";
 import LeadFormCard, { type LeadServiceOption } from "@/components/LeadFormCard";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -104,12 +103,6 @@ const nearbyCitiesMap: Record<string, { name: string; slug: string }[]> = {
   ],
 };
 
-interface CityLocalContent {
-  intro: string;
-  lightingStyles: string;
-  neighborhoodHighlights: string;
-}
-
 interface CityPageProps {
   cityName: string;
   citySlug: string;
@@ -118,8 +111,6 @@ interface CityPageProps {
   latitude: string;
   longitude: string;
   neighborhoods?: string[];
-  nearbyLandmarks?: string[];
-  localContent?: CityLocalContent;
 }
 
 export default function CityPage({
@@ -129,9 +120,7 @@ export default function CityPage({
   county,
   latitude,
   longitude,
-  neighborhoods = [],
-  nearbyLandmarks = [],
-  localContent
+  neighborhoods = []
 }: CityPageProps) {
   const scrollToQuote = () => {
     const element = document.getElementById('quote');
@@ -191,29 +180,6 @@ export default function CityPage({
     { icon: Shield, title: "Licensed & Insured", description: "Professional crews and liability coverage" },
     { icon: Clock, title: "Storage Included", description: "Your display is organized and stored between seasons" },
     { icon: Star, title: "Commercial-Grade Lights", description: "Outdoor-rated LEDs fitted to your property" },
-  ];
-
-  const relatedLinks = [
-    {
-      href: "/services",
-      label: "Holiday Lighting Services",
-      description: `Compare the installation styles, pricing ranges, and service types we offer in and around ${cityName}.`,
-    },
-    {
-      href: "/gallery",
-      label: "Project Gallery",
-      description: "Browse real installs to see rooflines, tree wrapping, and larger custom displays.",
-    },
-    {
-      href: "/service-areas",
-      label: "All Service Areas",
-      description: "See the other Seattle and Eastside communities we serve year after year.",
-    },
-    {
-      href: "/contact",
-      label: "Request a Quote",
-      description: "Go straight to the lead form if you want availability, pricing guidance, or a callback.",
-    },
   ];
 
   const breadcrumbSchema = {
@@ -277,7 +243,7 @@ export default function CityPage({
                 </Badge>
                 
                 <h1 className="font-serif text-5xl md:text-7xl font-bold mb-8 text-foreground leading-tight">
-                  Professional Christmas Light Installation in {cityName}
+                  Christmas light installation in {cityName}
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
@@ -291,7 +257,7 @@ export default function CityPage({
                     className="text-lg font-bold px-10 py-7 shadow-2xl hover:shadow-primary/50 transition-all duration-300"
                     data-testid="button-hero-quote"
                   >
-                    Light Up My Home ✨
+                    Get a Quote
                   </Button>
                   <a href="tel:4252150935" data-testid="button-hero-call">
                     <Button
@@ -327,8 +293,8 @@ export default function CityPage({
           <section id="quote" className="scroll-mt-28 py-20 bg-muted/30">
             <div className="max-w-4xl mx-auto px-6">
               <LeadFormCard
-                title={`Get Your Free ${cityName} Estimate`}
-                description={`Tell us what you want to light and where the property is in ${cityName}. We'll follow up with availability and pricing.`}
+                title="Get a free quote"
+                description="Tell us about your home. We'll follow up with pricing and available dates."
                 submitLabel="Request My Free Estimate"
                 successTitle="Thanks. We've got your request."
                 successDescription={`Our team will review the details and follow up with the best next step for your ${cityName} property.`}
@@ -343,16 +309,13 @@ export default function CityPage({
             </div>
           </section>
 
-          {/* Why Choose Us for {cityName} */}
+          {/* Service details */}
           <section className="py-20 bg-background">
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center mb-16">
                 <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-foreground">
-                  Why {cityName} Homeowners Choose Us
+                  What to expect
                 </h2>
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-                  Trusted by families throughout {cityName}{neighborhoods.length > 0 ? `, including ${neighborhoods.slice(0, 3).join(', ')}` : ''}
-                </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -376,7 +339,7 @@ export default function CityPage({
                     Neighborhoods We Serve in {cityName}
                   </h2>
                   <p className="text-xl text-muted-foreground">
-                    Professional installation throughout all {cityName} areas
+                    Send your address and we'll confirm availability.
                   </p>
                 </div>
 
@@ -391,46 +354,6 @@ export default function CityPage({
             </section>
           )}
 
-          {/* Local Landmarks */}
-          {nearbyLandmarks.length > 0 && (
-            <section className="py-20 bg-muted/30">
-              <div className="max-w-7xl mx-auto px-6">
-                <div className="text-center mb-12">
-                  <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-foreground">
-                    Serving Homes Near {cityName}'s Landmarks
-                  </h2>
-                  <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                    We serve properties near {nearbyLandmarks.join(', ')} and throughout {cityName}.
-                  </p>
-                </div>
-              </div>
-            </section>
-          )}
-
-          {/* Local Content Section */}
-          {localContent && (
-            <section className="py-20 bg-background">
-              <div className="max-w-7xl mx-auto px-6">
-                <div className="max-w-4xl mx-auto">
-                  <h2 className="font-serif text-4xl md:text-5xl font-bold mb-8 text-foreground text-center">
-                    Christmas Light Installation in {cityName}
-                  </h2>
-                  <div className="space-y-6 text-base leading-7 text-muted-foreground sm:text-lg">
-                    <p>{localContent.intro}</p>
-                    <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground pt-4">
-                      Popular Lighting Styles in {cityName}
-                    </h3>
-                    <p>{localContent.lightingStyles}</p>
-                    <h3 className="font-serif text-2xl md:text-3xl font-bold text-foreground pt-4">
-                      Neighborhoods We Know Best
-                    </h3>
-                    <p>{localContent.neighborhoodHighlights}</p>
-                  </div>
-                </div>
-              </div>
-            </section>
-          )}
-
           {/* Nearby Service Areas */}
           {nearbyCitiesMap[citySlug] && (
             <section className="py-20 bg-muted/30">
@@ -439,9 +362,6 @@ export default function CityPage({
                   <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                     Nearby Service Areas
                   </h2>
-                  <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-                    We also install Christmas lights in these communities near {cityName}.
-                  </p>
                 </div>
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
                   {nearbyCitiesMap[citySlug].map((nearby) => (
@@ -457,20 +377,20 @@ export default function CityPage({
             </section>
           )}
 
-          <InternalLinksSection
-            title={`More ${cityName} Planning Resources`}
-            description={`Compare services, browse real projects, confirm nearby coverage, or request a quote for your ${cityName} property.`}
-            links={relatedLinks}
-          />
+          <nav aria-label="Lighting details" className="mx-auto flex max-w-4xl flex-wrap justify-center gap-x-8 gap-y-4 px-6 py-10 text-brand-teal">
+            <Link href="/gallery" className="underline underline-offset-4">View our work</Link>
+            <Link href="/investment-guide" className="underline underline-offset-4">See pricing</Link>
+            <Link href="/services" className="underline underline-offset-4">Lighting options</Link>
+          </nav>
 
           {/* CTA Section */}
           <section className="brand-cta py-24">
             <div className="max-w-4xl mx-auto px-6 text-center">
               <h2 className="font-serif text-4xl md:text-5xl font-bold mb-8 text-brand-blue">
-                Ready to Plan Your {cityName} Display?
+                Let's plan your lights.
               </h2>
               <p className="text-xl text-muted-foreground mb-10 leading-relaxed">
-                Tell us what you want to light and we will follow up with availability, design options, and a custom estimate.
+                Tell us what you'd like to light. We'll confirm pricing and available dates.
               </p>
               <div className="flex flex-wrap justify-center gap-4">
                 <Button 
@@ -480,7 +400,7 @@ export default function CityPage({
                   className="border-primary bg-primary text-primary-foreground hover:bg-primary/90 font-bold text-lg px-10"
                   data-testid={`button-${citySlug}-cta-quote`}
                 >
-                  Light Up My Home ✨
+                  Get a Quote
                 </Button>
                 <a href="tel:4252150935" data-testid={`button-${citySlug}-cta-call`}>
                   <Button

@@ -4,7 +4,6 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
-import InternalLinksSection from "@/components/InternalLinksSection";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -41,10 +40,10 @@ export default function ServiceAreasPage() {
   };
 
   const primaryAreas = [
-    { name: "Kenmore", slug: "kenmore", description: "Our home base in the heart of the Eastside" },
-    { name: "Kirkland", slug: "kirkland", description: "Bringing holiday magic to lakeside homes" },
-    { name: "Bothell", slug: "bothell", description: "Illuminating neighborhoods throughout Bothell" },
-    { name: "Woodinville", slug: "woodinville", description: "Custom lighting for wine country estates" }
+    { name: "Kenmore", slug: "kenmore" },
+    { name: "Kirkland", slug: "kirkland" },
+    { name: "Bothell", slug: "bothell" },
+    { name: "Woodinville", slug: "woodinville" }
   ];
 
   const additionalAreas = [
@@ -83,7 +82,7 @@ export default function ServiceAreasPage() {
                 Serving Greater Seattle
               </h1>
               <p className="mb-6 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-                Based in Kenmore with our warehouse in Woodinville, we install and maintain Christmas lighting throughout Greater Seattle and the Eastside.
+                Based in Kenmore, with our warehouse in Woodinville. We serve Greater Seattle and the Eastside.
               </p>
               <Button 
                 onClick={scrollToQuote}
@@ -120,9 +119,6 @@ export default function ServiceAreasPage() {
                         <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
                           {area.name}
                         </h3>
-                        <p className="text-muted-foreground">
-                          {area.description}
-                        </p>
                       </div>
                     </div>
                   </Card>
@@ -139,9 +135,6 @@ export default function ServiceAreasPage() {
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 Our Service Territory
               </h2>
-              <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
-                Explore our complete service area covering Greater Seattle and the Eastside.
-              </p>
             </div>
             
             {/* Zip Code Checker */}
@@ -185,7 +178,7 @@ export default function ServiceAreasPage() {
                 <div className="mt-4 p-4 bg-primary/10 rounded-lg flex items-start gap-3" data-testid="result-covered">
                   <CheckCircle2 className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
                   <div>
-                    <div className="font-semibold text-foreground">Great news! We serve your area.</div>
+                    <div className="font-semibold text-foreground">We serve your area.</div>
                     <div className="text-sm text-muted-foreground">Request a free quote and we will confirm availability for your address.</div>
                     <Button 
                       onClick={scrollToQuote}
@@ -204,7 +197,7 @@ export default function ServiceAreasPage() {
                   <div>
                     <div className="font-semibold text-foreground">Not in our current service area</div>
                     <div className="text-sm text-muted-foreground mb-3">
-                      We may still be able to help! Contact us to discuss your location and we'll see what we can arrange.
+                      Send your address and we'll check whether we can schedule a visit.
                     </div>
                     <Button 
                       onClick={() => setLocation('/contact')}
@@ -269,75 +262,14 @@ export default function ServiceAreasPage() {
           </div>
         </section>
 
-        {/* Coverage Details */}
-        <section className="bg-background py-16 sm:py-20">
-          <div className="mx-auto max-w-5xl px-4 sm:px-6">
-            <Card className="p-6 sm:p-8 md:p-12">
-              <div className="text-center">
-                <MapPin className="w-12 h-12 text-primary mx-auto mb-6" />
-                <h2 className="font-serif text-2xl md:text-3xl font-bold mb-4 text-foreground">
-                  Don't See Your Area Listed?
-                </h2>
-                <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                  We may still be able to serve you! Contact us with your location and we'll let you know if we can accommodate your holiday lighting needs. We're always looking to expand our service area to help more homeowners enjoy beautiful, professionally installed holiday displays.
-                </p>
-                <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
-                  <Button 
-                    onClick={() => setLocation('/contact')}
-                    className="bg-primary font-semibold text-primary-foreground sm:w-auto"
-                    data-testid="button-areas-contact"
-                  >
-                    Contact Us
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    onClick={() => window.location.href = 'tel:4252150935'}
-                    className="sm:w-auto"
-                    data-testid="button-areas-call"
-                  >
-                    Call (425) 215-0935
-                  </Button>
-                </div>
-              </div>
-            </Card>
-          </div>
-        </section>
-
-        <InternalLinksSection
-          title="Explore Nearby Pages"
-          description="Browse nearby service areas, compare lighting options, or request a quote for your property."
-          links={[
-            {
-              href: "/kenmore",
-              label: "Kenmore Lighting",
-              description: "See our city-specific page for our home base and nearby neighborhoods.",
-            },
-            {
-              href: "/kirkland",
-              label: "Kirkland Lighting",
-              description: "See Christmas lighting coverage and project options for one of our core Eastside service areas.",
-            },
-            {
-              href: "/services",
-              label: "All Services",
-              description: "Compare roofline lighting, tree wrapping, commercial work, and seasonal support.",
-            },
-            {
-              href: "/contact",
-              label: "Request a Quote",
-              description: "Go straight to the step-by-step lead form if you already know we serve your area.",
-            },
-          ]}
-        />
-
         {/* CTA Section */}
         <section className="brand-cta py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-brand-blue">
-              Ready to Light Up Your Home?
+              Are we near you?
             </h2>
             <p className="mb-8 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-              Tell us where the property is and what you want to light. We will confirm coverage, availability, and next steps.
+              Send your address, even if your area isn't listed. We'll confirm coverage and available dates.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 

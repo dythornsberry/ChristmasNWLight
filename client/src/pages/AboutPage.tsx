@@ -6,7 +6,6 @@ import PageHead from "@/components/PageHead";
 import StructuredData from "@/components/StructuredData";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Shield, Clock, Award, Sparkles } from "lucide-react";
 import dylanPhoto from '@assets/dylan_owner_optimized.jpeg';
 import boxTruckPhoto from '@assets/optimized/christmas-northwest-box-truck-1600.webp';
 import boxTruckPhotoSmall from '@assets/optimized/christmas-northwest-box-truck-800.webp';
@@ -37,29 +36,6 @@ export default function AboutPage() {
     setLocation('/contact');
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
-
-  const credentials = [
-    {
-      icon: Shield,
-      title: "Licensed, Bonded & Insured",
-      description: "Full licensing and insurance coverage for your complete peace of mind and property protection."
-    },
-    {
-      icon: Award,
-      title: "Commercial-Grade LED Lights",
-      description: "Energy-efficient LED lights selected for consistent color and wet Pacific Northwest winters."
-    },
-    {
-      icon: Sparkles,
-      title: "Custom Designs",
-      description: "A lighting plan tailored to your property's architecture, priorities, and budget."
-    },
-    {
-      icon: Clock,
-      title: "Clear Scheduling",
-      description: "We confirm scope, pricing, and the available installation window before you book."
-    }
-  ];
 
   const milestones = [
     { number: GOOGLE_RATING, label: "Google Rating", description: `${GOOGLE_REVIEW_COUNT} Google reviews` },
@@ -222,11 +198,12 @@ export default function AboutPage() {
                 </h2>
                 <div className="space-y-4 text-base leading-7 text-muted-foreground sm:text-lg">
                   <p>
-                    We serve homeowners across Greater Seattle with fitted rooflines, tree wrapping, landscape lighting, and larger custom displays.
+                    We supply commercial-grade lights for rooflines, trees, and landscaping across Greater Seattle.
                   </p>
                   <p className="font-semibold text-foreground">
                     We install, maintain, take down, and store your lights.
                   </p>
+                  <p>Licensed, bonded, and insured.</p>
                 </div>
                 <Button
                   onClick={scrollToQuote}
@@ -259,48 +236,14 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Credentials Section */}
-        <section className="bg-muted/30 py-16 sm:py-20">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6">
-            <div className="mb-12 text-center sm:mb-16">
-              <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
-                Why Choose Christmas Northwest?
-              </h2>
-              <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
-                Commercial-grade materials, careful installation, and responsive support throughout the season.
-              </p>
-            </div>
-            
-            <div className="grid gap-5 sm:gap-6 md:grid-cols-2 md:gap-8">
-              {credentials.map((credential, index) => (
-                <Card key={index} className="p-6 sm:p-8">
-                  <div className="flex flex-col gap-5 sm:flex-row sm:gap-6">
-                    <div className="flex-shrink-0 w-16 h-16 bg-primary/10 rounded-lg flex items-center justify-center">
-                      <credential.icon className="w-8 h-8 text-primary" />
-                    </div>
-                    <div>
-                      <h3 className="font-semibold text-xl mb-3 text-foreground">
-                        {credential.title}
-                      </h3>
-                      <p className="text-muted-foreground leading-relaxed">
-                        {credential.description}
-                      </p>
-                    </div>
-                  </div>
-                </Card>
-              ))}
-            </div>
-          </div>
-        </section>
-
         {/* CTA Section */}
         <section className="brand-cta py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-6 text-brand-blue">
-              Ready to Plan Your Display?
+              Let's plan your lights.
             </h2>
             <p className="mb-8 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-              Tell us what you want to light and we will follow up with options, availability, and a custom estimate.
+              Tell us about your home. We'll follow up with a custom quote.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 
