@@ -54,7 +54,7 @@ export default function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Christmas Light Installation Services",
-    "description": "Professional Christmas light installation services including residential rooflines, tree wrapping, commercial displays, custom holiday lighting, maintenance, takedown, and storage in Greater Seattle.",
+    "description": "Professional Christmas light installation services including residential rooflines, tree wrapping, commercial displays, custom holiday lighting, free fixes, and takedown in Greater Seattle.",
     "provider": {
       "@type": "LocalBusiness",
       "name": "Christmas Northwest",
@@ -77,7 +77,7 @@ export default function ServicesPage() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Christmas Northwest",
-    "description": "Professional Christmas light installation services in Greater Seattle including residential rooflines, tree wrapping, commercial displays, custom designs, maintenance, takedown, and storage.",
+    "description": "Professional Christmas light installation services in Greater Seattle including residential rooflines, tree wrapping, commercial displays, custom designs, free fixes, and takedown.",
     "url": "https://christmasnw.com/services",
     "telephone": "+14252150935",
     "email": "christmaslightsnw@gmail.com",
@@ -100,8 +100,8 @@ export default function ServicesPage() {
       "Tree and greenery wrapping",
       "Commercial holiday displays",
       "Custom lighting design",
-      "Maintenance and takedown",
-      "Light storage"
+      "Free in-season fixes",
+      "Takedown"
     ],
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -179,7 +179,7 @@ export default function ServicesPage() {
         <section className="bg-background py-14 md:py-20">
           <div className="mx-auto max-w-3xl px-6 text-center">
             <h2 className="font-serif text-3xl font-medium tracking-tight text-foreground md:text-4xl">Let's light your home.</h2>
-            <p className="mt-4 text-base text-muted-foreground">Send your address. We'll put together a design and a free quote.</p>
+            <p className="mt-4 text-base text-muted-foreground">Fill out the form and we'll send you a free quote.</p>
             <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
               <Button onClick={goToQuote} size="lg" className="w-full font-semibold sm:w-auto" data-testid="button-services-cta-quote">Get a Quote</Button>
               <a href="tel:4252150935" className="text-sm font-medium text-primary underline-offset-4 hover:underline" data-testid="button-services-cta-call">(425) 215-0935</a>

@@ -30,12 +30,15 @@
 .home-hero-rating svg { height: 15px; width: 15px; fill: currentColor; }
 
 .home-review { padding-block: 32px; background: #f5f5f4; border-bottom: 1px solid hsl(var(--border)); }
-.home-review-layout { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; align-items: start; }
-.home-review-head { grid-column: 1 / -1; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+.home-review-inner { max-width: 1040px; }
+.home-review-head { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+.home-review-stars { display: inline-flex; gap: 2px; margin-right: 10px; vertical-align: -2px; color: #f5b301; }
+.home-review-stars svg { width: 15px; height: 15px; fill: currentColor; }
+.home-review-layout { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; align-items: stretch; }
+.home-review figure { padding: 18px 20px; background: white; border: 1px solid hsl(var(--border)); border-radius: 8px; }
 .home-review-label { color: hsl(var(--brand-teal)); font-size: 13px; font-weight: 600; }
-.home-review blockquote { font-family: var(--font-serif); font-size: 18px; line-height: 1.55; }
+.home-review blockquote { font-family: var(--font-serif); font-size: 18px; line-height: 1.45; }
 .home-review figcaption { margin-top: 10px; font-size: 12px; font-weight: 600; }
-.home-review figcaption span { margin-left: 8px; color: hsl(var(--muted-foreground)); font-weight: 400; }
 
 .home-portfolio, .home-pricing, .home-team, .home-videos { padding-block: 72px; }
 .home-videos { background: #f5f5f4; }
@@ -43,7 +46,7 @@
 .home-portfolio-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
 .home-portfolio-grid h3 { font-size: 16px; }
 .home-included { padding-block: 64px; background: hsl(var(--brand-soft)); }
-.home-services-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
+.home-services-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 32px; }
 .home-services-grid li { padding-top: 22px; border-top: 1px solid #d6d6d4; }
 .home-services-grid svg { width: 25px; height: 25px; color: hsl(var(--brand-teal)); stroke-width: 1.5; }
 .home-services-grid h3 { font-size: 16px; font-weight: 600; line-height: 1.5; }
@@ -73,9 +76,7 @@
 @media (max-width: 1023px) {
   .home-container { width: calc(100% - 48px); }
   .home-page header > div { width: calc(100% - 48px); }
-  .home-hero h1 { font-size: 62px; }
-  .home-review-layout { grid-template-columns: minmax(0, 1fr) auto; gap: 16px 32px; }
-  .home-review-label { grid-column: 1 / -1; }
+  .home-hero h1 { font-size: 50px; }
   .home-services-grid, .home-pricing-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .home-team-layout { gap: 32px; }
   .home-page h2, .home-included h2, .home-quote-section h2 { font-size: 32px; }
@@ -83,7 +84,8 @@
 
 @media (min-width: 640px) and (max-width: 1023px) {
   .home-videos-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .home-review-layout { grid-template-columns: 1fr; }
+  .home-services-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .home-review-layout { grid-template-columns: 1fr; gap: 10px; }
 }
 
 @media (max-width: 639px) {
@@ -102,7 +104,7 @@
   .home-hero-actions > a { font-size: 13px; gap: 6px; }
   .home-hero-rating { margin-top: 20px; font-size: 12px; }
   .home-review { padding-block: 26px; }
-  .home-review-layout { grid-template-columns: 1fr; gap: 14px; }
+  .home-review-layout { grid-template-columns: 1fr; gap: 10px; }
   .home-review blockquote { font-size: 17px; }
   .home-review .home-text-link { min-height: 32px; font-size: 13px; }
   .home-portfolio, .home-pricing, .home-team, .home-included, .home-videos { padding-block: 44px; }
@@ -110,7 +112,7 @@
   .home-section-heading { gap: 12px; margin-bottom: 24px; }
   .home-section-heading p { font-size: 14px; }
   .home-portfolio-grid { grid-template-columns: 1fr; gap: 28px; }
-  .home-services-grid { gap: 28px 22px; }
+  .home-services-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px 22px; }
   .home-services-grid h3 { font-size: 15px; }
   .home-services-grid p { font-size: 14px; }
   .home-pricing-grid { gap: 0 20px; }

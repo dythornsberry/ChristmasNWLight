@@ -20,7 +20,7 @@ export default function PricingPreview() {
             </div>
           ))}
         </div>
-        <p className="mt-3 text-sm leading-6 text-muted-foreground">Examples, not fixed packages. Every install includes the lights, repairs all season, takedown in January, and storage.</p>
+        <p className="mt-3 text-sm leading-6 text-muted-foreground">Examples, not fixed packages. Every install includes commercial-grade lights, free fixes, and takedown.</p>
       </div>
     </section>
   );

@@ -35,7 +35,7 @@ export default function Home() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Christmas Northwest",
-    "description": "Professional Christmas light installation serving Seattle and the Eastside. Custom design, installation, maintenance, takedown, and storage for homeowners who want a polished holiday display without the hassle.",
+    "description": "Professional Christmas light installation serving Seattle and the Eastside. Commercial-grade lights, clean installs, free fixes, and takedown for homeowners who want a polished holiday display without the hassle.",
     "url": "https://christmasnw.com",
     "image": "https://christmasnw.com/og-image.png",
     "logo": "https://christmasnw.com/logo.png",
@@ -89,7 +89,7 @@ export default function Home() {
       "Christmas light installation",
       "Holiday lighting design",
       "Seasonal lighting maintenance",
-      "Christmas light takedown and storage"
+      "Christmas light takedown"
     ],
     "foundingDate": String(FIRST_SEASON_YEAR),
     "sameAs": [
@@ -104,7 +104,7 @@ export default function Home() {
     <div className="home-page min-h-screen pb-24 md:pb-0">
       <PageHead
         title="Christmas Light Installation Seattle & Eastside | Christmas Northwest"
-        description="Professional Christmas and holiday light installation in Seattle and the Eastside. Installs start at $800, with repairs, takedown, and storage included."
+        description="Professional Christmas and holiday light installation in Seattle and the Eastside. Installs start at $800, with free fixes and takedown included."
       />
       <StructuredData data={localBusinessSchema} />
       <UrgencyBanner />

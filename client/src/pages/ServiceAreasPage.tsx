@@ -197,7 +197,7 @@ export default function ServiceAreasPage() {
                   <div>
                     <div className="font-semibold text-foreground">Not in our current service area</div>
                     <div className="text-sm text-muted-foreground mb-3">
-                      Send your address and we'll check whether we can schedule a visit.
+                      Fill out the form and we'll check whether we can schedule a visit.
                     </div>
                     <Button 
                       onClick={() => setLocation('/contact')}
@@ -269,7 +269,7 @@ export default function ServiceAreasPage() {
               Are we near you?
             </h2>
             <p className="mb-8 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
-              Send your address, even if your area isn't listed. We'll confirm coverage and available dates.
+              Fill out the form, even if your area isn't listed. We'll confirm coverage and available dates.
             </p>
             <div className="flex flex-col justify-center gap-3 sm:flex-row sm:gap-4">
               <Button 

@@ -19,88 +19,88 @@ export default function FAQPage() {
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
+  // Ordered by how often real customers ask (Gmail, Quo calls and texts, 2023-2026).
   const faqCategories = [
     {
-      category: "Pricing & what's included",
+      category: "Price & quotes",
       questions: [
         {
-          question: `How much does Christmas light installation cost in ${CURRENT_SEASON_YEAR}?`,
-          answer: "A clean roofline starts at $800. Roofline + accents typically runs $1,000–$2,000, a full-property display $2,500–$3,500, and a large custom display $4,000+. Your quote depends on coverage, roof access, and design."
+          question: "How much does Christmas light installation cost?",
+          answer: "Installs start at $800. Most homes land between $900 and $1,600, depending on how much you want lit up. We price the whole job, not by the foot. Steep roofs and big trees cost more. The lights are included."
         },
         {
-          question: "What's included?",
-          answer: "We provide the lights, clips, and timers, plan the display, install it, and maintain it through the season. January takedown and storage until next season are included."
+          question: "How do I get a quote? Do you need to come out?",
+          answer: "Fill out the form with your address. We can quote most rooflines from photos and aerial views. For trees, bushes, or bigger displays we'll stop by for a free 30-minute look. You don't need to be home."
         },
         {
-          question: "What if a light goes out?",
-          answer: "Call or message us. Seasonal bulb replacement and display repairs are included. We'll arrange a service visit as weather and the route allow."
+          question: "Can you match a cheaper quote?",
+          answer: "We don't price match. Our price covers commercial-grade lights, a clean install, free fixes all season, and takedown. Booking early and our 3-year plan are the best ways to save."
         },
         {
-          question: "Is the quote free?",
-          answer: "Yes. Send us your address or call (425) 215-0935. We'll recommend a design and price it for your home, with no obligation to book."
+          question: "How does payment work?",
+          answer: "A deposit holds your install date. The rest is due after install, by credit or debit card."
         }
       ]
     },
     {
-      category: "Design & lights",
+      category: "Your lights",
       questions: [
         {
-          question: "Can you help me choose a design?",
-          answer: "Yes. We plan rooflines, wreaths, bushes, and trees around your home. Choose warm white, multicolor, or custom colors, and approve the design before installation."
+          question: "What can you light?",
+          answer: "Rooflines, peaks, garages, columns, railings, trees, bushes, and wreaths. Every display starts with the roofline, then you add whatever you want."
         },
         {
-          question: "What kind of lights do you use?",
-          answer: "We use commercial-grade outdoor LED lights, fitted to your roofline, with matching lights for trees, shrubs, and other accents."
+          question: "What kind of lights do you use? Can I pick the color?",
+          answer: "Commercial-grade LED C9 bulbs on the roofline and mini lights on trees, bushes, and columns. Warm white is the most popular, but any color or mix costs the same."
         },
         {
-          question: "Do you install lights I already own?",
-          answer: "We only install our own commercial-grade lights. That way we know every strand and can fix anything that goes out during the season."
+          question: "Can you wrap my trees?",
+          answer: "Yes. Trees are priced by size. We usually wrap the trunk and lower branches, or the whole tree if you want. Trees over 20 feet need a lift and cost more."
         },
         {
-          question: "Can you recreate a display I had before?",
-          answer: "Share a photo with us. We can usually create a similar design using our own lights."
+          question: "Can you hang lights I already own?",
+          answer: "No. We only install our own commercial-grade lights so we can stand behind them and fix them fast. We're happy to hang your own wreath."
         },
         {
-          question: "Can I book tree lighting on its own?",
-          answer: "Tree lighting is available as an addition to a roofline or primary home display. We don't book standalone tree installations."
+          question: "Will it damage my roof or gutters?",
+          answer: "No. We use plastic clips on shingles and gutters, so there are no nails or holes in your roof."
         }
       ]
     },
     {
-      category: "Booking & timing",
+      category: "Scheduling & service",
       questions: [
         {
-          question: `When should I book for ${CURRENT_SEASON_YEAR}?`,
-          answer: "Book early for the best choice of dates. Installations run from October through December, and the weeks around Thanksgiving fill quickly. We confirm availability before you book."
+          question: "How soon can you install?",
+          answer: "Usually within 1 to 2 weeks of approving your quote. November fills up fastest, so earlier is easier. We schedule by neighborhood and text you the day before."
         },
         {
-          question: "What happens after I request a quote?",
-          answer: "We review your property and follow up with options and pricing. Once you approve your quote, we schedule installation."
+          question: "When do you take them down?",
+          answer: "Takedown is included. We start right after the holidays. If you want them up longer, just ask."
         },
         {
-          question: "When do you take down and store the lights?",
-          answer: "We coordinate takedown in January, allowing for weather and access. We label and store your lights for next season. Both are included in your quote."
+          question: "What if some lights go out?",
+          answer: "Text us at (425) 215-0935 and we'll fix it for free, usually within a couple of days. You don't need to be home."
         },
         {
-          question: "When is payment due?",
-          answer: "Payment is due after installation. You can pay online by credit card, debit card, or ACH transfer, or contact us about another payment method."
-        }
-      ]
-    },
-    {
-      category: "Our team",
-      questions: [
-        {
-          question: "Do you offer a satisfaction guarantee?",
-          answer: "If something doesn't match the approved design, contact us. We'll review it and make reasonable adjustments."
+          question: "Is a timer included?",
+          answer: "Yes. We set up a timer so your lights come on every evening without you touching anything."
         },
         {
-          question: "Are you licensed and insured?",
-          answer: `Yes. Christmas Northwest is licensed, bonded, and insured. We've served Greater Seattle since ${FIRST_SEASON_YEAR}.`
+          question: "My breaker keeps tripping. What do I do?",
+          answer: "Usually it's too much on one outlet or water in a plug. Text us and we'll come split the load across outlets."
+        },
+        {
+          question: "Do I need to be home for the install?",
+          answer: "No. We just need access to one outdoor outlet."
+        },
+        {
+          question: "Can you clean my gutters too?",
+          answer: "Yes. We can clean your gutters while we're up there at takedown. Ask for a price with your quote."
         },
         {
           question: "Where do you work?",
-          answer: "We serve Seattle and the Eastside, including Kenmore, Bothell, Kirkland, Woodinville, and Bellevue. Our team is based in Kenmore, with a warehouse in Woodinville."
+          answer: "Seattle and the Eastside, including Kirkland, Bellevue, Bothell, Kenmore, Woodinville, Redmond, and Sammamish."
         }
       ]
     }
@@ -135,7 +135,7 @@ export default function FAQPage() {
     "@type": "ProfessionalService",
     "name": "Christmas Northwest",
     "alternateName": "ChristmasNW",
-    "description": "Professional Christmas light installation serving Greater Seattle and the Eastside with custom design, installation, maintenance, takedown, and storage.",
+    "description": "Professional Christmas light installation serving Greater Seattle and the Eastside.",
     "url": "https://christmasnw.com/faq",
     "image": "https://christmasnw.com/og-image.png",
     "logo": "https://christmasnw.com/logo.png",
@@ -171,7 +171,7 @@ export default function FAQPage() {
     <>
       <PageHead 
         title="Christmas Light Installation FAQ, Seattle | Christmas Northwest"
-        description="Answers to common Christmas light installation questions for Greater Seattle: pricing, process, timing, service areas, and what's included."
+        description="Real answers to the questions Seattle-area homeowners ask us most about Christmas light installation: cost, quotes, colors, timing, and takedown."
       />
       <StructuredData data={faqSchema} />
       <StructuredData data={localBusinessSchema} />

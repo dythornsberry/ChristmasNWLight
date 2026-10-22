@@ -134,7 +134,7 @@ export default function CityPage({
     "@type": "ProfessionalService",
     "name": "Christmas Northwest",
     "image": "https://christmasnw.com/logo.png",
-    "description": `Professional Christmas light installation in ${cityName}, WA. Design, installation, maintenance, takedown, and storage from a local, insured team serving ${county} County.`,
+    "description": `Professional Christmas light installation in ${cityName}, WA. Commercial-grade lights, clean installs, free fixes, and takedown from a local, insured team serving ${county} County.`,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Kenmore",
@@ -178,7 +178,7 @@ export default function CityPage({
   const benefits = [
     { icon: Check, title: "Clear Scheduling", description: `We confirm available installation dates before you book` },
     { icon: Shield, title: "Licensed & Insured", description: "Professional crews and liability coverage" },
-    { icon: Clock, title: "Storage Included", description: "Your display is organized and stored between seasons" },
+    { icon: Clock, title: "Free Fixes", description: "A light goes out, we fix it free" },
     { icon: Star, title: "Commercial-Grade Lights", description: "Outdoor-rated LEDs fitted to your property" },
   ];
 
@@ -211,7 +211,7 @@ export default function CityPage({
     <>
       <PageHead
         title={`Christmas Light Installation in ${cityName}, WA | Christmas Northwest`}
-        description={`Professional Christmas and holiday light installation in ${cityName}, WA. Installs start at $800, with repairs, takedown, and storage included.`}
+        description={`Professional Christmas and holiday light installation in ${cityName}, WA. Installs start at $800, with free fixes and takedown included.`}
       />
 
       {/* BreadcrumbList Schema */}
@@ -247,7 +247,7 @@ export default function CityPage({
                 </h1>
                 
                 <p className="text-xl md:text-2xl text-muted-foreground mb-12 leading-relaxed">
-                  Custom-fit rooflines, trees, landscaping, and accents with installation, maintenance, takedown, and storage included.
+                  Rooflines, trees, bushes, and columns in warm white or any color, with free fixes and takedown included.
                 </p>
 
                 <div className="flex flex-wrap gap-4 justify-center mb-12">
@@ -339,7 +339,7 @@ export default function CityPage({
                     Neighborhoods We Serve in {cityName}
                   </h2>
                   <p className="text-xl text-muted-foreground">
-                    Send your address and we'll confirm availability.
+                    Fill out the form and we'll confirm availability.
                   </p>
                 </div>
 

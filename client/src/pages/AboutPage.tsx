@@ -40,7 +40,7 @@ export default function AboutPage() {
   const milestones = [
     { number: GOOGLE_RATING, label: "Google Rating", description: `${GOOGLE_REVIEW_COUNT} Google reviews` },
     { number: "24hr", label: "Response Time", description: "We respond within 24 hours" },
-    { number: "Season-long", label: "Maintenance", description: "Display repairs are included" },
+    { number: "Free", label: "Fixes", description: "A light goes out, we fix it" },
     { number: "Free", label: "Takedown", description: "Included in every package" }
   ];
 
@@ -57,7 +57,7 @@ export default function AboutPage() {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "Christmas Northwest",
-    "description": "Christmas Northwest is a Greater Seattle holiday lighting company offering residential and commercial installations, seasonal support, and full-service displays including design, installation, maintenance, takedown, and storage.",
+    "description": "Christmas Northwest is a Greater Seattle holiday lighting company offering residential and commercial installations, seasonal support, and full-service displays including design, installation, free fixes, and takedown.",
     "url": "https://christmasnw.com/about",
     "telephone": "+14252150935",
     "email": "christmaslightsnw@gmail.com",
@@ -201,7 +201,7 @@ export default function AboutPage() {
                     We supply commercial-grade lights for rooflines, trees, and landscaping across Greater Seattle.
                   </p>
                   <p className="font-semibold text-foreground">
-                    We install, maintain, take down, and store your lights.
+                    Clean installs, free fixes, and takedown included.
                   </p>
                   <p>Licensed, bonded, and insured.</p>
                 </div>

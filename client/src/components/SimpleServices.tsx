@@ -1,8 +1,9 @@
 const services = [
-  { title: "Design & installation", description: "Commercial-grade lights, custom fitted to your home." },
-  { title: "Season-long maintenance", description: "A light goes out? We take care of it." },
-  { title: "After-holiday takedown", description: "We return to remove your display." },
-  { title: "Storage included", description: "Your lights are packed away for next season." },
+  { title: "Commercial-grade lights", description: "Brighter and more even than store-bought strands." },
+  { title: "Warm white or any color", description: "Same price, whatever you pick." },
+  { title: "Clean installs", description: "Straight lines, tidy cords, no holes in your roof." },
+  { title: "Free fixes", description: "A light goes out, we fix it free." },
+  { title: "Takedown included", description: "No extra charge." },
 ];
 
 export default function SimpleServices() {
@@ -10,8 +11,7 @@ export default function SimpleServices() {
     <section className="home-included" aria-labelledby="included-heading">
       <div className="home-container">
         <div className="home-section-heading">
-          <h2 id="included-heading">Your whole season, covered.</h2>
-          <p>Included in every installation.</p>
+          <h2 id="included-heading">Every install includes</h2>
         </div>
         <ul className="home-services-grid">
           {services.map(({ title, description }) => (
