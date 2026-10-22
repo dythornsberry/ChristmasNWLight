@@ -20,9 +20,8 @@ export default function HomeTeam() {
           data-testid="img-home-ram"
         />
         <div>
-          <p className="home-eyebrow">Based here. Lighting homes here.</p>
-          <h2 id="home-team-title">Meet Christmas Northwest.</h2>
-          <p>I'm Dylan. My crew and I have been lighting homes around Seattle and the Eastside since {FIRST_SEASON_YEAR}. If a light goes out, text us and we'll fix it.</p>
+          <h2 id="home-team-title">Meet the crew.</h2>
+          <p>Local, owner-run, and lighting Seattle-area homes since {FIRST_SEASON_YEAR}.</p>
           <p className="home-team-credential"><ShieldCheck aria-hidden="true" /> Licensed, bonded &amp; insured</p>
           <Link href="/about" className="home-text-link" data-testid="link-home-team">Meet our team <ArrowRight aria-hidden="true" /></Link>
         </div>
