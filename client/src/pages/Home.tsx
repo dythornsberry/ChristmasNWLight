@@ -23,7 +23,7 @@ export default function Home() {
 
   const portfolioItems = [
     { id: 1, image: warmWhiteGables, category: "Warm White", title: "Rooflines & wreaths" },
-    { id: 2, image: warmWhiteEntry, category: "Warm White", title: "Porches & entries" },
+    { id: 2, image: warmWhiteEntry, category: "Warm White", title: "Columns & walkways" },
     { id: 3, image: warmWhiteBushEstate, category: "Warm White", title: "Rooflines & landscape lighting" },
   ];
 
