@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import ReviewsStrip from "@/components/ReviewsStrip";
 import Portfolio from "@/components/Portfolio";
 import PricingPreview from "@/components/PricingPreview";
-import SimpleServices from "@/components/SimpleServices";
+import HomeVideos from "@/components/HomeVideos";
 import HomeTeam from "@/components/HomeTeam";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
@@ -23,7 +23,7 @@ export default function Home() {
 
   const portfolioItems = [
     { id: 1, image: warmWhiteGables, category: "Warm White", title: "Rooflines & wreaths" },
-    { id: 2, image: warmWhiteEntry, category: "Warm White", title: "Porches & pathways" },
+    { id: 2, image: warmWhiteEntry, category: "Warm White", title: "Porches & entries" },
     { id: 3, image: warmWhiteBushEstate, category: "Warm White", title: "Rooflines & landscape lighting" },
   ];
 
@@ -103,8 +103,8 @@ export default function Home() {
   return (
     <div className="home-page min-h-screen pb-24 md:pb-0">
       <PageHead
-        title="Seattle Christmas Light Installation | Christmas Northwest"
-        description="Christmas light installation in Seattle and the Eastside, starting at $800. We install, maintain, take down, and store your lights."
+        title="Christmas Light Installation Seattle & Eastside | Christmas Northwest"
+        description="Professional Christmas and holiday light installation in Seattle and the Eastside. Installs start at $800, with repairs, takedown, and storage included."
       />
       <StructuredData data={localBusinessSchema} />
       <UrgencyBanner />
@@ -114,7 +114,7 @@ export default function Home() {
         <Hero onGetQuote={goToQuote} />
         <ReviewsStrip />
         <Portfolio items={portfolioItems} />
-        <SimpleServices />
+        <HomeVideos />
         <PricingPreview />
         <HomeTeam />
         <CTABanner onGetQuote={goToQuote} />

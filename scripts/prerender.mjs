@@ -35,7 +35,6 @@ const ROUTES = [
   "/product-guide",
   "/investment-guide",
   "/blog",
-  "/blog/christmas-lighting-trends-2026",
   "/blog/warm-white-vs-multicolor-lights",
   "/blog/professional-christmas-light-installation-guide",
   "/blog/book-christmas-lights-september",

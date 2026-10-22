@@ -9,7 +9,8 @@ import StructuredData from "@/components/StructuredData";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { X, ChevronLeft, ChevronRight, Play, Youtube } from "lucide-react";
+import { X, ChevronLeft, ChevronRight, Youtube } from "lucide-react";
+import VideoShowcaseCard, { VIDEO_SHOWCASE_ITEMS, videoObjectSchema } from "@/components/VideoShowcase";
 import { useLocation } from "wouter";
 import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
@@ -49,13 +50,11 @@ import homeImg3 from '@assets/img4_1761853506443.webp';
 import homeImg4 from '@assets/img5_1761853506443.webp';
 import homeImg5 from '@assets/img6_1761853506443.webp';
 import homeImg6 from '@assets/img7_1761853506443.webp';
-import purpleHalloweenHouse from '@assets/IMG_5468-min_1762396975618.jpeg';
 import redColumnAccentHome from '@assets/d8c6cab5281de0583599e22ee0ea1bbd_1762398220204.webp';
 import landscapeLightingHome from '@assets/9f3e6664c053b1463aadbe6b559a13e9_1762398299920.webp';
 import pergolaTreeHome from '@assets/2023-11-10-4_1762398479907.jpg';
 import largeHomeWarmWhite from '@assets/unnamed-17_1762398507427.jpg';
 import stunningEstate from '@assets/2023-12-07-2_optimized.webp';
-import redBlueHalloween from '@assets/44acdea9569a33cda9a195b7b4f8df4b_1762398316523.webp';
 import modernHomeWithDeer from '@assets/5b74f72f0d7ce55a601aed3e7375310a.jpg_1762398340287.webp';
 import modernArchitectureHome from '@assets/2024-11-26-2_1762398937574.jpg';
 import gableWreathHome from '@assets/2023-12-22-3_1762398937574.jpg';
@@ -91,17 +90,10 @@ interface GalleryImage {
   title: string;
 }
 
-interface VideoShowcaseItem {
-  id: string;
-  title: string;
-  location: string;
-  description: string;
-  youtubeId: string;
-}
 
 const galleryImages: GalleryImage[] = [
   { id: 1, src: stunningEstate, alt: "Estate with custom lighting, wrapped trees, column accents, and landscape features", category: "Custom", title: "Estate with Trees and Columns" },
-  { id: 2, src: ultraModernLandscape, alt: "Modern home with landscape lighting, pathway lights, deck accent lighting, and wreath", category: "Custom", title: "Modern Home with Landscape Lighting" },
+  { id: 2, src: ultraModernLandscape, alt: "Modern home with landscape lighting, deck accent lighting, and wreath", category: "Custom", title: "Modern Home with Landscape Lighting" },
   { id: 3, src: warmWhiteBushEstate, alt: "Warm white roofline and wrapped bushes on estate home", category: "Warm White", title: "Warm White Bushes" },
   { id: 4, src: gableWreathHome, alt: "Home with warm white rooflines, multiple gables, decorative wreaths, and snowflake accents", category: "Custom", title: "Gables and Wreaths" },
   { id: 5, src: modernArchitectureHome, alt: "Modern home with warm white roofline and landscape lighting", category: "Warm White", title: "Modern Warm White Roofline" },
@@ -145,8 +137,6 @@ const galleryImages: GalleryImage[] = [
   { id: 43, src: homeImg4, alt: "Contemporary home with stone accent and warm white lights", category: "Warm White", title: "Stone Accent Warm White" },
   { id: 44, src: homeImg5, alt: "Large estate with professional Christmas light installation", category: "Warm White", title: "Large Estate" },
   { id: 45, src: homeImg6, alt: "Modern gable design with warm white Christmas lights", category: "Warm White", title: "Gable Roofline" },
-  { id: 46, src: purpleHalloweenHouse, alt: "Purple Halloween lighting display with yard decorations", category: "Halloween", title: "Purple Halloween Display" },
-  { id: 47, src: redBlueHalloween, alt: "Red and blue Halloween lighting display with roofline coverage", category: "Halloween", title: "Red and Blue Halloween" },
   { id: 48, src: redColumnAccentHome, alt: "Warm white roofline with red column accents and tree lighting", category: "Custom", title: "Red Columns and Tree" },
   { id: 49, src: landscapeLightingHome, alt: "Warm white roofline with custom landscape lighting and red and white shrub wraps", category: "Custom", title: "Landscape and Shrub Lighting" },
   { id: 50, src: modernHomeWithDeer, alt: "Modern home with warm white roofline, entryway accents, planters with lights, and decorative deer", category: "Custom", title: "Modern Home with Deer" },
@@ -166,37 +156,6 @@ const galleryImages: GalleryImage[] = [
   { id: 64, src: warmWhiteGreenAccent1, alt: "Modern home with warm white roofline and green accent lights on entry", category: "Custom", title: "Warm White with Green Accents" },
   { id: 65, src: rainbowWithTree, alt: "Rainbow multicolor roofline with decorated wrapped tree and landscape lighting", category: "Multicolor", title: "Rainbow Roofline with Wrapped Tree" },
   { id: 66, src: warmWhiteWithColorAccents, alt: "Modern home with warm white roofline, green tree lighting, red shrub accents, and landscape lighting at dusk", category: "Custom", title: "Warm White with Green and Red Accents" }
-];
-
-const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
-  {
-    id: "halloween-bellevue",
-    title: "Halloween Display",
-    location: "Bellevue, WA",
-    description: "Watch a real Halloween lighting install from design through final night reveal.",
-    youtubeId: "qcnKBhSJQW4",
-  },
-  {
-    id: "tree-woodinville",
-    title: "Big Tree Installation",
-    location: "Woodinville, WA",
-    description: "See how we place lights evenly across a large feature tree.",
-    youtubeId: "kyQ0PU9XDIk",
-  },
-  {
-    id: "halloween-2",
-    title: "Halloween Light Display",
-    location: "Greater Seattle Area",
-    description: "Another seasonal transformation using professional outdoor-grade materials.",
-    youtubeId: "fkd4TWuDYa4",
-  },
-  {
-    id: "multicolor-issaquah",
-    title: "Multicolor Display",
-    location: "Issaquah, WA",
-    description: "A full multicolor roofline and tree install for homeowners who want a bold look.",
-    youtubeId: "mfZ_QQIDusE",
-  },
 ];
 
 const FEATURED_IMAGE_COUNT = 9;
@@ -270,64 +229,6 @@ function GalleryImageCard({
   );
 }
 
-function VideoShowcaseCard({ item }: { item: VideoShowcaseItem }) {
-  const [isPlaying, setIsPlaying] = useState(false);
-
-  return (
-    <div
-      className="group block overflow-hidden rounded-2xl border border-border bg-background shadow-lg transition-all hover:-translate-y-1 hover:shadow-xl"
-      data-testid={`card-video-${item.id}`}
-    >
-      <div className="relative aspect-[4/5] overflow-hidden bg-slate-950 sm:aspect-[9/16]">
-        {isPlaying ? (
-          <iframe
-            src={`https://www.youtube.com/embed/${item.youtubeId}?autoplay=1&rel=0`}
-            title={item.title}
-            className="h-full w-full"
-            loading="lazy"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-            data-testid={`iframe-video-${item.id}`}
-          />
-        ) : (
-          <button
-            type="button"
-            onClick={() => setIsPlaying(true)}
-            className="relative h-full w-full text-left"
-            data-testid={`button-video-${item.id}`}
-          >
-            <img
-              src={`https://img.youtube.com/vi/${item.youtubeId}/hqdefault.jpg`}
-              alt={`${item.title} video thumbnail`}
-              loading="lazy"
-              decoding="async"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-              width={480}
-              height={360}
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
-            <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-[#ff0000] px-3 py-1.5 text-xs font-semibold text-white shadow-lg">
-              <Youtube className="h-4 w-4" />
-              <span>YouTube</span>
-            </div>
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#ff0000] px-5 py-3 text-base font-semibold text-white shadow-xl transition-transform duration-300 group-hover:scale-105">
-                <Play className="h-5 w-5 fill-current" />
-                <span>Play Video</span>
-              </div>
-            </div>
-            <div className="absolute inset-x-0 bottom-0 p-4 text-white sm:p-5">
-              <p className="text-xs font-medium text-white/80 sm:text-sm">{item.location}</p>
-              <h3 className="mt-1 text-lg font-semibold sm:text-xl">{item.title}</h3>
-              <p className="mt-2 text-sm leading-6 text-white/80">{item.description}</p>
-            </div>
-          </button>
-        )}
-      </div>
-    </div>
-  );
-}
 
 export default function GalleryPage() {
   const [, setLocation] = useLocation();
@@ -340,7 +241,7 @@ export default function GalleryPage() {
     window.scrollTo({ top: 0, behavior: 'auto' });
   };
 
-  const categories = ["All", "Warm White", "Multicolor", "Trees", "Custom", "Halloween"];
+  const categories = ["All", "Warm White", "Multicolor", "Trees", "Custom"];
   
   const filteredImages = selectedCategory === "All" 
     ? galleryImages 
@@ -394,76 +295,7 @@ export default function GalleryPage() {
 
   const videoSchemas = {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "VideoObject",
-        "name": "Halloween Light Installation in Bellevue WA",
-        "description": "Watch our professional Halloween lighting installation in Bellevue, Washington. See the complete transformation from start to finish with purple and orange commercial-grade lights creating a spooky holiday display.",
-        "thumbnailUrl": "https://img.youtube.com/vi/qcnKBhSJQW4/maxresdefault.jpg",
-        "uploadDate": "2024-10-15T12:00:00Z",
-        "contentUrl": "https://www.youtube.com/watch?v=qcnKBhSJQW4",
-        "embedUrl": "https://www.youtube.com/embed/qcnKBhSJQW4",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Christmas Northwest",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://christmasnw.com/logo.png"
-          }
-        }
-      },
-      {
-        "@type": "VideoObject",
-        "name": "Big Tree Christmas Light Installation in Woodinville WA",
-        "description": "Professional Christmas tree lighting installation in Woodinville, Washington, showing the placement of commercial-grade lights on a large feature tree.",
-        "thumbnailUrl": "https://img.youtube.com/vi/kyQ0PU9XDIk/maxresdefault.jpg",
-        "uploadDate": "2024-11-20T12:00:00Z",
-        "contentUrl": "https://www.youtube.com/watch?v=kyQ0PU9XDIk",
-        "embedUrl": "https://www.youtube.com/embed/kyQ0PU9XDIk",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Christmas Northwest",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://christmasnw.com/logo.png"
-          }
-        }
-      },
-      {
-        "@type": "VideoObject",
-        "name": "Professional Halloween Lighting Display Installation",
-        "description": "Another Halloween lighting installation in the Greater Seattle area. Watch our team create a spooky display with professional-grade outdoor lights.",
-        "thumbnailUrl": "https://img.youtube.com/vi/fkd4TWuDYa4/maxresdefault.jpg",
-        "uploadDate": "2024-10-20T12:00:00Z",
-        "contentUrl": "https://www.youtube.com/watch?v=fkd4TWuDYa4",
-        "embedUrl": "https://www.youtube.com/embed/fkd4TWuDYa4",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Christmas Northwest",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://christmasnw.com/logo.png"
-          }
-        }
-      },
-      {
-        "@type": "VideoObject",
-        "name": "Multicolor Christmas Light Installation in Issaquah WA",
-        "description": "Watch a complete multicolor Christmas light installation in Issaquah, Washington. See how we create a festive holiday display with commercial-grade multicolor C9 bulbs.",
-        "thumbnailUrl": "https://img.youtube.com/vi/mfZ_QQIDusE/maxresdefault.jpg",
-        "uploadDate": "2024-11-25T12:00:00Z",
-        "contentUrl": "https://www.youtube.com/watch?v=mfZ_QQIDusE",
-        "embedUrl": "https://www.youtube.com/embed/mfZ_QQIDusE",
-        "publisher": {
-          "@type": "Organization",
-          "name": "Christmas Northwest",
-          "logo": {
-            "@type": "ImageObject",
-            "url": "https://christmasnw.com/logo.png"
-          }
-        }
-      }
-    ]
+    "@graph": VIDEO_SHOWCASE_ITEMS.map(videoObjectSchema),
   };
 
   const breadcrumbSchema = {
@@ -512,8 +344,8 @@ export default function GalleryPage() {
   return (
     <>
       <PageHead
-        title="Christmas Light Installation Gallery | Christmas Northwest"
-        description="Real Christmas light installations across Greater Seattle — Bellevue, Bothell, Kirkland, Redmond — plus installation videos."
+        title="Christmas Lights Photos & Videos, Seattle Homes | Christmas Northwest"
+        description="Photos and videos of real Christmas light installs on homes in Bellevue, Bothell, Kirkland, Redmond, and across Greater Seattle."
       />
       <StructuredData data={localBusinessSchema} />
       <script
@@ -605,7 +437,7 @@ export default function GalleryPage() {
 
             {/* Video Grid */}
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8">
-              {VIDEO_SHOWCASE_ITEMS.filter((item) => selectedCategory === "Halloween" ? item.id.startsWith("halloween") : !item.id.startsWith("halloween")).map((item) => (
+              {VIDEO_SHOWCASE_ITEMS.map((item) => (
                 <VideoShowcaseCard key={item.id} item={item} />
               ))}
             </div>
@@ -615,7 +447,7 @@ export default function GalleryPage() {
               <Button 
                 variant="outline"
                 className="w-full font-semibold sm:w-auto"
-                onClick={() => window.open('https://youtube.com/@christmasnw?si=N5gu7fRN9vyEFMUd', '_blank')}
+                onClick={() => window.open(YOUTUBE_URL, '_blank', 'noopener')}
                 data-testid="button-youtube-channel"
               >
                 <Youtube className="w-5 h-5 mr-2" />

@@ -71,7 +71,7 @@ export default function PrivacyPolicy() {
                   <li>Improve our website and customer experience</li>
                 </ul>
                 <p className="mt-3">
-                  That's it. We're a local service business — we use your info to get back to you and do the job.
+                  That's it. We're a local service business. We use your info to get back to you and do the job.
                 </p>
               </div>
 
@@ -81,9 +81,9 @@ export default function PrivacyPolicy() {
                   To process your form submission and run our website, we use a few third-party services:
                 </p>
                 <ul className="list-disc space-y-1 pl-6">
-                  <li><strong>Zapier</strong> — Processes form submissions and routes them to our team so we can respond quickly.</li>
-                  <li><strong>Resend</strong> — Sends a backup email notification of your form submission to ensure we never miss a lead.</li>
-                  <li><strong>Google Analytics (GA4)</strong> — Collects anonymous data about how visitors use our site (pages visited, time on site, etc.). This helps us understand what's working and improve the experience.</li>
+                  <li><strong>Zapier</strong>: Processes form submissions and routes them to our team so we can respond quickly.</li>
+                  <li><strong>Resend</strong>: Sends a backup email notification of your form submission to ensure we never miss a lead.</li>
+                  <li><strong>Google Analytics (GA4)</strong>: Collects anonymous data about how visitors use our site (pages visited, time on site, etc.). This helps us understand what's working and improve the experience.</li>
                 </ul>
                 <p className="mt-3">
                   These services have their own privacy policies and handle data according to their own terms. We only share the minimum information needed for each service to function.
@@ -100,7 +100,7 @@ export default function PrivacyPolicy() {
               <div>
                 <h2 className="mb-3 text-xl font-semibold text-foreground">Cookies</h2>
                 <p>
-                  Our website uses cookies from Google Analytics to understand site traffic and usage patterns. These cookies collect anonymous, aggregated data — they don't identify you personally. You can disable cookies in your browser settings if you prefer, though some site features may not work as expected.
+                  Our website uses cookies from Google Analytics to understand site traffic and usage patterns. These cookies collect anonymous, aggregated data. They don't identify you personally. You can disable cookies in your browser settings if you prefer, though some site features may not work as expected.
                 </p>
               </div>
 

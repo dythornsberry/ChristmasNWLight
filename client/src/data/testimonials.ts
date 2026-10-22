@@ -19,7 +19,7 @@ export const CUSTOMER_TESTIMONIALS: CustomerTestimonial[] = [
   },
   {
     name: "Nancy Greenup",
-    text: "Dylan and his crew are the best! This is our 2nd install for the holidays and they have done an outstanding job both times. Lights look amazing, everyone has been most kind and responsive. I definitely recommend their service—you will be thrilled from start to finish!",
+    text: "Dylan and his crew are the best! This is our 2nd install for the holidays and they have done an outstanding job both times. Lights look amazing, everyone has been most kind and responsive. I definitely recommend their service. You will be thrilled from start to finish!",
   },
   {
     name: "Andrew Rampulla",

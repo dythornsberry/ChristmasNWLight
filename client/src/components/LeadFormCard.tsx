@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { useMutation } from "@tanstack/react-query";
-import { CheckCircle2, Phone, type LucideIcon } from "lucide-react";
+import { ArrowLeft, Check, CheckCircle2, Phone, type LucideIcon } from "lucide-react";
 import AddressAutocompleteField from "@/components/AddressAutocompleteField";
 import { Checkbox } from "@/components/ui/checkbox";
 import FormSpamTrap from "@/components/FormSpamTrap";
@@ -21,6 +21,17 @@ import {
   toE164,
 } from "@/lib/leads";
 import { cn } from "@/lib/utils";
+
+// Ordered by how often each shows up on real quotes; roofline is the base of nearly every job.
+export const LIGHTING_AREAS = [
+  "Roofline",
+  "Trees",
+  "Bushes & shrubs",
+  "Wreaths & garland",
+  "Columns, pillars & railings",
+  "Large or custom display",
+  "Not sure yet",
+] as const;
 
 export interface LeadServiceOption {
   value: string;
@@ -83,14 +94,16 @@ export default function LeadFormCard({
     zipCode: "",
     serviceType: initialServiceType,
     addressConfirmed: false,
-    seasonalConfirmed: false,
+    lightingAreas: ["Roofline"] as string[],
   });
+  const [step, setStep] = useState<1 | 2>(1);
   const returningService = serviceOptions.find((option) => option.value.endsWith("-returning"));
   const addressRequired = requiresProjectAddress(formData.serviceType || initialServiceType);
 
   const resetForm = () => {
     setIsSubmitted(false);
     setShowErrors(false);
+    setStep(1);
     setWebsite("");
     setFormResetKey((value) => value + 1);
     setFormData({
@@ -101,7 +114,7 @@ export default function LeadFormCard({
       zipCode: "",
       serviceType: initialServiceType,
       addressConfirmed: false,
-      seasonalConfirmed: false,
+      lightingAreas: ["Roofline"],
     });
   };
 
@@ -110,8 +123,10 @@ export default function LeadFormCard({
       const payload = {
         ...data,
         fullName: data.fullName.trim(),
+        email: data.email.trim(),
         address: data.address.trim(),
         zipCode: data.zipCode.trim(),
+        lightingAreas: data.lightingAreas.join(", "),
         phoneE164: toE164(data.phone),
         source: "christmasnw.com",
         formLocation,
@@ -143,14 +158,34 @@ export default function LeadFormCard({
   });
 
   const fullNameError = getNameValidationError(formData.fullName, "full name");
-  const emailError = getEmailValidationError(formData.email);
+  // Email is optional; only check it when someone types one.
+  const emailError = formData.email.trim() ? getEmailValidationError(formData.email) : null;
   const phoneError = getPhoneValidationError(formData.phone);
   // Suggestions are optional; manually entered addresses remain valid.
   const addressError = addressRequired && !formData.address.trim() ? "Enter the service address." : null;
   const serviceTypeError = !formData.serviceType ? "Choose the service you need." : null;
-  const seasonalConfirmError = !formData.seasonalConfirmed
-    ? "Please confirm you're requesting seasonal holiday lighting."
-    : null;
+  const lightingAreasError = formData.lightingAreas.length === 0 ? "Pick at least one, or choose Not sure yet." : null;
+
+  const focusFirstInvalid = () =>
+    requestAnimationFrame(() => formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus());
+
+  const toggleLightingArea = (area: string) => setFormData((current) => ({
+    ...current,
+    lightingAreas: current.lightingAreas.includes(area)
+      ? current.lightingAreas.filter((item) => item !== area)
+      : [...current.lightingAreas, area],
+  }));
+
+  const goToStepTwo = () => {
+    setShowErrors(true);
+    if (fullNameError || phoneError) {
+      focusFirstInvalid();
+      return;
+    }
+    setShowErrors(false);
+    setStep(2);
+    requestAnimationFrame(() => formRef.current?.querySelector<HTMLInputElement>(`#${testIdPrefix}-address`)?.focus());
+  };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -160,9 +195,18 @@ export default function LeadFormCard({
       setIsSubmitted(true);
       return;
     }
+    if (step === 1) {
+      goToStepTwo();
+      return;
+    }
     setShowErrors(true);
-    if (serviceTypeError || fullNameError || emailError || phoneError || addressError || seasonalConfirmError) {
-      requestAnimationFrame(() => formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus());
+    if (fullNameError || phoneError) {
+      setStep(1);
+      focusFirstInvalid();
+      return;
+    }
+    if (serviceTypeError || emailError || addressError || lightingAreasError) {
+      focusFirstInvalid();
       return;
     }
     submittingRef.current = true;
@@ -192,108 +236,146 @@ export default function LeadFormCard({
           ) : null}
           <div className="mb-5">
             <h2 className="font-serif text-2xl font-bold text-foreground">{title}</h2>
-            <p className="mt-2 text-sm leading-6 text-muted-foreground">{description}</p>
+            {description ? <p className="mt-2 text-sm leading-6 text-muted-foreground">{description}</p> : null}
+            <p className="mt-3 text-sm leading-6 text-foreground" data-testid={`${testIdPrefix}-seasonal-note`}>
+              Traditional Christmas lights, installed for the season and taken down after the holidays.{" "}
+              <span className="font-semibold">Installs start at $800.</span>
+            </p>
           </div>
 
           <form ref={formRef} onSubmit={handleSubmit} noValidate className="relative">
             <FormSpamTrap fieldId={`${testIdPrefix}-website`} value={website} onChange={setWebsite} />
             <fieldset disabled={createQuoteMutation.isPending} className="min-w-0 space-y-4">
-              <div className="space-y-2">
-                <Label htmlFor={`${testIdPrefix}-fullName`}>Full Name *</Label>
-                <Input
-                  id={`${testIdPrefix}-fullName`}
-                  value={formData.fullName}
-                  onChange={(e) => setFormData((current) => ({ ...current, fullName: e.target.value }))}
-                  required autoComplete="name" placeholder="Full name"
-                  aria-invalid={showErrors && Boolean(fullNameError)}
-                  aria-describedby={showErrors && fullNameError ? `${testIdPrefix}-name-error` : undefined}
-                  data-testid={`${testIdPrefix}-full-name`}
-                />
-                {showErrors && fullNameError ? <p id={`${testIdPrefix}-name-error`} className="text-sm text-destructive">{fullNameError}</p> : null}
-              </div>
+              <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground" data-testid={`${testIdPrefix}-step`}>
+                Step {step} of 2
+              </p>
 
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div className="space-y-2">
-                  <Label htmlFor={`${testIdPrefix}-phone`}>Phone Number *</Label>
-                  <Input
-                    id={`${testIdPrefix}-phone`} type="tel"
-                    value={formData.phone}
-                    onChange={(e) => {
-                      const phone = formatPhoneNumber(e.currentTarget.value);
-                      setFormData((current) => ({ ...current, phone }));
-                    }}
-                    required maxLength={14} autoComplete="tel" inputMode="tel" placeholder="Phone number"
-                    aria-invalid={showErrors && Boolean(phoneError)}
-                    aria-describedby={showErrors && phoneError ? `${testIdPrefix}-phone-error` : undefined}
-                    data-testid={`${testIdPrefix}-phone`}
-                  />
-                  {showErrors && phoneError ? <p id={`${testIdPrefix}-phone-error`} className="text-sm text-destructive">{phoneError}</p> : null}
-                </div>
-                <div className="space-y-2">
-                  <Label htmlFor={`${testIdPrefix}-email`}>Email *</Label>
-                  <Input
-                    id={`${testIdPrefix}-email`} type="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData((current) => ({ ...current, email: e.target.value }))}
-                    required autoComplete="email" inputMode="email" placeholder="Email address"
-                    aria-invalid={showErrors && Boolean(emailError)}
-                    aria-describedby={showErrors && emailError ? `${testIdPrefix}-email-error` : undefined}
-                    data-testid={`${testIdPrefix}-email`}
-                  />
-                  {showErrors && emailError ? <p id={`${testIdPrefix}-email-error`} className="text-sm text-destructive">{emailError}</p> : null}
-                </div>
-              </div>
+              {step === 1 ? (
+                <>
+                  <div className="space-y-2">
+                    <Label htmlFor={`${testIdPrefix}-fullName`}>Full Name *</Label>
+                    <Input
+                      id={`${testIdPrefix}-fullName`}
+                      value={formData.fullName}
+                      onChange={(e) => setFormData((current) => ({ ...current, fullName: e.target.value }))}
+                      required autoComplete="name" placeholder="Full name"
+                      aria-invalid={showErrors && Boolean(fullNameError)}
+                      aria-describedby={showErrors && fullNameError ? `${testIdPrefix}-name-error` : undefined}
+                      data-testid={`${testIdPrefix}-full-name`}
+                    />
+                    {showErrors && fullNameError ? <p id={`${testIdPrefix}-name-error`} className="text-sm text-destructive">{fullNameError}</p> : null}
+                  </div>
 
-              <AddressAutocompleteField
-                address={formData.address}
-                addressConfirmed={formData.addressConfirmed}
-                error={showErrors ? addressError : null}
-                inputId={`${testIdPrefix}-address`}
-                label={addressRequired ? addressLabel : `${addressLabel} (optional)`}
-                onAddressChange={(address) => setFormData((current) => ({ ...current, address }))}
-                onAddressConfirmedChange={(addressConfirmed) => setFormData((current) => ({
-                  ...current, addressConfirmed, zipCode: addressConfirmed ? current.zipCode : "",
-                }))}
-                onZipCodeChange={(zipCode) => setFormData((current) => ({ ...current, zipCode }))}
-                placeholder={addressPlaceholder}
-                required={addressRequired}
-                resetKey={formResetKey}
-                zipCode={formData.zipCode}
-              />
+                  <div className="space-y-2">
+                    <Label htmlFor={`${testIdPrefix}-phone`}>Phone Number *</Label>
+                    <Input
+                      id={`${testIdPrefix}-phone`} type="tel"
+                      value={formData.phone}
+                      onChange={(e) => {
+                        const phone = formatPhoneNumber(e.currentTarget.value);
+                        setFormData((current) => ({ ...current, phone }));
+                      }}
+                      required maxLength={14} autoComplete="tel" inputMode="tel" placeholder="Phone number"
+                      aria-invalid={showErrors && Boolean(phoneError)}
+                      aria-describedby={showErrors && phoneError ? `${testIdPrefix}-phone-error` : undefined}
+                      data-testid={`${testIdPrefix}-phone`}
+                    />
+                    {showErrors && phoneError ? <p id={`${testIdPrefix}-phone-error`} className="text-sm text-destructive">{phoneError}</p> : null}
+                  </div>
 
-              {returningService ? (
-                <label className="flex min-h-11 cursor-pointer items-center gap-3 text-sm">
-                  <Checkbox
-                    checked={formData.serviceType === returningService.value}
-                    onCheckedChange={(checked) => setFormData((current) => ({
-                      ...current, serviceType: checked === true ? returningService.value : initialServiceType,
+                  <Button type="submit" size="lg" className="min-h-12 w-full text-base font-semibold" data-testid={`${testIdPrefix}-next`}>
+                    Next
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <AddressAutocompleteField
+                    address={formData.address}
+                    addressConfirmed={formData.addressConfirmed}
+                    error={showErrors ? addressError : null}
+                    inputId={`${testIdPrefix}-address`}
+                    label={addressRequired ? addressLabel : `${addressLabel} (optional)`}
+                    onAddressChange={(address) => setFormData((current) => ({ ...current, address }))}
+                    onAddressConfirmedChange={(addressConfirmed) => setFormData((current) => ({
+                      ...current, addressConfirmed, zipCode: addressConfirmed ? current.zipCode : "",
                     }))}
-                    data-testid={`${testIdPrefix}-returning`}
+                    onZipCodeChange={(zipCode) => setFormData((current) => ({ ...current, zipCode }))}
+                    placeholder={addressPlaceholder}
+                    required={addressRequired}
+                    resetKey={formResetKey}
+                    zipCode={formData.zipCode}
                   />
-                  Returning customer?
-                </label>
-              ) : null}
 
-              <div>
-                <label className="flex min-h-11 cursor-pointer items-start gap-3 py-2 text-sm leading-6" data-testid={`${testIdPrefix}-seasonal-confirm`}>
-                  <Checkbox
-                    className="mt-1"
-                    checked={formData.seasonalConfirmed}
-                    onCheckedChange={(checked) => setFormData((current) => ({ ...current, seasonalConfirmed: checked === true }))}
-                    aria-invalid={showErrors && Boolean(seasonalConfirmError)}
-                    aria-describedby={showErrors && seasonalConfirmError ? `${testIdPrefix}-seasonal-error` : undefined}
-                  />
-                  <span>I'm requesting seasonal holiday lighting, starting at $800.</span>
-                </label>
-                <p className="text-xs leading-5 text-muted-foreground">We supply the lights. No permanent or customer-owned lighting.</p>
-                {showErrors && seasonalConfirmError ? <p id={`${testIdPrefix}-seasonal-error`} className="mt-2 text-sm text-destructive">{seasonalConfirmError}</p> : null}
-                {showErrors && serviceTypeError ? <p className="mt-2 text-sm text-destructive">{serviceTypeError}</p> : null}
-              </div>
+                  <div role="group" aria-labelledby={`${testIdPrefix}-areas-label`} data-testid={`${testIdPrefix}-areas`}>
+                    <p id={`${testIdPrefix}-areas-label`} className="text-sm font-medium leading-none">What do you want lit up?</p>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {LIGHTING_AREAS.map((area) => {
+                        const selected = formData.lightingAreas.includes(area);
+                        return (
+                          <button
+                            key={area}
+                            type="button"
+                            aria-pressed={selected}
+                            aria-invalid={showErrors && Boolean(lightingAreasError) && area === LIGHTING_AREAS[0]}
+                            onClick={() => toggleLightingArea(area)}
+                            className={cn(
+                              "inline-flex min-h-11 items-center gap-1.5 rounded-full border px-4 text-sm font-medium transition-colors",
+                              selected
+                                ? "border-primary bg-primary text-primary-foreground"
+                                : "border-border bg-white text-foreground hover:border-primary/60",
+                            )}
+                          >
+                            {selected ? <Check className="h-4 w-4" aria-hidden="true" /> : null}
+                            {area}
+                          </button>
+                        );
+                      })}
+                    </div>
+                    {showErrors && lightingAreasError ? <p className="mt-2 text-sm text-destructive">{lightingAreasError}</p> : null}
+                  </div>
 
-              <Button type="submit" size="lg" className="min-h-12 w-full text-base font-semibold"
-                disabled={createQuoteMutation.isPending} data-testid={`${testIdPrefix}-submit`}>
-                {createQuoteMutation.isPending ? "Submitting..." : submitLabel}
-              </Button>
+                  <div className="space-y-2">
+                    <Label htmlFor={`${testIdPrefix}-email`}>Email (optional)</Label>
+                    <Input
+                      id={`${testIdPrefix}-email`} type="email"
+                      value={formData.email}
+                      onChange={(e) => setFormData((current) => ({ ...current, email: e.target.value }))}
+                      autoComplete="email" inputMode="email" placeholder="Email address"
+                      aria-invalid={showErrors && Boolean(emailError)}
+                      aria-describedby={showErrors && emailError ? `${testIdPrefix}-email-error` : undefined}
+                      data-testid={`${testIdPrefix}-email`}
+                    />
+                    {showErrors && emailError ? <p id={`${testIdPrefix}-email-error`} className="text-sm text-destructive">{emailError}</p> : null}
+                  </div>
+
+                  {returningService ? (
+                    <label className="flex min-h-11 cursor-pointer items-center gap-3 text-sm">
+                      <Checkbox
+                        checked={formData.serviceType === returningService.value}
+                        onCheckedChange={(checked) => setFormData((current) => ({
+                          ...current, serviceType: checked === true ? returningService.value : initialServiceType,
+                        }))}
+                        data-testid={`${testIdPrefix}-returning`}
+                      />
+                      Returning customer?
+                    </label>
+                  ) : null}
+                  {showErrors && serviceTypeError ? <p className="text-sm text-destructive">{serviceTypeError}</p> : null}
+
+                  <Button type="submit" size="lg" className="min-h-12 w-full text-base font-semibold"
+                    disabled={createQuoteMutation.isPending} data-testid={`${testIdPrefix}-submit`}>
+                    {createQuoteMutation.isPending ? "Submitting..." : submitLabel}
+                  </Button>
+                  <button
+                    type="button"
+                    onClick={() => { setShowErrors(false); setStep(1); }}
+                    className="mx-auto flex min-h-11 items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground"
+                    data-testid={`${testIdPrefix}-back`}
+                  >
+                    <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back
+                  </button>
+                </>
+              )}
             </fieldset>
           </form>
 

@@ -20,7 +20,7 @@ export default function PricingPreview() {
             </div>
           ))}
         </div>
-        <p className="mt-3 text-sm leading-6 text-muted-foreground">Examples, not fixed packages. Your quote depends on your home and the lights you choose.</p>
+        <p className="mt-3 text-sm leading-6 text-muted-foreground">Examples, not fixed packages. Every install includes the lights, repairs all season, takedown in January, and storage.</p>
       </div>
     </section>
   );

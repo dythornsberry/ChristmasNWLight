@@ -28,7 +28,7 @@ export default function InvestmentGuide() {
     <div className="min-h-screen bg-background pb-24 md:pb-0">
       <PageHead
         title="Christmas Light Installation Pricing | Christmas Northwest"
-        description="Christmas light installation pricing for Seattle: $800 rooflines to $4,000+ custom displays. Installation, maintenance, takedown, and storage included."
+        description="What Christmas light installation costs in Seattle: installs start at $800, with real examples up to large custom holiday displays."
       />
       <UrgencyBanner />
       <StickyHeader onGetQuote={goToQuote} />

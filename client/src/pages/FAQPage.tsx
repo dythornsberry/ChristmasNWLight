@@ -54,11 +54,7 @@ export default function FAQPage() {
         },
         {
           question: "Do you install lights I already own?",
-          answer: "We only install and maintain our own lighting and materials. We don't install customer-provided lights, including Govee."
-        },
-        {
-          question: "Do you offer permanent lighting?",
-          answer: "Our service is seasonal: we install in the fall, maintain your display, then take down and store the lights in January. We don't install permanent lighting."
+          answer: "We only install our own commercial-grade lights. That way we know every strand and can fix anything that goes out during the season."
         },
         {
           question: "Can you recreate a display I had before?",
@@ -174,7 +170,7 @@ export default function FAQPage() {
   return (
     <>
       <PageHead 
-        title="Christmas Light Installation FAQ | Christmas Northwest"
+        title="Christmas Light Installation FAQ, Seattle | Christmas Northwest"
         description="Answers to common Christmas light installation questions for Greater Seattle: pricing, process, timing, service areas, and what's included."
       />
       <StructuredData data={faqSchema} />

@@ -114,8 +114,8 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
-        title="Christmas Light Installation Services | Christmas Northwest"
-        description="Christmas light installation in Greater Seattle, starting at $800. We install, maintain, take down, and store your lights."
+        title="Holiday & Christmas Light Installation Services in Seattle | Christmas Northwest"
+        description="Traditional seasonal Christmas lights for your roofline, trees, bushes, and columns, professionally installed in Greater Seattle. Installs start at $800."
       />
       <StructuredData data={serviceSchema} />
       <StructuredData data={localBusinessSchema} />
@@ -128,10 +128,10 @@ export default function ServicesPage() {
           <div className="mx-auto max-w-4xl px-6 text-center">
             <p className="mb-4 text-sm font-medium text-primary">Christmas lighting in Greater Seattle</p>
             <h1 className="font-serif text-4xl font-medium leading-tight tracking-tight text-foreground md:text-6xl">
-              Christmas lights,<br className="hidden sm:block" /> taken care of.
+              Traditional Christmas lights,<br className="hidden sm:block" /> professionally installed.
             </h1>
             <p className="mx-auto mt-5 max-w-2xl text-lg leading-7 text-muted-foreground">
-              We install, maintain, take down, and store your lights. You enjoy the season.
+              Up for the season, down after the holidays. You never touch a ladder.
             </p>
             <div className="mt-7 flex flex-col items-center justify-center gap-4 sm:flex-row sm:gap-6">
               <Button onClick={goToQuote} size="lg" className="w-full font-semibold sm:w-auto" data-testid="button-services-hero-quote">

@@ -64,7 +64,7 @@ export default function ServiceAreasPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
-        title="Service Areas | Christmas Northwest"
+        title="Christmas Light Installation Service Areas | Christmas Northwest"
         description="Where Christmas Northwest installs holiday lighting: Kenmore, Kirkland, Bothell, Woodinville, Bellevue, Redmond, Sammamish, and nearby cities."
       />
       <UrgencyBanner />

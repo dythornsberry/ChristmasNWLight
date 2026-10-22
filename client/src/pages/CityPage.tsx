@@ -210,8 +210,8 @@ export default function CityPage({
   return (
     <>
       <PageHead
-        title={`Christmas Light Installation ${cityName} WA | Christmas Northwest`}
-        description={`Professional Christmas light installation in ${cityName}, WA. Design, installation, maintenance, takedown, and storage with commercial-grade LED lights.`}
+        title={`Christmas Light Installation in ${cityName}, WA | Christmas Northwest`}
+        description={`Professional Christmas and holiday light installation in ${cityName}, WA. Installs start at $800, with repairs, takedown, and storage included.`}
       />
 
       {/* BreadcrumbList Schema */}

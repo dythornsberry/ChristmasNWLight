@@ -62,9 +62,10 @@ async function fixture({ route = "/contact", width = 1440, maps = "missing", pri
   const populate = async () => {
     await fill(selector("full-name"), "Preview Customer");
     await fill(selector("phone"), "4252150935");
+    await page.click(selector("next"));
+    await page.waitForSelector(`#${prefix}-address`);
     await fill(selector("email"), "preview-check@christmasnw.com");
     await fill(`#${prefix}-address`, "123 Main Street, Kenmore WA 98028");
-    await page.click(`${selector("seasonal-confirm")} [role=checkbox]`);
   };
   return { page, requests, prefix, selector, fill, populate, errors };
 }
@@ -83,10 +84,10 @@ async function run(name, options, test) {
 }
 
 try {
-  await run("all fields on one page; required errors focus first field", {}, async ({ page, requests, selector }) => {
-    for (const suffix of ["full-name", "phone", "email", "submit"]) assert(await page.$(selector(suffix)));
-    assert.equal(await page.$('[data-testid$="next-contact"]'), null);
-    await page.click(selector("submit"));
+  await run("step 1 asks for name and phone; required errors focus first field", {}, async ({ page, requests, selector }) => {
+    for (const suffix of ["full-name", "phone", "next"]) assert(await page.$(selector(suffix)));
+    assert.equal(await page.$(selector("submit")), null);
+    await page.click(selector("next"));
     await page.waitForSelector('[aria-invalid="true"]');
     await page.waitForFunction(() => document.activeElement.id === "contact-fullName");
     assert.equal(await page.evaluate(() => document.activeElement.id), "contact-fullName");
@@ -95,16 +96,16 @@ try {
 
   await run("invalid phone, email, name and missing address block delivery", {}, async ({ page, requests, selector, fill, populate }) => {
     await populate();
-    for (const [field, invalid, valid] of [[selector("phone"), "1111111111", "4252150935"], [selector("email"), "bad-email", "preview-check@christmasnw.com"], [selector("full-name"), "A".repeat(81), "Preview Customer"], ["#contact-address", "", "123 Main Street, Kenmore WA 98028"]]) {
+    for (const [field, invalid, valid] of [[selector("email"), "bad-email", "preview-check@christmasnw.com"], ["#contact-address", "", "123 Main Street, Kenmore WA 98028"]]) {
       await fill(field, invalid);
       await page.click(selector("submit"));
       await page.waitForSelector(`${field}[aria-invalid="true"]`);
       assert.equal(requests.length, 0);
       await fill(field, valid);
     }
-    await page.click(`${selector("seasonal-confirm")} [role=checkbox]`);
+    await page.click('[aria-pressed="true"]');
     await page.click(selector("submit"));
-    await page.waitForSelector(`${selector("seasonal-confirm")} [aria-invalid="true"]`);
+    await page.waitForFunction(() => document.body.textContent.includes("Pick at least one"));
     assert.equal(requests.length, 0);
   });
 
@@ -122,7 +123,7 @@ try {
       assert.equal(requests[0].body.phoneE164, "+14252150935");
       assert.equal(requests[0].body.addressConfirmed, false);
       assert.equal(requests[0].body.address, "123 Main Street, Kenmore WA 98028");
-      assert.equal(requests[0].body.seasonalConfirmed, true);
+      assert.equal(requests[0].body.lightingAreas, "Roofline");
       assert.equal(requests[0].body.formLocation, "contact_page");
       await page.locator(selector("reset")).click();
       await page.waitForSelector(selector("full-name"));

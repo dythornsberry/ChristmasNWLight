@@ -18,7 +18,7 @@ const contactBusinessSchema = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "name": "Christmas Northwest",
-  "description": "Professional seasonal Christmas light installation for Seattle and the Eastside — design, installation, maintenance, takedown, and storage.",
+  "description": "Professional seasonal Christmas light installation for Seattle and the Eastside. Installs start at $800.",
   "url": "https://christmasnw.com/contact",
   "telephone": "+14252150935",
   "email": "christmaslightsnw@gmail.com",
@@ -57,8 +57,8 @@ export default function ContactPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
-        title="Contact Christmas Northwest | Request a Christmas Lighting Quote"
-        description="Get a free Christmas lighting quote in Greater Seattle. Displays from $800, with installation, maintenance, takedown, and storage included."
+        title="Get a Christmas Lights Quote | Christmas Northwest, Seattle"
+        description="Free quote for professional Christmas light installation in Seattle and the Eastside. Installs start at $800. Call (425) 215-0935."
       />
       <StructuredData data={contactBusinessSchema} />
       <UrgencyBanner />
@@ -72,16 +72,15 @@ export default function ContactPage() {
                 Get a Christmas lighting quote
               </h1>
               <p className="mb-4 text-base leading-7 text-muted-foreground">
-                We install, maintain, take down, and store your lights. One team, all season.
+                Tell us about your home and we'll get back to you with a quote.
               </p>
-              <p className="font-semibold text-primary">Starting at $800 <span aria-hidden="true">·</span> Licensed & insured</p>
             </div>
 
             <div className="grid gap-6 lg:grid-cols-3 lg:gap-8">
               <div className="scroll-mt-28 lg:col-span-2" id={formId}>
                 <LeadFormCard
-                  title="Get a Quote"
-                  description="We'll review your property and follow up with a free quote."
+                  title="Get a free quote"
+                  description=""
                   submitLabel="Get a Quote"
                   successTitle="Thanks. We’ve got your request."
                   successDescription="We'll be in touch to discuss your lights and quote."

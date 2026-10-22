@@ -22,6 +22,7 @@ export async function onRequestPost(context) {
       address,
       zipCode,
       serviceType,
+      lightingAreas,
       source,
       submittedAt,
     } = await context.request.json();
@@ -39,7 +40,7 @@ export async function onRequestPost(context) {
     const emailHtml = `
       <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
         <h2 style="color: #1a5276; border-bottom: 2px solid #c0392b; padding-bottom: 10px;">
-          🎄 New Quote Request — Christmas Northwest
+          🎄 New Quote Request: Christmas Northwest
         </h2>
         <table style="width: 100%; border-collapse: collapse; margin-top: 15px;">
           <tr style="background: #f8f9fa;">
@@ -67,10 +68,14 @@ export async function onRequestPost(context) {
             <td style="padding: 10px;">${serviceType || 'N/A'}</td>
           </tr>
           <tr style="background: #f8f9fa;">
+            <td style="padding: 10px; font-weight: bold;">Wants lit up</td>
+            <td style="padding: 10px;">${lightingAreas || 'N/A'}</td>
+          </tr>
+          <tr>
             <td style="padding: 10px; font-weight: bold;">Source</td>
             <td style="padding: 10px;">${source || 'christmasnw.com'}</td>
           </tr>
-          <tr>
+          <tr style="background: #f8f9fa;">
             <td style="padding: 10px; font-weight: bold;">Submitted</td>
             <td style="padding: 10px;">${submittedAt ? new Date(submittedAt).toLocaleString('en-US', { timeZone: 'America/Los_Angeles' }) : 'N/A'}</td>
           </tr>

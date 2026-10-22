@@ -61,7 +61,7 @@ export default function TestimonialsPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
-        title="Customer Reviews | Christmas Northwest"
+        title="Christmas Light Installation Reviews | Christmas Northwest"
         description="Christmas Northwest reviews from homeowners and commercial clients across Kenmore, Kirkland, Bothell, Bellevue, and Greater Seattle."
         path="/testimonials"
       />

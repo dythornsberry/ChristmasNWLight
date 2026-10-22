@@ -7,18 +7,16 @@ import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
 import CTABanner from "@/components/CTABanner";
 
-import c9RooflinePhoto from '@assets/81s3L7gNl1L_optimized.webp';
-import miniLightsPhoto from '@assets/Incan-Clear-6x15-Column-Wrap-02-lifestyle_1762096913912.jpg';
+import c9RooflinePhoto from '@assets/optimized/portfolio-gables.webp';
+import miniLightsPhoto from '@assets/IMG_0581-min_optimized.webp';
 import warmWhiteBushEstate from '@assets/optimized/portfolio-warm-white.webp';
-import groundLightsPhoto from '@assets/Ground-Lighting-Installation-Fort-Collins-CO_1762096982865.jpg';
-import treeWrapsPhoto from '@assets/81yZtNElctL_optimized.webp';
+import treeWrapsPhoto from '@assets/IMG_7468-min_optimized.webp';
 import lightSpheresPhoto from '@assets/spritzers_1762145407991.jpg';
 
 const products = [
   { name: "Roofline lights", image: c9RooflinePhoto, description: "C9 bulbs for a crisp outline along gutters and peaks." },
   { name: "Mini lights", image: miniLightsPhoto, description: "Small lights wrapped around columns, railings, and branches." },
   { name: "Bush & shrub lights", image: warmWhiteBushEstate, description: "An even layer of light across your front-yard greenery." },
-  { name: "Pathway lights", image: groundLightsPhoto, description: "Staked bulbs along walkways, driveways, and garden beds." },
   { name: "Tree wraps", image: treeWrapsPhoto, description: "Lights wrapped around trunks and branches." },
   { name: "Light spheres", image: lightSpheresPhoto, description: "Glowing spheres hung among tree branches." },
 ];
@@ -32,7 +30,7 @@ export default function ProductGuide() {
 
   return (
     <div className="min-h-screen bg-background pb-24 md:pb-0">
-      <PageHead title="Our Christmas Lights | Christmas Northwest" description="See the lights we use for rooflines, trees, shrubs, and pathways. Installation, maintenance, takedown, and storage handled for you." />
+      <PageHead title="Our Christmas Lights | Christmas Northwest" description="The commercial-grade Christmas lights we use on rooflines, trees, and bushes, and how warm white and multicolor look on real homes." />
       <UrgencyBanner />
       <StickyHeader onGetQuote={goToQuote} />
       <main>

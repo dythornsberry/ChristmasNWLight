@@ -98,8 +98,8 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
-        title="About Christmas Northwest | Holiday Lighting Experts in Greater Seattle"
-        description={`Meet Christmas Northwest, a local Greater Seattle team providing Christmas light design, installation, maintenance, takedown, and storage since ${FIRST_SEASON_YEAR}.`}
+        title="About Christmas Northwest | Local Christmas Light Installers"
+        description={`Meet Dylan and the Christmas Northwest crew, local Christmas light installers lighting homes across Greater Seattle since ${FIRST_SEASON_YEAR}.`}
       />
       <StructuredData data={localBusinessSchema} />
       <script

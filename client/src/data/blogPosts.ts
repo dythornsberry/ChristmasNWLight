@@ -21,57 +21,6 @@ export function formatBlogDate(value: string, format: "short" | "long" = "short"
 
 export const blogPosts: BlogPost[] = [
   {
-    id: 1,
-    title: "Top 5 Christmas Lighting Trends for 2026",
-    slug: "christmas-lighting-trends-2026",
-    excerpt: "Five lighting approaches we expect to see more often in Seattle-area installations this season.",
-    category: "Trends",
-    publishDate: "2026-01-15",
-    readTime: "5 min read",
-    metaDescription: "Explore the top Christmas lighting trends for 2026 in Seattle. From icicle effects to smart LED systems, learn what's trending this holiday season.",
-    content: `
-The holiday season is almost here, and homeowners across the Greater Seattle area are already planning their Christmas light displays. This year brings some exciting new trends that blend classic elegance with modern technology.
-
-## 1. All-White LED Displays with Texture
-
-Forget the days of multicolor chaos. The biggest trend we're seeing this year is sophisticated all-white displays that create texture through placement and bulb variety. Think warm white C9 bulbs along the roofline, paired with cool white mini lights in the trees and bushes. The contrast creates depth without feeling busy.
-
-Mixing warm white roofline bulbs with a second texture on shrubs or trees can add depth without adding more colors. The effect is easiest to control when each layer has a clear purpose.
-
-## 2. Icicle and Cascading Effects
-
-Icicle lights are making a major comeback, but not the tangled mess from the 90s. Modern LED icicle lights are programmable, durable, and create that magical dripping effect without looking dated.
-
-We're installing a lot of these on homes with prominent eaves in areas like Woodinville and Bothell. The key is professional spacing and secure installation so they hang perfectly straight. When done right, they look like natural ice formations catching the light.
-
-## 3. Smart LED Systems
-
-Smart lighting isn't just for inside your home anymore. This year, more clients are requesting app-controlled exterior lighting that can change colors, patterns, and brightness from their phones.
-
-The benefit? You can adjust your display for different occasions. Go with traditional red and green for Christmas, switch to blue and white for Hanukkah gatherings, or tone everything down to warm white for a quiet evening. Some systems even sync with music, though we recommend keeping that feature for special occasions unless you want to become "that house" on the block.
-
-## 4. Architectural Highlighting
-
-Instead of covering every surface, the trend is toward strategic highlighting. We're doing a lot of accent lighting that emphasizes your home's best architectural features: columns, arches, window frames, and rooflines.
-
-This approach works especially well on newer homes in areas like Downtown Bellevue or Somerset that have interesting architectural details. Less is more when you're drawing attention to craftsmanship rather than hiding it under a blanket of lights.
-
-## 5. Sustainable and Long-Lasting Materials
-
-Commercial-grade LEDs are built for repeated outdoor use and are easier for an installation team to service than mixed consumer-grade strands.
-
-Yes, the upfront cost is higher. But when you factor in replacement costs, energy savings, and the hassle of dealing with burnouts mid-season, quality LEDs pay for themselves. Plus, they're better for the environment.
-
-## What This Means for Your Home
-
-You don't need to follow every trend. Pick one or two that match your home's style and your personal taste. A classic roofline of warm white C9 bulbs never goes out of style, even if you add a trendy icicle effect along the eaves.
-
-The most important thing? Professional installation. Even the best lights look terrible if they're crooked, uneven, or fall down in the first windstorm. That's where we come in.
-
-If you are planning a display for this season, choose the ideas that fit your home and ask for a quote early enough to compare design and scheduling options.
-    `
-  },
-  {
     id: 2,
     title: "How to Choose Between Warm White and Multicolor Lights",
     seoTitle: "Warm White vs Multicolor Christmas Lights",
@@ -201,7 +150,7 @@ Spacing matters. We measure and mark clip placement to ensure perfectly even spa
 
 ### 3. Accent Lighting (1-2 hours)
 
-This includes wrapping columns, outlining windows and doors, lighting trees and shrubs, or adding any special features like icicle lights or pathway lighting.
+This includes wrapping columns, outlining windows and doors, lighting trees and shrubs, or adding special features like wreaths and garland.
 
 Different features require different techniques. Wrapping a tree properly takes skill to get consistent coverage without gaps or bunching. Window outlines need to be perfectly square and level.
 
@@ -276,7 +225,7 @@ Ready to skip the ladder and enjoy the holidays? We're booking installations now
   {
     id: 4,
     title: "Why You Should Book Your Christmas Lights in September (Insider Tips)",
-    seoTitle: "Book Christmas Lights in September — Here's Why",
+    seoTitle: "Book Christmas Lights in September: Here's Why",
     slug: "book-christmas-lights-september",
     excerpt: "See how booking earlier affects design time, material choices, and available installation windows.",
     category: "Planning",
@@ -665,16 +614,16 @@ The electrical plan depends on the product specifications, total load, outlet lo
 
 These four scopes match the examples on our pricing page and make it easier to compare levels of coverage:
 
-### Clean Roofline — Starting Around $800
+### Clean Roofline: Starting Around $800
 A fitted roofline on a smaller or straightforward home, with installation, maintenance, takedown, and storage included.
 
-### Roofline + Accents — Around $1,000-$2,000
+### Roofline + Accents: Around $1,000-$2,000
 Roofline lighting plus selected features such as a wreath, entry detail, bushes, or a small tree.
 
-### Full-Property Display — Around $2,500-$3,500
+### Full-Property Display: Around $2,500-$3,500
 Broader roofline coverage combined with multiple landscape or tree elements across the front of the property.
 
-### Large Custom Display — $4,000+
+### Large Custom Display: $4,000+
 Multi-level rooflines, extensive tree or landscape wrapping, specialty access, or several coordinated display zones.
 
 The exact quote can move up or down based on footage, access, roof material, tree size, and the amount of detail requested.
@@ -714,7 +663,7 @@ When you book with us, the investment includes:
 
 **Electrical issues**: If your outlets aren't where we need them or aren't functioning properly, we might need to recommend electrician involvement. That's separate cost but necessary for safety.
 
-**Custom features**: Programmable lights, synchronized animations, or specialty effects add cost beyond basic installation.
+**Extra features**: Large wreaths, garland, extra trees, or other add-ons cost more than a basic roofline.
 
 **Material choice**: We offer options. Our base pricing is for commercial-grade C9 or mini LED strings. Specialty bulbs or upgraded options cost more.
 

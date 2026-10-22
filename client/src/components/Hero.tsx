@@ -16,7 +16,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
         <source media="(max-width: 639px)" srcSet={heroImageMobile} />
         <img
           src={heroImage}
-          alt="Christmas Northwest installation with warm white rooflines, a wreath, wrapped columns, and a lit walkway"
+          alt="Christmas Northwest installation with warm white rooflines, a wreath, and wrapped columns"
           width={1600}
           height={1000}
           loading="eager"
@@ -27,9 +27,9 @@ export default function Hero({ onGetQuote }: HeroProps) {
       </picture>
       <div className="home-hero-shade" aria-hidden="true" />
       <div className="home-container home-hero-content">
-        <p className="home-eyebrow">Christmas light installation / Seattle &amp; Eastside</p>
-        <h1 id="home-title">Christmas<br />Northwest</h1>
-        <p className="home-hero-description">Custom lighting for your home.<br />Installation to takedown, all handled.</p>
+        <p className="home-eyebrow">Christmas Northwest / Seasonal holiday lighting</p>
+        <h1 id="home-title">Christmas light installation in Seattle &amp; the Eastside</h1>
+        <p className="home-hero-description">A beautiful home for the holidays.<br />You never touch a ladder.</p>
         <div className="home-hero-actions">
           <Button onClick={onGetQuote} size="lg" className="home-quote-button" data-testid="button-hero-cta">
             Get a Quote <ArrowRight aria-hidden="true" />
