@@ -22,7 +22,7 @@ export default function HomeTeam() {
         <div>
           <p className="home-eyebrow">Based here. Lighting homes here.</p>
           <h2 id="home-team-title">Meet Christmas Northwest.</h2>
-          <p>We're Dylan and the Christmas Northwest team, lighting homes across Greater Seattle since {FIRST_SEASON_YEAR}. From the first installation to takedown, you know who to call.</p>
+          <p>I'm Dylan. My crew and I have been lighting homes around Seattle and the Eastside since {FIRST_SEASON_YEAR}. If a light goes out, text us and we'll fix it.</p>
           <p className="home-team-credential"><ShieldCheck aria-hidden="true" /> Licensed, bonded &amp; insured</p>
           <Link href="/about" className="home-text-link" data-testid="link-home-team">Meet our team <ArrowRight aria-hidden="true" /></Link>
         </div>

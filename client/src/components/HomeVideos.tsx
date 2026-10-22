@@ -16,7 +16,7 @@ export default function HomeVideos() {
           </a>
         </div>
         <div className="home-videos-grid">
-          {VIDEO_SHOWCASE_ITEMS.map((item) => (
+          {VIDEO_SHOWCASE_ITEMS.slice(0, 3).map((item) => (
             <VideoShowcaseCard key={item.id} item={item} />
           ))}
         </div>

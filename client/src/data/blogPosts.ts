@@ -564,7 +564,7 @@ Professional Christmas light installation is priced around the property, access,
 
 For professional Christmas light installation in the Greater Seattle area, projects start around $800 and increase with property size, access, and coverage.
 
-- **Clean roofline**: starting around $800 for a straightforward roofline with easy access
+- **Clean roofline**: starting around $800 for a clean roofline with easy access
 - **Roofline plus accents**: around $1,000-$2,000 for added wreaths, bushes, or entry features
 - **Full-property display**: around $2,500-$3,500 for broader roofline and landscape coverage
 - **Large custom display**: $4,000+ for extensive rooflines, trees, landscaping, and custom features
@@ -615,7 +615,7 @@ The electrical plan depends on the product specifications, total load, outlet lo
 These four scopes match the examples on our pricing page and make it easier to compare levels of coverage:
 
 ### Clean Roofline: Starting Around $800
-A fitted roofline on a smaller or straightforward home, with installation, maintenance, takedown, and storage included.
+Clean roofline, with free fixes and takedown included.
 
 ### Roofline + Accents: Around $1,000-$2,000
 Roofline lighting plus selected features such as a wreath, entry detail, bushes, or a small tree.

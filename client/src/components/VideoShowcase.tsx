@@ -13,12 +13,20 @@ export interface VideoShowcaseItem {
 // Shared by the homepage and gallery. The YouTube iframe only loads after a click.
 export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
   {
-    id: "newcastle-roofline",
-    title: "Full Home Install",
+    id: "newcastle-warm-white",
+    title: "Warm White Roofline",
     location: "Newcastle, WA",
-    description: "Rooflines, peaks, and trees on a big Newcastle home, start to finish.",
-    youtubeId: "43lIbZXQYA0",
-    uploadDate: "2025-11-28T21:46:45-08:00",
+    description: "A clean warm white roofline install, start to finish.",
+    youtubeId: "AUn5oqnHJ_0",
+    uploadDate: "2026-10-21T22:25:13-07:00",
+  },
+  {
+    id: "yarrow-point-warm-white",
+    title: "Warm White Home",
+    location: "Yarrow Point, WA",
+    description: "Warm white rooflines on a Yarrow Point home.",
+    youtubeId: "5R1g4qEUPzo",
+    uploadDate: "2026-10-21T22:21:01-07:00",
   },
   {
     id: "tree-woodinville",
@@ -35,6 +43,14 @@ export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     description: "A full multicolor roofline and tree for a bold look.",
     youtubeId: "mfZ_QQIDusE",
     uploadDate: "2024-11-25T12:00:00Z",
+  },
+  {
+    id: "halloween-bellevue",
+    title: "Halloween Display",
+    location: "Bellevue, WA",
+    description: "A big Halloween install we did in Bellevue.",
+    youtubeId: "qcnKBhSJQW4",
+    uploadDate: "2024-10-15T12:00:00Z",
   },
 ];
 
