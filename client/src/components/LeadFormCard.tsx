@@ -23,13 +23,14 @@ import {
 import { cn } from "@/lib/utils";
 import dylanPhoto from "@assets/optimized/dylan-avatar-96.webp";
 
-// Ordered by how often each shows up on real quotes; roofline is the base of nearly every job.
+// Ordered by how often each add-on sells on real Jobber jobs (2023-2026); roofline is on 94% of installs.
 export const LIGHTING_AREAS = [
   "Roofline",
   "Trees",
+  "Garage",
+  "Columns, pillars & railings",
   "Bushes & shrubs",
   "Wreaths & garland",
-  "Columns, pillars & railings",
   "Large or custom display",
   "Not sure yet",
 ] as const;
