@@ -95,6 +95,14 @@ export default function StickyHeader({ onGetQuote }: StickyHeaderProps) {
               <Phone className="w-4 h-4" />
               <span className="hidden sm:inline">(425) 215-0935</span>
             </a>
+            <a
+              href="tel:4252150935"
+              className="inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground hover-elevate active-elevate-2 md:hidden"
+              aria-label="Call Christmas Northwest at (425) 215-0935"
+              data-testid="link-header-phone-mobile"
+            >
+              <Phone className="h-5 w-5" aria-hidden="true" />
+            </a>
             <Button 
               onClick={onGetQuote}
               className="inline-flex h-11 bg-primary px-4 text-sm font-semibold text-primary-foreground md:px-6"

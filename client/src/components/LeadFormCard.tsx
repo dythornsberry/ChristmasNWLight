@@ -21,6 +21,7 @@ import {
   toE164,
 } from "@/lib/leads";
 import { cn } from "@/lib/utils";
+import dylanPhoto from "@assets/optimized/dylan-avatar-96.webp";
 
 // Ordered by how often each shows up on real quotes; roofline is the base of nearly every job.
 export const LIGHTING_AREAS = [
@@ -237,6 +238,20 @@ export default function LeadFormCard({
           <div className="mb-5">
             <h2 className="font-serif text-2xl font-bold text-foreground">{title}</h2>
             {description ? <p className="mt-2 text-sm leading-6 text-muted-foreground">{description}</p> : null}
+            <div className="mt-4 flex items-center gap-3" data-testid={`${testIdPrefix}-owner`}>
+              <img
+                src={dylanPhoto}
+                alt="Dylan Thornsberry, owner of Christmas Northwest"
+                width={48}
+                height={48}
+                loading="lazy"
+                decoding="async"
+                className="h-12 w-12 shrink-0 rounded-full object-cover"
+              />
+              <p className="text-sm leading-5 text-muted-foreground">
+                <span className="font-semibold text-foreground">Dylan, owner.</span> You'll hear back from me.
+              </p>
+            </div>
             <p className="mt-3 text-sm leading-6 text-foreground" data-testid={`${testIdPrefix}-seasonal-note`}>
               Traditional Christmas lights, installed for the season and taken down after the holidays.{" "}
               <span className="font-semibold">Installs start at $800.</span>

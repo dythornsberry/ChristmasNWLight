@@ -46,7 +46,7 @@
 .home-services-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; }
 .home-services-grid li { padding-top: 22px; border-top: 1px solid #d6d6d4; }
 .home-services-grid svg { width: 25px; height: 25px; color: hsl(var(--brand-teal)); stroke-width: 1.5; }
-.home-services-grid h3 { margin-top: 18px; font-size: 16px; font-weight: 600; line-height: 1.5; }
+.home-services-grid h3 { font-size: 16px; font-weight: 600; line-height: 1.5; }
 .home-services-grid p { margin-top: 8px; font-size: 15px; line-height: 1.6; color: hsl(var(--muted-foreground)); }
 .home-pricing { border-bottom: 1px solid hsl(var(--border)); }
 .home-pricing-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 28px; }

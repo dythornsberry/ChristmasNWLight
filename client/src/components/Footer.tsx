@@ -1,4 +1,5 @@
 import { Facebook, Instagram, Youtube } from "lucide-react";
+import { YOUTUBE_URL } from "@/lib/business";
 import { SiGoogle } from "react-icons/si";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
@@ -72,7 +73,7 @@ export default function Footer() {
                 <Instagram className="w-4 h-4" aria-hidden="true" />
               </a>
               <a 
-                href="https://youtube.com/@christmasnw?si=N5gu7fRN9vyEFMUd" 
+                href={YOUTUBE_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 aria-label="Visit our YouTube channel"
