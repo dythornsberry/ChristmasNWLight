@@ -255,7 +255,7 @@ export default function LeadFormCard({
             </div>
             <p className="mt-3 text-sm leading-6 text-foreground" data-testid={`${testIdPrefix}-seasonal-note`}>
               Traditional Christmas lights, installed for the season and taken down after the holidays.{" "}
-              <span className="font-semibold">Installs start at $800.</span>
+              <span className="font-semibold">Installs start at $800.</span> Most are up within a week.
             </p>
           </div>
 

@@ -14,8 +14,19 @@ export default function PricingPreview() {
         </div>
         <div className="home-pricing-grid">
           {pricingExamples.map((example) => (
-            <div key={example.id} className="border-t border-border py-5" data-testid={`home-pricing-${example.id}`}>
-              <h3 className="text-sm font-medium text-muted-foreground">{example.name}</h3>
+            <div key={example.id} data-testid={`home-pricing-${example.id}`}>
+              <div className="home-pricing-photo">
+                <img
+                  src={example.image}
+                  alt={example.imageAlt}
+                  className={example.imageClassName}
+                  width={600}
+                  height={450}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <h3>{example.name}</h3>
               <p className="home-price">{example.range}</p>
             </div>
           ))}

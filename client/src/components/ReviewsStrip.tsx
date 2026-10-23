@@ -4,7 +4,10 @@ import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 // Short, verbatim lines pulled from real Google reviews (full text in data/testimonials.ts).
 const FEATURED_REVIEWS = [
   { name: "Kyle", text: "Dylan and the crew went above and beyond." },
+  { name: "Shawn", text: "These lights not only made my wife love me again but they also gave us the best looking house on the block!" },
   { name: "Nancy", text: "Lights look amazing, everyone has been most kind and responsive." },
+  { name: "Barbara", text: "Dylan and his team are very responsive, easy to work with, and professional." },
+  { name: "Dana", text: "Great experience, customer service, communication, pricing and follow through." },
   { name: "Sandy", text: "Exceptional customer service from a local company!" },
 ];
 

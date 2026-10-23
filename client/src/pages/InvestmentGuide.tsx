@@ -8,15 +8,6 @@ import CTABanner from "@/components/CTABanner";
 import { useLocation } from "wouter";
 import { pricingExamples } from "@/lib/pricing";
 
-import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
-import signaturePhoto from '@assets/2024-11-11-2-min_1762058047476.jpg';
-import warmWhiteBushEstate from '@assets/optimized/portfolio-warm-white.webp';
-import largeCustomDisplay from '@assets/optimized/large-custom-display-night.webp';
-
-const pricingImages = [modernTwoStoryRoofline, signaturePhoto, warmWhiteBushEstate, largeCustomDisplay];
-const pricingTiers = pricingExamples.map((example, index) => ({ ...example, image: pricingImages[index] }));
-
-
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();
   const goToQuote = () => {
@@ -42,13 +33,13 @@ export default function InvestmentGuide() {
               </p>
             </div>
             <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-4">
-              {pricingTiers.map((tier) => (
+              {pricingExamples.map((tier) => (
                 <article key={tier.id} data-testid={`card-pricing-${tier.id}`}>
                   <div className="aspect-video overflow-hidden rounded-lg bg-muted">
                     <img
                       src={tier.image}
-                      alt={tier.id === 4 ? "Large custom Christmas lighting installation with roofline, tree, and landscape lights, edited for a nighttime appearance" : `${tier.name} Christmas lighting example`}
-                      className={`h-full w-full object-cover${tier.id === 4 ? " origin-[90%_85%] scale-[1.4]" : ""}`}
+                      alt={tier.imageAlt}
+                      className={`h-full w-full object-cover ${tier.imageClassName}`}
                       width={720}
                       height={405}
                       loading="lazy"

@@ -10,6 +10,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, Shield, Clock, MapPin, Sparkles, TreePine } from "lucide-react";
 import VideoShowcaseCard, { VIDEO_SHOWCASE_ITEMS } from "@/components/VideoShowcase";
+import { getCityPhotos } from "@/data/installPhotos";
 import { FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
 const CITY_SERVICE_OPTIONS: LeadServiceOption[] = [
@@ -114,6 +115,7 @@ export default function CityPage({
   videoId,
 }: CityPageProps) {
   const localVideo = VIDEO_SHOWCASE_ITEMS.find((item) => item.id === videoId);
+  const { photos: installPhotos, isLocal: hasLocalPhotos } = getCityPhotos(citySlug, cityName);
   const scrollToQuote = () => {
     const element = document.getElementById('quote');
     if (element) {
@@ -290,6 +292,26 @@ export default function CityPage({
                 responseNote="Thanks. We'll be in touch soon to talk through your project."
                 testIdPrefix={`city-${citySlug}`}
               />
+            </div>
+          </section>
+
+          <section className="py-16 bg-background" aria-labelledby="installs-heading" data-testid="city-photos">
+            <div className="max-w-6xl mx-auto px-6">
+              <div className="flex flex-wrap items-end justify-between gap-4">
+                <h2 id="installs-heading" className="font-serif text-3xl md:text-4xl font-bold text-foreground">
+                  {hasLocalPhotos ? `Recent installs in ${cityName}` : "Recent installs"}
+                </h2>
+                <Link href="/gallery" className="text-base font-semibold text-primary underline-offset-4 hover:underline">
+                  See the gallery
+                </Link>
+              </div>
+              <div className="-mx-6 mt-8 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:scroll-px-0">
+                {installPhotos.map((photo) => (
+                  <div key={photo.src} className="aspect-[4/3] w-[80%] shrink-0 snap-start overflow-hidden rounded-lg bg-muted md:w-auto">
+                    <img src={photo.src} alt={photo.alt} className="h-full w-full object-cover" width={800} height={600} loading="lazy" decoding="async" />
+                  </div>
+                ))}
+              </div>
             </div>
           </section>
 

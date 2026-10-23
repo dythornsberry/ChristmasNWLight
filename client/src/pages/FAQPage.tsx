@@ -72,7 +72,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "How soon can you install?",
-          answer: "Usually within 1 to 2 weeks of approving your quote. November fills up fastest, so earlier is easier. We schedule by neighborhood and text you the day before."
+          answer: "Most installs happen within a week of approving your quote. We schedule by neighborhood and text you the day before."
         },
         {
           question: "When do you take them down?",
