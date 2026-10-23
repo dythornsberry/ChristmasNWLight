@@ -34,11 +34,11 @@ export default function FAQPage() {
         },
         {
           question: "Can you match a cheaper quote?",
-          answer: "We don't price match. Our price covers commercial-grade lights, a clean install, free fixes all season, and takedown. Booking early and our 3-year plan are the best ways to save."
+          answer: "We don't price match. Our price covers commercial-grade lights, a clean install, free fixes all season, and takedown. Booking early is the best way to save."
         },
         {
           question: "How does payment work?",
-          answer: "A deposit holds your install date. The rest is due after install, by credit or debit card."
+          answer: "New customers pay a 50% deposit to hold an install date. The rest is due after install, by credit or debit card."
         }
       ]
     },
@@ -206,7 +206,7 @@ export default function FAQPage() {
                 <h2 className="mb-6 font-serif text-xl font-bold text-foreground sm:text-2xl md:text-3xl">
                   {category.category}
                 </h2>
-                <Accordion type="single" collapsible className="space-y-4">
+                <Accordion type="single" collapsible className="faq-answers space-y-4">
                   {category.questions.map((faq, questionIndex) => (
                     <AccordionItem
                       key={questionIndex}
@@ -217,7 +217,7 @@ export default function FAQPage() {
                       <AccordionTrigger className="text-left text-base font-semibold text-foreground hover:text-primary sm:text-lg">
                         {faq.question}
                       </AccordionTrigger>
-                      <AccordionContent className="text-sm leading-7 text-muted-foreground sm:text-base">
+                      <AccordionContent forceMount className="text-sm leading-7 text-muted-foreground sm:text-base">
                         {faq.answer}
                       </AccordionContent>
                     </AccordionItem>

@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Check, Star, Shield, Clock, MapPin, Sparkles, TreePine } from "lucide-react";
+import VideoShowcaseCard, { VIDEO_SHOWCASE_ITEMS } from "@/components/VideoShowcase";
 import { FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
 
 const CITY_SERVICE_OPTIONS: LeadServiceOption[] = [
@@ -18,16 +19,16 @@ const CITY_SERVICE_OPTIONS: LeadServiceOption[] = [
 
 const nearbyCitiesMap: Record<string, { name: string; slug: string }[]> = {
   seattle: [
-    { name: "Shoreline", slug: "shoreline" },
-    { name: "Kenmore", slug: "kenmore" },
     { name: "Kirkland", slug: "kirkland" },
     { name: "Bellevue", slug: "bellevue" },
+    { name: "Edmonds", slug: "edmonds" },
+    { name: "Kenmore", slug: "kenmore" },
   ],
   bellevue: [
     { name: "Kirkland", slug: "kirkland" },
     { name: "Redmond", slug: "redmond" },
-    { name: "Newcastle", slug: "newcastle" },
     { name: "Mercer Island", slug: "mercer-island" },
+    { name: "Issaquah", slug: "issaquah" },
   ],
   kirkland: [
     { name: "Bellevue", slug: "bellevue" },
@@ -39,19 +40,19 @@ const nearbyCitiesMap: Record<string, { name: string; slug: string }[]> = {
     { name: "Kenmore", slug: "kenmore" },
     { name: "Woodinville", slug: "woodinville" },
     { name: "Kirkland", slug: "kirkland" },
-    { name: "Mill Creek", slug: "mill-creek" },
+    { name: "Snohomish", slug: "snohomish" },
   ],
   kenmore: [
     { name: "Bothell", slug: "bothell" },
-    { name: "Shoreline", slug: "shoreline" },
-    { name: "Lake Forest Park", slug: "lake-forest-park" },
     { name: "Kirkland", slug: "kirkland" },
+    { name: "Seattle", slug: "seattle" },
+    { name: "Edmonds", slug: "edmonds" },
   ],
   woodinville: [
     { name: "Kirkland", slug: "kirkland" },
     { name: "Bothell", slug: "bothell" },
     { name: "Redmond", slug: "redmond" },
-    { name: "Sammamish", slug: "sammamish" },
+    { name: "Snohomish", slug: "snohomish" },
   ],
   redmond: [
     { name: "Bellevue", slug: "bellevue" },
@@ -65,40 +66,28 @@ const nearbyCitiesMap: Record<string, { name: string; slug: string }[]> = {
     { name: "Bellevue", slug: "bellevue" },
     { name: "Woodinville", slug: "woodinville" },
   ],
-  newcastle: [
-    { name: "Bellevue", slug: "bellevue" },
-    { name: "Mercer Island", slug: "mercer-island" },
-    { name: "Issaquah", slug: "issaquah" },
-    { name: "Redmond", slug: "redmond" },
-  ],
   "mercer-island": [
     { name: "Bellevue", slug: "bellevue" },
-    { name: "Newcastle", slug: "newcastle" },
     { name: "Seattle", slug: "seattle" },
     { name: "Issaquah", slug: "issaquah" },
-  ],
-  shoreline: [
-    { name: "Seattle", slug: "seattle" },
-    { name: "Kenmore", slug: "kenmore" },
-    { name: "Lake Forest Park", slug: "lake-forest-park" },
-    { name: "Bothell", slug: "bothell" },
-  ],
-  "lake-forest-park": [
-    { name: "Kenmore", slug: "kenmore" },
-    { name: "Shoreline", slug: "shoreline" },
-    { name: "Bothell", slug: "bothell" },
-    { name: "Seattle", slug: "seattle" },
+    { name: "Sammamish", slug: "sammamish" },
   ],
   issaquah: [
     { name: "Sammamish", slug: "sammamish" },
-    { name: "Newcastle", slug: "newcastle" },
     { name: "Bellevue", slug: "bellevue" },
     { name: "Mercer Island", slug: "mercer-island" },
+    { name: "Redmond", slug: "redmond" },
   ],
-  "mill-creek": [
+  edmonds: [
+    { name: "Seattle", slug: "seattle" },
+    { name: "Kenmore", slug: "kenmore" },
+    { name: "Bothell", slug: "bothell" },
+    { name: "Snohomish", slug: "snohomish" },
+  ],
+  snohomish: [
     { name: "Bothell", slug: "bothell" },
     { name: "Woodinville", slug: "woodinville" },
-    { name: "Kenmore", slug: "kenmore" },
+    { name: "Edmonds", slug: "edmonds" },
     { name: "Kirkland", slug: "kirkland" },
   ],
 };
@@ -111,6 +100,10 @@ interface CityPageProps {
   latitude: string;
   longitude: string;
   neighborhoods?: string[];
+  // From Jobber install history (2023-2026), rounded down.
+  installCount?: string;
+  averageInstall?: string;
+  videoId?: string;
 }
 
 export default function CityPage({
@@ -120,8 +113,12 @@ export default function CityPage({
   county,
   latitude,
   longitude,
-  neighborhoods = []
+  neighborhoods = [],
+  installCount,
+  averageInstall,
+  videoId,
 }: CityPageProps) {
+  const localVideo = VIDEO_SHOWCASE_ITEMS.find((item) => item.id === videoId);
   const scrollToQuote = () => {
     const element = document.getElementById('quote');
     if (element) {
@@ -152,14 +149,6 @@ export default function CityPage({
     "email": "christmaslightsnw@gmail.com",
     "priceRange": "$800-$4,000+",
     "foundingDate": String(FIRST_SEASON_YEAR),
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      }
-    ],
     "areaServed": servedCitiesSchema(cityName),
     "sameAs": [
       FACEBOOK_URL,
@@ -308,6 +297,39 @@ export default function CityPage({
               />
             </div>
           </section>
+
+          {installCount && (
+            <section className="py-16 bg-background" aria-labelledby="local-heading" data-testid="city-local">
+              <div className="max-w-5xl mx-auto px-6">
+                <h2 id="local-heading" className="font-serif text-3xl md:text-4xl font-bold text-foreground">
+                  {installCount} homes lit in {cityName}
+                </h2>
+                <div className={`mt-8 grid gap-8 ${localVideo ? "md:grid-cols-[1fr_320px]" : ""}`}>
+                  <dl className="grid gap-4 sm:grid-cols-2 content-start">
+                    <div className="rounded-lg border border-border p-5">
+                      <dt className="text-sm text-muted-foreground">{cityName} installs since 2023</dt>
+                      <dd className="mt-1 text-3xl font-semibold text-foreground">{installCount}</dd>
+                    </div>
+                    {averageInstall && (
+                      <div className="rounded-lg border border-border p-5">
+                        <dt className="text-sm text-muted-foreground">Average {cityName} install</dt>
+                        <dd className="mt-1 text-3xl font-semibold text-foreground">{averageInstall}</dd>
+                      </div>
+                    )}
+                    <div className="rounded-lg border border-border p-5">
+                      <dt className="text-sm text-muted-foreground">Installs start at</dt>
+                      <dd className="mt-1 text-3xl font-semibold text-foreground">$800</dd>
+                    </div>
+                    <div className="rounded-lg border border-border p-5">
+                      <dt className="text-sm text-muted-foreground">Most popular</dt>
+                      <dd className="mt-1 text-xl font-semibold text-foreground">Warm white roofline</dd>
+                    </div>
+                  </dl>
+                  {localVideo && <div className="mx-auto w-full max-w-[320px]"><VideoShowcaseCard item={localVideo} /></div>}
+                </div>
+              </div>
+            </section>
+          )}
 
           {/* Service details */}
           <section className="py-20 bg-background">

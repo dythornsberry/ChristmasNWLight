@@ -23,10 +23,16 @@ export default function ServiceAreasPage() {
 
   // Service area zip codes
   const serviceZipCodes = [
-    "98028", "98033", "98034", "98011", "98012", "98021", "98041", "98043", 
-    "98072", "98052", "98029", "98027", "98074", "98006", "98007", "98008",
-    "98040", "98075", "98077", "98115", "98103", "98117", "98125", "98133",
-    "98155", "98177", "98026", "98036", "98037", "98046"
+    // Seattle
+    "98102", "98103", "98105", "98106", "98107", "98108", "98109", "98112", "98115", "98116",
+    "98117", "98118", "98119", "98122", "98125", "98126", "98133", "98136", "98144", "98146",
+    "98155", "98177", "98178", "98199",
+    // Eastside
+    "98004", "98005", "98006", "98007", "98008", "98033", "98034", "98039", "98040", "98052",
+    "98053", "98074", "98075", "98027", "98029", "98056", "98059", "98065",
+    // North
+    "98028", "98011", "98012", "98021", "98041", "98072", "98077", "98020", "98026", "98036",
+    "98037", "98043", "98046", "98087", "98290", "98296"
   ];
 
   const handleZipCheck = () => {
@@ -39,33 +45,38 @@ export default function ServiceAreasPage() {
     }
   };
 
+  // Ordered by Jobber install history (2023-2026).
   const primaryAreas = [
-    { name: "Kenmore", slug: "kenmore" },
+    { name: "Seattle", slug: "seattle" },
     { name: "Kirkland", slug: "kirkland" },
+    { name: "Bellevue", slug: "bellevue" },
     { name: "Bothell", slug: "bothell" },
-    { name: "Woodinville", slug: "woodinville" }
+    { name: "Kenmore", slug: "kenmore" },
+    { name: "Woodinville", slug: "woodinville" },
   ];
 
   const additionalAreas = [
-    { name: "Seattle", slug: "seattle" },
-    { name: "Bellevue", slug: "bellevue" },
-    { name: "Redmond", slug: "redmond" },
     { name: "Sammamish", slug: "sammamish" },
-    { name: "Newcastle", slug: "newcastle" },
+    { name: "Edmonds", slug: "edmonds" },
+    { name: "Snohomish", slug: "snohomish" },
+    { name: "Redmond", slug: "redmond" },
     { name: "Mercer Island", slug: "mercer-island" },
-    { name: "Shoreline", slug: "shoreline" },
-    { name: "Lake Forest Park", slug: "lake-forest-park" },
     { name: "Issaquah", slug: "issaquah" },
-    { name: "Mill Creek", slug: "mill-creek" },
-    { name: "Mountlake Terrace", slug: null },
+    { name: "Newcastle", slug: null },
+    { name: "Lake Forest Park", slug: null },
+    { name: "Shoreline", slug: null },
+    { name: "Mill Creek", slug: null },
+    { name: "Brier", slug: null },
     { name: "Lynnwood", slug: null },
+    { name: "Medina", slug: null },
+    { name: "Snoqualmie", slug: null },
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="Christmas Light Installation Service Areas | Christmas Northwest"
-        description="Where Christmas Northwest installs holiday lighting: Kenmore, Kirkland, Bothell, Woodinville, Bellevue, Redmond, Sammamish, and nearby cities."
+        description="Where Christmas Northwest installs Christmas lights: Seattle, Kirkland, Bellevue, Bothell, Kenmore, Woodinville, Sammamish, Edmonds, Snohomish, Redmond, and nearby cities."
       />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
@@ -103,7 +114,7 @@ export default function ServiceAreasPage() {
                 Primary Service Areas
               </h2>
               <p className="mx-auto max-w-3xl text-base text-muted-foreground sm:text-lg">
-                These communities are closest to our regular installation routes and service team.
+                Where we do the most installs.
               </p>
             </div>
             
@@ -231,7 +242,7 @@ export default function ServiceAreasPage() {
                 We Also Serve
               </h3>
               <p className="text-muted-foreground max-w-3xl mx-auto mb-8">
-                We also schedule projects in the following communities when route capacity allows.
+                We install here too.
               </p>
             </div>
             

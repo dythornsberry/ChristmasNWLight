@@ -9,6 +9,8 @@ export default function KirklandPage() {
       county="King"
       latitude="47.6815"
       longitude="-122.2087"
+      installCount="70+"
+      averageInstall="$1,450"
       neighborhoods={[
         "Downtown Kirkland",
         "Juanita",

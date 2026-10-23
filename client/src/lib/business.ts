@@ -25,6 +25,8 @@ export const SERVED_CITIES = [
   "Issaquah",
   "Newcastle",
   "Mercer Island",
+  "Edmonds",
+  "Snohomish",
 ];
 
 // areaServed city list for JSON-LD; pass a city name to hoist it to the front

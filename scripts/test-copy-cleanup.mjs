@@ -93,7 +93,7 @@ try {
         assert.equal(new URL(page.url()).pathname, "/contact");
       }
 
-      if (["seattle", "lake-forest-park", "about", "service-areas"].includes(slug)) {
+      if (["seattle", "edmonds", "about", "service-areas"].includes(slug)) {
         await page.goto(new URL(`/${slug}`, base).href, { waitUntil: "networkidle0" });
         await page.evaluate(async () => {
           for (let y = 0; y < document.body.scrollHeight; y += 700) {

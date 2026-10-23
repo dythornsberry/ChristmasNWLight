@@ -29,12 +29,10 @@ const pageLoaders: Record<string, PageLoader> = {
   "/kenmore": () => import("@/pages/KenmorePage"),
   "/redmond": () => import("@/pages/RedmondPage"),
   "/sammamish": () => import("@/pages/SammamishPage"),
-  "/newcastle": () => import("@/pages/NewcastlePage"),
   "/mercer-island": () => import("@/pages/MercerIslandPage"),
-  "/shoreline": () => import("@/pages/ShorelinePage"),
-  "/lake-forest-park": () => import("@/pages/LakeForestParkPage"),
   "/issaquah": () => import("@/pages/IssaquahPage"),
-  "/mill-creek": () => import("@/pages/MillCreekPage"),
+  "/edmonds": () => import("@/pages/EdmondsPage"),
+  "/snohomish": () => import("@/pages/SnohomishPage"),
   "/blog": () => import("@/pages/BlogPage"),
   "/privacy-policy": () => import("@/pages/PrivacyPolicy"),
 };
@@ -70,12 +68,10 @@ const BothellPage = lazy(pageLoaders["/bothell"]);
 const KenmorePage = lazy(pageLoaders["/kenmore"]);
 const RedmondPage = lazy(pageLoaders["/redmond"]);
 const SammamishPage = lazy(pageLoaders["/sammamish"]);
-const NewcastlePage = lazy(pageLoaders["/newcastle"]);
 const MercerIslandPage = lazy(pageLoaders["/mercer-island"]);
-const ShorelinePage = lazy(pageLoaders["/shoreline"]);
-const LakeForestParkPage = lazy(pageLoaders["/lake-forest-park"]);
 const IssaquahPage = lazy(pageLoaders["/issaquah"]);
-const MillCreekPage = lazy(pageLoaders["/mill-creek"]);
+const EdmondsPage = lazy(pageLoaders["/edmonds"]);
+const SnohomishPage = lazy(pageLoaders["/snohomish"]);
 const BlogPage = lazy(pageLoaders["/blog"]);
 const BlogPostPage = lazy(blogPostLoader);
 const PrivacyPolicy = lazy(pageLoaders["/privacy-policy"]);
@@ -128,12 +124,10 @@ function Router({ initialPath, InitialPage }: RouterProps) {
         <Route path="/kenmore" component={KenmorePage} />
         <Route path="/redmond" component={RedmondPage} />
         <Route path="/sammamish" component={SammamishPage} />
-        <Route path="/newcastle" component={NewcastlePage} />
         <Route path="/mercer-island" component={MercerIslandPage} />
-        <Route path="/shoreline" component={ShorelinePage} />
-        <Route path="/lake-forest-park" component={LakeForestParkPage} />
         <Route path="/issaquah" component={IssaquahPage} />
-        <Route path="/mill-creek" component={MillCreekPage} />
+        <Route path="/edmonds" component={EdmondsPage} />
+        <Route path="/snohomish" component={SnohomishPage} />
 
         {/* Blog */}
         <Route path="/blog" component={BlogPage} />

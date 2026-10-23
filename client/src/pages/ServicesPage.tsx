@@ -8,9 +8,9 @@ import SimpleServices from "@/components/SimpleServices";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
 import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
-import rooflineImage from '@assets/IMG_6862-min_1763866884565.jpeg';
-import accentsImage from '@assets/2025-11-19-min_1763645900967.jpg';
-import largerDisplayImage from '@assets/2023-12-07-2_optimized.webp';
+import rooflineImage from '@assets/thumbs/IMG_6862-min_1763866884565-800.webp';
+import accentsImage from '@assets/thumbs/2025-11-19-min_1763645900967-800.webp';
+import largerDisplayImage from '@assets/thumbs/2023-12-07-2_optimized-800.webp';
 
 const services = [
   {
@@ -114,7 +114,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
-        title="Holiday & Christmas Light Installation Services in Seattle | Christmas Northwest"
+        title="Christmas Light Services in Seattle | Christmas Northwest"
         description="Traditional seasonal Christmas lights for your roofline, trees, bushes, and columns, professionally installed in Greater Seattle. Installs start at $800."
       />
       <StructuredData data={serviceSchema} />

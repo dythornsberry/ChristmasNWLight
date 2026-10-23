@@ -16,75 +16,141 @@ import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUB
 
 // Import all gallery images
 import img1 from '@assets/2024-11-25-min_1762058047474.jpg';
+import img1Thumb from '@assets/thumbs/2024-11-25-min_1762058047474-800.webp';
 import img2 from '@assets/2024-11-17-3-min_1762058047475.jpg';
+import img2Thumb from '@assets/thumbs/2024-11-17-3-min_1762058047475-800.webp';
 import img3 from '@assets/2023-11-10-3-min_1762058047475.jpg';
+import img3Thumb from '@assets/thumbs/2023-11-10-3-min_1762058047475-800.webp';
 import img4 from '@assets/2024-11-17-4-min_1762058047475.jpg';
+import img4Thumb from '@assets/thumbs/2024-11-17-4-min_1762058047475-800.webp';
 import img5 from '@assets/2022-12-01-min_1762058047475.jpg';
+import img5Thumb from '@assets/thumbs/2022-12-01-min_1762058047475-800.webp';
 import img6 from '@assets/unnamed-14-min_1762058047475.jpg';
+import img6Thumb from '@assets/thumbs/unnamed-14-min_1762058047475-800.webp';
 import img7 from '@assets/2023-11-14-min_1762058047475.jpg';
+import img7Thumb from '@assets/thumbs/2023-11-14-min_1762058047475-800.webp';
 import img8 from '@assets/2024-11-23-min_1762058047475.jpg';
+import img8Thumb from '@assets/thumbs/2024-11-23-min_1762058047475-800.webp';
 import img9 from '@assets/2025-10-28-min_1762058047476.jpg';
+import img9Thumb from '@assets/thumbs/2025-10-28-min_1762058047476-800.webp';
 import img10 from '@assets/2024-12-25-min_1762058047476.jpg';
+import img10Thumb from '@assets/thumbs/2024-12-25-min_1762058047476-800.webp';
 import img12 from '@assets/2024-12-03-min_1762058047476.jpg';
+import img12Thumb from '@assets/thumbs/2024-12-03-min_1762058047476-800.webp';
 import img13 from '@assets/2025-10-28-2-min_1762058047476.jpg';
+import img13Thumb from '@assets/thumbs/2025-10-28-2-min_1762058047476-800.webp';
 import img14 from '@assets/2024-10-27-min_1762058047476.jpg';
+import img14Thumb from '@assets/thumbs/2024-10-27-min_1762058047476-800.webp';
 import img15 from '@assets/2024-11-11-2-min_1762058047476.jpg';
+import img15Thumb from '@assets/thumbs/2024-11-11-2-min_1762058047476-800.webp';
 import img16 from '@assets/2024-11-28-2-min_1762058047476.jpg';
+import img16Thumb from '@assets/thumbs/2024-11-28-2-min_1762058047476-800.webp';
 import img17 from '@assets/2025-09-04-min_1762058047477.jpg';
+import img17Thumb from '@assets/thumbs/2025-09-04-min_1762058047477-800.webp';
 import img18 from '@assets/2025-10-28-3-min_1762064223709.jpg';
+import img18Thumb from '@assets/thumbs/2025-10-28-3-min_1762064223709-800.webp';
 import img19 from '@assets/unnamed-15-min_1762064292781.jpg';
 import img20 from '@assets/2024-11-28-2-min_1762064344572.jpg';
+import img20Thumb from '@assets/thumbs/2024-11-28-2-min_1762064344572-800.webp';
 import img21 from '@assets/1-2-min_1762064533191_feature.webp';
+import img21Thumb from '@assets/thumbs/1-2-min_1762064533191_feature-800.webp';
 import img22 from '@assets/IMG_5253_1762064572527.jpeg';
+import img22Thumb from '@assets/thumbs/IMG_5253_1762064572527-800.webp';
 import img23 from '@assets/29ed3807d7952892033a68ec8781e744.jpg-2_1762395487269.webp';
+import img23Thumb from '@assets/thumbs/29ed3807d7952892033a68ec8781e744.jpg-2_1762395487269-800.webp';
 import img24 from '@assets/990c3274b03bd096a71395c6d8043d8f.jpg_1762395519144.webp';
+import img24Thumb from '@assets/thumbs/990c3274b03bd096a71395c6d8043d8f.jpg_1762395519144-800.webp';
 import img25 from '@assets/2a1755975470dff4557e8fe3d51e6f67_1762395568284.webp';
+import img25Thumb from '@assets/thumbs/2a1755975470dff4557e8fe3d51e6f67_1762395568284-800.webp';
 import img26 from '@assets/80b2ff7622e5483fa3a1f5036a13f509.jpg_1762395608101.webp';
 import img27 from '@assets/a885e41a3786af553f91476ed6121d32.jpg-2_1762395700253.webp';
+import img27Thumb from '@assets/thumbs/a885e41a3786af553f91476ed6121d32.jpg-2_1762395700253-800.webp';
 import img28 from '@assets/49563b654a08482eca22f0a3090b7ad0.jpg_1762395736248.webp';
+import img28Thumb from '@assets/thumbs/49563b654a08482eca22f0a3090b7ad0.jpg_1762395736248-800.webp';
 import img29 from '@assets/46deed693d6a52e864742bf7ae390cfa_optimized.webp';
+import img29Thumb from '@assets/thumbs/46deed693d6a52e864742bf7ae390cfa_optimized-800.webp';
 import img30 from '@assets/0c838ea46d9ea001809c0f8951533e07_optimized.webp';
+import img30Thumb from '@assets/thumbs/0c838ea46d9ea001809c0f8951533e07_optimized-800.webp';
 import homeImg1 from '@assets/img2_1761853506442.webp';
+import homeImg1Thumb from '@assets/thumbs/img2_1761853506442-800.webp';
 import homeImg2 from '@assets/img3_1761853506443.webp';
+import homeImg2Thumb from '@assets/thumbs/img3_1761853506443-800.webp';
 import homeImg3 from '@assets/img4_1761853506443.webp';
+import homeImg3Thumb from '@assets/thumbs/img4_1761853506443-800.webp';
 import homeImg4 from '@assets/img5_1761853506443.webp';
+import homeImg4Thumb from '@assets/thumbs/img5_1761853506443-800.webp';
 import homeImg5 from '@assets/img6_1761853506443.webp';
+import homeImg5Thumb from '@assets/thumbs/img6_1761853506443-800.webp';
 import homeImg6 from '@assets/img7_1761853506443.webp';
+import homeImg6Thumb from '@assets/thumbs/img7_1761853506443-800.webp';
 import redColumnAccentHome from '@assets/d8c6cab5281de0583599e22ee0ea1bbd_1762398220204.webp';
+import redColumnAccentHomeThumb from '@assets/thumbs/d8c6cab5281de0583599e22ee0ea1bbd_1762398220204-800.webp';
 import landscapeLightingHome from '@assets/9f3e6664c053b1463aadbe6b559a13e9_1762398299920.webp';
+import landscapeLightingHomeThumb from '@assets/thumbs/9f3e6664c053b1463aadbe6b559a13e9_1762398299920-800.webp';
 import pergolaTreeHome from '@assets/2023-11-10-4_1762398479907.jpg';
+import pergolaTreeHomeThumb from '@assets/thumbs/2023-11-10-4_1762398479907-800.webp';
 import largeHomeWarmWhite from '@assets/unnamed-17_1762398507427.jpg';
+import largeHomeWarmWhiteThumb from '@assets/thumbs/unnamed-17_1762398507427-800.webp';
 import stunningEstate from '@assets/2023-12-07-2_optimized.webp';
+import stunningEstateThumb from '@assets/thumbs/2023-12-07-2_optimized-800.webp';
 import modernHomeWithDeer from '@assets/5b74f72f0d7ce55a601aed3e7375310a.jpg_1762398340287.webp';
+import modernHomeWithDeerThumb from '@assets/thumbs/5b74f72f0d7ce55a601aed3e7375310a.jpg_1762398340287-800.webp';
 import modernArchitectureHome from '@assets/2024-11-26-2_1762398937574.jpg';
+import modernArchitectureHomeThumb from '@assets/thumbs/2024-11-26-2_1762398937574-800.webp';
 import gableWreathHome from '@assets/2023-12-22-3_1762398937574.jpg';
+import gableWreathHomeThumb from '@assets/thumbs/2023-12-22-3_1762398937574-800.webp';
 import truckInstallHome from '@assets/2024-11-12-3_1762398937574.jpg';
+import truckInstallHomeThumb from '@assets/thumbs/2024-11-12-3_1762398937574-800.webp';
 import multicolorTreeHome from '@assets/2024-12-07_1762398937574.jpg';
+import multicolorTreeHomeThumb from '@assets/thumbs/2024-12-07_1762398937574-800.webp';
 import ultraModernLandscape from '@assets/unnamed-19_1762398937574.jpg';
+import ultraModernLandscapeThumb from '@assets/thumbs/unnamed-19_1762398937574-800.webp';
 import glassHomeMulticolor from '@assets/unnamed-18_1762398937574.jpg';
+import glassHomeMulticolorThumb from '@assets/thumbs/unnamed-18_1762398937574-800.webp';
 import luxuryModernDeck from '@assets/2024-11-13-4_1762398937574.jpg';
+import luxuryModernDeckThumb from '@assets/thumbs/2024-11-13-4_1762398937574-800.webp';
 import bareTreeWrap from '@assets/581802931_10113409149773279_8492716573386177864_n_1762916125607.jpg';
+import bareTreeWrapThumb from '@assets/thumbs/581802931_10113409149773279_8492716573386177864_n_1762916125607-800.webp';
 import warmWhiteBushEstate from '@assets/2025-11-19-min_1763645900967.jpg';
+import warmWhiteBushEstateThumb from '@assets/thumbs/2025-11-19-min_1763645900967-800.webp';
 import warmWhiteBushEstateAngle2 from '@assets/2025-11-19-2-min_1763645900967.jpg';
+import warmWhiteBushEstateAngle2Thumb from '@assets/thumbs/2025-11-19-2-min_1763645900967-800.webp';
 import multicolorModernDeck from '@assets/2024-11-13-5-min_1763645900967.jpg';
+import multicolorModernDeckThumb from '@assets/thumbs/2024-11-13-5-min_1763645900967-800.webp';
 import multicolorTwoStoryHome from '@assets/2025-11-19-3-min_1763645900967.jpg';
+import multicolorTwoStoryHomeThumb from '@assets/thumbs/2025-11-19-3-min_1763645900967-800.webp';
 import porchRailings from '@assets/IMG_0581-min_optimized.webp';
+import porchRailingsThumb from '@assets/thumbs/IMG_0581-min_optimized-800.webp';
 import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
+import modernTwoStoryRooflineThumb from '@assets/thumbs/IMG_6862-min_1763866884565-800.webp';
 import rooflineWrappedTrees from '@assets/IMG_7339-min_1763866884565.jpeg';
+import rooflineWrappedTreesThumb from '@assets/thumbs/IMG_7339-min_1763866884565-800.webp';
 import singleStoryWithWreath from '@assets/IMG_7362-min_optimized.webp';
+import singleStoryWithWreathThumb from '@assets/thumbs/IMG_7362-min_optimized-800.webp';
 import wrappedBushesDriveway from '@assets/IMG_7487-min_optimized.webp';
+import wrappedBushesDrivewayThumb from '@assets/thumbs/IMG_7487-min_optimized-800.webp';
 import twoStoryWithChimney from '@assets/IMG_2546-min_1763866884565.jpeg';
+import twoStoryWithChimneyThumb from '@assets/thumbs/IMG_2546-min_1763866884565-800.webp';
 import multicolorTreeHouse from '@assets/IMG_6617-min_optimized.webp';
+import multicolorTreeHouseThumb from '@assets/thumbs/IMG_6617-min_optimized-800.webp';
 import twoStoryLawnDecorations from '@assets/IMG_6949-min_1763866884565.jpeg';
+import twoStoryLawnDecorationsThumb from '@assets/thumbs/IMG_6949-min_1763866884565-800.webp';
 import hillsideHomeWithTrees from '@assets/IMG_7349-min_1763866884565.jpeg';
+import hillsideHomeWithTreesThumb from '@assets/thumbs/IMG_7349-min_1763866884565-800.webp';
 import multipleWrappedTrees from '@assets/IMG_7468-min_optimized.webp';
+import multipleWrappedTreesThumb from '@assets/thumbs/IMG_7468-min_optimized-800.webp';
 import warmWhiteGreenAccent1 from '@assets/IMG_1952-min_optimized.webp';
+import warmWhiteGreenAccent1Thumb from '@assets/thumbs/IMG_1952-min_optimized-800.webp';
 import rainbowWithTree from '@assets/IMG_8045-min_1764598984614.jpeg';
+import rainbowWithTreeThumb from '@assets/thumbs/IMG_8045-min_1764598984614-800.webp';
 import warmWhiteWithColorAccents from '@assets/IMG_1958-min_optimized.webp';
+import warmWhiteWithColorAccentsThumb from '@assets/thumbs/IMG_1958-min_optimized-800.webp';
 
 interface GalleryImage {
   id: number;
   src: string;
+  // ~800px WebP for the grid; src stays full size for the lightbox.
+  thumb?: string;
   alt: string;
   category: string;
   title: string;
@@ -92,70 +158,70 @@ interface GalleryImage {
 
 
 const galleryImages: GalleryImage[] = [
-  { id: 1, src: stunningEstate, alt: "Estate with custom lighting, wrapped trees, column accents, and landscape features", category: "Custom", title: "Estate with Trees and Columns" },
-  { id: 2, src: ultraModernLandscape, alt: "Modern home with landscape lighting, deck accent lighting, and wreath", category: "Custom", title: "Modern Home with Landscape Lighting" },
-  { id: 3, src: warmWhiteBushEstate, alt: "Warm white roofline and wrapped bushes on estate home", category: "Warm White", title: "Warm White Bushes" },
-  { id: 4, src: gableWreathHome, alt: "Home with warm white rooflines, multiple gables, decorative wreaths, and snowflake accents", category: "Custom", title: "Gables and Wreaths" },
-  { id: 5, src: modernArchitectureHome, alt: "Modern home with warm white roofline and landscape lighting", category: "Warm White", title: "Modern Warm White Roofline" },
-  { id: 6, src: luxuryModernDeck, alt: "Modern home with custom red and white roofline lighting and deck accents", category: "Custom", title: "Red and White Deck Lighting" },
-  { id: 7, src: glassHomeMulticolor, alt: "Glass home with multicolor rooflines at dusk with sunset backdrop", category: "Multicolor", title: "Glass Home Multicolor" },
-  { id: 8, src: img9, alt: "Custom tree display with wrapped trees", category: "Custom", title: "Wrapped Trees" },
-  { id: 9, src: img8, alt: "Modern home with clean warm white", category: "Warm White", title: "Clean Warm White" },
-  { id: 10, src: img12, alt: "Full yard custom design with decorations", category: "Custom", title: "Full Yard Display" },
-  { id: 11, src: img16, alt: "Red tree wrap with blue snowmen", category: "Trees", title: "Red Tree with Snowmen" },
-  { id: 12, src: img17, alt: "Multicolor lights on dark modern home with peaks and columns", category: "Multicolor", title: "Multicolor Peaks and Columns" },
-  { id: 13, src: img21, alt: "Warm white Christmas lights on home", category: "Warm White", title: "Warm White Roofline" },
-  { id: 14, src: img23, alt: "Tree uplighting in winter snow with warm white landscape lights", category: "Trees", title: "Tree Uplighting in Snow" },
-  { id: 15, src: img25, alt: "Estate gate with red accent lights and warm white uplighting", category: "Custom", title: "Gate Lighting" },
-  { id: 16, src: img28, alt: "Warm white Christmas lights on rooflines and ridges", category: "Warm White", title: "Ridges and Rooflines" },
-  { id: 17, src: img29, alt: "Modern Bellevue home with warm white Christmas lights and tree uplighting", category: "Warm White", title: "Bellevue Home with Tree Uplighting" },
-  { id: 18, src: img1, alt: "Multicolor roofline installation on large home", category: "Multicolor", title: "Multicolor Roofline" },
-  { id: 19, src: img2, alt: "Family enjoying custom holiday lighting", category: "Custom", title: "Family Photo" },
-  { id: 20, src: img3, alt: "Multicolor roofline with pillars", category: "Multicolor", title: "Multicolor with Pillars" },
-  { id: 21, src: img4, alt: "Tree wrap with warm white lights", category: "Trees", title: "Warm White Tree Wrap" },
-  { id: 22, src: img5, alt: "Tricolor lights in snow", category: "Multicolor", title: "Tricolor in Snow" },
-  { id: 23, src: img6, alt: "Child admiring big lit tree", category: "Trees", title: "Big Wrapped Tree" },
-  { id: 24, src: img7, alt: "Brick mansion with warm white lights", category: "Warm White", title: "Brick Mansion Warm White" },
-  { id: 25, src: multicolorTreeHome, alt: "Modern home with multicolor rooflines and wrapped tree with landscape lighting", category: "Multicolor", title: "Multicolor Roofline and Tree" },
-  { id: 26, src: truckInstallHome, alt: "Professional installation in progress with warm white rooflines and Christmas Northwest truck", category: "Warm White", title: "Installation in Progress" },
-  { id: 27, src: img10, alt: "Home with unique architecture", category: "Warm White", title: "Unique Architecture" },
-  { id: 28, src: img13, alt: "Tree with firework starburst lights", category: "Trees", title: "Starburst Tree" },
-  { id: 29, src: img14, alt: "Warm white roofline with multicolor tree", category: "Multicolor", title: "Warm White and Multicolor Tree" },
-  { id: 30, src: img15, alt: "Modern home with warm white and wreath", category: "Warm White", title: "Warm White with Wreath" },
-  { id: 31, src: img18, alt: "Multicolor tree with full wrap", category: "Trees", title: "Multicolor Tree Wrap" },
-  { id: 32, src: img20, alt: "Red tree wrap with blue snowmen decorations", category: "Trees", title: "Red Tree and Snowmen" },
-  { id: 33, src: img22, alt: "Multicolor Christmas lights on rooflines", category: "Multicolor", title: "Multicolor Rooflines" },
-  { id: 34, src: img24, alt: "Custom mistletoe style Christmas lights with red and green bulbs at peaks", category: "Custom", title: "Mistletoe Peaks" },
-  { id: 35, src: multicolorModernDeck, alt: "Modern home with multicolor roofline, deck accent lighting, and illuminated columns", category: "Multicolor", title: "Multicolor Deck and Columns" },
-  { id: 36, src: img27, alt: "Warm white roofline with red accent lights wrapping entry columns", category: "Custom", title: "Red Column Accents" },
-  { id: 37, src: img30, alt: "Warm white roofline with multicolor Christmas tree", category: "Multicolor", title: "Warm White with Multicolor Tree" },
-  { id: 38, src: pergolaTreeHome, alt: "Warm white roofline with pergola lighting and tree wrap", category: "Warm White", title: "Pergola and Tree" },
-  { id: 39, src: largeHomeWarmWhite, alt: "Large home with comprehensive warm white roofline and landscape tree lighting", category: "Warm White", title: "Large Home Warm White" },
-  { id: 40, src: homeImg1, alt: "Classic warm white roofline installation on home", category: "Warm White", title: "Classic Warm White" },
-  { id: 41, src: homeImg2, alt: "Modern multicolor Christmas light display on home", category: "Multicolor", title: "Modern Multicolor" },
-  { id: 42, src: homeImg3, alt: "Traditional warm white Christmas lights on home", category: "Warm White", title: "Traditional Warm White" },
-  { id: 43, src: homeImg4, alt: "Contemporary home with stone accent and warm white lights", category: "Warm White", title: "Stone Accent Warm White" },
-  { id: 44, src: homeImg5, alt: "Large estate with professional Christmas light installation", category: "Warm White", title: "Large Estate" },
-  { id: 45, src: homeImg6, alt: "Modern gable design with warm white Christmas lights", category: "Warm White", title: "Gable Roofline" },
-  { id: 48, src: redColumnAccentHome, alt: "Warm white roofline with red column accents and tree lighting", category: "Custom", title: "Red Columns and Tree" },
-  { id: 49, src: landscapeLightingHome, alt: "Warm white roofline with custom landscape lighting and red and white shrub wraps", category: "Custom", title: "Landscape and Shrub Lighting" },
-  { id: 50, src: modernHomeWithDeer, alt: "Modern home with warm white roofline, entryway accents, planters with lights, and decorative deer", category: "Custom", title: "Modern Home with Deer" },
-  { id: 51, src: bareTreeWrap, alt: "Bare tree wrapped in warm white lights at night with decorative fencing", category: "Trees", title: "Bare Tree Wrap" },
-  { id: 52, src: warmWhiteBushEstateAngle2, alt: "Warm white estate with illuminated hedge wall and roofline from side angle", category: "Warm White", title: "Hedge Wall Lighting" },
-  { id: 53, src: multicolorTwoStoryHome, alt: "Two-story home with multicolor roofline and warm white illuminated bushes", category: "Multicolor", title: "Multicolor with Warm White Bushes" },
-  { id: 54, src: porchRailings, alt: "Home with warm white lights wrapping porch railings", category: "Warm White", title: "Porch Railings" },
-  { id: 55, src: modernTwoStoryRoofline, alt: "Modern two-story home with warm white roofline lighting", category: "Warm White", title: "Modern Two-Story Roofline" },
-  { id: 56, src: rooflineWrappedTrees, alt: "Home with warm white roofline and wrapped trees lighting", category: "Warm White", title: "Roofline and Wrapped Trees" },
-  { id: 57, src: singleStoryWithWreath, alt: "Single-story home with warm white roofline and decorative wreath", category: "Warm White", title: "Single-Story with Wreath" },
-  { id: 58, src: wrappedBushesDriveway, alt: "Warm white lights wrapping bushes along home driveway", category: "Warm White", title: "Wrapped Bushes Along Driveway" },
-  { id: 59, src: twoStoryWithChimney, alt: "Two-story home with warm white roofline wrapping chimney", category: "Warm White", title: "Two-Story with Chimney" },
-  { id: 60, src: multicolorTreeHouse, alt: "Home with multicolor tree and roofline lighting display", category: "Multicolor", title: "Multicolor Tree and House" },
-  { id: 61, src: twoStoryLawnDecorations, alt: "Two-story home with multicolor roofline and lawn decorations", category: "Multicolor", title: "Two-Story with Lawn Decorations" },
-  { id: 62, src: hillsideHomeWithTrees, alt: "Hillside home with warm white lighting and wrapped trees", category: "Trees", title: "Hillside Home with Trees" },
-  { id: 63, src: multipleWrappedTrees, alt: "Multiple trees wrapped in warm white lights on residential property", category: "Trees", title: "Multiple Wrapped Trees" },
-  { id: 64, src: warmWhiteGreenAccent1, alt: "Modern home with warm white roofline and green accent lights on entry", category: "Custom", title: "Warm White with Green Accents" },
-  { id: 65, src: rainbowWithTree, alt: "Rainbow multicolor roofline with decorated wrapped tree and landscape lighting", category: "Multicolor", title: "Rainbow Roofline with Wrapped Tree" },
-  { id: 66, src: warmWhiteWithColorAccents, alt: "Modern home with warm white roofline, green tree lighting, red shrub accents, and landscape lighting at dusk", category: "Custom", title: "Warm White with Green and Red Accents" }
+  { id: 1, src: stunningEstate, thumb: stunningEstateThumb, alt: "Estate with custom lighting, wrapped trees, column accents, and landscape features", category: "Custom", title: "Estate with Trees and Columns" },
+  { id: 2, src: ultraModernLandscape, thumb: ultraModernLandscapeThumb, alt: "Modern home with landscape lighting, deck accent lighting, and wreath", category: "Custom", title: "Modern Home with Landscape Lighting" },
+  { id: 3, src: warmWhiteBushEstate, thumb: warmWhiteBushEstateThumb, alt: "Warm white roofline and wrapped bushes on estate home", category: "Warm White", title: "Warm White Bushes" },
+  { id: 4, src: gableWreathHome, thumb: gableWreathHomeThumb, alt: "Home with warm white rooflines, multiple gables, decorative wreaths, and snowflake accents", category: "Custom", title: "Gables and Wreaths" },
+  { id: 5, src: modernArchitectureHome, thumb: modernArchitectureHomeThumb, alt: "Modern home with warm white roofline and landscape lighting", category: "Warm White", title: "Modern Warm White Roofline" },
+  { id: 6, src: luxuryModernDeck, thumb: luxuryModernDeckThumb, alt: "Modern home with custom red and white roofline lighting and deck accents", category: "Custom", title: "Red and White Deck Lighting" },
+  { id: 7, src: glassHomeMulticolor, thumb: glassHomeMulticolorThumb, alt: "Glass home with multicolor rooflines at dusk with sunset backdrop", category: "Multicolor", title: "Glass Home Multicolor" },
+  { id: 8, src: img9, thumb: img9Thumb, alt: "Custom tree display with wrapped trees", category: "Custom", title: "Wrapped Trees" },
+  { id: 9, src: img8, thumb: img8Thumb, alt: "Modern home with clean warm white", category: "Warm White", title: "Clean Warm White" },
+  { id: 10, src: img12, thumb: img12Thumb, alt: "Full yard custom design with decorations", category: "Custom", title: "Full Yard Display" },
+  { id: 11, src: img16, thumb: img16Thumb, alt: "Red tree wrap with blue snowmen", category: "Trees", title: "Red Tree with Snowmen" },
+  { id: 12, src: img17, thumb: img17Thumb, alt: "Multicolor lights on dark modern home with peaks and columns", category: "Multicolor", title: "Multicolor Peaks and Columns" },
+  { id: 13, src: img21, thumb: img21Thumb, alt: "Warm white Christmas lights on home", category: "Warm White", title: "Warm White Roofline" },
+  { id: 14, src: img23, thumb: img23Thumb, alt: "Tree uplighting in winter snow with warm white landscape lights", category: "Trees", title: "Tree Uplighting in Snow" },
+  { id: 15, src: img25, thumb: img25Thumb, alt: "Estate gate with red accent lights and warm white uplighting", category: "Custom", title: "Gate Lighting" },
+  { id: 16, src: img28, thumb: img28Thumb, alt: "Warm white Christmas lights on rooflines and ridges", category: "Warm White", title: "Ridges and Rooflines" },
+  { id: 17, src: img29, thumb: img29Thumb, alt: "Modern Bellevue home with warm white Christmas lights and tree uplighting", category: "Warm White", title: "Bellevue Home with Tree Uplighting" },
+  { id: 18, src: img1, thumb: img1Thumb, alt: "Multicolor roofline installation on large home", category: "Multicolor", title: "Multicolor Roofline" },
+  { id: 19, src: img2, thumb: img2Thumb, alt: "Family enjoying custom holiday lighting", category: "Custom", title: "Family Photo" },
+  { id: 20, src: img3, thumb: img3Thumb, alt: "Multicolor roofline with pillars", category: "Multicolor", title: "Multicolor with Pillars" },
+  { id: 21, src: img4, thumb: img4Thumb, alt: "Tree wrap with warm white lights", category: "Trees", title: "Warm White Tree Wrap" },
+  { id: 22, src: img5, thumb: img5Thumb, alt: "Tricolor lights in snow", category: "Multicolor", title: "Tricolor in Snow" },
+  { id: 23, src: img6, thumb: img6Thumb, alt: "Child admiring big lit tree", category: "Trees", title: "Big Wrapped Tree" },
+  { id: 24, src: img7, thumb: img7Thumb, alt: "Brick mansion with warm white lights", category: "Warm White", title: "Brick Mansion Warm White" },
+  { id: 25, src: multicolorTreeHome, thumb: multicolorTreeHomeThumb, alt: "Modern home with multicolor rooflines and wrapped tree with landscape lighting", category: "Multicolor", title: "Multicolor Roofline and Tree" },
+  { id: 26, src: truckInstallHome, thumb: truckInstallHomeThumb, alt: "Professional installation in progress with warm white rooflines and Christmas Northwest truck", category: "Warm White", title: "Installation in Progress" },
+  { id: 27, src: img10, thumb: img10Thumb, alt: "Home with unique architecture", category: "Warm White", title: "Unique Architecture" },
+  { id: 28, src: img13, thumb: img13Thumb, alt: "Tree with firework starburst lights", category: "Trees", title: "Starburst Tree" },
+  { id: 29, src: img14, thumb: img14Thumb, alt: "Warm white roofline with multicolor tree", category: "Multicolor", title: "Warm White and Multicolor Tree" },
+  { id: 30, src: img15, thumb: img15Thumb, alt: "Modern home with warm white and wreath", category: "Warm White", title: "Warm White with Wreath" },
+  { id: 31, src: img18, thumb: img18Thumb, alt: "Multicolor tree with full wrap", category: "Trees", title: "Multicolor Tree Wrap" },
+  { id: 32, src: img20, thumb: img20Thumb, alt: "Red tree wrap with blue snowmen decorations", category: "Trees", title: "Red Tree and Snowmen" },
+  { id: 33, src: img22, thumb: img22Thumb, alt: "Multicolor Christmas lights on rooflines", category: "Multicolor", title: "Multicolor Rooflines" },
+  { id: 34, src: img24, thumb: img24Thumb, alt: "Custom mistletoe style Christmas lights with red and green bulbs at peaks", category: "Custom", title: "Mistletoe Peaks" },
+  { id: 35, src: multicolorModernDeck, thumb: multicolorModernDeckThumb, alt: "Modern home with multicolor roofline, deck accent lighting, and illuminated columns", category: "Multicolor", title: "Multicolor Deck and Columns" },
+  { id: 36, src: img27, thumb: img27Thumb, alt: "Warm white roofline with red accent lights wrapping entry columns", category: "Custom", title: "Red Column Accents" },
+  { id: 37, src: img30, thumb: img30Thumb, alt: "Warm white roofline with multicolor Christmas tree", category: "Multicolor", title: "Warm White with Multicolor Tree" },
+  { id: 38, src: pergolaTreeHome, thumb: pergolaTreeHomeThumb, alt: "Warm white roofline with pergola lighting and tree wrap", category: "Warm White", title: "Pergola and Tree" },
+  { id: 39, src: largeHomeWarmWhite, thumb: largeHomeWarmWhiteThumb, alt: "Large home with comprehensive warm white roofline and landscape tree lighting", category: "Warm White", title: "Large Home Warm White" },
+  { id: 40, src: homeImg1, thumb: homeImg1Thumb, alt: "Classic warm white roofline installation on home", category: "Warm White", title: "Classic Warm White" },
+  { id: 41, src: homeImg2, thumb: homeImg2Thumb, alt: "Modern multicolor Christmas light display on home", category: "Multicolor", title: "Modern Multicolor" },
+  { id: 42, src: homeImg3, thumb: homeImg3Thumb, alt: "Traditional warm white Christmas lights on home", category: "Warm White", title: "Traditional Warm White" },
+  { id: 43, src: homeImg4, thumb: homeImg4Thumb, alt: "Contemporary home with stone accent and warm white lights", category: "Warm White", title: "Stone Accent Warm White" },
+  { id: 44, src: homeImg5, thumb: homeImg5Thumb, alt: "Large estate with professional Christmas light installation", category: "Warm White", title: "Large Estate" },
+  { id: 45, src: homeImg6, thumb: homeImg6Thumb, alt: "Modern gable design with warm white Christmas lights", category: "Warm White", title: "Gable Roofline" },
+  { id: 48, src: redColumnAccentHome, thumb: redColumnAccentHomeThumb, alt: "Warm white roofline with red column accents and tree lighting", category: "Custom", title: "Red Columns and Tree" },
+  { id: 49, src: landscapeLightingHome, thumb: landscapeLightingHomeThumb, alt: "Warm white roofline with custom landscape lighting and red and white shrub wraps", category: "Custom", title: "Landscape and Shrub Lighting" },
+  { id: 50, src: modernHomeWithDeer, thumb: modernHomeWithDeerThumb, alt: "Modern home with warm white roofline, entryway accents, planters with lights, and decorative deer", category: "Custom", title: "Modern Home with Deer" },
+  { id: 51, src: bareTreeWrap, thumb: bareTreeWrapThumb, alt: "Bare tree wrapped in warm white lights at night with decorative fencing", category: "Trees", title: "Bare Tree Wrap" },
+  { id: 52, src: warmWhiteBushEstateAngle2, thumb: warmWhiteBushEstateAngle2Thumb, alt: "Warm white estate with illuminated hedge wall and roofline from side angle", category: "Warm White", title: "Hedge Wall Lighting" },
+  { id: 53, src: multicolorTwoStoryHome, thumb: multicolorTwoStoryHomeThumb, alt: "Two-story home with multicolor roofline and warm white illuminated bushes", category: "Multicolor", title: "Multicolor with Warm White Bushes" },
+  { id: 54, src: porchRailings, thumb: porchRailingsThumb, alt: "Home with warm white lights wrapping porch railings", category: "Warm White", title: "Porch Railings" },
+  { id: 55, src: modernTwoStoryRoofline, thumb: modernTwoStoryRooflineThumb, alt: "Modern two-story home with warm white roofline lighting", category: "Warm White", title: "Modern Two-Story Roofline" },
+  { id: 56, src: rooflineWrappedTrees, thumb: rooflineWrappedTreesThumb, alt: "Home with warm white roofline and wrapped trees lighting", category: "Warm White", title: "Roofline and Wrapped Trees" },
+  { id: 57, src: singleStoryWithWreath, thumb: singleStoryWithWreathThumb, alt: "Single-story home with warm white roofline and decorative wreath", category: "Warm White", title: "Single-Story with Wreath" },
+  { id: 58, src: wrappedBushesDriveway, thumb: wrappedBushesDrivewayThumb, alt: "Warm white lights wrapping bushes along home driveway", category: "Warm White", title: "Wrapped Bushes Along Driveway" },
+  { id: 59, src: twoStoryWithChimney, thumb: twoStoryWithChimneyThumb, alt: "Two-story home with warm white roofline wrapping chimney", category: "Warm White", title: "Two-Story with Chimney" },
+  { id: 60, src: multicolorTreeHouse, thumb: multicolorTreeHouseThumb, alt: "Home with multicolor tree and roofline lighting display", category: "Multicolor", title: "Multicolor Tree and House" },
+  { id: 61, src: twoStoryLawnDecorations, thumb: twoStoryLawnDecorationsThumb, alt: "Two-story home with multicolor roofline and lawn decorations", category: "Multicolor", title: "Two-Story with Lawn Decorations" },
+  { id: 62, src: hillsideHomeWithTrees, thumb: hillsideHomeWithTreesThumb, alt: "Hillside home with warm white lighting and wrapped trees", category: "Trees", title: "Hillside Home with Trees" },
+  { id: 63, src: multipleWrappedTrees, thumb: multipleWrappedTreesThumb, alt: "Multiple trees wrapped in warm white lights on residential property", category: "Trees", title: "Multiple Wrapped Trees" },
+  { id: 64, src: warmWhiteGreenAccent1, thumb: warmWhiteGreenAccent1Thumb, alt: "Modern home with warm white roofline and green accent lights on entry", category: "Custom", title: "Warm White with Green Accents" },
+  { id: 65, src: rainbowWithTree, thumb: rainbowWithTreeThumb, alt: "Rainbow multicolor roofline with decorated wrapped tree and landscape lighting", category: "Multicolor", title: "Rainbow Roofline with Wrapped Tree" },
+  { id: 66, src: warmWhiteWithColorAccents, thumb: warmWhiteWithColorAccentsThumb, alt: "Modern home with warm white roofline, green tree lighting, red shrub accents, and landscape lighting at dusk", category: "Custom", title: "Warm White with Green and Red Accents" }
 ];
 
 const FEATURED_IMAGE_COUNT = 9;
@@ -190,7 +256,7 @@ function GalleryImageCard({
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
-          src={image.src}
+          src={image.thumb ?? image.src}
           alt={image.alt}
           loading={eager ? "eager" : "lazy"}
           decoding="async"

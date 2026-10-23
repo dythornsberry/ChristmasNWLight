@@ -9,6 +9,8 @@ export default function RedmondPage() {
       county="King"
       latitude="47.6740"
       longitude="-122.1215"
+      installCount="15+"
+      averageInstall="$1,800"
       neighborhoods={[
         "Downtown Redmond",
         "Overlake",

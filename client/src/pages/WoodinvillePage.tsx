@@ -9,6 +9,9 @@ export default function WoodinvillePage() {
       county="King"
       latitude="47.7543"
       longitude="-122.1637"
+      installCount="30+"
+      averageInstall="$1,850"
+      videoId="tree-woodinville"
       neighborhoods={[
         "Hollywood Hill",
         "Wellington",

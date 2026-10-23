@@ -34,7 +34,7 @@ export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     location: "Woodinville, WA",
     description: "Lights placed evenly across a large feature tree.",
     youtubeId: "kyQ0PU9XDIk",
-    uploadDate: "2024-11-20T12:00:00Z",
+    uploadDate: "2025-11-04T12:00:00-08:00",
   },
   {
     id: "multicolor-issaquah",
@@ -42,7 +42,7 @@ export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     location: "Issaquah, WA",
     description: "A full multicolor roofline and tree for a bold look.",
     youtubeId: "mfZ_QQIDusE",
-    uploadDate: "2024-11-25T12:00:00Z",
+    uploadDate: "2022-12-18T12:00:00-08:00",
   },
   {
     id: "halloween-bellevue",
@@ -50,7 +50,7 @@ export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     location: "Bellevue, WA",
     description: "A big Halloween install we did in Bellevue.",
     youtubeId: "qcnKBhSJQW4",
-    uploadDate: "2024-10-15T12:00:00Z",
+    uploadDate: "2025-11-04T12:00:00-08:00",
   },
 ];
 
@@ -106,12 +106,12 @@ export default function VideoShowcaseCard({ item }: { item: VideoShowcaseItem })
               height={360}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/15 to-transparent" />
-            <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-[#ff0000] px-3 py-1.5 text-xs font-semibold text-white shadow-lg">
+            <div className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full bg-[#cc0000] px-3 py-1.5 text-xs font-semibold text-white shadow-lg">
               <Youtube className="h-4 w-4" />
               <span>YouTube</span>
             </div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="inline-flex items-center gap-2 rounded-full bg-[#ff0000] px-5 py-3 text-base font-semibold text-white shadow-xl transition-transform duration-300 group-hover:scale-105">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#cc0000] px-5 py-3 text-base font-semibold text-white shadow-xl transition-transform duration-300 group-hover:scale-105">
                 <Play className="h-5 w-5 fill-current" />
                 <span>Play Video</span>
               </div>

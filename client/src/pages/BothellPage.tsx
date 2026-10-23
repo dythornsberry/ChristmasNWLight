@@ -9,6 +9,8 @@ export default function BothellPage() {
       county="King"
       latitude="47.7623"
       longitude="-122.2054"
+      installCount="50"
+      averageInstall="$1,150"
       neighborhoods={[
         "Downtown Bothell",
         "Canyon Park",

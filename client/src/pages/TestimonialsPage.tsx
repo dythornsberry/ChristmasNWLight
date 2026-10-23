@@ -146,7 +146,7 @@ export default function TestimonialsPage() {
               </div>
               <div className="text-center" data-testid="stat-reviews">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid="text-stat-reviews">{GOOGLE_REVIEW_COUNT}</div>
-                <div className="text-sm text-muted-foreground">Five-Star Reviews</div>
+                <div className="text-sm text-muted-foreground">Google Reviews</div>
               </div>
               <div className="text-center" data-testid="stat-clients">
                 <div className="text-4xl md:text-5xl font-bold text-primary mb-2" data-testid="text-stat-clients">24hr</div>

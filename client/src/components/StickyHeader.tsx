@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Phone, Menu, X } from "lucide-react";
 import { Link, useLocation } from "wouter";
-import headerLogo from "@assets/christmas-nw-logo-original.png";
+import headerLogo from "@assets/optimized/logo-header-240.webp";
 
 interface StickyHeaderProps {
   onGetQuote: () => void;

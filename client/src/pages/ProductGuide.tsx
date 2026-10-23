@@ -9,13 +9,13 @@ import CTABanner from "@/components/CTABanner";
 
 import warmWhitePhoto from '@assets/optimized/portfolio-warm-white.webp';
 import multicolorPhoto from '@assets/optimized/portfolio-multicolor.webp';
-import redWhitePhoto from '@assets/d8c6cab5281de0583599e22ee0ea1bbd_1762398220204.webp';
-import rooflinePhoto from '@assets/IMG_6862-min_1763866884565.jpeg';
+import redWhitePhoto from '@assets/thumbs/d8c6cab5281de0583599e22ee0ea1bbd_1762398220204-800.webp';
+import rooflinePhoto from '@assets/thumbs/IMG_6862-min_1763866884565-800.webp';
 import garagePhoto from '@assets/optimized/portfolio-gables.webp';
-import treesPhoto from '@assets/IMG_7468-min_optimized.webp';
-import bushesPhoto from '@assets/IMG_7487-min_optimized.webp';
-import columnsPhoto from '@assets/IMG_0581-min_optimized.webp';
-import wreathPhoto from '@assets/IMG_7362-min_optimized.webp';
+import treesPhoto from '@assets/thumbs/IMG_7468-min_optimized-800.webp';
+import bushesPhoto from '@assets/thumbs/IMG_7487-min_optimized-800.webp';
+import columnsPhoto from '@assets/thumbs/IMG_0581-min_optimized-800.webp';
+import wreathPhoto from '@assets/thumbs/IMG_7362-min_optimized-800.webp';
 
 // Real installs only. Order follows what customers add most often (Jobber, 2023-2026).
 const colors = [

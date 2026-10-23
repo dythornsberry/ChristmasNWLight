@@ -9,6 +9,8 @@ export default function IssaquahPage() {
       county="King"
       latitude="47.5301"
       longitude="-122.0326"
+      installCount="10"
+      videoId="multicolor-issaquah"
       neighborhoods={[
         "Olde Town",
         "Issaquah Highlands",

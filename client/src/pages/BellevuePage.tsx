@@ -9,6 +9,9 @@ export default function BellevuePage() {
       county="King"
       latitude="47.6101"
       longitude="-122.2015"
+      installCount="70+"
+      averageInstall="$1,700"
+      videoId="yarrow-point-warm-white"
       neighborhoods={[
         "Downtown Bellevue",
         "Crossroads",

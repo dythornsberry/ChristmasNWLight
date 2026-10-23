@@ -9,6 +9,8 @@ export default function KenmorePage() {
       county="King"
       latitude="47.7573"
       longitude="-122.2443"
+      installCount="40+"
+      averageInstall="$900"
       neighborhoods={[
         "Downtown Kenmore",
         "Inglewood",

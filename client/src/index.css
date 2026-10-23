@@ -452,3 +452,6 @@
     inset: -1px;
   }
 }
+
+/* FAQ answers stay in the HTML (forceMount) for search engines; hide the closed ones. */
+.faq-answers [role="region"][data-state="closed"] { display: none; }

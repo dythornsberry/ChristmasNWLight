@@ -49,12 +49,10 @@ const ROUTES = [
   "/kenmore",
   "/redmond",
   "/sammamish",
-  "/newcastle",
   "/mercer-island",
-  "/shoreline",
-  "/lake-forest-park",
   "/issaquah",
-  "/mill-creek",
+  "/edmonds",
+  "/snohomish",
 ];
 
 // ---------- tiny static file server ----------
@@ -76,12 +74,19 @@ const MIME = {
 
 function startServer() {
   return new Promise((resolve) => {
+    // Keep the untouched Vite template: prerendering "/" overwrites dist/index.html,
+    // and serving that copy as the fallback leaked the homepage's preloads into every page.
+    const template = readFileSync(join(DIST, "index.html"));
+    const sendTemplate = (res) => {
+      res.writeHead(200, { "Content-Type": "text/html" });
+      res.end(template);
+    };
     const server = createServer((req, res) => {
       let filePath = join(DIST, req.url === "/" ? "index.html" : req.url);
 
-      // SPA fallback — if path has no extension and file doesn't exist, serve index.html
-      if (!extname(filePath) && !existsSync(filePath)) {
-        filePath = join(DIST, "index.html");
+      // SPA fallback: routes without a file get the original template
+      if (req.url === "/" || (!extname(filePath) && !existsSync(filePath))) {
+        return sendTemplate(res);
       }
       // Also try adding index.html for directory paths
       if (!extname(filePath) && existsSync(filePath)) {
@@ -94,15 +99,7 @@ function startServer() {
         res.writeHead(200, { "Content-Type": MIME[ext] || "application/octet-stream" });
         res.end(data);
       } catch {
-        // SPA fallback
-        try {
-          const data = readFileSync(join(DIST, "index.html"));
-          res.writeHead(200, { "Content-Type": "text/html" });
-          res.end(data);
-        } catch {
-          res.writeHead(404);
-          res.end("Not found");
-        }
+        sendTemplate(res);
       }
     });
     server.listen(PORT, () => {
@@ -257,9 +254,16 @@ function routeSourceFile(route) {
 
 function writeSitemap() {
   const repoRoot = join(__dirname, "..");
+  // Cloudflare Pages builds from a shallow clone, where every file reports HEAD's date.
+  // A fake "everything changed today" lastmod is worse than none.
+  let shallow = false;
+  try {
+    shallow = execSync("git rev-parse --is-shallow-repository", { cwd: repoRoot, encoding: "utf-8" }).trim() === "true";
+  } catch {}
   const urls = ROUTES.map((route) => {
     let lastmod = "";
     try {
+      if (shallow) throw new Error("shallow clone");
       const file = routeSourceFile(route);
       const date = execSync(`git log -1 --format=%cs -- "${file}"`, {
         cwd: repoRoot,

@@ -27,6 +27,11 @@ export async function onRequest(context) {
     return Response.redirect(url.toString(), 301);
   }
 
+  if (['/newcastle', '/shoreline', '/lake-forest-park', '/mill-creek'].includes(pathWithoutTrailingSlash)) {
+    url.pathname = '/service-areas';
+    return Response.redirect(url.toString(), 301);
+  }
+
   if (pathWithoutTrailingSlash === '/blog/christmas-lighting-trends-2026') {
     url.pathname = '/blog';
     return Response.redirect(url.toString(), 301);
