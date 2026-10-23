@@ -35,6 +35,7 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </Button>
           <Link href="/gallery" data-testid="link-hero-gallery">See our work <ArrowRight aria-hidden="true" /></Link>
         </div>
+        <p className="home-hero-note">Free quote. No need to be home.</p>
       </div>
     </section>
   );

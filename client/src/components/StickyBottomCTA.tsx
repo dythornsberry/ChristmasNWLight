@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
+import { MessageSquare, Phone } from "lucide-react";
 
 interface StickyBottomCTAProps {
   onGetQuote: () => void;
@@ -34,6 +34,20 @@ export default function StickyBottomCTA({ onGetQuote }: StickyBottomCTAProps) {
             data-testid="button-sticky-quote-mobile"
           >
             Get a Quote
+          </Button>
+          <Button
+            asChild
+            size="icon"
+            variant="outline"
+            className="h-11 w-11"
+          >
+            <a
+              href="sms:4252150935"
+              data-testid="button-sticky-text-mobile"
+              aria-label="Text Christmas Northwest at (425) 215-0935"
+            >
+              <MessageSquare className="w-5 h-5" />
+            </a>
           </Button>
           <Button
             asChild
