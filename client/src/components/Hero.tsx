@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Star } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Link } from "wouter";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
 import heroImage from "@assets/optimized/hero-real-desktop.webp";
 import heroImageMobile from "@assets/optimized/hero-real-mobile.webp";
 
@@ -36,9 +35,6 @@ export default function Hero({ onGetQuote }: HeroProps) {
           </Button>
           <Link href="/gallery" data-testid="link-hero-gallery">See our work <ArrowRight aria-hidden="true" /></Link>
         </div>
-        <a href="https://share.google/lxhOxXmbPwABIqdNa" target="_blank" rel="noopener noreferrer" className="home-hero-rating">
-          <Star aria-hidden="true" /> {GOOGLE_RATING} / {GOOGLE_REVIEW_COUNT} Google reviews
-        </a>
       </div>
     </section>
   );
