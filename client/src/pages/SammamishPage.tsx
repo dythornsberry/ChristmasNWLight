@@ -9,8 +9,6 @@ export default function SammamishPage() {
       county="King"
       latitude="47.6163"
       longitude="-122.0356"
-      installCount="35+"
-      averageInstall="$1,350"
       neighborhoods={[
         "Klahanie",
         "Pine Lake",

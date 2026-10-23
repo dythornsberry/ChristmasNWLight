@@ -9,8 +9,6 @@ export default function SeattlePage() {
       county="King"
       latitude="47.6062"
       longitude="-122.3321"
-      installCount="120+"
-      averageInstall="$1,250"
       neighborhoods={[
         "Queen Anne",
         "Capitol Hill",

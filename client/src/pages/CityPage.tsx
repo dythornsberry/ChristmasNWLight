@@ -100,9 +100,6 @@ interface CityPageProps {
   latitude: string;
   longitude: string;
   neighborhoods?: string[];
-  // From Jobber install history (2023-2026), rounded down.
-  installCount?: string;
-  averageInstall?: string;
   videoId?: string;
 }
 
@@ -114,8 +111,6 @@ export default function CityPage({
   latitude,
   longitude,
   neighborhoods = [],
-  installCount,
-  averageInstall,
   videoId,
 }: CityPageProps) {
   const localVideo = VIDEO_SHOWCASE_ITEMS.find((item) => item.id === videoId);
@@ -298,34 +293,14 @@ export default function CityPage({
             </div>
           </section>
 
-          {installCount && (
-            <section className="py-16 bg-background" aria-labelledby="local-heading" data-testid="city-local">
-              <div className="max-w-5xl mx-auto px-6">
-                <h2 id="local-heading" className="font-serif text-3xl md:text-4xl font-bold text-foreground">
-                  {installCount} homes lit in {cityName}
+          {localVideo && (
+            <section className="py-16 bg-background" aria-labelledby="local-video-heading" data-testid="city-video">
+              <div className="max-w-5xl mx-auto px-6 text-center">
+                <h2 id="local-video-heading" className="font-serif text-3xl md:text-4xl font-bold text-foreground">
+                  See it in person.
                 </h2>
-                <div className={`mt-8 grid gap-8 ${localVideo ? "md:grid-cols-[1fr_320px]" : ""}`}>
-                  <dl className="grid gap-4 sm:grid-cols-2 content-start">
-                    <div className="rounded-lg border border-border p-5">
-                      <dt className="text-sm text-muted-foreground">{cityName} installs since 2023</dt>
-                      <dd className="mt-1 text-3xl font-semibold text-foreground">{installCount}</dd>
-                    </div>
-                    {averageInstall && (
-                      <div className="rounded-lg border border-border p-5">
-                        <dt className="text-sm text-muted-foreground">Average {cityName} install</dt>
-                        <dd className="mt-1 text-3xl font-semibold text-foreground">{averageInstall}</dd>
-                      </div>
-                    )}
-                    <div className="rounded-lg border border-border p-5">
-                      <dt className="text-sm text-muted-foreground">Installs start at</dt>
-                      <dd className="mt-1 text-3xl font-semibold text-foreground">$800</dd>
-                    </div>
-                    <div className="rounded-lg border border-border p-5">
-                      <dt className="text-sm text-muted-foreground">Most popular</dt>
-                      <dd className="mt-1 text-xl font-semibold text-foreground">Warm white roofline</dd>
-                    </div>
-                  </dl>
-                  {localVideo && <div className="mx-auto w-full max-w-[320px]"><VideoShowcaseCard item={localVideo} /></div>}
+                <div className="mx-auto mt-8 w-full max-w-[320px] text-left">
+                  <VideoShowcaseCard item={localVideo} />
                 </div>
               </div>
             </section>

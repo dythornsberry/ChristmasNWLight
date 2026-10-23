@@ -9,8 +9,6 @@ export default function EdmondsPage() {
       county="Snohomish"
       latitude="47.8107"
       longitude="-122.3774"
-      installCount="30"
-      averageInstall="$1,450"
       neighborhoods={[
         "Downtown Edmonds",
         "Perrinville",

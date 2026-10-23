@@ -9,8 +9,6 @@ export default function MercerIslandPage() {
       county="King"
       latitude="47.5707"
       longitude="-122.2221"
-      installCount="15"
-      averageInstall="$2,200"
       neighborhoods={[
         "Town Center",
         "East Seattle",
