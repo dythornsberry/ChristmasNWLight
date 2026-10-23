@@ -70,6 +70,14 @@ export default function Home() {
       { "@type": "City", "name": "Newcastle", "address": { "addressRegion": "WA" } },
       { "@type": "City", "name": "Mercer Island", "address": { "addressRegion": "WA" } }
     ],
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    ],
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": GOOGLE_RATING,

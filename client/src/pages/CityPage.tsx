@@ -146,6 +146,14 @@ export default function CityPage({
     "email": "christmaslightsnw@gmail.com",
     "priceRange": "$800-$4,000+",
     "foundingDate": String(FIRST_SEASON_YEAR),
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+        "opens": "00:00",
+        "closes": "23:59"
+      }
+    ],
     "areaServed": servedCitiesSchema(cityName),
     "sameAs": [
       FACEBOOK_URL,
