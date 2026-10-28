@@ -96,6 +96,7 @@ export default function LeadFormCard({
     serviceType: initialServiceType,
     addressConfirmed: false,
     lightingAreas: ["Roofline"] as string[],
+    priceAcknowledged: false,
   });
   const [step, setStep] = useState<1 | 2>(1);
   const returningService = serviceOptions.find((option) => option.value.endsWith("-returning"));
@@ -116,6 +117,7 @@ export default function LeadFormCard({
       serviceType: initialServiceType,
       addressConfirmed: false,
       lightingAreas: ["Roofline"],
+      priceAcknowledged: false,
     });
   };
 
@@ -166,6 +168,7 @@ export default function LeadFormCard({
   const addressError = addressRequired && !formData.address.trim() ? "Enter the service address." : null;
   const serviceTypeError = !formData.serviceType ? "Choose the service you need." : null;
   const lightingAreasError = formData.lightingAreas.length === 0 ? "Pick at least one, or choose Not sure yet." : null;
+  const priceAcknowledgedError = formData.priceAcknowledged ? null : "Please check this box to continue.";
 
   const focusFirstInvalid = () =>
     requestAnimationFrame(() => formRef.current?.querySelector<HTMLElement>('[aria-invalid="true"]')?.focus());
@@ -206,7 +209,7 @@ export default function LeadFormCard({
       focusFirstInvalid();
       return;
     }
-    if (serviceTypeError || emailError || addressError || lightingAreasError) {
+    if (serviceTypeError || emailError || addressError || lightingAreasError || priceAcknowledgedError) {
       focusFirstInvalid();
       return;
     }
@@ -362,6 +365,20 @@ export default function LeadFormCard({
                     </label>
                   ) : null}
                   {showErrors && serviceTypeError ? <p className="text-sm text-destructive">{serviceTypeError}</p> : null}
+
+                  <div>
+                    <label className="flex min-h-11 cursor-pointer items-start gap-3 py-1 text-sm leading-6" data-testid={`${testIdPrefix}-price-confirm`}>
+                      <Checkbox
+                        className="mt-1"
+                        checked={formData.priceAcknowledged}
+                        onCheckedChange={(checked) => setFormData((current) => ({ ...current, priceAcknowledged: checked === true }))}
+                        aria-invalid={showErrors && Boolean(priceAcknowledgedError)}
+                        aria-describedby={showErrors && priceAcknowledgedError ? `${testIdPrefix}-price-error` : undefined}
+                      />
+                      <span>I'm looking for professional installation. I understand installs start at $800.</span>
+                    </label>
+                    {showErrors && priceAcknowledgedError ? <p id={`${testIdPrefix}-price-error`} className="text-sm text-destructive">{priceAcknowledgedError}</p> : null}
+                  </div>
 
                   <Button type="submit" size="lg" className="min-h-12 w-full text-base font-semibold"
                     disabled={createQuoteMutation.isPending} data-testid={`${testIdPrefix}-submit`}>
