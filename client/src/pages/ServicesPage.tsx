@@ -15,19 +15,19 @@ import largerDisplayImage from '@assets/thumbs/2023-12-07-2_optimized-800.webp';
 const services = [
   {
     title: "Clean rooflines",
-    description: "Lights fitted neatly along your roofline, peaks, and gutters.",
+    description: "Commercial-grade C9 bulbs along your roofline, peaks, and gutters, held on with plastic clips. No nails or holes in your roof. Every display starts here.",
     image: rooflineImage,
     alt: "Warm white Christmas lights following the roofline of a modern two-story home",
   },
   {
     title: "Trees & accents",
-    description: "Add wrapped trees, lit shrubs, or a wreath to your roofline display.",
+    description: "Mini lights wrapped around trees, bushes, columns, and railings, plus lit wreaths. Trees are priced by size, and trees over 20 feet need a lift.",
     image: accentsImage,
     alt: "Warm white roofline and shrubs lighting the path to a home",
   },
   {
     title: "Larger properties",
-    description: "Custom Christmas displays for larger homes, businesses, and managed properties.",
+    description: "Custom Christmas displays for larger homes, businesses, and managed properties. We stop by for a free look before we quote.",
     image: largerDisplayImage,
     alt: "Large home with Christmas lights wrapping trees and entrance columns",
   },

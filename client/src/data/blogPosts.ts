@@ -7,6 +7,8 @@ export interface BlogPost {
   excerpt: string;
   category: string;
   publishDate: string;
+  /** Last real content change; feeds dateModified. */
+  updatedDate?: string;
   readTime: string;
   content: string;
   metaDescription: string;
@@ -105,6 +107,7 @@ Or better yet, work with us to design something custom. We can show you examples
     excerpt: "Learn what goes into a professional installation and why DIY might not be worth the risk.",
     category: "Installation",
     publishDate: "2026-01-13",
+    updatedDate: "2026-10-30",
     readTime: "8 min read",
     metaDescription: "Complete guide to professional Christmas light installation in Seattle. Learn the process, costs, and why professionals are worth it.",
     content: `
@@ -224,125 +227,41 @@ Ready to skip the ladder and enjoy the holidays? We're booking installations now
   },
   {
     id: 4,
-    title: "Why You Should Book Your Christmas Lights in September (Insider Tips)",
-    seoTitle: "Book Christmas Lights in September: Here's Why",
+    title: "When Should You Book Christmas Light Installation?",
+    seoTitle: "When to Book Christmas Light Installation",
     slug: "book-christmas-lights-september",
-    excerpt: "See how booking earlier affects design time, material choices, and available installation windows.",
+    excerpt: "Earlier gives you more dates to pick from, but most installs still go up within a week of booking.",
     category: "Planning",
     publishDate: "2026-01-12",
-    readTime: "6 min read",
-    metaDescription: "Learn why an early Christmas light installation request gives you more scheduling and design options in the Seattle area.",
+    updatedDate: "2026-10-30",
+    readTime: "3 min read",
+    metaDescription: "When to book Christmas light installation in Seattle and the Eastside. Earlier means more dates to pick from, and most installs go up within a week.",
     content: `
-It's barely autumn, and you're already thinking about Christmas lights? If your first reaction is "isn't it too early?", I have some news that might change your planning strategy forever.
+Short answer: the earlier you ask for a quote, the more install dates you get to pick from. But you probably haven't missed anything. Most of our installs go up within a week of approving the quote.
 
-The best time to book professional Christmas light installation is September. Not October. Definitely not November. September.
+## How the season usually goes
 
-Here's why.
+**September and October:** The calendar is wide open. If you want your lights up the first week of November, this is the time to ask.
 
-## The Installation Calendar Reality
+**November:** Our busiest month. We schedule by neighborhood, so your date depends partly on where we're already working that week. We text you the day before.
 
-Let me walk you through what happens in the Christmas lighting industry every year.
+**December:** There are fewer open dates. Ask anyway, and we'll tell you what's actually available.
 
-**September:** Phone starts ringing with early planners. These are the people who know what they want, have their preferred dates, and want to lock everything in. We have all the time in the world to accommodate their schedules.
+## Why earlier is easier
 
-**October:** Steady flow of bookings. Still plenty of availability, but our calendar is starting to fill up. Prime installation dates (early to mid-November) are getting claimed.
+- You pick from more dates
+- There's time to decide what you want lit before the busy weeks
+- Your lights are up for the whole season
 
-**Early November:** Rush begins. Everyone who "meant to call earlier" is now calling at once. We're still taking jobs, but you're getting whatever dates we have left, not necessarily the dates you want.
+## What you need for a quote
 
-**Mid-November to Thanksgiving:** This is usually the tightest part of the calendar. Remaining dates depend on weather, route efficiency, and project size.
+Just your address and what you want lit. Fill out the form and we'll quote most rooflines from photos and aerial views. For trees, bushes, or bigger displays we stop by for a free look. You don't need to be home.
 
-**December:** Forget about it. We're doing touch-ups and repairs for existing clients, not taking new installations.
+New customers pay a 50% deposit to hold the date. Free fixes all season and takedown after the holidays are included no matter when you book.
 
-This pattern plays out every single year without fail.
+## Bottom line
 
-## What "Preferred Install Dates" Actually Means
-
-When we say early bookers get preferred dates, here's what that means in practical terms.
-
-### Early November Installation
-
-If you book in September, you can request installation the first week of November. That gives you:
-
-- **Maximum enjoyment time:** Your lights are up for the entire season
-- **Better weather:** Early November is usually drier and milder than mid-November in the Seattle area
-- **Neighborhood timing:** You're not the house that's dark while everyone else is lit up
-
-Last year, we had clients in Woodinville who booked in August and got their lights installed November 4th. They enjoyed two full months of display while their neighbors were still waiting for installation.
-
-### Mid-November Installation
-
-Book in early October, and you'll likely get mid-November dates. Still good, though you might hit rainy weather. And you'll have about 6 weeks to enjoy your display before New Year's.
-
-### Late November Installation
-
-This is what you get when you book in late October. Installation might happen Thanksgiving week or right after. You're racing the first snowfall and hoping for decent weather. You get maybe 4-5 weeks of enjoyment.
-
-### December Installation (If You Can Get It)
-
-December availability varies by year, route, weather, and the size of the requested project. At that point, the remaining installation windows are usually limited.
-
-## The Pricing Factor
-
-Early booking gives us more time to plan routing, staffing, design details, and material needs. Any seasonal promotion will be stated in your quote rather than assumed.
-
-But even beyond the discount, there's hidden value in early booking:
-
-### Design Time
-
-An early inquiry leaves more time to review roofline, landscape, and color options before the installation schedule becomes tight.
-
-### Material Selection
-
-Specific colors and specialty products are easier to plan when the request arrives before the busiest installation weeks. Availability is confirmed as part of the quote.
-
-## What Our September Bookers Get
-
-Let me be specific about the advantages you get when you book with us in September or early October.
-
-### Priority Scheduling
-
-Earlier customers can choose from more available installation windows. The final date still depends on route planning, weather, and project size.
-
-### Custom Design Session
-
-We review your priorities and create a lighting plan tailored to the home's architecture. Earlier inquiries leave more room to compare options before approving the scope.
-
-### Seasonal Service
-
-If a bulb or section fails while the display is installed, contact us. Service visits are routed by urgency, location, weather, and crew availability.
-
-### Takedown Included
-
-Takedown after the holidays is included no matter when you book.
-
-## The Practical Difference
-
-Booking early does not guarantee a specific day or discount. It simply gives you more available windows and more time to settle the design before the busiest part of the season.
-
-## What If You're Reading This in October or November?
-
-Don't panic. We can still help you, though the advantages above might not all apply.
-
-If it's October, you should still have good availability and some early booking benefits. Call now rather than waiting another week.
-
-If it's November, call immediately. The longer you wait, the more limited your options become. We'll do our best to fit you in, though you might need to be flexible on dates.
-
-## How to Book Early Without Feeling Rushed
-
-I get it. September feels absurdly early to be thinking about Christmas. But here's the thing: booking doesn't mean you have to make all your decisions immediately.
-
-When you book with us in September, here's what we need:
-- Confirmation you want service
-- Your general vision (warm white vs multicolor, simple vs elaborate)
-- Your preferred installation timeframe
-
-Everything else can be finalized in October. You're just locking in your spot and your pricing.
-
-For seasonal Christmas lighting, September booking is the insider move.
-
-## Bottom Line
-
-September and October generally provide more scheduling flexibility than November. If you have a specific design or date range in mind, request a quote early and we will confirm what is actually available.
+If you're reading this in October or November, you're not too late. Fill out the form and we'll tell you the next open date.
     `
   },
   {
@@ -555,6 +474,7 @@ Ready to enjoy a beautiful display without the risks? We're booking now for safe
     excerpt: "Stop guessing. Here's exactly what professional Christmas light installation costs in the Seattle area, with real examples and pricing factors explained.",
     category: "Buying Guide",
     publishDate: "2026-01-16",
+    updatedDate: "2026-10-30",
     readTime: "8 min read",
     metaDescription: "Transparent pricing guide for professional Christmas light installation in Seattle. Real examples, cost factors, and honest pricing ranges for 2026.",
     content: `

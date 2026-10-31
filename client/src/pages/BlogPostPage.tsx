@@ -1,4 +1,4 @@
-import { useRoute, useLocation } from "wouter";
+import { Link, useRoute, useLocation } from "wouter";
 import UrgencyBanner from "@/components/UrgencyBanner";
 import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
@@ -124,7 +124,7 @@ export default function BlogPostPage() {
       }
     },
     "datePublished": post.publishDate,
-    "dateModified": post.publishDate,
+    "dateModified": post.updatedDate ?? post.publishDate,
     "articleBody": post.content.replace(/<[^>]*>/g, '').substring(0, 500),
     "image": "https://christmasnw.com/og-image.png",
     "mainEntityOfPage": {
@@ -232,10 +232,10 @@ export default function BlogPostPage() {
               <Card className="p-8 md:p-12 mt-16 bg-gradient-to-br from-primary/5 to-primary/10 border-primary/20">
                 <div className="text-center max-w-2xl mx-auto">
                   <h2 className="font-serif text-3xl font-bold mb-4 text-foreground">
-                    Ready to Plan Your Christmas Lights?
+                    Want a quote?
                   </h2>
                   <p className="text-lg text-muted-foreground mb-8">
-                    Tell us about your property and the areas you want to light. We will follow up with options, availability, and a custom estimate.
+                    Fill out the form with your address. Installs start at $800, and most go up within a week.
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button 
@@ -244,7 +244,7 @@ export default function BlogPostPage() {
                       className="text-lg px-8"
                       data-testid="button-post-cta-quote"
                     >
-                      Light Up My Home ✨
+                      Get a Quote
                     </Button>
                     <Button 
                       size="lg" 
@@ -256,6 +256,13 @@ export default function BlogPostPage() {
                       Call (425) 215-0935
                     </Button>
                   </div>
+                  <p className="mt-6 text-sm text-muted-foreground">
+                    <Link href="/investment-guide" className="text-primary underline underline-offset-4">See pricing</Link>
+                    {" · "}
+                    <Link href="/faq" className="text-primary underline underline-offset-4">Read the FAQ</Link>
+                    {" · "}
+                    <Link href="/gallery" className="text-primary underline underline-offset-4">See our installs</Link>
+                  </p>
                 </div>
               </Card>
 

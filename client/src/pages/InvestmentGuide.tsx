@@ -8,6 +8,22 @@ import CTABanner from "@/components/CTABanner";
 import { useLocation } from "wouter";
 import { pricingExamples } from "@/lib/pricing";
 
+// Facts here match the FAQ. Keep them in sync.
+const PRICE_NOTES = [
+  {
+    title: "What changes the price",
+    body: "How much you want lit. Every install starts with the roofline, and trees, bushes, columns, and wreaths add to it. Steep roofs and second stories take more time. Trees are priced by size, and trees over 20 feet need a lift. We price the whole job, not by the foot.",
+  },
+  {
+    title: "Getting a quote",
+    body: "Fill out the form with your address. We can quote most rooflines from photos and aerial views. For trees, bushes, or bigger displays we stop by for a free look. You don't need to be home.",
+  },
+  {
+    title: "Payment",
+    body: "New customers pay a 50% deposit to hold an install date. The rest is due after install, by credit or debit card.",
+  },
+];
+
 export default function InvestmentGuide() {
   const [, setLocation] = useLocation();
   const goToQuote = () => {
@@ -42,7 +58,7 @@ export default function InvestmentGuide() {
                       className={`h-full w-full object-cover ${tier.imageClassName}`}
                       width={720}
                       height={405}
-                      loading="lazy"
+                      loading={tier === pricingExamples[0] ? "eager" : "lazy"}
                       decoding="async"
                     />
                   </div>
@@ -52,9 +68,14 @@ export default function InvestmentGuide() {
                 </article>
               ))}
             </div>
-            <p className="mt-10 border-t border-border pt-6 text-sm leading-6 text-muted-foreground">
-              Final pricing depends on coverage, roof height, access, and the number of trees or accents.
-            </p>
+            <div className="mt-12 grid gap-10 border-t border-border pt-10 md:grid-cols-3">
+              {PRICE_NOTES.map((note) => (
+                <div key={note.title}>
+                  <h2 className="text-xl font-semibold">{note.title}</h2>
+                  <p className="mt-3 text-base leading-7 text-muted-foreground">{note.body}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </section>
         <SimpleServices />
