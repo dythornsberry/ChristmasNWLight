@@ -4,6 +4,22 @@ import { SiGoogle } from "react-icons/si";
 import { Link } from "wouter";
 import { Button } from "@/components/ui/button";
 
+// Every city page, linked from every page so they get crawled and share the homepage's weight.
+const CITY_LINKS = [
+  ["seattle", "Seattle"],
+  ["bellevue", "Bellevue"],
+  ["kirkland", "Kirkland"],
+  ["redmond", "Redmond"],
+  ["sammamish", "Sammamish"],
+  ["bothell", "Bothell"],
+  ["kenmore", "Kenmore"],
+  ["woodinville", "Woodinville"],
+  ["mercer-island", "Mercer Island"],
+  ["issaquah", "Issaquah"],
+  ["edmonds", "Edmonds"],
+  ["snohomish", "Snohomish"],
+] as const;
+
 export default function Footer() {
   const handleLinkClick = () => {
     window.scrollTo({ top: 0, behavior: 'auto' });
@@ -95,6 +111,17 @@ export default function Footer() {
             </div>
           </div>
         </div>
+
+        <nav aria-label="Areas we serve" className="mb-8">
+          <p className="font-semibold mb-3 text-foreground">Christmas light installation in</p>
+          <ul className="flex flex-wrap gap-x-5 gap-y-2 text-muted-foreground">
+            {CITY_LINKS.map(([slug, name]) => (
+              <li key={slug}>
+                <Link href={`/${slug}`} onClick={handleLinkClick} className="hover:text-foreground transition-colors">{name}</Link>
+              </li>
+            ))}
+          </ul>
+        </nav>
 
         <div className="border-t border-border pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">

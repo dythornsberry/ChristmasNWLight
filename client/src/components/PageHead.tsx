@@ -5,9 +5,10 @@ interface PageHeadProps {
   description: string;
   path?: string;
   robots?: string;
+  ogType?: "website" | "article";
 }
 
-export default function PageHead({ title, description, path, robots }: PageHeadProps) {
+export default function PageHead({ title, description, path, robots, ogType = "website" }: PageHeadProps) {
   useEffect(() => {
     const siteUrl = (import.meta.env.VITE_SITE_URL || "https://christmasnw.com").replace(/\/$/, "");
     const pathname = path || window.location.pathname;
@@ -35,6 +36,7 @@ export default function PageHead({ title, description, path, robots }: PageHeadP
     upsertMeta('meta[name="description"]', { name: "description" }, description);
     upsertMeta('meta[property="og:title"]', { property: "og:title" }, title);
     upsertMeta('meta[property="og:description"]', { property: "og:description" }, description);
+    upsertMeta('meta[property="og:type"]', { property: "og:type" }, ogType);
     upsertMeta('meta[property="og:url"]', { property: "og:url" }, canonicalUrl);
     upsertMeta('meta[name="twitter:title"]', { name: "twitter:title" }, title);
     upsertMeta('meta[name="twitter:description"]', { name: "twitter:description" }, description);
@@ -53,7 +55,7 @@ export default function PageHead({ title, description, path, robots }: PageHeadP
     } else {
       document.head.querySelector('meta[name="robots"][data-managed-by="page-head"]')?.remove();
     }
-  }, [description, path, robots, title]);
+  }, [description, ogType, path, robots, title]);
 
   return null;
 }

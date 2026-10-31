@@ -163,6 +163,7 @@ export default function BlogPostPage() {
       <PageHead
         title={post.seoTitle ?? `${post.title} | Christmas Northwest`}
         description={post.metaDescription}
+        ogType="article"
       />
       <script
         type="application/ld+json"
