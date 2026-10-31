@@ -4,6 +4,8 @@ import StickyHeader from "@/components/StickyHeader";
 import Footer from "@/components/Footer";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import PageHead from "@/components/PageHead";
+import StructuredData from "@/components/StructuredData";
+import { businessSchema } from "@/lib/business";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -72,12 +74,23 @@ export default function ServiceAreasPage() {
     { name: "Snoqualmie", slug: null },
   ];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://christmasnw.com/" },
+      { "@type": "ListItem", "position": 2, "name": "Service Areas", "item": "https://christmasnw.com/service-areas" },
+    ],
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
         title="Christmas Light Installation Service Areas | Christmas Northwest"
         description="Where Christmas Northwest installs Christmas lights: Seattle, Kirkland, Bellevue, Bothell, Kenmore, Woodinville, Sammamish, Edmonds, Snohomish, Redmond, and nearby cities."
       />
+      <StructuredData data={businessSchema()} />
+      <StructuredData data={breadcrumbSchema} />
       <UrgencyBanner />
       <StickyHeader onGetQuote={scrollToQuote} />
 

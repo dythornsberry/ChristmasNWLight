@@ -7,7 +7,7 @@ import StructuredData from "@/components/StructuredData";
 import SimpleServices from "@/components/SimpleServices";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
-import { servedCitiesSchema, businessSchema } from "@/lib/business";
+import { servedCitiesSchema, businessSchema, BUSINESS_ID } from "@/lib/business";
 import rooflineImage from '@assets/thumbs/IMG_6862-min_1763866884565-800.webp';
 import accentsImage from '@assets/thumbs/2025-11-19-min_1763645900967-800.webp';
 import largerDisplayImage from '@assets/thumbs/2023-12-07-2_optimized-800.webp';
@@ -55,12 +55,7 @@ export default function ServicesPage() {
     "@type": "Service",
     "name": "Christmas Light Installation Services",
     "description": "Professional Christmas light installation services including residential rooflines, tree wrapping, commercial displays, custom holiday lighting, free fixes, and takedown in Greater Seattle.",
-    "provider": {
-      "@type": "LocalBusiness",
-      "name": "Christmas Northwest",
-      "telephone": "+14252150935",
-      "url": "https://christmasnw.com"
-    },
+    "provider": { "@id": BUSINESS_ID },
     "areaServed": servedCitiesSchema(),
     "serviceType": "Christmas Light Installation",
     "offers": {
