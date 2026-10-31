@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Star } from "lucide-react";
 import { useLocation } from "wouter";
-import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT } from "@/lib/business";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, businessSchema } from "@/lib/business";
 import { CUSTOMER_TESTIMONIALS } from "@/data/testimonials";
 
 export default function TestimonialsPage() {
@@ -37,26 +37,7 @@ export default function TestimonialsPage() {
       reviewBody: t.text,
   }));
 
-  const structuredData = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    name: "Christmas Northwest",
-    url: "https://christmasnw.com",
-    telephone: "+14252150935",
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Kenmore",
-      addressRegion: "WA",
-      addressCountry: "US",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: GOOGLE_RATING,
-      bestRating: 5,
-      reviewCount: GOOGLE_REVIEW_COUNT,
-    },
-    review: reviewSchemaItems,
-  };
+  const structuredData = businessSchema();
 
   return (
     <div className="min-h-screen flex flex-col">

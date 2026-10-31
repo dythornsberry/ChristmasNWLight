@@ -7,7 +7,7 @@ import StructuredData from "@/components/StructuredData";
 import SimpleServices from "@/components/SimpleServices";
 import { Button } from "@/components/ui/button";
 import { Link, useLocation } from "wouter";
-import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
+import { servedCitiesSchema, businessSchema } from "@/lib/business";
 import rooflineImage from '@assets/thumbs/IMG_6862-min_1763866884565-800.webp';
 import accentsImage from '@assets/thumbs/2025-11-19-min_1763645900967-800.webp';
 import largerDisplayImage from '@assets/thumbs/2023-12-07-2_optimized-800.webp';
@@ -73,49 +73,13 @@ export default function ServicesPage() {
     }
   };
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Christmas Northwest",
-    "description": "Professional Christmas light installation services in Greater Seattle including residential rooflines, tree wrapping, commercial displays, custom designs, free fixes, and takedown.",
-    "url": "https://christmasnw.com/services",
-    "telephone": "+14252150935",
-    "email": "christmaslightsnw@gmail.com",
-    "priceRange": "$800-$4,000+",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kenmore",
-      "addressRegion": "WA",
-      "postalCode": "98028",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 47.7573,
-      "longitude": -122.2443
-    },
-    "areaServed": servedCitiesSchema(),
-    "serviceType": [
-      "Residential roofline lighting",
-      "Tree and greenery wrapping",
-      "Commercial holiday displays",
-      "Custom lighting design",
-      "Free in-season fixes",
-      "Takedown"
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": GOOGLE_RATING,
-      "reviewCount": GOOGLE_REVIEW_COUNT
-    },
-    "sameAs": [FACEBOOK_URL, INSTAGRAM_URL, YOUTUBE_URL]
-  };
+  const localBusinessSchema = businessSchema();
 
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
-        title="Christmas Light Services in Seattle | Christmas Northwest"
-        description="Traditional seasonal Christmas lights for your roofline, trees, bushes, and columns, professionally installed in Greater Seattle. Installs start at $800."
+        title="Christmas Light Hanging Service, Seattle | Christmas Northwest"
+        description="We hang Christmas lights on rooflines, trees, bushes, and columns across Greater Seattle, then take them down after the holidays. Installs start at $800."
       />
       <StructuredData data={serviceSchema} />
       <StructuredData data={localBusinessSchema} />

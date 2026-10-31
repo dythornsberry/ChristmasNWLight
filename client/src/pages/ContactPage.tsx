@@ -7,42 +7,14 @@ import StructuredData from "@/components/StructuredData";
 import LeadFormCard, { type LeadServiceOption } from "@/components/LeadFormCard";
 import { Card } from "@/components/ui/card";
 import { Mail, MapPin, Phone, Sparkles, TreePine } from "lucide-react";
-import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
+import { businessSchema } from "@/lib/business";
 
 const CONTACT_SERVICE_OPTIONS: LeadServiceOption[] = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New installation or redesign", icon: TreePine },
   { value: "christmas-2026-returning", label: "Returning Customer", sublabel: "Existing client support or rebook", icon: Sparkles },
 ];
 
-const contactBusinessSchema = {
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Christmas Northwest",
-  "description": "Professional seasonal Christmas light installation for Seattle and the Eastside. Installs start at $800.",
-  "url": "https://christmasnw.com/contact",
-  "telephone": "+14252150935",
-  "email": "christmaslightsnw@gmail.com",
-  "priceRange": "$800-$4,000+",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Kenmore",
-    "addressRegion": "WA",
-    "postalCode": "98028",
-    "addressCountry": "US"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 47.7573,
-    "longitude": -122.2443
-  },
-  "areaServed": servedCitiesSchema(),
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": GOOGLE_RATING,
-    "reviewCount": GOOGLE_REVIEW_COUNT
-  },
-  "sameAs": [FACEBOOK_URL, INSTAGRAM_URL, YOUTUBE_URL]
-};
+const contactBusinessSchema = businessSchema();
 
 export default function ContactPage() {
   const formId = "contact-request-form";

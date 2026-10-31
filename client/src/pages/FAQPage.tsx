@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
 import PageHead from "@/components/PageHead";
 import StructuredData from "@/components/StructuredData";
-import { CURRENT_SEASON_YEAR, FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL } from "@/lib/business";
+import { businessSchema } from "@/lib/business";
 
 export default function FAQPage() {
   const [, setLocation] = useLocation();
@@ -130,38 +130,7 @@ export default function FAQPage() {
     )
   };
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Christmas Northwest",
-    "alternateName": "ChristmasNW",
-    "description": "Professional Christmas light installation serving Greater Seattle and the Eastside.",
-    "url": "https://christmasnw.com/faq",
-    "image": "https://christmasnw.com/og-image.png",
-    "logo": "https://christmasnw.com/logo.png",
-    "telephone": "+14252150935",
-    "email": "christmaslightsnw@gmail.com",
-    "foundingDate": String(FIRST_SEASON_YEAR),
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kenmore",
-      "addressRegion": "WA",
-      "postalCode": "98028",
-      "addressCountry": "US"
-    },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": GOOGLE_RATING,
-      "bestRating": "5",
-      "reviewCount": GOOGLE_REVIEW_COUNT,
-      "ratingCount": GOOGLE_REVIEW_COUNT
-    },
-    "sameAs": [
-      FACEBOOK_URL,
-      INSTAGRAM_URL,
-      "https://share.google/lxhOxXmbPwABIqdNa"
-    ]
-  };
+  const localBusinessSchema = businessSchema();
 
   useEffect(() => {
     window.scrollTo(0, 0);

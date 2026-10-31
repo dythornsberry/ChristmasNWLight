@@ -10,7 +10,7 @@ import dylanPhoto from '@assets/dylan_owner_optimized.jpeg';
 import boxTruckPhoto from '@assets/optimized/christmas-northwest-box-truck-1600.webp';
 import boxTruckPhotoSmall from '@assets/optimized/christmas-northwest-box-truck-800.webp';
 import { useLocation } from "wouter";
-import { FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
+import { FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, businessSchema } from "@/lib/business";
 
 const installers = [
   {
@@ -53,47 +53,7 @@ export default function AboutPage() {
     ]
   };
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Christmas Northwest",
-    "description": "Christmas Northwest is a Greater Seattle holiday lighting company offering residential and commercial installations, seasonal support, and full-service displays including design, installation, free fixes, and takedown.",
-    "url": "https://christmasnw.com/about",
-    "telephone": "+14252150935",
-    "email": "christmaslightsnw@gmail.com",
-    "priceRange": "$800-$4,000+",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kenmore",
-      "addressRegion": "WA",
-      "postalCode": "98028",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 47.7573,
-      "longitude": -122.2443
-    },
-    "areaServed": servedCitiesSchema(),
-    "foundingDate": String(FIRST_SEASON_YEAR),
-    "founder": {
-      "@type": "Person",
-      "name": "Dylan Thornsberry",
-      "jobTitle": "Owner"
-    },
-    "sameAs": [
-      FACEBOOK_URL,
-      INSTAGRAM_URL,
-      YOUTUBE_URL
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": GOOGLE_RATING,
-      "bestRating": "5",
-      "reviewCount": GOOGLE_REVIEW_COUNT,
-      "ratingCount": GOOGLE_REVIEW_COUNT
-    }
-  };
+  const localBusinessSchema = businessSchema();
 
   return (
     <div className="min-h-screen flex flex-col">

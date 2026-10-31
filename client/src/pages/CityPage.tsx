@@ -11,7 +11,7 @@ import { Badge } from "@/components/ui/badge";
 import { Check, Star, Shield, Clock, MapPin, Sparkles, TreePine } from "lucide-react";
 import VideoShowcaseCard, { VIDEO_SHOWCASE_ITEMS } from "@/components/VideoShowcase";
 import { getCityPhotos } from "@/data/installPhotos";
-import { FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
+import { GOOGLE_RATING, GOOGLE_REVIEW_COUNT, businessSchema, BUSINESS_ID } from "@/lib/business";
 
 const CITY_SERVICE_OPTIONS: LeadServiceOption[] = [
   { value: "christmas-2026-new", label: "Christmas Lighting", sublabel: "New installation or redesign", icon: TreePine },
@@ -123,51 +123,7 @@ export default function CityPage({
     }
   };
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Christmas Northwest",
-    "image": "https://christmasnw.com/logo.png",
-    "description": `Professional Christmas light installation in ${cityName}, WA. Commercial-grade lights, clean installs, free fixes, and takedown from a local, insured team serving ${county} County.`,
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kenmore",
-      "addressRegion": "WA",
-      "postalCode": "98028",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 47.7573,
-      "longitude": -122.2443
-    },
-    "url": `https://christmasnw.com/${citySlug}`,
-    "telephone": "+14252150935",
-    "email": "christmaslightsnw@gmail.com",
-    "priceRange": "$800-$4,000+",
-    "foundingDate": String(FIRST_SEASON_YEAR),
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      }
-    ],
-    "areaServed": servedCitiesSchema(cityName),
-    "sameAs": [
-      FACEBOOK_URL,
-      INSTAGRAM_URL,
-      YOUTUBE_URL
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": GOOGLE_RATING,
-      "reviewCount": GOOGLE_REVIEW_COUNT,
-      "bestRating": "5",
-      "worstRating": "1"
-    }
-  };
+  const localBusinessSchema = businessSchema();
 
   const benefits = [
     { icon: Check, title: "Clear Scheduling", description: `We confirm available installation dates before you book` },
@@ -201,11 +157,27 @@ export default function CityPage({
     ]
   };
 
+  const cityServiceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": `Christmas light installation in ${cityName}, WA`,
+    "serviceType": "Christmas light installation",
+    "url": `https://christmasnw.com/${citySlug}`,
+    "provider": { "@id": BUSINESS_ID },
+    "areaServed": { "@type": "City", "name": cityName, "address": { "addressRegion": "WA" } },
+    "offers": { "@type": "Offer", "priceCurrency": "USD", "price": "800", "description": "Installs start at $800, including free fixes and takedown." }
+  };
+
   return (
     <>
       <PageHead
-        title={`Christmas Light Installation in ${cityName}, WA | Christmas Northwest`}
-        description={`Professional Christmas and holiday light installation in ${cityName}, WA. Installs start at $800, with free fixes and takedown included.`}
+        title={`Christmas Light Installation ${cityName}, WA | Christmas Northwest`}
+        description={`We hang Christmas and holiday lights on homes in ${cityName}, WA. Warm white or any color. Installs start at $800, with free fixes and takedown included.`}
+      />
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(cityServiceSchema) }}
       />
 
       {/* BreadcrumbList Schema */}

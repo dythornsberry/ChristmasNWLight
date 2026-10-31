@@ -11,7 +11,7 @@ import Footer from "@/components/Footer";
 import PageHead from "@/components/PageHead";
 import StickyBottomCTA from "@/components/StickyBottomCTA";
 import StructuredData from "@/components/StructuredData";
-import { FACEBOOK_URL, FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL } from "@/lib/business";
+import { businessSchema } from "@/lib/business";
 import { useLocation } from "wouter";
 import warmWhiteGables from '@assets/optimized/portfolio-gables.webp';
 import warmWhiteEntry from '@assets/optimized/residential-card.webp';
@@ -19,7 +19,6 @@ import warmWhiteBushEstate from '@assets/optimized/portfolio-warm-white.webp';
 
 export default function Home() {
   const [, setLocation] = useLocation();
-  const googleReviewsUrl = "https://share.google/lxhOxXmbPwABIqdNa";
 
   const portfolioItems = [
     { id: 1, image: warmWhiteGables, category: "Warm White", title: "Rooflines & wreaths" },
@@ -31,80 +30,13 @@ export default function Home() {
     setLocation('/contact');
   };
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Christmas Northwest",
-    "description": "Professional Christmas light installation serving Seattle and the Eastside. Commercial-grade lights, clean installs, free fixes, and takedown for homeowners who want a polished holiday display without the hassle.",
-    "url": "https://christmasnw.com",
-    "image": "https://christmasnw.com/og-image.png",
-    "logo": "https://christmasnw.com/logo.png",
-    "telephone": "+14252150935",
-    "email": "christmaslightsnw@gmail.com",
-    "priceRange": "$800-$4,000+",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kenmore",
-      "addressRegion": "WA",
-      "postalCode": "98028",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 47.7573,
-      "longitude": -122.2443
-    },
-    "areaServed": [
-      { "@type": "City", "name": "Seattle", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Bellevue", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Kirkland", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Bothell", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Kenmore", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Woodinville", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Redmond", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Sammamish", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Shoreline", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Mill Creek", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Lake Forest Park", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Issaquah", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Newcastle", "address": { "addressRegion": "WA" } },
-      { "@type": "City", "name": "Mercer Island", "address": { "addressRegion": "WA" } }
-    ],
-    "openingHoursSpecification": [
-      {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-        "opens": "00:00",
-        "closes": "23:59"
-      }
-    ],
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": GOOGLE_RATING,
-      "bestRating": "5",
-      "reviewCount": GOOGLE_REVIEW_COUNT,
-      "ratingCount": GOOGLE_REVIEW_COUNT
-    },
-    "serviceType": [
-      "Christmas light installation",
-      "Holiday lighting design",
-      "Seasonal lighting maintenance",
-      "Christmas light takedown"
-    ],
-    "foundingDate": String(FIRST_SEASON_YEAR),
-    "sameAs": [
-      FACEBOOK_URL,
-      INSTAGRAM_URL,
-      YOUTUBE_URL,
-      googleReviewsUrl
-    ]
-  };
+  const localBusinessSchema = businessSchema();
 
   return (
     <div className="home-page min-h-screen pb-24 md:pb-0">
       <PageHead
-        title="Christmas Light Installation Seattle & Eastside | Christmas Northwest"
-        description="Professional Christmas and holiday light installation in Seattle and the Eastside. Installs start at $800, with free fixes and takedown included."
+        title="Christmas & Holiday Light Installation, Seattle | Christmas Northwest"
+        description="We hang Christmas lights on homes in Seattle, Bellevue, Kirkland and the Eastside. Commercial-grade lights, free fixes, takedown included. Installs start at $800."
       />
       <StructuredData data={localBusinessSchema} />
       <UrgencyBanner />

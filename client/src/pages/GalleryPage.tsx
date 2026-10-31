@@ -12,7 +12,7 @@ import { Button } from "@/components/ui/button";
 import { X, ChevronLeft, ChevronRight, Youtube } from "lucide-react";
 import VideoShowcaseCard, { VIDEO_SHOWCASE_ITEMS, videoObjectSchema } from "@/components/VideoShowcase";
 import { useLocation } from "wouter";
-import { FACEBOOK_URL, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, INSTAGRAM_URL, YOUTUBE_URL, servedCitiesSchema } from "@/lib/business";
+import { YOUTUBE_URL, businessSchema } from "@/lib/business";
 
 // Import all gallery images
 import img1 from '@assets/2024-11-25-min_1762058047474.jpg';
@@ -373,44 +373,12 @@ export default function GalleryPage() {
     ]
   };
 
-  const localBusinessSchema = {
-    "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "Christmas Northwest",
-    "description": "Browse the Christmas Northwest portfolio of professional holiday light installations across Greater Seattle. Residential rooflines, tree wrapping, custom displays, and commercial projects in Bellevue, Bothell, Kirkland, Redmond, Kenmore, and more.",
-    "url": "https://christmasnw.com/gallery",
-    "telephone": "+14252150935",
-    "email": "christmaslightsnw@gmail.com",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Kenmore",
-      "addressRegion": "WA",
-      "postalCode": "98028",
-      "addressCountry": "US"
-    },
-    "geo": {
-      "@type": "GeoCoordinates",
-      "latitude": 47.7573,
-      "longitude": -122.2443
-    },
-    "areaServed": servedCitiesSchema(),
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": GOOGLE_RATING,
-      "reviewCount": GOOGLE_REVIEW_COUNT
-    },
-    "priceRange": "$800-$4,000+",
-    "sameAs": [
-      FACEBOOK_URL,
-      INSTAGRAM_URL,
-      YOUTUBE_URL
-    ]
-  };
+  const localBusinessSchema = businessSchema();
 
   return (
     <>
       <PageHead
-        title="Christmas Lights Photos & Videos, Seattle Homes | Christmas Northwest"
+        title="Christmas Light Photos & Videos, Seattle | Christmas Northwest"
         description="Photos and videos of real Christmas light installs on homes in Bellevue, Bothell, Kirkland, Redmond, and across Greater Seattle."
       />
       <StructuredData data={localBusinessSchema} />
