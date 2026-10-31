@@ -193,13 +193,13 @@ In the first year, maybe. But consider:
 
 With professional installation, you're paying for expertise, commercial-grade equipment, liability insurance, and the peace of mind that everything will work perfectly and look great.
 
-Residential projects start around $800 for a clean roofline. Roofline-plus-accent projects are commonly $1,000-$2,000, full-property displays are commonly $2,500-$3,500, and large custom displays start around $4,000. Installation, seasonal maintenance, removal, and storage are included.
+Residential projects start around $800 for a clean roofline. Roofline-plus-accent projects are commonly $1,000-$2,000, full-property displays are commonly $2,500-$3,500, and large custom displays start around $4,000. The lights, the install, free fixes all season, and takedown are included.
 
-## The Storage Benefit Nobody Talks About
+## Takedown Is Part of the Job
 
-When we take your lights down in January, we don't just hand you a tangled mess to deal with. We carefully remove, test, and store everything in our climate-controlled facility.
+After the holidays we come back and take everything down. You don't climb a wet roof in winter, and you don't end up with a garage full of tangled strands.
 
-Next year, we show up with your lights already organized and ready to go. No digging through the garage, no discovering that half your strands stopped working, no missing clips or broken bulbs.
+If a light goes out while the display is up, text us and we fix it free.
 
 For most people, that's worth the cost of professional service right there.
 
@@ -211,7 +211,7 @@ Not all installation companies are created equal. Here's what to avoid:
 - **Cash-only deals:** Legitimate businesses accept normal payment methods
 - **Pressure tactics:** "Book today or the price goes up" is a bad sign
 - **Vague pricing:** You should know exactly what you're paying and what you're getting
-- **No storage option:** Storing thousands of lights in your garage is a nightmare
+- **No takedown:** Getting lights down off a wet roof after the holidays is the part nobody wants to do
 
 ## Is Professional Installation Right for You?
 
@@ -311,9 +311,9 @@ We review your priorities and create a lighting plan tailored to the home's arch
 
 If a bulb or section fails while the display is installed, contact us. Service visits are routed by urgency, location, weather, and crew availability.
 
-### Storage Peace of Mind
+### Takedown Included
 
-Your lighting setup is labeled and stored for the next season. That process is included regardless of when you book.
+Takedown after the holidays is included no matter when you book.
 
 ## The Practical Difference
 
@@ -630,30 +630,13 @@ The exact quote can move up or down based on footage, access, roof material, tre
 
 ## What's Included in Our Pricing
 
-When you book with us, the investment includes:
+When you book with us, the price includes:
 
-**Installation**
-- Complete professional installation with trained, insured crew
-- All clips, fasteners, and hardware
-- Electrical testing and safety verification
-- Setup of timers and controllers
-
-**Materials**
-- Commercial-grade LED lights (stored safely year to year)
-- Professional-grade clips and fasteners
-- Weatherproof electrical connections
-
-**Removal & Storage**
-- Professional removal in January
-- Careful inspection and testing of all lights
-- Climate-controlled storage until next year
-- Organized inventory so next year's setup is ready to go
-
-**Service**
-- Free mid-season maintenance checks
-- Emergency repair service (48-hour response)
-- Design consultation and planning
-- Next-year setup included
+- Commercial-grade LED lights, warm white or any color
+- A clean install by an insured crew, with plastic clips (no nails or holes)
+- A timer so the lights come on every evening
+- Free fixes all season if anything goes out
+- Takedown after the holidays
 
 ## What Affects Price Beyond These Three Factors
 
@@ -673,24 +656,24 @@ Published ranges help you decide whether a professional installation fits your b
 
 ## The Real Question: Is Professional Installation Worth It?
 
-DIY may cost less in cash, while professional service covers labor, access equipment, commercial-grade products, maintenance, takedown, and storage. The right choice depends on your property and priorities.
+DIY may cost less in cash, while professional service covers labor, access equipment, commercial-grade lights, free fixes, and takedown. The right choice depends on your property and priorities.
 
 **Safety**: Trained and insured installers use appropriate access and electrical practices for the property. No outdoor installation is risk-free.
 
 **Results**: Uneven spacing, sagging strands, and lights pointing random directions are obvious signs of DIY. Professional installation looks polished and planned.
 
-**Time**: The crew handles planning, installation, service, takedown, and storage instead of leaving those tasks to the homeowner.
+**Time**: The crew handles planning, installation, fixes, and takedown instead of leaving those tasks to the homeowner.
 
 **Durability**: Commercial-grade equipment lasts 10+ seasons. Drugstore lights last 1-2 before failing.
 
-**Peace of mind**: We store your lights safely, we fix issues immediately, we handle removal and setup every year. No garage full of tangled lights.
+**Peace of mind**: If something goes out, we fix it free. We take everything down after the holidays. No garage full of tangled lights.
 
 ## What To Ask Any Installer
 
 Whether you choose us or another company, here are the questions that reveal what you're really getting:
 
 1. **"Can you tell me what factors affect your pricing?"** (Not a vague "call for a quote")
-2. **"What's included in your price?"** (Installation only? Removal and storage? Follow-up service?)
+2. **"What's included in your price?"** (Installation only? Takedown? Fixes if something goes out?)
 3. **"Do you use commercial-grade or consumer-grade lights?"** (Major difference in durability and safety)
 4. **"What happens if something breaks mid-season?"** (Emergency service? How fast?)
 5. **"What's your insurance status?"** (Real companies carry liability insurance)
