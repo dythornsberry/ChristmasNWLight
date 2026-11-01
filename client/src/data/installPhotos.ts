@@ -54,17 +54,23 @@ const CITY_PHOTOS = import.meta.glob<string>("@assets/cities/*/*.{jpg,jpeg,png,w
   import: "default",
 });
 
-const titleCase = (fileName: string) =>
-  fileName.replace(/\.[^.]+$/, "").replace(/[-_]+/g, " ").replace(/\b\w/g, (c) => c.toUpperCase());
+// "02-warm-white-gables-and-wreath.webp" -> "Warm white gables and wreath" (the number only sets the order)
+const altFromFileName = (fileName: string) => {
+  const words = fileName.replace(/\.[^.]+$/, "").replace(/^\d+[-_]/, "").replace(/[-_]+/g, " ");
+  return words.charAt(0).toUpperCase() + words.slice(1);
+};
 
 export function getCityPhotos(citySlug: string, cityName: string): { photos: InstallPhoto[]; isLocal: boolean } {
   const local = Object.entries(CITY_PHOTOS)
     .filter(([path]) => path.includes(`/cities/${citySlug}/`))
     .sort(([a], [b]) => a.localeCompare(b))
-    .slice(0, 3)
-    .map(([path, src]) => ({ src, alt: `${titleCase(path.split("/").pop() ?? "")}, ${cityName}` }));
-  if (local.length > 0) return { photos: local, isLocal: true };
+    .slice(0, 6)
+    .map(([path, src]) => ({ src, alt: `${altFromFileName(path.split("/").pop() ?? "")} in ${cityName}` }));
+  // Full rows of three on desktop
+  if (local.length >= 3) return { photos: local.slice(0, local.length - (local.length % 3)), isLocal: true };
 
+  // Fewer than three local photos: lead with them, fill the row from the gallery
   const picks = PLACEHOLDER_PICKS[citySlug] ?? [0, 1, 2];
-  return { photos: picks.map((i) => GALLERY_POOL[i]), isLocal: false };
+  const fill = picks.map((i) => GALLERY_POOL[i]).slice(0, 3 - local.length);
+  return { photos: [...local, ...fill], isLocal: false };
 }

@@ -270,15 +270,6 @@ function GalleryImageCard({
           onDragStart={(event) => event.preventDefault()}
           style={{ userSelect: "none", WebkitUserSelect: "none" }}
         />
-        <div
-          className="absolute bottom-3 right-3 px-4 py-2 pointer-events-none z-10"
-          style={{
-            backgroundColor: "rgba(0, 0, 0, 0.65)",
-            borderRadius: "0.375rem",
-          }}
-        >
-          <p className="text-white text-sm font-bold tracking-wide">ChristmasNW.com</p>
-        </div>
         <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors duration-300 flex items-center justify-center">
           <span className="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             View Full Size
@@ -633,18 +624,6 @@ export default function GalleryPage() {
               style={{ userSelect: 'none', WebkitUserSelect: 'none' }}
               data-testid="img-lightbox"
             />
-            {/* Watermark in lightbox */}
-            <div 
-              className="absolute bottom-20 right-8 px-5 py-2.5 pointer-events-none"
-              style={{
-                backgroundColor: 'rgba(0, 0, 0, 0.7)',
-                borderRadius: '0.5rem'
-              }}
-            >
-              <p className="text-white text-lg font-bold tracking-wide">
-                ChristmasNW.com
-              </p>
-            </div>
             <div className="text-center mt-4">
               <Badge variant="secondary" className="mb-2">
                 {filteredImages[lightboxIndex].category}
