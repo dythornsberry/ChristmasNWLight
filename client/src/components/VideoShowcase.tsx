@@ -37,6 +37,14 @@ export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     uploadDate: "2025-11-04T12:00:00-08:00",
   },
   {
+    id: "night-bothell",
+    title: "Night Install",
+    location: "Bothell, WA",
+    description: "A Bothell home all lit up after dark.",
+    youtubeId: "3gHltNHYmeI",
+    uploadDate: "2026-11-02T20:45:18-08:00",
+  },
+  {
     id: "multicolor-issaquah",
     title: "Multicolor Display",
     location: "Issaquah, WA",

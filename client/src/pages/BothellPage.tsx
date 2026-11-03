@@ -9,6 +9,7 @@ export default function BothellPage() {
       county="King"
       latitude="47.7623"
       longitude="-122.2054"
+      videoId="night-bothell"
       neighborhoods={[
         "Downtown Bothell",
         "Canyon Park",
