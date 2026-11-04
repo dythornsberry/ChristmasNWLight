@@ -315,6 +315,12 @@ export default function CityPage({
                 <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-foreground">
                   What to expect
                 </h2>
+                {/* Body link up to the homepage, the page our Google profile points to */}
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                  Homes in {cityName} get the same setup as every house we light: lights fitted to your roofline, free fixes all season, and takedown included. Read more about our{" "}
+                  <Link href="/" className="font-semibold text-primary underline underline-offset-4">Christmas light installation</Link>{" "}
+                  across the Seattle area and the Eastside.
+                </p>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
