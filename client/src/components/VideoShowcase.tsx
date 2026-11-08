@@ -45,6 +45,22 @@ export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     uploadDate: "2026-11-02T20:45:18-08:00",
   },
   {
+    id: "multicolor-everett",
+    title: "Multicolor Roofline",
+    location: "Everett, WA",
+    description: "A multicolor install on an Everett home.",
+    youtubeId: "blqiESNTldA",
+    uploadDate: "2026-11-07T21:07:10-08:00",
+  },
+  {
+    id: "warm-white-marysville",
+    title: "Warm White Roofline",
+    location: "Marysville, WA",
+    description: "A warm white install on a Marysville home.",
+    youtubeId: "U14q8CfvHtI",
+    uploadDate: "2026-11-07T21:08:39-08:00",
+  },
+  {
     id: "multicolor-issaquah",
     title: "Multicolor Display",
     location: "Issaquah, WA",
