@@ -2,6 +2,12 @@ import { ArrowRight } from "lucide-react";
 import VideoShowcaseCard, { VIDEO_SHOWCASE_ITEMS } from "@/components/VideoShowcase";
 import { YOUTUBE_URL } from "@/lib/business";
 
+// Hand-picked for the homepage: two warm white and one multicolor
+const HOME_VIDEO_IDS = ["newcastle-warm-white", "yarrow-point-warm-white", "multicolor-everett"];
+const homeVideos = HOME_VIDEO_IDS.map((id) => VIDEO_SHOWCASE_ITEMS.find((item) => item.id === id)).filter(
+  (item): item is (typeof VIDEO_SHOWCASE_ITEMS)[number] => Boolean(item),
+);
+
 export default function HomeVideos() {
   return (
     <section className="home-videos" aria-labelledby="home-videos-heading">
@@ -16,7 +22,7 @@ export default function HomeVideos() {
           </a>
         </div>
         <div className="home-videos-grid">
-          {VIDEO_SHOWCASE_ITEMS.slice(0, 3).map((item) => (
+          {homeVideos.map((item) => (
             <VideoShowcaseCard key={item.id} item={item} />
           ))}
         </div>
