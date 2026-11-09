@@ -366,8 +366,9 @@ export default function LeadFormCard({
                   ) : null}
                   {showErrors && serviceTypeError ? <p className="text-sm text-destructive">{serviceTypeError}</p> : null}
 
-                  <div>
-                    <label className="flex min-h-11 cursor-pointer items-start gap-3 py-1 text-sm leading-6" data-testid={`${testIdPrefix}-price-confirm`}>
+                  {/* Highlighted so nobody misses the minimum */}
+                  <div className={`rounded-lg border-2 px-3 py-2 ${showErrors && priceAcknowledgedError ? "border-destructive bg-destructive/5" : "border-primary bg-primary/10"}`}>
+                    <label className="flex min-h-11 cursor-pointer items-start gap-3 py-1 text-sm leading-6 text-foreground" data-testid={`${testIdPrefix}-price-confirm`}>
                       <Checkbox
                         className="mt-1"
                         checked={formData.priceAcknowledged}
@@ -375,7 +376,7 @@ export default function LeadFormCard({
                         aria-invalid={showErrors && Boolean(priceAcknowledgedError)}
                         aria-describedby={showErrors && priceAcknowledgedError ? `${testIdPrefix}-price-error` : undefined}
                       />
-                      <span>I understand Christmas Northwest is a professional lighting service and installs start at $800.</span>
+                      <span>I understand Christmas Northwest is a professional lighting service and installs <strong className="font-bold">start at $800</strong>.</span>
                     </label>
                     {showErrors && priceAcknowledgedError ? <p id={`${testIdPrefix}-price-error`} className="text-sm text-destructive">{priceAcknowledgedError}</p> : null}
                   </div>
