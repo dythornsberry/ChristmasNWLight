@@ -22,15 +22,17 @@ import {
 } from "@/lib/leads";
 import { cn } from "@/lib/utils";
 
-// Ordered by how often each add-on sells on real Jobber jobs (2023-2026); roofline is on 94% of installs.
+// Ordered by how often each add-on sells on real Jobber jobs; roofline is on nearly every install. Wreaths sit at the bottom on purpose: offered, not pushed (Dylan, Nov 2026).
 export const LIGHTING_AREAS = [
   "Roofline",
   "Trees",
   "Garage",
-  "Columns, pillars & railings",
-  "Bushes & shrubs",
-  "Wreaths & garland",
+  "Columns & railings",
+  "Bushes & landscaping",
+  "Window outlines",
+  "Roof ridges & sides",
   "Large or custom display",
+  "Wreaths & garland",
   "Not sure yet",
 ] as const;
 
