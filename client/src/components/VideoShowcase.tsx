@@ -29,6 +29,14 @@ export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     uploadDate: "2026-10-21T22:21:01-07:00",
   },
   {
+    id: "columns-woodinville",
+    title: "Wrapped Columns and Trees",
+    location: "Woodinville, WA",
+    description: "Warm white wrapped columns and trees at a Woodinville home.",
+    youtubeId: "v4BSgBeWYts",
+    uploadDate: "2026-11-13T17:53:02-08:00",
+  },
+  {
     id: "tree-woodinville",
     title: "Big Tree Installation",
     location: "Woodinville, WA",

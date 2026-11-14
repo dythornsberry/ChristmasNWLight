@@ -9,7 +9,7 @@ export default function WoodinvillePage() {
       county="King"
       latitude="47.7543"
       longitude="-122.1637"
-      videoId="tree-woodinville"
+      videoId="columns-woodinville"
       neighborhoods={[
         "Hollywood Hill",
         "Wellington",
