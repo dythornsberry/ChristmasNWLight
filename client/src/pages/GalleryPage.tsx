@@ -15,6 +15,8 @@ import { useLocation } from "wouter";
 import { YOUTUBE_URL, businessSchema } from "@/lib/business";
 
 // Import all gallery images
+import kirklandMulticolor from '@assets/kirkland-multicolor-roofline-and-lit-entry-trees.webp';
+import kirklandMulticolorThumb from '@assets/thumbs/kirkland-multicolor-roofline-and-lit-entry-trees-800.webp';
 import everettMulticolor from '@assets/everett-multicolor-roofline-and-porch-columns.webp';
 import everettMulticolorThumb from '@assets/thumbs/everett-multicolor-roofline-and-porch-columns-800.webp';
 import marysvilleWarmWhite from '@assets/marysville-warm-white-roofline-and-porch.webp';
@@ -162,8 +164,9 @@ interface GalleryImage {
 
 
 const galleryImages: GalleryImage[] = [
-  { id: 67, src: everettMulticolor, thumb: everettMulticolorThumb, alt: "Multicolor roofline, wrapped porch columns and pathway lights on an Everett home", category: "Multicolor", title: "Multicolor Roofline, Everett" },
   { id: 68, src: marysvilleWarmWhite, thumb: marysvilleWarmWhiteThumb, alt: "Warm white roofline and porch lights on a Marysville farmhouse", category: "Warm White", title: "Warm White Farmhouse, Marysville" },
+  { id: 69, src: kirklandMulticolor, thumb: kirklandMulticolorThumb, alt: "Multicolor roofline, lit entry trees and driveway stake lights on a Kirkland home", category: "Multicolor", title: "Multicolor Roofline, Kirkland" },
+  { id: 67, src: everettMulticolor, thumb: everettMulticolorThumb, alt: "Multicolor roofline, wrapped porch columns and pathway lights on an Everett home", category: "Multicolor", title: "Multicolor Roofline, Everett" },
   { id: 1, src: stunningEstate, thumb: stunningEstateThumb, alt: "Estate with custom lighting, wrapped trees, column accents, and landscape features", category: "Custom", title: "Estate with Trees and Columns" },
   { id: 2, src: ultraModernLandscape, thumb: ultraModernLandscapeThumb, alt: "Modern home with landscape lighting, deck accent lighting, and wreath", category: "Custom", title: "Modern Home with Landscape Lighting" },
   { id: 3, src: warmWhiteBushEstate, thumb: warmWhiteBushEstateThumb, alt: "Warm white roofline and wrapped bushes on estate home", category: "Warm White", title: "Warm White Bushes" },
