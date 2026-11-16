@@ -13,7 +13,7 @@ import { FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, businessSchema }
 
 const installers = [
   {
-    name: "Dylan",
+    name: "Dylan Thornsberry",
     role: "Owner",
     photo: "/images/team/dylan.webp",
     bio: "Dylan owns Christmas Northwest and is out on installs with the crew all season. He's also the one who calls you about your quote.",
@@ -117,7 +117,7 @@ export default function AboutPage() {
               </h2>
               <div className="grid gap-x-6 gap-y-10 sm:grid-cols-3">
                 {installers.map((installer) => (
-                  <article key={installer.name} data-testid={`installer-${installer.name.toLowerCase()}`}>
+                  <article key={installer.name} data-testid={`installer-${installer.name.split(" ")[0].toLowerCase()}`}>
                     <div className="aspect-[4/5] overflow-hidden rounded-lg bg-muted">
                       <img
                         src={installer.photo}
