@@ -6,7 +6,6 @@ import PageHead from "@/components/PageHead";
 import StructuredData from "@/components/StructuredData";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import dylanPhoto from '@assets/dylan_owner_optimized.jpeg';
 import boxTruckPhoto from '@assets/optimized/christmas-northwest-box-truck-1600.webp';
 import boxTruckPhotoSmall from '@assets/optimized/christmas-northwest-box-truck-800.webp';
 import { useLocation } from "wouter";
@@ -14,7 +13,16 @@ import { FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, businessSchema }
 
 const installers = [
   {
+    name: "Dylan",
+    role: "Owner",
+    photo: "/images/team/dylan.webp",
+    bio: "Dylan owns Christmas Northwest and is out on installs with the crew all season. He's also the one who calls you about your quote.",
+    scale: 1,
+    origin: "50% 50%",
+  },
+  {
     name: "Ryder",
+    role: "Installer",
     photo: "/images/team/ryder.webp",
     bio: "Ryder is in his third year with our team. When he's not installing Christmas lights, he enjoys the outdoors and working on cars.",
     scale: 1.45,
@@ -22,6 +30,7 @@ const installers = [
   },
   {
     name: "James",
+    role: "Installer",
     photo: "/images/team/james.webp",
     bio: "James is in his first year installing Christmas lights. Outside work, he enjoys snowboarding and photography.",
     scale: 1.8,
@@ -102,17 +111,17 @@ export default function AboutPage() {
               </figure>
             </div>
 
-            <section className="mx-auto mt-12 max-w-3xl sm:mt-16" aria-labelledby="meet-the-crew">
+            <section className="mx-auto mt-12 max-w-5xl sm:mt-16" aria-labelledby="meet-the-crew">
               <h2 id="meet-the-crew" className="mb-8 font-serif text-3xl font-bold text-foreground sm:text-4xl">
                 Meet the crew
               </h2>
-              <div className="grid gap-x-6 gap-y-10 sm:grid-cols-2">
+              <div className="grid gap-x-6 gap-y-10 sm:grid-cols-3">
                 {installers.map((installer) => (
                   <article key={installer.name} data-testid={`installer-${installer.name.toLowerCase()}`}>
                     <div className="aspect-[4/5] overflow-hidden rounded-lg bg-muted">
                       <img
                         src={installer.photo}
-                        alt={`${installer.name}, Christmas Northwest installer`}
+                        alt={`${installer.name}, Christmas Northwest ${installer.role.toLowerCase()}`}
                         className="h-full w-full object-cover"
                         style={{ transform: `scale(${installer.scale})`, transformOrigin: installer.origin }}
                         width={800}
@@ -122,7 +131,7 @@ export default function AboutPage() {
                       />
                     </div>
                     <h3 className="mt-5 text-xl font-semibold text-foreground">{installer.name}</h3>
-                    <p className="mt-1 text-sm font-medium text-primary">Installer</p>
+                    <p className="mt-1 text-sm font-medium text-primary">{installer.role}</p>
                     <p className="mt-3 text-base leading-7 text-muted-foreground">{installer.bio}</p>
                   </article>
                 ))}
@@ -148,7 +157,7 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* Local service and a small owner portrait */}
+        {/* Local service and the owner on a job */}
         <section className="bg-background py-16 sm:py-20">
           <div className="mx-auto max-w-4xl px-4 sm:px-6">
             <div className="grid items-center gap-10 md:grid-cols-[1fr_auto] md:gap-16">
@@ -174,14 +183,13 @@ export default function AboutPage() {
                 </Button>
               </div>
               <figure className="flex items-center gap-4 md:flex-col md:text-center" data-testid="owner-portrait">
-                <div className="relative h-36 w-36 shrink-0 overflow-hidden rounded-full bg-muted sm:h-40 sm:w-40">
-                  {/* Keep a relaxed head-and-shoulders crop; leave the original asset untouched. */}
+                <div className="aspect-[4/5] w-36 shrink-0 overflow-hidden rounded-lg bg-muted sm:w-48 md:w-72">
                   <img
-                    src={dylanPhoto}
-                    alt="Dylan Thornsberry, owner of Christmas Northwest"
-                    className="absolute -left-[19%] -top-[31%] h-auto w-[250%] max-w-none"
-                    width={800}
-                    height={800}
+                    src="/images/team/dylan-on-install.webp"
+                    alt="Dylan Thornsberry, owner of Christmas Northwest, on a roofline install"
+                    className="h-full w-full object-cover"
+                    width={720}
+                    height={900}
                     loading="lazy"
                     decoding="async"
                     data-testid="img-about-dylan"
