@@ -5,6 +5,7 @@ import ReviewsStrip from "@/components/ReviewsStrip";
 import Portfolio from "@/components/Portfolio";
 import PricingPreview from "@/components/PricingPreview";
 import HomeVideos from "@/components/HomeVideos";
+import HomeHowItWorks from "@/components/HomeHowItWorks";
 import HomeTeam from "@/components/HomeTeam";
 import CTABanner from "@/components/CTABanner";
 import Footer from "@/components/Footer";
@@ -48,6 +49,7 @@ export default function Home() {
         <Portfolio items={portfolioItems} />
         <HomeVideos />
         <PricingPreview />
+        <HomeHowItWorks />
         <HomeTeam />
         <CTABanner onGetQuote={goToQuote} />
       </main>
