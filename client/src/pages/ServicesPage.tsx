@@ -11,6 +11,8 @@ import { servedCitiesSchema, businessSchema, BUSINESS_ID } from "@/lib/business"
 import rooflineImage from '@assets/thumbs/IMG_6862-min_1763866884565-800.webp';
 import accentsImage from '@assets/thumbs/2025-11-19-min_1763645900967-800.webp';
 import largerDisplayImage from '@assets/thumbs/2023-12-07-2_optimized-800.webp';
+import rentonHyundaiImage from '@assets/thumbs/renton-hyundai-dealership-warm-white-roofline-800.webp';
+import rentonKiaImage from '@assets/thumbs/renton-kia-dealership-warm-white-roofline-800.webp';
 
 const services = [
   {
@@ -129,6 +131,28 @@ export default function ServicesPage() {
             </div>
             <div className="mt-8 text-center">
               <Link href="/gallery" className="text-sm font-medium text-primary underline-offset-4 hover:underline">See more of our work →</Link>
+            </div>
+          </div>
+        </section>
+
+        <section className="bg-brand-soft py-12 md:py-16" aria-labelledby="commercial-heading">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="mb-8 max-w-2xl">
+              <h2 id="commercial-heading" className="font-serif text-3xl font-medium tracking-tight md:text-4xl">Commercial Christmas lights.</h2>
+              <p className="mt-3 text-base leading-7 text-muted-foreground">We light businesses too. This season we did Go Hyundai of Renton and Go Kia Renton, with warm white C9s along the rooflines and the service canopy. Same crew, same commercial-grade lights, takedown included.</p>
+            </div>
+            <div className="grid gap-8 md:grid-cols-2">
+              <figure>
+                <img src={rentonHyundaiImage} alt="Warm white C9 lights along the roofline of Go Hyundai of Renton" className="aspect-[4/3] w-full rounded-lg object-cover" width={800} height={600} loading="lazy" decoding="async" data-testid="img-commercial-hyundai" />
+                <figcaption className="mt-3 text-sm font-medium text-foreground">Go Hyundai of Renton</figcaption>
+              </figure>
+              <figure>
+                <img src={rentonKiaImage} alt="Warm white C9 lights along the curved roofline and service canopy of Go Kia Renton" className="aspect-[4/3] w-full rounded-lg object-cover" width={800} height={600} loading="lazy" decoding="async" data-testid="img-commercial-kia" />
+                <figcaption className="mt-3 text-sm font-medium text-foreground">Go Kia Renton</figcaption>
+              </figure>
+            </div>
+            <div className="mt-8">
+              <Button onClick={goToQuote} variant="outline" className="font-semibold" data-testid="button-commercial-quote">Get a quote for your business</Button>
             </div>
           </div>
         </section>

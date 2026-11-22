@@ -15,6 +15,12 @@ import { useLocation } from "wouter";
 import { YOUTUBE_URL, businessSchema } from "@/lib/business";
 
 // Import all gallery images
+import pureWhiteBows from '@assets/pure-white-roofline-columns-and-bows.webp';
+import pureWhiteBowsThumb from '@assets/thumbs/pure-white-roofline-columns-and-bows-800.webp';
+import rentonHyundai from '@assets/renton-hyundai-dealership-warm-white-roofline.webp';
+import rentonHyundaiThumb from '@assets/thumbs/renton-hyundai-dealership-warm-white-roofline-800.webp';
+import rentonKia from '@assets/renton-kia-dealership-warm-white-roofline.webp';
+import rentonKiaThumb from '@assets/thumbs/renton-kia-dealership-warm-white-roofline-800.webp';
 import kirklandMulticolor from '@assets/kirkland-multicolor-roofline-and-lit-entry-trees.webp';
 import kirklandMulticolorThumb from '@assets/thumbs/kirkland-multicolor-roofline-and-lit-entry-trees-800.webp';
 import everettMulticolor from '@assets/everett-multicolor-roofline-and-porch-columns.webp';
@@ -165,6 +171,9 @@ interface GalleryImage {
 
 const galleryImages: GalleryImage[] = [
   { id: 68, src: marysvilleWarmWhite, thumb: marysvilleWarmWhiteThumb, alt: "Warm white roofline and porch lights on a Marysville farmhouse", category: "Warm White", title: "Warm White Farmhouse, Marysville" },
+  { id: 70, src: pureWhiteBows, thumb: pureWhiteBowsThumb, alt: "Pure white roofline on every gable, lit porch columns and red window bows on a two story home", category: "Pure White", title: "Pure White Rooflines and Columns" },
+  { id: 71, src: rentonHyundai, thumb: rentonHyundaiThumb, alt: "Warm white C9 lights along the roofline of Go Hyundai of Renton", category: "Commercial", title: "Go Hyundai of Renton" },
+  { id: 72, src: rentonKia, thumb: rentonKiaThumb, alt: "Warm white C9 lights along the curved roofline and service canopy of Go Kia Renton", category: "Commercial", title: "Go Kia Renton" },
   { id: 69, src: kirklandMulticolor, thumb: kirklandMulticolorThumb, alt: "Multicolor roofline, lit entry trees and driveway stake lights on a Kirkland home", category: "Multicolor", title: "Multicolor Roofline, Kirkland" },
   { id: 67, src: everettMulticolor, thumb: everettMulticolorThumb, alt: "Multicolor roofline, wrapped porch columns and pathway lights on an Everett home", category: "Multicolor", title: "Multicolor Roofline, Everett" },
   { id: 1, src: stunningEstate, thumb: stunningEstateThumb, alt: "Estate with custom lighting, wrapped trees, column accents, and landscape features", category: "Custom", title: "Estate with Trees and Columns" },
