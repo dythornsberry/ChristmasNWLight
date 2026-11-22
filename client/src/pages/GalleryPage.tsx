@@ -170,7 +170,7 @@ interface GalleryImage {
 
 
 const galleryImages: GalleryImage[] = [
-  { id: 68, src: marysvilleWarmWhite, thumb: marysvilleWarmWhiteThumb, alt: "Warm white roofline and porch lights on a Marysville farmhouse", category: "Warm White", title: "Warm White Farmhouse, Marysville" },
+  { id: 68, src: marysvilleWarmWhite, thumb: marysvilleWarmWhiteThumb, alt: "Warm white roofline and porch lights on a two story home on a Marysville cul-de-sac", category: "Warm White", title: "Warm White Cul-de-sac Home, Marysville" },
   { id: 3, src: warmWhiteBushEstate, thumb: warmWhiteBushEstateThumb, alt: "Warm white roofline and wrapped bushes on estate home", category: "Warm White", title: "Warm White Bushes" },
   { id: 17, src: img29, thumb: img29Thumb, alt: "Modern Bellevue home with warm white Christmas lights and tree uplighting", category: "Warm White", title: "Bellevue Home with Tree Uplighting" },
   { id: 24, src: img7, thumb: img7Thumb, alt: "Brick mansion with warm white lights", category: "Warm White", title: "Brick Mansion Warm White" },
