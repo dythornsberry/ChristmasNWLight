@@ -34,6 +34,7 @@ Seattle, Bellevue, Kirkland, Redmond, Sammamish, Bothell, Kenmore, Woodinville, 
 ## Pages
 - [Home](https://christmasnw.com/): Overview, photos, pricing and quote form
 - [Services](https://christmasnw.com/services): What we install and what's included
+- [Commercial](https://christmasnw.com/commercial): Christmas lights for businesses, with recent installs
 - [Pricing](https://christmasnw.com/investment-guide): Price ranges with photos of real installs
 - [Our Lights](https://christmasnw.com/product-guide): The lights we use and color options
 - [FAQ](https://christmasnw.com/faq): Answers to the questions customers ask most

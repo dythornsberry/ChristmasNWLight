@@ -153,6 +153,7 @@ export default function ServicesPage() {
             </div>
             <div className="mt-8">
               <Button onClick={goToQuote} variant="outline" className="font-semibold" data-testid="button-commercial-quote">Get a quote for your business</Button>
+              <Link href="/commercial" className="ml-5 text-sm font-medium text-primary underline-offset-4 hover:underline" data-testid="link-commercial-page">More on commercial installs</Link>
             </div>
           </div>
         </section>

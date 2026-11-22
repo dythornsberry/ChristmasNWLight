@@ -14,6 +14,8 @@ import twoStoryWithChimney from "@assets/thumbs/IMG_2546-min_1763866884565-800.w
 export interface InstallPhoto {
   src: string;
   alt: string;
+  /** Shown under the photo. Defaults to the alt text. */
+  caption?: string;
 }
 
 // Real installs used on city pages until that city has its own photos.
@@ -65,7 +67,10 @@ export function getCityPhotos(citySlug: string, cityName: string): { photos: Ins
     .filter(([path]) => path.includes(`/cities/${citySlug}/`))
     .sort(([a], [b]) => a.localeCompare(b))
     .slice(0, 6)
-    .map(([path, src]) => ({ src, alt: `${altFromFileName(path.split("/").pop() ?? "")} in ${cityName}` }));
+    .map(([path, src]) => {
+      const caption = altFromFileName(path.split("/").pop() ?? "");
+      return { src, alt: `${caption} in ${cityName}`, caption };
+    });
   // Full rows of three on desktop
   if (local.length >= 3) return { photos: local.slice(0, local.length - (local.length % 3)), isLocal: true };
 

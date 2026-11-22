@@ -184,7 +184,7 @@ const galleryImages: GalleryImage[] = [
   { id: 71, src: rentonHyundai, thumb: rentonHyundaiThumb, alt: "Warm white C9 lights along the roofline of Go Hyundai of Renton", category: "Commercial", title: "Go Hyundai of Renton" },
   { id: 72, src: rentonKia, thumb: rentonKiaThumb, alt: "Warm white C9 lights along the curved roofline and service canopy of Go Kia Renton", category: "Commercial", title: "Go Kia Renton" },
   { id: 69, src: kirklandMulticolor, thumb: kirklandMulticolorThumb, alt: "Multicolor roofline, lit entry trees and driveway stake lights on a Kirkland home", category: "Multicolor", title: "Multicolor Roofline, Kirkland" },
-  { id: 67, src: everettMulticolor, thumb: everettMulticolorThumb, alt: "Multicolor roofline, wrapped porch columns and pathway lights on an Everett home", category: "Multicolor", title: "Multicolor Roofline, Everett" },
+  { id: 67, src: everettMulticolor, thumb: everettMulticolorThumb, alt: "Multicolor roofline, wrapped porch columns and flower bed lights on an Everett home", category: "Multicolor", title: "Multicolor Roofline, Everett" },
   { id: 1, src: stunningEstate, thumb: stunningEstateThumb, alt: "Estate with custom lighting, wrapped trees, column accents, and landscape features", category: "Custom", title: "Estate with Trees and Columns" },
   { id: 2, src: ultraModernLandscape, thumb: ultraModernLandscapeThumb, alt: "Modern home with landscape lighting, deck accent lighting, and wreath", category: "Custom", title: "Modern Home with Landscape Lighting" },
   { id: 4, src: gableWreathHome, thumb: gableWreathHomeThumb, alt: "Home with warm white rooflines, multiple gables, decorative wreaths, and snowflake accents", category: "Custom", title: "Gables and Wreaths" },
@@ -507,11 +507,11 @@ export default function GalleryPage() {
               <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-foreground">
                 More Installations
               </h2>
-              <p className="text-base text-muted-foreground sm:text-lg">
-                {selectedCategory === "All" 
-                  ? `Browse ${remainingImages.length} more installations`
-                  : `${remainingImages.length} more ${selectedCategory} installations`}
-              </p>
+              {selectedCategory !== "All" && (
+                <p className="text-base text-muted-foreground sm:text-lg">
+                  More {selectedCategory} installations
+                </p>
+              )}
             </div>
 
             {/* Remaining Photos Grid */}
@@ -545,7 +545,7 @@ export default function GalleryPage() {
                   className="w-full sm:w-auto"
                   onClick={() => setVisibleRemainingCount(remainingImages.length)}
                 >
-                  Show All {remainingImages.length}
+                  Show All
                 </Button>
               </div>
             ) : null}

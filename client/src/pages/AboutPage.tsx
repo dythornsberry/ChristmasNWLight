@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 import boxTruckPhoto from '@assets/optimized/christmas-northwest-box-truck-1600.webp';
 import boxTruckPhotoSmall from '@assets/optimized/christmas-northwest-box-truck-800.webp';
 import { useLocation } from "wouter";
-import { FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, businessSchema } from "@/lib/business";
+import { FIRST_SEASON_YEAR, GOOGLE_RATING, GOOGLE_REVIEW_COUNT, businessSchema, BUSINESS_ID } from "@/lib/business";
 
 const installers = [
   {
@@ -48,7 +48,6 @@ export default function AboutPage() {
 
   const milestones = [
     { number: GOOGLE_RATING, label: "Google Rating", description: `${GOOGLE_REVIEW_COUNT} Google reviews` },
-    { number: "24hr", label: "Response Time", description: "We respond within 24 hours" },
     { number: "Free", label: "Fixes", description: "A light goes out, we fix it" },
     { number: "Free", label: "Takedown", description: "Included in every package" }
   ];
@@ -64,6 +63,15 @@ export default function AboutPage() {
 
   const localBusinessSchema = businessSchema();
 
+  const ownerSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Dylan Thornsberry",
+    "jobTitle": "Owner",
+    "worksFor": { "@id": BUSINESS_ID },
+    "url": "https://christmasnw.com/about"
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <PageHead
@@ -71,6 +79,10 @@ export default function AboutPage() {
         description={`Meet Dylan and the Christmas Northwest crew, local Christmas light installers lighting homes across Greater Seattle since ${FIRST_SEASON_YEAR}.`}
       />
       <StructuredData data={localBusinessSchema} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(ownerSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
@@ -86,7 +98,7 @@ export default function AboutPage() {
                 <span className="text-primary font-semibold">About Christmas Northwest</span>
               </div>
               <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
-                Locally owned.
+                Locally owned Christmas light installers.
               </h1>
               <p className="text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
                 Lighting homes across Greater Seattle since {FIRST_SEASON_YEAR}.
@@ -139,10 +151,10 @@ export default function AboutPage() {
             </section>
 
             {/* Milestones Grid */}
-            <div className="mt-12 grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-4">
+            <div className="mt-12 grid grid-cols-3 gap-3 sm:gap-6">
               {milestones.map((milestone, index) => (
                 <Card key={index} className="p-4 text-center sm:p-6" data-testid={`card-milestone-${index}`}>
-                  <div className="mb-2 text-3xl font-bold text-primary sm:text-4xl md:text-5xl" data-testid={`text-milestone-number-${index}`}>
+                  <div className="mb-2 text-2xl font-bold text-primary sm:text-4xl md:text-5xl" data-testid={`text-milestone-number-${index}`}>
                     {milestone.number}
                   </div>
                   <div className="font-semibold text-foreground mb-1">
@@ -153,6 +165,26 @@ export default function AboutPage() {
                   </div>
                 </Card>
               ))}
+            </div>
+          </div>
+        </section>
+
+        {/* How it started, in Dylan's words */}
+        <section className="bg-muted/30 py-14 sm:py-16" aria-labelledby="how-we-started">
+          <div className="mx-auto max-w-3xl px-4 sm:px-6">
+            <h2 id="how-we-started" className="mb-5 font-serif text-3xl font-bold text-foreground md:text-4xl">
+              How we got started
+            </h2>
+            <div className="space-y-4 text-base leading-7 text-muted-foreground sm:text-lg" data-testid="text-owner-story">
+              <p>
+                I started out cleaning gutters. I own{" "}
+                <a href="https://seattleprowash.com" className="font-semibold text-primary underline underline-offset-4">Seattle ProWash</a>,
+                and a couple of my gutter clients asked if I could hang their Christmas lights. We tried it and loved it, mostly because people loved it.
+              </p>
+              <p>
+                At first it was something to do in December and January, when the gutter work slows down. Now we hang lights from September into February.
+              </p>
+              <p className="font-semibold text-foreground">Dylan Thornsberry, owner</p>
             </div>
           </div>
         </section>

@@ -159,7 +159,7 @@ export default function FAQPage() {
               <HelpCircle className="h-7 w-7 text-primary sm:h-8 sm:w-8" />
             </div>
             <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-5xl">
-              Frequently Asked Questions
+              Christmas light installation FAQ
             </h1>
             <p className="mx-auto max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
               Pricing, booking, and what to expect.

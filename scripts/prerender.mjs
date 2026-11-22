@@ -27,6 +27,7 @@ const ROUTES = [
   "/",
   "/about",
   "/services",
+  "/commercial",
   "/gallery",
   "/faq",
   "/contact",
@@ -232,6 +233,7 @@ function routeSourceFile(route) {
   const PAGE_FILES = {
     "/about": "AboutPage.tsx",
     "/services": "ServicesPage.tsx",
+    "/commercial": "CommercialPage.tsx",
     "/gallery": "GalleryPage.tsx",
     "/faq": "FAQPage.tsx",
     "/contact": "ContactPage.tsx",
@@ -252,35 +254,59 @@ function routeSourceFile(route) {
   return `client/src/pages/${city}Page.tsx`;
 }
 
+// Cloudflare Pages builds from a shallow clone, where git can't date a file.
+// A full local build writes the real dates here; the Cloudflare build reads them.
+const SITEMAP_DATES_FILE = join(__dirname, "sitemap-dates.json");
+
 function writeSitemap() {
   const repoRoot = join(__dirname, "..");
-  // Cloudflare Pages builds from a shallow clone, where every file reports HEAD's date.
-  // A fake "everything changed today" lastmod is worse than none.
   let shallow = false;
   try {
     shallow = execSync("git rev-parse --is-shallow-repository", { cwd: repoRoot, encoding: "utf-8" }).trim() === "true";
   } catch {}
-  const urls = ROUTES.map((route) => {
-    let lastmod = "";
+
+  let saved = {};
+  try {
+    saved = JSON.parse(readFileSync(SITEMAP_DATES_FILE, "utf-8"));
+  } catch {}
+
+  const today = new Date().toISOString().slice(0, 10);
+  const dates = {};
+  for (const route of ROUTES) {
+    let date = "";
     try {
       if (shallow) throw new Error("shallow clone");
-      const file = routeSourceFile(route);
-      const date = execSync(`git log -1 --format=%cs -- "${file}"`, {
-        cwd: repoRoot,
-        encoding: "utf-8",
-      }).trim();
-      if (/^\d{4}-\d{2}-\d{2}$/.test(date)) {
-        lastmod = `\n    <lastmod>${date}</lastmod>`;
+      // City pages share one template, so they change when it does.
+      const files = [routeSourceFile(route)];
+      if (files[0].endsWith("Page.tsx") && existsSync(join(repoRoot, files[0])) && readFileSync(join(repoRoot, files[0]), "utf-8").includes("<CityPage")) {
+        files.push("client/src/pages/CityPage.tsx");
+      }
+      for (const file of files) {
+        // Edited but not committed yet: it ships today.
+        const dirty = execSync(`git status --porcelain -- "${file}"`, { cwd: repoRoot, encoding: "utf-8" }).trim() !== "";
+        const fileDate = dirty
+          ? today
+          : execSync(`git log -1 --format=%cs -- "${file}"`, { cwd: repoRoot, encoding: "utf-8" }).trim();
+        if (/^\d{4}-\d{2}-\d{2}$/.test(fileDate) && fileDate > date) date = fileDate;
       }
     } catch {
-      // No git available (or file untracked) — omit lastmod rather than fake it.
+      date = saved[route] ?? "";
     }
+    if (date) dates[route] = date;
+  }
+
+  if (!shallow && Object.keys(dates).length === ROUTES.length) {
+    writeFileSync(SITEMAP_DATES_FILE, JSON.stringify(dates, null, 2) + "\n", "utf-8");
+  }
+
+  const urls = ROUTES.map((route) => {
+    const lastmod = dates[route] ? `\n    <lastmod>${dates[route]}</lastmod>` : "";
     return `  <url>\n    <loc>${SITE_URL}${route === "/" ? "/" : route}</loc>${lastmod}\n  </url>`;
   });
 
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${urls.join("\n")}\n</urlset>\n`;
   writeFileSync(join(DIST, "sitemap.xml"), xml, "utf-8");
-  console.log(`Wrote sitemap.xml with ${ROUTES.length} URLs (git-derived lastmod).`);
+  console.log(`Wrote sitemap.xml with ${ROUTES.length} URLs (${Object.keys(dates).length} with lastmod).`);
 }
 
 prerender().catch((err) => {

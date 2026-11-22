@@ -8,7 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Calendar, Clock, ArrowLeft } from "lucide-react";
-import { formatBlogDate, getBlogPost } from "@/data/blogPosts";
+import { blogPosts, formatBlogDate, getBlogPost } from "@/data/blogPosts";
 import type { ReactNode } from "react";
 
 function renderInlineMarkdown(text: string) {
@@ -265,6 +265,18 @@ export default function BlogPostPage() {
                   </p>
                 </div>
               </Card>
+
+              {/* Other posts, so each article links to the rest */}
+              <nav aria-label="More from the blog" className="mt-12" data-testid="nav-more-posts">
+                <h2 className="font-serif text-2xl font-bold mb-4 text-foreground">More from the blog</h2>
+                <ul className="space-y-2">
+                  {blogPosts.filter((other) => other.slug !== post.slug).map((other) => (
+                    <li key={other.slug}>
+                      <Link href={`/blog/${other.slug}`} className="text-primary underline underline-offset-4">{other.title}</Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
 
               {/* Back to Blog Footer */}
               <div className="mt-12 text-center">

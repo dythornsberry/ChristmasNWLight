@@ -14,6 +14,7 @@ const pageLoaders: Record<string, PageLoader> = {
   "/": () => import("@/pages/Home"),
   "/about": () => import("@/pages/AboutPage"),
   "/services": () => import("@/pages/ServicesPage"),
+  "/commercial": () => import("@/pages/CommercialPage"),
   "/service-areas": () => import("@/pages/ServiceAreasPage"),
   "/contact": () => import("@/pages/ContactPage"),
   "/gallery": () => import("@/pages/GalleryPage"),
@@ -53,6 +54,7 @@ export async function preloadInitialPage(pathname: string) {
 const Home = lazy(pageLoaders["/"]);
 const AboutPage = lazy(pageLoaders["/about"]);
 const ServicesPage = lazy(pageLoaders["/services"]);
+const CommercialPage = lazy(pageLoaders["/commercial"]);
 const ServiceAreasPage = lazy(pageLoaders["/service-areas"]);
 const ContactPage = lazy(pageLoaders["/contact"]);
 const GalleryPage = lazy(pageLoaders["/gallery"]);
@@ -107,6 +109,7 @@ function Router({ initialPath, InitialPage }: RouterProps) {
         <Route path="/" component={Home} />
         <Route path="/about" component={AboutPage} />
         <Route path="/services" component={ServicesPage} />
+        <Route path="/commercial" component={CommercialPage} />
         <Route path="/gallery" component={GalleryPage} />
         <Route path="/product-guide" component={ProductGuide} />
         <Route path="/investment-guide" component={InvestmentGuide} />

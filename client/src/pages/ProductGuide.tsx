@@ -54,7 +54,7 @@ export default function ProductGuide() {
       <main>
         <section className="pt-12 md:pt-16" aria-labelledby="lights-heading">
           <div className="mx-auto max-w-6xl px-6">
-            <h1 id="lights-heading" className="font-serif text-4xl font-medium tracking-tight md:text-6xl">The lights we use.</h1>
+            <h1 id="lights-heading" className="font-serif text-4xl font-medium tracking-tight md:text-6xl">The Christmas lights we use.</h1>
             <p className="mt-4 max-w-2xl text-lg leading-8 text-muted-foreground">
               Commercial-grade LEDs on every home we do. Warm white or any color, same price.
             </p>

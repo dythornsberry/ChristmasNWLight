@@ -5,6 +5,7 @@ export default function BellevuePage() {
     <CityPage
       cityName="Bellevue"
       citySlug="bellevue"
+      note="We light homes all over Bellevue, including a handful in Somerset."
       zipCode="98004"
       county="King"
       latitude="47.6101"

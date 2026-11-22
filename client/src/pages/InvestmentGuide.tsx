@@ -43,7 +43,7 @@ export default function InvestmentGuide() {
         <section className="bg-background py-12 md:py-20">
           <div className="mx-auto max-w-7xl px-6">
             <div className="mb-10 max-w-2xl">
-              <h1 className="font-serif text-4xl font-medium tracking-tight md:text-5xl">Christmas lighting pricing</h1>
+              <h1 className="font-serif text-4xl font-medium tracking-tight md:text-5xl">Christmas light installation pricing</h1>
               <p className="mt-4 text-base leading-7 text-muted-foreground md:text-lg">
                 Four examples to help you plan. Your quote will fit your home and the lights you choose.
               </p>

@@ -5,6 +5,7 @@ export default function SeattlePage() {
     <CityPage
       cityName="Seattle"
       citySlug="seattle"
+      note="A lot of the Seattle homes we light are older, with plenty of roofline detail like gables, dormers and porch trim."
       zipCode="98101"
       county="King"
       latitude="47.6062"

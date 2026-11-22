@@ -103,7 +103,7 @@ export default function ServiceAreasPage() {
                 <span className="text-primary font-semibold">Service Areas</span>
               </div>
               <h1 className="mb-5 font-serif text-3xl font-bold text-foreground sm:text-4xl md:mb-6 md:text-6xl">
-                Serving Greater Seattle
+                Christmas light installation across Greater Seattle
               </h1>
               <p className="mb-6 text-base leading-7 text-muted-foreground sm:text-lg md:text-xl">
                 Based in Kenmore, with our warehouse in Woodinville. We serve Greater Seattle and the Eastside.

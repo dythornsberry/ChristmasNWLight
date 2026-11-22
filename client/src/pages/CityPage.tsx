@@ -102,6 +102,8 @@ interface CityPageProps {
   longitude: string;
   neighborhoods?: string[];
   videoId?: string;
+  /** One real, Dylan-supplied line about our work in this city. Never invent one. */
+  note?: string;
 }
 
 export default function CityPage({
@@ -113,6 +115,7 @@ export default function CityPage({
   longitude,
   neighborhoods = [],
   videoId,
+  note,
 }: CityPageProps) {
   const localVideo = VIDEO_SHOWCASE_ITEMS.find((item) => item.id === videoId);
   const { photos: installPhotos, isLocal: hasLocalPhotos } = getCityPhotos(citySlug, cityName);
@@ -285,11 +288,17 @@ export default function CityPage({
                   See the gallery
                 </Link>
               </div>
+              {note && (
+                <p className="mt-4 max-w-3xl text-lg leading-8 text-muted-foreground" data-testid="city-note">{note}</p>
+              )}
               <div className="-mx-6 mt-8 flex snap-x snap-mandatory scroll-px-6 gap-4 overflow-x-auto px-6 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:overflow-visible md:px-0 md:scroll-px-0">
                 {installPhotos.map((photo) => (
-                  <div key={photo.src} className="aspect-[4/3] w-[80%] shrink-0 snap-start overflow-hidden rounded-lg bg-muted md:w-auto">
-                    <img src={photo.src} alt={photo.alt} className="h-full w-full object-cover" width={800} height={600} loading="lazy" decoding="async" />
-                  </div>
+                  <figure key={photo.src} className="w-[80%] shrink-0 snap-start md:w-auto">
+                    <div className="aspect-[4/3] overflow-hidden rounded-lg bg-muted">
+                      <img src={photo.src} alt={photo.alt} className="h-full w-full object-cover" width={800} height={600} loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption className="mt-2 text-sm text-muted-foreground">{photo.caption ?? photo.alt}</figcaption>
+                  </figure>
                 ))}
               </div>
             </div>
@@ -313,11 +322,18 @@ export default function CityPage({
             <div className="max-w-7xl mx-auto px-6">
               <div className="text-center mb-16">
                 <h2 className="font-serif text-4xl md:text-5xl font-bold mb-6 text-foreground">
-                  What to expect
+                  What it costs in {cityName}
                 </h2>
+                {/* Prices match the FAQ and pricing page. Keep them in sync. */}
+                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed" data-testid="city-cost">
+                  Christmas light installation in {cityName} starts at $800. Most homes land between $900 and $1,600, depending on how much you want lit up. We price the whole job, not by the foot, and the lights are included. See{" "}
+                  <Link href="/investment-guide" className="font-semibold text-primary underline underline-offset-4">pricing examples</Link>{" "}
+                  or read{" "}
+                  <Link href="/blog/how-much-does-christmas-light-installation-cost" className="font-semibold text-primary underline underline-offset-4">what goes into the cost</Link>.
+                </p>
                 {/* Body link up to the homepage, the page our Google profile points to */}
-                <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-                  Homes in {cityName} get the same setup as every house we light: lights fitted to your roofline, free fixes all season, and takedown included. Read more about our{" "}
+                <p className="mt-5 text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+                  Every home gets free fixes all season and takedown included. Read more about our{" "}
                   <Link href="/" className="font-semibold text-primary underline underline-offset-4">Christmas light installation</Link>{" "}
                   across the Seattle area and the Eastside.
                 </p>

@@ -63,7 +63,7 @@ export default function TestimonialsPage() {
                 <span className="text-primary font-semibold">Customer Testimonials</span>
               </div>
               <h1 className="font-serif text-4xl md:text-6xl font-bold mb-6 text-foreground">
-                What Our Clients Say
+                Christmas light installation reviews
               </h1>
               <p className="text-xl text-muted-foreground leading-relaxed mb-4">
                 Read verified feedback from customers who hired Christmas Northwest for their holiday lighting.

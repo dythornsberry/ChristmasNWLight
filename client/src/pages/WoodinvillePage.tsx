@@ -5,6 +5,7 @@ export default function WoodinvillePage() {
     <CityPage
       cityName="Woodinville"
       citySlug="woodinville"
+      note="Our warehouse is in Woodinville, and we light homes around Bear Creek."
       zipCode="98072"
       county="King"
       latitude="47.7543"

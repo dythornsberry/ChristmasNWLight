@@ -32,6 +32,7 @@ export default function Footer() {
             <p className="font-semibold mb-4 text-foreground">Services</p>
             <ul className="space-y-2 text-muted-foreground">
               <li><Link href="/services" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Christmas Lighting</Link></li>
+              <li><Link href="/commercial" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Commercial Lighting</Link></li>
               <li><Link href="/product-guide" onClick={handleLinkClick} className="hover:text-foreground transition-colors">Product Guide</Link></li>
             </ul>
           </div>
