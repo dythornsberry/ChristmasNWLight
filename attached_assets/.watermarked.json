@@ -15,7 +15,7 @@
   "cities/kirkland/03-multicolor-roofline-and-lit-trees.webp": "cd916bcbe20568016e864911845e93ce3b7d6068579b6285b2c271d3ec82d6f7",
   "cities/redmond/01-red-and-green-roofline-on-a-craftsman.webp": "e6a43353171e84c543cf2d9e9d1799b9e6ee5dc2574beceb753fa3f703cf5e77",
   "cities/sammamish/01-red-white-and-green-roofline.webp": "17bbb56f806e5e4d767a441cd34c3aae6e0ec06abb9321e275784bb768303669",
-  "cities/seattle/03-warm-white-roofline-on-a-hillside-home.webp": "3366552e879eed85667951803a0fe696cf28b16bfda365db34ded42ae73cc222",
+  "cities/seattle/06-warm-white-roofline-on-a-hillside-home.webp": "3366552e879eed85667951803a0fe696cf28b16bfda365db34ded42ae73cc222",
   "cities/seattle/04-lit-porch-columns-and-wrapped-tree.webp": "7efee003baac3cb1757cb0b7beae422536426c593106ae6cc41e50a57216e732",
   "cities/seattle/05-warm-white-roofline-and-wreath-on-an-older-home.webp": "38b40fa4b112fa68846aa572fa76d24ffbd7402bf4f133413d9e48f8f234765e",
   "cities/woodinville/01-warm-white-gables-at-dusk.webp": "0b19f61b936bcad6859d0430a1a8fbd17224c8c0baa5b194b0e756610e10aa16",
@@ -165,7 +165,7 @@
   "thumbs/marysville-warm-white-roofline-and-porch-800.webp": "c40cb0aaecdbe6a567ab6102aa155526196367645876d62c67b76037b75e8ec1",
   "cities/bellevue/0-warm-white-roofline-and-wrapped-tree.webp": "c08a90529d6405ecb174b835b9fa9830601ead2641891df8227cbb6b848e68bb",
   "cities/bellevue/00-warm-white-roofline-and-lit-driveway.webp": "a17cb4e0168055d8c738140882383fa5d15671a2469bba68cb33e796fbec3da8",
-  "cities/seattle/02-warm-white-gables-and-dormers.webp": "1eda804834b34f0dab3f48838855b52016a96cd016156bb4bedc7725a528ea80",
+  "cities/seattle/03-warm-white-gables-and-dormers.webp": "1eda804834b34f0dab3f48838855b52016a96cd016156bb4bedc7725a528ea80",
   "cities/kirkland/00-warm-white-roofline-wrapped-columns-and-garage.webp": "a75150704e2242f975fe19e8cef9f445caafc805972f44cf687dc0bb0429a575",
   "cities/kirkland/000-warm-white-roofline-on-a-two-story-craftsman.webp": "4c14a9e6a9a5b5534e9261dcdb5d191e204f3d4d1e9004e3d8ba3a83d8195d3c",
   "cities/edmonds/0-red-and-white-roofline-on-a-modern-home.webp": "c374b5c2f17c3e4346ed7119260fe0931ff43e6411d8c66b37fa0e477cb74630",
@@ -192,5 +192,10 @@
   "thumbs/queen-anne-warm-white-roofline-and-lit-wreath-800.webp": "3bf1da44d706184108c160c592dea37a87581c1b9657d5ba639ad5e4597c398c",
   "thumbs/queen-anne-wrapped-tree-mini-lights-800.webp": "fc4584bd1197fe0b5b20b09c1dc99462264b62e247c24245019b3ccb10aa26a6",
   "tacoma-red-and-warm-white-roofline-and-wreath.webp": "28c2b461d103f25c06239e3b45f9a24e304286fec9c5cb6d48a0ab9678534db9",
-  "thumbs/tacoma-red-and-warm-white-roofline-and-wreath-800.webp": "5c5f468708677007f6041ef9a856fc2b61419a3bbb00b8d25ed9d4adc880a9da"
+  "thumbs/tacoma-red-and-warm-white-roofline-and-wreath-800.webp": "5c5f468708677007f6041ef9a856fc2b61419a3bbb00b8d25ed9d4adc880a9da",
+  "cities/seattle/02-starburst-tree-lights-and-a-wrapped-porch-column.webp": "506665907bacab2c47a989deaa94b483610fdeda2107060ffd47674d6e1ca2bf",
+  "seattle-starburst-tree-and-wrapped-porch.webp": "82ffc865732902bd54e3705ae08723e0a73688d7622efa9ed60d2fe784c088a9",
+  "seattle-warm-white-roofline-and-wrapped-porch.webp": "6571e0d2213af26ae32131b62119e680688e01f9882fe1796c2db138551a2455",
+  "thumbs/seattle-starburst-tree-and-wrapped-porch-800.webp": "5e408f483690d0627a71becc536af0584f21722a52df2cc09463e04aaf961fb9",
+  "thumbs/seattle-warm-white-roofline-and-wrapped-porch-800.webp": "aaa7fa84b450518602afce3dcdd85a54e36a507ab3ecfde452ae8052d40deea0"
 }

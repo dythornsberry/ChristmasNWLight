@@ -25,6 +25,10 @@ import queenAnneTree from '@assets/queen-anne-wrapped-tree-mini-lights.webp';
 import queenAnneTreeThumb from '@assets/thumbs/queen-anne-wrapped-tree-mini-lights-800.webp';
 import tacomaRedWhite from '@assets/tacoma-red-and-warm-white-roofline-and-wreath.webp';
 import tacomaRedWhiteThumb from '@assets/thumbs/tacoma-red-and-warm-white-roofline-and-wreath-800.webp';
+import seattleStarburst from '@assets/seattle-starburst-tree-and-wrapped-porch.webp';
+import seattleStarburstThumb from '@assets/thumbs/seattle-starburst-tree-and-wrapped-porch-800.webp';
+import seattleTallHome from '@assets/seattle-warm-white-roofline-and-wrapped-porch.webp';
+import seattleTallHomeThumb from '@assets/thumbs/seattle-warm-white-roofline-and-wrapped-porch-800.webp';
 import pureWhiteBows from '@assets/pure-white-roofline-columns-and-bows.webp';
 import pureWhiteBowsThumb from '@assets/thumbs/pure-white-roofline-columns-and-bows-800.webp';
 import rentonHyundai from '@assets/renton-hyundai-dealership-warm-white-roofline.webp';
@@ -192,6 +196,8 @@ const galleryImages: GalleryImage[] = [
   { id: 73, src: queenAnneBrick, thumb: queenAnneBrickThumb, alt: "Warm white roofline and walkway lights on a brick home in Queen Anne, Seattle", category: "Warm White", title: "Brick Home with Walkway Lights, Queen Anne" },
   { id: 74, src: queenAnneWreath, thumb: queenAnneWreathThumb, alt: "Warm white roofline on both gables and a lit wreath with a red bow on a Queen Anne home in Seattle", category: "Warm White", title: "Warm White Roofline and Wreath, Queen Anne" },
   { id: 75, src: queenAnneEntry, thumb: queenAnneEntryThumb, alt: "Lit wreath with a red bow over an arched brick entry, with warm white roofline and flower bed lights, in Queen Anne, Seattle", category: "Warm White", title: "Arched Entry with Lit Wreath, Queen Anne" },
+  { id: 78, src: seattleStarburst, thumb: seattleStarburstThumb, alt: "Starburst lights hung in a bare tree beside a wrapped porch column and lit stair railings on a Seattle home", category: "Trees", title: "Starburst Tree and Wrapped Porch, Seattle" },
+  { id: 79, src: seattleTallHome, thumb: seattleTallHomeThumb, alt: "Warm white roofline on a three story Seattle home with a wrapped porch column and lit railings", category: "Warm White", title: "Warm White Roofline and Porch, Seattle" },
   { id: 13, src: img21, thumb: img21Thumb, alt: "Warm white Christmas lights on home", category: "Warm White", title: "Warm White Roofline" },
   { id: 70, src: pureWhiteBows, thumb: pureWhiteBowsThumb, alt: "Pure white roofline on every gable, lit porch columns and red window bows on a two story home", category: "Pure White", title: "Pure White Rooflines and Columns" },
   { id: 71, src: rentonHyundai, thumb: rentonHyundaiThumb, alt: "Warm white C9 lights along the roofline of Go Hyundai of Renton", category: "Commercial", title: "Go Hyundai of Renton" },
