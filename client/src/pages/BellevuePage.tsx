@@ -10,7 +10,7 @@ export default function BellevuePage() {
       county="King"
       latitude="47.6101"
       longitude="-122.2015"
-      videoId="yarrow-point-warm-white"
+      videoId="bellevue-red-and-white"
       neighborhoods={[
         "Downtown Bellevue",
         "Crossroads",

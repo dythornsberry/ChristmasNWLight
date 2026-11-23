@@ -37,6 +37,14 @@ export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     uploadDate: "2026-11-22T21:25:03-08:00",
   },
   {
+    id: "seattle-starburst-tree",
+    title: "Roofline, Starburst Tree and Fence Lights",
+    location: "Seattle, WA",
+    description: "Warm white roofline, a starburst tree, fence lights and wrapped porch columns on a Seattle home.",
+    youtubeId: "lniJyzADMGI",
+    uploadDate: "2026-11-22T21:26:47-08:00",
+  },
+  {
     id: "columns-woodinville",
     title: "Wrapped Columns and Trees",
     location: "Woodinville, WA",
