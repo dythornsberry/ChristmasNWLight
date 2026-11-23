@@ -29,6 +29,14 @@ export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     uploadDate: "2026-10-21T22:21:01-07:00",
   },
   {
+    id: "queen-anne-warm-white",
+    title: "Warm White Roofline and Wreath",
+    location: "Queen Anne, Seattle",
+    description: "Warm white roofline, a lit wreath and wrapped trees on a Queen Anne home.",
+    youtubeId: "qcE2yH1A1Ck",
+    uploadDate: "2026-11-22T21:25:03-08:00",
+  },
+  {
     id: "columns-woodinville",
     title: "Wrapped Columns and Trees",
     location: "Woodinville, WA",
@@ -51,6 +59,14 @@ export const VIDEO_SHOWCASE_ITEMS: VideoShowcaseItem[] = [
     description: "A Bothell home all lit up after dark.",
     youtubeId: "3gHltNHYmeI",
     uploadDate: "2026-11-02T20:45:18-08:00",
+  },
+  {
+    id: "bellevue-red-and-white",
+    title: "Red and White Roofline",
+    location: "Bellevue, WA",
+    description: "Red and white roofline with lit shrubs out front on a Bellevue home.",
+    youtubeId: "vCOaXwBqFYk",
+    uploadDate: "2026-11-18T16:53:06-08:00",
   },
   {
     id: "multicolor-everett",

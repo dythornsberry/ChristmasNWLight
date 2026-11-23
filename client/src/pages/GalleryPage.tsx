@@ -23,6 +23,8 @@ import queenAnneEntry from '@assets/queen-anne-arched-entry-lit-wreath.webp';
 import queenAnneEntryThumb from '@assets/thumbs/queen-anne-arched-entry-lit-wreath-800.webp';
 import queenAnneTree from '@assets/queen-anne-wrapped-tree-mini-lights.webp';
 import queenAnneTreeThumb from '@assets/thumbs/queen-anne-wrapped-tree-mini-lights-800.webp';
+import tacomaRedWhite from '@assets/tacoma-red-and-warm-white-roofline-and-wreath.webp';
+import tacomaRedWhiteThumb from '@assets/thumbs/tacoma-red-and-warm-white-roofline-and-wreath-800.webp';
 import pureWhiteBows from '@assets/pure-white-roofline-columns-and-bows.webp';
 import pureWhiteBowsThumb from '@assets/thumbs/pure-white-roofline-columns-and-bows-800.webp';
 import rentonHyundai from '@assets/renton-hyundai-dealership-warm-white-roofline.webp';
@@ -199,6 +201,7 @@ const galleryImages: GalleryImage[] = [
   { id: 1, src: stunningEstate, thumb: stunningEstateThumb, alt: "Estate with custom lighting, wrapped trees, column accents, and landscape features", category: "Custom", title: "Estate with Trees and Columns" },
   { id: 2, src: ultraModernLandscape, thumb: ultraModernLandscapeThumb, alt: "Modern home with landscape lighting, deck accent lighting, and wreath", category: "Custom", title: "Modern Home with Landscape Lighting" },
   { id: 4, src: gableWreathHome, thumb: gableWreathHomeThumb, alt: "Home with warm white rooflines, multiple gables, decorative wreaths, and snowflake accents", category: "Custom", title: "Gables and Wreaths" },
+  { id: 77, src: tacomaRedWhite, thumb: tacomaRedWhiteThumb, alt: "Red and warm white roofline, a lit wreath over the garage, a wrapped porch column and lit bushes on a two story Tacoma home", category: "Custom", title: "Red and Warm White Roofline, Tacoma" },
   { id: 6, src: luxuryModernDeck, thumb: luxuryModernDeckThumb, alt: "Modern home with custom red and white roofline lighting and deck accents", category: "Custom", title: "Red and White Deck Lighting" },
   { id: 7, src: glassHomeMulticolor, thumb: glassHomeMulticolorThumb, alt: "Glass home with multicolor rooflines at dusk with sunset backdrop", category: "Multicolor", title: "Glass Home Multicolor" },
   { id: 76, src: queenAnneTree, thumb: queenAnneTreeThumb, alt: "Tree trunk and branches wrapped in mini lights beside a small lit tree with ornaments in Queen Anne, Seattle", category: "Trees", title: "Wrapped Tree, Queen Anne" },
