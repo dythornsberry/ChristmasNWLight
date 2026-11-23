@@ -56,10 +56,14 @@ const CITY_PHOTOS = import.meta.glob<string>("@assets/cities/*/*.{jpg,jpeg,png,w
   import: "default",
 });
 
+const PLACE_NAMES = ["Queen Anne"];
+
 // "02-warm-white-gables-and-wreath.webp" -> "Warm white gables and wreath" (the number only sets the order)
 const altFromFileName = (fileName: string) => {
   const words = fileName.replace(/\.[^.]+$/, "").replace(/^\d+[-_]/, "").replace(/[-_]+/g, " ");
-  return words.charAt(0).toUpperCase() + words.slice(1);
+  // File names are lowercase, so put the capitals back on neighborhood names
+  const named = PLACE_NAMES.reduce((text, name) => text.replace(new RegExp(`\\b${name}\\b`, "i"), name), words);
+  return named.charAt(0).toUpperCase() + named.slice(1);
 };
 
 export function getCityPhotos(citySlug: string, cityName: string): { photos: InstallPhoto[]; isLocal: boolean } {

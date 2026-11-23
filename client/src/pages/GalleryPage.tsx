@@ -15,6 +15,14 @@ import { useLocation } from "wouter";
 import { YOUTUBE_URL, businessSchema } from "@/lib/business";
 
 // Import all gallery images
+import queenAnneBrick from '@assets/queen-anne-brick-home-warm-white-roofline-and-walkway.webp';
+import queenAnneBrickThumb from '@assets/thumbs/queen-anne-brick-home-warm-white-roofline-and-walkway-800.webp';
+import queenAnneWreath from '@assets/queen-anne-warm-white-roofline-and-lit-wreath.webp';
+import queenAnneWreathThumb from '@assets/thumbs/queen-anne-warm-white-roofline-and-lit-wreath-800.webp';
+import queenAnneEntry from '@assets/queen-anne-arched-entry-lit-wreath.webp';
+import queenAnneEntryThumb from '@assets/thumbs/queen-anne-arched-entry-lit-wreath-800.webp';
+import queenAnneTree from '@assets/queen-anne-wrapped-tree-mini-lights.webp';
+import queenAnneTreeThumb from '@assets/thumbs/queen-anne-wrapped-tree-mini-lights-800.webp';
 import pureWhiteBows from '@assets/pure-white-roofline-columns-and-bows.webp';
 import pureWhiteBowsThumb from '@assets/thumbs/pure-white-roofline-columns-and-bows-800.webp';
 import rentonHyundai from '@assets/renton-hyundai-dealership-warm-white-roofline.webp';
@@ -179,6 +187,9 @@ const galleryImages: GalleryImage[] = [
   { id: 5, src: modernArchitectureHome, thumb: modernArchitectureHomeThumb, alt: "Modern home with warm white roofline and landscape lighting", category: "Warm White", title: "Modern Warm White Roofline" },
   { id: 16, src: img28, thumb: img28Thumb, alt: "Warm white Christmas lights on rooflines and ridges", category: "Warm White", title: "Ridges and Rooflines" },
   { id: 9, src: img8, thumb: img8Thumb, alt: "Modern home with clean warm white", category: "Warm White", title: "Clean Warm White" },
+  { id: 73, src: queenAnneBrick, thumb: queenAnneBrickThumb, alt: "Warm white roofline and walkway lights on a brick home in Queen Anne, Seattle", category: "Warm White", title: "Brick Home with Walkway Lights, Queen Anne" },
+  { id: 74, src: queenAnneWreath, thumb: queenAnneWreathThumb, alt: "Warm white roofline on both gables and a lit wreath with a red bow on a Queen Anne home in Seattle", category: "Warm White", title: "Warm White Roofline and Wreath, Queen Anne" },
+  { id: 75, src: queenAnneEntry, thumb: queenAnneEntryThumb, alt: "Lit wreath with a red bow over an arched brick entry, with warm white roofline and flower bed lights, in Queen Anne, Seattle", category: "Warm White", title: "Arched Entry with Lit Wreath, Queen Anne" },
   { id: 13, src: img21, thumb: img21Thumb, alt: "Warm white Christmas lights on home", category: "Warm White", title: "Warm White Roofline" },
   { id: 70, src: pureWhiteBows, thumb: pureWhiteBowsThumb, alt: "Pure white roofline on every gable, lit porch columns and red window bows on a two story home", category: "Pure White", title: "Pure White Rooflines and Columns" },
   { id: 71, src: rentonHyundai, thumb: rentonHyundaiThumb, alt: "Warm white C9 lights along the roofline of Go Hyundai of Renton", category: "Commercial", title: "Go Hyundai of Renton" },
@@ -190,6 +201,7 @@ const galleryImages: GalleryImage[] = [
   { id: 4, src: gableWreathHome, thumb: gableWreathHomeThumb, alt: "Home with warm white rooflines, multiple gables, decorative wreaths, and snowflake accents", category: "Custom", title: "Gables and Wreaths" },
   { id: 6, src: luxuryModernDeck, thumb: luxuryModernDeckThumb, alt: "Modern home with custom red and white roofline lighting and deck accents", category: "Custom", title: "Red and White Deck Lighting" },
   { id: 7, src: glassHomeMulticolor, thumb: glassHomeMulticolorThumb, alt: "Glass home with multicolor rooflines at dusk with sunset backdrop", category: "Multicolor", title: "Glass Home Multicolor" },
+  { id: 76, src: queenAnneTree, thumb: queenAnneTreeThumb, alt: "Tree trunk and branches wrapped in mini lights beside a small lit tree with ornaments in Queen Anne, Seattle", category: "Trees", title: "Wrapped Tree, Queen Anne" },
   { id: 8, src: img9, thumb: img9Thumb, alt: "Custom tree display with wrapped trees", category: "Custom", title: "Wrapped Trees" },
   { id: 10, src: img12, thumb: img12Thumb, alt: "Full yard custom design with decorations", category: "Custom", title: "Full Yard Display" },
   { id: 11, src: img16, thumb: img16Thumb, alt: "Red tree wrap with blue snowmen", category: "Trees", title: "Red Tree with Snowmen" },
