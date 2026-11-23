@@ -43,16 +43,8 @@ import marysvilleWarmWhite from '@assets/marysville-warm-white-roofline-and-porc
 import marysvilleWarmWhiteThumb from '@assets/thumbs/marysville-warm-white-roofline-and-porch-800.webp';
 import img1 from '@assets/2024-11-25-min_1762058047474.jpg';
 import img1Thumb from '@assets/thumbs/2024-11-25-min_1762058047474-800.webp';
-import img2 from '@assets/2024-11-17-3-min_1762058047475.jpg';
-import img2Thumb from '@assets/thumbs/2024-11-17-3-min_1762058047475-800.webp';
-import img3 from '@assets/2023-11-10-3-min_1762058047475.jpg';
-import img3Thumb from '@assets/thumbs/2023-11-10-3-min_1762058047475-800.webp';
-import img4 from '@assets/2024-11-17-4-min_1762058047475.jpg';
-import img4Thumb from '@assets/thumbs/2024-11-17-4-min_1762058047475-800.webp';
 import img5 from '@assets/2022-12-01-min_1762058047475.jpg';
 import img5Thumb from '@assets/thumbs/2022-12-01-min_1762058047475-800.webp';
-import img6 from '@assets/unnamed-14-min_1762058047475.jpg';
-import img6Thumb from '@assets/thumbs/unnamed-14-min_1762058047475-800.webp';
 import img7 from '@assets/2023-11-14-min_1762058047475.jpg';
 import img7Thumb from '@assets/thumbs/2023-11-14-min_1762058047475-800.webp';
 import img8 from '@assets/2024-11-23-min_1762058047475.jpg';
@@ -61,8 +53,6 @@ import img9 from '@assets/2025-10-28-min_1762058047476.jpg';
 import img9Thumb from '@assets/thumbs/2025-10-28-min_1762058047476-800.webp';
 import img10 from '@assets/2024-12-25-min_1762058047476.jpg';
 import img10Thumb from '@assets/thumbs/2024-12-25-min_1762058047476-800.webp';
-import img12 from '@assets/2024-12-03-min_1762058047476.jpg';
-import img12Thumb from '@assets/thumbs/2024-12-03-min_1762058047476-800.webp';
 import img13 from '@assets/2025-10-28-2-min_1762058047476.jpg';
 import img13Thumb from '@assets/thumbs/2025-10-28-2-min_1762058047476-800.webp';
 import img14 from '@assets/2024-10-27-min_1762058047476.jpg';
@@ -121,8 +111,6 @@ import modernArchitectureHome from '@assets/2024-11-26-2_1762398937574.jpg';
 import modernArchitectureHomeThumb from '@assets/thumbs/2024-11-26-2_1762398937574-800.webp';
 import gableWreathHome from '@assets/2023-12-22-3_1762398937574.jpg';
 import gableWreathHomeThumb from '@assets/thumbs/2023-12-22-3_1762398937574-800.webp';
-import truckInstallHome from '@assets/2024-11-12-3_1762398937574.jpg';
-import truckInstallHomeThumb from '@assets/thumbs/2024-11-12-3_1762398937574-800.webp';
 import multicolorTreeHome from '@assets/2024-12-07_1762398937574.jpg';
 import multicolorTreeHomeThumb from '@assets/thumbs/2024-12-07_1762398937574-800.webp';
 import ultraModernLandscape from '@assets/unnamed-19_1762398937574.jpg';
@@ -143,16 +131,10 @@ import porchRailings from '@assets/IMG_0581-min_optimized.webp';
 import porchRailingsThumb from '@assets/thumbs/IMG_0581-min_optimized-800.webp';
 import modernTwoStoryRoofline from '@assets/IMG_6862-min_1763866884565.jpeg';
 import modernTwoStoryRooflineThumb from '@assets/thumbs/IMG_6862-min_1763866884565-800.webp';
-import rooflineWrappedTrees from '@assets/IMG_7339-min_1763866884565.jpeg';
-import rooflineWrappedTreesThumb from '@assets/thumbs/IMG_7339-min_1763866884565-800.webp';
 import singleStoryWithWreath from '@assets/IMG_7362-min_optimized.webp';
 import singleStoryWithWreathThumb from '@assets/thumbs/IMG_7362-min_optimized-800.webp';
 import twoStoryWithChimney from '@assets/IMG_2546-min_1763866884565.jpeg';
 import twoStoryWithChimneyThumb from '@assets/thumbs/IMG_2546-min_1763866884565-800.webp';
-import twoStoryLawnDecorations from '@assets/IMG_6949-min_1763866884565.jpeg';
-import twoStoryLawnDecorationsThumb from '@assets/thumbs/IMG_6949-min_1763866884565-800.webp';
-import hillsideHomeWithTrees from '@assets/IMG_7349-min_1763866884565.jpeg';
-import hillsideHomeWithTreesThumb from '@assets/thumbs/IMG_7349-min_1763866884565-800.webp';
 import multipleWrappedTrees from '@assets/IMG_7468-min_optimized.webp';
 import multipleWrappedTreesThumb from '@assets/thumbs/IMG_7468-min_optimized-800.webp';
 import warmWhiteGreenAccent1 from '@assets/IMG_1952-min_optimized.webp';
@@ -202,19 +184,13 @@ const galleryImages: GalleryImage[] = [
   { id: 7, src: glassHomeMulticolor, thumb: glassHomeMulticolorThumb, alt: "Glass home with multicolor rooflines at dusk with sunset backdrop", category: "Multicolor", title: "Glass Home Multicolor" },
   { id: 76, src: queenAnneTree, thumb: queenAnneTreeThumb, alt: "Tree trunk and branches wrapped in mini lights beside a small lit tree with ornaments in Queen Anne, Seattle", category: "Trees", title: "Wrapped Tree, Queen Anne" },
   { id: 8, src: img9, thumb: img9Thumb, alt: "Custom tree display with wrapped trees", category: "Custom", title: "Wrapped Trees" },
-  { id: 10, src: img12, thumb: img12Thumb, alt: "Full yard custom design with decorations", category: "Custom", title: "Full Yard Display" },
   { id: 11, src: img16, thumb: img16Thumb, alt: "Red tree wrap with blue snowmen", category: "Trees", title: "Red Tree with Snowmen" },
   { id: 12, src: img17, thumb: img17Thumb, alt: "Multicolor lights on dark modern home with peaks and columns", category: "Multicolor", title: "Multicolor Peaks and Columns" },
   { id: 14, src: img23, thumb: img23Thumb, alt: "Tree uplighting in winter snow with warm white landscape lights", category: "Trees", title: "Tree Uplighting in Snow" },
   { id: 15, src: img25, thumb: img25Thumb, alt: "Estate gate with red accent lights and warm white uplighting", category: "Custom", title: "Gate Lighting" },
   { id: 18, src: img1, thumb: img1Thumb, alt: "Multicolor roofline installation on large home", category: "Multicolor", title: "Multicolor Roofline" },
-  { id: 19, src: img2, thumb: img2Thumb, alt: "Family enjoying custom holiday lighting", category: "Custom", title: "Family Photo" },
-  { id: 20, src: img3, thumb: img3Thumb, alt: "Multicolor roofline with pillars", category: "Multicolor", title: "Multicolor with Pillars" },
-  { id: 21, src: img4, thumb: img4Thumb, alt: "Tree wrap with warm white lights", category: "Trees", title: "Warm White Tree Wrap" },
   { id: 22, src: img5, thumb: img5Thumb, alt: "Tricolor lights in snow", category: "Multicolor", title: "Tricolor in Snow" },
-  { id: 23, src: img6, thumb: img6Thumb, alt: "Child admiring big lit tree", category: "Trees", title: "Big Wrapped Tree" },
   { id: 25, src: multicolorTreeHome, thumb: multicolorTreeHomeThumb, alt: "Modern home with multicolor rooflines and wrapped tree with landscape lighting", category: "Multicolor", title: "Multicolor Roofline and Tree" },
-  { id: 26, src: truckInstallHome, thumb: truckInstallHomeThumb, alt: "Professional installation in progress with warm white rooflines and Christmas Northwest truck", category: "Warm White", title: "Installation in Progress" },
   { id: 27, src: img10, thumb: img10Thumb, alt: "Home with unique architecture", category: "Warm White", title: "Unique Architecture" },
   { id: 28, src: img13, thumb: img13Thumb, alt: "Tree with firework starburst lights", category: "Trees", title: "Starburst Tree" },
   { id: 29, src: img14, thumb: img14Thumb, alt: "Warm white roofline with multicolor tree", category: "Multicolor", title: "Warm White and Multicolor Tree" },
@@ -237,11 +213,8 @@ const galleryImages: GalleryImage[] = [
   { id: 53, src: multicolorTwoStoryHome, thumb: multicolorTwoStoryHomeThumb, alt: "Two-story home with multicolor roofline and warm white illuminated bushes", category: "Multicolor", title: "Multicolor with Warm White Bushes" },
   { id: 54, src: porchRailings, thumb: porchRailingsThumb, alt: "Home with warm white lights wrapping porch railings", category: "Warm White", title: "Porch Railings" },
   { id: 55, src: modernTwoStoryRoofline, thumb: modernTwoStoryRooflineThumb, alt: "Modern two-story home with warm white roofline lighting", category: "Warm White", title: "Modern Two-Story Roofline" },
-  { id: 56, src: rooflineWrappedTrees, thumb: rooflineWrappedTreesThumb, alt: "Home with warm white roofline and wrapped trees lighting", category: "Warm White", title: "Roofline and Wrapped Trees" },
   { id: 57, src: singleStoryWithWreath, thumb: singleStoryWithWreathThumb, alt: "Single-story home with warm white roofline and decorative wreath", category: "Warm White", title: "Single-Story with Wreath" },
   { id: 59, src: twoStoryWithChimney, thumb: twoStoryWithChimneyThumb, alt: "Two-story home with warm white roofline wrapping chimney", category: "Warm White", title: "Two-Story with Chimney" },
-  { id: 61, src: twoStoryLawnDecorations, thumb: twoStoryLawnDecorationsThumb, alt: "Two-story home with multicolor roofline and lawn decorations", category: "Multicolor", title: "Two-Story with Lawn Decorations" },
-  { id: 62, src: hillsideHomeWithTrees, thumb: hillsideHomeWithTreesThumb, alt: "Hillside home with warm white lighting and wrapped trees", category: "Trees", title: "Hillside Home with Trees" },
   { id: 63, src: multipleWrappedTrees, thumb: multipleWrappedTreesThumb, alt: "Multiple trees wrapped in warm white lights on residential property", category: "Trees", title: "Multiple Wrapped Trees" },
   { id: 64, src: warmWhiteGreenAccent1, thumb: warmWhiteGreenAccent1Thumb, alt: "Modern home with warm white roofline and green accent lights on entry", category: "Custom", title: "Warm White with Green Accents" },
   { id: 65, src: rainbowWithTree, thumb: rainbowWithTreeThumb, alt: "Rainbow multicolor roofline with decorated wrapped tree and landscape lighting", category: "Multicolor", title: "Rainbow Roofline with Wrapped Tree" },
