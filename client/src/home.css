@@ -114,7 +114,11 @@
   .home-review blockquote { font-size: 17px; }
   .home-review .home-text-link { min-height: 32px; font-size: 13px; }
   .home-portfolio, .home-pricing, .home-team, .home-included, .home-videos { padding-block: 44px; }
-  .home-videos-grid { grid-template-columns: 1fr; gap: 20px; }
+  /* Phones: one swipe row instead of three stacked videos. The next card peeks in so the row reads as swipeable. */
+  .home-videos-grid { display: flex; gap: 14px; overflow-x: auto; scroll-snap-type: x mandatory; margin-inline: -20px; padding: 4px 20px 22px; scroll-padding-inline: 20px; scrollbar-width: none; }
+  .home-videos-grid::-webkit-scrollbar { display: none; }
+  .home-videos-grid > * { flex: 0 0 78%; scroll-snap-align: start; }
+  .home-videos { padding-bottom: 22px; }
   .home-section-heading { gap: 12px; margin-bottom: 24px; }
   .home-section-heading p { font-size: 14px; }
   .home-portfolio-grid { grid-template-columns: 1fr; gap: 28px; }
