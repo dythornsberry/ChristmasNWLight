@@ -7,7 +7,7 @@ export default function CTABanner({ onGetQuote }: { onGetQuote: () => void }) {
       <div className="home-container home-quote-layout">
         <div>
           <h2>Let's plan your lights.</h2>
-          <p>Free quote. Most installs within a week.<br />If anything's off, we come back and fix it, free.</p>
+          <p>Free quote. Installed within 7 days of approval, guaranteed.<br />If anything's off, we come back and fix it, free.</p>
         </div>
         <div className="home-quote-actions">
           <Button size="lg" className="home-quote-button" onClick={onGetQuote} data-testid="button-cta-quote">

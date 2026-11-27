@@ -72,7 +72,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "How soon can you install?",
-          answer: "Most installs happen within a week of approving your quote. We schedule by neighborhood and text you the day before."
+          answer: "Within 7 days of approving your quote, guaranteed. We schedule by neighborhood and text you the day before."
         },
         {
           question: "When do you take them down?",
