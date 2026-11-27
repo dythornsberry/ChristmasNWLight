@@ -378,7 +378,7 @@ export default function LeadFormCard({
                         aria-invalid={showErrors && Boolean(priceAcknowledgedError)}
                         aria-describedby={showErrors && priceAcknowledgedError ? `${testIdPrefix}-price-error` : undefined}
                       />
-                      <span>I understand Christmas Northwest is a professional lighting service and installs <strong className="font-bold">start at $800</strong>.</span>
+                      <span>I understand Christmas Northwest provides the lights, they come down in January, and installs <strong className="font-bold">start at $800</strong>.</span>
                     </label>
                     {showErrors && priceAcknowledgedError ? <p id={`${testIdPrefix}-price-error`} className="text-sm text-destructive">{priceAcknowledgedError}</p> : null}
                   </div>
