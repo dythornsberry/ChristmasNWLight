@@ -235,7 +235,7 @@ export default function BlogPostPage() {
                     Want a quote?
                   </h2>
                   <p className="text-lg text-muted-foreground mb-8">
-                    Fill out the form with your address. Installs start at $800, and they go up within 7 days of approval, guaranteed.
+                    Fill out the form with your address. Installs start at $800. <strong className="font-bold">Lights up in 7 days or less. Guaranteed.</strong>
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4 justify-center">
                     <Button 

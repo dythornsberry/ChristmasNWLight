@@ -72,7 +72,7 @@ export default function FAQPage() {
       questions: [
         {
           question: "How soon can you install?",
-          answer: "Within 7 days of approving your quote, guaranteed. We schedule by neighborhood and text you the day before."
+          answer: "Lights up in 7 days or less after you approve your quote. Guaranteed. We schedule by neighborhood and text you the day before."
         },
         {
           question: "When do you take them down?",
